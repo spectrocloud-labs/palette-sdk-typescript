@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "openapitools": "github:openapitools/openapi-generator-cli",
+    "orval": "^7.10.0"
+  }
+}

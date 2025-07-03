@@ -1,0 +1,7 @@
+# Editor and IDE paraphernalia
+.idea
+.vscode
+
+# Directories
+api/hapi
+node_modules

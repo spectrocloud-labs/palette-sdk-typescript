@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-with-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+
+      - name: Configure git for private modules
+        env:
+          TOKEN: ${{ secrets.SPECTRO_TOKEN }}
+          USER: ${{ secrets.SPECTRO_USER }}
+        run: git config --global url."https://${USER}:${TOKEN}@github.com".insteadOf "https://github.com"
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version-file: go.mod
+
+      - name: Ensure Reviewable
+        run: make check-diff
+
+      - name: Test
+        run: make test
