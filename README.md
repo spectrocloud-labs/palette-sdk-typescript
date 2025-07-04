@@ -87,11 +87,13 @@ import { init } from "palette-sdk-typescript";
 const api = init();
 
 // Configuration with authentication
+// Add ProjectUID to the headers to specify the project to use. Otherwise API calls will default to the tenant scope and could result in bad request or no results.
 const config = {
   baseURL: "https://api.spectrocloud.com",
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
   },
 };
 

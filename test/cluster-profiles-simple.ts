@@ -50,6 +50,7 @@ async function main() {
       headers: {
         ApiKey: API_KEY,
         "Content-Type": "application/json",
+        ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
       },
       timeout: 10000,
     };
