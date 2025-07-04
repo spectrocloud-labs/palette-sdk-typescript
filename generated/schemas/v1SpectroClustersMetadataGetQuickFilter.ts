@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpectroClustersMetadataGetQuickFilter = typeof V1SpectroClustersMetadataGetQuickFilter[keyof typeof V1SpectroClustersMetadataGetQuickFilter];
-
+export type V1SpectroClustersMetadataGetQuickFilter =
+  (typeof V1SpectroClustersMetadataGetQuickFilter)[keyof typeof V1SpectroClustersMetadataGetQuickFilter];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClustersMetadataGetQuickFilter = {
-  hostclusters: 'hostclusters',
-  strictHostclusters: 'strictHostclusters',
+  hostclusters: "hostclusters",
+  strictHostclusters: "strictHostclusters",
 } as const;

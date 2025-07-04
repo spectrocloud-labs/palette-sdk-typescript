@@ -13,4 +13,6 @@
 /**
  * Pack status
  */
-export interface V1PackSummaryStatus { [key: string]: unknown }
+export interface V1PackSummaryStatus {
+  [key: string]: unknown;
+}

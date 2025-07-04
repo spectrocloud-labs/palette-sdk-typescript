@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1VsphereClusterConfig } from './v1VsphereClusterConfig';
-import type { V1VsphereMachinePoolConfig } from './v1VsphereMachinePoolConfig';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1VsphereClusterConfig } from "./v1VsphereClusterConfig";
+import type { V1VsphereMachinePoolConfig } from "./v1VsphereMachinePoolConfig";
 
 /**
  * VsphereCloudConfigSpec defines the desired state of VsphereCloudConfig

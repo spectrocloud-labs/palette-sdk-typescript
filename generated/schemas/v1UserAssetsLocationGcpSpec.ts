@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpStorageConfig } from './v1GcpStorageConfig';
+import type { V1GcpStorageConfig } from "./v1GcpStorageConfig";
 
 /**
  * GCP location specification

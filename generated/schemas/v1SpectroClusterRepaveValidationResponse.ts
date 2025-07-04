@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterRepaveReason } from './v1SpectroClusterRepaveReason';
+import type { V1SpectroClusterRepaveReason } from "./v1SpectroClusterRepaveReason";
 
 /**
  * Cluster repave validation response

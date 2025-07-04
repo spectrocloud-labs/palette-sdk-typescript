@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmBlockSize } from './v1VmBlockSize';
-import type { V1VmCDRomTarget } from './v1VmCDRomTarget';
-import type { V1VmDiskTarget } from './v1VmDiskTarget';
-import type { V1VmLunTarget } from './v1VmLunTarget';
+import type { V1VmBlockSize } from "./v1VmBlockSize";
+import type { V1VmCDRomTarget } from "./v1VmCDRomTarget";
+import type { V1VmDiskTarget } from "./v1VmDiskTarget";
+import type { V1VmLunTarget } from "./v1VmLunTarget";
 
 export interface V1VmDisk {
   blockSize?: V1VmBlockSize;

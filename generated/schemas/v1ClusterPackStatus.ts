@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterCondition } from './v1ClusterCondition';
-import type { V1ClusterPackManifestStatus } from './v1ClusterPackManifestStatus';
-import type { V1LoadBalancerService } from './v1LoadBalancerService';
+import type { V1ClusterCondition } from "./v1ClusterCondition";
+import type { V1ClusterPackManifestStatus } from "./v1ClusterPackManifestStatus";
+import type { V1LoadBalancerService } from "./v1LoadBalancerService";
 
 export interface V1ClusterPackStatus {
   condition?: V1ClusterCondition;

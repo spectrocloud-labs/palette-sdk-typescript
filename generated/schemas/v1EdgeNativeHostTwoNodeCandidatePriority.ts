@@ -13,11 +13,11 @@
 /**
  * Set the edgehost candidate priority as primary or secondary, if the edgehost is nominated as two node candidate
  */
-export type V1EdgeNativeHostTwoNodeCandidatePriority = typeof V1EdgeNativeHostTwoNodeCandidatePriority[keyof typeof V1EdgeNativeHostTwoNodeCandidatePriority];
-
+export type V1EdgeNativeHostTwoNodeCandidatePriority =
+  (typeof V1EdgeNativeHostTwoNodeCandidatePriority)[keyof typeof V1EdgeNativeHostTwoNodeCandidatePriority];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeNativeHostTwoNodeCandidatePriority = {
-  primary: 'primary',
-  secondary: 'secondary',
+  primary: "primary",
+  secondary: "secondary",
 } as const;

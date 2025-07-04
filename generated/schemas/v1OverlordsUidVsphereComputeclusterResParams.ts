@@ -11,6 +11,6 @@
  */
 
 export type V1OverlordsUidVsphereComputeclusterResParams = {
-datacenter: string;
-computecluster: string;
+  datacenter: string;
+  computecluster: string;
 };

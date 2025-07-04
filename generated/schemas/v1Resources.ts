@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourcesResources } from './v1ResourcesResources';
+import type { V1ResourcesResources } from "./v1ResourcesResources";
 
 export interface V1Resources {
   resources?: V1ResourcesResources;

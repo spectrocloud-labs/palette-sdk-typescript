@@ -13,11 +13,11 @@
 /**
  * Describes notification event type
  */
-export type V1NotificationEventType = typeof V1NotificationEventType[keyof typeof V1NotificationEventType];
-
+export type V1NotificationEventType =
+  (typeof V1NotificationEventType)[keyof typeof V1NotificationEventType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1NotificationEventType = {
-  NotificationPackSync: 'NotificationPackSync',
-  NotificationClusterProfileSync: 'NotificationClusterProfileSync',
+  NotificationPackSync: "NotificationPackSync",
+  NotificationClusterProfileSync: "NotificationClusterProfileSync",
 } as const;

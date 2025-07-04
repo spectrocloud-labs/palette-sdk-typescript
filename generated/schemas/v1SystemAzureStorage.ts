@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemAzureStorageSpec } from './v1SystemAzureStorageSpec';
+import type { V1SystemAzureStorageSpec } from "./v1SystemAzureStorageSpec";
 
 /**
  * SystemAdmin

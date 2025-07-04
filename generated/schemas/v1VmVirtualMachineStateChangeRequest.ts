@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmVirtualMachineStateChangeRequestData } from './v1VmVirtualMachineStateChangeRequestData';
+import type { V1VmVirtualMachineStateChangeRequestData } from "./v1VmVirtualMachineStateChangeRequestData";
 
 export interface V1VmVirtualMachineStateChangeRequest {
   /** Indicates the type of action that is requested. e.g. Start or Stop */

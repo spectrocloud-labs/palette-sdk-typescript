@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1RegistryAuthType = typeof V1RegistryAuthType[keyof typeof V1RegistryAuthType];
-
+export type V1RegistryAuthType =
+  (typeof V1RegistryAuthType)[keyof typeof V1RegistryAuthType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1RegistryAuthType = {
-  noAuth: 'noAuth',
-  basic: 'basic',
-  token: 'token',
+  noAuth: "noAuth",
+  basic: "basic",
+  token: "token",
 } as const;

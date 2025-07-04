@@ -13,4 +13,6 @@
 /**
  * additionalLabels
  */
-export type V1VirtualMachinePoolConfigAdditionalLabels = {[key: string]: string};
+export type V1VirtualMachinePoolConfigAdditionalLabels = {
+  [key: string]: string;
+};

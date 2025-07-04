@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppDeploymentClusterStatus } from './v1AppDeploymentClusterStatus';
-import type { V1AppDeploymentNotifications } from './v1AppDeploymentNotifications';
+import type { V1AppDeploymentClusterStatus } from "./v1AppDeploymentClusterStatus";
+import type { V1AppDeploymentNotifications } from "./v1AppDeploymentNotifications";
 
 /**
  * Application deployment status summary

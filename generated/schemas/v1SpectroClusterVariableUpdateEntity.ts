@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterVariable } from './v1SpectroClusterVariable';
+import type { V1SpectroClusterVariable } from "./v1SpectroClusterVariable";
 
 /**
  * List of cluster variables to be updated with profile uid

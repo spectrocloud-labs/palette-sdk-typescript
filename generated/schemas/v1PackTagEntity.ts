@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackLayer } from './v1PackLayer';
-import type { V1PackUidValues } from './v1PackUidValues';
-import type { V1PackTags } from './v1PackTags';
+import type { V1PackLayer } from "./v1PackLayer";
+import type { V1PackUidValues } from "./v1PackUidValues";
+import type { V1PackTags } from "./v1PackTags";
 
 /**
  * Pack object

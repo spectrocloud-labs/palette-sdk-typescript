@@ -13,11 +13,12 @@
 /**
  * @nullable
  */
-export type V1SearchFilterConjunctionOperator = typeof V1SearchFilterConjunctionOperator[keyof typeof V1SearchFilterConjunctionOperator] | null;
-
+export type V1SearchFilterConjunctionOperator =
+  | (typeof V1SearchFilterConjunctionOperator)[keyof typeof V1SearchFilterConjunctionOperator]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchFilterConjunctionOperator = {
-  and: 'and',
-  or: 'or',
+  and: "and",
+  or: "or",
 } as const;

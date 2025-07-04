@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadPodContainer } from './v1ClusterWorkloadPodContainer';
-import type { V1ClusterWorkloadPodVolume } from './v1ClusterWorkloadPodVolume';
+import type { V1ClusterWorkloadPodContainer } from "./v1ClusterWorkloadPodContainer";
+import type { V1ClusterWorkloadPodVolume } from "./v1ClusterWorkloadPodVolume";
 
 /**
  * Cluster workload pod spec

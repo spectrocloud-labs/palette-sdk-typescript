@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SchedulerJob } from './v1SchedulerJob';
+import type { V1SchedulerJob } from "./v1SchedulerJob";
 
 export type V1SchedulerJobsHealth = V1SchedulerJob[];

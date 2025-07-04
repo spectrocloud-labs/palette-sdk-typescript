@@ -11,8 +11,8 @@
  */
 
 export type V1ProjectsMetadataParams = {
-/**
- * Name of the project
- */
-name?: string;
+  /**
+   * Name of the project
+   */
+  name?: string;
 };

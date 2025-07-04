@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SpectroMgmtSpec } from './v1SpectroMgmtSpec';
-import type { V1SpectroMgmtStatus } from './v1SpectroMgmtStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SpectroMgmtSpec } from "./v1SpectroMgmtSpec";
+import type { V1SpectroMgmtStatus } from "./v1SpectroMgmtStatus";
 
 /**
  * Spectro management data

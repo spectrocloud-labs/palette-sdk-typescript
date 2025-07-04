@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type V1PermissionsListScope = typeof V1PermissionsListScope[keyof typeof V1PermissionsListScope];
-
+export type V1PermissionsListScope =
+  (typeof V1PermissionsListScope)[keyof typeof V1PermissionsListScope];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1PermissionsListScope = {
-  system: 'system',
-  tenant: 'tenant',
-  project: 'project',
-  resource: 'resource',
+  system: "system",
+  tenant: "tenant",
+  project: "project",
+  resource: "resource",
 } as const;

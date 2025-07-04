@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ManifestRefUpdateEntity } from './v1ManifestRefUpdateEntity';
-import type { V1AppTierPropertyEntity } from './v1AppTierPropertyEntity';
+import type { V1ManifestRefUpdateEntity } from "./v1ManifestRefUpdateEntity";
+import type { V1AppTierPropertyEntity } from "./v1AppTierPropertyEntity";
 
 /**
  * Application tier update request payload

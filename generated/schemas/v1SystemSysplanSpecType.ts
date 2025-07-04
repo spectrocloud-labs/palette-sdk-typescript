@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SystemSysplanSpecType = typeof V1SystemSysplanSpecType[keyof typeof V1SystemSysplanSpecType];
-
+export type V1SystemSysplanSpecType =
+  (typeof V1SystemSysplanSpecType)[keyof typeof V1SystemSysplanSpecType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SystemSysplanSpecType = {
-  Trial: 'Trial',
-  Unlimited: 'Unlimited',
+  Trial: "Trial",
+  Unlimited: "Unlimited",
 } as const;

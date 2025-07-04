@@ -11,8 +11,8 @@
  */
 
 export type V1SamlLogoutParams = {
-/**
- * Deprecated.
- */
-authToken?: string;
+  /**
+   * Deprecated.
+   */
+  authToken?: string;
 };

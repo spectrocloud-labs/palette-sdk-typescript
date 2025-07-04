@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ComplianceScanConfig } from './v1ComplianceScanConfig';
+import type { V1ComplianceScanConfig } from "./v1ComplianceScanConfig";
 
 /**
  * Compliance Scan driver spec

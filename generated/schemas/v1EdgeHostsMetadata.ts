@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1EdgeHostsMetadataSpec } from './v1EdgeHostsMetadataSpec';
-import type { V1EdgeHostsMetadataStatus } from './v1EdgeHostsMetadataStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1EdgeHostsMetadataSpec } from "./v1EdgeHostsMetadataSpec";
+import type { V1EdgeHostsMetadataStatus } from "./v1EdgeHostsMetadataStatus";
 
 export interface V1EdgeHostsMetadata {
   metadata?: V1ObjectMeta;

@@ -13,12 +13,12 @@
 /**
  * Describes type of notification. Possible values [NotificationPackUpdate, NotificationPackRegistryUpdate, NotificationNone]
  */
-export type V1NotificationType = typeof V1NotificationType[keyof typeof V1NotificationType];
-
+export type V1NotificationType =
+  (typeof V1NotificationType)[keyof typeof V1NotificationType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1NotificationType = {
-  NotificationPackUpdate: 'NotificationPackUpdate',
-  NotificationPackRegistryUpdate: 'NotificationPackRegistryUpdate',
-  NotificationNone: 'NotificationNone',
+  NotificationPackUpdate: "NotificationPackUpdate",
+  NotificationPackRegistryUpdate: "NotificationPackRegistryUpdate",
+  NotificationNone: "NotificationNone",
 } as const;

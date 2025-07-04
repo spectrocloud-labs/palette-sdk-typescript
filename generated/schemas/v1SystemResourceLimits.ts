@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemResourceLimit } from './v1SystemResourceLimit';
+import type { V1SystemResourceLimit } from "./v1SystemResourceLimit";
 
 /**
  * System resource limits. Supported resources keys are 'user','project','apiKey','team','role','cloudaccount','clusterprofile','workspace','registry','privategateway','location','certificate','macro','sshkey','alert','spectrocluster','edgehost'.

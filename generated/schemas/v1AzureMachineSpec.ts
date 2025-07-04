@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureMachineSpecAdditionalTags } from './v1AzureMachineSpecAdditionalTags';
-import type { V1AzureMachineSpecAvailabilityZone } from './v1AzureMachineSpecAvailabilityZone';
-import type { V1AzureMachineSpecImage } from './v1AzureMachineSpecImage';
-import type { V1AzureNic } from './v1AzureNic';
-import type { V1AzureOSDisk } from './v1AzureOSDisk';
+import type { V1AzureMachineSpecAdditionalTags } from "./v1AzureMachineSpecAdditionalTags";
+import type { V1AzureMachineSpecAvailabilityZone } from "./v1AzureMachineSpecAvailabilityZone";
+import type { V1AzureMachineSpecImage } from "./v1AzureMachineSpecImage";
+import type { V1AzureNic } from "./v1AzureNic";
+import type { V1AzureOSDisk } from "./v1AzureOSDisk";
 
 /**
  * Azure cloud VM definition spec

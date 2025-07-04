@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceUsageMeteringDataPoint } from './v1ResourceUsageMeteringDataPoint';
+import type { V1ResourceUsageMeteringDataPoint } from "./v1ResourceUsageMeteringDataPoint";
 
 /**
  * Resource usage data point

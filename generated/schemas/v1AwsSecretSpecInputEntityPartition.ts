@@ -13,11 +13,11 @@
 /**
  * AWS accounts are scoped to a single partition. Allowed values [aws-iso, aws-iso-b], Default values
  */
-export type V1AwsSecretSpecInputEntityPartition = typeof V1AwsSecretSpecInputEntityPartition[keyof typeof V1AwsSecretSpecInputEntityPartition];
-
+export type V1AwsSecretSpecInputEntityPartition =
+  (typeof V1AwsSecretSpecInputEntityPartition)[keyof typeof V1AwsSecretSpecInputEntityPartition];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AwsSecretSpecInputEntityPartition = {
-  'aws-iso': 'aws-iso',
-  'aws-iso-b': 'aws-iso-b',
+  "aws-iso": "aws-iso",
+  "aws-iso-b": "aws-iso-b",
 } as const;

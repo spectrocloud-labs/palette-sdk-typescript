@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterRoleRefKind } from './v1ClusterRoleRefKind';
+import type { V1ClusterRoleRefKind } from "./v1ClusterRoleRefKind";
 
 /**
  * Cluster role ref

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeNativeMachine } from './v1EdgeNativeMachine';
+import type { V1EdgeNativeMachine } from "./v1EdgeNativeMachine";
 
 /**
  * EdgeNative machine list

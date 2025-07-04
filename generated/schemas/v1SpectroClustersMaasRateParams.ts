@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClustersMaasRatePeriodType } from './v1SpectroClustersMaasRatePeriodType';
+import type { V1SpectroClustersMaasRatePeriodType } from "./v1SpectroClustersMaasRatePeriodType";
 
 export type V1SpectroClustersMaasRateParams = {
-periodType?: V1SpectroClustersMaasRatePeriodType;
+  periodType?: V1SpectroClustersMaasRatePeriodType;
 };

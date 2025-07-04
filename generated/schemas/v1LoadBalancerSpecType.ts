@@ -13,11 +13,11 @@
 /**
  * Load Balancer type
  */
-export type V1LoadBalancerSpecType = typeof V1LoadBalancerSpecType[keyof typeof V1LoadBalancerSpecType];
-
+export type V1LoadBalancerSpecType =
+  (typeof V1LoadBalancerSpecType)[keyof typeof V1LoadBalancerSpecType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1LoadBalancerSpecType = {
-  Internal: 'Internal',
-  Public: 'Public',
+  Internal: "Internal",
+  Public: "Public",
 } as const;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InvoiceBillingPeriod } from './v1InvoiceBillingPeriod';
-import type { V1MonthlyUsage } from './v1MonthlyUsage';
-import type { V1ProductUsage } from './v1ProductUsage';
+import type { V1InvoiceBillingPeriod } from "./v1InvoiceBillingPeriod";
+import type { V1MonthlyUsage } from "./v1MonthlyUsage";
+import type { V1ProductUsage } from "./v1ProductUsage";
 
 /**
  * Yearly usage object

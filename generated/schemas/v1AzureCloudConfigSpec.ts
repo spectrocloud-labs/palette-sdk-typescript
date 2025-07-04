@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1AzureClusterConfig } from './v1AzureClusterConfig';
-import type { V1AzureMachinePoolConfig } from './v1AzureMachinePoolConfig';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1AzureClusterConfig } from "./v1AzureClusterConfig";
+import type { V1AzureMachinePoolConfig } from "./v1AzureMachinePoolConfig";
 
 /**
  * AzureCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api

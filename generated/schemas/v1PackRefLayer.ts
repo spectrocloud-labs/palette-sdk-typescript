@@ -10,15 +10,15 @@
  * OpenAPI spec version: v1
  */
 
-export type V1PackRefLayer = typeof V1PackRefLayer[keyof typeof V1PackRefLayer];
-
+export type V1PackRefLayer =
+  (typeof V1PackRefLayer)[keyof typeof V1PackRefLayer];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1PackRefLayer = {
-  kernel: 'kernel',
-  os: 'os',
-  k8s: 'k8s',
-  cni: 'cni',
-  csi: 'csi',
-  addon: 'addon',
+  kernel: "kernel",
+  os: "os",
+  k8s: "k8s",
+  cni: "cni",
+  csi: "csi",
+  addon: "addon",
 } as const;

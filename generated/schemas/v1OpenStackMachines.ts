@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackMachine } from './v1OpenStackMachine';
+import type { V1OpenStackMachine } from "./v1OpenStackMachine";
 
 /**
  * OpenStack machine list

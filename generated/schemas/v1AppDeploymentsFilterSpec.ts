@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppDeploymentFilterSpec } from './v1AppDeploymentFilterSpec';
-import type { V1AppDeploymentSortSpec } from './v1AppDeploymentSortSpec';
+import type { V1AppDeploymentFilterSpec } from "./v1AppDeploymentFilterSpec";
+import type { V1AppDeploymentSortSpec } from "./v1AppDeploymentSortSpec";
 
 /**
  * Application deployment filter summary spec

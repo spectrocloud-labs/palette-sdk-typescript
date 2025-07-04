@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemGithubSsoSpec } from './v1SystemGithubSsoSpec';
-import type { V1SystemSsoAuthSpecOidcAuthSpecs } from './v1SystemSsoAuthSpecOidcAuthSpecs';
+import type { V1SystemGithubSsoSpec } from "./v1SystemGithubSsoSpec";
+import type { V1SystemSsoAuthSpecOidcAuthSpecs } from "./v1SystemSsoAuthSpecOidcAuthSpecs";
 
 /**
  * system sso config spec

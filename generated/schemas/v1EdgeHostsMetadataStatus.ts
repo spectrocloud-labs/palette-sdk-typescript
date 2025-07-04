@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostHealth } from './v1EdgeHostHealth';
-import type { V1ObjectEntity } from './v1ObjectEntity';
-import type { V1EdgeClusterObjectEntity } from './v1EdgeClusterObjectEntity';
-import type { V1EdgeHostState } from './v1EdgeHostState';
+import type { V1EdgeHostHealth } from "./v1EdgeHostHealth";
+import type { V1ObjectEntity } from "./v1ObjectEntity";
+import type { V1EdgeClusterObjectEntity } from "./v1EdgeClusterObjectEntity";
+import type { V1EdgeHostState } from "./v1EdgeHostState";
 
 export interface V1EdgeHostsMetadataStatus {
   health?: V1EdgeHostHealth;

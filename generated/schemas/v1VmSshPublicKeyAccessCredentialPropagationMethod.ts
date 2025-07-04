@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmSshPublicKeyAccessCredentialPropagationMethodConfigDrive } from './v1VmSshPublicKeyAccessCredentialPropagationMethodConfigDrive';
-import type { V1VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation } from './v1VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation';
+import type { V1VmSshPublicKeyAccessCredentialPropagationMethodConfigDrive } from "./v1VmSshPublicKeyAccessCredentialPropagationMethodConfigDrive";
+import type { V1VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation } from "./v1VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation";
 
 /**
  * SSHPublicKeyAccessCredentialPropagationMethod represents the method used to inject a ssh public key into the vm guest. Only one of its members may be specified.

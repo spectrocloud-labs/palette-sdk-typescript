@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmFieldsV1 } from './v1VmFieldsV1';
+import type { V1VmFieldsV1 } from "./v1VmFieldsV1";
 
 /**
  * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.

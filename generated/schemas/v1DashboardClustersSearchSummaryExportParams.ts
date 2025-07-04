@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DashboardClustersSearchSummaryExportFormat } from './v1DashboardClustersSearchSummaryExportFormat';
+import type { V1DashboardClustersSearchSummaryExportFormat } from "./v1DashboardClustersSearchSummaryExportFormat";
 
 export type V1DashboardClustersSearchSummaryExportParams = {
-format?: V1DashboardClustersSearchSummaryExportFormat;
+  format?: V1DashboardClustersSearchSummaryExportFormat;
 };

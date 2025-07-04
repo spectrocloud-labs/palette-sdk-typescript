@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistriesMetadataScope } from './v1RegistriesMetadataScope';
+import type { V1RegistriesMetadataScope } from "./v1RegistriesMetadataScope";
 
 export type V1RegistriesMetadataParams = {
-scope?: V1RegistriesMetadataScope;
+  scope?: V1RegistriesMetadataScope;
 };

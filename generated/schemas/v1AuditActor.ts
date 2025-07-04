@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AuditActorActorType } from './v1AuditActorActorType';
-import type { V1ProjectMeta } from './v1ProjectMeta';
-import type { V1UserMeta } from './v1UserMeta';
+import type { V1AuditActorActorType } from "./v1AuditActorActorType";
+import type { V1ProjectMeta } from "./v1ProjectMeta";
+import type { V1UserMeta } from "./v1UserMeta";
 
 /**
  * Audit actor object

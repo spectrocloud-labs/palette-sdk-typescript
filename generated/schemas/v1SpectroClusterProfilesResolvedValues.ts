@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProfileResolvedValues } from './v1ProfileResolvedValues';
+import type { V1ProfileResolvedValues } from "./v1ProfileResolvedValues";
 
 /**
  * Cluster profiles resolved values response

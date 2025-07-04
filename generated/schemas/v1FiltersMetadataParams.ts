@@ -11,8 +11,8 @@
  */
 
 export type V1FiltersMetadataParams = {
-/**
- * filterType can be - [tag, meta, resource]
- */
-filterType?: string;
+  /**
+   * filterType can be - [tag, meta, resource]
+   */
+  filterType?: string;
 };

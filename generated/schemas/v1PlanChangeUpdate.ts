@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PlanLimit } from './v1PlanLimit';
-import type { V1TierPrice } from './v1TierPrice';
-import type { V1PlanChangeUpdateType } from './v1PlanChangeUpdateType';
+import type { V1PlanLimit } from "./v1PlanLimit";
+import type { V1TierPrice } from "./v1TierPrice";
+import type { V1PlanChangeUpdateType } from "./v1PlanChangeUpdateType";
 
 /**
  * Plan change update entity

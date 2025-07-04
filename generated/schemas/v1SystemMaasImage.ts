@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemMaasImageSpec } from './v1SystemMaasImageSpec';
+import type { V1SystemMaasImageSpec } from "./v1SystemMaasImageSpec";
 
 /**
  * SystemAdmin

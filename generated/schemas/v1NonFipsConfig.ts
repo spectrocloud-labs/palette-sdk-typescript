@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1NonFipsConfigMode } from './v1NonFipsConfigMode';
+import type { V1NonFipsConfigMode } from "./v1NonFipsConfigMode";
 
 /**
  * Non-FIPS configuration

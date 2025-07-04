@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InstanceConfig } from './v1InstanceConfig';
-import type { V1GcpNic } from './v1GcpNic';
+import type { V1InstanceConfig } from "./v1InstanceConfig";
+import type { V1GcpNic } from "./v1GcpNic";
 
 /**
  * GCP cloud VM definition spec

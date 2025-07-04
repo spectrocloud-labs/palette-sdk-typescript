@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackManifestEntity } from './v1PackManifestEntity';
-import type { V1ProfileType } from './v1ProfileType';
+import type { V1PackManifestEntity } from "./v1PackManifestEntity";
+import type { V1ProfileType } from "./v1ProfileType";
 
 /**
  * Cluster profile template spec

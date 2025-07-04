@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MachinePoolRate } from './v1MachinePoolRate';
-import type { V1TotalClusterRate } from './v1TotalClusterRate';
-import type { V1CloudResourceMetadata } from './v1CloudResourceMetadata';
+import type { V1MachinePoolRate } from "./v1MachinePoolRate";
+import type { V1TotalClusterRate } from "./v1TotalClusterRate";
+import type { V1CloudResourceMetadata } from "./v1CloudResourceMetadata";
 
 /**
  * Cluster estimated rate information

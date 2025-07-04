@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmSshPublicKeyAccessCredential } from './v1VmSshPublicKeyAccessCredential';
-import type { V1VmUserPasswordAccessCredential } from './v1VmUserPasswordAccessCredential';
+import type { V1VmSshPublicKeyAccessCredential } from "./v1VmSshPublicKeyAccessCredential";
+import type { V1VmUserPasswordAccessCredential } from "./v1VmUserPasswordAccessCredential";
 
 /**
  * AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.

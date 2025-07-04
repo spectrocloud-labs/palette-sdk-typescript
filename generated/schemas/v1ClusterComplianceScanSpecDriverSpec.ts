@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ComplianceScanDriverSpec } from './v1ComplianceScanDriverSpec';
+import type { V1ComplianceScanDriverSpec } from "./v1ComplianceScanDriverSpec";
 
-export type V1ClusterComplianceScanSpecDriverSpec = {[key: string]: V1ComplianceScanDriverSpec};
+export type V1ClusterComplianceScanSpecDriverSpec = {
+  [key: string]: V1ComplianceScanDriverSpec;
+};

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureMachine } from './v1AzureMachine';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1AzureMachine } from "./v1AzureMachine";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 /**
  * Azure machine list

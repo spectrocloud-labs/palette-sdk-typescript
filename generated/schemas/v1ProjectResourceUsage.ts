@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectMeta } from './v1ProjectMeta';
+import type { V1ProjectMeta } from "./v1ProjectMeta";
 
 /**
  * project resource usage

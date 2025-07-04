@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureClusterConfig } from './v1AzureClusterConfig';
-import type { V1AzureMachinePoolConfigEntity } from './v1AzureMachinePoolConfigEntity';
+import type { V1AzureClusterConfig } from "./v1AzureClusterConfig";
+import type { V1AzureMachinePoolConfigEntity } from "./v1AzureMachinePoolConfigEntity";
 
 /**
  * Spectro Azure cluster request payload for estimating rate

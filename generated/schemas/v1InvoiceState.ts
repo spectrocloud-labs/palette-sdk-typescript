@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InvoiceStateState } from './v1InvoiceStateState';
+import type { V1InvoiceStateState } from "./v1InvoiceStateState";
 
 /**
  * Invoice state object

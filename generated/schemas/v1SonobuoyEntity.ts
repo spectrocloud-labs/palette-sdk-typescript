@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SonobuoyEntityReports } from './v1SonobuoyEntityReports';
-import type { V1SonobuoyEntityStatus } from './v1SonobuoyEntityStatus';
+import type { V1SonobuoyEntityReports } from "./v1SonobuoyEntityReports";
+import type { V1SonobuoyEntityStatus } from "./v1SonobuoyEntityStatus";
 
 /**
  * Sonobuoy response

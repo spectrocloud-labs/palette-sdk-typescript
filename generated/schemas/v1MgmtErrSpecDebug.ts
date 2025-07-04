@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type V1MgmtErrSpecDebug = {[key: string]: { [key: string]: unknown }};
+export type V1MgmtErrSpecDebug = { [key: string]: { [key: string]: unknown } };

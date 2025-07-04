@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type V1GcpMachinePoolConfigAdditionalLabels = {[key: string]: string};
+export type V1GcpMachinePoolConfigAdditionalLabels = { [key: string]: string };

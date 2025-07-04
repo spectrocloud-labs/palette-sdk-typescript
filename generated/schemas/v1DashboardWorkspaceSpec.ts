@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DashboardWorkspaceClusterRef } from './v1DashboardWorkspaceClusterRef';
-import type { V1DashboardWorkspaceQuota } from './v1DashboardWorkspaceQuota';
+import type { V1DashboardWorkspaceClusterRef } from "./v1DashboardWorkspaceClusterRef";
+import type { V1DashboardWorkspaceQuota } from "./v1DashboardWorkspaceQuota";
 
 /**
  * Workspace spec summary

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterCloudCostSummaryFilter } from './v1SpectroClusterCloudCostSummaryFilter';
-import type { V1SpectroClusterCloudCostSummaryOptions } from './v1SpectroClusterCloudCostSummaryOptions';
+import type { V1SpectroClusterCloudCostSummaryFilter } from "./v1SpectroClusterCloudCostSummaryFilter";
+import type { V1SpectroClusterCloudCostSummaryOptions } from "./v1SpectroClusterCloudCostSummaryOptions";
 
 /**
  * Spectro cluster cloud cost summary spec

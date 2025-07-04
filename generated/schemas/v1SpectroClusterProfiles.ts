@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterProfileEntity } from './v1SpectroClusterProfileEntity';
-import type { V1SpcApplySettings } from './v1SpcApplySettings';
+import type { V1SpectroClusterProfileEntity } from "./v1SpectroClusterProfileEntity";
+import type { V1SpcApplySettings } from "./v1SpcApplySettings";
 
 export interface V1SpectroClusterProfiles {
   profiles: V1SpectroClusterProfileEntity[];

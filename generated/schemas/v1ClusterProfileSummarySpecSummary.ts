@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfileTemplateSummary } from './v1ClusterProfileTemplateSummary';
-import type { V1ClusterProfileVersion } from './v1ClusterProfileVersion';
+import type { V1ClusterProfileTemplateSummary } from "./v1ClusterProfileTemplateSummary";
+import type { V1ClusterProfileVersion } from "./v1ClusterProfileVersion";
 
 /**
  * Cluster profile spec summary

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmObjectMeta } from './v1VmObjectMeta';
-import type { V1VmVirtualMachineInstanceSpec } from './v1VmVirtualMachineInstanceSpec';
+import type { V1VmObjectMeta } from "./v1VmObjectMeta";
+import type { V1VmVirtualMachineInstanceSpec } from "./v1VmVirtualMachineInstanceSpec";
 
 export interface V1VmVirtualMachineInstanceTemplateSpec {
   metadata?: V1VmObjectMeta;

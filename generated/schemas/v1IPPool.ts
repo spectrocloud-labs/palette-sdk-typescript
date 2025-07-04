@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Nameserver } from './v1Nameserver';
-import type { V1Pool } from './v1Pool';
+import type { V1Nameserver } from "./v1Nameserver";
+import type { V1Pool } from "./v1Pool";
 
 /**
  * IPPool defines static IPs available. Gateway, Prefix, Nameserver, if defined, will be default values for all Pools

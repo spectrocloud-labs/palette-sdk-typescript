@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1AuditActorActorType = typeof V1AuditActorActorType[keyof typeof V1AuditActorActorType];
-
+export type V1AuditActorActorType =
+  (typeof V1AuditActorActorType)[keyof typeof V1AuditActorActorType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AuditActorActorType = {
-  user: 'user',
-  system: 'system',
-  service: 'service',
+  user: "user",
+  system: "system",
+  service: "service",
 } as const;

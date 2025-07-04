@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1BrokerTokenMsgCtxData } from './v1BrokerTokenMsgCtxData';
+import type { V1BrokerTokenMsgCtxData } from "./v1BrokerTokenMsgCtxData";
 
 /**
  * Response for broker login request

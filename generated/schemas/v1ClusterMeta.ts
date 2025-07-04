@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterState } from './v1ClusterState';
+import type { V1ClusterState } from "./v1ClusterState";
 
 /**
  * Active cluster meta

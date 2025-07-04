@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmDataVolumeCheckpoint } from './v1VmDataVolumeCheckpoint';
-import type { V1VmPersistentVolumeClaimSpec } from './v1VmPersistentVolumeClaimSpec';
-import type { V1VmDataVolumeSource } from './v1VmDataVolumeSource';
-import type { V1VmDataVolumeSourceRef } from './v1VmDataVolumeSourceRef';
-import type { V1VmStorageSpec } from './v1VmStorageSpec';
+import type { V1VmDataVolumeCheckpoint } from "./v1VmDataVolumeCheckpoint";
+import type { V1VmPersistentVolumeClaimSpec } from "./v1VmPersistentVolumeClaimSpec";
+import type { V1VmDataVolumeSource } from "./v1VmDataVolumeSource";
+import type { V1VmDataVolumeSourceRef } from "./v1VmDataVolumeSourceRef";
+import type { V1VmStorageSpec } from "./v1VmStorageSpec";
 
 /**
  * DataVolumeSpec defines the DataVolume type specification

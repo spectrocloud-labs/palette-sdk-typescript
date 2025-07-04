@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceUsage } from './v1ResourceUsage';
-import type { V1PlanLimit } from './v1PlanLimit';
-import type { V1PlanMonthlyUsagePlanType } from './v1PlanMonthlyUsagePlanType';
-import type { V1TotalResourceUsage } from './v1TotalResourceUsage';
+import type { V1ResourceUsage } from "./v1ResourceUsage";
+import type { V1PlanLimit } from "./v1PlanLimit";
+import type { V1PlanMonthlyUsagePlanType } from "./v1PlanMonthlyUsagePlanType";
+import type { V1TotalResourceUsage } from "./v1TotalResourceUsage";
 
 /**
  * Plan monthly usage entity

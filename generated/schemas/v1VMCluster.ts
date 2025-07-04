@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VMClusterMetadata } from './v1VMClusterMetadata';
-import type { V1VMClusterSpec } from './v1VMClusterSpec';
-import type { V1VMClusterStatus } from './v1VMClusterStatus';
+import type { V1VMClusterMetadata } from "./v1VMClusterMetadata";
+import type { V1VMClusterSpec } from "./v1VMClusterSpec";
+import type { V1VMClusterStatus } from "./v1VMClusterStatus";
 
 /**
  * VM Dashboard enabled Spectro cluster

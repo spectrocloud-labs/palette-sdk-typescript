@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsMachine } from './v1AwsMachine';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1AwsMachine } from "./v1AwsMachine";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 /**
  * AWS machine list

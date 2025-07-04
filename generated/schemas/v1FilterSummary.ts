@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1FilterSummarySpec } from './v1FilterSummarySpec';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1FilterSummarySpec } from "./v1FilterSummarySpec";
 
 /**
  * Filter summary object

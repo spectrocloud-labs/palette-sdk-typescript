@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterKubernetesDistroType = typeof V1ClusterKubernetesDistroType[keyof typeof V1ClusterKubernetesDistroType];
-
+export type V1ClusterKubernetesDistroType =
+  (typeof V1ClusterKubernetesDistroType)[keyof typeof V1ClusterKubernetesDistroType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterKubernetesDistroType = {
-  k3s: 'k3s',
-  cncf_k8s: 'cncf_k8s',
-  'vcluster-generic': 'vcluster-generic',
+  k3s: "k3s",
+  cncf_k8s: "cncf_k8s",
+  "vcluster-generic": "vcluster-generic",
 } as const;

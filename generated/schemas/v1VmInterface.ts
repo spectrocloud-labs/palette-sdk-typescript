@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmInterfaceBridgeProperty } from './v1VmInterfaceBridgeProperty';
-import type { V1VmDHCPOptions } from './v1VmDHCPOptions';
-import type { V1VmInterfaceMacvtapProperty } from './v1VmInterfaceMacvtapProperty';
-import type { V1VmInterfaceMasqueradeProperty } from './v1VmInterfaceMasqueradeProperty';
-import type { V1VmInterfacePasstProperty } from './v1VmInterfacePasstProperty';
-import type { V1VmPort } from './v1VmPort';
-import type { V1VmInterfaceSlirpProperty } from './v1VmInterfaceSlirpProperty';
-import type { V1VmInterfaceSriov } from './v1VmInterfaceSRIOV';
+import type { V1VmInterfaceBridgeProperty } from "./v1VmInterfaceBridgeProperty";
+import type { V1VmDHCPOptions } from "./v1VmDHCPOptions";
+import type { V1VmInterfaceMacvtapProperty } from "./v1VmInterfaceMacvtapProperty";
+import type { V1VmInterfaceMasqueradeProperty } from "./v1VmInterfaceMasqueradeProperty";
+import type { V1VmInterfacePasstProperty } from "./v1VmInterfacePasstProperty";
+import type { V1VmPort } from "./v1VmPort";
+import type { V1VmInterfaceSlirpProperty } from "./v1VmInterfaceSlirpProperty";
+import type { V1VmInterfaceSriov } from "./v1VmInterfaceSRIOV";
 
 export interface V1VmInterface {
   /** If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1). */

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TunnelEndpointTls } from './v1TunnelEndpointTls';
+import type { V1TunnelEndpointTls } from "./v1TunnelEndpointTls";
 
 export interface V1TunnelEndpoint {
   /** Describes the URL where the client has to connect to the tunnel server */

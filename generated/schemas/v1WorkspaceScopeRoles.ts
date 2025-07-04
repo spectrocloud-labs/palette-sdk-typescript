@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectsWorkspaces } from './v1ProjectsWorkspaces';
+import type { V1ProjectsWorkspaces } from "./v1ProjectsWorkspaces";
 
 /**
  * List all workspaces with the roles assigned to the users

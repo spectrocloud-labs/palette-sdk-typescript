@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpAccount } from './v1GcpAccount';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1GcpAccount } from "./v1GcpAccount";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 export interface V1GcpAccounts {
   items: V1GcpAccount[];

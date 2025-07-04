@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterProfileScope = typeof V1ClusterProfileScope[keyof typeof V1ClusterProfileScope];
-
+export type V1ClusterProfileScope =
+  (typeof V1ClusterProfileScope)[keyof typeof V1ClusterProfileScope];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterProfileScope = {
-  system: 'system',
-  tenant: 'tenant',
-  project: 'project',
+  system: "system",
+  tenant: "tenant",
+  project: "project",
 } as const;

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterFipsMode } from './v1ClusterFipsMode';
-import type { V1FilterString } from './v1FilterString';
-import type { V1ProfileType } from './v1ProfileType';
-import type { V1ClusterProfileScope } from './v1ClusterProfileScope';
-import type { V1FilterArray } from './v1FilterArray';
-import type { V1FilterVersionString } from './v1FilterVersionString';
+import type { V1ClusterFipsMode } from "./v1ClusterFipsMode";
+import type { V1FilterString } from "./v1FilterString";
+import type { V1ProfileType } from "./v1ProfileType";
+import type { V1ClusterProfileScope } from "./v1ClusterProfileScope";
+import type { V1FilterArray } from "./v1FilterArray";
+import type { V1FilterVersionString } from "./v1FilterVersionString";
 
 /**
  * Cluster profile filter spec

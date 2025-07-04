@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EcrAuthorizationRequestEntity } from './v1EcrAuthorizationRequestEntity';
-import type { V1EcrImageEntity } from './v1EcrImageEntity';
+import type { V1EcrAuthorizationRequestEntity } from "./v1EcrAuthorizationRequestEntity";
+import type { V1EcrImageEntity } from "./v1EcrImageEntity";
 
 /**
  * Ecr registry image meta

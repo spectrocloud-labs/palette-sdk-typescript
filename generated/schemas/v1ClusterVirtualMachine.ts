@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmObjectMeta } from './v1VmObjectMeta';
-import type { V1ClusterVirtualMachineSpec } from './v1ClusterVirtualMachineSpec';
-import type { V1ClusterVirtualMachineStatus } from './v1ClusterVirtualMachineStatus';
+import type { V1VmObjectMeta } from "./v1VmObjectMeta";
+import type { V1ClusterVirtualMachineSpec } from "./v1ClusterVirtualMachineSpec";
+import type { V1ClusterVirtualMachineStatus } from "./v1ClusterVirtualMachineStatus";
 
 /**
  * VirtualMachine handles the VirtualMachines that are not running

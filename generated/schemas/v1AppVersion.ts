@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ReleaseVersion } from './v1ReleaseVersion';
+import type { V1ReleaseVersion } from "./v1ReleaseVersion";
 
 /**
  * spectro application management app version information

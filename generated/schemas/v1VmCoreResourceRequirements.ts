@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmCoreResourceRequirementsLimits } from './v1VmCoreResourceRequirementsLimits';
-import type { V1VmCoreResourceRequirementsRequests } from './v1VmCoreResourceRequirementsRequests';
+import type { V1VmCoreResourceRequirementsLimits } from "./v1VmCoreResourceRequirementsLimits";
+import type { V1VmCoreResourceRequirementsRequests } from "./v1VmCoreResourceRequirementsRequests";
 
 /**
  * ResourceRequirements describes the compute resource requirements.

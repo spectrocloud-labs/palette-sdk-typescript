@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemOidcClientSpec } from './v1SystemOidcClientSpec';
+import type { V1SystemOidcClientSpec } from "./v1SystemOidcClientSpec";
 
-export type V1SystemSsoAuthSpecOidcAuthSpecs = {[key: string]: V1SystemOidcClientSpec};
+export type V1SystemSsoAuthSpecOidcAuthSpecs = {
+  [key: string]: V1SystemOidcClientSpec;
+};

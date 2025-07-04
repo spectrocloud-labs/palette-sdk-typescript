@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterEdgeInstallerConfigInstallerDownloadLinks } from './v1ClusterEdgeInstallerConfigInstallerDownloadLinks';
+import type { V1ClusterEdgeInstallerConfigInstallerDownloadLinks } from "./v1ClusterEdgeInstallerConfigInstallerDownloadLinks";
 
 export interface V1ClusterEdgeInstallerConfig {
   installerDownloadLinks?: V1ClusterEdgeInstallerConfigInstallerDownloadLinks;

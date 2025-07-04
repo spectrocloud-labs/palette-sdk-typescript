@@ -13,13 +13,13 @@
 /**
  * Type indicates DDNS or VIP
  */
-export type V1EdgeNativeControlPlaneEndPointType = typeof V1EdgeNativeControlPlaneEndPointType[keyof typeof V1EdgeNativeControlPlaneEndPointType];
-
+export type V1EdgeNativeControlPlaneEndPointType =
+  (typeof V1EdgeNativeControlPlaneEndPointType)[keyof typeof V1EdgeNativeControlPlaneEndPointType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeNativeControlPlaneEndPointType = {
-  VIP: 'VIP',
-  External: 'External',
-  DDNS: 'DDNS',
-  IP: 'IP',
+  VIP: "VIP",
+  External: "External",
+  DDNS: "DDNS",
+  IP: "IP",
 } as const;

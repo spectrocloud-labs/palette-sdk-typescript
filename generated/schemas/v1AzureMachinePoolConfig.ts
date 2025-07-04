@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureMachinePoolConfigAdditionalLabels } from './v1AzureMachinePoolConfigAdditionalLabels';
-import type { V1AzureMachinePoolConfigAdditionalTags } from './v1AzureMachinePoolConfigAdditionalTags';
-import type { V1InstanceConfig } from './v1InstanceConfig';
-import type { V1MachinePoolProperties } from './v1MachinePoolProperties';
-import type { V1AzureOSDisk } from './v1AzureOSDisk';
-import type { V1OsType } from './v1OsType';
-import type { V1SpotVMOptions } from './v1SpotVMOptions';
-import type { V1Taint } from './v1Taint';
-import type { V1UpdateStrategy } from './v1UpdateStrategy';
+import type { V1AzureMachinePoolConfigAdditionalLabels } from "./v1AzureMachinePoolConfigAdditionalLabels";
+import type { V1AzureMachinePoolConfigAdditionalTags } from "./v1AzureMachinePoolConfigAdditionalTags";
+import type { V1InstanceConfig } from "./v1InstanceConfig";
+import type { V1MachinePoolProperties } from "./v1MachinePoolProperties";
+import type { V1AzureOSDisk } from "./v1AzureOSDisk";
+import type { V1OsType } from "./v1OsType";
+import type { V1SpotVMOptions } from "./v1SpotVMOptions";
+import type { V1Taint } from "./v1Taint";
+import type { V1UpdateStrategy } from "./v1UpdateStrategy";
 
 export interface V1AzureMachinePoolConfig {
   /** additionalLabels */

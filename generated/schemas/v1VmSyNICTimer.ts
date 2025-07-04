@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmFeatureState } from './v1VmFeatureState';
+import type { V1VmFeatureState } from "./v1VmFeatureState";
 
 export interface V1VmSyNICTimer {
   direct?: V1VmFeatureState;

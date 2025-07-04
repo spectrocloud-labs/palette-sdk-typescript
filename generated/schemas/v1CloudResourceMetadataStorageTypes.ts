@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1StorageType } from './v1StorageType';
+import type { V1StorageType } from "./v1StorageType";
 
-export type V1CloudResourceMetadataStorageTypes = {[key: string]: V1StorageType};
+export type V1CloudResourceMetadataStorageTypes = {
+  [key: string]: V1StorageType;
+};

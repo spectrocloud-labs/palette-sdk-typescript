@@ -11,12 +11,12 @@
  */
 
 export type V1AwsVolumeSizeGetParams = {
-/**
- * Specific AWS Region
- */
-region: string;
-/**
- * Uid for the specific AWS cloud account
- */
-cloudAccountUid: string;
+  /**
+   * Specific AWS Region
+   */
+  region: string;
+  /**
+   * Uid for the specific AWS cloud account
+   */
+  cloudAccountUid: string;
 };

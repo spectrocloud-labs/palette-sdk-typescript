@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMetaUpdateEntity } from './v1ObjectMetaUpdateEntity';
-import type { V1ClusterRbacSpec } from './v1ClusterRbacSpec';
+import type { V1ObjectMetaUpdateEntity } from "./v1ObjectMetaUpdateEntity";
+import type { V1ClusterRbacSpec } from "./v1ClusterRbacSpec";
 
 /**
  * Cluster RBAC role binding defintion

@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type V1AwsMachinePoolConfigAdditionalLabels = {[key: string]: string};
+export type V1AwsMachinePoolConfigAdditionalLabels = { [key: string]: string };

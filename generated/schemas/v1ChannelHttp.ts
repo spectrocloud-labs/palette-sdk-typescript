@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ChannelHttpHeaders } from './v1ChannelHttpHeaders';
+import type { V1ChannelHttpHeaders } from "./v1ChannelHttpHeaders";
 
 export interface V1ChannelHttp {
   body?: string;

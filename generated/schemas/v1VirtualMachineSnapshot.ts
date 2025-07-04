@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmObjectMeta } from './v1VmObjectMeta';
-import type { V1VirtualMachineSnapshotSpec } from './v1VirtualMachineSnapshotSpec';
-import type { V1VirtualMachineSnapshotStatus } from './v1VirtualMachineSnapshotStatus';
+import type { V1VmObjectMeta } from "./v1VmObjectMeta";
+import type { V1VirtualMachineSnapshotSpec } from "./v1VirtualMachineSnapshotSpec";
+import type { V1VirtualMachineSnapshotStatus } from "./v1VirtualMachineSnapshotStatus";
 
 /**
  * VirtualMachineSnapshot defines the operation of snapshotting a VM

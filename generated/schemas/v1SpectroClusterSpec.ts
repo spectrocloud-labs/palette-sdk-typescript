@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1ClusterConfig } from './v1ClusterConfig';
-import type { V1ClusterProfileTemplate } from './v1ClusterProfileTemplate';
-import type { V1SpectroClusterSpecClusterType } from './v1SpectroClusterSpecClusterType';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1ClusterConfig } from "./v1ClusterConfig";
+import type { V1ClusterProfileTemplate } from "./v1ClusterProfileTemplate";
+import type { V1SpectroClusterSpecClusterType } from "./v1SpectroClusterSpecClusterType";
 
 /**
  * SpectroClusterSpec defines the desired state of SpectroCluster

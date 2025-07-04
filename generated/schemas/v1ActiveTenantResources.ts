@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ActiveTenantResourcesActiveResources } from './v1ActiveTenantResourcesActiveResources';
+import type { V1ActiveTenantResourcesActiveResources } from "./v1ActiveTenantResourcesActiveResources";
 
 /**
  * Active resources of tenant

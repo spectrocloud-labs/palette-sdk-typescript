@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsResourceReference } from './v1AwsResourceReference';
-import type { V1AwsNic } from './v1AwsNic';
+import type { V1AwsResourceReference } from "./v1AwsResourceReference";
+import type { V1AwsNic } from "./v1AwsNic";
 
 /**
  * AWS cloud VM definition spec

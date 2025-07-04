@@ -11,16 +11,16 @@
  */
 
 export type V1GcpInstanceTypesParams = {
-/**
- * Filter for instances having cpu greater than or equal
- */
-cpuGtEq?: number;
-/**
- * Filter for instances having memory greater than or equal
- */
-memoryGtEq?: number;
-/**
- * Filter for instances having gpu greater than or equal
- */
-gpuGtEq?: number;
+  /**
+   * Filter for instances having cpu greater than or equal
+   */
+  cpuGtEq?: number;
+  /**
+   * Filter for instances having memory greater than or equal
+   */
+  memoryGtEq?: number;
+  /**
+   * Filter for instances having gpu greater than or equal
+   */
+  gpuGtEq?: number;
 };

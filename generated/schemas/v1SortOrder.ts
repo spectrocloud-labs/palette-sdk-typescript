@@ -10,11 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SortOrder = typeof V1SortOrder[keyof typeof V1SortOrder];
-
+export type V1SortOrder = (typeof V1SortOrder)[keyof typeof V1SortOrder];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SortOrder = {
-  asc: 'asc',
-  desc: 'desc',
+  asc: "asc",
+  desc: "desc",
 } as const;

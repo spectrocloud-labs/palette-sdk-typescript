@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1NotificationEventMeta } from './v1NotificationEventMeta';
-import type { V1NotificationEventType } from './v1NotificationEventType';
+import type { V1NotificationEventMeta } from "./v1NotificationEventMeta";
+import type { V1NotificationEventType } from "./v1NotificationEventType";
 
 /**
  * Describes notification event details

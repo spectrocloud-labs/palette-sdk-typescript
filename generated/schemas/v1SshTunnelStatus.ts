@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SshTunnelStatusState } from './v1SshTunnelStatusState';
-import type { V1SshUserStatus } from './v1SshUserStatus';
+import type { V1SshTunnelStatusState } from "./v1SshTunnelStatusState";
+import type { V1SshUserStatus } from "./v1SshUserStatus";
 
 export interface V1SshTunnelStatus {
   /** Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. */

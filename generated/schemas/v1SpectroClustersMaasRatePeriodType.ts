@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpectroClustersMaasRatePeriodType = typeof V1SpectroClustersMaasRatePeriodType[keyof typeof V1SpectroClustersMaasRatePeriodType];
-
+export type V1SpectroClustersMaasRatePeriodType =
+  (typeof V1SpectroClustersMaasRatePeriodType)[keyof typeof V1SpectroClustersMaasRatePeriodType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClustersMaasRatePeriodType = {
-  hourly: 'hourly',
-  monthly: 'monthly',
-  yearly: 'yearly',
+  hourly: "hourly",
+  monthly: "monthly",
+  yearly: "yearly",
 } as const;

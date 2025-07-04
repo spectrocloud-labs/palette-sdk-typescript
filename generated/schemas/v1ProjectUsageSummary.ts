@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterUsageSummary } from './v1ClusterUsageSummary';
+import type { V1ClusterUsageSummary } from "./v1ClusterUsageSummary";
 
 /**
  * Project usage summary

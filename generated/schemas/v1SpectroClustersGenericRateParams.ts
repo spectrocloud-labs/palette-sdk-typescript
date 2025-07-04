@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClustersGenericRatePeriodType } from './v1SpectroClustersGenericRatePeriodType';
+import type { V1SpectroClustersGenericRatePeriodType } from "./v1SpectroClustersGenericRatePeriodType";
 
 export type V1SpectroClustersGenericRateParams = {
-periodType?: V1SpectroClustersGenericRatePeriodType;
+  periodType?: V1SpectroClustersGenericRatePeriodType;
 };

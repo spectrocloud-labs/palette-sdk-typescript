@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceRolesEntity } from './v1ResourceRolesEntity';
+import type { V1ResourceRolesEntity } from "./v1ResourceRolesEntity";
 
 export interface V1ResourceRoles {
   resourceRoles?: V1ResourceRolesEntity[];

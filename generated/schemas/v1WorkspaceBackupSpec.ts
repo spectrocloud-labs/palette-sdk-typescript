@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceBackupConfig } from './v1WorkspaceBackupConfig';
+import type { V1WorkspaceBackupConfig } from "./v1WorkspaceBackupConfig";
 
 /**
  * Workspace backup spec

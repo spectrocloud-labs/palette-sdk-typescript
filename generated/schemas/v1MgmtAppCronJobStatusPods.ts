@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtAppPodsStatus } from './v1MgmtAppPodsStatus';
+import type { V1MgmtAppPodsStatus } from "./v1MgmtAppPodsStatus";
 
-export type V1MgmtAppCronJobStatusPods = {[key: string]: V1MgmtAppPodsStatus};
+export type V1MgmtAppCronJobStatusPods = { [key: string]: V1MgmtAppPodsStatus };

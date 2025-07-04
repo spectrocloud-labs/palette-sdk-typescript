@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EdgeHostMetaEdgeHostType = typeof V1EdgeHostMetaEdgeHostType[keyof typeof V1EdgeHostMetaEdgeHostType];
-
+export type V1EdgeHostMetaEdgeHostType =
+  (typeof V1EdgeHostMetaEdgeHostType)[keyof typeof V1EdgeHostMetaEdgeHostType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostMetaEdgeHostType = {
-  'edge-native': 'edge-native',
-  vsphere: 'vsphere',
+  "edge-native": "edge-native",
+  vsphere: "vsphere",
 } as const;

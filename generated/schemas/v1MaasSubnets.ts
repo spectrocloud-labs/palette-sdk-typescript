@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasSubnet } from './v1MaasSubnet';
+import type { V1MaasSubnet } from "./v1MaasSubnet";
 
 /**
  * List of Maas subnets

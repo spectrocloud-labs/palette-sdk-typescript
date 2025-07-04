@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SonobuoyLog } from './v1SonobuoyLog';
+import type { V1SonobuoyLog } from "./v1SonobuoyLog";
 
 /**
  * Compliance Scan Sonobuoy Report

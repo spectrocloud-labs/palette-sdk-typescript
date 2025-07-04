@@ -9,11 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import axios from 'axios';
-import type {
-  AxiosRequestConfig,
-  AxiosResponse
-} from 'axios';
+import axios from "axios";
+import type { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import type {
   V1AWSVolumeTypes,
@@ -823,13369 +820,16329 @@ import type {
   V1WorkspaceScopeRoles,
   V1WorkspaceWorkloadsSpec,
   V1WorkspacesRolesPatch,
-  V1WorkspacesValidateNameParams
-} from './schemas';
+  V1WorkspacesValidateNameParams,
+} from "./schemas";
 
 export const init = () => {
-/**
- * @summary Retrieves a list of API keys
- */
-const v1ApiKeysList = <TData = AxiosResponse<V1ApiKeys>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/apiKeys`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of API keys
+   */
+  const v1ApiKeysList = <TData = AxiosResponse<V1ApiKeys>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/apiKeys`, options);
+  };
 
-/**
- * @summary Create an API key
- */
-const v1ApiKeysCreate = <TData = AxiosResponse<V1ApiKeyCreateResponse>>(
-    v1ApiKeyEntity?: V1ApiKeyEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/apiKeys`,
-      v1ApiKeyEntity,options
-    );
-  }
+  /**
+   * @summary Create an API key
+   */
+  const v1ApiKeysCreate = <TData = AxiosResponse<V1ApiKeyCreateResponse>>(
+    v1ApiKeyEntity?: V1ApiKeyEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/apiKeys`, v1ApiKeyEntity, options);
+  };
 
-/**
- * @summary Deletes the specified API key
- */
-const v1ApiKeysUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/apiKeys/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified API key
- */
-const v1ApiKeysUidGet = <TData = AxiosResponse<V1ApiKey>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/apiKeys/${uid}`,options
-    );
-  }
-
-/**
- * @summary Activate or de-active the specified API key
- */
-const v1ApiKeysUidActiveState = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified API key
+   */
+  const v1ApiKeysUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ApiKeyActiveState?: V1ApiKeyActiveState, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/apiKeys/${uid}`,
-      v1ApiKeyActiveState,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/apiKeys/${uid}`, options);
+  };
 
-/**
- * @summary Update the specified API key
- */
-const v1ApiKeysUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified API key
+   */
+  const v1ApiKeysUidGet = <TData = AxiosResponse<V1ApiKey>>(
     uid: string,
-    v1ApiKeyUpdate?: V1ApiKeyUpdate, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/apiKeys/${uid}`,
-      v1ApiKeyUpdate,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/apiKeys/${uid}`, options);
+  };
 
-/**
- * @summary Revoke or re-activate the API key access
- */
-const v1ApiKeysUidState = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Activate or de-active the specified API key
+   */
+  const v1ApiKeysUidActiveState = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ApiKeyActiveState?: V1ApiKeyActiveState, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/apiKeys/${uid}/state`,
-      v1ApiKeyActiveState,options
-    );
-  }
+    v1ApiKeyActiveState?: V1ApiKeyActiveState,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/apiKeys/${uid}`, v1ApiKeyActiveState, options);
+  };
 
-/**
- * @summary Creates a application deployment in the virtual cluster
- */
-const v1AppDeploymentsVirtualClusterCreate = <TData = AxiosResponse<V1Uid>>(
-    v1AppDeploymentVirtualClusterEntity?: V1AppDeploymentVirtualClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Update the specified API key
+   */
+  const v1ApiKeysUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ApiKeyUpdate?: V1ApiKeyUpdate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/apiKeys/${uid}`, v1ApiKeyUpdate, options);
+  };
+
+  /**
+   * @summary Revoke or re-activate the API key access
+   */
+  const v1ApiKeysUidState = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ApiKeyActiveState?: V1ApiKeyActiveState,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/apiKeys/${uid}/state`, v1ApiKeyActiveState, options);
+  };
+
+  /**
+   * @summary Creates a application deployment in the virtual cluster
+   */
+  const v1AppDeploymentsVirtualClusterCreate = <TData = AxiosResponse<V1Uid>>(
+    v1AppDeploymentVirtualClusterEntity?: V1AppDeploymentVirtualClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/appDeployments`,
-      v1AppDeploymentVirtualClusterEntity,options
+      v1AppDeploymentVirtualClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a application deployment in one of virtual clusters in the cluster group
- */
-const v1AppDeploymentsClusterGroupCreate = <TData = AxiosResponse<V1Uid>>(
-    v1AppDeploymentClusterGroupEntity?: V1AppDeploymentClusterGroupEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a application deployment in one of virtual clusters in the cluster group
+   */
+  const v1AppDeploymentsClusterGroupCreate = <TData = AxiosResponse<V1Uid>>(
+    v1AppDeploymentClusterGroupEntity?: V1AppDeploymentClusterGroupEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/appDeployments/clusterGroup`,
-      v1AppDeploymentClusterGroupEntity,options
+      v1AppDeploymentClusterGroupEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified application deployment
- */
-const v1AppDeploymentsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/appDeployments/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified application deployment
- */
-const v1AppDeploymentsUidGet = <TData = AxiosResponse<V1AppDeployment>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appDeployments/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns profile of the specified application deployment
- */
-const v1AppDeploymentsUidProfileGet = <TData = AxiosResponse<V1AppDeploymentProfileSpec>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appDeployments/${uid}/profile`,options
-    );
-  }
-
-/**
- * @summary Updates the specified application deployment profile
- */
-const v1AppDeploymentsUidProfileUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified application deployment
+   */
+  const v1AppDeploymentsUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1AppDeploymentProfileEntity?: V1AppDeploymentProfileEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/appDeployments/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified application deployment
+   */
+  const v1AppDeploymentsUidGet = <TData = AxiosResponse<V1AppDeployment>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appDeployments/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns profile of the specified application deployment
+   */
+  const v1AppDeploymentsUidProfileGet = <
+    TData = AxiosResponse<V1AppDeploymentProfileSpec>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appDeployments/${uid}/profile`, options);
+  };
+
+  /**
+   * @summary Updates the specified application deployment profile
+   */
+  const v1AppDeploymentsUidProfileUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1AppDeploymentProfileEntity?: V1AppDeploymentProfileEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/appDeployments/${uid}/profile`,
-      v1AppDeploymentProfileEntity,options
+      v1AppDeploymentProfileEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Apply the application deployment profile updates
- */
-const v1AppDeploymentsUidProfileApply = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Apply the application deployment profile updates
+   */
+  const v1AppDeploymentsUidProfileApply = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1AppDeploymentsUidProfileApplyParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/appDeployments/${uid}/profile/apply`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AppDeploymentsUidProfileApplyParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/appDeployments/${uid}/profile/apply`, undefined, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified application deployment profile tier information
- */
-const v1AppDeploymentsProfileTiersUidGet = <TData = AxiosResponse<V1AppTier>>(
-    uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified application deployment profile tier information
- */
-const v1AppDeploymentsProfileTiersUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified application deployment profile tier information
+   */
+  const v1AppDeploymentsProfileTiersUidGet = <TData = AxiosResponse<V1AppTier>>(
     uid: string,
     tierUid: string,
-    v1AppTierUpdateEntity?: V1AppTierUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified application deployment profile tier information
+   */
+  const v1AppDeploymentsProfileTiersUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    tierUid: string,
+    v1AppTierUpdateEntity?: V1AppTierUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/appDeployments/${uid}/profile/tiers/${tierUid}`,
-      v1AppTierUpdateEntity,options
+      v1AppTierUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of manifests of the specified application deployment profile tier
- */
-const v1AppDeploymentsProfileTiersUidManifestsGet = <TData = AxiosResponse<V1AppTierManifests>>(
-    uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests`,options
-    );
-  }
-
-/**
- * @summary Returns the specified application deployment tier manifest information
- */
-const v1AppDeploymentsProfileTiersManifestsUidGet = <TData = AxiosResponse<V1Manifest>>(
+  /**
+   * @summary Retrieves a list of manifests of the specified application deployment profile tier
+   */
+  const v1AppDeploymentsProfileTiersUidManifestsGet = <
+    TData = AxiosResponse<V1AppTierManifests>,
+  >(
     uid: string,
     tierUid: string,
-    manifestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`,options
+      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified application deployment tier manifest information
- */
-const v1AppDeploymentsProfileTiersManifestsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified application deployment tier manifest information
+   */
+  const v1AppDeploymentsProfileTiersManifestsUidGet = <
+    TData = AxiosResponse<V1Manifest>,
+  >(
     uid: string,
     tierUid: string,
     manifestUid: string,
-    v1ManifestRefUpdateEntity?: V1ManifestRefUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified application deployment tier manifest information
+   */
+  const v1AppDeploymentsProfileTiersManifestsUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    tierUid: string,
+    manifestUid: string,
+    v1ManifestRefUpdateEntity?: V1ManifestRefUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`,
-      v1ManifestRefUpdateEntity,options
+      v1ManifestRefUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of profile versions of the specified application deployment
- */
-const v1AppDeploymentsUidProfileVersionsGet = <TData = AxiosResponse<V1AppDeploymentProfileVersions>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appDeployments/${uid}/profile/versions`,options
-    );
-  }
-
-/**
- * @summary Creates a application profile
- */
-const v1AppProfilesCreate = <TData = AxiosResponse<V1Uid>>(
-    v1AppProfileEntity?: V1AppProfileEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/appProfiles`,
-      v1AppProfileEntity,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of application profile macros
- */
-const v1AppProfilesMacrosList = <TData = AxiosResponse<V1Macros>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/macros`,options
-    );
-  }
-
-/**
- * @summary Deletes the specified application profile
- */
-const v1AppProfilesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/appProfiles/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified application profile
- */
-const v1AppProfilesUidGet = <TData = AxiosResponse<V1AppProfile>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified application profile
- */
-const v1AppProfilesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves a list of profile versions of the specified application deployment
+   */
+  const v1AppDeploymentsUidProfileVersionsGet = <
+    TData = AxiosResponse<V1AppDeploymentProfileVersions>,
+  >(
     uid: string,
-    v1AppProfileEntity?: V1AppProfileEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/appProfiles/${uid}`,
-      v1AppProfileEntity,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appDeployments/${uid}/profile/versions`, options);
+  };
 
-/**
- * @summary Clones the specified application profile
- */
-const v1AppProfilesUidClone = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a application profile
+   */
+  const v1AppProfilesCreate = <TData = AxiosResponse<V1Uid>>(
+    v1AppProfileEntity?: V1AppProfileEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/appProfiles`, v1AppProfileEntity, options);
+  };
+
+  /**
+   * @summary Retrieves a list of application profile macros
+   */
+  const v1AppProfilesMacrosList = <TData = AxiosResponse<V1Macros>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appProfiles/macros`, options);
+  };
+
+  /**
+   * @summary Deletes the specified application profile
+   */
+  const v1AppProfilesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1AppProfileCloneEntity?: V1AppProfileCloneEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/appProfiles/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified application profile
+   */
+  const v1AppProfilesUidGet = <TData = AxiosResponse<V1AppProfile>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appProfiles/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified application profile
+   */
+  const v1AppProfilesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1AppProfileEntity?: V1AppProfileEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/appProfiles/${uid}`, v1AppProfileEntity, options);
+  };
+
+  /**
+   * @summary Clones the specified application profile
+   */
+  const v1AppProfilesUidClone = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1AppProfileCloneEntity?: V1AppProfileCloneEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/appProfiles/${uid}/clone`,
-      v1AppProfileCloneEntity,options
+      v1AppProfileCloneEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates the specified application profile clone
- */
-const v1AppProfilesUidCloneValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Validates the specified application profile clone
+   */
+  const v1AppProfilesUidCloneValidate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1AppProfileCloneMetaInputEntity?: V1AppProfileCloneMetaInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AppProfileCloneMetaInputEntity?: V1AppProfileCloneMetaInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/appProfiles/${uid}/clone/validate`,
-      v1AppProfileCloneMetaInputEntity,options
+      v1AppProfileCloneMetaInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified application profile metadata
- */
-const v1AppProfilesUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified application profile metadata
+   */
+  const v1AppProfilesUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1AppProfileMetaEntity?: V1AppProfileMetaEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AppProfileMetaEntity?: V1AppProfileMetaEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/appProfiles/${uid}/metadata`,
-      v1AppProfileMetaEntity,options
+      v1AppProfileMetaEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of tiers of the specified application profile
- */
-const v1AppProfilesUidTiersGet = <TData = AxiosResponse<V1AppProfileTiers>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/${uid}/tiers`,options
-    );
-  }
-
-/**
- * @summary Updates app tier of the specified application profile
- */
-const v1AppProfilesUidTiersPatch = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Retrieves a list of tiers of the specified application profile
+   */
+  const v1AppProfilesUidTiersGet = <TData = AxiosResponse<V1AppProfileTiers>>(
     uid: string,
-    v1AppTierPatchEntity?: V1AppTierPatchEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appProfiles/${uid}/tiers`, options);
+  };
+
+  /**
+   * @summary Updates app tier of the specified application profile
+   */
+  const v1AppProfilesUidTiersPatch = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1AppTierPatchEntity?: V1AppTierPatchEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/appProfiles/${uid}/tiers`,
-      v1AppTierPatchEntity,options
+      v1AppTierPatchEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Adds tier to the specified application profile
- */
-const v1AppProfilesUidTiersCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds tier to the specified application profile
+   */
+  const v1AppProfilesUidTiersCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1AppTierEntity?: V1AppTierEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/appProfiles/${uid}/tiers`,
-      v1AppTierEntity,options
-    );
-  }
+    v1AppTierEntity?: V1AppTierEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/appProfiles/${uid}/tiers`, v1AppTierEntity, options);
+  };
 
-/**
- * @summary Deletes the specified application profile tier
- */
-const v1AppProfilesUidTiersUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified application profile tier information
- */
-const v1AppProfilesUidTiersUidGet = <TData = AxiosResponse<V1AppTier>>(
-    uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified application profile tier
- */
-const v1AppProfilesUidTiersUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified application profile tier
+   */
+  const v1AppProfilesUidTiersUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     tierUid: string,
-    v1AppTierUpdateEntity?: V1AppTierUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/appProfiles/${uid}/tiers/${tierUid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified application profile tier information
+   */
+  const v1AppProfilesUidTiersUidGet = <TData = AxiosResponse<V1AppTier>>(
+    uid: string,
+    tierUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/appProfiles/${uid}/tiers/${tierUid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified application profile tier
+   */
+  const v1AppProfilesUidTiersUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    tierUid: string,
+    v1AppTierUpdateEntity?: V1AppTierUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/appProfiles/${uid}/tiers/${tierUid}`,
-      v1AppTierUpdateEntity,options
+      v1AppTierUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of manifests of the specified application profile tier
- */
-const v1AppProfilesUidTiersUidManifestsGet = <TData = AxiosResponse<V1AppTierManifests>>(
-    uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`,options
-    );
-  }
-
-/**
- * @summary Adds manifest to the specified application profile tier
- */
-const v1AppProfilesUidTiersUidManifestsCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Retrieves a list of manifests of the specified application profile tier
+   */
+  const v1AppProfilesUidTiersUidManifestsGet = <
+    TData = AxiosResponse<V1AppTierManifests>,
+  >(
     uid: string,
     tierUid: string,
-    v1ManifestInputEntity?: V1ManifestInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Adds manifest to the specified application profile tier
+   */
+  const v1AppProfilesUidTiersUidManifestsCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
+    uid: string,
+    tierUid: string,
+    v1ManifestInputEntity?: V1ManifestInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`,
-      v1ManifestInputEntity,options
+      v1ManifestInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified application profile tier manifest
- */
-const v1AppProfilesUidTiersUidManifestsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    tierUid: string,
-    manifestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified application profile tier manifest information
- */
-const v1AppProfilesUidTiersUidManifestsUidGet = <TData = AxiosResponse<V1Manifest>>(
-    uid: string,
-    tierUid: string,
-    manifestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified application profile tier manifest information
- */
-const v1AppProfilesUidTiersUidManifestsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified application profile tier manifest
+   */
+  const v1AppProfilesUidTiersUidManifestsUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
     tierUid: string,
     manifestUid: string,
-    v1ManifestRefUpdateEntity?: V1ManifestRefUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified application profile tier manifest information
+   */
+  const v1AppProfilesUidTiersUidManifestsUidGet = <
+    TData = AxiosResponse<V1Manifest>,
+  >(
+    uid: string,
+    tierUid: string,
+    manifestUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified application profile tier manifest information
+   */
+  const v1AppProfilesUidTiersUidManifestsUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    tierUid: string,
+    manifestUid: string,
+    v1ManifestRefUpdateEntity?: V1ManifestRefUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`,
-      v1ManifestRefUpdateEntity,options
+      v1ManifestRefUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified application profile tier resolved values
- */
-const v1AppProfilesUidTiersUidResolvedValuesGet = <TData = AxiosResponse<V1AppTierResolvedValues>>(
+  /**
+   * @summary Returns the specified application profile tier resolved values
+   */
+  const v1AppProfilesUidTiersUidResolvedValuesGet = <
+    TData = AxiosResponse<V1AppTierResolvedValues>,
+  >(
     uid: string,
-    tierUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    tierUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`,options
+      `/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves the list of audit logs
- */
-const v1AuditsList = <TData = AxiosResponse<V1Audits>>(
-    params?: V1AuditsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/audits`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves the list of audit logs
+   */
+  const v1AuditsList = <TData = AxiosResponse<V1Audits>>(
+    params?: V1AuditsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/audits`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified audit log
- */
-const v1AuditsUidGet = <TData = AxiosResponse<V1Audit>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/audits/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified system audit message
- */
-const v1AuditsUidGetSysMsg = <TData = AxiosResponse<V1AuditSysMsg>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/audits/${uid}/sysMsg`,options
-    );
-  }
-
-/**
- * @summary Updates the specified user message for the specified audit
- */
-const v1AuditsUidMsgUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified audit log
+   */
+  const v1AuditsUidGet = <TData = AxiosResponse<V1Audit>>(
     uid: string,
-    v1AuditMsgUpdate?: V1AuditMsgUpdate, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/audits/${uid}/userMsg`,
-      v1AuditMsgUpdate,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/audits/${uid}`, options);
+  };
 
-/**
- * Creates a authentication request with the specified credentials
- * @summary Authenticates the user for the specified crendentials
- */
-const v1Authenticate = <TData = AxiosResponse<V1UserToken>>(
+  /**
+   * @summary Returns the specified system audit message
+   */
+  const v1AuditsUidGetSysMsg = <TData = AxiosResponse<V1AuditSysMsg>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/audits/${uid}/sysMsg`, options);
+  };
+
+  /**
+   * @summary Updates the specified user message for the specified audit
+   */
+  const v1AuditsUidMsgUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1AuditMsgUpdate?: V1AuditMsgUpdate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/audits/${uid}/userMsg`, v1AuditMsgUpdate, options);
+  };
+
+  /**
+   * Creates a authentication request with the specified credentials
+   * @summary Authenticates the user for the specified crendentials
+   */
+  const v1Authenticate = <TData = AxiosResponse<V1UserToken>>(
     v1AuthLogin: V1AuthLogin,
-    params?: V1AuthenticateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/auth/authenticate`,
-      v1AuthLogin,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AuthenticateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/auth/authenticate`, v1AuthLogin, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns the allowed login method and information with the organization details
- * @summary Returns the user organization details
- */
-const v1AuthOrg = <TData = AxiosResponse<V1LoginResponse>>(
-    params?: V1AuthOrgParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/org`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns the allowed login method and information with the organization details
+   * @summary Returns the user organization details
+   */
+  const v1AuthOrg = <TData = AxiosResponse<V1LoginResponse>>(
+    params?: V1AuthOrgParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/org`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns the Authorization token for the palette. This is called by the IDP as a callback url after IDP authenticates the user with its server.
- * @summary Idp authorization code callback
- */
-const v1OidcCallback = <TData = AxiosResponse<V1UserToken>>(
+  /**
+   * Returns the Authorization token for the palette. This is called by the IDP as a callback url after IDP authenticates the user with its server.
+   * @summary Idp authorization code callback
+   */
+  const v1OidcCallback = <TData = AxiosResponse<V1UserToken>>(
     org: string,
-    params?: V1OidcCallbackParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/org/${org}/oidc/callback`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OidcCallbackParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/org/${org}/oidc/callback`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns No Content. Works as a callback url after the IDP logout from their server.
- * @summary Identity provider logout url for the Oidc
- */
-const v1OidcLogout = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns No Content. Works as a callback url after the IDP logout from their server.
+   * @summary Identity provider logout url for the Oidc
+   */
+  const v1OidcLogout = <TData = AxiosResponse<unknown>>(
     org: string,
-    params?: V1OidcLogoutParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/org/${org}/oidc/logout`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OidcLogoutParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/org/${org}/oidc/logout`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns the Authorization token for the palette. This is called by the SAML based IDP as a callback url after IDP authenticates the user with its server.
- * @summary Identity provider callback url for the SMAL authentication
- */
-const v1SamlCallback = <TData = AxiosResponse<V1UserToken>>(
+  /**
+   * Returns the Authorization token for the palette. This is called by the SAML based IDP as a callback url after IDP authenticates the user with its server.
+   * @summary Identity provider callback url for the SMAL authentication
+   */
+  const v1SamlCallback = <TData = AxiosResponse<V1UserToken>>(
     org: string,
     v1SamlCallbackRequest: V1SamlCallbackRequest,
-    params?: V1SamlCallbackParams, options?: AxiosRequestConfig
- ): Promise<TData> => {const formUrlEncoded = new URLSearchParams();
-if(v1SamlCallbackRequest.SAMLResponse !== undefined) {
- formUrlEncoded.append(`SAMLResponse`, v1SamlCallbackRequest.SAMLResponse)
- }
-if(v1SamlCallbackRequest.RelayState !== undefined) {
- formUrlEncoded.append(`RelayState`, v1SamlCallbackRequest.RelayState)
- }
+    params?: V1SamlCallbackParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formUrlEncoded = new URLSearchParams();
+    if (v1SamlCallbackRequest.SAMLResponse !== undefined) {
+      formUrlEncoded.append(`SAMLResponse`, v1SamlCallbackRequest.SAMLResponse);
+    }
+    if (v1SamlCallbackRequest.RelayState !== undefined) {
+      formUrlEncoded.append(`RelayState`, v1SamlCallbackRequest.RelayState);
+    }
 
-    return axios.post(
-      `/v1/auth/org/${org}/saml/callback`,
-      formUrlEncoded,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    return axios.post(`/v1/auth/org/${org}/saml/callback`, formUrlEncoded, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns No Content. Works as a callback url after the IDP logout from their server.
- * @summary Identity provider logout url for the SMAL
- */
-const v1SamlLogout = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns No Content. Works as a callback url after the IDP logout from their server.
+   * @summary Identity provider logout url for the SMAL
+   */
+  const v1SamlLogout = <TData = AxiosResponse<unknown>>(
     org: string,
     v1SamlLogoutRequest: V1SamlLogoutRequest,
-    params?: V1SamlLogoutParams, options?: AxiosRequestConfig
- ): Promise<TData> => {const formUrlEncoded = new URLSearchParams();
-if(v1SamlLogoutRequest.SAMLResponse !== undefined) {
- formUrlEncoded.append(`SAMLResponse`, v1SamlLogoutRequest.SAMLResponse)
- }
+    params?: V1SamlLogoutParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formUrlEncoded = new URLSearchParams();
+    if (v1SamlLogoutRequest.SAMLResponse !== undefined) {
+      formUrlEncoded.append(`SAMLResponse`, v1SamlLogoutRequest.SAMLResponse);
+    }
 
-    return axios.post(
-      `/v1/auth/org/${org}/saml/logout`,
-      formUrlEncoded,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    return axios.post(`/v1/auth/org/${org}/saml/logout`, formUrlEncoded, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns a list of user's organizations details and login methods
- * @summary Returns a list of user's organizations
- */
-const v1AuthOrgs = <TData = AxiosResponse<V1Organizations>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/orgs`,options
-    );
-  }
+  /**
+   * Returns a list of user's organizations details and login methods
+   * @summary Returns a list of user's organizations
+   */
+  const v1AuthOrgs = <TData = AxiosResponse<V1Organizations>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/orgs`, options);
+  };
 
-/**
- * Updates and Activates user password with the help of password token
- * @summary Updates and Activates the specified user password using the password token
- */
-const v1PasswordActivate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Updates and Activates user password with the help of password token
+   * @summary Updates and Activates the specified user password using the password token
+   */
+  const v1PasswordActivate = <TData = AxiosResponse<unknown>>(
     passwordToken: string,
-    v1PasswordActivateRequest: V1PasswordActivateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1PasswordActivateRequest: V1PasswordActivateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/auth/password/${passwordToken}/activate`,
-      v1PasswordActivateRequest,options
+      v1PasswordActivateRequest,
+      options,
     );
-  }
+  };
 
-/**
- * Updates the new user password with the help of password token
- * @summary Resets the user password using the password token
- */
-const v1PasswordReset = <TData = AxiosResponse<unknown>>(
+  /**
+   * Updates the new user password with the help of password token
+   * @summary Resets the user password using the password token
+   */
+  const v1PasswordReset = <TData = AxiosResponse<unknown>>(
     passwordToken: string,
-    v1PasswordActivateRequest: V1PasswordActivateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1PasswordActivateRequest: V1PasswordActivateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/auth/password/${passwordToken}/reset`,
-      v1PasswordActivateRequest,options
+      v1PasswordActivateRequest,
+      options,
     );
-  }
+  };
 
-/**
- * Returns a new token within refresh timeout and same session id is maintained
- * @summary Refreshes authentication token
- */
-const v1AuthRefresh = <TData = AxiosResponse<V1UserToken>>(
+  /**
+   * Returns a new token within refresh timeout and same session id is maintained
+   * @summary Refreshes authentication token
+   */
+  const v1AuthRefresh = <TData = AxiosResponse<V1UserToken>>(
     token: string,
-    params?: V1AuthRefreshParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/refresh/${token}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AuthRefreshParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/refresh/${token}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns a list of predefined Identity Provider (IDP)
- * @summary Returns a list of predefined Identity Provider (IDP)
- */
-const v1SsoIdps = <TData = AxiosResponse<V1IdentityProviders>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/sso/idps`,options
-    );
-  }
+  /**
+   * Returns a list of predefined Identity Provider (IDP)
+   * @summary Returns a list of predefined Identity Provider (IDP)
+   */
+  const v1SsoIdps = <TData = AxiosResponse<V1IdentityProviders>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/sso/idps`, options);
+  };
 
-/**
- * Returns a list of supported sso logins and their authentication mechanism
- * @summary Returns a list of supported sso logins
- */
-const v1SsoLogins = <TData = AxiosResponse<V1SsoLogins>>(
-    params?: V1SsoLoginsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/sso/logins`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns a list of supported sso logins and their authentication mechanism
+   * @summary Returns a list of supported sso logins
+   */
+  const v1SsoLogins = <TData = AxiosResponse<V1SsoLogins>>(
+    params?: V1SsoLoginsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/sso/logins`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns a list of supported sso auth providers
- * @summary Returns a list of supported sso auth providers
- */
-const v1AuthSsoProviders = <TData = AxiosResponse<V1SsoLogins>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/sso/providers`,options
-    );
-  }
+  /**
+   * Returns a list of supported sso auth providers
+   * @summary Returns a list of supported sso auth providers
+   */
+  const v1AuthSsoProviders = <TData = AxiosResponse<V1SsoLogins>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/sso/providers`, options);
+  };
 
-/**
- * Returns Authorization token. Works as a callback url for the system defined sso apps
- * @summary Returns Authorization token. Works as a callback url for the system defined sso apps
- */
-const v1SsoCallback = <TData = AxiosResponse<V1UserToken>>(
+  /**
+   * Returns Authorization token. Works as a callback url for the system defined sso apps
+   * @summary Returns Authorization token. Works as a callback url for the system defined sso apps
+   */
+  const v1SsoCallback = <TData = AxiosResponse<V1UserToken>>(
     ssoApp: string,
-    params?: V1SsoCallbackParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/sso/${ssoApp}/callback`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SsoCallbackParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/sso/${ssoApp}/callback`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns No Content. Sends the user organization(s) information via email
- * @summary Returns No Content. Sends the user organization information via email
- */
-const v1AuthUserOrgForgot = <TData = AxiosResponse<unknown>>(
-    params: V1AuthUserOrgForgotParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/auth/user/org/forgot`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns No Content. Sends the user organization(s) information via email
+   * @summary Returns No Content. Sends the user organization information via email
+   */
+  const v1AuthUserOrgForgot = <TData = AxiosResponse<unknown>>(
+    params: V1AuthUserOrgForgotParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/auth/user/org/forgot`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Creates request to reset password via email. Password reset email will be sent to the user. Sends 204 No Content.
- * @summary Creates request to reset password via email
- */
-const v1PasswordResetRequest = <TData = AxiosResponse<unknown>>(
-    v1PasswordResetRequestRequest: V1PasswordResetRequestRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Creates request to reset password via email. Password reset email will be sent to the user. Sends 204 No Content.
+   * @summary Creates request to reset password via email
+   */
+  const v1PasswordResetRequest = <TData = AxiosResponse<unknown>>(
+    v1PasswordResetRequestRequest: V1PasswordResetRequestRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/auth/user/password/reset`,
-      v1PasswordResetRequestRequest,options
+      v1PasswordResetRequestRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS cloud accounts
- */
-const v1CloudAccountsAwsList = <TData = AxiosResponse<V1AwsAccounts>>(
-    params?: V1CloudAccountsAwsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/aws`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of AWS cloud accounts
+   */
+  const v1CloudAccountsAwsList = <TData = AxiosResponse<V1AwsAccounts>>(
+    params?: V1CloudAccountsAwsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/aws`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates an AWS cloud account
- */
-const v1CloudAccountsAwsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1AwsAccount?: V1AwsAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/cloudaccounts/aws`,
-      v1AwsAccount,options
-    );
-  }
+  /**
+   * @summary Creates an AWS cloud account
+   */
+  const v1CloudAccountsAwsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1AwsAccount?: V1AwsAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/cloudaccounts/aws`, v1AwsAccount, options);
+  };
 
-/**
- * @summary Deletes the specified AWS account
- */
-const v1CloudAccountsAwsDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/aws/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified AWS account
- */
-const v1CloudAccountsAwsGet = <TData = AxiosResponse<V1AwsAccount>>(
+  /**
+   * @summary Deletes the specified AWS account
+   */
+  const v1CloudAccountsAwsDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1CloudAccountsAwsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/aws/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/aws/${uid}`, options);
+  };
 
-/**
- * @summary Updates the specified AWS account
- */
-const v1CloudAccountsAwsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified AWS account
+   */
+  const v1CloudAccountsAwsGet = <TData = AxiosResponse<V1AwsAccount>>(
     uid: string,
-    v1AwsAccount?: V1AwsAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/cloudaccounts/aws/${uid}`,
-      v1AwsAccount,options
-    );
-  }
+    params?: V1CloudAccountsAwsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/aws/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of azure cloud accounts
- */
-const v1CloudAccountsAzureList = <TData = AxiosResponse<V1AzureAccounts>>(
-    params?: V1CloudAccountsAzureListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/azure`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Create azure cloud account
- */
-const v1CloudAccountsAzureCreate = <TData = AxiosResponse<V1Uid>>(
-    v1AzureAccount?: V1AzureAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/cloudaccounts/azure`,
-      v1AzureAccount,options
-    );
-  }
-
-/**
- * @summary Deletes the specified azure account
- */
-const v1CloudAccountsAzureDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/azure/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified azure cloud account
- */
-const v1CloudAccountsAzureGet = <TData = AxiosResponse<V1AzureAccount>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/azure/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified azure account
- */
-const v1CloudAccountsAzureUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified AWS account
+   */
+  const v1CloudAccountsAwsUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1AzureAccount?: V1AzureAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/cloudaccounts/azure/${uid}`,
-      v1AzureAccount,options
-    );
-  }
+    v1AwsAccount?: V1AwsAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/cloudaccounts/aws/${uid}`, v1AwsAccount, options);
+  };
 
-/**
- * @summary Retrieves a list of cloud accounts by cloud type
- */
-const v1CloudAccountsCustomList = <TData = AxiosResponse<V1CustomAccounts>>(
+  /**
+   * @summary Retrieves a list of azure cloud accounts
+   */
+  const v1CloudAccountsAzureList = <TData = AxiosResponse<V1AzureAccounts>>(
+    params?: V1CloudAccountsAzureListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/azure`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create azure cloud account
+   */
+  const v1CloudAccountsAzureCreate = <TData = AxiosResponse<V1Uid>>(
+    v1AzureAccount?: V1AzureAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/cloudaccounts/azure`, v1AzureAccount, options);
+  };
+
+  /**
+   * @summary Deletes the specified azure account
+   */
+  const v1CloudAccountsAzureDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/azure/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified azure cloud account
+   */
+  const v1CloudAccountsAzureGet = <TData = AxiosResponse<V1AzureAccount>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/azure/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified azure account
+   */
+  const v1CloudAccountsAzureUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1AzureAccount?: V1AzureAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/cloudaccounts/azure/${uid}`, v1AzureAccount, options);
+  };
+
+  /**
+   * @summary Retrieves a list of cloud accounts by cloud type
+   */
+  const v1CloudAccountsCustomList = <TData = AxiosResponse<V1CustomAccounts>>(
     cloudType: string,
-    params?: V1CloudAccountsCustomListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/cloudTypes/${cloudType}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1CloudAccountsCustomListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/cloudTypes/${cloudType}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates an cloud account of specific cloud type
- */
-const v1CloudAccountsCustomCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an cloud account of specific cloud type
+   */
+  const v1CloudAccountsCustomCreate = <TData = AxiosResponse<V1Uid>>(
     cloudType: string,
-    v1CustomAccountEntity?: V1CustomAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1CustomAccountEntity?: V1CustomAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudaccounts/cloudTypes/${cloudType}`,
-      v1CustomAccountEntity,options
+      v1CustomAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified account by cloud type
- */
-const v1CloudAccountsCustomDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string,
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified account by cloud type
- */
-const v1CloudAccountsCustomGet = <TData = AxiosResponse<V1CustomAccount>>(
-    cloudType: string,
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified account by cloud type
- */
-const v1CloudAccountsCustomUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified account by cloud type
+   */
+  const v1CloudAccountsCustomDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
     uid: string,
-    v1CustomAccountEntity?: V1CustomAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified account by cloud type
+   */
+  const v1CloudAccountsCustomGet = <TData = AxiosResponse<V1CustomAccount>>(
+    cloudType: string,
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified account by cloud type
+   */
+  const v1CloudAccountsCustomUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    uid: string,
+    v1CustomAccountEntity?: V1CustomAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`,
-      v1CustomAccountEntity,options
+      v1CustomAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of gcp cloud accounts
- */
-const v1CloudAccountsGcpList = <TData = AxiosResponse<V1GcpAccounts>>(
-    params?: V1CloudAccountsGcpListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/gcp`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of gcp cloud accounts
+   */
+  const v1CloudAccountsGcpList = <TData = AxiosResponse<V1GcpAccounts>>(
+    params?: V1CloudAccountsGcpListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/gcp`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates a GCP cloud account
- */
-const v1CloudAccountsGcpCreate = <TData = AxiosResponse<V1Uid>>(
-    v1GcpAccountEntity?: V1GcpAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/cloudaccounts/gcp`,
-      v1GcpAccountEntity,options
-    );
-  }
+  /**
+   * @summary Creates a GCP cloud account
+   */
+  const v1CloudAccountsGcpCreate = <TData = AxiosResponse<V1Uid>>(
+    v1GcpAccountEntity?: V1GcpAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/cloudaccounts/gcp`, v1GcpAccountEntity, options);
+  };
 
-/**
- * @summary Deletes the specified GCP account
- */
-const v1CloudAccountsGcpDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/gcp/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified GCP cloud account
- */
-const v1CloudAccountsGcpGet = <TData = AxiosResponse<V1GcpAccount>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/gcp/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified GCP account
- */
-const v1CloudAccountsGcpUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified GCP account
+   */
+  const v1CloudAccountsGcpDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1GcpAccountEntity?: V1GcpAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/gcp/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified GCP cloud account
+   */
+  const v1CloudAccountsGcpGet = <TData = AxiosResponse<V1GcpAccount>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/gcp/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified GCP account
+   */
+  const v1CloudAccountsGcpUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1GcpAccountEntity?: V1GcpAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudaccounts/gcp/${uid}`,
-      v1GcpAccountEntity,options
+      v1GcpAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Maas cloud accounts
- */
-const v1CloudAccountsMaasList = <TData = AxiosResponse<V1MaasAccounts>>(
-    params?: V1CloudAccountsMaasListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/maas`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas cloud accounts
+   */
+  const v1CloudAccountsMaasList = <TData = AxiosResponse<V1MaasAccounts>>(
+    params?: V1CloudAccountsMaasListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/maas`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates an Maas cloud account
- */
-const v1CloudAccountsMaasCreate = <TData = AxiosResponse<V1Uid>>(
-    v1MaasAccount?: V1MaasAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/cloudaccounts/maas`,
-      v1MaasAccount,options
-    );
-  }
+  /**
+   * @summary Creates an Maas cloud account
+   */
+  const v1CloudAccountsMaasCreate = <TData = AxiosResponse<V1Uid>>(
+    v1MaasAccount?: V1MaasAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/cloudaccounts/maas`, v1MaasAccount, options);
+  };
 
-/**
- * @summary Deletes the specified Maas account
- */
-const v1CloudAccountsMaasDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/maas/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified Maas account
- */
-const v1CloudAccountsMaasGet = <TData = AxiosResponse<V1MaasAccount>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/maas/${uid}`,options
-    );
-  }
-
-/**
- * @summary Patches the specified CloudAccount Maas
- */
-const v1CloudAccountsMaasPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Maas account
+   */
+  const v1CloudAccountsMaasDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1CloudAccountsPatch: V1CloudAccountsPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/maas/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified Maas account
+   */
+  const v1CloudAccountsMaasGet = <TData = AxiosResponse<V1MaasAccount>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/maas/${uid}`, options);
+  };
+
+  /**
+   * @summary Patches the specified CloudAccount Maas
+   */
+  const v1CloudAccountsMaasPatch = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1CloudAccountsPatch: V1CloudAccountsPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/cloudaccounts/maas/${uid}`,
-      v1CloudAccountsPatch,options
+      v1CloudAccountsPatch,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified Maas account
- */
-const v1CloudAccountsMaasUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified Maas account
+   */
+  const v1CloudAccountsMaasUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1MaasAccount?: V1MaasAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/cloudaccounts/maas/${uid}`,
-      v1MaasAccount,options
-    );
-  }
+    v1MaasAccount?: V1MaasAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/cloudaccounts/maas/${uid}`, v1MaasAccount, options);
+  };
 
-/**
- * @summary Get the maas azs for a given account
- */
-const v1MaasAccountsUidAzs = <TData = AxiosResponse<V1MaasZones>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Get the maas azs for a given account
+   */
+  const v1MaasAccountsUidAzs = <TData = AxiosResponse<V1MaasZones>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/maas/${uid}/properties/azs`, options);
+  };
+
+  /**
+   * @summary Get the maas domains for a given account
+   */
+  const v1MaasAccountsUidDomains = <TData = AxiosResponse<V1MaasDomains>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudaccounts/maas/${uid}/properties/azs`,options
+      `/v1/cloudaccounts/maas/${uid}/properties/domains`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the maas domains for a given account
- */
-const v1MaasAccountsUidDomains = <TData = AxiosResponse<V1MaasDomains>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Get the maas pools for a given account
+   */
+  const v1MaasAccountsUidPools = <TData = AxiosResponse<V1MaasPools>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudaccounts/maas/${uid}/properties/domains`,options
+      `/v1/cloudaccounts/maas/${uid}/properties/resourcePools`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the maas pools for a given account
- */
-const v1MaasAccountsUidPools = <TData = AxiosResponse<V1MaasPools>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Get the maas subnets for a given account
+   */
+  const v1MaasAccountsUidSubnets = <TData = AxiosResponse<V1MaasSubnets>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudaccounts/maas/${uid}/properties/resourcePools`,options
+      `/v1/cloudaccounts/maas/${uid}/properties/subnets`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the maas subnets for a given account
- */
-const v1MaasAccountsUidSubnets = <TData = AxiosResponse<V1MaasSubnets>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/maas/${uid}/properties/subnets`,options
-    );
-  }
+  /**
+   * @summary Get the maas tags for a given account
+   */
+  const v1MaasAccountsUidTags = <TData = AxiosResponse<V1MaasTags>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/maas/${uid}/properties/tags`, options);
+  };
 
-/**
- * @summary Get the maas tags for a given account
- */
-const v1MaasAccountsUidTags = <TData = AxiosResponse<V1MaasTags>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/maas/${uid}/properties/tags`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of OpenStack cloud accounts
+   */
+  const v1CloudAccountsOpenStackList = <
+    TData = AxiosResponse<V1OpenStackAccounts>,
+  >(
+    params?: V1CloudAccountsOpenStackListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of OpenStack cloud accounts
- */
-const v1CloudAccountsOpenStackList = <TData = AxiosResponse<V1OpenStackAccounts>>(
-    params?: V1CloudAccountsOpenStackListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Creates a OpenStack cloud account
- */
-const v1CloudAccountsOpenStackCreate = <TData = AxiosResponse<V1Uid>>(
-    v1OpenStackAccount?: V1OpenStackAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a OpenStack cloud account
+   */
+  const v1CloudAccountsOpenStackCreate = <TData = AxiosResponse<V1Uid>>(
+    v1OpenStackAccount?: V1OpenStackAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudaccounts/openstack`,
-      v1OpenStackAccount,options
+      v1OpenStackAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified OpenStack account
- */
-const v1CloudAccountsOpenStackDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/openstack/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified OpenStack account
- */
-const v1CloudAccountsOpenStackGet = <TData = AxiosResponse<V1OpenStackAccount>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified OpenStack account
- */
-const v1CloudAccountsOpenStackUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified OpenStack account
+   */
+  const v1CloudAccountsOpenStackDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OpenStackAccount?: V1OpenStackAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/openstack/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified OpenStack account
+   */
+  const v1CloudAccountsOpenStackGet = <
+    TData = AxiosResponse<V1OpenStackAccount>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified OpenStack account
+   */
+  const v1CloudAccountsOpenStackUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1OpenStackAccount?: V1OpenStackAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudaccounts/openstack/${uid}`,
-      v1OpenStackAccount,options
+      v1OpenStackAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the openstack azs for a given account and region
- */
-const v1OpenstackAccountsUidAzs = <TData = AxiosResponse<V1OpenStackAzs>>(
+  /**
+   * @summary Get the openstack azs for a given account and region
+   */
+  const v1OpenstackAccountsUidAzs = <TData = AxiosResponse<V1OpenStackAzs>>(
     uid: string,
-    params?: V1OpenstackAccountsUidAzsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/azs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OpenstackAccountsUidAzsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack/${uid}/properties/azs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the openstack keypairs for a given account and scope
- */
-const v1OpenstackAccountsUidFlavors = <TData = AxiosResponse<V1OpenStackFlavors>>(
+  /**
+   * @summary Get the openstack keypairs for a given account and scope
+   */
+  const v1OpenstackAccountsUidFlavors = <
+    TData = AxiosResponse<V1OpenStackFlavors>,
+  >(
     uid: string,
-    params?: V1OpenstackAccountsUidFlavorsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/flavors`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OpenstackAccountsUidFlavorsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack/${uid}/properties/flavors`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the openstack keypairs for a given account and scope
- */
-const v1OpenstackAccountsUidKeypairs = <TData = AxiosResponse<V1OpenStackKeypairs>>(
+  /**
+   * @summary Get the openstack keypairs for a given account and scope
+   */
+  const v1OpenstackAccountsUidKeypairs = <
+    TData = AxiosResponse<V1OpenStackKeypairs>,
+  >(
     uid: string,
-    params?: V1OpenstackAccountsUidKeypairsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/keypairs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OpenstackAccountsUidKeypairsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack/${uid}/properties/keypairs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the openstack networks for a given account and scope
- */
-const v1OpenstackAccountsUidNetworks = <TData = AxiosResponse<V1OpenStackNetworks>>(
+  /**
+   * @summary Get the openstack networks for a given account and scope
+   */
+  const v1OpenstackAccountsUidNetworks = <
+    TData = AxiosResponse<V1OpenStackNetworks>,
+  >(
     uid: string,
-    params?: V1OpenstackAccountsUidNetworksParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/networks`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OpenstackAccountsUidNetworksParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/openstack/${uid}/properties/networks`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the openstack projects for a given account
- */
-const v1OpenstackAccountsUidProjects = <TData = AxiosResponse<V1OpenStackProjects>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/projects`,options
-    );
-  }
-
-/**
- * @summary Get the openstack regions for a given account
- */
-const v1OpenstackAccountsUidRegions = <TData = AxiosResponse<V1OpenStackRegions>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/openstack/${uid}/properties/regions`,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of cloud accounts summary
- */
-const v1CloudAccountsListSummary = <TData = AxiosResponse<V1CloudAccountsSummary>>(
-    params?: V1CloudAccountsListSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/summary`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Retrieves a list of vSphere cloud accounts
- */
-const v1CloudAccountsVsphereList = <TData = AxiosResponse<V1VsphereAccounts>>(
-    params?: V1CloudAccountsVsphereListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/vsphere`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Creates a vSphere cloud account
- */
-const v1CloudAccountsVsphereCreate = <TData = AxiosResponse<V1Uid>>(
-    v1VsphereAccount?: V1VsphereAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/cloudaccounts/vsphere`,
-      v1VsphereAccount,options
-    );
-  }
-
-/**
- * @summary Deletes the specified vSphere account
- */
-const v1CloudAccountsVsphereDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudaccounts/vsphere/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified vSphere account
- */
-const v1CloudAccountsVsphereGet = <TData = AxiosResponse<V1VsphereAccount>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/vsphere/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified VSphere account
- */
-const v1CloudAccountsVsphereUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get the openstack projects for a given account
+   */
+  const v1OpenstackAccountsUidProjects = <
+    TData = AxiosResponse<V1OpenStackProjects>,
+  >(
     uid: string,
-    v1VsphereAccount?: V1VsphereAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudaccounts/openstack/${uid}/properties/projects`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Get the openstack regions for a given account
+   */
+  const v1OpenstackAccountsUidRegions = <
+    TData = AxiosResponse<V1OpenStackRegions>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudaccounts/openstack/${uid}/properties/regions`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Retrieves a list of cloud accounts summary
+   */
+  const v1CloudAccountsListSummary = <
+    TData = AxiosResponse<V1CloudAccountsSummary>,
+  >(
+    params?: V1CloudAccountsListSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/summary`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Retrieves a list of vSphere cloud accounts
+   */
+  const v1CloudAccountsVsphereList = <TData = AxiosResponse<V1VsphereAccounts>>(
+    params?: V1CloudAccountsVsphereListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/vsphere`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Creates a vSphere cloud account
+   */
+  const v1CloudAccountsVsphereCreate = <TData = AxiosResponse<V1Uid>>(
+    v1VsphereAccount?: V1VsphereAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/cloudaccounts/vsphere`, v1VsphereAccount, options);
+  };
+
+  /**
+   * @summary Deletes the specified vSphere account
+   */
+  const v1CloudAccountsVsphereDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/cloudaccounts/vsphere/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified vSphere account
+   */
+  const v1CloudAccountsVsphereGet = <TData = AxiosResponse<V1VsphereAccount>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudaccounts/vsphere/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified VSphere account
+   */
+  const v1CloudAccountsVsphereUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1VsphereAccount?: V1VsphereAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudaccounts/vsphere/${uid}`,
-      v1VsphereAccount,options
+      v1VsphereAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the vSphere computecluster resources for the given overlord account
- */
-const v1VsphereAccountsUidClusterRes = <TData = AxiosResponse<V1VsphereComputeClusterResources>>(
+  /**
+   * @summary Get the vSphere computecluster resources for the given overlord account
+   */
+  const v1VsphereAccountsUidClusterRes = <
+    TData = AxiosResponse<V1VsphereComputeClusterResources>,
+  >(
     uid: string,
-    params: V1VsphereAccountsUidClusterResParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1VsphereAccountsUidClusterResParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Get the vSphere datacenters & datacluster for the given overlord account
- */
-const v1VsphereAccountsUidDatacenters = <TData = AxiosResponse<V1VsphereDatacenters>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudaccounts/vsphere/${uid}/properties/datacenters`,options
-    );
-  }
-
-/**
- * @summary Update the geolocation annotation
- */
-const v1AccountsGeolocationPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get the vSphere datacenters & datacluster for the given overlord account
+   */
+  const v1VsphereAccountsUidDatacenters = <
+    TData = AxiosResponse<V1VsphereDatacenters>,
+  >(
     uid: string,
-    v1GeolocationLatlong: V1GeolocationLatlong, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudaccounts/vsphere/${uid}/properties/datacenters`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the geolocation annotation
+   */
+  const v1AccountsGeolocationPatch = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1GeolocationLatlong: V1GeolocationLatlong,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/cloudaccounts/${uid}/geoLocation`,
-      v1GeolocationLatlong,options
+      v1GeolocationLatlong,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified AKS cloud config
- */
-const v1CloudConfigsAksGet = <TData = AxiosResponse<V1AzureCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/aks/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsAksUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified AKS cloud config
+   */
+  const v1CloudConfigsAksGet = <TData = AxiosResponse<V1AzureCloudConfig>>(
     configUid: string,
-    v1AzureCloudClusterConfigEntity?: V1AzureCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/aks/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsAksUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1AzureCloudClusterConfigEntity?: V1AzureCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aks/${configUid}/clusterConfig`,
-      v1AzureCloudClusterConfigEntity,options
+      v1AzureCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an AKS cloud config's machine pool
- */
-const v1CloudConfigsAksMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an AKS cloud config's machine pool
+   */
+  const v1CloudConfigsAksMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/aks/${configUid}/machinePools`,
-      v1AzureMachinePoolConfigEntity,options
+      v1AzureMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsAksMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified AKS cloud config's machine pool
- */
-const v1CloudConfigsAksMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsAksMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified AKS cloud config's machine pool
+   */
+  const v1CloudConfigsAksMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`,
-      v1AzureMachinePoolConfigEntity,options
+      v1AzureMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AKS machines
- */
-const v1CloudConfigsAksPoolMachinesList = <TData = AxiosResponse<V1AzureMachines>>(
+  /**
+   * @summary Retrieves a list of AKS machines
+   */
+  const v1CloudConfigsAksPoolMachinesList = <
+    TData = AxiosResponse<V1AzureMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsAksPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsAksPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsAksPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsAksPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1AzureMachine?: V1AzureMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AzureMachine?: V1AzureMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1AzureMachine,options
+      v1AzureMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Azure machine
- */
-const v1CloudConfigsAksPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified AKS machine
- */
-const v1CloudConfigsAksPoolMachinesUidGet = <TData = AxiosResponse<V1AzureMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsAksPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Azure machine
+   */
+  const v1CloudConfigsAksPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1AzureMachine?: V1AzureMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified AKS machine
+   */
+  const v1CloudConfigsAksPoolMachinesUidGet = <
+    TData = AxiosResponse<V1AzureMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsAksPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1AzureMachine?: V1AzureMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1AzureMachine,options
+      v1AzureMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified AWS cloud config
- */
-const v1CloudConfigsAwsGet = <TData = AxiosResponse<V1AwsCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/aws/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsAwsUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified AWS cloud config
+   */
+  const v1CloudConfigsAwsGet = <TData = AxiosResponse<V1AwsCloudConfig>>(
     configUid: string,
-    v1AwsCloudClusterConfigEntity?: V1AwsCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/aws/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsAwsUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1AwsCloudClusterConfigEntity?: V1AwsCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aws/${configUid}/clusterConfig`,
-      v1AwsCloudClusterConfigEntity,options
+      v1AwsCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the hybrid configuration information of AWS cluster
- */
-const v1AwsCloudConfigsUidHybridConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the hybrid configuration information of AWS cluster
+   */
+  const v1AwsCloudConfigsUidHybridConfig = <TData = AxiosResponse<unknown>>(
     configUid: string,
-    v1AwsCloudHybridConfigEntity?: V1AwsCloudHybridConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsCloudHybridConfigEntity?: V1AwsCloudHybridConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aws/${configUid}/clusterConfig/hybridConfig`,
-      v1AwsCloudHybridConfigEntity,options
+      v1AwsCloudHybridConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an Hybrid AWS cloud config's Edge-Native machine pool
- */
-const v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an Hybrid AWS cloud config's Edge-Native machine pool
+   */
+  const v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
     configUid: string,
-    v1HybridEdgeNativeMachinePoolConfigEntity?: V1HybridEdgeNativeMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1HybridEdgeNativeMachinePoolConfigEntity?: V1HybridEdgeNativeMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools`,
-      v1HybridEdgeNativeMachinePoolConfigEntity,options
+      v1HybridEdgeNativeMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Edge-Native machine pool of hybrid AWS cluster
- */
-const v1AwsCloudConfigsEdgeNativeMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified AWS Cluster's Edge-Native machine pool configuration
- */
-const v1AwsCloudConfigsEdgeNativeMachinePoolGet = <TData = AxiosResponse<V1HybridEdgeNativeMachinePoolConfig>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified Hybrid AWS cluster cloud config's Edge-Native machine pool
- */
-const v1AwsCloudConfigsEdgeNativeMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Edge-Native machine pool of hybrid AWS cluster
+   */
+  const v1AwsCloudConfigsEdgeNativeMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1HybridEdgeNativeMachinePoolConfigUpdateEntity?: V1HybridEdgeNativeMachinePoolConfigUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified AWS Cluster's Edge-Native machine pool configuration
+   */
+  const v1AwsCloudConfigsEdgeNativeMachinePoolGet = <
+    TData = AxiosResponse<V1HybridEdgeNativeMachinePoolConfig>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified Hybrid AWS cluster cloud config's Edge-Native machine pool
+   */
+  const v1AwsCloudConfigsEdgeNativeMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1HybridEdgeNativeMachinePoolConfigUpdateEntity?: V1HybridEdgeNativeMachinePoolConfigUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`,
-      v1HybridEdgeNativeMachinePoolConfigUpdateEntity,options
+      v1HybridEdgeNativeMachinePoolConfigUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an AWS cloud config's machine pool
- */
-const v1CloudConfigsAwsMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an AWS cloud config's machine pool
+   */
+  const v1CloudConfigsAwsMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1AwsMachinePoolConfigEntity?: V1AwsMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsMachinePoolConfigEntity?: V1AwsMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/aws/${configUid}/machinePools`,
-      v1AwsMachinePoolConfigEntity,options
+      v1AwsMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsAwsMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified AWS cloud config's machine pool
- */
-const v1CloudConfigsAwsMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsAwsMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1AwsMachinePoolConfigEntity?: V1AwsMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified AWS cloud config's machine pool
+   */
+  const v1CloudConfigsAwsMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1AwsMachinePoolConfigEntity?: V1AwsMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`,
-      v1AwsMachinePoolConfigEntity,options
+      v1AwsMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS machines
- */
-const v1CloudConfigsAwsPoolMachinesList = <TData = AxiosResponse<V1AwsMachines>>(
+  /**
+   * @summary Retrieves a list of AWS machines
+   */
+  const v1CloudConfigsAwsPoolMachinesList = <
+    TData = AxiosResponse<V1AwsMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsAwsPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsAwsPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsAwsPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsAwsPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1AwsMachine?: V1AwsMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsMachine?: V1AwsMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1AwsMachine,options
+      v1AwsMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified AWS machine
- */
-const v1CloudConfigsAwsPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified AWS machine
- */
-const v1CloudConfigsAwsPoolMachinesUidGet = <TData = AxiosResponse<V1AwsMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsAwsPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified AWS machine
+   */
+  const v1CloudConfigsAwsPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1AwsMachine?: V1AwsMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified AWS machine
+   */
+  const v1CloudConfigsAwsPoolMachinesUidGet = <
+    TData = AxiosResponse<V1AwsMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsAwsPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1AwsMachine?: V1AwsMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1AwsMachine,options
+      v1AwsMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Azure cloud config
- */
-const v1CloudConfigsAzureGet = <TData = AxiosResponse<V1AzureCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/azure/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsAzureUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Azure cloud config
+   */
+  const v1CloudConfigsAzureGet = <TData = AxiosResponse<V1AzureCloudConfig>>(
     configUid: string,
-    v1AzureCloudClusterConfigEntity?: V1AzureCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/azure/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsAzureUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1AzureCloudClusterConfigEntity?: V1AzureCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/azure/${configUid}/clusterConfig`,
-      v1AzureCloudClusterConfigEntity,options
+      v1AzureCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an Azure cloud config's machine pool
- */
-const v1CloudConfigsAzureMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an Azure cloud config's machine pool
+   */
+  const v1CloudConfigsAzureMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/azure/${configUid}/machinePools`,
-      v1AzureMachinePoolConfigEntity,options
+      v1AzureMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsAzureMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified Azure cloud config's machine pool
- */
-const v1CloudConfigsAzureMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsAzureMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified Azure cloud config's machine pool
+   */
+  const v1CloudConfigsAzureMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1AzureMachinePoolConfigEntity?: V1AzureMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`,
-      v1AzureMachinePoolConfigEntity,options
+      v1AzureMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * Returns all the Azure machines restricted to the user role and filters.
- * @summary Retrieves a list of Azure machines
- */
-const v1CloudConfigsAzurePoolMachinesList = <TData = AxiosResponse<V1AzureMachines>>(
+  /**
+   * Returns all the Azure machines restricted to the user role and filters.
+   * @summary Retrieves a list of Azure machines
+   */
+  const v1CloudConfigsAzurePoolMachinesList = <
+    TData = AxiosResponse<V1AzureMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsAzurePoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsAzurePoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsAzurePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsAzurePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1AzureMachine?: V1AzureMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AzureMachine?: V1AzureMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1AzureMachine,options
+      v1AzureMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Azure machine
- */
-const v1CloudConfigsAzurePoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * Returns a Azure machine for the specified uid.
- * @summary Returns the specified Azure machine
- */
-const v1CloudConfigsAzurePoolMachinesUidGet = <TData = AxiosResponse<V1AzureMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to cloud config's machine pool
- */
-const v1CloudConfigsAzurePoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Azure machine
+   */
+  const v1CloudConfigsAzurePoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1AzureMachine?: V1AzureMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * Returns a Azure machine for the specified uid.
+   * @summary Returns the specified Azure machine
+   */
+  const v1CloudConfigsAzurePoolMachinesUidGet = <
+    TData = AxiosResponse<V1AzureMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to cloud config's machine pool
+   */
+  const v1CloudConfigsAzurePoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1AzureMachine?: V1AzureMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1AzureMachine,options
+      v1AzureMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Custom cloud config
- */
-const v1CloudConfigsCustomGet = <TData = AxiosResponse<V1CustomCloudConfig>>(
-    cloudType: string,
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsCustomUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Custom cloud config
+   */
+  const v1CloudConfigsCustomGet = <TData = AxiosResponse<V1CustomCloudConfig>>(
     cloudType: string,
     configUid: string,
-    v1CustomCloudClusterConfigEntity?: V1CustomCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsCustomUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    configUid: string,
+    v1CustomCloudClusterConfigEntity?: V1CustomCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/clusterConfig`,
-      v1CustomCloudClusterConfigEntity,options
+      v1CustomCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an Custom cloud config's machine pool
- */
-const v1CloudConfigsCustomMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an Custom cloud config's machine pool
+   */
+  const v1CloudConfigsCustomMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     cloudType: string,
     configUid: string,
-    v1CustomMachinePoolConfigEntity?: V1CustomMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1CustomMachinePoolConfigEntity?: V1CustomMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools`,
-      v1CustomMachinePoolConfigEntity,options
+      v1CustomMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsCustomMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string,
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified Custom cloud config's machine pool
- */
-const v1CloudConfigsCustomMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsCustomMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
-    v1CustomMachinePoolConfigEntity?: V1CustomMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified Custom cloud config's machine pool
+   */
+  const v1CloudConfigsCustomMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    configUid: string,
+    machinePoolName: string,
+    v1CustomMachinePoolConfigEntity?: V1CustomMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`,
-      v1CustomMachinePoolConfigEntity,options
+      v1CustomMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Custom machines
- */
-const v1CloudConfigsCustomPoolMachinesList = <TData = AxiosResponse<V1CustomMachines>>(
+  /**
+   * @summary Retrieves a list of Custom machines
+   */
+  const v1CloudConfigsCustomPoolMachinesList = <
+    TData = AxiosResponse<V1CustomMachines>,
+  >(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsCustomPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsCustomPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsCustomPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsCustomPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
-    v1CustomMachine?: V1CustomMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1CustomMachine?: V1CustomMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1CustomMachine,options
+      v1CustomMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Custom machine
- */
-const v1CloudConfigsCustomPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string,
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified Custom machine
- */
-const v1CloudConfigsCustomPoolMachinesUidGet = <TData = AxiosResponse<V1CustomMachine>>(
-    cloudType: string,
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsCustomPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Custom machine
+   */
+  const v1CloudConfigsCustomPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1CustomMachine?: V1CustomMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified Custom machine
+   */
+  const v1CloudConfigsCustomPoolMachinesUidGet = <
+    TData = AxiosResponse<V1CustomMachine>,
+  >(
+    cloudType: string,
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsCustomPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1CustomMachine?: V1CustomMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1CustomMachine,options
+      v1CustomMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified edge-native cloud config
- */
-const v1CloudConfigsEdgeNativeGet = <TData = AxiosResponse<V1EdgeNativeCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/edge-native/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsEdgeNativeUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified edge-native cloud config
+   */
+  const v1CloudConfigsEdgeNativeGet = <
+    TData = AxiosResponse<V1EdgeNativeCloudConfig>,
+  >(
     configUid: string,
-    v1EdgeNativeCloudClusterConfigEntity?: V1EdgeNativeCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/edge-native/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsEdgeNativeUidClusterConfig = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    v1EdgeNativeCloudClusterConfigEntity?: V1EdgeNativeCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/edge-native/${configUid}/clusterConfig`,
-      v1EdgeNativeCloudClusterConfigEntity,options
+      v1EdgeNativeCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a edge-native cloud config's machine pool
- */
-const v1CloudConfigsEdgeNativeMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a edge-native cloud config's machine pool
+   */
+  const v1CloudConfigsEdgeNativeMachinePoolCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
     configUid: string,
-    v1EdgeNativeMachinePoolConfigEntity?: V1EdgeNativeMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeNativeMachinePoolConfigEntity?: V1EdgeNativeMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/edge-native/${configUid}/machinePools`,
-      v1EdgeNativeMachinePoolConfigEntity,options
+      v1EdgeNativeMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsEdgeNativeMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified edge-native cloud config's machine pool
- */
-const v1CloudConfigsEdgeNativeMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsEdgeNativeMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1EdgeNativeMachinePoolConfigEntity?: V1EdgeNativeMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified edge-native cloud config's machine pool
+   */
+  const v1CloudConfigsEdgeNativeMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1EdgeNativeMachinePoolConfigEntity?: V1EdgeNativeMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`,
-      v1EdgeNativeMachinePoolConfigEntity,options
+      v1EdgeNativeMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of edge-native machines
- */
-const v1CloudConfigsEdgeNativePoolMachinesList = <TData = AxiosResponse<V1EdgeNativeMachines>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`,options
-    );
-  }
-
-/**
- * @summary Adds the edge-native machine to cloud config's machine pool
- */
-const v1CloudConfigsEdgeNativePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Retrieves a list of edge-native machines
+   */
+  const v1CloudConfigsEdgeNativePoolMachinesList = <
+    TData = AxiosResponse<V1EdgeNativeMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1EdgeNativeMachine?: V1EdgeNativeMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Adds the edge-native machine to cloud config's machine pool
+   */
+  const v1CloudConfigsEdgeNativePoolMachinesAdd = <
+    TData = AxiosResponse<V1Uid>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1EdgeNativeMachine?: V1EdgeNativeMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1EdgeNativeMachine,options
+      v1EdgeNativeMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified edge-native machine
- */
-const v1CloudConfigsEdgeNativePoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified edge-native machine
- */
-const v1CloudConfigsEdgeNativePoolMachinesUidGet = <TData = AxiosResponse<V1EdgeNativeMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to cloud config's machine pool
- */
-const v1CloudConfigsEdgeNativePoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified edge-native machine
+   */
+  const v1CloudConfigsEdgeNativePoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1EdgeNativeMachine?: V1EdgeNativeMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified edge-native machine
+   */
+  const v1CloudConfigsEdgeNativePoolMachinesUidGet = <
+    TData = AxiosResponse<V1EdgeNativeMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to cloud config's machine pool
+   */
+  const v1CloudConfigsEdgeNativePoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1EdgeNativeMachine?: V1EdgeNativeMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1EdgeNativeMachine,options
+      v1EdgeNativeMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified EKS cloud config
- */
-const v1CloudConfigsEksGet = <TData = AxiosResponse<V1EksCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/eks/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsEksUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified EKS cloud config
+   */
+  const v1CloudConfigsEksGet = <TData = AxiosResponse<V1EksCloudConfig>>(
     configUid: string,
-    v1EksCloudClusterConfigEntity?: V1EksCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/eks/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsEksUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1EksCloudClusterConfigEntity?: V1EksCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/eks/${configUid}/clusterConfig`,
-      v1EksCloudClusterConfigEntity,options
+      v1EksCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates EKS cloud config's fargate profiles
- */
-const v1CloudConfigsEksUidFargateProfilesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates EKS cloud config's fargate profiles
+   */
+  const v1CloudConfigsEksUidFargateProfilesUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
-    v1EksFargateProfiles?: V1EksFargateProfiles, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EksFargateProfiles?: V1EksFargateProfiles,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/eks/${configUid}/fargateProfiles`,
-      v1EksFargateProfiles,options
+      v1EksFargateProfiles,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an EKS cloud config's machine pool
- */
-const v1CloudConfigsEksMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an EKS cloud config's machine pool
+   */
+  const v1CloudConfigsEksMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1EksMachinePoolConfigEntity?: V1EksMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EksMachinePoolConfigEntity?: V1EksMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/eks/${configUid}/machinePools`,
-      v1EksMachinePoolConfigEntity,options
+      v1EksMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsEksMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified EKS cloud config's machine pool
- */
-const v1CloudConfigsEksMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsEksMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1EksMachinePoolConfigEntity?: V1EksMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified EKS cloud config's machine pool
+   */
+  const v1CloudConfigsEksMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1EksMachinePoolConfigEntity?: V1EksMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`,
-      v1EksMachinePoolConfigEntity,options
+      v1EksMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of EKS machines
- */
-const v1CloudConfigsEksPoolMachinesList = <TData = AxiosResponse<V1AwsMachines>>(
+  /**
+   * @summary Retrieves a list of EKS machines
+   */
+  const v1CloudConfigsEksPoolMachinesList = <
+    TData = AxiosResponse<V1AwsMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsEksPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsEksPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsEksPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsEksPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1AwsMachine?: V1AwsMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsMachine?: V1AwsMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1AwsMachine,options
+      v1AwsMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified EKS machine
- */
-const v1CloudConfigsEksPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified EKS machine
- */
-const v1CloudConfigsEksPoolMachinesUidGet = <TData = AxiosResponse<V1AwsMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsEksPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified EKS machine
+   */
+  const v1CloudConfigsEksPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1AwsMachine?: V1AwsMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified EKS machine
+   */
+  const v1CloudConfigsEksPoolMachinesUidGet = <
+    TData = AxiosResponse<V1AwsMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsEksPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1AwsMachine?: V1AwsMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1AwsMachine,options
+      v1AwsMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified GCP cloud config
- */
-const v1CloudConfigsGcpGet = <TData = AxiosResponse<V1GcpCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/gcp/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsGcpUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified GCP cloud config
+   */
+  const v1CloudConfigsGcpGet = <TData = AxiosResponse<V1GcpCloudConfig>>(
     configUid: string,
-    v1GcpCloudClusterConfigEntity?: V1GcpCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/gcp/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsGcpUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1GcpCloudClusterConfigEntity?: V1GcpCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gcp/${configUid}/clusterConfig`,
-      v1GcpCloudClusterConfigEntity,options
+      v1GcpCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a Gcp cloud config's machine pool
- */
-const v1CloudConfigsGcpMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a Gcp cloud config's machine pool
+   */
+  const v1CloudConfigsGcpMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/gcp/${configUid}/machinePools`,
-      v1GcpMachinePoolConfigEntity,options
+      v1GcpMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsGcpMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified GCP cloud config's machine pool
- */
-const v1CloudConfigsGcpMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsGcpMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified GCP cloud config's machine pool
+   */
+  const v1CloudConfigsGcpMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`,
-      v1GcpMachinePoolConfigEntity,options
+      v1GcpMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of GCP machines
- */
-const v1CloudConfigsGcpPoolMachinesList = <TData = AxiosResponse<V1GcpMachines>>(
+  /**
+   * @summary Retrieves a list of GCP machines
+   */
+  const v1CloudConfigsGcpPoolMachinesList = <
+    TData = AxiosResponse<V1GcpMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsGcpPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsGcpPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsGcpPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsGcpPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1GcpMachine?: V1GcpMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GcpMachine?: V1GcpMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1GcpMachine,options
+      v1GcpMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified GCP machine
- */
-const v1CloudConfigsGcpPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified GCP machine
- */
-const v1CloudConfigsGcpPoolMachinesUidGet = <TData = AxiosResponse<V1GcpMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsGcpPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified GCP machine
+   */
+  const v1CloudConfigsGcpPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1GcpMachine?: V1GcpMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified GCP machine
+   */
+  const v1CloudConfigsGcpPoolMachinesUidGet = <
+    TData = AxiosResponse<V1GcpMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsGcpPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1GcpMachine?: V1GcpMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1GcpMachine,options
+      v1GcpMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Generic cloud config
- */
-const v1CloudConfigsGenericGet = <TData = AxiosResponse<V1GenericCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/generic/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsGenericUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Generic cloud config
+   */
+  const v1CloudConfigsGenericGet = <
+    TData = AxiosResponse<V1GenericCloudConfig>,
+  >(
     configUid: string,
-    v1GenericCloudClusterConfigEntity?: V1GenericCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/generic/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsGenericUidClusterConfig = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    v1GenericCloudClusterConfigEntity?: V1GenericCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/generic/${configUid}/clusterConfig`,
-      v1GenericCloudClusterConfigEntity,options
+      v1GenericCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a generic cloud config's machine pool
- */
-const v1CloudConfigsGenericMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a generic cloud config's machine pool
+   */
+  const v1CloudConfigsGenericMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1GenericMachinePoolConfigEntity?: V1GenericMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GenericMachinePoolConfigEntity?: V1GenericMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/generic/${configUid}/machinePools`,
-      v1GenericMachinePoolConfigEntity,options
+      v1GenericMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsGenericMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified generic cloud config's machine pool
- */
-const v1CloudConfigsGenericMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsGenericMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1GenericMachinePoolConfigEntity?: V1GenericMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified generic cloud config's machine pool
+   */
+  const v1CloudConfigsGenericMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1GenericMachinePoolConfigEntity?: V1GenericMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`,
-      v1GenericMachinePoolConfigEntity,options
+      v1GenericMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Generic machines
- */
-const v1CloudConfigsGenericPoolMachinesList = <TData = AxiosResponse<V1GenericMachines>>(
+  /**
+   * @summary Retrieves a list of Generic machines
+   */
+  const v1CloudConfigsGenericPoolMachinesList = <
+    TData = AxiosResponse<V1GenericMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsGenericPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsGenericPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsGenericPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsGenericPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1GenericMachine?: V1GenericMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GenericMachine?: V1GenericMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1GenericMachine,options
+      v1GenericMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine
- */
-const v1CloudConfigsGenericPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified generic machine
- */
-const v1CloudConfigsGenericPoolMachinesUidGet = <TData = AxiosResponse<V1GenericMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsGenericPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine
+   */
+  const v1CloudConfigsGenericPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1GenericMachine?: V1GenericMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified generic machine
+   */
+  const v1CloudConfigsGenericPoolMachinesUidGet = <
+    TData = AxiosResponse<V1GenericMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsGenericPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1GenericMachine?: V1GenericMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1GenericMachine,options
+      v1GenericMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified GKE cloud config
- */
-const v1CloudConfigsGkeGet = <TData = AxiosResponse<V1GcpCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/gke/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsGkeUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified GKE cloud config
+   */
+  const v1CloudConfigsGkeGet = <TData = AxiosResponse<V1GcpCloudConfig>>(
     configUid: string,
-    v1GcpCloudClusterConfigEntity?: V1GcpCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/gke/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsGkeUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1GcpCloudClusterConfigEntity?: V1GcpCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gke/${configUid}/clusterConfig`,
-      v1GcpCloudClusterConfigEntity,options
+      v1GcpCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an GKE cloud config's machine pool
- */
-const v1CloudConfigsGkeMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an GKE cloud config's machine pool
+   */
+  const v1CloudConfigsGkeMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/gke/${configUid}/machinePools`,
-      v1GcpMachinePoolConfigEntity,options
+      v1GcpMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsGkeMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified GKE cloud config's machine pool
- */
-const v1CloudConfigsGkeMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsGkeMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified GKE cloud config's machine pool
+   */
+  const v1CloudConfigsGkeMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1GcpMachinePoolConfigEntity?: V1GcpMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`,
-      v1GcpMachinePoolConfigEntity,options
+      v1GcpMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of GKE machines
- */
-const v1CloudConfigsGkePoolMachinesList = <TData = AxiosResponse<V1GcpMachines>>(
+  /**
+   * @summary Retrieves a list of GKE machines
+   */
+  const v1CloudConfigsGkePoolMachinesList = <
+    TData = AxiosResponse<V1GcpMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsGkePoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsGkePoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsGkePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsGkePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1GcpMachine?: V1GcpMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1GcpMachine?: V1GcpMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1GcpMachine,options
+      v1GcpMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Gcp machine
- */
-const v1CloudConfigsGkePoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified GKE machine
- */
-const v1CloudConfigsGkePoolMachinesUidGet = <TData = AxiosResponse<V1GcpMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsGkePoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Gcp machine
+   */
+  const v1CloudConfigsGkePoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1GcpMachine?: V1GcpMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified GKE machine
+   */
+  const v1CloudConfigsGkePoolMachinesUidGet = <
+    TData = AxiosResponse<V1GcpMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsGkePoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1GcpMachine?: V1GcpMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1GcpMachine,options
+      v1GcpMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Maas cloud config
- */
-const v1CloudConfigsMaasGet = <TData = AxiosResponse<V1MaasCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/maas/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsMaasUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Maas cloud config
+   */
+  const v1CloudConfigsMaasGet = <TData = AxiosResponse<V1MaasCloudConfig>>(
     configUid: string,
-    v1MaasCloudClusterConfigEntity?: V1MaasCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/maas/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsMaasUidClusterConfig = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    v1MaasCloudClusterConfigEntity?: V1MaasCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/maas/${configUid}/clusterConfig`,
-      v1MaasCloudClusterConfigEntity,options
+      v1MaasCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an Maas cloud config's machine pool
- */
-const v1CloudConfigsMaasMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates an Maas cloud config's machine pool
+   */
+  const v1CloudConfigsMaasMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1MaasMachinePoolConfigEntity?: V1MaasMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1MaasMachinePoolConfigEntity?: V1MaasMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/maas/${configUid}/machinePools`,
-      v1MaasMachinePoolConfigEntity,options
+      v1MaasMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsMaasMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified Maas cloud config's machine pool
- */
-const v1CloudConfigsMaasMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsMaasMachinePoolDelete = <TData = AxiosResponse<unknown>>(
     configUid: string,
     machinePoolName: string,
-    v1MaasMachinePoolConfigEntity?: V1MaasMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified Maas cloud config's machine pool
+   */
+  const v1CloudConfigsMaasMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+    configUid: string,
+    machinePoolName: string,
+    v1MaasMachinePoolConfigEntity?: V1MaasMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`,
-      v1MaasMachinePoolConfigEntity,options
+      v1MaasMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Maas machines
- */
-const v1CloudConfigsMaasPoolMachinesList = <TData = AxiosResponse<V1MaasMachines>>(
+  /**
+   * @summary Retrieves a list of Maas machines
+   */
+  const v1CloudConfigsMaasPoolMachinesList = <
+    TData = AxiosResponse<V1MaasMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsMaasPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsMaasPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsMaasPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsMaasPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1MaasMachine?: V1MaasMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1MaasMachine?: V1MaasMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1MaasMachine,options
+      v1MaasMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified Maas machine
- */
-const v1CloudConfigsMaasPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified Maas machine
- */
-const v1CloudConfigsMaasPoolMachinesUidGet = <TData = AxiosResponse<V1MaasMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsMaasPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified Maas machine
+   */
+  const v1CloudConfigsMaasPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1MaasMachine?: V1MaasMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified Maas machine
+   */
+  const v1CloudConfigsMaasPoolMachinesUidGet = <
+    TData = AxiosResponse<V1MaasMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsMaasPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1MaasMachine?: V1MaasMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1MaasMachine,options
+      v1MaasMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified OpenStack cloud config
- */
-const v1CloudConfigsOpenStackGet = <TData = AxiosResponse<V1OpenStackCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/openstack/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsOpenStackUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified OpenStack cloud config
+   */
+  const v1CloudConfigsOpenStackGet = <
+    TData = AxiosResponse<V1OpenStackCloudConfig>,
+  >(
     configUid: string,
-    v1OpenStackCloudClusterConfigEntity?: V1OpenStackCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/openstack/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsOpenStackUidClusterConfig = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    v1OpenStackCloudClusterConfigEntity?: V1OpenStackCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/openstack/${configUid}/clusterConfig`,
-      v1OpenStackCloudClusterConfigEntity,options
+      v1OpenStackCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a OpenStack cloud config's machine pool
- */
-const v1CloudConfigsOpenStackMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a OpenStack cloud config's machine pool
+   */
+  const v1CloudConfigsOpenStackMachinePoolCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
     configUid: string,
-    v1OpenStackMachinePoolConfigEntity?: V1OpenStackMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OpenStackMachinePoolConfigEntity?: V1OpenStackMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/openstack/${configUid}/machinePools`,
-      v1OpenStackMachinePoolConfigEntity,options
+      v1OpenStackMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsOpenStackMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified OpenStack cloud config's machine pool
- */
-const v1CloudConfigsOpenStackMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsOpenStackMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1OpenStackMachinePoolConfigEntity?: V1OpenStackMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified OpenStack cloud config's machine pool
+   */
+  const v1CloudConfigsOpenStackMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1OpenStackMachinePoolConfigEntity?: V1OpenStackMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`,
-      v1OpenStackMachinePoolConfigEntity,options
+      v1OpenStackMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of OpenStack machines
- */
-const v1CloudConfigsOpenStackPoolMachinesList = <TData = AxiosResponse<V1OpenStackMachines>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`,options
-    );
-  }
-
-/**
- * @summary Adds the OpenStack machine to cloud config's machine pool
- */
-const v1CloudConfigsOpenStackPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Retrieves a list of OpenStack machines
+   */
+  const v1CloudConfigsOpenStackPoolMachinesList = <
+    TData = AxiosResponse<V1OpenStackMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1OpenStackMachine?: V1OpenStackMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Adds the OpenStack machine to cloud config's machine pool
+   */
+  const v1CloudConfigsOpenStackPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+    configUid: string,
+    machinePoolName: string,
+    v1OpenStackMachine?: V1OpenStackMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1OpenStackMachine,options
+      v1OpenStackMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified OpenStack machine
- */
-const v1CloudConfigsOpenStackPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified OpenStack machine
- */
-const v1CloudConfigsOpenStackPoolMachinesUidGet = <TData = AxiosResponse<V1OpenStackMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to cloud config's machine pool
- */
-const v1CloudConfigsOpenStackPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified OpenStack machine
+   */
+  const v1CloudConfigsOpenStackPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1OpenStackMachine?: V1OpenStackMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified OpenStack machine
+   */
+  const v1CloudConfigsOpenStackPoolMachinesUidGet = <
+    TData = AxiosResponse<V1OpenStackMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to cloud config's machine pool
+   */
+  const v1CloudConfigsOpenStackPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1OpenStackMachine?: V1OpenStackMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1OpenStackMachine,options
+      v1OpenStackMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Virtual cloud config
- */
-const v1CloudConfigsVirtualGet = <TData = AxiosResponse<V1VirtualCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/virtual/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsVirtualUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Virtual cloud config
+   */
+  const v1CloudConfigsVirtualGet = <
+    TData = AxiosResponse<V1VirtualCloudConfig>,
+  >(
     configUid: string,
-    v1VirtualCloudClusterConfigEntity?: V1VirtualCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/virtual/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsVirtualUidClusterConfig = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    v1VirtualCloudClusterConfigEntity?: V1VirtualCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/virtual/${configUid}/clusterConfig`,
-      v1VirtualCloudClusterConfigEntity,options
+      v1VirtualCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a virtual cloud config's machine pool
- */
-const v1CloudConfigsVirtualMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a virtual cloud config's machine pool
+   */
+  const v1CloudConfigsVirtualMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1VirtualMachinePoolConfigEntity?: V1VirtualMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VirtualMachinePoolConfigEntity?: V1VirtualMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/virtual/${configUid}/machinePools`,
-      v1VirtualMachinePoolConfigEntity,options
+      v1VirtualMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsVirtualMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified virtual cloud config's machine pool
- */
-const v1CloudConfigsVirtualMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsVirtualMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1VirtualMachinePoolConfigEntity?: V1VirtualMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified virtual cloud config's machine pool
+   */
+  const v1CloudConfigsVirtualMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1VirtualMachinePoolConfigEntity?: V1VirtualMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`,
-      v1VirtualMachinePoolConfigEntity,options
+      v1VirtualMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of virtual machines
- */
-const v1CloudConfigsVirtualPoolMachinesList = <TData = AxiosResponse<V1VirtualMachines>>(
+  /**
+   * @summary Retrieves a list of virtual machines
+   */
+  const v1CloudConfigsVirtualPoolMachinesList = <
+    TData = AxiosResponse<V1VirtualMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsVirtualPoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsVirtualPoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the machine to cloud config's machine pool
- */
-const v1CloudConfigsVirtualPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the machine to cloud config's machine pool
+   */
+  const v1CloudConfigsVirtualPoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1VirtualMachine?: V1VirtualMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VirtualMachine?: V1VirtualMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1VirtualMachine,options
+      v1VirtualMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified virtual machine
- */
-const v1CloudConfigsVirtualPoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified virtual machine
- */
-const v1CloudConfigsVirtualPoolMachinesUidGet = <TData = AxiosResponse<V1VirtualMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to the cloud config's machine pool
- */
-const v1CloudConfigsVirtualPoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified virtual machine
+   */
+  const v1CloudConfigsVirtualPoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1VirtualMachine?: V1VirtualMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified virtual machine
+   */
+  const v1CloudConfigsVirtualPoolMachinesUidGet = <
+    TData = AxiosResponse<V1VirtualMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to the cloud config's machine pool
+   */
+  const v1CloudConfigsVirtualPoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1VirtualMachine?: V1VirtualMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1VirtualMachine,options
+      v1VirtualMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates and resizes the virtual cluster
- */
-const v1CloudConfigsVirtualUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates and resizes the virtual cluster
+   */
+  const v1CloudConfigsVirtualUidUpdate = <TData = AxiosResponse<unknown>>(
     configUid: string,
-    v1VirtualClusterResize?: V1VirtualClusterResize, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VirtualClusterResize?: V1VirtualClusterResize,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/virtual/${configUid}/resize`,
-      v1VirtualClusterResize,options
+      v1VirtualClusterResize,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified vSphere cloud config
- */
-const v1CloudConfigsVsphereGet = <TData = AxiosResponse<V1VsphereCloudConfig>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/vsphere/${configUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the cluster configuration information
- */
-const v1CloudConfigsVsphereUidClusterConfig = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified vSphere cloud config
+   */
+  const v1CloudConfigsVsphereGet = <
+    TData = AxiosResponse<V1VsphereCloudConfig>,
+  >(
     configUid: string,
-    v1VsphereCloudClusterConfigEntity?: V1VsphereCloudClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/cloudconfigs/vsphere/${configUid}`, options);
+  };
+
+  /**
+   * @summary Updates the cluster configuration information
+   */
+  const v1CloudConfigsVsphereUidClusterConfig = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    v1VsphereCloudClusterConfigEntity?: V1VsphereCloudClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/vsphere/${configUid}/clusterConfig`,
-      v1VsphereCloudClusterConfigEntity,options
+      v1VsphereCloudClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a vSphere cloud config's machine pool
- */
-const v1CloudConfigsVsphereMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a vSphere cloud config's machine pool
+   */
+  const v1CloudConfigsVsphereMachinePoolCreate = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
-    v1VsphereMachinePoolConfigEntity?: V1VsphereMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VsphereMachinePoolConfigEntity?: V1VsphereMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/vsphere/${configUid}/machinePools`,
-      v1VsphereMachinePoolConfigEntity,options
+      v1VsphereMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified machine pool
- */
-const v1CloudConfigsVsphereMachinePoolDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified vSphere cloud config's machine pool
- */
-const v1CloudConfigsVsphereMachinePoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified machine pool
+   */
+  const v1CloudConfigsVsphereMachinePoolDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
-    v1VsphereMachinePoolConfigEntity?: V1VsphereMachinePoolConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified vSphere cloud config's machine pool
+   */
+  const v1CloudConfigsVsphereMachinePoolUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    v1VsphereMachinePoolConfigEntity?: V1VsphereMachinePoolConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`,
-      v1VsphereMachinePoolConfigEntity,options
+      v1VsphereMachinePoolConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of vSphere machines
- */
-const v1CloudConfigsVspherePoolMachinesList = <TData = AxiosResponse<V1VsphereMachines>>(
+  /**
+   * @summary Retrieves a list of vSphere machines
+   */
+  const v1CloudConfigsVspherePoolMachinesList = <
+    TData = AxiosResponse<V1VsphereMachines>,
+  >(
     configUid: string,
     machinePoolName: string,
-    params?: V1CloudConfigsVspherePoolMachinesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1CloudConfigsVspherePoolMachinesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Adds the vSphere machine to cloud config's machine pool
- */
-const v1CloudConfigsVspherePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds the vSphere machine to cloud config's machine pool
+   */
+  const v1CloudConfigsVspherePoolMachinesAdd = <TData = AxiosResponse<V1Uid>>(
     configUid: string,
     machinePoolName: string,
-    v1VsphereMachine?: V1VsphereMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VsphereMachine?: V1VsphereMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`,
-      v1VsphereMachine,options
+      v1VsphereMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified vSphere machine
- */
-const v1CloudConfigsVspherePoolMachinesUidDelete = <TData = AxiosResponse<unknown>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified vSphere machine
- */
-const v1CloudConfigsVspherePoolMachinesUidGet = <TData = AxiosResponse<V1VsphereMachine>>(
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified machine to cloud config's machine pool
- */
-const v1CloudConfigsVspherePoolMachinesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified vSphere machine
+   */
+  const v1CloudConfigsVspherePoolMachinesUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1VsphereMachine?: V1VsphereMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified vSphere machine
+   */
+  const v1CloudConfigsVspherePoolMachinesUidGet = <
+    TData = AxiosResponse<V1VsphereMachine>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified machine to cloud config's machine pool
+   */
+  const v1CloudConfigsVspherePoolMachinesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    configUid: string,
+    machinePoolName: string,
+    machineUid: string,
+    v1VsphereMachine?: V1VsphereMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`,
-      v1VsphereMachine,options
+      v1VsphereMachine,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified machine maintenance
- */
-const v1CloudConfigsMachinePoolsMachineUidMaintenanceUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified machine maintenance
+   */
+  const v1CloudConfigsMachinePoolsMachineUidMaintenanceUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1MachineMaintenance?: V1MachineMaintenance, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1MachineMaintenance?: V1MachineMaintenance,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance`,
-      v1MachineMaintenance,options
+      v1MachineMaintenance,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified machine maintenance
- */
-const v1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified machine maintenance
+   */
+  const v1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
     configUid: string,
     machinePoolName: string,
     machineUid: string,
-    v1MachineMaintenanceStatus?: V1MachineMaintenanceStatus, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1MachineMaintenanceStatus?: V1MachineMaintenanceStatus,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance/status`,
-      v1MachineMaintenanceStatus,options
+      v1MachineMaintenanceStatus,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cloud config's machine pools and machine uid
- */
-const v1CloudConfigsMachinePoolsMachineUidsGet = <TData = AxiosResponse<V1MachinePoolsMachineUids>>(
-    configUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Returns the specified cloud config's machine pools and machine uid
+   */
+  const v1CloudConfigsMachinePoolsMachineUidsGet = <
+    TData = AxiosResponse<V1MachinePoolsMachineUids>,
+  >(
+    configUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/cloudconfigs/${configUid}/machinePools/machineUids`,options
+      `/v1/cloudconfigs/${configUid}/machinePools/machineUids`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves the Aws secret credentials
- */
-const v1AwsAccountSecretCredentials = <TData = AxiosResponse<V1AwsAccountCredentials>>(
-    v1AwsSecretSpecInputEntity: V1AwsSecretSpecInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves the Aws secret credentials
+   */
+  const v1AwsAccountSecretCredentials = <
+    TData = AxiosResponse<V1AwsAccountCredentials>,
+  >(
+    v1AwsSecretSpecInputEntity: V1AwsSecretSpecInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/account/secret/credentials`,
-      v1AwsSecretSpecInputEntity,options
+      v1AwsSecretSpecInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves AWS external id and account id
- */
-const v1AwsAccountStsGet = <TData = AxiosResponse<V1AwsAccountSts>>(
-    params?: V1AwsAccountStsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/account/sts`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves AWS external id and account id
+   */
+  const v1AwsAccountStsGet = <TData = AxiosResponse<V1AwsAccountSts>>(
+    params?: V1AwsAccountStsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/account/sts`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validate the specified AWS account credentials
- */
-const v1AwsAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1AwsCloudAccount: V1AwsCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate the specified AWS account credentials
+   */
+  const v1AwsAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1AwsCloudAccount: V1AwsCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/account/validate`,
-      v1AwsCloudAccount,options
+      v1AwsCloudAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS AMI types
- */
-const v1AwsAmiTypes = <TData = AxiosResponse<V1AmiTypes>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/amiTypes`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of AWS AMI types
+   */
+  const v1AwsAmiTypes = <TData = AxiosResponse<V1AmiTypes>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/amiTypes`, options);
+  };
 
-/**
- * Validates aws cloud watch credentials
- * @summary validates aws cloud watch credentials
- */
-const v1CloudsAwsCloudWatchValidate = <TData = AxiosResponse<unknown>>(
-    v1CloudWatchConfig: V1CloudWatchConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Validates aws cloud watch credentials
+   * @summary validates aws cloud watch credentials
+   */
+  const v1CloudsAwsCloudWatchValidate = <TData = AxiosResponse<unknown>>(
+    v1CloudWatchConfig: V1CloudWatchConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/cloudwatch/validate`,
-      v1CloudWatchConfig,options
+      v1CloudWatchConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves AWS cloud account usage cost from cost explorer.
- */
-const v1AwsCloudCost = <TData = AxiosResponse<V1AwsCloudCostSummary>>(
-    v1AwsCloudCostSpec: V1AwsCloudCostSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/clouds/aws/cost`,
-      v1AwsCloudCostSpec,options
-    );
-  }
+  /**
+   * @summary Retrieves AWS cloud account usage cost from cost explorer.
+   */
+  const v1AwsCloudCost = <TData = AxiosResponse<V1AwsCloudCostSummary>>(
+    v1AwsCloudCostSpec: V1AwsCloudCostSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/clouds/aws/cost`, v1AwsCloudCostSpec, options);
+  };
 
-/**
- * Get AWS Volume Size
- * @summary Get AWS Volume Size
- */
-const v1AwsVolumeSizeGet = <TData = AxiosResponse<V1AwsVolumeSize>>(
+  /**
+   * Get AWS Volume Size
+   * @summary Get AWS Volume Size
+   */
+  const v1AwsVolumeSizeGet = <TData = AxiosResponse<V1AwsVolumeSize>>(
     imageId: string,
-    params: V1AwsVolumeSizeGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/imageIds/${imageId}/volumeSize`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsVolumeSizeGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/imageIds/${imageId}/volumeSize`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of AWS policies for the specified account
- */
-const v1AwsIamPolicies = <TData = AxiosResponse<V1AwsPolicies>>(
+  /**
+   * @summary Retrieves a list of AWS policies for the specified account
+   */
+  const v1AwsIamPolicies = <TData = AxiosResponse<V1AwsPolicies>>(
     v1AwsCloudAccount: V1AwsCloudAccount,
-    params?: V1AwsIamPoliciesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/clouds/aws/policies`,
-      v1AwsCloudAccount,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AwsIamPoliciesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/clouds/aws/policies`, v1AwsCloudAccount, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validate the aws policy arns validate
- */
-const v1AwsPolicyArnsValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Validate the aws policy arns validate
+   */
+  const v1AwsPolicyArnsValidate = <TData = AxiosResponse<unknown>>(
     v1AwsPolicyArnsSpec: V1AwsPolicyArnsSpec,
-    params?: V1AwsPolicyArnsValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1AwsPolicyArnsValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/policyArns/validate`,
-      v1AwsPolicyArnsSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1AwsPolicyArnsSpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validate AWS properties
- */
-const v1AwsPropertiesValidate = <TData = AxiosResponse<unknown>>(
-    v1AwsPropertiesValidateSpec: V1AwsPropertiesValidateSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate AWS properties
+   */
+  const v1AwsPropertiesValidate = <TData = AxiosResponse<unknown>>(
+    v1AwsPropertiesValidateSpec: V1AwsPropertiesValidateSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/properties/validate`,
-      v1AwsPropertiesValidateSpec,options
+      v1AwsPropertiesValidateSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS regions for the specified account
- */
-const v1AwsRegions = <TData = AxiosResponse<V1AwsRegions>>(
-    params: V1AwsRegionsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of AWS regions for the specified account
+   */
+  const v1AwsRegions = <TData = AxiosResponse<V1AwsRegions>>(
+    params: V1AwsRegionsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of AWS availability zones for the specified region
- */
-const v1AwsZones = <TData = AxiosResponse<V1AwsAvailabilityZones>>(
+  /**
+   * @summary Retrieves a list of AWS availability zones for the specified region
+   */
+  const v1AwsZones = <TData = AxiosResponse<V1AwsAvailabilityZones>>(
     region: string,
-    params: V1AwsZonesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/availabilityzones`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsZonesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/availabilityzones`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Copies the specified image from one region to another region
- */
-const v1AwsCopyImageFromDefaultRegion = <TData = AxiosResponse<V1AsyncOperationIdEntity>>(
+  /**
+   * @summary Copies the specified image from one region to another region
+   */
+  const v1AwsCopyImageFromDefaultRegion = <
+    TData = AxiosResponse<V1AsyncOperationIdEntity>,
+  >(
     region: string,
-    v1AwsFindImageRequest?: V1AwsFindImageRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsFindImageRequest?: V1AwsFindImageRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/regions/${region}/copydefaultimages`,
-      v1AwsFindImageRequest,options
+      v1AwsFindImageRequest,
+      options,
     );
-  }
+  };
 
-/**
- * Returns no contents if aws cluster name is valid else error.
- * @summary Check if Aws cluster name is valid
- */
-const v1AwsClusterNameValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns no contents if aws cluster name is valid else error.
+   * @summary Check if Aws cluster name is valid
+   */
+  const v1AwsClusterNameValidate = <TData = AxiosResponse<unknown>>(
     region: string,
-    params: V1AwsClusterNameValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AwsClusterNameValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/aws/regions/${region}/eksClusters/name/validate`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/aws/regions/${region}/eksClusters/name/validate`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns AWS image for the specified AMI name
- */
-const v1AwsFindImage = <TData = AxiosResponse<V1AwsImage>>(
+  /**
+   * @summary Returns AWS image for the specified AMI name
+   */
+  const v1AwsFindImage = <TData = AxiosResponse<V1AwsImage>>(
     region: string,
-    v1AwsFindImageRequest?: V1AwsFindImageRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AwsFindImageRequest?: V1AwsFindImageRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/regions/${region}/images`,
-      v1AwsFindImageRequest,options
+      v1AwsFindImageRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS instance types
- */
-const v1AwsInstanceTypes = <TData = AxiosResponse<V1AwsInstanceTypes>>(
+  /**
+   * @summary Retrieves a list of AWS instance types
+   */
+  const v1AwsInstanceTypes = <TData = AxiosResponse<V1AwsInstanceTypes>>(
     region: string,
-    params?: V1AwsInstanceTypesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/instancetypes`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AwsInstanceTypesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/instancetypes`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of AWS keypairs
- */
-const v1AwsKeyPairs = <TData = AxiosResponse<V1AwsKeyPairs>>(
+  /**
+   * @summary Retrieves a list of AWS keypairs
+   */
+  const v1AwsKeyPairs = <TData = AxiosResponse<V1AwsKeyPairs>>(
     region: string,
-    params: V1AwsKeyPairsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/keypairs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsKeyPairsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/keypairs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validate the specified AWS keypair
- */
-const v1AwsKeyPairValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Validate the specified AWS keypair
+   */
+  const v1AwsKeyPairValidate = <TData = AxiosResponse<unknown>>(
     region: string,
     keypair: string,
-    params: V1AwsKeyPairValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AwsKeyPairValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
-      `/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Get AWS KMS key by Id
- */
-const v1AwsKmsKeyGet = <TData = AxiosResponse<V1AwsKmsKeyEntity>>(
+  /**
+   * @summary Get AWS KMS key by Id
+   */
+  const v1AwsKmsKeyGet = <TData = AxiosResponse<V1AwsKmsKeyEntity>>(
     region: string,
     keyId: string,
-    params: V1AwsKmsKeyGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/kms/${keyId}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsKmsKeyGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/kms/${keyId}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of AWS KMS keys for the specified account
- */
-const v1AwsKmsKeys = <TData = AxiosResponse<V1AwsKmsKeys>>(
+  /**
+   * @summary Retrieves a list of AWS KMS keys for the specified account
+   */
+  const v1AwsKmsKeys = <TData = AxiosResponse<V1AwsKmsKeys>>(
     region: string,
-    params: V1AwsKmsKeysParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/kmskeys`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsKmsKeysParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/kmskeys`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validate an Aws KMS key for the specified account
- */
-const v1AwsKmsKeyValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Validate an Aws KMS key for the specified account
+   */
+  const v1AwsKmsKeyValidate = <TData = AxiosResponse<unknown>>(
     region: string,
-    params: V1AwsKmsKeyValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/kmskeys/validate`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1AwsKmsKeyValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/kmskeys/validate`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of AWS storage types
- */
-const v1AwsStorageTypes = <TData = AxiosResponse<V1AwsStorageTypes>>(
-    region: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/storagetypes`,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of VPCs for the specified account
- */
-const v1AwsVpcs = <TData = AxiosResponse<V1AwsVpcs>>(
+  /**
+   * @summary Retrieves a list of AWS storage types
+   */
+  const v1AwsStorageTypes = <TData = AxiosResponse<V1AwsStorageTypes>>(
     region: string,
-    params: V1AwsVpcsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/regions/${region}/vpcs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/storagetypes`, options);
+  };
 
-/**
- * @summary Validate the AWS S3 bucket
- */
-const v1AwsS3Validate = <TData = AxiosResponse<unknown>>(
-    v1AwsS3BucketCredentials: V1AwsS3BucketCredentials, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves a list of VPCs for the specified account
+   */
+  const v1AwsVpcs = <TData = AxiosResponse<V1AwsVpcs>>(
+    region: string,
+    params: V1AwsVpcsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/regions/${region}/vpcs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Validate the AWS S3 bucket
+   */
+  const v1AwsS3Validate = <TData = AxiosResponse<unknown>>(
+    v1AwsS3BucketCredentials: V1AwsS3BucketCredentials,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/aws/s3/validate`,
-      v1AwsS3BucketCredentials,options
+      v1AwsS3BucketCredentials,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of AWS security groups for the specified account
- */
-const v1AwsSecurityGroups = <TData = AxiosResponse<V1AwsSecurityGroups>>(
-    params: V1AwsSecurityGroupsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/securitygroups`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of AWS security groups for the specified account
+   */
+  const v1AwsSecurityGroups = <TData = AxiosResponse<V1AwsSecurityGroups>>(
+    params: V1AwsSecurityGroupsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/securitygroups`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * List all AWS Volume Types
- * @summary Get all AWS Volume Types
- */
-const v1AwsVolumeTypesGet = <TData = AxiosResponse<V1AWSVolumeTypes>>(
-    params: V1AwsVolumeTypesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/aws/volumeTypes`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * List all AWS Volume Types
+   * @summary Get all AWS Volume Types
+   */
+  const v1AwsVolumeTypesGet = <TData = AxiosResponse<V1AWSVolumeTypes>>(
+    params: V1AwsVolumeTypesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/aws/volumeTypes`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if account is valid else error.
- * @summary Check if Azure account is valid
- */
-const v1AzureAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1AzureCloudAccount: V1AzureCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if account is valid else error.
+   * @summary Check if Azure account is valid
+   */
+  const v1AzureAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1AzureCloudAccount: V1AzureCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/azure/account/validate`,
-      v1AzureCloudAccount,options
+      v1AzureCloudAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Azure groups
- */
-const v1AzureGroups = <TData = AxiosResponse<V1AzureGroups>>(
-    params?: V1AzureGroupsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/groups`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Azure groups
+   */
+  const v1AzureGroups = <TData = AxiosResponse<V1AzureGroups>>(
+    params?: V1AzureGroupsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/groups`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Azure regions
- */
-const v1AzureRegions = <TData = AxiosResponse<V1AzureRegions>>(
-    params?: V1AzureRegionsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/regions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Azure regions
+   */
+  const v1AzureRegions = <TData = AxiosResponse<V1AzureRegions>>(
+    params?: V1AzureRegionsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/regions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Azure instance types
- */
-const v1AzureInstanceTypes = <TData = AxiosResponse<V1AzureInstanceTypes>>(
+  /**
+   * @summary Retrieves a list of Azure instance types
+   */
+  const v1AzureInstanceTypes = <TData = AxiosResponse<V1AzureInstanceTypes>>(
     region: string,
-    params?: V1AzureInstanceTypesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/regions/${region}/instancetypes`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1AzureInstanceTypesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/regions/${region}/instancetypes`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Azure storage types
- */
-const v1AzureStorageTypes = <TData = AxiosResponse<V1AzureStorageTypes>>(
-    region: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/regions/${region}/storagetypes`,options
-    );
-  }
-
-/**
- * Returns no contents if Azure cluster name is valid else error.
- * @summary Check if Azure cluster name is valid
- */
-const v1AzureClusterNameValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves a list of Azure storage types
+   */
+  const v1AzureStorageTypes = <TData = AxiosResponse<V1AzureStorageTypes>>(
     region: string,
-    subscriptionId: string,
-    params: V1AzureClusterNameValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/regions/${region}/storagetypes`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Azure virtual network list for the sepcified account
- */
-const v1AzureVirtualNetworkList = <TData = AxiosResponse<V1AzureVirtualNetworkList>>(
+  /**
+   * Returns no contents if Azure cluster name is valid else error.
+   * @summary Check if Azure cluster name is valid
+   */
+  const v1AzureClusterNameValidate = <TData = AxiosResponse<unknown>>(
     region: string,
     subscriptionId: string,
-    params: V1AzureVirtualNetworkListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AzureClusterNameValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Azure resource group for the specified account
- */
-const v1AzureResourceGroupList = <TData = AxiosResponse<V1AzureResourceGroupList>>(
+  /**
+   * @summary Retrieves a list of Azure virtual network list for the sepcified account
+   */
+  const v1AzureVirtualNetworkList = <
+    TData = AxiosResponse<V1AzureVirtualNetworkList>,
+  >(
     region: string,
     subscriptionId: string,
-    params: V1AzureResourceGroupListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AzureVirtualNetworkListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Azure zones for the specified region
- */
-const v1AzureZones = <TData = AxiosResponse<V1AzureZoneEntity>>(
+  /**
+   * @summary Retrieves a list of Azure resource group for the specified account
+   */
+  const v1AzureResourceGroupList = <
+    TData = AxiosResponse<V1AzureResourceGroupList>,
+  >(
     region: string,
-    params?: V1AzureZonesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    subscriptionId: string,
+    params: V1AzureResourceGroupListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/regions/${region}/zones`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * Returns Azure private DNS zones
- * @summary Get Azure private DNS zones for the given resource group
- */
-const v1AzurePrivateDnsZones = <TData = AxiosResponse<V1AzurePrivateDnsZones>>(
+  /**
+   * @summary Retrieves a list of Azure zones for the specified region
+   */
+  const v1AzureZones = <TData = AxiosResponse<V1AzureZoneEntity>>(
+    region: string,
+    params?: V1AzureZonesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/regions/${region}/zones`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * Returns Azure private DNS zones
+   * @summary Get Azure private DNS zones for the given resource group
+   */
+  const v1AzurePrivateDnsZones = <
+    TData = AxiosResponse<V1AzurePrivateDnsZones>,
+  >(
     resourceGroup: string,
-    params: V1AzurePrivateDnsZonesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AzurePrivateDnsZonesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * Returns Azure storage accounts.
- * @summary Get Azure storage accounts
- */
-const v1AzureStorageAccounts = <TData = AxiosResponse<V1AzureStorageAccounts>>(
+  /**
+   * Returns Azure storage accounts.
+   * @summary Get Azure storage accounts
+   */
+  const v1AzureStorageAccounts = <
+    TData = AxiosResponse<V1AzureStorageAccounts>,
+  >(
     resourceGroup: string,
-    params: V1AzureStorageAccountsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AzureStorageAccountsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * Returns Azure storage containers for the given account.
- * @summary Get Azure storage containers
- */
-const v1AzureStorageContainers = <TData = AxiosResponse<V1AzureStorageContainers>>(
+  /**
+   * Returns Azure storage containers for the given account.
+   * @summary Get Azure storage containers
+   */
+  const v1AzureStorageContainers = <
+    TData = AxiosResponse<V1AzureStorageContainers>,
+  >(
     resourceGroup: string,
     storageAccountName: string,
-    params: V1AzureStorageContainersParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1AzureStorageContainersParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * Returns Azure storage account types.
- * @summary Get Azure storage account types
- */
-const v1AzureStorageAccountTypes = <TData = AxiosResponse<V1AzureStorageAccountEntity>>(
-    params?: V1AzureStorageAccountTypesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/storageaccounttypes`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns Azure storage account types.
+   * @summary Get Azure storage account types
+   */
+  const v1AzureStorageAccountTypes = <
+    TData = AxiosResponse<V1AzureStorageAccountEntity>,
+  >(
+    params?: V1AzureStorageAccountTypesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/storageaccounttypes`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns list of Azure subscription list.
- * @summary Retrieves a list of Azure subscription list for the specified account
- */
-const v1AzureSubscriptionList = <TData = AxiosResponse<V1AzureSubscriptionList>>(
-    params: V1AzureSubscriptionListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/subscriptions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns list of Azure subscription list.
+   * @summary Retrieves a list of Azure subscription list for the specified account
+   */
+  const v1AzureSubscriptionList = <
+    TData = AxiosResponse<V1AzureSubscriptionList>,
+  >(
+    params: V1AzureSubscriptionListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/subscriptions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the Azure vhd url for the specified vhd location
- */
-const v1AzureVhdUrl = <TData = AxiosResponse<V1AzureVhdUrlEntity>>(
-    vhd: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/azure/vhds/${vhd}/url`,options
-    );
-  }
+  /**
+   * @summary Returns the Azure vhd url for the specified vhd location
+   */
+  const v1AzureVhdUrl = <TData = AxiosResponse<V1AzureVhdUrlEntity>>(
+    vhd: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/azure/vhds/${vhd}/url`, options);
+  };
 
-/**
- * @summary Returns the custom cloud types
- */
-const v1CustomCloudTypesGet = <TData = AxiosResponse<V1CustomCloudTypes>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes`,options
-    );
-  }
+  /**
+   * @summary Returns the custom cloud types
+   */
+  const v1CustomCloudTypesGet = <TData = AxiosResponse<V1CustomCloudTypes>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/cloudTypes`, options);
+  };
 
-/**
- * @summary Registers the custom cloud type
- */
-const v1CustomCloudTypeRegister = <TData = AxiosResponse<V1Uid>>(
-    v1CustomCloudRequestEntity?: V1CustomCloudRequestEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Registers the custom cloud type
+   */
+  const v1CustomCloudTypeRegister = <TData = AxiosResponse<V1Uid>>(
+    v1CustomCloudRequestEntity?: V1CustomCloudRequestEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/cloudTypes/register`,
-      v1CustomCloudRequestEntity,options
+      v1CustomCloudRequestEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the custom cloud type
- */
-const v1CustomCloudTypesDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}`,options
-    );
-  }
-
-/**
- * @summary Returns valid keys for the cloud account used for custom cloud type
- */
-const v1CustomCloudTypeCloudAccountKeysGet = <TData = AxiosResponse<V1CustomCloudTypeCloudAccountKeys>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type cloud account keys
- */
-const v1CustomCloudTypeCloudAccountKeysUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the custom cloud type
+   */
+  const v1CustomCloudTypesDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
-    v1CustomCloudTypeCloudAccountKeys: V1CustomCloudTypeCloudAccountKeys, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/clouds/cloudTypes/${cloudType}`, options);
+  };
+
+  /**
+   * @summary Returns valid keys for the cloud account used for custom cloud type
+   */
+  const v1CustomCloudTypeCloudAccountKeysGet = <
+    TData = AxiosResponse<V1CustomCloudTypeCloudAccountKeys>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type cloud account keys
+   */
+  const v1CustomCloudTypeCloudAccountKeysUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    v1CustomCloudTypeCloudAccountKeys: V1CustomCloudTypeCloudAccountKeys,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`,
-      v1CustomCloudTypeCloudAccountKeys,options
+      v1CustomCloudTypeCloudAccountKeys,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type bootstrap
- */
-const v1CustomCloudTypeBootstrapDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type bootstrap
- */
-const v1CustomCloudTypeBootstrapGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type bootstrap
- */
-const v1CustomCloudTypeBootstrapUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type bootstrap
+   */
+  const v1CustomCloudTypeBootstrapDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type bootstrap
+   */
+  const v1CustomCloudTypeBootstrapGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type bootstrap
+   */
+  const v1CustomCloudTypeBootstrapUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type cloud provider
- */
-const v1CustomCloudTypeCloudProviderDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type cloud provider
- */
-const v1CustomCloudTypeCloudProviderGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type cloud provider
- */
-const v1CustomCloudTypeCloudProviderUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type cloud provider
+   */
+  const v1CustomCloudTypeCloudProviderDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type cloud provider
+   */
+  const v1CustomCloudTypeCloudProviderGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type cloud provider
+   */
+  const v1CustomCloudTypeCloudProviderUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type control plane
- */
-const v1CustomCloudTypeControlPlaneDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type control plane
- */
-const v1CustomCloudTypeControlPlaneGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type control plane
- */
-const v1CustomCloudTypeControlPlaneUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type control plane
+   */
+  const v1CustomCloudTypeControlPlaneDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type control plane
+   */
+  const v1CustomCloudTypeControlPlaneGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type control plane
+   */
+  const v1CustomCloudTypeControlPlaneUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type core
- */
-const v1CustomCloudTypeCoreDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/core`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type core
- */
-const v1CustomCloudTypeCoreGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/core`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type core
- */
-const v1CustomCloudTypeCoreUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type core
+   */
+  const v1CustomCloudTypeCoreDelete = <TData = AxiosResponse<unknown>>(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/core`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type core
+   */
+  const v1CustomCloudTypeCoreGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/core`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type core
+   */
+  const v1CustomCloudTypeCoreUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/core`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type cluster template
- */
-const v1CustomCloudTypeClusterTemplateDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type cluster template
- */
-const v1CustomCloudTypeClusterTemplateGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type cluster template
- */
-const v1CustomCloudTypeClusterTemplateUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type cluster template
+   */
+  const v1CustomCloudTypeClusterTemplateDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type cluster template
+   */
+  const v1CustomCloudTypeClusterTemplateGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type cluster template
+   */
+  const v1CustomCloudTypeClusterTemplateUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type controlPlane pool template
- */
-const v1CustomCloudTypeControlPlanePoolTemplateDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type controlPlane pool template
- */
-const v1CustomCloudTypeControlPlanePoolTemplateGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type controlPlane pool template
- */
-const v1CustomCloudTypeControlPlanePoolTemplateUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type controlPlane pool template
+   */
+  const v1CustomCloudTypeControlPlanePoolTemplateDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type controlPlane pool template
+   */
+  const v1CustomCloudTypeControlPlanePoolTemplateGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type controlPlane pool template
+   */
+  const v1CustomCloudTypeControlPlanePoolTemplateUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the custom cloud type worker pool template
- */
-const v1CustomCloudTypeWorkerPoolTemplateDelete = <TData = AxiosResponse<unknown>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`,options
-    );
-  }
-
-/**
- * @summary Returns the custom cloud type worker pool template
- */
-const v1CustomCloudTypeWorkerPoolTemplateGet = <TData = AxiosResponse<V1CustomCloudTypeContentResponse>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type worker pool template
- */
-const v1CustomCloudTypeWorkerPoolTemplateUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the custom cloud type worker pool template
+   */
+  const v1CustomCloudTypeWorkerPoolTemplateDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the custom cloud type worker pool template
+   */
+  const v1CustomCloudTypeWorkerPoolTemplateGet = <
+    TData = AxiosResponse<V1CustomCloudTypeContentResponse>,
+  >(
+    cloudType: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the custom cloud type worker pool template
+   */
+  const v1CustomCloudTypeWorkerPoolTemplateUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the custom cloud type logo
- */
-const v1CustomCloudTypeLogoGet = <TData = AxiosResponse<Blob>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/logo`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Update the custom cloud type logo
- */
-const v1CustomCloudTypeLogoUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the custom cloud type logo
+   */
+  const v1CustomCloudTypeLogoGet = <TData = AxiosResponse<Blob>>(
     cloudType: string,
-    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateRequest.fileName)
- }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/cloudTypes/${cloudType}/logo`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Update the custom cloud type logo
+   */
+  const v1CustomCloudTypeLogoUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudTypeBootstrapUpdateRequest: V1CustomCloudTypeBootstrapUpdateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1CustomCloudTypeBootstrapUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1CustomCloudTypeBootstrapUpdateRequest.fileName,
+      );
+    }
 
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/logo`,
-      formData,options
+      formData,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the custom cloud type meta
- */
-const v1CustomCloudTypeMetaGet = <TData = AxiosResponse<V1CustomCloudMetaEntity>>(
-    cloudType: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/cloudTypes/${cloudType}/meta`,options
-    );
-  }
-
-/**
- * @summary Update the custom cloud type meta
- */
-const v1CustomCloudTypeMetaUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the custom cloud type meta
+   */
+  const v1CustomCloudTypeMetaGet = <
+    TData = AxiosResponse<V1CustomCloudMetaEntity>,
+  >(
     cloudType: string,
-    v1CustomCloudRequestEntity: V1CustomCloudRequestEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/cloudTypes/${cloudType}/meta`, options);
+  };
+
+  /**
+   * @summary Update the custom cloud type meta
+   */
+  const v1CustomCloudTypeMetaUpdate = <TData = AxiosResponse<unknown>>(
+    cloudType: string,
+    v1CustomCloudRequestEntity: V1CustomCloudRequestEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clouds/cloudTypes/${cloudType}/meta`,
-      v1CustomCloudRequestEntity,options
+      v1CustomCloudRequestEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validate EKS properties
- */
-const v1EksPropertiesValidate = <TData = AxiosResponse<unknown>>(
-    v1EksPropertiesValidateSpec: V1EksPropertiesValidateSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate EKS properties
+   */
+  const v1EksPropertiesValidate = <TData = AxiosResponse<unknown>>(
+    v1EksPropertiesValidateSpec: V1EksPropertiesValidateSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/eks/properties/validate`,
-      v1EksPropertiesValidateSpec,options
+      v1EksPropertiesValidateSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validate the specified GCP account credentials
- */
-const v1GcpAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1GcpCloudAccountValidateEntity: V1GcpCloudAccountValidateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate the specified GCP account credentials
+   */
+  const v1GcpAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1GcpCloudAccountValidateEntity: V1GcpCloudAccountValidateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/gcp/account/validate`,
-      v1GcpCloudAccountValidateEntity,options
+      v1GcpCloudAccountValidateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validate the specified GCP az
- */
-const v1GcpAzValidate = <TData = AxiosResponse<unknown>>(
-    v1AzValidateEntity: V1AzValidateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate the specified GCP az
+   */
+  const v1GcpAzValidate = <TData = AxiosResponse<unknown>>(
+    v1AzValidateEntity: V1AzValidateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/gcp/azs/validate`,
-      v1AzValidateEntity,options
+      v1AzValidateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validate the specified GCP bucket name credentials
- */
-const v1GcpBucketNameValidate = <TData = AxiosResponse<unknown>>(
-    v1GcpAccountNameValidateSpec: V1GcpAccountNameValidateSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate the specified GCP bucket name credentials
+   */
+  const v1GcpBucketNameValidate = <TData = AxiosResponse<unknown>>(
+    v1GcpAccountNameValidateSpec: V1GcpAccountNameValidateSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/gcp/bucketname/validate`,
-      v1GcpAccountNameValidateSpec,options
+      v1GcpAccountNameValidateSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates the image with tag
- */
-const v1GcpContainerImageValidate = <TData = AxiosResponse<unknown>>(
-    params: V1GcpContainerImageValidateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/image/container/validate`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Validates the image with tag
+   */
+  const v1GcpContainerImageValidate = <TData = AxiosResponse<unknown>>(
+    params: V1GcpContainerImageValidateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/image/container/validate`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the Gcp image url for the specified image location
- */
-const v1GcpImageUrl = <TData = AxiosResponse<V1GcpImageUrlEntity>>(
-    imageName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/images/${imageName}/url`,options
-    );
-  }
+  /**
+   * @summary Returns the Gcp image url for the specified image location
+   */
+  const v1GcpImageUrl = <TData = AxiosResponse<V1GcpImageUrlEntity>>(
+    imageName: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/images/${imageName}/url`, options);
+  };
 
-/**
- * @summary Retrieves a list of GCP projects for the specified account
- */
-const v1GcpProjects = <TData = AxiosResponse<V1GcpProjects>>(
-    params: V1GcpProjectsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/projects`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of GCP projects for the specified account
+   */
+  const v1GcpProjects = <TData = AxiosResponse<V1GcpProjects>>(
+    params: V1GcpProjectsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/projects`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of GCP regions
- */
-const v1GcpRegions = <TData = AxiosResponse<V1GcpRegions>>(
+  /**
+   * @summary Retrieves a list of GCP regions
+   */
+  const v1GcpRegions = <TData = AxiosResponse<V1GcpRegions>>(
     project: string,
-    params: V1GcpRegionsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/projects/${project}/regions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1GcpRegionsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/projects/${project}/regions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of GCP networks for the specified account
- */
-const v1GcpNetworks = <TData = AxiosResponse<V1GcpNetworks>>(
-    project: string,
-    region: string,
-    params: V1GcpNetworksParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/projects/${project}/regions/${region}/networks`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Retrieves a list of GCP zones for the specified account and region
- */
-const v1GcpZones = <TData = AxiosResponse<V1GcpZones>>(
+  /**
+   * @summary Retrieves a list of GCP networks for the specified account
+   */
+  const v1GcpNetworks = <TData = AxiosResponse<V1GcpNetworks>>(
     project: string,
     region: string,
-    params: V1GcpZonesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1GcpNetworksParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/gcp/projects/${project}/regions/${region}/zones`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/gcp/projects/${project}/regions/${region}/networks`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validate the specified GCP project
- */
-const v1GcpProjectValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves a list of GCP zones for the specified account and region
+   */
+  const v1GcpZones = <TData = AxiosResponse<V1GcpZones>>(
     project: string,
-    v1CloudAccountUidEntity: V1CloudAccountUidEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    region: string,
+    params: V1GcpZonesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clouds/gcp/projects/${project}/regions/${region}/zones`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
+    );
+  };
+
+  /**
+   * @summary Validate the specified GCP project
+   */
+  const v1GcpProjectValidate = <TData = AxiosResponse<unknown>>(
+    project: string,
+    v1CloudAccountUidEntity: V1CloudAccountUidEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/gcp/projects/${project}/validate`,
-      v1CloudAccountUidEntity,options
+      v1CloudAccountUidEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of GCP zones for the specified account
- */
-const v1GcpAvailabilityZones = <TData = AxiosResponse<V1GcpZones>>(
+  /**
+   * @summary Retrieves a list of GCP zones for the specified account
+   */
+  const v1GcpAvailabilityZones = <TData = AxiosResponse<V1GcpZones>>(
     project: string,
-    params: V1GcpAvailabilityZonesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/projects/${project}/zones`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1GcpAvailabilityZonesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/projects/${project}/zones`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validate GCP properties
- */
-const v1GcpPropertiesValidate = <TData = AxiosResponse<unknown>>(
-    v1GcpPropertiesValidateSpec: V1GcpPropertiesValidateSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validate GCP properties
+   */
+  const v1GcpPropertiesValidate = <TData = AxiosResponse<unknown>>(
+    v1GcpPropertiesValidateSpec: V1GcpPropertiesValidateSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/gcp/properties/validate`,
-      v1GcpPropertiesValidateSpec,options
+      v1GcpPropertiesValidateSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of GCP instance types
- */
-const v1GcpInstanceTypes = <TData = AxiosResponse<V1GcpInstanceTypes>>(
+  /**
+   * @summary Retrieves a list of GCP instance types
+   */
+  const v1GcpInstanceTypes = <TData = AxiosResponse<V1GcpInstanceTypes>>(
     region: string,
-    params?: V1GcpInstanceTypesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/regions/${region}/instancetypes`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1GcpInstanceTypesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/regions/${region}/instancetypes`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Gcp storage types
- */
-const v1GcpStorageTypes = <TData = AxiosResponse<V1GcpStorageTypes>>(
-    region: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/gcp/regions/${region}/storagetypes`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of Gcp storage types
+   */
+  const v1GcpStorageTypes = <TData = AxiosResponse<V1GcpStorageTypes>>(
+    region: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/gcp/regions/${region}/storagetypes`, options);
+  };
 
-/**
- * Returns no contents if account is valid else error.
- * @summary Check if Maas account is valid
- */
-const v1MaasAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1MaasCloudAccount: V1MaasCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if account is valid else error.
+   * @summary Check if Maas account is valid
+   */
+  const v1MaasAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1MaasCloudAccount: V1MaasCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/maas/account/validate`,
-      v1MaasCloudAccount,options
+      v1MaasCloudAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of Maas zones for a particular account uid
- */
-const v1MaasZonesGet = <TData = AxiosResponse<V1MaasZones>>(
-    params?: V1MaasZonesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/maas/azs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas zones for a particular account uid
+   */
+  const v1MaasZonesGet = <TData = AxiosResponse<V1MaasZones>>(
+    params?: V1MaasZonesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/maas/azs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Maas domains
- */
-const v1MaasDomainsGet = <TData = AxiosResponse<V1MaasDomains>>(
-    params?: V1MaasDomainsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/maas/domains`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas domains
+   */
+  const v1MaasDomainsGet = <TData = AxiosResponse<V1MaasDomains>>(
+    params?: V1MaasDomainsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/maas/domains`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Maas pools for a particular account uid
- */
-const v1MaasPoolsGet = <TData = AxiosResponse<V1MaasPools>>(
-    params?: V1MaasPoolsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/maas/resourcePools`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas pools for a particular account uid
+   */
+  const v1MaasPoolsGet = <TData = AxiosResponse<V1MaasPools>>(
+    params?: V1MaasPoolsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/maas/resourcePools`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Maas subnets for a particular account uid
- */
-const v1MaasSubnetsGet = <TData = AxiosResponse<V1MaasSubnets>>(
-    params?: V1MaasSubnetsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/maas/subnets`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas subnets for a particular account uid
+   */
+  const v1MaasSubnetsGet = <TData = AxiosResponse<V1MaasSubnets>>(
+    params?: V1MaasSubnetsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/maas/subnets`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of Maas tags for a particular account uid
- */
-const v1MaasTagsGet = <TData = AxiosResponse<V1MaasTags>>(
-    params?: V1MaasTagsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/maas/tags`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Maas tags for a particular account uid
+   */
+  const v1MaasTagsGet = <TData = AxiosResponse<V1MaasTags>>(
+    params?: V1MaasTagsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/maas/tags`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if account is valid else error.
- * @summary Check if OpenStack account is valid
- */
-const v1OpenStackAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1OpenStackCloudAccount: V1OpenStackCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if account is valid else error.
+   * @summary Check if OpenStack account is valid
+   */
+  const v1OpenStackAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1OpenStackCloudAccount: V1OpenStackCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/openstack/account/validate`,
-      v1OpenStackCloudAccount,options
+      v1OpenStackCloudAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of OpenStack azs for a particular account uid
- */
-const v1OpenStackAzsGet = <TData = AxiosResponse<V1OpenStackAzs>>(
-    params?: V1OpenStackAzsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/azs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of OpenStack azs for a particular account uid
+   */
+  const v1OpenStackAzsGet = <TData = AxiosResponse<V1OpenStackAzs>>(
+    params?: V1OpenStackAzsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/azs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the OpenStack flavors
- */
-const v1OpenStackFlavorsGet = <TData = AxiosResponse<V1OpenStackFlavors>>(
-    params?: V1OpenStackFlavorsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/flavors`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the OpenStack flavors
+   */
+  const v1OpenStackFlavorsGet = <TData = AxiosResponse<V1OpenStackFlavors>>(
+    params?: V1OpenStackFlavorsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/flavors`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the OpenStack keypair
- */
-const v1OpenStackKeypairsGet = <TData = AxiosResponse<V1OpenStackKeypairs>>(
-    params?: V1OpenStackKeypairsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/keypairs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the OpenStack keypair
+   */
+  const v1OpenStackKeypairsGet = <TData = AxiosResponse<V1OpenStackKeypairs>>(
+    params?: V1OpenStackKeypairsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/keypairs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the OpenStack networks
- */
-const v1OpenStackNetworksGet = <TData = AxiosResponse<V1OpenStackNetworks>>(
-    params?: V1OpenStackNetworksGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/networks`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the OpenStack networks
+   */
+  const v1OpenStackNetworksGet = <TData = AxiosResponse<V1OpenStackNetworks>>(
+    params?: V1OpenStackNetworksGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/networks`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the OpenStack projects
- */
-const v1OpenStackProjectsGet = <TData = AxiosResponse<V1OpenStackProjects>>(
-    params?: V1OpenStackProjectsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/projects`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the OpenStack projects
+   */
+  const v1OpenStackProjectsGet = <TData = AxiosResponse<V1OpenStackProjects>>(
+    params?: V1OpenStackProjectsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/projects`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the OpenStack regions
- */
-const v1OpenStackRegionsGet = <TData = AxiosResponse<V1OpenStackRegions>>(
-    params?: V1OpenStackRegionsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/openstack/regions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the OpenStack regions
+   */
+  const v1OpenStackRegionsGet = <TData = AxiosResponse<V1OpenStackRegions>>(
+    params?: V1OpenStackRegionsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/openstack/regions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if account is valid else error.
- * @summary Check if Vsphere account is valid
- */
-const v1VsphereAccountValidate = <TData = AxiosResponse<unknown>>(
-    v1VsphereCloudAccount: V1VsphereCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if account is valid else error.
+   * @summary Check if Vsphere account is valid
+   */
+  const v1VsphereAccountValidate = <TData = AxiosResponse<unknown>>(
+    v1VsphereCloudAccount: V1VsphereCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clouds/vsphere/account/validate`,
-      v1VsphereCloudAccount,options
+      v1VsphereCloudAccount,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the vsphere data centers
- */
-const v1VsphereDatacenters = <TData = AxiosResponse<V1VsphereDatacenters>>(
-    params?: V1VsphereDatacentersParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/vsphere/datacenters`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the vsphere data centers
+   */
+  const v1VsphereDatacenters = <TData = AxiosResponse<V1VsphereDatacenters>>(
+    params?: V1VsphereDatacentersParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/vsphere/datacenters`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the resources for vsphere compute cluster
- */
-const v1VsphereComputeClusterResources = <TData = AxiosResponse<V1VsphereComputeClusterResources>>(
+  /**
+   * @summary Returns the resources for vsphere compute cluster
+   */
+  const v1VsphereComputeClusterResources = <
+    TData = AxiosResponse<V1VsphereComputeClusterResources>,
+  >(
     uid: string,
     computecluster: string,
-    params: V1VsphereComputeClusterResourcesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1VsphereComputeClusterResourcesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves vsphere env
- */
-const v1VsphereEnv = <TData = AxiosResponse<V1VsphereEnv>>(
-    v1VsphereCloudAccount: V1VsphereCloudAccount, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/vsphere/env`,options
-    );
-  }
+  /**
+   * @summary Retrieves vsphere env
+   */
+  const v1VsphereEnv = <TData = AxiosResponse<V1VsphereEnv>>(
+    v1VsphereCloudAccount: V1VsphereCloudAccount,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/vsphere/env`, options);
+  };
 
-/**
- * @summary Returns the cloud compute rate
- */
-const v1CloudComputeRate = <TData = AxiosResponse<V1CloudCost>>(
+  /**
+   * @summary Returns the cloud compute rate
+   */
+  const v1CloudComputeRate = <TData = AxiosResponse<V1CloudCost>>(
     cloud: string,
     type: string,
-    params: V1CloudComputeRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clouds/${cloud}/compute/${type}/rate`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1CloudComputeRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/${cloud}/compute/${type}/rate`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the cloud storage rate
- */
-const v1CloudStorageRate = <TData = AxiosResponse<V1CloudCost>>(
+  /**
+   * @summary Returns the cloud storage rate
+   */
+  const v1CloudStorageRate = <TData = AxiosResponse<V1CloudCost>>(
     cloud: string,
     type: string,
-    params: V1CloudStorageRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1CloudStorageRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clouds/${cloud}/storage/${type}/rate`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create cluster groups
+   */
+  const v1ClusterGroupsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1ClusterGroupEntity?: V1ClusterGroupEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/clustergroups`, v1ClusterGroupEntity, options);
+  };
+
+  /**
+   * @summary Get cluster group developer credit usage by scope
+   */
+  const v1ClusterGroupsDeveloperCreditUsageGet = <
+    TData = AxiosResponse<V1ClusterGroupsDeveloperCreditUsage>,
+  >(
+    scope: "system" | "tenant",
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clouds/${cloud}/storage/${type}/rate`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clustergroups/developerCredit/usage/${scope}`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create cluster groups
- */
-const v1ClusterGroupsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1ClusterGroupEntity?: V1ClusterGroupEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/clustergroups`,
-      v1ClusterGroupEntity,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of cluster groups host cluster summary
+   */
+  const v1ClusterGroupsHostClusterSummary = <
+    TData = AxiosResponse<V1ClusterGroupsHostClusterSummary>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/hostCluster`, options);
+  };
 
-/**
- * @summary Get cluster group developer credit usage by scope
- */
-const v1ClusterGroupsDeveloperCreditUsageGet = <TData = AxiosResponse<V1ClusterGroupsDeveloperCreditUsage>>(
-    scope: 'system' | 'tenant', options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/developerCredit/usage/${scope}`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of cluster groups host cluster metadata
+   */
+  const v1ClusterGroupsHostClusterMetadata = <
+    TData = AxiosResponse<V1ClusterGroupsHostClusterMetadata>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/hostCluster/metadata`, options);
+  };
 
-/**
- * @summary Retrieves a list of cluster groups host cluster summary
- */
-const v1ClusterGroupsHostClusterSummary = <TData = AxiosResponse<V1ClusterGroupsHostClusterSummary>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/hostCluster`,options
-    );
-  }
+  /**
+   * @summary Validates the cluster groups name
+   */
+  const v1ClusterGroupsValidateName = <TData = AxiosResponse<unknown>>(
+    params: V1ClusterGroupsValidateNameParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/validate/name`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of cluster groups host cluster metadata
- */
-const v1ClusterGroupsHostClusterMetadata = <TData = AxiosResponse<V1ClusterGroupsHostClusterMetadata>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/hostCluster/metadata`,options
-    );
-  }
-
-/**
- * @summary Validates the cluster groups name
- */
-const v1ClusterGroupsValidateName = <TData = AxiosResponse<unknown>>(
-    params: V1ClusterGroupsValidateNameParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/validate/name`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Deletes the specified cluster group
- */
-const v1ClusterGroupsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clustergroups/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster groups
- */
-const v1ClusterGroupsUidGet = <TData = AxiosResponse<V1ClusterGroup>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates cluster reference and host cluster config
- */
-const v1ClusterGroupsUidHostClusterUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified cluster group
+   */
+  const v1ClusterGroupsUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterGroupHostClusterEntity?: V1ClusterGroupHostClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/clustergroups/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified cluster groups
+   */
+  const v1ClusterGroupsUidGet = <TData = AxiosResponse<V1ClusterGroup>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates cluster reference and host cluster config
+   */
+  const v1ClusterGroupsUidHostClusterUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ClusterGroupHostClusterEntity?: V1ClusterGroupHostClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clustergroups/${uid}/hostCluster`,
-      v1ClusterGroupHostClusterEntity,options
+      v1ClusterGroupHostClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster groups meta
- */
-const v1ClusterGroupsUidMetaUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster groups meta
+   */
+  const v1ClusterGroupsUidMetaUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ObjectMeta?: V1ObjectMeta, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/clustergroups/${uid}/meta`,
-      v1ObjectMeta,options
-    );
-  }
+    v1ObjectMeta?: V1ObjectMeta,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/clustergroups/${uid}/meta`, v1ObjectMeta, options);
+  };
 
-/**
- * @summary Returns the specified clustergroup's profile packs resolved values
- */
-const v1ClusterGroupsUidPacksResolvedValuesGet = <TData = AxiosResponse<V1SpectroClusterProfilesResolvedValues>>(
+  /**
+   * @summary Returns the specified clustergroup's profile packs resolved values
+   */
+  const v1ClusterGroupsUidPacksResolvedValuesGet = <
+    TData = AxiosResponse<V1SpectroClusterProfilesResolvedValues>,
+  >(
     uid: string,
-    v1SpectroClusterProfilesParamReferenceEntity?: V1SpectroClusterProfilesParamReferenceEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/${uid}/packs/resolvedValues`,options
-    );
-  }
+    v1SpectroClusterProfilesParamReferenceEntity?: V1SpectroClusterProfilesParamReferenceEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/${uid}/packs/resolvedValues`, options);
+  };
 
-/**
- * @summary Returns the associated profiles of a specified cluster group
- */
-const v1ClusterGroupsUidProfilesGet = <TData = AxiosResponse<V1SpectroClusterProfileList>>(
+  /**
+   * @summary Returns the associated profiles of a specified cluster group
+   */
+  const v1ClusterGroupsUidProfilesGet = <
+    TData = AxiosResponse<V1SpectroClusterProfileList>,
+  >(
     uid: string,
-    params?: V1ClusterGroupsUidProfilesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clustergroups/${uid}/profiles`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterGroupsUidProfilesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clustergroups/${uid}/profiles`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the specified cluster groups profiles
- */
-const v1ClusterGroupsUidProfilesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster groups profiles
+   */
+  const v1ClusterGroupsUidProfilesUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterProfiles?: V1SpectroClusterProfiles, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterProfiles?: V1SpectroClusterProfiles,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clustergroups/${uid}/profiles`,
-      v1SpectroClusterProfiles,options
+      v1SpectroClusterProfiles,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a cluster profile
- */
-const v1ClusterProfilesCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a cluster profile
+   */
+  const v1ClusterProfilesCreate = <TData = AxiosResponse<V1Uid>>(
     v1ClusterProfileEntity?: V1ClusterProfileEntity,
-    params?: V1ClusterProfilesCreateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/clusterprofiles`,
-      v1ClusterProfileEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesCreateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/clusterprofiles`, v1ClusterProfileEntity, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deletes list of cluster profiles
- */
-const v1ClusterProfilesBulkDelete = <TData = AxiosResponse<V1BulkDeleteResponse>>(
-    v1BulkDeleteRequest?: V1BulkDeleteRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clusterprofiles/bulk`,{data:
-      v1BulkDeleteRequest, ...options}
-    );
-  }
+  /**
+   * @summary Deletes list of cluster profiles
+   */
+  const v1ClusterProfilesBulkDelete = <
+    TData = AxiosResponse<V1BulkDeleteResponse>,
+  >(
+    v1BulkDeleteRequest?: V1BulkDeleteRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/clusterprofiles/bulk`, {
+      data: v1BulkDeleteRequest,
+      ...options,
+    });
+  };
 
-/**
- * @summary Imports a cluster profile
- */
-const v1ClusterProfilesImport = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Imports a cluster profile
+   */
+  const v1ClusterProfilesImport = <TData = AxiosResponse<V1Uid>>(
     v1ClusterProfileImportEntity?: V1ClusterProfileImportEntity,
-    params?: V1ClusterProfilesImportParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterProfilesImportParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/import`,
-      v1ClusterProfileImportEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterProfileImportEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Imports a cluster profile via file
- */
-const v1ClusterProfilesImportFile = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Imports a cluster profile via file
+   */
+  const v1ClusterProfilesImportFile = <TData = AxiosResponse<V1Uid>>(
     v1ClusterProfilesImportFileRequest: V1ClusterProfilesImportFileRequest,
-    params?: V1ClusterProfilesImportFileParams, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1ClusterProfilesImportFileRequest.importFile !== undefined) {
- formData.append(`importFile`, v1ClusterProfilesImportFileRequest.importFile)
- }
+    params?: V1ClusterProfilesImportFileParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1ClusterProfilesImportFileRequest.importFile !== undefined) {
+      formData.append(
+        `importFile`,
+        v1ClusterProfilesImportFileRequest.importFile,
+      );
+    }
 
-    return axios.post(
-      `/v1/clusterprofiles/import/file`,
-      formData,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    return axios.post(`/v1/clusterprofiles/import/file`, formData, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validates cluster profile import
- */
-const v1ClusterProfilesImportValidate = <TData = AxiosResponse<V1ClusterProfileImportEntity>>(
-    v1ClusterProfileImportEntity?: V1ClusterProfileImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates cluster profile import
+   */
+  const v1ClusterProfilesImportValidate = <
+    TData = AxiosResponse<V1ClusterProfileImportEntity>,
+  >(
+    v1ClusterProfileImportEntity?: V1ClusterProfileImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/import/validate`,
-      v1ClusterProfileImportEntity,options
+      v1ClusterProfileImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of macros
- */
-const v1MacrosList = <TData = AxiosResponse<V1Macros>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/macros`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of macros
+   */
+  const v1MacrosList = <TData = AxiosResponse<V1Macros>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/macros`, options);
+  };
 
-/**
- * Validates the cluster profile name and version
- * @summary Validates the cluster profile metadata
- */
-const v1ClusterProfilesValidateNameVersion = <TData = AxiosResponse<unknown>>(
-    params?: V1ClusterProfilesValidateNameVersionParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/validate/name`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Validates the cluster profile name and version
+   * @summary Validates the cluster profile metadata
+   */
+  const v1ClusterProfilesValidateNameVersion = <TData = AxiosResponse<unknown>>(
+    params?: V1ClusterProfilesValidateNameVersionParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/validate/name`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validates cluster profile packs
- */
-const v1ClusterProfilesValidatePacks = <TData = AxiosResponse<V1ClusterProfileValidatorResponse>>(
-    v1ClusterProfileTemplateDraft?: V1ClusterProfileTemplateDraft, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates cluster profile packs
+   */
+  const v1ClusterProfilesValidatePacks = <
+    TData = AxiosResponse<V1ClusterProfileValidatorResponse>,
+  >(
+    v1ClusterProfileTemplateDraft?: V1ClusterProfileTemplateDraft,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/validate/packs`,
-      v1ClusterProfileTemplateDraft,options
+      v1ClusterProfileTemplateDraft,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified cluster profile
- */
-const v1ClusterProfilesDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified cluster profile
+   */
+  const v1ClusterProfilesDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1ClusterProfilesDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clusterprofiles/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/clusterprofiles/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns a specified cluster profile
- */
-const v1ClusterProfilesGet = <TData = AxiosResponse<V1ClusterProfile>>(
+  /**
+   * @summary Returns a specified cluster profile
+   */
+  const v1ClusterProfilesGet = <TData = AxiosResponse<V1ClusterProfile>>(
     uid: string,
-    params?: V1ClusterProfilesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the specified cluster profile
- */
-const v1ClusterProfilesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster profile
+   */
+  const v1ClusterProfilesUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1ClusterProfileUpdateEntity?: V1ClusterProfileUpdateEntity,
-    params?: V1ClusterProfilesUpdateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterProfilesUpdateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clusterprofiles/${uid}`,
-      v1ClusterProfileUpdateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterProfileUpdateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Creates a clone of the specified cluster profile
- */
-const v1ClusterProfilesUidClone = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a clone of the specified cluster profile
+   */
+  const v1ClusterProfilesUidClone = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1ClusterProfileCloneEntity?: V1ClusterProfileCloneEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterProfileCloneEntity?: V1ClusterProfileCloneEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/${uid}/clone`,
-      v1ClusterProfileCloneEntity,options
+      v1ClusterProfileCloneEntity,
+      options,
     );
-  }
+  };
 
-/**
- * Validates the cloned cluster profile name, version and target project uid
- * @summary Validates the cluster profile clone
- */
-const v1ClusterProfilesUidCloneValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Validates the cloned cluster profile name, version and target project uid
+   * @summary Validates the cluster profile clone
+   */
+  const v1ClusterProfilesUidCloneValidate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterProfileCloneMetaInputEntity?: V1ClusterProfileCloneMetaInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterProfileCloneMetaInputEntity?: V1ClusterProfileCloneMetaInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/${uid}/clone/validate`,
-      v1ClusterProfileCloneMetaInputEntity,options
+      v1ClusterProfileCloneMetaInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Export the specified cluster profile
- */
-const v1ClusterProfilesUidExport = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Export the specified cluster profile
+   */
+  const v1ClusterProfilesUidExport = <TData = AxiosResponse<Blob>>(
     uid: string,
-    params?: V1ClusterProfilesUidExportParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/export`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesUidExportParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/export`, {
+      responseType: "blob",
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Downloads the specified cluster profile
- */
-const v1ClusterProfilesUidExportTerraform = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Downloads the specified cluster profile
+   */
+  const v1ClusterProfilesUidExportTerraform = <TData = AxiosResponse<Blob>>(
     uid: string,
-    params?: V1ClusterProfilesUidExportTerraformParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/export/terraform`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesUidExportTerraformParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/export/terraform`, {
+      responseType: "blob",
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the specified cluster profile metadata
- */
-const v1ClusterProfilesUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster profile metadata
+   */
+  const v1ClusterProfilesUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ProfileMetaEntity?: V1ProfileMetaEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ProfileMetaEntity?: V1ProfileMetaEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/clusterprofiles/${uid}/metadata`,
-      v1ProfileMetaEntity,options
+      v1ProfileMetaEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates cluster profile packs ref
- */
-const v1ClusterProfilesPacksRefUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates cluster profile packs ref
+   */
+  const v1ClusterProfilesPacksRefUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1ClusterProfileNotificationUpdateEntity?: V1ClusterProfileNotificationUpdateEntity,
-    params?: V1ClusterProfilesPacksRefUpdateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterProfilesPacksRefUpdateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/clusterprofiles/${uid}/packRefs`,
-      v1ClusterProfileNotificationUpdateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterProfileNotificationUpdateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster profile packs
- */
-const v1ClusterProfilesUidPacksGet = <TData = AxiosResponse<V1ClusterProfilePacksEntities>>(
+  /**
+   * @summary Returns the specified cluster profile packs
+   */
+  const v1ClusterProfilesUidPacksGet = <
+    TData = AxiosResponse<V1ClusterProfilePacksEntities>,
+  >(
     uid: string,
-    params?: V1ClusterProfilesUidPacksGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesUidPacksGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/packs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Adds a new pack to the specified cluster profile and returns the created pack uid
- */
-const v1ClusterProfilesUidPacksAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Adds a new pack to the specified cluster profile and returns the created pack uid
+   */
+  const v1ClusterProfilesUidPacksAdd = <TData = AxiosResponse<V1Uid>>(
     uid: string,
     v1PackInputEntity?: V1PackInputEntity,
-    params?: V1ClusterProfilesUidPacksAddParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/clusterprofiles/${uid}/packs`,
-      v1PackInputEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterProfilesUidPacksAddParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/clusterprofiles/${uid}/packs`, v1PackInputEntity, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified cluster profile pack manifests
- */
-const v1ClusterProfilesUidPacksManifestsGet = <TData = AxiosResponse<V1ClusterProfilePacksManifests>>(
+  /**
+   * @summary Returns the specified cluster profile pack manifests
+   */
+  const v1ClusterProfilesUidPacksManifestsGet = <
+    TData = AxiosResponse<V1ClusterProfilePacksManifests>,
+  >(
     uid: string,
-    params?: V1ClusterProfilesUidPacksManifestsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterProfilesUidPacksManifestsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/packs/manifests`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns the specified cluster profile packs resolved values
+   */
+  const v1ClusterProfilesUidPacksResolvedValuesGet = <
+    TData = AxiosResponse<V1PackResolvedValues>,
+  >(
+    uid: string,
+    v1PackParamsEntity?: V1PackParamsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/manifests`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/clusterprofiles/${uid}/packs/resolvedValues`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster profile packs resolved values
- */
-const v1ClusterProfilesUidPacksResolvedValuesGet = <TData = AxiosResponse<V1PackResolvedValues>>(
-    uid: string,
-    v1PackParamsEntity?: V1PackParamsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/resolvedValues`,options
-    );
-  }
-
-/**
- * @summary Deletes the specified pack information in the cluster profile
- */
-const v1ClusterProfilesUidPacksNameDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    packName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clusterprofiles/${uid}/packs/${packName}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster profile pack
- */
-const v1ClusterProfilesUidPacksNameGet = <TData = AxiosResponse<V1PackRefSummaryResponse>>(
-    uid: string,
-    packName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/${packName}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified pack information in the cluster profile
- */
-const v1ClusterProfilesUidPacksNameUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified pack information in the cluster profile
+   */
+  const v1ClusterProfilesUidPacksNameDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     packName: string,
-    v1PackUpdateEntity?: V1PackUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clusterprofiles/${uid}/packs/${packName}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster profile pack
+   */
+  const v1ClusterProfilesUidPacksNameGet = <
+    TData = AxiosResponse<V1PackRefSummaryResponse>,
+  >(
+    uid: string,
+    packName: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/packs/${packName}`, options);
+  };
+
+  /**
+   * @summary Updates the specified pack information in the cluster profile
+   */
+  const v1ClusterProfilesUidPacksNameUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    packName: string,
+    v1PackUpdateEntity?: V1PackUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clusterprofiles/${uid}/packs/${packName}`,
-      v1PackUpdateEntity,options
+      v1PackUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster profile pack configuration
- */
-const v1ClusterProfilesUidPacksConfigGet = <TData = AxiosResponse<V1ClusterProfilePackConfigList>>(
+  /**
+   * @summary Returns the specified cluster profile pack configuration
+   */
+  const v1ClusterProfilesUidPacksConfigGet = <
+    TData = AxiosResponse<V1ClusterProfilePackConfigList>,
+  >(
     uid: string,
     packName: string,
-    params: V1ClusterProfilesUidPacksConfigGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/${packName}/config`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1ClusterProfilesUidPacksConfigGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/packs/${packName}/config`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the associated manifests for the specified profile's pack
- */
-const v1ClusterProfilesUidPacksUidManifests = <TData = AxiosResponse<V1ManifestEntities>>(
-    uid: string,
-    packName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests`,options
-    );
-  }
-
-/**
- * @summary Adds manifest to the profiles packs and returns the added manifests uid
- */
-const v1ClusterProfilesUidPacksNameManifestsAdd = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the associated manifests for the specified profile's pack
+   */
+  const v1ClusterProfilesUidPacksUidManifests = <
+    TData = AxiosResponse<V1ManifestEntities>,
+  >(
     uid: string,
     packName: string,
-    v1ManifestInputEntity?: V1ManifestInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Adds manifest to the profiles packs and returns the added manifests uid
+   */
+  const v1ClusterProfilesUidPacksNameManifestsAdd = <
+    TData = AxiosResponse<V1Uid>,
+  >(
+    uid: string,
+    packName: string,
+    v1ManifestInputEntity?: V1ManifestInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/${uid}/packs/${packName}/manifests`,
-      v1ManifestInputEntity,options
+      v1ManifestInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified cluster profile pack manifest
- */
-const v1ClusterProfilesUidPacksNameManifestsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    packName: string,
-    manifestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster profile pack manifest
- */
-const v1ClusterProfilesUidPacksNameManifestsUidGet = <TData = AxiosResponse<V1ManifestEntity>>(
-    uid: string,
-    packName: string,
-    manifestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified manifest of the profile's pack
- */
-const v1ClusterProfilesUidPacksNameManifestsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified cluster profile pack manifest
+   */
+  const v1ClusterProfilesUidPacksNameManifestsUidDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
     packName: string,
     manifestUid: string,
-    v1ManifestInputEntity?: V1ManifestInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster profile pack manifest
+   */
+  const v1ClusterProfilesUidPacksNameManifestsUidGet = <
+    TData = AxiosResponse<V1ManifestEntity>,
+  >(
+    uid: string,
+    packName: string,
+    manifestUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified manifest of the profile's pack
+   */
+  const v1ClusterProfilesUidPacksNameManifestsUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    packName: string,
+    manifestUid: string,
+    v1ManifestInputEntity?: V1ManifestInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`,
-      v1ManifestInputEntity,options
+      v1ManifestInputEntity,
+      options,
     );
-  }
+  };
 
-/**
+  /**
  * Publish the draft cluster profile with next revision, the current draft cluster profile will be marked to published
 and the draft cluster profile will be set to null in the cluster profile template.
 
  * @summary Publishes the specified cluster profile
  */
-const v1ClusterProfilesPublish = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/clusterprofiles/${uid}/publish`,undefined,options
-    );
-  }
-
-/**
- * @summary Downloads the specified cluster profile
- */
-const v1ClusterProfilesUidSpcDownload = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/spc/download`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Validates specified cluster profile packs
- */
-const v1ClusterProfilesUidValidatePacks = <TData = AxiosResponse<V1ClusterProfileValidatorResponse>>(
+  const v1ClusterProfilesPublish = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterProfileTemplateDraft?: V1ClusterProfileTemplateDraft, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(
+      `/v1/clusterprofiles/${uid}/publish`,
+      undefined,
+      options,
+    );
+  };
+
+  /**
+   * @summary Downloads the specified cluster profile
+   */
+  const v1ClusterProfilesUidSpcDownload = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/spc/download`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Validates specified cluster profile packs
+   */
+  const v1ClusterProfilesUidValidatePacks = <
+    TData = AxiosResponse<V1ClusterProfileValidatorResponse>,
+  >(
+    uid: string,
+    v1ClusterProfileTemplateDraft?: V1ClusterProfileTemplateDraft,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/clusterprofiles/${uid}/validate/packs`,
-      v1ClusterProfileTemplateDraft,options
+      v1ClusterProfileTemplateDraft,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified cluster profile variables
- */
-const v1ClusterProfilesUidVariablesDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified cluster profile variables
+   */
+  const v1ClusterProfilesUidVariablesDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1VariableNames?: V1VariableNames, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/clusterprofiles/${uid}/variables`,{data:
-      v1VariableNames, ...options}
-    );
-  }
+    v1VariableNames?: V1VariableNames,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/clusterprofiles/${uid}/variables`, {
+      data: v1VariableNames,
+      ...options,
+    });
+  };
 
-/**
- * @summary Retrieve a list of variables defined for the cluster profile
- */
-const v1ClusterProfilesUidVariablesGet = <TData = AxiosResponse<V1Variables>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/clusterprofiles/${uid}/variables`,options
-    );
-  }
-
-/**
- * @summary Update specific variables defined for a cluster profile
- */
-const v1ClusterProfilesUidVariablesPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieve a list of variables defined for the cluster profile
+   */
+  const v1ClusterProfilesUidVariablesGet = <TData = AxiosResponse<V1Variables>>(
     uid: string,
-    v1Variables?: V1Variables, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/clusterprofiles/${uid}/variables`, options);
+  };
+
+  /**
+   * @summary Update specific variables defined for a cluster profile
+   */
+  const v1ClusterProfilesUidVariablesPatch = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1Variables?: V1Variables,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/clusterprofiles/${uid}/variables`,
-      v1Variables,options
+      v1Variables,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the variables defined for a cluster profile
- */
-const v1ClusterProfilesUidVariablesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the variables defined for a cluster profile
+   */
+  const v1ClusterProfilesUidVariablesPut = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1Variables?: V1Variables, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1Variables?: V1Variables,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/clusterprofiles/${uid}/variables`,
-      v1Variables,options
+      v1Variables,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of application deployments filter summary Supported filter fields - ["appDeploymentName", "clusterUid", "tags"] Supported sort fields - ["appDeploymentName", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1DashboardAppDeployments = <TData = AxiosResponse<V1AppDeploymentsSummary>>(
+  /**
+   * @summary Retrieves a list of application deployments filter summary Supported filter fields - ["appDeploymentName", "clusterUid", "tags"] Supported sort fields - ["appDeploymentName", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1DashboardAppDeployments = <
+    TData = AxiosResponse<V1AppDeploymentsSummary>,
+  >(
     v1AppDeploymentsFilterSpec?: V1AppDeploymentsFilterSpec,
-    params?: V1DashboardAppDeploymentsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1DashboardAppDeploymentsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/appDeployments`,
-      v1AppDeploymentsFilterSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1AppDeploymentsFilterSpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of application profiles filter summary Supported filter fields - ["profileName", "tags"] Supported sort fields - ["profileName", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1DashboardAppProfiles = <TData = AxiosResponse<V1AppProfilesSummary>>(
+  /**
+   * @summary Retrieves a list of application profiles filter summary Supported filter fields - ["profileName", "tags"] Supported sort fields - ["profileName", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1DashboardAppProfiles = <TData = AxiosResponse<V1AppProfilesSummary>>(
     v1AppProfilesFilterSpec?: V1AppProfilesFilterSpec,
-    params?: V1DashboardAppProfilesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/dashboard/appProfiles`,
-      v1AppProfilesFilterSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1DashboardAppProfilesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/dashboard/appProfiles`, v1AppProfilesFilterSpec, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of application profile metadata
- */
-const v1DashboardAppProfilesMetadata = <TData = AxiosResponse<V1AppProfilesMetadata>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/appProfiles/metadata`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of application profile metadata
+   */
+  const v1DashboardAppProfilesMetadata = <
+    TData = AxiosResponse<V1AppProfilesMetadata>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/appProfiles/metadata`, options);
+  };
 
-/**
- * @summary Retrieves a list of edgehosts summary
- */
-const v1EdgeHostsMetadata = <TData = AxiosResponse<V1EdgeHostsMetadataSummary>>(
-    v1EdgeHostsMetadataFilter?: V1EdgeHostsMetadataFilter, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves a list of edgehosts summary
+   */
+  const v1EdgeHostsMetadata = <
+    TData = AxiosResponse<V1EdgeHostsMetadataSummary>,
+  >(
+    v1EdgeHostsMetadataFilter?: V1EdgeHostsMetadataFilter,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/appliances/metadata`,
-      v1EdgeHostsMetadataFilter,options
+      v1EdgeHostsMetadataFilter,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cloud accounts metadata
- */
-const v1DashboardCloudAccountsMetadata = <TData = AxiosResponse<V1CloudAccountsMetadata>>(
-    params?: V1DashboardCloudAccountsMetadataParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/cloudaccounts/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of cloud accounts metadata
+   */
+  const v1DashboardCloudAccountsMetadata = <
+    TData = AxiosResponse<V1CloudAccountsMetadata>,
+  >(
+    params?: V1DashboardCloudAccountsMetadataParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/cloudaccounts/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of cluster summary for a given cluster group
- */
-const v1ClusterGroupUidHostClustersSummary = <TData = AxiosResponse<V1SpectroClustersSummary>>(
+  /**
+   * @summary Retrieves a list of cluster summary for a given cluster group
+   */
+  const v1ClusterGroupUidHostClustersSummary = <
+    TData = AxiosResponse<V1SpectroClustersSummary>,
+  >(
     uid: string,
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1ClusterGroupUidHostClustersSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterGroupUidHostClustersSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/clustergroups/${uid}/hostClusters`,
-      v1SearchFilterSummarySpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SearchFilterSummarySpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cluster summary for a given cluster group
- */
-const v1ClusterGroupUidVirtualClustersSummary = <TData = AxiosResponse<V1SpectroClustersSummary>>(
+  /**
+   * @summary Retrieves a list of cluster summary for a given cluster group
+   */
+  const v1ClusterGroupUidVirtualClustersSummary = <
+    TData = AxiosResponse<V1SpectroClustersSummary>,
+  >(
     uid: string,
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1ClusterGroupUidVirtualClustersSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterGroupUidVirtualClustersSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/clustergroups/${uid}/virtualClusters`,
-      v1SearchFilterSummarySpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SearchFilterSummarySpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cluster profiles filter summary Supported filter fields - ["profileName", "tags", "profileType", "environment"] Supported sort fields - ["profileName", "environment", "profileType", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1ClusterProfilesFilterSummary = <TData = AxiosResponse<V1ClusterProfilesSummary>>(
+  /**
+   * @summary Retrieves a list of cluster profiles filter summary Supported filter fields - ["profileName", "tags", "profileType", "environment"] Supported sort fields - ["profileName", "environment", "profileType", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1ClusterProfilesFilterSummary = <
+    TData = AxiosResponse<V1ClusterProfilesSummary>,
+  >(
     v1ClusterProfilesFilterSpec?: V1ClusterProfilesFilterSpec,
-    params?: V1ClusterProfilesFilterSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterProfilesFilterSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/clusterprofiles`,
-      v1ClusterProfilesFilterSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterProfilesFilterSpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cluster profiles metadata
- */
-const v1ClusterProfilesMetadata = <TData = AxiosResponse<V1ClusterProfilesMetadata>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/clusterprofiles/metadata`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of cluster profiles metadata
+   */
+  const v1ClusterProfilesMetadata = <
+    TData = AxiosResponse<V1ClusterProfilesMetadata>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/clusterprofiles/metadata`, options);
+  };
 
-/**
- * @summary Retrieves a specified cluster profile summary
- */
-const v1ClusterProfilesUidSummary = <TData = AxiosResponse<V1ClusterProfileSummary>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/clusterprofiles/${uid}`,options
-    );
-  }
+  /**
+   * @summary Retrieves a specified cluster profile summary
+   */
+  const v1ClusterProfilesUidSummary = <
+    TData = AxiosResponse<V1ClusterProfileSummary>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/clusterprofiles/${uid}`, options);
+  };
 
-/**
- * @summary Retrieves a list of Edgehosts summary with provided search filter. Supported fields as per schema /v1/dashboard/edgehosts/search/schema
- */
-const v1DashboardEdgehostsSearch = <TData = AxiosResponse<V1EdgeHostsSearchSummary>>(
+  /**
+   * @summary Retrieves a list of Edgehosts summary with provided search filter. Supported fields as per schema /v1/dashboard/edgehosts/search/schema
+   */
+  const v1DashboardEdgehostsSearch = <
+    TData = AxiosResponse<V1EdgeHostsSearchSummary>,
+  >(
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1DashboardEdgehostsSearchParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1DashboardEdgehostsSearchParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/edgehosts/search`,
-      v1SearchFilterSummarySpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SearchFilterSummarySpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a schema for the Edgehost search filter
- */
-const v1DashboardEdgehostsSearchSchemaGet = <TData = AxiosResponse<V1SearchFilterSchemaSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/edgehosts/search/schema`,options
-    );
-  }
+  /**
+   * @summary Retrieves a schema for the Edgehost search filter
+   */
+  const v1DashboardEdgehostsSearchSchemaGet = <
+    TData = AxiosResponse<V1SearchFilterSchemaSpec>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/edgehosts/search/schema`, options);
+  };
 
-/**
- * @summary Retrieves a list of PCG summary with provided search filter. Supported fields as per schema /v1/dashboard/pcgs/search/schema
- */
-const v1DashboardPcgsSearchSummary = <TData = AxiosResponse<V1PcgsSummary>>(
+  /**
+   * @summary Retrieves a list of PCG summary with provided search filter. Supported fields as per schema /v1/dashboard/pcgs/search/schema
+   */
+  const v1DashboardPcgsSearchSummary = <TData = AxiosResponse<V1PcgsSummary>>(
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1DashboardPcgsSearchSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/dashboard/pcgs/search`,
-      v1SearchFilterSummarySpec,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1DashboardPcgsSearchSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/dashboard/pcgs/search`, v1SearchFilterSummarySpec, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a schema for the PCG search filter
- */
-const v1DashboardPcgSearchSchemaGet = <TData = AxiosResponse<V1SearchFilterSchemaSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/pcgs/search/schema`,options
-    );
-  }
+  /**
+   * @summary Retrieves a schema for the PCG search filter
+   */
+  const v1DashboardPcgSearchSchemaGet = <
+    TData = AxiosResponse<V1SearchFilterSchemaSpec>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/pcgs/search/schema`, options);
+  };
 
-const v1ProjectsFilterSummary = <TData = AxiosResponse<V1ProjectsSummary>>(
+  const v1ProjectsFilterSummary = <TData = AxiosResponse<V1ProjectsSummary>>(
     v1ProjectsFilterSpec?: V1ProjectsFilterSpec,
-    params?: V1ProjectsFilterSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/dashboard/projects`,
-      v1ProjectsFilterSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ProjectsFilterSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/dashboard/projects`, v1ProjectsFilterSpec, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of projects metadata
- */
-const v1ProjectsMetadata = <TData = AxiosResponse<V1ProjectsMetadata>>(
-    params?: V1ProjectsMetadataParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/projects/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of projects metadata
+   */
+  const v1ProjectsMetadata = <TData = AxiosResponse<V1ProjectsMetadata>>(
+    params?: V1ProjectsMetadataParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/projects/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves spectro clusters cloud cost summary information
- */
-const v1DashboardSpectroClustersCostSummary = <TData = AxiosResponse<V1ResourcesCloudCostSummary>>(
-    v1SpectroClusterCloudCostSummarySpec?: V1SpectroClusterCloudCostSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves spectro clusters cloud cost summary information
+   */
+  const v1DashboardSpectroClustersCostSummary = <
+    TData = AxiosResponse<V1ResourcesCloudCostSummary>,
+  >(
+    v1SpectroClusterCloudCostSummarySpec?: V1SpectroClusterCloudCostSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/cost`,
-      v1SpectroClusterCloudCostSummarySpec,options
+      v1SpectroClusterCloudCostSummarySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of running, non rbac configured clusters in a workspace
- */
-const v1SpectroClustersFiltersWorkspace = <TData = AxiosResponse<V1SpectroClustersSummary>>(
-    params?: V1SpectroClustersFiltersWorkspaceParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/filters/workspace`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of running, non rbac configured clusters in a workspace
+   */
+  const v1SpectroClustersFiltersWorkspace = <
+    TData = AxiosResponse<V1SpectroClustersSummary>,
+  >(
+    params?: V1SpectroClustersFiltersWorkspaceParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/filters/workspace`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns metadata information for all clusters
- * @summary Get all clusters metadata
- */
-const v1SpectroClustersMetaGet = <TData = AxiosResponse<V1SpectroClustersMeta>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/meta`,options
-    );
-  }
+  /**
+   * Returns metadata information for all clusters
+   * @summary Get all clusters metadata
+   */
+  const v1SpectroClustersMetaGet = <
+    TData = AxiosResponse<V1SpectroClustersMeta>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/meta`, options);
+  };
 
-/**
- * @summary Retrieves a list of cluster summary metadata
- */
-const v1SpectroClustersMetadataGet = <TData = AxiosResponse<V1SpectroClustersMetadata>>(
-    params?: V1SpectroClustersMetadataGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of cluster summary metadata
+   */
+  const v1SpectroClustersMetadataGet = <
+    TData = AxiosResponse<V1SpectroClustersMetadata>,
+  >(
+    params?: V1SpectroClustersMetadataGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of cluster summary
- */
-const v1SpectroClustersMetadata = <TData = AxiosResponse<V1SpectroClustersMetadata>>(
-    v1SpectroClusterMetadataSpec?: V1SpectroClusterMetadataSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves a list of cluster summary
+   */
+  const v1SpectroClustersMetadata = <
+    TData = AxiosResponse<V1SpectroClustersMetadata>,
+  >(
+    v1SpectroClusterMetadataSpec?: V1SpectroClusterMetadataSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/metadata`,
-      v1SpectroClusterMetadataSpec,options
+      v1SpectroClusterMetadataSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cluster metadata with provided search filter spec Supported sort fields - ["environment", "clusterName", "clusterState", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1SpectroClustersMetadataSearch = <TData = AxiosResponse<V1SpectroClustersMetadataSearch>>(
-    v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves a list of cluster metadata with provided search filter spec Supported sort fields - ["environment", "clusterName", "clusterState", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1SpectroClustersMetadataSearch = <
+    TData = AxiosResponse<V1SpectroClustersMetadataSearch>,
+  >(
+    v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/metadata/search`,
-      v1SearchFilterSummarySpec,options
+      v1SearchFilterSummarySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a schema for the cluster metadata search filter
- */
-const v1SpectroClustersMetadataSearchSchema = <TData = AxiosResponse<V1SearchFilterSchemaSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves a schema for the cluster metadata search filter
+   */
+  const v1SpectroClustersMetadataSearchSchema = <
+    TData = AxiosResponse<V1SearchFilterSchemaSpec>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/dashboard/spectroclusters/metadata/search/schema`,options
+      `/v1/dashboard/spectroclusters/metadata/search/schema`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of clusters with the desired repave state
- */
-const v1DashboardSpectroClustersRepaveList = <TData = AxiosResponse<V1SpectroClustersSummary>>(
-    params?: V1DashboardSpectroClustersRepaveListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/repaveStatus`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of clusters with the desired repave state
+   */
+  const v1DashboardSpectroClustersRepaveList = <
+    TData = AxiosResponse<V1SpectroClustersSummary>,
+  >(
+    params?: V1DashboardSpectroClustersRepaveListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/repaveStatus`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves spectro clusters resource consumption
- */
-const v1SpectroClustersResourcesConsumption = <TData = AxiosResponse<V1ResourcesConsumption>>(
-    v1ResourceConsumptionSpec?: V1ResourceConsumptionSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves spectro clusters resource consumption
+   */
+  const v1SpectroClustersResourcesConsumption = <
+    TData = AxiosResponse<V1ResourcesConsumption>,
+  >(
+    v1ResourceConsumptionSpec?: V1ResourceConsumptionSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/resources/consumption`,
-      v1ResourceConsumptionSpec,options
+      v1ResourceConsumptionSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves spectro clusters resources cost summary information
- */
-const v1SpectroClustersResourcesCostSummary = <TData = AxiosResponse<V1ResourcesCostSummary>>(
-    v1ResourceCostSummarySpec?: V1ResourceCostSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves spectro clusters resources cost summary information
+   */
+  const v1SpectroClustersResourcesCostSummary = <
+    TData = AxiosResponse<V1ResourcesCostSummary>,
+  >(
+    v1ResourceCostSummarySpec?: V1ResourceCostSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/resources/cost`,
-      v1ResourceCostSummarySpec,options
+      v1ResourceCostSummarySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves spectro clusters resources usage summary information
- */
-const v1SpectroClustersResourcesUsageSummary = <TData = AxiosResponse<V1ResourcesUsageSummary>>(
-    v1ResourceUsageSummarySpec?: V1ResourceUsageSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Retrieves spectro clusters resources usage summary information
+   */
+  const v1SpectroClustersResourcesUsageSummary = <
+    TData = AxiosResponse<V1ResourcesUsageSummary>,
+  >(
+    v1ResourceUsageSummarySpec?: V1ResourceUsageSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/resources/usage`,
-      v1ResourceUsageSummarySpec,options
+      v1ResourceUsageSummarySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of cluster summary with provided search filter spec Supported sort fields - ["environment", "clusterName", "memoryUsage", "healthState", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1SpectroClustersSearchFilterSummary = <TData = AxiosResponse<V1SpectroClustersSummary>>(
+  /**
+   * @summary Retrieves a list of cluster summary with provided search filter spec Supported sort fields - ["environment", "clusterName", "memoryUsage", "healthState", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1SpectroClustersSearchFilterSummary = <
+    TData = AxiosResponse<V1SpectroClustersSummary>,
+  >(
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1SpectroClustersSearchFilterSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersSearchFilterSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/search`,
-      v1SearchFilterSummarySpec,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SearchFilterSummarySpec,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Export and download the list of cluster summary with matching search filter and download as a file(csv)
- */
-const v1DashboardClustersSearchSummaryExportGet = <TData = AxiosResponse<Blob>>(
-    params?: V1DashboardClustersSearchSummaryExportGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/search/export`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Export and download the list of cluster summary with matching search filter and download as a file(csv)
+   */
+  const v1DashboardClustersSearchSummaryExportGet = <
+    TData = AxiosResponse<Blob>,
+  >(
+    params?: V1DashboardClustersSearchSummaryExportGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/search/export`, {
+      responseType: "blob",
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Export the list of cluster summary with matching search filter and download as a file(csv) Supported sort fields - ["environment", "clusterName", "healthState", "creationTimestamp", "lastModifiedTimestamp"]
- */
-const v1DashboardClustersSearchSummaryExport = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Export the list of cluster summary with matching search filter and download as a file(csv) Supported sort fields - ["environment", "clusterName", "healthState", "creationTimestamp", "lastModifiedTimestamp"]
+   */
+  const v1DashboardClustersSearchSummaryExport = <TData = AxiosResponse<Blob>>(
     v1SearchFilterSummarySpec?: V1SearchFilterSummarySpec,
-    params?: V1DashboardClustersSearchSummaryExportParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1DashboardClustersSearchSummaryExportParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/search/export`,
-      v1SearchFilterSummarySpec,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SearchFilterSummarySpec,
+      {
+        responseType: "blob",
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a supported input values for the cluster search filter
- */
-const v1DashboardSpectroClustersSearchInput = <TData = AxiosResponse<V1ClusterSearchInputSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/search/input`,options
-    );
-  }
+  /**
+   * @summary Retrieves a supported input values for the cluster search filter
+   */
+  const v1DashboardSpectroClustersSearchInput = <
+    TData = AxiosResponse<V1ClusterSearchInputSpec>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/search/input`, options);
+  };
 
-/**
- * @summary Retrieves a schema for the cluster search filter
- */
-const v1SpectroClustersSearchSchema = <TData = AxiosResponse<V1SearchFilterSchemaSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/search/schema`,options
-    );
-  }
+  /**
+   * @summary Retrieves a schema for the cluster search filter
+   */
+  const v1SpectroClustersSearchSchema = <
+    TData = AxiosResponse<V1SearchFilterSchemaSpec>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/search/schema`, options);
+  };
 
-/**
- * @summary Retrieves a list of Virtual machine enabled clusters
- */
-const v1DashboardVMEnabledClustersList = <TData = AxiosResponse<V1VMClusters>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/vms`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of Virtual machine enabled clusters
+   */
+  const v1DashboardVMEnabledClustersList = <
+    TData = AxiosResponse<V1VMClusters>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/vms`, options);
+  };
 
-/**
- * @summary Returns the specified cluster summary
- */
-const v1SpectroClustersSummaryUid = <TData = AxiosResponse<V1SpectroClusterUidSummary>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/${uid}`,options
-    );
-  }
-
-/**
- * @summary Retrieves the specified cluster cost summary
- */
-const v1SpectroClustersUidCostSummary = <TData = AxiosResponse<V1SpectroClusterCostSummary>>(
+  /**
+   * @summary Returns the specified cluster summary
+   */
+  const v1SpectroClustersSummaryUid = <
+    TData = AxiosResponse<V1SpectroClusterUidSummary>,
+  >(
     uid: string,
-    params?: V1SpectroClustersUidCostSummaryParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/${uid}/cost`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/${uid}`, options);
+  };
 
-/**
- * @summary Returns the specified cluster summary overview
- */
-const v1SpectroClustersSummaryUidOverview = <TData = AxiosResponse<V1SpectroClusterUidSummary>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/spectroclusters/${uid}/overview`,options
-    );
-  }
-
-/**
- * @summary Retrieves specified spectro cluster resource consumption
- */
-const v1SpectroClustersUidResourcesConsumption = <TData = AxiosResponse<V1ResourcesConsumption>>(
+  /**
+   * @summary Retrieves the specified cluster cost summary
+   */
+  const v1SpectroClustersUidCostSummary = <
+    TData = AxiosResponse<V1SpectroClusterCostSummary>,
+  >(
     uid: string,
-    v1ResourceConsumptionSpec?: V1ResourceConsumptionSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersUidCostSummaryParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/${uid}/cost`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns the specified cluster summary overview
+   */
+  const v1SpectroClustersSummaryUidOverview = <
+    TData = AxiosResponse<V1SpectroClusterUidSummary>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/spectroclusters/${uid}/overview`, options);
+  };
+
+  /**
+   * @summary Retrieves specified spectro cluster resource consumption
+   */
+  const v1SpectroClustersUidResourcesConsumption = <
+    TData = AxiosResponse<V1ResourcesConsumption>,
+  >(
+    uid: string,
+    v1ResourceConsumptionSpec?: V1ResourceConsumptionSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/resources/consumption`,
-      v1ResourceConsumptionSpec,options
+      v1ResourceConsumptionSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workloads
- */
-const v1DashboardSpectroClustersUidWorkloads = <TData = AxiosResponse<V1ClusterWorkload>>(
+  /**
+   * @summary Retrieves specified cluster workloads
+   */
+  const v1DashboardSpectroClustersUidWorkloads = <
+    TData = AxiosResponse<V1ClusterWorkload>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload clusterrolebindings
- */
-const v1DashboardSpectroClustersUidWorkloadsClusterRoleBinding = <TData = AxiosResponse<V1ClusterWorkloadRoleBindings>>(
+  /**
+   * @summary Retrieves specified cluster workload clusterrolebindings
+   */
+  const v1DashboardSpectroClustersUidWorkloadsClusterRoleBinding = <
+    TData = AxiosResponse<V1ClusterWorkloadRoleBindings>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/clusterrolebinding`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload cronjobs
- */
-const v1DashboardSpectroClustersUidWorkloadsCronJob = <TData = AxiosResponse<V1ClusterWorkloadCronJobs>>(
+  /**
+   * @summary Retrieves specified cluster workload cronjobs
+   */
+  const v1DashboardSpectroClustersUidWorkloadsCronJob = <
+    TData = AxiosResponse<V1ClusterWorkloadCronJobs>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/cronjob`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload daemonsets
- */
-const v1DashboardSpectroClustersUidWorkloadsDaemonSet = <TData = AxiosResponse<V1ClusterWorkloadDaemonSets>>(
+  /**
+   * @summary Retrieves specified cluster workload daemonsets
+   */
+  const v1DashboardSpectroClustersUidWorkloadsDaemonSet = <
+    TData = AxiosResponse<V1ClusterWorkloadDaemonSets>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/daemonset`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload deployments
- */
-const v1DashboardSpectroClustersUidWorkloadsDeployment = <TData = AxiosResponse<V1ClusterWorkloadDeployments>>(
+  /**
+   * @summary Retrieves specified cluster workload deployments
+   */
+  const v1DashboardSpectroClustersUidWorkloadsDeployment = <
+    TData = AxiosResponse<V1ClusterWorkloadDeployments>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/deployment`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload jobs
- */
-const v1DashboardSpectroClustersUidWorkloadsJob = <TData = AxiosResponse<V1ClusterWorkloadJobs>>(
+  /**
+   * @summary Retrieves specified cluster workload jobs
+   */
+  const v1DashboardSpectroClustersUidWorkloadsJob = <
+    TData = AxiosResponse<V1ClusterWorkloadJobs>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/job`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload namespaces
- */
-const v1DashboardSpectroClustersUidWorkloadsNamespace = <TData = AxiosResponse<V1ClusterWorkloadNamespaces>>(
+  /**
+   * @summary Retrieves specified cluster workload namespaces
+   */
+  const v1DashboardSpectroClustersUidWorkloadsNamespace = <
+    TData = AxiosResponse<V1ClusterWorkloadNamespaces>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/namespace`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload pods
- */
-const v1DashboardSpectroClustersUidWorkloadsPod = <TData = AxiosResponse<V1ClusterWorkloadPods>>(
+  /**
+   * @summary Retrieves specified cluster workload pods
+   */
+  const v1DashboardSpectroClustersUidWorkloadsPod = <
+    TData = AxiosResponse<V1ClusterWorkloadPods>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/pod`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload rolebindings
- */
-const v1DashboardSpectroClustersUidWorkloadsRoleBinding = <TData = AxiosResponse<V1ClusterWorkloadRoleBindings>>(
+  /**
+   * @summary Retrieves specified cluster workload rolebindings
+   */
+  const v1DashboardSpectroClustersUidWorkloadsRoleBinding = <
+    TData = AxiosResponse<V1ClusterWorkloadRoleBindings>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/rolebinding`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified cluster workload statefulsets
- */
-const v1DashboardSpectroClustersUidWorkloadsStatefulSet = <TData = AxiosResponse<V1ClusterWorkloadStatefulSets>>(
+  /**
+   * @summary Retrieves specified cluster workload statefulsets
+   */
+  const v1DashboardSpectroClustersUidWorkloadsStatefulSet = <
+    TData = AxiosResponse<V1ClusterWorkloadStatefulSets>,
+  >(
     uid: string,
-    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterWorkloadsSpec?: V1ClusterWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/spectroclusters/${uid}/workloads/statefulset`,
-      v1ClusterWorkloadsSpec,options
+      v1ClusterWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of workspace
- */
-const v1DashboardWorkspacesList = <TData = AxiosResponse<V1DashboardWorkspaces>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/dashboard/workspaces`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of workspace
+   */
+  const v1DashboardWorkspacesList = <
+    TData = AxiosResponse<V1DashboardWorkspaces>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/dashboard/workspaces`, options);
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload clusterrolebindings
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding = <TData = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload clusterrolebindings
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/clusterrolebinding`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload cronjobs
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsCronJob = <TData = AxiosResponse<V1WorkspaceClustersWorkloadCronJobs>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload cronjobs
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsCronJob = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadCronJobs>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/cronjob`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload daemonsets
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSet = <TData = AxiosResponse<V1WorkspaceClustersWorkloadDaemonSets>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload daemonsets
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSet = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadDaemonSets>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/daemonset`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload deployments
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsDeployment = <TData = AxiosResponse<V1WorkspaceClustersWorkloadDeployments>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload deployments
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsDeployment = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadDeployments>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/deployment`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload jobs
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsJob = <TData = AxiosResponse<V1WorkspaceClustersWorkloadJobs>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload jobs
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsJob = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadJobs>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/job`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload namespaces
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsNamespace = <TData = AxiosResponse<V1WorkspaceClustersWorkloadNamespaces>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload namespaces
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsNamespace = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadNamespaces>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/namespace`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload pods
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsPod = <TData = AxiosResponse<V1WorkspaceClustersWorkloadPods>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload pods
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsPod = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadPods>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/pod`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload rolebindings
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding = <TData = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload rolebindings
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/rolebinding`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves specified workspace clusters workload statefulsets
- */
-const v1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet = <TData = AxiosResponse<V1WorkspaceClustersWorkloadStatefulSets>>(
+  /**
+   * @summary Retrieves specified workspace clusters workload statefulsets
+   */
+  const v1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet = <
+    TData = AxiosResponse<V1WorkspaceClustersWorkloadStatefulSets>,
+  >(
     uid: string,
-    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceWorkloadsSpec?: V1WorkspaceWorkloadsSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/statefulset`,
-      v1WorkspaceWorkloadsSpec,options
+      v1WorkspaceWorkloadsSpec,
+      options,
     );
-  }
+  };
 
-/**
- * Sync data to cloud watch
- * @summary sync data to cloud watch
- */
-const v1DataSinksCloudWatchSink = <TData = AxiosResponse<unknown>>(
-    v1DataSinkCloudWatchConfig: V1DataSinkCloudWatchConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Sync data to cloud watch
+   * @summary sync data to cloud watch
+   */
+  const v1DataSinksCloudWatchSink = <TData = AxiosResponse<unknown>>(
+    v1DataSinkCloudWatchConfig: V1DataSinkCloudWatchConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/datasinks/cloudwatch`,
-      v1DataSinkCloudWatchConfig,options
+      v1DataSinkCloudWatchConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create the edge host device
- */
-const v1EdgeHostDevicesCreate = <TData = AxiosResponse<V1Uid>>(
-    v1EdgeHostDeviceEntity?: V1EdgeHostDeviceEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/edgehosts`,
-      v1EdgeHostDeviceEntity,options
-    );
-  }
+  /**
+   * @summary Create the edge host device
+   */
+  const v1EdgeHostDevicesCreate = <TData = AxiosResponse<V1Uid>>(
+    v1EdgeHostDeviceEntity?: V1EdgeHostDeviceEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/edgehosts`, v1EdgeHostDeviceEntity, options);
+  };
 
-/**
- * @summary Retrieves a list of edge hosts metadata matching the filter condition
- */
-const v1EdgeHostsMetadataQuickFilterGet = <TData = AxiosResponse<V1EdgeHostsMeta>>(
-    params?: V1EdgeHostsMetadataQuickFilterGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of edge hosts metadata matching the filter condition
+   */
+  const v1EdgeHostsMetadataQuickFilterGet = <
+    TData = AxiosResponse<V1EdgeHostsMeta>,
+  >(
+    params?: V1EdgeHostsMetadataQuickFilterGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Registers the edge host device
- */
-const v1EdgeHostDevicesRegister = <TData = AxiosResponse<V1EdgeHostDevice>>(
-    v1EdgeHostDevice?: V1EdgeHostDevice, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/edgehosts/register`,
-      v1EdgeHostDevice,options
-    );
-  }
+  /**
+   * @summary Registers the edge host device
+   */
+  const v1EdgeHostDevicesRegister = <TData = AxiosResponse<V1EdgeHostDevice>>(
+    v1EdgeHostDevice?: V1EdgeHostDevice,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/edgehosts/register`, v1EdgeHostDevice, options);
+  };
 
-/**
- * @summary Retrieves a list of edge hosts tags
- */
-const v1EdgeHostsTagsGet = <TData = AxiosResponse<V1EdgeHostsTags>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/tags`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of edge hosts tags
+   */
+  const v1EdgeHostsTagsGet = <TData = AxiosResponse<V1EdgeHostsTags>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/tags`, options);
+  };
 
-/**
- * @summary Retrieves a list of edge tokens
- */
-const v1EdgeTokensList = <TData = AxiosResponse<V1EdgeTokens>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/tokens`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of edge tokens
+   */
+  const v1EdgeTokensList = <TData = AxiosResponse<V1EdgeTokens>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/tokens`, options);
+  };
 
-/**
- * @summary Create the edge token
- */
-const v1EdgeTokensCreate = <TData = AxiosResponse<V1Uid>>(
-    v1EdgeTokenEntity?: V1EdgeTokenEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/edgehosts/tokens`,
-      v1EdgeTokenEntity,options
-    );
-  }
+  /**
+   * @summary Create the edge token
+   */
+  const v1EdgeTokensCreate = <TData = AxiosResponse<V1Uid>>(
+    v1EdgeTokenEntity?: V1EdgeTokenEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/edgehosts/tokens`, v1EdgeTokenEntity, options);
+  };
 
-/**
- * @summary Deletes the specified edge token
- */
-const v1EdgeTokensUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/edgehosts/tokens/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified edge token
- */
-const v1EdgeTokensUidGet = <TData = AxiosResponse<V1EdgeToken>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/tokens/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified edge token
- */
-const v1EdgeTokensUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified edge token
+   */
+  const v1EdgeTokensUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1EdgeTokenUpdate?: V1EdgeTokenUpdate, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/edgehosts/tokens/${uid}`,
-      v1EdgeTokenUpdate,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/edgehosts/tokens/${uid}`, options);
+  };
 
-/**
- * @summary Revoke or re-activate the edge token access
- */
-const v1EdgeTokensUidState = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified edge token
+   */
+  const v1EdgeTokensUidGet = <TData = AxiosResponse<V1EdgeToken>>(
     uid: string,
-    v1EdgeTokenActiveState?: V1EdgeTokenActiveState, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/tokens/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified edge token
+   */
+  const v1EdgeTokensUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1EdgeTokenUpdate?: V1EdgeTokenUpdate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/edgehosts/tokens/${uid}`, v1EdgeTokenUpdate, options);
+  };
+
+  /**
+   * @summary Revoke or re-activate the edge token access
+   */
+  const v1EdgeTokensUidState = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1EdgeTokenActiveState?: V1EdgeTokenActiveState,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/edgehosts/tokens/${uid}/state`,
-      v1EdgeTokenActiveState,options
+      v1EdgeTokenActiveState,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified edge host device
- */
-const v1EdgeHostDevicesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/edgehosts/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified edge host device
- */
-const v1EdgeHostDevicesUidGet = <TData = AxiosResponse<V1EdgeHostDevice>>(
+  /**
+   * @summary Deletes the specified edge host device
+   */
+  const v1EdgeHostDevicesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1EdgeHostDevicesUidGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/edgehosts/${uid}`, options);
+  };
 
-/**
- * @summary Updates the specified edge host device
- */
-const v1EdgeHostDevicesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified edge host device
+   */
+  const v1EdgeHostDevicesUidGet = <TData = AxiosResponse<V1EdgeHostDevice>>(
     uid: string,
-    v1EdgeHostDevice?: V1EdgeHostDevice, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/edgehosts/${uid}`,
-      v1EdgeHostDevice,options
-    );
-  }
+    params?: V1EdgeHostDevicesUidGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deassociate the clusters to the edge host
- */
-const v1EdgeHostDevicesUidClusterDeassociate = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/edgehosts/${uid}/cluster/associate`,options
-    );
-  }
-
-/**
- * @summary Associate the clusters to the edge host
- */
-const v1EdgeHostDevicesUidClusterAssociate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified edge host device
+   */
+  const v1EdgeHostDevicesUidUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1EdgeHostClusterEntity?: V1EdgeHostClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeHostDevice?: V1EdgeHostDevice,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/edgehosts/${uid}`, v1EdgeHostDevice, options);
+  };
+
+  /**
+   * @summary Deassociate the clusters to the edge host
+   */
+  const v1EdgeHostDevicesUidClusterDeassociate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/edgehosts/${uid}/cluster/associate`, options);
+  };
+
+  /**
+   * @summary Associate the clusters to the edge host
+   */
+  const v1EdgeHostDevicesUidClusterAssociate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1EdgeHostClusterEntity?: V1EdgeHostClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/cluster/associate`,
-      v1EdgeHostClusterEntity,options
+      v1EdgeHostClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the specified edge host device configuration
- */
-const v1EdgeHostDevicesUidConfigGet = <TData = AxiosResponse<V1EdgeHostConfig>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/${uid}/config`,options
-    );
-  }
-
-/**
- * @summary Updates the edge host health
- */
-const v1EdgeHostDevicesHealthUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get the specified edge host device configuration
+   */
+  const v1EdgeHostDevicesUidConfigGet = <
+    TData = AxiosResponse<V1EdgeHostConfig>,
+  >(
     uid: string,
-    v1EdgeHostHealth?: V1EdgeHostHealth, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/${uid}/config`, options);
+  };
+
+  /**
+   * @summary Updates the edge host health
+   */
+  const v1EdgeHostDevicesHealthUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1EdgeHostHealth?: V1EdgeHostHealth,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/health`,
-      v1EdgeHostHealth,options
+      v1EdgeHostHealth,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the specified edge host device host check sum
- */
-const v1EdgeHostDeviceHostCheckSumUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the specified edge host device host check sum
+   */
+  const v1EdgeHostDeviceHostCheckSumUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1EdgeHostDeviceHostCheckSum?: V1EdgeHostDeviceHostCheckSum, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeHostDeviceHostCheckSum?: V1EdgeHostDeviceHostCheckSum,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/hostCheckSum`,
-      v1EdgeHostDeviceHostCheckSum,options
+      v1EdgeHostDeviceHostCheckSum,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the specified edge host device host pairing key
- */
-const v1EdgeHostDeviceHostPairingKeyUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the specified edge host device host pairing key
+   */
+  const v1EdgeHostDeviceHostPairingKeyUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1EdgeHostDeviceHostPairingKey?: V1EdgeHostDeviceHostPairingKey, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeHostDeviceHostPairingKey?: V1EdgeHostDeviceHostPairingKey,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/hostPairingKey`,
-      v1EdgeHostDeviceHostPairingKey,options
+      v1EdgeHostDeviceHostPairingKey,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified edge host device meta
- */
-const v1EdgeHostDevicesUidMetaUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified edge host device meta
+   */
+  const v1EdgeHostDevicesUidMetaUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1EdgeHostDeviceMetaUpdateEntity?: V1EdgeHostDeviceMetaUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeHostDeviceMetaUpdateEntity?: V1EdgeHostDeviceMetaUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/edgehosts/${uid}/meta`,
-      v1EdgeHostDeviceMetaUpdateEntity,options
+      v1EdgeHostDeviceMetaUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified edge host's manifest
- */
-const v1EdgeHostDevicesUidPackManifestsUidGet = <TData = AxiosResponse<V1Manifest>>(
+  /**
+   * @summary Returns the specified edge host's manifest
+   */
+  const v1EdgeHostDevicesUidPackManifestsUidGet = <
+    TData = AxiosResponse<V1Manifest>,
+  >(
     uid: string,
     manifestUid: string,
-    params?: V1EdgeHostDevicesUidPackManifestsUidGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/${uid}/pack/manifests/${manifestUid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1EdgeHostDevicesUidPackManifestsUidGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/${uid}/pack/manifests/${manifestUid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Patch update specified edge host's packs status
- */
-const v1EdgeHostDevicesUidPacksStatusPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Patch update specified edge host's packs status
+   */
+  const v1EdgeHostDevicesUidPacksStatusPatch = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterPacksStatusEntity?: V1SpectroClusterPacksStatusEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterPacksStatusEntity?: V1SpectroClusterPacksStatusEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/packs/status`,
-      v1SpectroClusterPacksStatusEntity,options
+      v1SpectroClusterPacksStatusEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the associated profiles of a specified edge host device
- */
-const v1EdgeHostDevicesUidProfilesGet = <TData = AxiosResponse<V1SpectroClusterProfileList>>(
+  /**
+   * @summary Returns the associated profiles of a specified edge host device
+   */
+  const v1EdgeHostDevicesUidProfilesGet = <
+    TData = AxiosResponse<V1SpectroClusterProfileList>,
+  >(
     uid: string,
-    params?: V1EdgeHostDevicesUidProfilesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/${uid}/profiles`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1EdgeHostDevicesUidProfilesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/${uid}/profiles`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Associate cluster profiles to the specified edge host device
- */
-const v1EdgeHostDevicesUidProfilesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Associate cluster profiles to the specified edge host device
+   */
+  const v1EdgeHostDevicesUidProfilesUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterProfiles?: V1SpectroClusterProfiles, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterProfiles?: V1SpectroClusterProfiles,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/edgehosts/${uid}/profiles`,
-      v1SpectroClusterProfiles,options
+      v1SpectroClusterProfiles,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Reset the cluster through edge host
- */
-const v1EdgeHostsUidReset = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/edgehosts/${uid}/reset`,undefined,options
-    );
-  }
-
-/**
- * @summary Download the specified edge host device spc
- */
-const v1EdgeHostDevicesUidSpcDownload = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/edgehosts/${uid}/spc/download`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Updates the specified edge host device tunnel configuration
- */
-const v1EdgeHostDevicesUidTunnelConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Reset the cluster through edge host
+   */
+  const v1EdgeHostsUidReset = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroTunnelConfig?: V1SpectroTunnelConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/edgehosts/${uid}/reset`, undefined, options);
+  };
+
+  /**
+   * @summary Download the specified edge host device spc
+   */
+  const v1EdgeHostDevicesUidSpcDownload = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/edgehosts/${uid}/spc/download`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Updates the specified edge host device tunnel configuration
+   */
+  const v1EdgeHostDevicesUidTunnelConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1SpectroTunnelConfig?: V1SpectroTunnelConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/tunnelConfig`,
-      v1SpectroTunnelConfig,options
+      v1SpectroTunnelConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the edge host tunnel status
- */
-const v1EdgeHostDevicesUidTunnelStatusUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the edge host tunnel status
+   */
+  const v1EdgeHostDevicesUidTunnelStatusUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1SpectroTunnelStatus?: V1SpectroTunnelStatus, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroTunnelStatus?: V1SpectroTunnelStatus,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/edgehosts/${uid}/tunnelStatus`,
-      v1SpectroTunnelStatus,options
+      v1SpectroTunnelStatus,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified edge host device vsphere properties
- */
-const v1EdgeHostDevicesUidVspherePropertiesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified edge host device vsphere properties
+   */
+  const v1EdgeHostDevicesUidVspherePropertiesUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1EdgeHostVsphereCloudProperties?: V1EdgeHostVsphereCloudProperties, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1EdgeHostVsphereCloudProperties?: V1EdgeHostVsphereCloudProperties,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/edgehosts/${uid}/vsphere/properties`,
-      v1EdgeHostVsphereCloudProperties,options
+      v1EdgeHostVsphereCloudProperties,
+      options,
     );
-  }
+  };
 
-/**
- * Returns a paginated list of component events based on request parameters
- * @summary Returns a paginated list of component events based on request parameters
- */
-const v1EventsComponentsList = <TData = AxiosResponse<V1Events>>(
-    params?: V1EventsComponentsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/events/components`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Returns a paginated list of component events based on request parameters
+   * @summary Returns a paginated list of component events based on request parameters
+   */
+  const v1EventsComponentsList = <TData = AxiosResponse<V1Events>>(
+    params?: V1EventsComponentsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/events/components`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Creates a component event
- * @summary Creates a component event
- */
-const v1EventsComponentsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1Event?: V1Event, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/events/components`,
-      v1Event,options
-    );
-  }
+  /**
+   * Creates a component event
+   * @summary Creates a component event
+   */
+  const v1EventsComponentsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1Event?: V1Event,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/events/components`, v1Event, options);
+  };
 
-/**
- * Creates the component events in bulk
- * @summary Creates the component events in bulk
- */
-const v1EventsComponentsCreateBulk = <TData = AxiosResponse<V1Uids>>(
-    v1BulkEvents?: V1BulkEvents, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/events/components/bulk`,
-      v1BulkEvents,options
-    );
-  }
+  /**
+   * Creates the component events in bulk
+   * @summary Creates the component events in bulk
+   */
+  const v1EventsComponentsCreateBulk = <TData = AxiosResponse<V1Uids>>(
+    v1BulkEvents?: V1BulkEvents,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/events/components/bulk`, v1BulkEvents, options);
+  };
 
-/**
- * @summary Delete all the components events for the specified related object
- */
-const v1EventsComponentsObjTypeUidDelete = <TData = AxiosResponse<unknown>>(
-    objectKind: 'spectrocluster' | 'edgehost',
-    objectUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/events/components/${objectKind}/${objectUid}`,options
-    );
-  }
-
-/**
- * Returns a list of components events for the specified related object
- * @summary Returns a list of components events for the specified related object
- */
-const v1EventsComponentsObjTypeUidList = <TData = AxiosResponse<V1Events>>(
-    objectKind: 'spectrocluster' | 'edgehost',
+  /**
+   * @summary Delete all the components events for the specified related object
+   */
+  const v1EventsComponentsObjTypeUidDelete = <TData = AxiosResponse<unknown>>(
+    objectKind: "spectrocluster" | "edgehost",
     objectUid: string,
-    params?: V1EventsComponentsObjTypeUidListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/events/components/${objectKind}/${objectUid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Retrieves the list of features
- */
-const v1FeaturesList = <TData = AxiosResponse<V1Features>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/features`,options
-    );
-  }
-
-/**
- * @summary Update a feature
- */
-const v1FeaturesUpdate = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    v1FeatureUpdate?: V1FeatureUpdate, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/features/${uid}`,
-      v1FeatureUpdate,options
-    );
-  }
-
-/**
- * @summary Returns a list of Filters
- */
-const v1FiltersList = <TData = AxiosResponse<V1FiltersSummary>>(
-    params?: V1FiltersListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/filters`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Returns a list of Filters metadata
- */
-const v1FiltersMetadata = <TData = AxiosResponse<V1FiltersMetadata>>(
-    params?: V1FiltersMetadataParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/filters/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Creates a Tag filter
- */
-const v1TagFiltersCreate = <TData = AxiosResponse<V1Uid>>(
-    v1TagFilter?: V1TagFilter, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/filters/tag`,
-      v1TagFilter,options
-    );
-  }
-
-/**
- * @summary Delete the specified Filter object
- */
-const v1TagFilterUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.delete(
-      `/v1/filters/tag/${uid}`,options
+      `/v1/events/components/${objectKind}/${objectUid}`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Filter object
- */
-const v1TagFilterUidGet = <TData = AxiosResponse<V1TagFilterSummary>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/filters/tag/${uid}`,options
-    );
-  }
+  /**
+   * Returns a list of components events for the specified related object
+   * @summary Returns a list of components events for the specified related object
+   */
+  const v1EventsComponentsObjTypeUidList = <TData = AxiosResponse<V1Events>>(
+    objectKind: "spectrocluster" | "edgehost",
+    objectUid: string,
+    params?: V1EventsComponentsObjTypeUidListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/events/components/${objectKind}/${objectUid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates a Tag filter
- */
-const v1TagFilterUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves the list of features
+   */
+  const v1FeaturesList = <TData = AxiosResponse<V1Features>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/features`, options);
+  };
+
+  /**
+   * @summary Update a feature
+   */
+  const v1FeaturesUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1TagFilter?: V1TagFilter, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/filters/tag/${uid}`,
-      v1TagFilter,options
-    );
-  }
+    v1FeatureUpdate?: V1FeatureUpdate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/features/${uid}`, v1FeatureUpdate, options);
+  };
 
-/**
- * Returns all the metrics for a given resource kind
- * @summary Retrieves the list of metrics for a specified resource kind
- */
-const v1MetricsList = <TData = AxiosResponse<V1MetricTimeSeriesList>>(
-    resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
-    params?: V1MetricsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/metrics/${resourceKind}/values`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns a list of Filters
+   */
+  const v1FiltersList = <TData = AxiosResponse<V1FiltersSummary>>(
+    params?: V1FiltersListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/filters`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deletes the metrics of the specified resource
- */
-const v1MetricsUidDelete = <TData = AxiosResponse<unknown>>(
-    resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
-    resourceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/metrics/${resourceKind}/${resourceUid}/values`,options
-    );
-  }
+  /**
+   * @summary Returns a list of Filters metadata
+   */
+  const v1FiltersMetadata = <TData = AxiosResponse<V1FiltersMetadata>>(
+    params?: V1FiltersMetadataParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/filters/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the metrics for a specified resource uid
- */
-const v1MetricsUidList = <TData = AxiosResponse<V1MetricTimeSeries>>(
-    resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
+  /**
+   * @summary Creates a Tag filter
+   */
+  const v1TagFiltersCreate = <TData = AxiosResponse<V1Uid>>(
+    v1TagFilter?: V1TagFilter,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/filters/tag`, v1TagFilter, options);
+  };
+
+  /**
+   * @summary Delete the specified Filter object
+   */
+  const v1TagFilterUidDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/filters/tag/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified Filter object
+   */
+  const v1TagFilterUidGet = <TData = AxiosResponse<V1TagFilterSummary>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/filters/tag/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates a Tag filter
+   */
+  const v1TagFilterUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1TagFilter?: V1TagFilter,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/filters/tag/${uid}`, v1TagFilter, options);
+  };
+
+  /**
+   * Returns all the metrics for a given resource kind
+   * @summary Retrieves the list of metrics for a specified resource kind
+   */
+  const v1MetricsList = <TData = AxiosResponse<V1MetricTimeSeriesList>>(
+    resourceKind:
+      | "pod"
+      | "namespace"
+      | "spectrocluster"
+      | "machine"
+      | "project",
+    params?: V1MetricsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/metrics/${resourceKind}/values`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Deletes the metrics of the specified resource
+   */
+  const v1MetricsUidDelete = <TData = AxiosResponse<unknown>>(
+    resourceKind:
+      | "pod"
+      | "namespace"
+      | "spectrocluster"
+      | "machine"
+      | "project",
     resourceUid: string,
-    params?: V1MetricsUidListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/metrics/${resourceKind}/${resourceUid}/values`,{
-    ...options,
-        params: {...params, ...options?.params},}
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/metrics/${resourceKind}/${resourceUid}/values`,
+      options,
     );
-  }
+  };
 
-/**
- * Returns a paginated list of notifications based on request parameters
- * @summary Returns a paginated list of notifications based on request parameters
- */
-const v1NotificationsList = <TData = AxiosResponse<V1Notifications>>(
-    params?: V1NotificationsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/notifications/`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the metrics for a specified resource uid
+   */
+  const v1MetricsUidList = <TData = AxiosResponse<V1MetricTimeSeries>>(
+    resourceKind:
+      | "pod"
+      | "namespace"
+      | "spectrocluster"
+      | "machine"
+      | "project",
+    resourceUid: string,
+    params?: V1MetricsUidListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/metrics/${resourceKind}/${resourceUid}/values`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Creates a notification event
- * @summary Creates a notification event
- */
-const v1NotificationsEventCreate = <TData = AxiosResponse<V1Uid>>(
-    v1NotificationEvent?: V1NotificationEvent, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/notifications/events`,
-      v1NotificationEvent,options
-    );
-  }
+  /**
+   * Returns a paginated list of notifications based on request parameters
+   * @summary Returns a paginated list of notifications based on request parameters
+   */
+  const v1NotificationsList = <TData = AxiosResponse<V1Notifications>>(
+    params?: V1NotificationsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/notifications/`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns a list of notifications for the specified related object
- * @summary Returns a list of notifications for the specified related object
- */
-const v1NotificationsObjTypeUidList = <TData = AxiosResponse<V1Notifications>>(
-    objectKind: 'spectrocluster' | 'clusterprofile' | 'appdeployment',
+  /**
+   * Creates a notification event
+   * @summary Creates a notification event
+   */
+  const v1NotificationsEventCreate = <TData = AxiosResponse<V1Uid>>(
+    v1NotificationEvent?: V1NotificationEvent,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/notifications/events`, v1NotificationEvent, options);
+  };
+
+  /**
+   * Returns a list of notifications for the specified related object
+   * @summary Returns a list of notifications for the specified related object
+   */
+  const v1NotificationsObjTypeUidList = <
+    TData = AxiosResponse<V1Notifications>,
+  >(
+    objectKind: "spectrocluster" | "clusterprofile" | "appdeployment",
     objectUid: string,
-    params?: V1NotificationsObjTypeUidListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/notifications/${objectKind}/${objectUid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1NotificationsObjTypeUidListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/notifications/${objectKind}/${objectUid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Updates the specified notification for the acknowledgment
- * @summary Updates the specified notification for the acknowledgment
- */
-const v1NotificationsUidAck = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/notifications/${uid}/ack`,undefined,options
-    );
-  }
-
-/**
- * Updates the specified notification action as done
- * @summary Updates the specified notification action as done
- */
-const v1NotificationsUidDone = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/notifications/${uid}/done`,undefined,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of overlords owned by the tenant
- */
-const v1OverlordsList = <TData = AxiosResponse<V1Overlords>>(
-    params?: V1OverlordsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Returns the manifests required for the private gateway installation
- */
-const v1OverlordsMaasManifest = <TData = AxiosResponse<V1OverlordManifest>>(
-    params: V1OverlordsMaasManifestParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/maas/manifest`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary create the maas cloudaccount for the private gateway
- */
-const v1OverlordsUidMaasAccountCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * Updates the specified notification for the acknowledgment
+   * @summary Updates the specified notification for the acknowledgment
+   */
+  const v1NotificationsUidAck = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordMaasAccountCreate?: V1OverlordMaasAccountCreate, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/notifications/${uid}/ack`, undefined, options);
+  };
+
+  /**
+   * Updates the specified notification action as done
+   * @summary Updates the specified notification action as done
+   */
+  const v1NotificationsUidDone = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/notifications/${uid}/done`, undefined, options);
+  };
+
+  /**
+   * @summary Retrieves a list of overlords owned by the tenant
+   */
+  const v1OverlordsList = <TData = AxiosResponse<V1Overlords>>(
+    params?: V1OverlordsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns the manifests required for the private gateway installation
+   */
+  const v1OverlordsMaasManifest = <TData = AxiosResponse<V1OverlordManifest>>(
+    params: V1OverlordsMaasManifestParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/maas/manifest`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary create the maas cloudaccount for the private gateway
+   */
+  const v1OverlordsUidMaasAccountCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1OverlordMaasAccountCreate?: V1OverlordMaasAccountCreate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/maas/${uid}/account`,
-      v1OverlordMaasAccountCreate,options
+      v1OverlordMaasAccountCreate,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the maas cloudaccount for the private gateway
- */
-const v1OverlordsUidMaasAccountUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the maas cloudaccount for the private gateway
+   */
+  const v1OverlordsUidMaasAccountUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordMaasAccountEntity?: V1OverlordMaasAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordMaasAccountEntity?: V1OverlordMaasAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/maas/${uid}/account`,
-      v1OverlordMaasAccountEntity,options
+      v1OverlordMaasAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary validate the maas cloudaccount for the private gateway
- */
-const v1OverlordsUidMaasAccountValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary validate the maas cloudaccount for the private gateway
+   */
+  const v1OverlordsUidMaasAccountValidate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordsUidMaasAccountValidateRequest?: V1OverlordsUidMaasAccountValidateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordsUidMaasAccountValidateRequest?: V1OverlordsUidMaasAccountValidateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/maas/${uid}/account/validate`,
-      v1OverlordsUidMaasAccountValidateRequest,options
+      v1OverlordsUidMaasAccountValidateRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary create the maas cloud config for the private gateway
- */
-const v1OverlordsUidMaasCloudConfigCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary create the maas cloud config for the private gateway
+   */
+  const v1OverlordsUidMaasCloudConfigCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1OverlordMaasCloudConfig?: V1OverlordMaasCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordMaasCloudConfig?: V1OverlordMaasCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/maas/${uid}/cloudconfig`,
-      v1OverlordMaasCloudConfig,options
+      v1OverlordMaasCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the maas cloud config for the private gateway
- */
-const v1OverlordsUidMaasCloudConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the maas cloud config for the private gateway
+   */
+  const v1OverlordsUidMaasCloudConfigUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordMaasCloudConfig?: V1OverlordMaasCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordMaasCloudConfig?: V1OverlordMaasCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/maas/${uid}/cloudconfig`,
-      v1OverlordMaasCloudConfig,options
+      v1OverlordMaasCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified maas private gateway cluster profile
- */
-const v1OverlordsUidMaasClusterProfile = <TData = AxiosResponse<V1ClusterProfile>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/maas/${uid}/clusterprofile`,options
-    );
-  }
+  /**
+   * @summary Returns the specified maas private gateway cluster profile
+   */
+  const v1OverlordsUidMaasClusterProfile = <
+    TData = AxiosResponse<V1ClusterProfile>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/maas/${uid}/clusterprofile`, options);
+  };
 
-/**
- * @summary migrate all the clusters from source overlord to target overlord
- */
-const v1OverlordsMigrate = <TData = AxiosResponse<unknown>>(
-    v1OverlordMigrateEntity?: V1OverlordMigrateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary migrate all the clusters from source overlord to target overlord
+   */
+  const v1OverlordsMigrate = <TData = AxiosResponse<unknown>>(
+    v1OverlordMigrateEntity?: V1OverlordMigrateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/migrate`,
-      v1OverlordMigrateEntity,options
+      v1OverlordMigrateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the manifests required for the private gateway installation
- */
-const v1OverlordsOpenStackManifest = <TData = AxiosResponse<V1OverlordManifest>>(
-    params: V1OverlordsOpenStackManifestParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/openstack/manifest`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the manifests required for the private gateway installation
+   */
+  const v1OverlordsOpenStackManifest = <
+    TData = AxiosResponse<V1OverlordManifest>,
+  >(
+    params: V1OverlordsOpenStackManifestParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/openstack/manifest`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary create the OpenStack cloudaccount for the private gateway
- */
-const v1OverlordsUidOpenStackAccountCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary create the OpenStack cloudaccount for the private gateway
+   */
+  const v1OverlordsUidOpenStackAccountCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1OverlordOpenStackAccountCreate?: V1OverlordOpenStackAccountCreate, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordOpenStackAccountCreate?: V1OverlordOpenStackAccountCreate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/openstack/${uid}/account`,
-      v1OverlordOpenStackAccountCreate,options
+      v1OverlordOpenStackAccountCreate,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the OpenStack cloudaccount for the private gateway
- */
-const v1OverlordsUidOpenStackAccountUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the OpenStack cloudaccount for the private gateway
+   */
+  const v1OverlordsUidOpenStackAccountUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordOpenStackAccountEntity?: V1OverlordOpenStackAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordOpenStackAccountEntity?: V1OverlordOpenStackAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/openstack/${uid}/account`,
-      v1OverlordOpenStackAccountEntity,options
+      v1OverlordOpenStackAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary validate the OpenStack cloudaccount for the private gateway
- */
-const v1OverlordsUidOpenStackAccountValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary validate the OpenStack cloudaccount for the private gateway
+   */
+  const v1OverlordsUidOpenStackAccountValidate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1OverlordsUidOpenStackAccountValidateRequest?: V1OverlordsUidOpenStackAccountValidateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordsUidOpenStackAccountValidateRequest?: V1OverlordsUidOpenStackAccountValidateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/openstack/${uid}/account/validate`,
-      v1OverlordsUidOpenStackAccountValidateRequest,options
+      v1OverlordsUidOpenStackAccountValidateRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary create the OpenStack cloud config for the private gateway
- */
-const v1OverlordsUidOpenStackCloudConfigCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary create the OpenStack cloud config for the private gateway
+   */
+  const v1OverlordsUidOpenStackCloudConfigCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
     uid: string,
-    v1OverlordOpenStackCloudConfig?: V1OverlordOpenStackCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordOpenStackCloudConfig?: V1OverlordOpenStackCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/openstack/${uid}/cloudconfig`,
-      v1OverlordOpenStackCloudConfig,options
+      v1OverlordOpenStackCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the OpenStack cloud config for the private gateway
- */
-const v1OverlordsUidOpenStackCloudConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the OpenStack cloud config for the private gateway
+   */
+  const v1OverlordsUidOpenStackCloudConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1OverlordOpenStackCloudConfig?: V1OverlordOpenStackCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordOpenStackCloudConfig?: V1OverlordOpenStackCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/openstack/${uid}/cloudconfig`,
-      v1OverlordOpenStackCloudConfig,options
+      v1OverlordOpenStackCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified OpenStack private gateway cluster profile
- */
-const v1OverlordsUidOpenStackClusterProfile = <TData = AxiosResponse<V1ClusterProfile>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/openstack/${uid}/clusterprofile`,options
-    );
-  }
-
-/**
- * @summary Returns the pairing code for the private gateway
- */
-const v1OverlordsPairingCode = <TData = AxiosResponse<V1PairingCode>>(
-    params?: V1OverlordsPairingCodeParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/pairing/code`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Returns the manifests required for the private gateway installation
- */
-const v1OverlordsVsphereManifest = <TData = AxiosResponse<V1OverlordManifest>>(
-    params: V1OverlordsVsphereManifestParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/vsphere/manifest`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Returns overlord's ova information
- */
-const v1OverlordsVsphereOvaGet = <TData = AxiosResponse<V1OverloadVsphereOva>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/vsphere/ova`,options
-    );
-  }
-
-/**
- * @summary create the vSphere cloudaccount for the private gateway
- */
-const v1OverlordsUidVsphereAccountCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the specified OpenStack private gateway cluster profile
+   */
+  const v1OverlordsUidOpenStackClusterProfile = <
+    TData = AxiosResponse<V1ClusterProfile>,
+  >(
     uid: string,
-    v1OverlordVsphereAccountCreate?: V1OverlordVsphereAccountCreate, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/openstack/${uid}/clusterprofile`, options);
+  };
+
+  /**
+   * @summary Returns the pairing code for the private gateway
+   */
+  const v1OverlordsPairingCode = <TData = AxiosResponse<V1PairingCode>>(
+    params?: V1OverlordsPairingCodeParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/pairing/code`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns the manifests required for the private gateway installation
+   */
+  const v1OverlordsVsphereManifest = <
+    TData = AxiosResponse<V1OverlordManifest>,
+  >(
+    params: V1OverlordsVsphereManifestParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/vsphere/manifest`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns overlord's ova information
+   */
+  const v1OverlordsVsphereOvaGet = <
+    TData = AxiosResponse<V1OverloadVsphereOva>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/vsphere/ova`, options);
+  };
+
+  /**
+   * @summary create the vSphere cloudaccount for the private gateway
+   */
+  const v1OverlordsUidVsphereAccountCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1OverlordVsphereAccountCreate?: V1OverlordVsphereAccountCreate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/vsphere/${uid}/account`,
-      v1OverlordVsphereAccountCreate,options
+      v1OverlordVsphereAccountCreate,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the vSphere cloudaccount for the private gateway
- */
-const v1OverlordsUidVsphereAccountUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the vSphere cloudaccount for the private gateway
+   */
+  const v1OverlordsUidVsphereAccountUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordVsphereAccountEntity?: V1OverlordVsphereAccountEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordVsphereAccountEntity?: V1OverlordVsphereAccountEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/vsphere/${uid}/account`,
-      v1OverlordVsphereAccountEntity,options
+      v1OverlordVsphereAccountEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary validate the vSphere cloudaccount for the private gateway
- */
-const v1OverlordsUidVsphereAccountValidate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary validate the vSphere cloudaccount for the private gateway
+   */
+  const v1OverlordsUidVsphereAccountValidate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OverlordsUidVsphereAccountValidateRequest?: V1OverlordsUidVsphereAccountValidateRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordsUidVsphereAccountValidateRequest?: V1OverlordsUidVsphereAccountValidateRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/vsphere/${uid}/account/validate`,
-      v1OverlordsUidVsphereAccountValidateRequest,options
+      v1OverlordsUidVsphereAccountValidateRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary create the vSphere cloud config for the private gateway
- */
-const v1OverlordsUidVsphereCloudConfigCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary create the vSphere cloud config for the private gateway
+   */
+  const v1OverlordsUidVsphereCloudConfigCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1OverlordVsphereCloudConfig?: V1OverlordVsphereCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordVsphereCloudConfig?: V1OverlordVsphereCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/vsphere/${uid}/cloudconfig`,
-      v1OverlordVsphereCloudConfig,options
+      v1OverlordVsphereCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary update the vSphere cloud config for the private gateway
- */
-const v1OverlordsUidVsphereCloudConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary update the vSphere cloud config for the private gateway
+   */
+  const v1OverlordsUidVsphereCloudConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1OverlordVsphereCloudConfig?: V1OverlordVsphereCloudConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OverlordVsphereCloudConfig?: V1OverlordVsphereCloudConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/vsphere/${uid}/cloudconfig`,
-      v1OverlordVsphereCloudConfig,options
+      v1OverlordVsphereCloudConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified vsphere private gateway cluster profile
- */
-const v1OverlordsUidVsphereClusterProfile = <TData = AxiosResponse<V1ClusterProfile>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/vsphere/${uid}/clusterprofile`,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of IP Pools for the specified private gateway
- */
-const v1OverlordsUidPoolsList = <TData = AxiosResponse<V1IpPools>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/vsphere/${uid}/pools`,options
-    );
-  }
-
-/**
- * @summary Creates an IP pool defintion for the sepcified private gateway
- */
-const v1OverlordsUidPoolCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the specified vsphere private gateway cluster profile
+   */
+  const v1OverlordsUidVsphereClusterProfile = <
+    TData = AxiosResponse<V1ClusterProfile>,
+  >(
     uid: string,
-    v1IpPoolInputEntity?: V1IpPoolInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/vsphere/${uid}/clusterprofile`, options);
+  };
+
+  /**
+   * @summary Retrieves a list of IP Pools for the specified private gateway
+   */
+  const v1OverlordsUidPoolsList = <TData = AxiosResponse<V1IpPools>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/vsphere/${uid}/pools`, options);
+  };
+
+  /**
+   * @summary Creates an IP pool defintion for the sepcified private gateway
+   */
+  const v1OverlordsUidPoolCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1IpPoolInputEntity?: V1IpPoolInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/overlords/vsphere/${uid}/pools`,
-      v1IpPoolInputEntity,options
+      v1IpPoolInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the private gateways's specified IP Pool data
- */
-const v1OverlordsUidPoolDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    poolUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/overlords/vsphere/${uid}/pools/${poolUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the private gateways's specified IP Pool data
- */
-const v1OverlordsUidPoolUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the private gateways's specified IP Pool data
+   */
+  const v1OverlordsUidPoolDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     poolUid: string,
-    v1IpPoolInputEntity?: V1IpPoolInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/overlords/vsphere/${uid}/pools/${poolUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the private gateways's specified IP Pool data
+   */
+  const v1OverlordsUidPoolUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    poolUid: string,
+    v1IpPoolInputEntity?: V1IpPoolInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/vsphere/${uid}/pools/${poolUid}`,
-      v1IpPoolInputEntity,options
+      v1IpPoolInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves the vSphere computecluster resources for the specified private gateway's account
- */
-const v1OverlordsUidVsphereComputeclusterRes = <TData = AxiosResponse<V1VsphereComputeClusterResources>>(
+  /**
+   * @summary Retrieves the vSphere computecluster resources for the specified private gateway's account
+   */
+  const v1OverlordsUidVsphereComputeclusterRes = <
+    TData = AxiosResponse<V1VsphereComputeClusterResources>,
+  >(
     uid: string,
-    params: V1OverlordsUidVsphereComputeclusterResParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1OverlordsUidVsphereComputeclusterResParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/overlords/vsphere/${uid}/properties/computecluster/resources`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/overlords/vsphere/${uid}/properties/computecluster/resources`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves the vSphere datacenters & datacluster for the specified private gateway's account
- */
-const v1OverlordsUidVsphereDatacenters = <TData = AxiosResponse<V1VsphereDatacenters>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/vsphere/${uid}/properties/datacenters`,options
-    );
-  }
-
-/**
- * @summary delete the private gateway
- */
-const v1OverlordsUidDelete = <TData = AxiosResponse<V1DeletedMsg>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/overlords/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified private gateway's for the given uid
- */
-const v1OverlordsUidGet = <TData = AxiosResponse<V1Overlord>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/overlords/${uid}`,options
-    );
-  }
-
-/**
- * @summary update the private gateway's metadata
- */
-const v1OverlordsUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves the vSphere datacenters & datacluster for the specified private gateway's account
+   */
+  const v1OverlordsUidVsphereDatacenters = <
+    TData = AxiosResponse<V1VsphereDatacenters>,
+  >(
     uid: string,
-    v1ObjectMetaInputEntitySchema?: V1ObjectMetaInputEntitySchema, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/overlords/vsphere/${uid}/properties/datacenters`,
+      options,
+    );
+  };
+
+  /**
+   * @summary delete the private gateway
+   */
+  const v1OverlordsUidDelete = <TData = AxiosResponse<V1DeletedMsg>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/overlords/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified private gateway's for the given uid
+   */
+  const v1OverlordsUidGet = <TData = AxiosResponse<V1Overlord>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/overlords/${uid}`, options);
+  };
+
+  /**
+   * @summary update the private gateway's metadata
+   */
+  const v1OverlordsUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ObjectMetaInputEntitySchema?: V1ObjectMetaInputEntitySchema,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/overlords/${uid}/metadata`,
-      v1ObjectMetaInputEntitySchema,options
+      v1ObjectMetaInputEntitySchema,
+      options,
     );
-  }
+  };
 
-/**
- * @summary reset the private gateway by disaaociating the private gateway's resources
- */
-const v1OverlordsUidReset = <TData = AxiosResponse<V1UpdatedMsg>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/overlords/${uid}/reset`,undefined,options
-    );
-  }
+  /**
+   * @summary reset the private gateway by disaaociating the private gateway's resources
+   */
+  const v1OverlordsUidReset = <TData = AxiosResponse<V1UpdatedMsg>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/overlords/${uid}/reset`, undefined, options);
+  };
 
-/**
- * @summary Retrieves a list of packs
- */
-const v1PacksSummaryList = <TData = AxiosResponse<V1PackSummaries>>(
-    params?: V1PacksSummaryListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/packs`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of packs
+   */
+  const v1PacksSummaryList = <TData = AxiosResponse<V1PackSummaries>>(
+    params?: V1PacksSummaryListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/packs`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of packs based on filter
- */
-const v1PacksSearch = <TData = AxiosResponse<V1PackMetadataList>>(
+  /**
+   * @summary Retrieves a list of packs based on filter
+   */
+  const v1PacksSearch = <TData = AxiosResponse<V1PackMetadataList>>(
     v1PacksFilterSpec?: V1PacksFilterSpec,
-    params?: V1PacksSearchParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/packs/search`,
-      v1PacksFilterSpec,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1PacksSearchParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/packs/search`, v1PacksFilterSpec, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of packs
- */
-const v1PacksNameRegistryUidList = <TData = AxiosResponse<V1PackTagEntity>>(
+  /**
+   * @summary Retrieves a list of packs
+   */
+  const v1PacksNameRegistryUidList = <TData = AxiosResponse<V1PackTagEntity>>(
     packName: string,
     registryUid: string,
-    params?: V1PacksNameRegistryUidListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/packs/${packName}/registries/${registryUid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1PacksNameRegistryUidListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/packs/${packName}/registries/${registryUid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the logo for a specified pack
- */
-const v1PacksPackUidLogo = <TData = AxiosResponse<Blob>>(
-    packUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/packs/${packUid}/logo`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
+  /**
+   * @summary Returns the logo for a specified pack
+   */
+  const v1PacksPackUidLogo = <TData = AxiosResponse<Blob>>(
+    packUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/packs/${packUid}/logo`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
 
-/**
- * @summary Returns the specified pack
- */
-const v1PacksUid = <TData = AxiosResponse<V1PackTagEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/packs/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the readme of a specified pack
- */
-const v1PacksUidReadme = <TData = AxiosResponse<V1PackReadme>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/packs/${uid}/readme`,options
-    );
-  }
-
-/**
- * @summary Returns the private gateway manifest link
- */
-const v1PcgSelfHosted = <TData = AxiosResponse<V1PcgServiceKubectlCommands>>(
-    v1PcgSelfHostedParams?: V1PcgSelfHostedParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/pcg/selfHosted`,
-      v1PcgSelfHostedParams,options
-    );
-  }
-
-/**
- * @summary Registers the pcg
- */
-const v1PcgUidRegister = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified pack
+   */
+  const v1PacksUid = <TData = AxiosResponse<V1PackTagEntity>>(
     uid: string,
-    v1PairingCode?: V1PairingCode, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/pcg/${uid}/register`,
-      v1PairingCode,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/packs/${uid}`, options);
+  };
 
-/**
- * @summary Returns the pcg ally manifest
- */
-const v1PcgUidAllyManifestGet = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/pcg/${uid}/services/ally/manifest`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
+  /**
+   * @summary Returns the readme of a specified pack
+   */
+  const v1PacksUidReadme = <TData = AxiosResponse<V1PackReadme>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/packs/${uid}/readme`, options);
+  };
 
-/**
- * @summary Returns the pcg jet manifest
- */
-const v1PcgUidJetManifestGet = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/pcg/${uid}/services/jet/manifest`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
+  /**
+   * @summary Returns the private gateway manifest link
+   */
+  const v1PcgSelfHosted = <TData = AxiosResponse<V1PcgServiceKubectlCommands>>(
+    v1PcgSelfHostedParams?: V1PcgSelfHostedParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/pcg/selfHosted`, v1PcgSelfHostedParams, options);
+  };
 
-/**
- * @summary Retrieves a list of permissions
- */
-const v1PermissionsList = <TData = AxiosResponse<V1Permissions>>(
-    params?: V1PermissionsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/permissions`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Registers the pcg
+   */
+  const v1PcgUidRegister = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1PairingCode?: V1PairingCode,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/pcg/${uid}/register`, v1PairingCode, options);
+  };
 
-/**
- * @summary Creates a project
- */
-const v1ProjectsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1ProjectEntity?: V1ProjectEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/projects`,
-      v1ProjectEntity,options
-    );
-  }
+  /**
+   * @summary Returns the pcg ally manifest
+   */
+  const v1PcgUidAllyManifestGet = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/pcg/${uid}/services/ally/manifest`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
 
-/**
- * @summary Retrieves a list of supported alerts for a project
- */
-const v1ProjectsAlerts = <TData = AxiosResponse<V1ProjectAlertComponents>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/projects/alerts`,options
-    );
-  }
+  /**
+   * @summary Returns the pcg jet manifest
+   */
+  const v1PcgUidJetManifestGet = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/pcg/${uid}/services/jet/manifest`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
 
-/**
- * @summary Deletes the specified project
- */
-const v1ProjectsUidDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves a list of permissions
+   */
+  const v1PermissionsList = <TData = AxiosResponse<V1Permissions>>(
+    params?: V1PermissionsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/permissions`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Creates a project
+   */
+  const v1ProjectsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1ProjectEntity?: V1ProjectEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/projects`, v1ProjectEntity, options);
+  };
+
+  /**
+   * @summary Retrieves a list of supported alerts for a project
+   */
+  const v1ProjectsAlerts = <TData = AxiosResponse<V1ProjectAlertComponents>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/projects/alerts`, options);
+  };
+
+  /**
+   * @summary Deletes the specified project
+   */
+  const v1ProjectsUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1ProjectCleanup?: V1ProjectCleanup,
-    params?: V1ProjectsUidDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/projects/${uid}`,{data:
-      v1ProjectCleanup, 
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ProjectsUidDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/projects/${uid}`, {
+      data: v1ProjectCleanup,
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified project
- */
-const v1ProjectsUidGet = <TData = AxiosResponse<V1Project>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/projects/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified project
- */
-const v1ProjectsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified project
+   */
+  const v1ProjectsUidGet = <TData = AxiosResponse<V1Project>>(
     uid: string,
-    v1ProjectEntity?: V1ProjectEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/projects/${uid}`,
-      v1ProjectEntity,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/projects/${uid}`, options);
+  };
 
-/**
- * @summary Deletes the specified alert to the specified project
- */
-const v1ProjectsUidAlertDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified project
+   */
+  const v1ProjectsUidUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    component: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/projects/${uid}/alerts/${component}`,options
-    );
-  }
+    v1ProjectEntity?: V1ProjectEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/projects/${uid}`, v1ProjectEntity, options);
+  };
 
-/**
- * @summary Create the specified alert to the specified project
- */
-const v1ProjectsUidAlertCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Deletes the specified alert to the specified project
+   */
+  const v1ProjectsUidAlertDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     component: string,
-    v1Channel?: V1Channel, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/projects/${uid}/alerts/${component}`, options);
+  };
+
+  /**
+   * @summary Create the specified alert to the specified project
+   */
+  const v1ProjectsUidAlertCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    component: string,
+    v1Channel?: V1Channel,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/projects/${uid}/alerts/${component}`,
-      v1Channel,options
+      v1Channel,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Upsert the specified alert to the specified project
- */
-const v1ProjectsUidAlertUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Upsert the specified alert to the specified project
+   */
+  const v1ProjectsUidAlertUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
     component: string,
-    v1AlertEntity?: V1AlertEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1AlertEntity?: V1AlertEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/projects/${uid}/alerts/${component}`,
-      v1AlertEntity,options
+      v1AlertEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified alert of the specified project
- */
-const v1ProjectsUidAlertsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    component: string,
-    alertUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/projects/${uid}/alerts/${component}/${alertUid}`,options
-    );
-  }
-
-/**
- * @summary Get the specified alert of the specified project
- */
-const v1ProjectsUidAlertsUidGet = <TData = AxiosResponse<V1Channel>>(
-    uid: string,
-    component: string,
-    alertUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/projects/${uid}/alerts/${component}/${alertUid}`,options
-    );
-  }
-
-/**
- * @summary Update the specified alert of the specified project
- */
-const v1ProjectsUidAlertsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified alert of the specified project
+   */
+  const v1ProjectsUidAlertsUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     component: string,
     alertUid: string,
-    v1Channel?: V1Channel, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/projects/${uid}/alerts/${component}/${alertUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Get the specified alert of the specified project
+   */
+  const v1ProjectsUidAlertsUidGet = <TData = AxiosResponse<V1Channel>>(
+    uid: string,
+    component: string,
+    alertUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/projects/${uid}/alerts/${component}/${alertUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the specified alert of the specified project
+   */
+  const v1ProjectsUidAlertsUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    component: string,
+    alertUid: string,
+    v1Channel?: V1Channel,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/projects/${uid}/alerts/${component}/${alertUid}`,
-      v1Channel,options
+      v1Channel,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the macros for the specified project by macro name
- */
-const v1ProjectsUidMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the macros for the specified project by macro name
+   */
+  const v1ProjectsUidMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/projects/${uid}/macros`,{data:
-      v1Macros, ...options}
-    );
-  }
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/projects/${uid}/macros`, {
+      data: v1Macros,
+      ...options,
+    });
+  };
 
-/**
- * @summary List the macros of the specified project
- */
-const v1ProjectsUidMacrosList = <TData = AxiosResponse<V1Macros>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary List the macros of the specified project
+   */
+  const v1ProjectsUidMacrosList = <TData = AxiosResponse<V1Macros>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/projects/${uid}/macros`, options);
+  };
+
+  /**
+   * @summary Update the macros for the specified project by macro name
+   */
+  const v1ProjectsUidMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/projects/${uid}/macros`, v1Macros, options);
+  };
+
+  /**
+   * @summary Create or add new macros for the specified project
+   */
+  const v1ProjectsUidMacrosCreate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/projects/${uid}/macros`, v1Macros, options);
+  };
+
+  /**
+   * @summary Update the macros of the specified project
+   */
+  const v1ProjectsUidMacrosUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/projects/${uid}/macros`, v1Macros, options);
+  };
+
+  /**
+   * @summary Update the metadata of the specified project
+   */
+  const v1ProjectsUidMetaUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ObjectMeta?: V1ObjectMeta,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/projects/${uid}/meta`, v1ObjectMeta, options);
+  };
+
+  /**
+   * @summary Get project cluster settings
+   */
+  const v1ProjectClusterSettingsGet = <
+    TData = AxiosResponse<V1ProjectClusterSettings>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/projects/${uid}/macros`,options
+      `/v1/projects/${uid}/preferences/clusterSettings`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the macros for the specified project by macro name
- */
-const v1ProjectsUidMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update project clusters nodes auto remediation setting
+   */
+  const v1ProjectClustersNodesAutoRemediationSettingUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/projects/${uid}/macros`,
-      v1Macros,options
-    );
-  }
-
-/**
- * @summary Create or add new macros for the specified project
- */
-const v1ProjectsUidMacrosCreate = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/projects/${uid}/macros`,
-      v1Macros,options
-    );
-  }
-
-/**
- * @summary Update the macros of the specified project
- */
-const v1ProjectsUidMacrosUpdate = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/projects/${uid}/macros`,
-      v1Macros,options
-    );
-  }
-
-/**
- * @summary Update the metadata of the specified project
- */
-const v1ProjectsUidMetaUpdate = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    v1ObjectMeta?: V1ObjectMeta, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/projects/${uid}/meta`,
-      v1ObjectMeta,options
-    );
-  }
-
-/**
- * @summary Get project cluster settings
- */
-const v1ProjectClusterSettingsGet = <TData = AxiosResponse<V1ProjectClusterSettings>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/projects/${uid}/preferences/clusterSettings`,options
-    );
-  }
-
-/**
- * @summary Update project clusters nodes auto remediation setting
- */
-const v1ProjectClustersNodesAutoRemediationSettingUpdate = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    v1NodesAutoRemediationSettings?: V1NodesAutoRemediationSettings, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1NodesAutoRemediationSettings?: V1NodesAutoRemediationSettings,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/projects/${uid}/preferences/clusterSettings/nodesAutoRemediationSetting`,
-      v1NodesAutoRemediationSettings,options
+      v1NodesAutoRemediationSettings,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the teams association to the specified project
- */
-const v1ProjectsUidTeamsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the teams association to the specified project
+   */
+  const v1ProjectsUidTeamsUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ProjectTeamsEntity?: V1ProjectTeamsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ProjectTeamsEntity?: V1ProjectTeamsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/projects/${uid}/teams`,
-      v1ProjectTeamsEntity,options
+      v1ProjectTeamsEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the users association to the specified project
- */
-const v1ProjectsUidUsersUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the users association to the specified project
+   */
+  const v1ProjectsUidUsersUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ProjectUsersEntity?: V1ProjectUsersEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ProjectUsersEntity?: V1ProjectUsersEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/projects/${uid}/users`,
-      v1ProjectUsersEntity,options
+      v1ProjectUsersEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validate and returns active resource of project before delete
- */
-const v1ProjectsUidValidate = <TData = AxiosResponse<V1ProjectActiveResources>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/projects/${uid}/validate`,options
-    );
-  }
+  /**
+   * @summary Validate and returns active resource of project before delete
+   */
+  const v1ProjectsUidValidate = <
+    TData = AxiosResponse<V1ProjectActiveResources>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/projects/${uid}/validate`, options);
+  };
 
-/**
- * @summary Retrieves a list of Helm registries
- */
-const v1RegistriesHelmList = <TData = AxiosResponse<V1HelmRegistries>>(
-    params?: V1RegistriesHelmListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/helm`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of Helm registries
+   */
+  const v1RegistriesHelmList = <TData = AxiosResponse<V1HelmRegistries>>(
+    params?: V1RegistriesHelmListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/helm`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates a helm registry
- */
-const v1RegistriesHelmCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a helm registry
+   */
+  const v1RegistriesHelmCreate = <TData = AxiosResponse<V1Uid>>(
     v1HelmRegistryEntity?: V1HelmRegistryEntity,
-    params?: V1RegistriesHelmCreateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/helm`,
-      v1HelmRegistryEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1RegistriesHelmCreateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/helm`, v1HelmRegistryEntity, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of helm registries as summary
- */
-const v1RegistriesHelmSummaryList = <TData = AxiosResponse<V1HelmRegistriesSummary>>(
-    params?: V1RegistriesHelmSummaryListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/helm/summary`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of helm registries as summary
+   */
+  const v1RegistriesHelmSummaryList = <
+    TData = AxiosResponse<V1HelmRegistriesSummary>,
+  >(
+    params?: V1RegistriesHelmSummaryListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/helm/summary`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if helm registry is valid else error.
- * @summary Check if helm registry is valid
- */
-const v1RegistriesHelmValidate = <TData = AxiosResponse<unknown>>(
-    v1HelmRegistrySpec: V1HelmRegistrySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if helm registry is valid else error.
+   * @summary Check if helm registry is valid
+   */
+  const v1RegistriesHelmValidate = <TData = AxiosResponse<unknown>>(
+    v1HelmRegistrySpec: V1HelmRegistrySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/registries/helm/validate`,
-      v1HelmRegistrySpec,options
+      v1HelmRegistrySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified helm registry
- */
-const v1RegistriesHelmUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/registries/helm/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified Helm registry
- */
-const v1RegistriesHelmUidGet = <TData = AxiosResponse<V1HelmRegistry>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/helm/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified helm registry
- */
-const v1RegistriesHelmUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified helm registry
+   */
+  const v1RegistriesHelmUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1HelmRegistry?: V1HelmRegistry, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/registries/helm/${uid}`,
-      v1HelmRegistry,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/registries/helm/${uid}`, options);
+  };
 
-/**
- * Sync all the helm charts from the registry
- * @summary Sync Helm registry
- */
-const v1RegistriesHelmUidSync = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Helm registry
+   */
+  const v1RegistriesHelmUidGet = <TData = AxiosResponse<V1HelmRegistry>>(
     uid: string,
-    params?: V1RegistriesHelmUidSyncParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/helm/${uid}/sync`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/helm/${uid}`, options);
+  };
 
-/**
- * Get the sync status for the specified helm registry
- * @summary Get helm registry sync status
- */
-const v1RegistriesHelmUidSyncStatus = <TData = AxiosResponse<V1RegistrySyncStatus>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/helm/${uid}/sync/status`,options
-    );
-  }
+  /**
+   * @summary Updates the specified helm registry
+   */
+  const v1RegistriesHelmUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1HelmRegistry?: V1HelmRegistry,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/registries/helm/${uid}`, v1HelmRegistry, options);
+  };
 
-/**
- * @summary Retrieves a list of registries metadata
- */
-const v1RegistriesMetadata = <TData = AxiosResponse<V1RegistriesMetadata>>(
-    params?: V1RegistriesMetadataParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/metadata`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Sync all the helm charts from the registry
+   * @summary Sync Helm registry
+   */
+  const v1RegistriesHelmUidSync = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    params?: V1RegistriesHelmUidSyncParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/helm/${uid}/sync`, undefined, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates a basic oci registry
- */
-const v1BasicOciRegistriesCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * Get the sync status for the specified helm registry
+   * @summary Get helm registry sync status
+   */
+  const v1RegistriesHelmUidSyncStatus = <
+    TData = AxiosResponse<V1RegistrySyncStatus>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/helm/${uid}/sync/status`, options);
+  };
+
+  /**
+   * @summary Retrieves a list of registries metadata
+   */
+  const v1RegistriesMetadata = <TData = AxiosResponse<V1RegistriesMetadata>>(
+    params?: V1RegistriesMetadataParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/metadata`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Creates a basic oci registry
+   */
+  const v1BasicOciRegistriesCreate = <TData = AxiosResponse<V1Uid>>(
     v1BasicOciRegistry?: V1BasicOciRegistry,
-    params?: V1BasicOciRegistriesCreateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/oci/basic`,
-      v1BasicOciRegistry,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1BasicOciRegistriesCreateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/oci/basic`, v1BasicOciRegistry, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if oci registry is valid else error.
- * @summary Check if oci registry is valid
- */
-const v1BasicOciRegistriesValidate = <TData = AxiosResponse<unknown>>(
-    v1BasicOciRegistrySpec: V1BasicOciRegistrySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if oci registry is valid else error.
+   * @summary Check if oci registry is valid
+   */
+  const v1BasicOciRegistriesValidate = <TData = AxiosResponse<unknown>>(
+    v1BasicOciRegistrySpec: V1BasicOciRegistrySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/registries/oci/basic/validate`,
-      v1BasicOciRegistrySpec,options
+      v1BasicOciRegistrySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a ecr registry
- */
-const v1EcrRegistriesCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a ecr registry
+   */
+  const v1EcrRegistriesCreate = <TData = AxiosResponse<V1Uid>>(
     v1EcrRegistry?: V1EcrRegistry,
-    params?: V1EcrRegistriesCreateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/oci/ecr`,
-      v1EcrRegistry,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1EcrRegistriesCreateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/oci/ecr`, v1EcrRegistry, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if ecr registry is valid else error.
- * @summary Check if ecr registry is valid
- */
-const v1EcrRegistriesValidate = <TData = AxiosResponse<unknown>>(
-    v1EcrRegistrySpec: V1EcrRegistrySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if ecr registry is valid else error.
+   * @summary Check if ecr registry is valid
+   */
+  const v1EcrRegistriesValidate = <TData = AxiosResponse<unknown>>(
+    v1EcrRegistrySpec: V1EcrRegistrySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/registries/oci/ecr/validate`,
-      v1EcrRegistrySpec,options
+      v1EcrRegistrySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a image registry
- */
-const v1OciImageRegistryGet = <TData = AxiosResponse<V1OciImageRegistry>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/image`,options
-    );
-  }
+  /**
+   * @summary Creates a image registry
+   */
+  const v1OciImageRegistryGet = <TData = AxiosResponse<V1OciImageRegistry>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/image`, options);
+  };
 
-/**
- * @summary Retrieves a oci registries summary
- */
-const v1OciRegistriesSummary = <TData = AxiosResponse<V1OciRegistries>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/summary`,options
-    );
-  }
+  /**
+   * @summary Retrieves a oci registries summary
+   */
+  const v1OciRegistriesSummary = <TData = AxiosResponse<V1OciRegistries>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/summary`, options);
+  };
 
-/**
- * @summary Returns the information of specified oci registry
- */
-const v1OciRegistriesGet = <TData = AxiosResponse<V1OciRegistryEntity>>(
+  /**
+   * @summary Returns the information of specified oci registry
+   */
+  const v1OciRegistriesGet = <TData = AxiosResponse<V1OciRegistryEntity>>(
     uid: string,
-    params?: V1OciRegistriesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1OciRegistriesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deletes the specified basic oci registry
- */
-const v1BasicOciRegistriesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/registries/oci/${uid}/basic`,options
-    );
-  }
-
-/**
- * @summary Returns the basic oci registry
- */
-const v1BasicOciRegistriesUidGet = <TData = AxiosResponse<V1BasicOciRegistry>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/${uid}/basic`,options
-    );
-  }
-
-/**
- * @summary Updates the specified basic oci registry
- */
-const v1BasicOciRegistriesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified basic oci registry
+   */
+  const v1BasicOciRegistriesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1BasicOciRegistry?: V1BasicOciRegistry, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/registries/oci/${uid}/basic`, options);
+  };
+
+  /**
+   * @summary Returns the basic oci registry
+   */
+  const v1BasicOciRegistriesUidGet = <
+    TData = AxiosResponse<V1BasicOciRegistry>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/${uid}/basic`, options);
+  };
+
+  /**
+   * @summary Updates the specified basic oci registry
+   */
+  const v1BasicOciRegistriesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1BasicOciRegistry?: V1BasicOciRegistry,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/registries/oci/${uid}/basic`,
-      v1BasicOciRegistry,options
+      v1BasicOciRegistry,
+      options,
     );
-  }
+  };
 
-/**
- * Sync all the content from the oci registry
- * @summary Sync oci registry
- */
-const v1BasicOciRegistriesUidSync = <TData = AxiosResponse<unknown>>(
+  /**
+   * Sync all the content from the oci registry
+   * @summary Sync oci registry
+   */
+  const v1BasicOciRegistriesUidSync = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1BasicOciRegistriesUidSyncParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/oci/${uid}/basic/sync`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1BasicOciRegistriesUidSyncParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/oci/${uid}/basic/sync`, undefined, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Get sync status for the oci specified registry
- * @summary Get oci registry sync status
- */
-const v1BasicOciRegistriesUidSyncStatus = <TData = AxiosResponse<V1RegistrySyncStatus>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/${uid}/basic/sync/status`,options
-    );
-  }
-
-/**
- * @summary Deletes the specified ecr registry
- */
-const v1EcrRegistriesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/registries/oci/${uid}/ecr`,options
-    );
-  }
-
-/**
- * @summary Returns the specified ecr registry
- */
-const v1EcrRegistriesUidGet = <TData = AxiosResponse<V1EcrRegistry>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/${uid}/ecr`,options
-    );
-  }
-
-/**
- * @summary Updates the specified ecr registry
- */
-const v1EcrRegistriesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Get sync status for the oci specified registry
+   * @summary Get oci registry sync status
+   */
+  const v1BasicOciRegistriesUidSyncStatus = <
+    TData = AxiosResponse<V1RegistrySyncStatus>,
+  >(
     uid: string,
-    v1EcrRegistry?: V1EcrRegistry, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/registries/oci/${uid}/ecr`,
-      v1EcrRegistry,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/${uid}/basic/sync/status`, options);
+  };
 
-/**
- * Sync all the content from the ecr registry
- * @summary Sync ecr registry
- */
-const v1EcrRegistriesUidSync = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified ecr registry
+   */
+  const v1EcrRegistriesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1EcrRegistriesUidSyncParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/oci/${uid}/ecr/sync`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/registries/oci/${uid}/ecr`, options);
+  };
 
-/**
- * Get sync status for the ecr specified registry
- * @summary Get ecr registry sync status
- */
-const v1EcrRegistriesUidSyncStatus = <TData = AxiosResponse<V1RegistrySyncStatus>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/oci/${uid}/ecr/sync/status`,options
-    );
-  }
+  /**
+   * @summary Returns the specified ecr registry
+   */
+  const v1EcrRegistriesUidGet = <TData = AxiosResponse<V1EcrRegistry>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/${uid}/ecr`, options);
+  };
 
-/**
- * @summary Retrieves a list of Pack registries
- */
-const v1RegistriesPackList = <TData = AxiosResponse<V1PackRegistries>>(
-    params?: V1RegistriesPackListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/pack`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Updates the specified ecr registry
+   */
+  const v1EcrRegistriesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1EcrRegistry?: V1EcrRegistry,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/registries/oci/${uid}/ecr`, v1EcrRegistry, options);
+  };
 
-/**
- * @summary Creates a pack registry
- */
-const v1RegistriesPackCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * Sync all the content from the ecr registry
+   * @summary Sync ecr registry
+   */
+  const v1EcrRegistriesUidSync = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    params?: V1EcrRegistriesUidSyncParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/oci/${uid}/ecr/sync`, undefined, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * Get sync status for the ecr specified registry
+   * @summary Get ecr registry sync status
+   */
+  const v1EcrRegistriesUidSyncStatus = <
+    TData = AxiosResponse<V1RegistrySyncStatus>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/oci/${uid}/ecr/sync/status`, options);
+  };
+
+  /**
+   * @summary Retrieves a list of Pack registries
+   */
+  const v1RegistriesPackList = <TData = AxiosResponse<V1PackRegistries>>(
+    params?: V1RegistriesPackListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/pack`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Creates a pack registry
+   */
+  const v1RegistriesPackCreate = <TData = AxiosResponse<V1Uid>>(
     v1PackRegistry?: V1PackRegistry,
-    params?: V1RegistriesPackCreateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/pack`,
-      v1PackRegistry,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1RegistriesPackCreateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/pack`, v1PackRegistry, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Retrieves a list of pack registries as summary
- */
-const v1RegistriesPackSummaryList = <TData = AxiosResponse<V1PackRegistriesSummary>>(
-    params?: V1RegistriesPackSummaryListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/pack/summary`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of pack registries as summary
+   */
+  const v1RegistriesPackSummaryList = <
+    TData = AxiosResponse<V1PackRegistriesSummary>,
+  >(
+    params?: V1RegistriesPackSummaryListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/pack/summary`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * Returns no contents if pack registry is valid else error.
- * @summary Check if pack registry is valid
- */
-const v1RegistriesPackValidate = <TData = AxiosResponse<unknown>>(
-    v1PackRegistrySpec: V1PackRegistrySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * Returns no contents if pack registry is valid else error.
+   * @summary Check if pack registry is valid
+   */
+  const v1RegistriesPackValidate = <TData = AxiosResponse<unknown>>(
+    v1PackRegistrySpec: V1PackRegistrySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/registries/pack/validate`,
-      v1PackRegistrySpec,options
+      v1PackRegistrySpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified pack registry
- */
-const v1RegistriesPackUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/registries/pack/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified Pack registry
- */
-const v1RegistriesPackUidGet = <TData = AxiosResponse<V1PackRegistry>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/pack/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified pack registry
- */
-const v1RegistriesPackUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified pack registry
+   */
+  const v1RegistriesPackUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1PackRegistry?: V1PackRegistry, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/registries/pack/${uid}`,
-      v1PackRegistry,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/registries/pack/${uid}`, options);
+  };
 
-/**
- * Sync all the packs from the registry
- * @summary Sync Pack registry
- */
-const v1RegistriesPackUidSync = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Pack registry
+   */
+  const v1RegistriesPackUidGet = <TData = AxiosResponse<V1PackRegistry>>(
     uid: string,
-    params?: V1RegistriesPackUidSyncParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/registries/pack/${uid}/sync`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/pack/${uid}`, options);
+  };
 
-/**
- * Get sync status for the pack specified registry
- * @summary Get pack registry sync status
- */
-const v1RegistriesPackUidSyncStatus = <TData = AxiosResponse<V1RegistrySyncStatus>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/pack/${uid}/sync/status`,options
-    );
-  }
-
-/**
- * @summary Returns the specified system scope registry configuration
- */
-const v1RegistriesNameConfigGet = <TData = AxiosResponse<V1RegistryConfigEntity>>(
-    registryName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/registries/${registryName}/config`,options
-    );
-  }
-
-/**
- * @summary Deletes the specified registry
- */
-const v1RegistriesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/registries/${uid}`,options
-    );
-  }
-
-/**
- * @summary Retrieves a list of roles
- */
-const v1RolesList = <TData = AxiosResponse<V1Roles>>(
-    params?: V1RolesListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/roles`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Creates a role with specified permissions
- */
-const v1RolesCreate = <TData = AxiosResponse<V1Uid>>(
-    v1Role?: V1Role, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/roles`,
-      v1Role,options
-    );
-  }
-
-/**
- * @summary Deletes the specified role
- */
-const v1RolesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/roles/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified role
- */
-const v1RolesUidGet = <TData = AxiosResponse<V1Role>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/roles/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified role
- */
-const v1RolesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified pack registry
+   */
+  const v1RegistriesPackUidUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1Role?: V1Role, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/roles/${uid}`,
-      v1Role,options
-    );
-  }
+    v1PackRegistry?: V1PackRegistry,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/registries/pack/${uid}`, v1PackRegistry, options);
+  };
 
-/**
- * @summary Clone the role
- */
-const v1RolesClone = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * Sync all the packs from the registry
+   * @summary Sync Pack registry
+   */
+  const v1RegistriesPackUidSync = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1RoleClone?: V1RoleClone, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/roles/${uid}/clone`,
-      v1RoleClone,options
-    );
-  }
+    params?: V1RegistriesPackUidSyncParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/registries/pack/${uid}/sync`, undefined, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns a latest version for a given service name
- */
-const v1ServiceVersionGet = <TData = AxiosResponse<V1ServiceVersion>>(
-    serviceName: 'ally' | 'jet' | 'palette' | 'ambit' | 'ally-lite' | 'palette-lite' | 'crony' | 'tick' | 'edge' | 'lodge' | 'level' | 'edgeconfig' | 'firth' | 'stylus',
-    params?: V1ServiceVersionGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/services/${serviceName}/version`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Get sync status for the pack specified registry
+   * @summary Get pack registry sync status
+   */
+  const v1RegistriesPackUidSyncStatus = <
+    TData = AxiosResponse<V1RegistrySyncStatus>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/pack/${uid}/sync/status`, options);
+  };
 
-/**
- * @summary Returns a service manifest for a given service name and version
- */
-const v1ServiceManifestGet = <TData = AxiosResponse<V1ServiceManifest>>(
-    serviceName: 'ally' | 'jet' | 'palette' | 'ambit' | 'ally-lite' | 'palette-lite' | 'crony' | 'tick' | 'edge' | 'lodge' | 'level' | 'edgeconfig' | 'firth' | 'stylus',
+  /**
+   * @summary Returns the specified system scope registry configuration
+   */
+  const v1RegistriesNameConfigGet = <
+    TData = AxiosResponse<V1RegistryConfigEntity>,
+  >(
+    registryName: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/registries/${registryName}/config`, options);
+  };
+
+  /**
+   * @summary Deletes the specified registry
+   */
+  const v1RegistriesUidDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/registries/${uid}`, options);
+  };
+
+  /**
+   * @summary Retrieves a list of roles
+   */
+  const v1RolesList = <TData = AxiosResponse<V1Roles>>(
+    params?: V1RolesListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/roles`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Creates a role with specified permissions
+   */
+  const v1RolesCreate = <TData = AxiosResponse<V1Uid>>(
+    v1Role?: V1Role,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/roles`, v1Role, options);
+  };
+
+  /**
+   * @summary Deletes the specified role
+   */
+  const v1RolesUidDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/roles/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified role
+   */
+  const v1RolesUidGet = <TData = AxiosResponse<V1Role>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/roles/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified role
+   */
+  const v1RolesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1Role?: V1Role,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/roles/${uid}`, v1Role, options);
+  };
+
+  /**
+   * @summary Clone the role
+   */
+  const v1RolesClone = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1RoleClone?: V1RoleClone,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/roles/${uid}/clone`, v1RoleClone, options);
+  };
+
+  /**
+   * @summary Returns a latest version for a given service name
+   */
+  const v1ServiceVersionGet = <TData = AxiosResponse<V1ServiceVersion>>(
+    serviceName:
+      | "ally"
+      | "jet"
+      | "palette"
+      | "ambit"
+      | "ally-lite"
+      | "palette-lite"
+      | "crony"
+      | "tick"
+      | "edge"
+      | "lodge"
+      | "level"
+      | "edgeconfig"
+      | "firth"
+      | "stylus",
+    params?: V1ServiceVersionGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/services/${serviceName}/version`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Returns a service manifest for a given service name and version
+   */
+  const v1ServiceManifestGet = <TData = AxiosResponse<V1ServiceManifest>>(
+    serviceName:
+      | "ally"
+      | "jet"
+      | "palette"
+      | "ambit"
+      | "ally-lite"
+      | "palette-lite"
+      | "crony"
+      | "tick"
+      | "edge"
+      | "lodge"
+      | "level"
+      | "edgeconfig"
+      | "firth"
+      | "stylus",
     version: string,
-    params: V1ServiceManifestGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1ServiceManifestGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/services/${serviceName}/versions/${version}/manifest`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/services/${serviceName}/versions/${version}/manifest`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Creates an AKS cluster
- */
-const v1SpectroClustersAksCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an AKS cluster
+   */
+  const v1SpectroClustersAksCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aks`,
-      v1SpectroAzureClusterEntity,options
+      v1SpectroAzureClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get AKS cluster estimated rate information
- */
-const v1SpectroClustersAksRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get AKS cluster estimated rate information
+   */
+  const v1SpectroClustersAksRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroAzureClusterRateEntity?: V1SpectroAzureClusterRateEntity,
-    params?: V1SpectroClustersAksRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersAksRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aks/rate`,
-      v1SpectroAzureClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroAzureClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates AKS cluster create operation
- */
-const v1SpectroClustersAksValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates AKS cluster create operation
+   */
+  const v1SpectroClustersAksValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aks/validate`,
-      v1SpectroAzureClusterEntity,options
+      v1SpectroAzureClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an AWS cluster
- */
-const v1SpectroClustersAwsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroAwsClusterEntity?: V1SpectroAwsClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an AWS cluster
+   */
+  const v1SpectroClustersAwsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroAwsClusterEntity?: V1SpectroAwsClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aws`,
-      v1SpectroAwsClusterEntity,options
+      v1SpectroAwsClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports an AWS cluster
- */
-const v1SpectroClustersAwsImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroAwsClusterImportEntity?: V1SpectroAwsClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports an AWS cluster
+   */
+  const v1SpectroClustersAwsImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroAwsClusterImportEntity?: V1SpectroAwsClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aws/import`,
-      v1SpectroAwsClusterImportEntity,options
+      v1SpectroAwsClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get AWS cluster estimated rate information
- */
-const v1SpectroClustersAwsRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get AWS cluster estimated rate information
+   */
+  const v1SpectroClustersAwsRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroAwsClusterRateEntity?: V1SpectroAwsClusterRateEntity,
-    params?: V1SpectroClustersAwsRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersAwsRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aws/rate`,
-      v1SpectroAwsClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroAwsClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates AWS cluster create operation
- */
-const v1SpectroClustersAwsValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroAwsClusterEntity?: V1SpectroAwsClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates AWS cluster create operation
+   */
+  const v1SpectroClustersAwsValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroAwsClusterEntity?: V1SpectroAwsClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/aws/validate`,
-      v1SpectroAwsClusterEntity,options
+      v1SpectroAwsClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an Azure cluster
- */
-const v1SpectroClustersAzureCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an Azure cluster
+   */
+  const v1SpectroClustersAzureCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/azure`,
-      v1SpectroAzureClusterEntity,options
+      v1SpectroAzureClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports an Azure cluster
- */
-const v1SpectroClustersAzureImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroAzureClusterImportEntity?: V1SpectroAzureClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports an Azure cluster
+   */
+  const v1SpectroClustersAzureImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroAzureClusterImportEntity?: V1SpectroAzureClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/azure/import`,
-      v1SpectroAzureClusterImportEntity,options
+      v1SpectroAzureClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get Azure cluster estimated rate information
- */
-const v1SpectroClustersAzureRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get Azure cluster estimated rate information
+   */
+  const v1SpectroClustersAzureRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroAzureClusterRateEntity?: V1SpectroAzureClusterRateEntity,
-    params?: V1SpectroClustersAzureRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersAzureRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/azure/rate`,
-      v1SpectroAzureClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroAzureClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates Azure cluster create operation
- */
-const v1SpectroClustersAzureValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates Azure cluster create operation
+   */
+  const v1SpectroClustersAzureValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroAzureClusterEntity?: V1SpectroAzureClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/azure/validate`,
-      v1SpectroAzureClusterEntity,options
+      v1SpectroAzureClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a Custom cluster
- */
-const v1SpectroClustersCustomCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Creates a Custom cluster
+   */
+  const v1SpectroClustersCustomCreate = <TData = AxiosResponse<V1Uid>>(
     cloudType: string,
-    v1SpectroCustomClusterEntity?: V1SpectroCustomClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroCustomClusterEntity?: V1SpectroCustomClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/cloudTypes/${cloudType}`,
-      v1SpectroCustomClusterEntity,options
+      v1SpectroCustomClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates Custom cluster create operation
- */
-const v1SpectroClustersCustomValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
+  /**
+   * @summary Validates Custom cluster create operation
+   */
+  const v1SpectroClustersCustomValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
     cloudType: string,
-    v1SpectroCustomClusterEntity?: V1SpectroCustomClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroCustomClusterEntity?: V1SpectroCustomClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/cloudTypes/${cloudType}/validate`,
-      v1SpectroCustomClusterEntity,options
+      v1SpectroCustomClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Cluster configuration for the edge installer
- */
-const v1SpectroClustersConfigEdgeInstaller = <TData = AxiosResponse<V1ClusterEdgeInstallerConfig>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/config/edgeInstaller`,options
-    );
-  }
+  /**
+   * @summary Cluster configuration for the edge installer
+   */
+  const v1SpectroClustersConfigEdgeInstaller = <
+    TData = AxiosResponse<V1ClusterEdgeInstallerConfig>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/config/edgeInstaller`, options);
+  };
 
-/**
- * @summary Creates an EdgeNative cluster
- */
-const v1SpectroClustersEdgeNativeCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroEdgeNativeClusterEntity?: V1SpectroEdgeNativeClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an EdgeNative cluster
+   */
+  const v1SpectroClustersEdgeNativeCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroEdgeNativeClusterEntity?: V1SpectroEdgeNativeClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/edge-native`,
-      v1SpectroEdgeNativeClusterEntity,options
+      v1SpectroEdgeNativeClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports an EdgeNative cluster
- */
-const v1SpectroClustersEdgeNativeImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroEdgeNativeClusterImportEntity?: V1SpectroEdgeNativeClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports an EdgeNative cluster
+   */
+  const v1SpectroClustersEdgeNativeImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroEdgeNativeClusterImportEntity?: V1SpectroEdgeNativeClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/edge-native/import`,
-      v1SpectroEdgeNativeClusterImportEntity,options
+      v1SpectroEdgeNativeClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get edge-native cluster estimated rate information
- */
-const v1SpectroClustersEdgeNativeRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get edge-native cluster estimated rate information
+   */
+  const v1SpectroClustersEdgeNativeRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroEdgeNativeClusterRateEntity?: V1SpectroEdgeNativeClusterRateEntity,
-    params?: V1SpectroClustersEdgeNativeRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersEdgeNativeRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/edge-native/rate`,
-      v1SpectroEdgeNativeClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroEdgeNativeClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates edge-native cluster create operation
- */
-const v1SpectroClustersEdgeNativeValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroEdgeNativeClusterEntity?: V1SpectroEdgeNativeClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates edge-native cluster create operation
+   */
+  const v1SpectroClustersEdgeNativeValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroEdgeNativeClusterEntity?: V1SpectroEdgeNativeClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/edge-native/validate`,
-      v1SpectroEdgeNativeClusterEntity,options
+      v1SpectroEdgeNativeClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates an EKS cluster
- */
-const v1SpectroClustersEksCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroEksClusterEntity?: V1SpectroEksClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an EKS cluster
+   */
+  const v1SpectroClustersEksCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroEksClusterEntity?: V1SpectroEksClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/eks`,
-      v1SpectroEksClusterEntity,options
+      v1SpectroEksClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get EKS cluster estimated rate information
- */
-const v1SpectroClustersEksRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get EKS cluster estimated rate information
+   */
+  const v1SpectroClustersEksRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroEksClusterRateEntity?: V1SpectroEksClusterRateEntity,
-    params?: V1SpectroClustersEksRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersEksRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/eks/rate`,
-      v1SpectroEksClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroEksClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates EKS cluster create operation
- */
-const v1SpectroClustersEksValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroEksClusterEntity?: V1SpectroEksClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates EKS cluster create operation
+   */
+  const v1SpectroClustersEksValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroEksClusterEntity?: V1SpectroEksClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/eks/validate`,
-      v1SpectroEksClusterEntity,options
+      v1SpectroEksClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the cluster object references based on locationUid
- */
-const v1ClusterFeatureBackupLocationUidGet = <TData = AxiosResponse<V1ClusterRefs>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/features/backup/locations/${uid}`,options
-    );
-  }
-
-/**
- * @summary Change cluster backup location
- */
-const v1ClusterFeatureBackupLocationUidChange = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the cluster object references based on locationUid
+   */
+  const v1ClusterFeatureBackupLocationUidGet = <
+    TData = AxiosResponse<V1ClusterRefs>,
+  >(
     uid: string,
-    v1ClusterBackupLocationType?: V1ClusterBackupLocationType, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/features/backup/locations/${uid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Change cluster backup location
+   */
+  const v1ClusterFeatureBackupLocationUidChange = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1ClusterBackupLocationType?: V1ClusterBackupLocationType,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/features/backup/locations/${uid}`,
-      v1ClusterBackupLocationType,options
+      v1ClusterBackupLocationType,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Download log fetcher logs for cluster by log fetcher uid
- */
-const v1ClusterFeatureLogFetcherLogDownload = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Download log fetcher logs for cluster by log fetcher uid
+   */
+  const v1ClusterFeatureLogFetcherLogDownload = <TData = AxiosResponse<Blob>>(
     uid: string,
-    params?: V1ClusterFeatureLogFetcherLogDownloadParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureLogFetcherLogDownloadParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/features/logFetcher/${uid}/download`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/features/logFetcher/${uid}/download`,
+      {
+        responseType: "blob",
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Update log fetcher logs by log fetcher uid
- */
-const v1ClusterFeatureLogFetcherLogUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update log fetcher logs by log fetcher uid
+   */
+  const v1ClusterFeatureLogFetcherLogUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1ClusterFeatureLogFetcherLogUpdateRequest: V1ClusterFeatureLogFetcherLogUpdateRequest,
-    params?: V1ClusterFeatureLogFetcherLogUpdateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {const formData = new FormData();
-if(v1ClusterFeatureLogFetcherLogUpdateRequest.fileName !== undefined) {
- formData.append(`fileName`, v1ClusterFeatureLogFetcherLogUpdateRequest.fileName)
- }
+    params?: V1ClusterFeatureLogFetcherLogUpdateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    const formData = new FormData();
+    if (v1ClusterFeatureLogFetcherLogUpdateRequest.fileName !== undefined) {
+      formData.append(
+        `fileName`,
+        v1ClusterFeatureLogFetcherLogUpdateRequest.fileName,
+      );
+    }
 
     return axios.post(
       `/v1/spectroclusters/features/logFetcher/${uid}/log`,
-      formData,{
-    ...options,
-        params: {...params, ...options?.params},}
+      formData,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Creates a GCP cluster
- */
-const v1SpectroClustersGcpCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a GCP cluster
+   */
+  const v1SpectroClustersGcpCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gcp`,
-      v1SpectroGcpClusterEntity,options
+      v1SpectroGcpClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports a GCP cluster
- */
-const v1SpectroClustersGcpImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroGcpClusterImportEntity?: V1SpectroGcpClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports a GCP cluster
+   */
+  const v1SpectroClustersGcpImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroGcpClusterImportEntity?: V1SpectroGcpClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gcp/import`,
-      v1SpectroGcpClusterImportEntity,options
+      v1SpectroGcpClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get GCP cluster estimated rate information
- */
-const v1SpectroClustersGcpRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get GCP cluster estimated rate information
+   */
+  const v1SpectroClustersGcpRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroGcpClusterRateEntity?: V1SpectroGcpClusterRateEntity,
-    params?: V1SpectroClustersGcpRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersGcpRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gcp/rate`,
-      v1SpectroGcpClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroGcpClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates GCP cluster create operation
- */
-const v1SpectroClustersGcpValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates GCP cluster create operation
+   */
+  const v1SpectroClustersGcpValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gcp/validate`,
-      v1SpectroGcpClusterEntity,options
+      v1SpectroGcpClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * The machines information will be captured, whereas the cloud specific configuration info will not be retrieved
- * @summary Imports a cluster of any cloud type in generic way
- */
-const v1SpectroClustersGenericImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroGenericClusterImportEntity?: V1SpectroGenericClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * The machines information will be captured, whereas the cloud specific configuration info will not be retrieved
+   * @summary Imports a cluster of any cloud type in generic way
+   */
+  const v1SpectroClustersGenericImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroGenericClusterImportEntity?: V1SpectroGenericClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/generic/import`,
-      v1SpectroGenericClusterImportEntity,options
+      v1SpectroGenericClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get generic cluster estimated rate information
- */
-const v1SpectroClustersGenericRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get generic cluster estimated rate information
+   */
+  const v1SpectroClustersGenericRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroGenericClusterRateEntity?: V1SpectroGenericClusterRateEntity,
-    params?: V1SpectroClustersGenericRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersGenericRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/generic/rate`,
-      v1SpectroGenericClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroGenericClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Creates an GKE cluster
- */
-const v1SpectroClustersGkeCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates an GKE cluster
+   */
+  const v1SpectroClustersGkeCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gke`,
-      v1SpectroGcpClusterEntity,options
+      v1SpectroGcpClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get GKE cluster estimated rate information
- */
-const v1SpectroClustersGkeRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get GKE cluster estimated rate information
+   */
+  const v1SpectroClustersGkeRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroGcpClusterRateEntity?: V1SpectroGcpClusterRateEntity,
-    params?: V1SpectroClustersGkeRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersGkeRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gke/rate`,
-      v1SpectroGcpClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroGcpClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates GKE cluster create operation
- */
-const v1SpectroClustersGkeValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates GKE cluster create operation
+   */
+  const v1SpectroClustersGkeValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroGcpClusterEntity?: V1SpectroGcpClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/gke/validate`,
-      v1SpectroGcpClusterEntity,options
+      v1SpectroGcpClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a MAAS cluster
- */
-const v1SpectroClustersMaasCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroMaasClusterEntity?: V1SpectroMaasClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a MAAS cluster
+   */
+  const v1SpectroClustersMaasCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroMaasClusterEntity?: V1SpectroMaasClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/maas`,
-      v1SpectroMaasClusterEntity,options
+      v1SpectroMaasClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports a Maas cluster
- */
-const v1SpectroClustersMaasImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroMaasClusterImportEntity?: V1SpectroMaasClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports a Maas cluster
+   */
+  const v1SpectroClustersMaasImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroMaasClusterImportEntity?: V1SpectroMaasClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/maas/import`,
-      v1SpectroMaasClusterImportEntity,options
+      v1SpectroMaasClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get maas cluster estimated rate information
- */
-const v1SpectroClustersMaasRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get maas cluster estimated rate information
+   */
+  const v1SpectroClustersMaasRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroMaasClusterRateEntity?: V1SpectroMaasClusterRateEntity,
-    params?: V1SpectroClustersMaasRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersMaasRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/maas/rate`,
-      v1SpectroMaasClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroMaasClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates MAAS cluster create operation
- */
-const v1SpectroClustersMaasValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroMaasClusterEntity?: V1SpectroMaasClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates MAAS cluster create operation
+   */
+  const v1SpectroClustersMaasValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroMaasClusterEntity?: V1SpectroMaasClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/maas/validate`,
-      v1SpectroMaasClusterEntity,options
+      v1SpectroMaasClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a OpenStack cluster
- */
-const v1SpectroClustersOpenStackCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroOpenStackClusterEntity?: V1SpectroOpenStackClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a OpenStack cluster
+   */
+  const v1SpectroClustersOpenStackCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroOpenStackClusterEntity?: V1SpectroOpenStackClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/openstack`,
-      v1SpectroOpenStackClusterEntity,options
+      v1SpectroOpenStackClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports an OpenStack cluster
- */
-const v1SpectroClustersOpenStackImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroOpenStackClusterImportEntity?: V1SpectroOpenStackClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports an OpenStack cluster
+   */
+  const v1SpectroClustersOpenStackImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroOpenStackClusterImportEntity?: V1SpectroOpenStackClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/openstack/import`,
-      v1SpectroOpenStackClusterImportEntity,options
+      v1SpectroOpenStackClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get openstack cluster estimated rate information
- */
-const v1SpectroClustersOpenStackRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get openstack cluster estimated rate information
+   */
+  const v1SpectroClustersOpenStackRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroOpenStackClusterRateEntity?: V1SpectroOpenStackClusterRateEntity,
-    params?: V1SpectroClustersOpenStackRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersOpenStackRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/openstack/rate`,
-      v1SpectroOpenStackClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroOpenStackClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates OpenStack cluster create operation
- */
-const v1SpectroClustersOpenStackValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroOpenStackClusterEntity?: V1SpectroOpenStackClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates OpenStack cluster create operation
+   */
+  const v1SpectroClustersOpenStackValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroOpenStackClusterEntity?: V1SpectroOpenStackClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/openstack/validate`,
-      v1SpectroOpenStackClusterEntity,options
+      v1SpectroOpenStackClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Downloads the cluster definition archive file
- */
-const v1SpectroClustersSpcDownload = <TData = AxiosResponse<Blob>>(
-    v1ClusterDefinitionEntity?: V1ClusterDefinitionEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Downloads the cluster definition archive file
+   */
+  const v1SpectroClustersSpcDownload = <TData = AxiosResponse<Blob>>(
+    v1ClusterDefinitionEntity?: V1ClusterDefinitionEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/spc/download`,
-      v1ClusterDefinitionEntity,{
-        responseType: 'blob',
-    ...options,}
+      v1ClusterDefinitionEntity,
+      {
+        responseType: "blob",
+        ...options,
+      },
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of spectrocluster tags
- */
-const v1SpectroClustersTagsGet = <TData = AxiosResponse<V1SpectroClusterTags>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/tags`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of spectrocluster tags
+   */
+  const v1SpectroClustersTagsGet = <
+    TData = AxiosResponse<V1SpectroClusterTags>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/tags`, options);
+  };
 
-/**
- * @summary Get cluster settings by context
- */
-const v1SpectroClustersUpgradeSettingsGet = <TData = AxiosResponse<V1ClusterUpgradeSettingsEntity>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/upgrade/settings`,options
-    );
-  }
+  /**
+   * @summary Get cluster settings by context
+   */
+  const v1SpectroClustersUpgradeSettingsGet = <
+    TData = AxiosResponse<V1ClusterUpgradeSettingsEntity>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/upgrade/settings`, options);
+  };
 
-/**
- * @summary Update all clusters upgrade settings
- */
-const v1SpectroClustersUpgradeSettings = <TData = AxiosResponse<unknown>>(
-    v1ClusterUpgradeSettingsEntity?: V1ClusterUpgradeSettingsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Update all clusters upgrade settings
+   */
+  const v1SpectroClustersUpgradeSettings = <TData = AxiosResponse<unknown>>(
+    v1ClusterUpgradeSettingsEntity?: V1ClusterUpgradeSettingsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/upgrade/settings`,
-      v1ClusterUpgradeSettingsEntity,options
+      v1ClusterUpgradeSettingsEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates the cluster name
- */
-const v1SpectroClustersValidateName = <TData = AxiosResponse<unknown>>(
-    params?: V1SpectroClustersValidateNameParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/validate/name`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Validates the cluster name
+   */
+  const v1SpectroClustersValidateName = <TData = AxiosResponse<unknown>>(
+    params?: V1SpectroClustersValidateNameParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/validate/name`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validates spectro cluster packs
- */
-const v1SpectroClustersValidatePacks = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates spectro cluster packs
+   */
+  const v1SpectroClustersValidatePacks = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/validate/packs`,
-      v1SpectroClusterPacksEntity,options
+      v1SpectroClusterPacksEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a virtual cluster
- */
-const v1SpectroClustersVirtualCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroVirtualClusterEntity?: V1SpectroVirtualClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a virtual cluster
+   */
+  const v1SpectroClustersVirtualCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroVirtualClusterEntity?: V1SpectroVirtualClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/virtual`,
-      v1SpectroVirtualClusterEntity,options
+      v1SpectroVirtualClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the cluster pack values yaml
- */
-const v1VirtualClustersPacksValues = <TData = AxiosResponse<V1ClusterVirtualPacksValues>>(
-    params?: V1VirtualClustersPacksValuesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/virtual/packs/values`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Get the cluster pack values yaml
+   */
+  const v1VirtualClustersPacksValues = <
+    TData = AxiosResponse<V1ClusterVirtualPacksValues>,
+  >(
+    params?: V1VirtualClustersPacksValuesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/virtual/packs/values`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Validates virtual cluster create operation
- */
-const v1SpectroClustersVirtualValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroVirtualClusterEntity?: V1SpectroVirtualClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates virtual cluster create operation
+   */
+  const v1SpectroClustersVirtualValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroVirtualClusterEntity?: V1SpectroVirtualClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/virtual/validate`,
-      v1SpectroVirtualClusterEntity,options
+      v1SpectroVirtualClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Creates a vSphere cluster
- */
-const v1SpectroClustersVsphereCreate = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroVsphereClusterEntity?: V1SpectroVsphereClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a vSphere cluster
+   */
+  const v1SpectroClustersVsphereCreate = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroVsphereClusterEntity?: V1SpectroVsphereClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/vsphere`,
-      v1SpectroVsphereClusterEntity,options
+      v1SpectroVsphereClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Imports a vSphere cluster
- */
-const v1SpectroClustersVsphereImport = <TData = AxiosResponse<V1Uid>>(
-    v1SpectroVsphereClusterImportEntity?: V1SpectroVsphereClusterImportEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Imports a vSphere cluster
+   */
+  const v1SpectroClustersVsphereImport = <TData = AxiosResponse<V1Uid>>(
+    v1SpectroVsphereClusterImportEntity?: V1SpectroVsphereClusterImportEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/vsphere/import`,
-      v1SpectroVsphereClusterImportEntity,options
+      v1SpectroVsphereClusterImportEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get vSphere cluster estimated rate information
- */
-const v1SpectroClustersVsphereRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Get vSphere cluster estimated rate information
+   */
+  const v1SpectroClustersVsphereRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     v1SpectroVsphereClusterRateEntity?: V1SpectroVsphereClusterRateEntity,
-    params?: V1SpectroClustersVsphereRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersVsphereRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/vsphere/rate`,
-      v1SpectroVsphereClusterRateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroVsphereClusterRateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Validates vSphere cluster create operation
- */
-const v1SpectroClustersVsphereValidate = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
-    v1SpectroVsphereClusterEntity?: V1SpectroVsphereClusterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Validates vSphere cluster create operation
+   */
+  const v1SpectroClustersVsphereValidate = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
+    v1SpectroVsphereClusterEntity?: V1SpectroVsphereClusterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/vsphere/validate`,
-      v1SpectroVsphereClusterEntity,options
+      v1SpectroVsphereClusterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified cluster
- */
-const v1SpectroClustersDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified cluster
+   */
+  const v1SpectroClustersDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1SpectroClustersDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/spectroclusters/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified cluster
- */
-const v1SpectroClustersGet = <TData = AxiosResponse<V1SpectroCluster>>(
+  /**
+   * @summary Returns the specified cluster
+   */
+  const v1SpectroClustersGet = <TData = AxiosResponse<V1SpectroCluster>>(
     uid: string,
-    params?: V1SpectroClustersGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the cluster asset doc
- */
-const v1SpectroClustersUidAssetsGet = <TData = AxiosResponse<V1SpectroClusterAssetEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets`,options
-    );
-  }
-
-/**
- * @summary Associate the assets for the cluster
- */
-const v1SpectroClustersUidAssets = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get the cluster asset doc
+   */
+  const v1SpectroClustersUidAssetsGet = <
+    TData = AxiosResponse<V1SpectroClusterAssetEntity>,
+  >(
     uid: string,
-    v1SpectroClusterAssetEntity?: V1SpectroClusterAssetEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets`, options);
+  };
+
+  /**
+   * @summary Associate the assets for the cluster
+   */
+  const v1SpectroClustersUidAssets = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1SpectroClusterAssetEntity?: V1SpectroClusterAssetEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/assets`,
-      v1SpectroClusterAssetEntity,options
+      v1SpectroClusterAssetEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster's kube config file
- */
-const v1SpectroClustersUidAdminKubeConfig = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/adminKubeconfig`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Deletes the cluster's token kube config data
- */
-const v1SpectroClustersUidTokenKubeConfigDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster's token kube config file
- */
-const v1SpectroClustersUidTokenKubeConfigGet = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Updates the cluster's token kube config data
- */
-const v1SpectroClustersUidTokenKubeConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified cluster's kube config file
+   */
+  const v1SpectroClustersUidAdminKubeConfig = <TData = AxiosResponse<Blob>>(
     uid: string,
-    v1SpectroClusterAssetTokenKubeConfig?: V1SpectroClusterAssetTokenKubeConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/adminKubeconfig`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Deletes the cluster's token kube config data
+   */
+  const v1SpectroClustersUidTokenKubeConfigDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster's token kube config file
+   */
+  const v1SpectroClustersUidTokenKubeConfigGet = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Updates the cluster's token kube config data
+   */
+  const v1SpectroClustersUidTokenKubeConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1SpectroClusterAssetTokenKubeConfig?: V1SpectroClusterAssetTokenKubeConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`,
-      v1SpectroClusterAssetTokenKubeConfig,options
+      v1SpectroClusterAssetTokenKubeConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the cluster's frp kube config client data
- */
-const v1SpectroClustersUidFrpKubeConfigDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/assets/frpKubeconfig`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster's frp kube config file
- */
-const v1SpectroClustersUidFrpKubeConfigGet = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/frpKubeconfig`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Updates the cluster's frp kube config data
- */
-const v1SpectroClustersUidFrpKubeConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the cluster's frp kube config client data
+   */
+  const v1SpectroClustersUidFrpKubeConfigDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1SpectroClusterAssetFrpKubeConfig?: V1SpectroClusterAssetFrpKubeConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/spectroclusters/${uid}/assets/frpKubeconfig`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster's frp kube config file
+   */
+  const v1SpectroClustersUidFrpKubeConfigGet = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/frpKubeconfig`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Updates the cluster's frp kube config data
+   */
+  const v1SpectroClustersUidFrpKubeConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1SpectroClusterAssetFrpKubeConfig?: V1SpectroClusterAssetFrpKubeConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/assets/frpKubeconfig`,
-      v1SpectroClusterAssetFrpKubeConfig,options
+      v1SpectroClusterAssetFrpKubeConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster's kube config file
- */
-const v1SpectroClustersUidKubeConfig = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Returns the specified cluster's kube config file
+   */
+  const v1SpectroClustersUidKubeConfig = <TData = AxiosResponse<Blob>>(
     uid: string,
-    params?: V1SpectroClustersUidKubeConfigParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/kubeconfig`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersUidKubeConfigParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/kubeconfig`, {
+      responseType: "blob",
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the cluster's manifest data
- */
-const v1SpectroClustersUidKubeConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the cluster's manifest data
+   */
+  const v1SpectroClustersUidKubeConfigUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterAssetKubeConfig?: V1SpectroClusterAssetKubeConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterAssetKubeConfig?: V1SpectroClusterAssetKubeConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/assets/kubeconfig`,
-      v1SpectroClusterAssetKubeConfig,options
+      v1SpectroClusterAssetKubeConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the cluster's kube config client data
- */
-const v1SpectroClustersUidKubeConfigClientDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/assets/kubeconfigclient`,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster's kube config client file
- */
-const v1SpectroClustersUidKubeConfigClientGet = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/kubeconfigclient`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Updates the cluster's kube config client data
- */
-const v1SpectroClustersUidKubeConfigClientUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the cluster's kube config client data
+   */
+  const v1SpectroClustersUidKubeConfigClientDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1SpectroClusterAssetKubeConfigClient?: V1SpectroClusterAssetKubeConfigClient, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/spectroclusters/${uid}/assets/kubeconfigclient`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster's kube config client file
+   */
+  const v1SpectroClustersUidKubeConfigClientGet = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/kubeconfigclient`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Updates the cluster's kube config client data
+   */
+  const v1SpectroClustersUidKubeConfigClientUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1SpectroClusterAssetKubeConfigClient?: V1SpectroClusterAssetKubeConfigClient,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/assets/kubeconfigclient`,
-      v1SpectroClusterAssetKubeConfigClient,options
+      v1SpectroClusterAssetKubeConfigClient,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster's manifest data
- */
-const v1SpectroClustersUidManifestGet = <TData = AxiosResponse<string>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/assets/manifest`,options
-    );
-  }
-
-/**
- * @summary Updates the specified cluster's manifest data
- */
-const v1SpectroClustersUidManifestUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified cluster's manifest data
+   */
+  const v1SpectroClustersUidManifestGet = <TData = AxiosResponse<string>>(
     uid: string,
-    v1SpectroClusterAssetManifest?: V1SpectroClusterAssetManifest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/assets/manifest`, options);
+  };
+
+  /**
+   * @summary Updates the specified cluster's manifest data
+   */
+  const v1SpectroClustersUidManifestUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1SpectroClusterAssetManifest?: V1SpectroClusterAssetManifest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/assets/manifest`,
-      v1SpectroClusterAssetManifest,options
+      v1SpectroClusterAssetManifest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster meta attribute
- */
-const v1SpectroClustersUidClusterMetaAttributeUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster meta attribute
+   */
+  const v1SpectroClustersUidClusterMetaAttributeUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1ClusterMetaAttributeEntity?: V1ClusterMetaAttributeEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterMetaAttributeEntity?: V1ClusterMetaAttributeEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/clusterConfig/clusterMetaAttribute`,
-      v1ClusterMetaAttributeEntity,options
+      v1ClusterMetaAttributeEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster controlPlane health check timeout
- */
-const v1ControlPlaneHealthCheckTimeoutUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster controlPlane health check timeout
+   */
+  const v1ControlPlaneHealthCheckTimeoutUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1ControlPlaneHealthCheckTimeoutEntity?: V1ControlPlaneHealthCheckTimeoutEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ControlPlaneHealthCheckTimeoutEntity?: V1ControlPlaneHealthCheckTimeoutEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/clusterConfig/controlPlaneHealthCheckTimeout`,
-      v1ControlPlaneHealthCheckTimeoutEntity,options
+      v1ControlPlaneHealthCheckTimeoutEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster host config
- */
-const v1HostClusterConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster host config
+   */
+  const v1HostClusterConfigUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1HostClusterConfigEntity?: V1HostClusterConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1HostClusterConfigEntity?: V1HostClusterConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/clusterConfig/hostCluster`,
-      v1HostClusterConfigEntity,options
+      v1HostClusterConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster Life cycle configuration
- */
-const v1SpectroClustersUidLifecycleConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster Life cycle configuration
+   */
+  const v1SpectroClustersUidLifecycleConfigUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1LifecycleConfigEntity?: V1LifecycleConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1LifecycleConfigEntity?: V1LifecycleConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/clusterConfig/lifecycleConfig`,
-      v1LifecycleConfigEntity,options
+      v1LifecycleConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster OS patch configuration
- */
-const v1SpectroClustersUidOsPatchUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster OS patch configuration
+   */
+  const v1SpectroClustersUidOsPatchUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1OsPatchEntity?: V1OsPatchEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1OsPatchEntity?: V1OsPatchEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/clusterConfig/osPatch`,
-      v1OsPatchEntity,options
+      v1OsPatchEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves namespaces for the specified cluster
- */
-const v1SpectroClustersUidConfigNamespacesGet = <TData = AxiosResponse<V1ClusterNamespaceResources>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/config/namespaces`,options
-    );
-  }
-
-/**
- * @summary Updates namespaces for the specified cluster
- */
-const v1SpectroClustersUidConfigNamespacesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves namespaces for the specified cluster
+   */
+  const v1SpectroClustersUidConfigNamespacesGet = <
+    TData = AxiosResponse<V1ClusterNamespaceResources>,
+  >(
     uid: string,
-    v1ClusterNamespaceResourcesUpdateEntity?: V1ClusterNamespaceResourcesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/config/namespaces`, options);
+  };
+
+  /**
+   * @summary Updates namespaces for the specified cluster
+   */
+  const v1SpectroClustersUidConfigNamespacesUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1ClusterNamespaceResourcesUpdateEntity?: V1ClusterNamespaceResourcesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/config/namespaces`,
-      v1ClusterNamespaceResourcesUpdateEntity,options
+      v1ClusterNamespaceResourcesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves the specified namespace of the cluster
- */
-const v1SpectroClustersUidConfigNamespacesUidGet = <TData = AxiosResponse<V1ClusterNamespaceResource>>(
-    uid: string,
-    namespaceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified namespace of the cluster
- */
-const v1SpectroClustersUidConfigNamespacesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves the specified namespace of the cluster
+   */
+  const v1SpectroClustersUidConfigNamespacesUidGet = <
+    TData = AxiosResponse<V1ClusterNamespaceResource>,
+  >(
     uid: string,
     namespaceUid: string,
-    v1ClusterNamespaceResourceInputEntity?: V1ClusterNamespaceResourceInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified namespace of the cluster
+   */
+  const v1SpectroClustersUidConfigNamespacesUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    namespaceUid: string,
+    v1ClusterNamespaceResourceInputEntity?: V1ClusterNamespaceResourceInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`,
-      v1ClusterNamespaceResourceInputEntity,options
+      v1ClusterNamespaceResourceInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves RBAC information for the specified cluster
- */
-const v1SpectroClustersUidConfigRbacsGet = <TData = AxiosResponse<V1ClusterRbacs>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/config/rbacs`,options
-    );
-  }
-
-/**
- * @summary Updates RBAC information for the specified cluster
- */
-const v1SpectroClustersUidConfigRbacsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves RBAC information for the specified cluster
+   */
+  const v1SpectroClustersUidConfigRbacsGet = <
+    TData = AxiosResponse<V1ClusterRbacs>,
+  >(
     uid: string,
-    v1ClusterRbacResourcesUpdateEntity?: V1ClusterRbacResourcesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/config/rbacs`, options);
+  };
+
+  /**
+   * @summary Updates RBAC information for the specified cluster
+   */
+  const v1SpectroClustersUidConfigRbacsUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1ClusterRbacResourcesUpdateEntity?: V1ClusterRbacResourcesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/config/rbacs`,
-      v1ClusterRbacResourcesUpdateEntity,options
+      v1ClusterRbacResourcesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves the specified RBAC of the cluster
- */
-const v1SpectroClustersUidConfigRbacsUidGet = <TData = AxiosResponse<V1ClusterRbac>>(
-    uid: string,
-    rbacUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified RBAC of the cluster
- */
-const v1SpectroClustersUidConfigRbacsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieves the specified RBAC of the cluster
+   */
+  const v1SpectroClustersUidConfigRbacsUidGet = <
+    TData = AxiosResponse<V1ClusterRbac>,
+  >(
     uid: string,
     rbacUid: string,
-    v1ClusterRbacInputEntity?: V1ClusterRbacInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified RBAC of the cluster
+   */
+  const v1SpectroClustersUidConfigRbacsUidUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    rbacUid: string,
+    v1ClusterRbacInputEntity?: V1ClusterRbacInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`,
-      v1ClusterRbacInputEntity,options
+      v1ClusterRbacInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Download the specified cluster
- */
-const v1SpectroClustersUidDownload = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Download the specified cluster
+   */
+  const v1SpectroClustersUidDownload = <TData = AxiosResponse<Blob>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/download`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Retrieves a list of edge host of edge-native cluster
+   */
+  const v1EdgeNativeClustersHostsList = <
+    TData = AxiosResponse<V1EdgeHostDevices>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/download`,{
-        responseType: 'blob',
-    ...options,}
+      `/v1/spectroclusters/${uid}/edge-native/edgeHosts`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of edge host of edge-native cluster
- */
-const v1EdgeNativeClustersHostsList = <TData = AxiosResponse<V1EdgeHostDevices>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/edge-native/edgeHosts`,options
-    );
-  }
-
-/**
- * @summary reset the edge clusters by deleting machine pools and conditions
- */
-const v1SpectroClustersUidEdgeReset = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary reset the edge clusters by deleting machine pools and conditions
+   */
+  const v1SpectroClustersUidEdgeReset = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
-      `/v1/spectroclusters/${uid}/edge/reset`,undefined,options
+      `/v1/spectroclusters/${uid}/edge/reset`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Reset cluster backup schedule settings
- */
-const v1ClusterFeatureBackupScheduleReset = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/features/backup`,options
-    );
-  }
-
-/**
- * @summary Returns the cluster backup result
- */
-const v1ClusterFeatureBackupGet = <TData = AxiosResponse<V1ClusterBackup>>(
+  /**
+   * @summary Reset cluster backup schedule settings
+   */
+  const v1ClusterFeatureBackupScheduleReset = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1ClusterFeatureBackupGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/backup`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/spectroclusters/${uid}/features/backup`, options);
+  };
 
-/**
- * @summary Create cluster backup settings
- */
-const v1ClusterFeatureBackupCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the cluster backup result
+   */
+  const v1ClusterFeatureBackupGet = <TData = AxiosResponse<V1ClusterBackup>>(
     uid: string,
-    v1ClusterBackupConfig?: V1ClusterBackupConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureBackupGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/features/backup`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create cluster backup settings
+   */
+  const v1ClusterFeatureBackupCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1ClusterBackupConfig?: V1ClusterBackupConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/backup`,
-      v1ClusterBackupConfig,options
+      v1ClusterBackupConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update cluster backup settings
- */
-const v1ClusterFeatureBackupUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update cluster backup settings
+   */
+  const v1ClusterFeatureBackupUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterBackupConfig?: V1ClusterBackupConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterBackupConfig?: V1ClusterBackupConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/features/backup`,
-      v1ClusterBackupConfig,options
+      v1ClusterBackupConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create on demand cluster backup
- */
-const v1ClusterFeatureBackupOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Create on demand cluster backup
+   */
+  const v1ClusterFeatureBackupOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1ClusterBackupConfig?: V1ClusterBackupConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterBackupConfig?: V1ClusterBackupConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/backup/onDemand`,
-      v1ClusterBackupConfig,options
+      v1ClusterBackupConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete cluster backup
- */
-const v1ClusterFeatureBackupDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete cluster backup
+   */
+  const v1ClusterFeatureBackupDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     backupName: string,
-    requestUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    requestUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.delete(
-      `/v1/spectroclusters/${uid}/features/backup/${backupName}/request/${requestUid}`,options
+      `/v1/spectroclusters/${uid}/features/backup/${backupName}/request/${requestUid}`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the compliance scan of cluster, if driverType is provided then specific status of driverType will be returned
- */
-const v1ClusterFeatureComplianceScanGet = <TData = AxiosResponse<V1ClusterComplianceScan>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan`,options
-    );
-  }
-
-/**
- * @summary Create cluster compliance scan
- */
-const v1ClusterFeatureComplianceScanCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the compliance scan of cluster, if driverType is provided then specific status of driverType will be returned
+   */
+  const v1ClusterFeatureComplianceScanGet = <
+    TData = AxiosResponse<V1ClusterComplianceScan>,
+  >(
     uid: string,
-    v1ClusterComplianceScheduleConfig?: V1ClusterComplianceScheduleConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/features/complianceScan`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Create cluster compliance scan
+   */
+  const v1ClusterFeatureComplianceScanCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1ClusterComplianceScheduleConfig?: V1ClusterComplianceScheduleConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/complianceScan`,
-      v1ClusterComplianceScheduleConfig,options
+      v1ClusterComplianceScheduleConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update cluster compliance scan settings
- */
-const v1ClusterFeatureComplianceScanUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update cluster compliance scan settings
+   */
+  const v1ClusterFeatureComplianceScanUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterComplianceScheduleConfig?: V1ClusterComplianceScheduleConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterComplianceScheduleConfig?: V1ClusterComplianceScheduleConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/features/complianceScan`,
-      v1ClusterComplianceScheduleConfig,options
+      v1ClusterComplianceScheduleConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the compliance scan log by cluster uid and driver type
- */
-const v1ClusterFeatureComplianceScanLogsGet = <TData = AxiosResponse<V1ClusterComplianceScanLogs>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers`,options
-    );
-  }
-
-/**
- * @summary Update the KubeBench compliance scan log by uid
- */
-const v1ClusterFeatureScanKubeBenchLogUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the compliance scan log by cluster uid and driver type
+   */
+  const v1ClusterFeatureComplianceScanLogsGet = <
+    TData = AxiosResponse<V1ClusterComplianceScanLogs>,
+  >(
     uid: string,
-    v1KubeBenchEntity?: V1KubeBenchEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update the KubeBench compliance scan log by uid
+   */
+  const v1ClusterFeatureScanKubeBenchLogUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1KubeBenchEntity?: V1KubeBenchEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeBench`,
-      v1KubeBenchEntity,options
+      v1KubeBenchEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the KubeHunter compliance scan log by uid
- */
-const v1ClusterFeatureScanKubeHunterLogUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the KubeHunter compliance scan log by uid
+   */
+  const v1ClusterFeatureScanKubeHunterLogUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1KubeHunterEntity?: V1KubeHunterEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1KubeHunterEntity?: V1KubeHunterEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeHunter`,
-      v1KubeHunterEntity,options
+      v1KubeHunterEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the Sonobuoy compliance scan log by uid
- */
-const v1ClusterFeatureScanSonobuoyLogUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the Sonobuoy compliance scan log by uid
+   */
+  const v1ClusterFeatureScanSonobuoyLogUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1SonobuoyEntity?: V1SonobuoyEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SonobuoyEntity?: V1SonobuoyEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/sonobuoy`,
-      v1SonobuoyEntity,options
+      v1SonobuoyEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the Syft compliance scan log by uid
- */
-const v1ClusterFeatureScanSyftLogUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the Syft compliance scan log by uid
+   */
+  const v1ClusterFeatureScanSyftLogUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SyftEntity?: V1SyftEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SyftEntity?: V1SyftEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/syft`,
-      v1SyftEntity,options
+      v1SyftEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the compliance scan log by uid
- */
-const v1ClusterFeatureComplianceScanLogDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the compliance scan log by uid
+   */
+  const v1ClusterFeatureComplianceScanLogDelete = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    logUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    logUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.delete(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}`,options
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the KubeBench compliance scan log by uid
- */
-const v1ClusterFeatureKubeBenchLogGet = <TData = AxiosResponse<V1ClusterScanLogKubeBench>>(
+  /**
+   * @summary Returns the KubeBench compliance scan log by uid
+   */
+  const v1ClusterFeatureKubeBenchLogGet = <
+    TData = AxiosResponse<V1ClusterScanLogKubeBench>,
+  >(
     uid: string,
     logUid: string,
-    params?: V1ClusterFeatureKubeBenchLogGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureKubeBenchLogGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the KubeHunter compliance scan log by uid
- */
-const v1ClusterFeatureKubeHunterLogGet = <TData = AxiosResponse<V1ClusterScanLogKubeHunter>>(
+  /**
+   * @summary Returns the KubeHunter compliance scan log by uid
+   */
+  const v1ClusterFeatureKubeHunterLogGet = <
+    TData = AxiosResponse<V1ClusterScanLogKubeHunter>,
+  >(
     uid: string,
     logUid: string,
-    params?: V1ClusterFeatureKubeHunterLogGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureKubeHunterLogGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the Sonobuoy compliance scan log by uid
- */
-const v1ClusterFeatureSonobuoyLogGet = <TData = AxiosResponse<V1ClusterScanLogSonobuoy>>(
+  /**
+   * @summary Returns the Sonobuoy compliance scan log by uid
+   */
+  const v1ClusterFeatureSonobuoyLogGet = <
+    TData = AxiosResponse<V1ClusterScanLogSonobuoy>,
+  >(
     uid: string,
     logUid: string,
-    params?: V1ClusterFeatureSonobuoyLogGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureSonobuoyLogGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the Syft compliance scan log by uid
- */
-const v1ClusterFeatureSyftLogGet = <TData = AxiosResponse<V1ClusterScanLogSyft>>(
-    uid: string,
-    logUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft`,options
-    );
-  }
-
-/**
- * @summary Returns the image sbom of syft scan log of cluster
- */
-const v1SyftScanLogImageSBOMGet = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Returns the Syft compliance scan log by uid
+   */
+  const v1ClusterFeatureSyftLogGet = <
+    TData = AxiosResponse<V1ClusterScanLogSyft>,
+  >(
     uid: string,
     logUid: string,
-    params: V1SyftScanLogImageSBOMGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Downloads the driver cluster logs
- */
-const v1ClusterFeatureDriverLogDownload = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Returns the image sbom of syft scan log of cluster
+   */
+  const v1SyftScanLogImageSBOMGet = <TData = AxiosResponse<Blob>>(
     uid: string,
     logUid: string,
-    driver: 'kubeBench' | 'kubeHunter' | 'sonobuoy' | 'syft',
-    params?: V1ClusterFeatureDriverLogDownloadParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SyftScanLogImageSBOMGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download`,{
-        responseType: 'blob',
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom`,
+      {
+        responseType: "blob",
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Create on demand cluster compliance scan
- */
-const v1ClusterFeatureComplianceScanOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Downloads the driver cluster logs
+   */
+  const v1ClusterFeatureDriverLogDownload = <TData = AxiosResponse<Blob>>(
     uid: string,
-    v1ClusterComplianceOnDemandConfig?: V1ClusterComplianceOnDemandConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    logUid: string,
+    driver: "kubeBench" | "kubeHunter" | "sonobuoy" | "syft",
+    params?: V1ClusterFeatureDriverLogDownloadParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download`,
+      {
+        responseType: "blob",
+        ...options,
+        params: { ...params, ...options?.params },
+      },
+    );
+  };
+
+  /**
+   * @summary Create on demand cluster compliance scan
+   */
+  const v1ClusterFeatureComplianceScanOnDemandCreate = <
+    TData = AxiosResponse<V1Uid>,
+  >(
+    uid: string,
+    v1ClusterComplianceOnDemandConfig?: V1ClusterComplianceOnDemandConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/complianceScan/onDemand`,
-      v1ClusterComplianceOnDemandConfig,options
+      v1ClusterComplianceOnDemandConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the installed helm charts of a specified cluster
- */
-const v1ClusterFeatureHelmChartsGet = <TData = AxiosResponse<V1ClusterHelmCharts>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/helmCharts`,options
-    );
-  }
-
-/**
- * @summary Get the log fetcher for cluster
- */
-const v1ClusterFeatureLogFetcherGet = <TData = AxiosResponse<V1ClusterLogFetcher>>(
+  /**
+   * @summary Get the installed helm charts of a specified cluster
+   */
+  const v1ClusterFeatureHelmChartsGet = <
+    TData = AxiosResponse<V1ClusterHelmCharts>,
+  >(
     uid: string,
-    params?: V1ClusterFeatureLogFetcherGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/logFetcher`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/features/helmCharts`, options);
+  };
 
-/**
- * @summary Create the log fetcher for cluster
- */
-const v1ClusterFeatureLogFetcherCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Get the log fetcher for cluster
+   */
+  const v1ClusterFeatureLogFetcherGet = <
+    TData = AxiosResponse<V1ClusterLogFetcher>,
+  >(
     uid: string,
-    v1ClusterLogFetcherRequest?: V1ClusterLogFetcherRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureLogFetcherGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/features/logFetcher`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create the log fetcher for cluster
+   */
+  const v1ClusterFeatureLogFetcherCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1ClusterLogFetcherRequest?: V1ClusterLogFetcherRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/logFetcher`,
-      v1ClusterLogFetcherRequest,options
+      v1ClusterLogFetcherRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the installed manifests of a specified cluster
- */
-const v1ClusterFeatureManifestsGet = <TData = AxiosResponse<V1ClusterManifests>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/manifests`,options
-    );
-  }
-
-/**
- * @summary Returns the cluster restore of cluster
- */
-const v1ClusterFeatureRestoreGet = <TData = AxiosResponse<V1ClusterRestore>>(
+  /**
+   * @summary Get the installed manifests of a specified cluster
+   */
+  const v1ClusterFeatureManifestsGet = <
+    TData = AxiosResponse<V1ClusterManifests>,
+  >(
     uid: string,
-    params?: V1ClusterFeatureRestoreGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/features/restore`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/features/manifests`, options);
+  };
 
-/**
- * @summary Create on demand cluster restore
- */
-const v1ClusterFeatureRestoreOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Returns the cluster restore of cluster
+   */
+  const v1ClusterFeatureRestoreGet = <TData = AxiosResponse<V1ClusterRestore>>(
     uid: string,
-    v1ClusterRestoreConfig?: V1ClusterRestoreConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1ClusterFeatureRestoreGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/features/restore`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create on demand cluster restore
+   */
+  const v1ClusterFeatureRestoreOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1ClusterRestoreConfig?: V1ClusterRestoreConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/features/restore/onDemand`,
-      v1ClusterRestoreConfig,options
+      v1ClusterRestoreConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update specific cluster heartbeat
- */
-const v1SpectroClustersUidHeartbeatUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update specific cluster heartbeat
+   */
+  const v1SpectroClustersUidHeartbeatUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterHeartbeat?: V1SpectroClusterHeartbeat, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterHeartbeat?: V1SpectroClusterHeartbeat,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/heartbeat`,
-      v1SpectroClusterHeartbeat,options
+      v1SpectroClusterHeartbeat,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the metadata of all hybrid pools associated with the specified cluster
- */
-const v1SpectroClustersGetHybridPoolsMetadata = <TData = AxiosResponse<V1SpectroClusterHybridPoolsMetadata>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/hybridPools/metadata`,options
-    );
-  }
-
-/**
- * @summary Update specific cluster hybrid settings
- */
-const v1SpectroClustersUidHybridSettings = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the metadata of all hybrid pools associated with the specified cluster
+   */
+  const v1SpectroClustersGetHybridPoolsMetadata = <
+    TData = AxiosResponse<V1SpectroClusterHybridPoolsMetadata>,
+  >(
     uid: string,
-    v1ClusterHybridSettingsEntity?: V1ClusterHybridSettingsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/hybridPools/metadata`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update specific cluster hybrid settings
+   */
+  const v1SpectroClustersUidHybridSettings = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ClusterHybridSettingsEntity?: V1ClusterHybridSettingsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/hybridSettings`,
-      v1ClusterHybridSettingsEntity,options
+      v1ClusterHybridSettingsEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster's import manifest file
- */
-const v1SpectroClustersUidImportManifest = <TData = AxiosResponse<Blob>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/import/manifest`,{
-        responseType: 'blob',
-    ...options,}
-    );
-  }
-
-/**
- * @summary Upgrade the specified imported read only cluster with full permissions
- */
-const v1SpectroClustersUidImportUpgradePatch = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/spectroclusters/${uid}/import/upgrade`,undefined,options
-    );
-  }
-
-/**
- * @summary Get K8Certificate for spectro cluster
- */
-const v1SpectroClustersK8Certificate = <TData = AxiosResponse<V1MachineCertificates>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/k8certificates`,options
-    );
-  }
-
-/**
- * @summary Update K8Certificate for spectro cluster
- */
-const v1SpectroClustersK8CertificateUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified cluster's import manifest file
+   */
+  const v1SpectroClustersUidImportManifest = <TData = AxiosResponse<Blob>>(
     uid: string,
-    v1SpectroClusterK8sCertificate?: V1SpectroClusterK8sCertificate, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/import/manifest`, {
+      responseType: "blob",
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Upgrade the specified imported read only cluster with full permissions
+   */
+  const v1SpectroClustersUidImportUpgradePatch = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(
+      `/v1/spectroclusters/${uid}/import/upgrade`,
+      undefined,
+      options,
+    );
+  };
+
+  /**
+   * @summary Get K8Certificate for spectro cluster
+   */
+  const v1SpectroClustersK8Certificate = <
+    TData = AxiosResponse<V1MachineCertificates>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/k8certificates`, options);
+  };
+
+  /**
+   * @summary Update K8Certificate for spectro cluster
+   */
+  const v1SpectroClustersK8CertificateUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1SpectroClusterK8sCertificate?: V1SpectroClusterK8sCertificate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/k8certificates`,
-      v1SpectroClusterK8sCertificate,options
+      v1SpectroClusterK8sCertificate,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Sets the cluster control plane nodes Kubernetes certificates for renewal
- */
-const v1SpectroClustersCertificatesRenew = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/spectroclusters/${uid}/k8certificates/renew`,undefined,options
-    );
-  }
-
-/**
- * @summary Returns the specified cluster's kube config file
- */
-const v1SpectroClustersUidKubeCtlRedirect = <TData = AxiosResponse<V1SpectroClusterKubeCtlRedirect>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/kubectl/redirect`,options
-    );
-  }
-
-/**
- * @summary Associate the assets for the cluster
- */
-const v1SpectroClustersUidLocationPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Sets the cluster control plane nodes Kubernetes certificates for renewal
+   */
+  const v1SpectroClustersCertificatesRenew = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterLocationInputEntity?: V1SpectroClusterLocationInputEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(
+      `/v1/spectroclusters/${uid}/k8certificates/renew`,
+      undefined,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the specified cluster's kube config file
+   */
+  const v1SpectroClustersUidKubeCtlRedirect = <
+    TData = AxiosResponse<V1SpectroClusterKubeCtlRedirect>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/kubectl/redirect`, options);
+  };
+
+  /**
+   * @summary Associate the assets for the cluster
+   */
+  const v1SpectroClustersUidLocationPut = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1SpectroClusterLocationInputEntity?: V1SpectroClusterLocationInputEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/location`,
-      v1SpectroClusterLocationInputEntity,options
+      v1SpectroClusterLocationInputEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the specified spectro cluster metadata
- */
-const v1SpectroClustersUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the specified spectro cluster metadata
+   */
+  const v1SpectroClustersUidMetadataUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ObjectMetaInputEntitySchema?: V1ObjectMetaInputEntitySchema, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ObjectMetaInputEntitySchema?: V1ObjectMetaInputEntitySchema,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/metadata`,
-      v1ObjectMetaInputEntitySchema,options
+      v1ObjectMetaInputEntitySchema,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns available namespaces for the cluster
- */
-const v1ClusterNamespacesGet = <TData = AxiosResponse<V1ClusterNamespaces>>(
+  /**
+   * @summary Returns available namespaces for the cluster
+   */
+  const v1ClusterNamespacesGet = <TData = AxiosResponse<V1ClusterNamespaces>>(
     uid: string,
-    params?: V1ClusterNamespacesGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/namespaces`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterNamespacesGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/namespaces`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns k8s spectrocluster oidc
- */
-const v1SpectroClustersUidOIDC = <TData = AxiosResponse<V1SpectroClusterOidcSpec>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/oidc`,options
-    );
-  }
+  /**
+   * @summary Returns k8s spectrocluster oidc
+   */
+  const v1SpectroClustersUidOIDC = <
+    TData = AxiosResponse<V1SpectroClusterOidcSpec>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/oidc`, options);
+  };
 
-/**
- * @summary Returns k8s dashboard url
- */
-const v1SpectroClustersUidOIDCDashboardUrl = <TData = AxiosResponse<V1SectroClusterK8sDashboardUrl>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/oidc/dashboard/url`,options
-    );
-  }
+  /**
+   * @summary Returns k8s dashboard url
+   */
+  const v1SpectroClustersUidOIDCDashboardUrl = <
+    TData = AxiosResponse<V1SectroClusterK8sDashboardUrl>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/oidc/dashboard/url`, options);
+  };
 
-/**
- * @summary Returns the specified cluster's manifest
- */
-const v1SpectroClustersUidPackManifestsUidGet = <TData = AxiosResponse<V1Manifest>>(
+  /**
+   * @summary Returns the specified cluster's manifest
+   */
+  const v1SpectroClustersUidPackManifestsUidGet = <
+    TData = AxiosResponse<V1Manifest>,
+  >(
     uid: string,
     manifestUid: string,
-    params?: V1SpectroClustersUidPackManifestsUidGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersUidPackManifestsUidGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Get specified cluster pack properties
- */
-const v1SpectroClustersUidPackProperties = <TData = AxiosResponse<V1SpectroClusterPackProperties>>(
+  /**
+   * @summary Get specified cluster pack properties
+   */
+  const v1SpectroClustersUidPackProperties = <
+    TData = AxiosResponse<V1SpectroClusterPackProperties>,
+  >(
     uid: string,
-    params: V1SpectroClustersUidPackPropertiesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/pack/properties`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1SpectroClustersUidPackPropertiesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/pack/properties`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the cluster's pack references
- */
-const v1SpectroClustersPacksRefUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the cluster's pack references
+   */
+  const v1SpectroClustersPacksRefUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1ClusterNotificationUpdateEntity?: V1ClusterNotificationUpdateEntity,
-    params?: V1SpectroClustersPacksRefUpdateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersPacksRefUpdateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/packRefs`,
-      v1ClusterNotificationUpdateEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterNotificationUpdateEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the specified cluster's packs resolved values
- */
-const v1SpectroClustersUidPacksResolvedValuesGet = <TData = AxiosResponse<V1SpectroClusterProfilesResolvedValues>>(
+  /**
+   * @summary Returns the specified cluster's packs resolved values
+   */
+  const v1SpectroClustersUidPacksResolvedValuesGet = <
+    TData = AxiosResponse<V1SpectroClusterProfilesResolvedValues>,
+  >(
     uid: string,
-    v1SpectroClusterProfilesParamReferenceEntity?: V1SpectroClusterProfilesParamReferenceEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterProfilesParamReferenceEntity?: V1SpectroClusterProfilesParamReferenceEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/packs/resolvedValues`,options
+      `/v1/spectroclusters/${uid}/packs/resolvedValues`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Patch update specified cluster's packs status
- */
-const v1SpectroClustersUidPacksStatusPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Patch update specified cluster's packs status
+   */
+  const v1SpectroClustersUidPacksStatusPatch = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterPacksStatusEntity?: V1SpectroClusterPacksStatusEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterPacksStatusEntity?: V1SpectroClusterPacksStatusEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/packs/status`,
-      v1SpectroClusterPacksStatusEntity,options
+      v1SpectroClusterPacksStatusEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the profile updates of a specified cluster
- */
-const v1SpectroClustersGetProfileUpdates = <TData = AxiosResponse<V1SpectroClusterProfileUpdates>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/profileUpdates`,options
-    );
-  }
-
-/**
- * @summary Remove cluster profiles from the specified cluster
- */
-const v1SpectroClustersDeleteProfiles = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the profile updates of a specified cluster
+   */
+  const v1SpectroClustersGetProfileUpdates = <
+    TData = AxiosResponse<V1SpectroClusterProfileUpdates>,
+  >(
     uid: string,
-    v1SpectroClusterProfilesDeleteEntity?: V1SpectroClusterProfilesDeleteEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/profiles`,{data:
-      v1SpectroClusterProfilesDeleteEntity, ...options}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/profileUpdates`, options);
+  };
 
-/**
- * @summary Returns the associated profiles of a specified cluster
- */
-const v1SpectroClustersGetProfiles = <TData = AxiosResponse<V1SpectroClusterProfileList>>(
+  /**
+   * @summary Remove cluster profiles from the specified cluster
+   */
+  const v1SpectroClustersDeleteProfiles = <TData = AxiosResponse<unknown>>(
     uid: string,
-    params?: V1SpectroClustersGetProfilesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/profiles`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    v1SpectroClusterProfilesDeleteEntity?: V1SpectroClusterProfilesDeleteEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/spectroclusters/${uid}/profiles`, {
+      data: v1SpectroClusterProfilesDeleteEntity,
+      ...options,
+    });
+  };
 
-/**
- * @summary Patch cluster profiles to the specified cluster
- */
-const v1SpectroClustersPatchProfiles = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the associated profiles of a specified cluster
+   */
+  const v1SpectroClustersGetProfiles = <
+    TData = AxiosResponse<V1SpectroClusterProfileList>,
+  >(
+    uid: string,
+    params?: V1SpectroClustersGetProfilesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/profiles`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Patch cluster profiles to the specified cluster
+   */
+  const v1SpectroClustersPatchProfiles = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1SpectroClusterProfiles?: V1SpectroClusterProfiles,
-    params?: V1SpectroClustersPatchProfilesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersPatchProfilesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/profiles`,
-      v1SpectroClusterProfiles,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroClusterProfiles,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Associate cluster profiles to the specified cluster
- */
-const v1SpectroClustersUpdateProfiles = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Associate cluster profiles to the specified cluster
+   */
+  const v1SpectroClustersUpdateProfiles = <TData = AxiosResponse<unknown>>(
     uid: string,
     v1SpectroClusterProfiles?: V1SpectroClusterProfiles,
-    params?: V1SpectroClustersUpdateProfilesParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params?: V1SpectroClustersUpdateProfilesParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/profiles`,
-      v1SpectroClusterProfiles,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroClusterProfiles,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the associated profile's pack manifests of a specified cluster
- */
-const v1SpectroClustersGetProfilesPacksManifests = <TData = AxiosResponse<V1SpectroClusterProfilesPacksManifests>>(
+  /**
+   * @summary Returns the associated profile's pack manifests of a specified cluster
+   */
+  const v1SpectroClustersGetProfilesPacksManifests = <
+    TData = AxiosResponse<V1SpectroClusterProfilesPacksManifests>,
+  >(
     uid: string,
-    params?: V1SpectroClustersGetProfilesPacksManifestsParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/profiles/packs/manifests`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersGetProfilesPacksManifestsParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/profiles/packs/manifests`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified cluster's profile pack configuration
- */
-const v1SpectroClustersUidProfilesUidPacksConfigGet = <TData = AxiosResponse<V1SpectroClusterPackConfigList>>(
-    uid: string,
-    profileUid: string,
-    packName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/config`,options
-    );
-  }
-
-/**
- * @summary Returns the associated profiles pack manifests of the specified cluster
- */
-const v1SpectroClustersProfilesUidPackManifestsGet = <TData = AxiosResponse<V1PackManifests>>(
-    uid: string,
-    profileUid: string,
-    packName: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`,options
-    );
-  }
-
-/**
- * @summary Updates cluster profiles pack manifests to the specified cluster
- */
-const v1SpectroClustersProfilesUidPackManifestsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified cluster's profile pack configuration
+   */
+  const v1SpectroClustersUidProfilesUidPacksConfigGet = <
+    TData = AxiosResponse<V1SpectroClusterPackConfigList>,
+  >(
     uid: string,
     profileUid: string,
     packName: string,
-    v1ManifestRefInputEntities?: V1ManifestRefInputEntities, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/config`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the associated profiles pack manifests of the specified cluster
+   */
+  const v1SpectroClustersProfilesUidPackManifestsGet = <
+    TData = AxiosResponse<V1PackManifests>,
+  >(
+    uid: string,
+    profileUid: string,
+    packName: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates cluster profiles pack manifests to the specified cluster
+   */
+  const v1SpectroClustersProfilesUidPackManifestsUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    profileUid: string,
+    packName: string,
+    v1ManifestRefInputEntities?: V1ManifestRefInputEntities,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`,
-      v1ManifestRefInputEntities,options
+      v1ManifestRefInputEntities,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the estimated rate of the specified cluster
- */
-const v1SpectroClustersUidRate = <TData = AxiosResponse<V1SpectroClusterRate>>(
+  /**
+   * @summary Returns the estimated rate of the specified cluster
+   */
+  const v1SpectroClustersUidRate = <
+    TData = AxiosResponse<V1SpectroClusterRate>,
+  >(
     uid: string,
-    params?: V1SpectroClustersUidRateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/rate`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersUidRateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/rate`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the spectrocluster repave approve update
- */
-const v1SpectroClustersUidRepaveApproveUpdate = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Returns the spectrocluster repave approve update
+   */
+  const v1SpectroClustersUidRepaveApproveUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
-      `/v1/spectroclusters/${uid}/repave/approve`,undefined,options
+      `/v1/spectroclusters/${uid}/repave/approve`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the spectrocluster repave
- */
-const v1SpectroClustersUidRepaveGet = <TData = AxiosResponse<V1SpectroClusterRepave>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/repave/status`,options
-    );
-  }
-
-/**
- * @summary reset the cluster s by deleting machine pools and condtions
- */
-const v1SpectroClustersUidReset = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/spectroclusters/${uid}/reset`,undefined,options
-    );
-  }
-
-/**
- * @summary Get the cluster's status
- */
-const v1SpectroClustersUidStatus = <TData = AxiosResponse<V1SpectroClusterStatusEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/status`,options
-    );
-  }
-
-/**
- * @summary Updates the specified cluster status condition
- */
-const v1SpectroClustersUpdateStatusCondition = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the spectrocluster repave
+   */
+  const v1SpectroClustersUidRepaveGet = <
+    TData = AxiosResponse<V1SpectroClusterRepave>,
+  >(
     uid: string,
-    v1ClusterCondition?: V1ClusterCondition, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/repave/status`, options);
+  };
+
+  /**
+   * @summary reset the cluster s by deleting machine pools and condtions
+   */
+  const v1SpectroClustersUidReset = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/spectroclusters/${uid}/reset`, undefined, options);
+  };
+
+  /**
+   * @summary Get the cluster's status
+   */
+  const v1SpectroClustersUidStatus = <
+    TData = AxiosResponse<V1SpectroClusterStatusEntity>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/status`, options);
+  };
+
+  /**
+   * @summary Updates the specified cluster status condition
+   */
+  const v1SpectroClustersUpdateStatusCondition = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1ClusterCondition?: V1ClusterCondition,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/status/condition`,
-      v1ClusterCondition,options
+      v1ClusterCondition,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster status conditions
- */
-const v1SpectroClustersUpdateStatusConditions = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster status conditions
+   */
+  const v1SpectroClustersUpdateStatusConditions = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1ClusterCondition?: V1ClusterCondition[], options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterCondition?: V1ClusterCondition[],
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/status/conditions`,
-      v1ClusterCondition,options
+      v1ClusterCondition,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster's service endpoints information
- */
-const v1SpectroClustersUpdateStatusEndpoints = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster's service endpoints information
+   */
+  const v1SpectroClustersUpdateStatusEndpoints = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1ApiEndpoint?: V1ApiEndpoint[], options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ApiEndpoint?: V1ApiEndpoint[],
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/status/endpoints`,
-      v1ApiEndpoint,options
+      v1ApiEndpoint,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified cluster status as imported
- */
-const v1SpectroClustersUpdateStatusImported = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/spectroclusters/${uid}/status/imported`,undefined,options
-    );
-  }
-
-/**
- * @summary Updates the specified cluster's services information
- */
-const v1SpectroClustersUpdateStatusServices = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified cluster status as imported
+   */
+  const v1SpectroClustersUpdateStatusImported = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1LoadBalancerService?: V1LoadBalancerService[], options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(
+      `/v1/spectroclusters/${uid}/status/imported`,
+      undefined,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified cluster's services information
+   */
+  const v1SpectroClustersUpdateStatusServices = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1LoadBalancerService?: V1LoadBalancerService[],
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/status/services`,
-      v1LoadBalancerService,options
+      v1LoadBalancerService,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the SPC apply information for the agent
- */
-const v1SpectroClustersUidStatusSpcApplyGet = <TData = AxiosResponse<V1SpcApply>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/status/spcApply`,options
-    );
-  }
-
-/**
- * @summary Set the CanBeApplied to true on the spcApply status. CanBeApplied indicates the agent to orchestrate the spc changes
- */
-const v1SpectroClustersUidStatusSpcApply = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/spectroclusters/${uid}/status/spcApply`,undefined,options
-    );
-  }
-
-/**
- * @summary Updates the agent patch time for the SPC changes
- */
-const v1SpectroClustersUidStatusSpcPatchTime = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the SPC apply information for the agent
+   */
+  const v1SpectroClustersUidStatusSpcApplyGet = <
+    TData = AxiosResponse<V1SpcApply>,
+  >(
     uid: string,
-    v1SpcPatchTimeEntity?: V1SpcPatchTimeEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/status/spcApply`, options);
+  };
+
+  /**
+   * @summary Set the CanBeApplied to true on the spcApply status. CanBeApplied indicates the agent to orchestrate the spc changes
+   */
+  const v1SpectroClustersUidStatusSpcApply = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(
+      `/v1/spectroclusters/${uid}/status/spcApply`,
+      undefined,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the agent patch time for the SPC changes
+   */
+  const v1SpectroClustersUidStatusSpcPatchTime = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    v1SpcPatchTimeEntity?: V1SpcPatchTimeEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/status/spcApply/patchTime`,
-      v1SpcPatchTimeEntity,options
+      v1SpcPatchTimeEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the cluster's upgrade status
- */
-const v1SpectroClustersUidUpgradesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the cluster's upgrade status
+   */
+  const v1SpectroClustersUidUpgradesPut = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1SpectroClusterUidUpgrades?: V1SpectroClusterUidUpgrades, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterUidUpgrades?: V1SpectroClusterUidUpgrades,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/status/upgrades`,
-      v1SpectroClusterUidUpgrades,options
+      v1SpectroClusterUidUpgrades,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update specific cluster upgrade settings
- */
-const v1SpectroClustersUidUpgradeSettings = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update specific cluster upgrade settings
+   */
+  const v1SpectroClustersUidUpgradeSettings = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ClusterUpgradeSettingsEntity?: V1ClusterUpgradeSettingsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterUpgradeSettingsEntity?: V1ClusterUpgradeSettingsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/upgrade/settings`,
-      v1ClusterUpgradeSettingsEntity,options
+      v1ClusterUpgradeSettingsEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates cluster packs
- */
-const v1SpectroClustersUidValidatePacks = <TData = AxiosResponse<V1SpectroClusterValidatorResponse>>(
+  /**
+   * @summary Validates cluster packs
+   */
+  const v1SpectroClustersUidValidatePacks = <
+    TData = AxiosResponse<V1SpectroClusterValidatorResponse>,
+  >(
     uid: string,
-    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/validate/packs`,
-      v1SpectroClusterPacksEntity,options
+      v1SpectroClusterPacksEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates if cluster gets repaved for the specified packs
- */
-const v1SpectroClustersUidValidateRepave = <TData = AxiosResponse<V1SpectroClusterRepaveValidationResponse>>(
+  /**
+   * @summary Validates if cluster gets repaved for the specified packs
+   */
+  const v1SpectroClustersUidValidateRepave = <
+    TData = AxiosResponse<V1SpectroClusterRepaveValidationResponse>,
+  >(
     uid: string,
-    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterPacksEntity?: V1SpectroClusterPacksEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/validate/repave`,
-      v1SpectroClusterPacksEntity,options
+      v1SpectroClusterPacksEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieve a list of variables associated with the cluster
- */
-const v1SpectroClustersUidVariablesGet = <TData = AxiosResponse<V1SpectroClusterVariables[]>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/variables`,options
-    );
-  }
-
-/**
- * @summary Update cluster variable values for specified cluster
- */
-const v1SpectroClustersUidVariablesPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Retrieve a list of variables associated with the cluster
+   */
+  const v1SpectroClustersUidVariablesGet = <
+    TData = AxiosResponse<V1SpectroClusterVariables[]>,
+  >(
     uid: string,
-    v1SpectroClusterVariableUpdateEntity?: V1SpectroClusterVariableUpdateEntity[], options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/variables`, options);
+  };
+
+  /**
+   * @summary Update cluster variable values for specified cluster
+   */
+  const v1SpectroClustersUidVariablesPatch = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1SpectroClusterVariableUpdateEntity?: V1SpectroClusterVariableUpdateEntity[],
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/spectroclusters/${uid}/variables`,
-      v1SpectroClusterVariableUpdateEntity,options
+      v1SpectroClusterVariableUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the list of virtual machines
- */
-const v1SpectroClustersVMList = <TData = AxiosResponse<V1ClusterVirtualMachineList>>(
+  /**
+   * @summary Returns the list of virtual machines
+   */
+  const v1SpectroClustersVMList = <
+    TData = AxiosResponse<V1ClusterVirtualMachineList>,
+  >(
     uid: string,
-    params?: V1SpectroClustersVMListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/vms`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1SpectroClustersVMListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/vms`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Create virtual machine
- */
-const v1SpectroClustersVMCreate = <TData = AxiosResponse<V1ClusterVirtualMachine>>(
+  /**
+   * @summary Create virtual machine
+   */
+  const v1SpectroClustersVMCreate = <
+    TData = AxiosResponse<V1ClusterVirtualMachine>,
+  >(
     uid: string,
     params: V1SpectroClustersVMCreateParams,
-    v1ClusterVirtualMachine?: V1ClusterVirtualMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterVirtualMachine?: V1ClusterVirtualMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/vms`,
-      v1ClusterVirtualMachine,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterVirtualMachine,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Returns the list of snapshots of given namespaces
- */
-const v1ClusterVMSnapshotsList = <TData = AxiosResponse<V1VirtualMachineSnapshotList>>(
+  /**
+   * @summary Returns the list of snapshots of given namespaces
+   */
+  const v1ClusterVMSnapshotsList = <
+    TData = AxiosResponse<V1VirtualMachineSnapshotList>,
+  >(
     uid: string,
-    params?: V1ClusterVMSnapshotsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/vms/snapshot`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1ClusterVMSnapshotsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/vms/snapshot`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deletes the virtual machine
- */
-const v1SpectroClustersVMDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    vmName: string,
-    params: V1SpectroClustersVMDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/spectroclusters/${uid}/vms/${vmName}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
-
-/**
- * @summary Get virtual machine
- */
-const v1SpectroClustersVMGet = <TData = AxiosResponse<V1ClusterVirtualMachine>>(
+  /**
+   * @summary Deletes the virtual machine
+   */
+  const v1SpectroClustersVMDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/spectroclusters/${uid}/vms/${vmName}`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params: V1SpectroClustersVMDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/spectroclusters/${uid}/vms/${vmName}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Updates the specified virtual machine of the cluster
- */
-const v1SpectroClustersVMUpdate = <TData = AxiosResponse<V1ClusterVirtualMachine>>(
+  /**
+   * @summary Get virtual machine
+   */
+  const v1SpectroClustersVMGet = <
+    TData = AxiosResponse<V1ClusterVirtualMachine>,
+  >(
+    uid: string,
+    vmName: string,
+    params: V1SpectroClustersVMGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/spectroclusters/${uid}/vms/${vmName}`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Updates the specified virtual machine of the cluster
+   */
+  const v1SpectroClustersVMUpdate = <
+    TData = AxiosResponse<V1ClusterVirtualMachine>,
+  >(
     uid: string,
     vmName: string,
     params: V1SpectroClustersVMUpdateParams,
-    v1ClusterVirtualMachine?: V1ClusterVirtualMachine, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterVirtualMachine?: V1ClusterVirtualMachine,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/vms/${vmName}`,
-      v1ClusterVirtualMachine,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1ClusterVirtualMachine,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Add volume to the virtual machine instance
- */
-const v1SpectroClustersVMAddVolume = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Add volume to the virtual machine instance
+   */
+  const v1SpectroClustersVMAddVolume = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
     params: V1SpectroClustersVMAddVolumeParams,
-    v1VMAddVolumeEntity?: V1VMAddVolumeEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VMAddVolumeEntity?: V1VMAddVolumeEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/vms/${vmName}/addVolume`,
-      v1VMAddVolumeEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1VMAddVolumeEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Clone virtual machine
- */
-const v1SpectroClustersVMClone = <TData = AxiosResponse<V1ClusterVirtualMachine>>(
+  /**
+   * @summary Clone virtual machine
+   */
+  const v1SpectroClustersVMClone = <
+    TData = AxiosResponse<V1ClusterVirtualMachine>,
+  >(
     uid: string,
     vmName: string,
     params: V1SpectroClustersVMCloneParams,
-    v1SpectroClusterVMCloneEntity?: V1SpectroClusterVMCloneEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1SpectroClusterVMCloneEntity?: V1SpectroClusterVMCloneEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/vms/${vmName}/clone`,
-      v1SpectroClusterVMCloneEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1SpectroClusterVMCloneEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Migrate the virtual machine
- */
-const v1SpectroClustersVMMigrate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Migrate the virtual machine
+   */
+  const v1SpectroClustersVMMigrate = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMMigrateParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMMigrateParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/migrate`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/migrate`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Pause the virtual machine instance
- */
-const v1SpectroClustersVMPause = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Pause the virtual machine instance
+   */
+  const v1SpectroClustersVMPause = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMPauseParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMPauseParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/pause`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/pause`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Remove volume from the virtual machine instance
- */
-const v1SpectroClustersVMRemoveVolume = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Remove volume from the virtual machine instance
+   */
+  const v1SpectroClustersVMRemoveVolume = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
     params: V1SpectroClustersVMRemoveVolumeParams,
-    v1VMRemoveVolumeEntity?: V1VMRemoveVolumeEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VMRemoveVolumeEntity?: V1VMRemoveVolumeEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume`,
-      v1VMRemoveVolumeEntity,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1VMRemoveVolumeEntity,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Restart the virtual machine
- */
-const v1SpectroClustersVMRestart = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Restart the virtual machine
+   */
+  const v1SpectroClustersVMRestart = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMRestartParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMRestartParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/restart`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/restart`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Resume the virtual machine instance
- */
-const v1SpectroClustersVMResume = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Resume the virtual machine instance
+   */
+  const v1SpectroClustersVMResume = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMResumeParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMResumeParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/resume`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/resume`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Create snapshot of virtual machine
- */
-const v1VMSnapshotCreate = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
+  /**
+   * @summary Create snapshot of virtual machine
+   */
+  const v1VMSnapshotCreate = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
     uid: string,
     vmName: string,
     params: V1VMSnapshotCreateParams,
-    v1VirtualMachineSnapshot?: V1VirtualMachineSnapshot, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VirtualMachineSnapshot?: V1VirtualMachineSnapshot,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot`,
-      v1VirtualMachineSnapshot,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1VirtualMachineSnapshot,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Delete the snapshot of virtual machine
- */
-const v1VMSnapshotDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the snapshot of virtual machine
+   */
+  const v1VMSnapshotDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
     snapshotName: string,
-    params: V1VMSnapshotDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1VMSnapshotDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.delete(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Get virtual machine snapshot
- */
-const v1VMSnapshotGet = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
+  /**
+   * @summary Get virtual machine snapshot
+   */
+  const v1VMSnapshotGet = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
     uid: string,
     vmName: string,
     snapshotName: string,
-    params: V1VMSnapshotGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1VMSnapshotGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Updates the specified snapshot of a virtual machine
- */
-const v1VMSnapshotUpdate = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
+  /**
+   * @summary Updates the specified snapshot of a virtual machine
+   */
+  const v1VMSnapshotUpdate = <TData = AxiosResponse<V1VirtualMachineSnapshot>>(
     uid: string,
     vmName: string,
     snapshotName: string,
     params: V1VMSnapshotUpdateParams,
-    v1VirtualMachineSnapshot?: V1VirtualMachineSnapshot, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1VirtualMachineSnapshot?: V1VirtualMachineSnapshot,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`,
-      v1VirtualMachineSnapshot,{
-    ...options,
-        params: {...params, ...options?.params},}
+      v1VirtualMachineSnapshot,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Start the virtual machine
- */
-const v1SpectroClustersVMStart = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Start the virtual machine
+   */
+  const v1SpectroClustersVMStart = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMStartParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMStartParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/start`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/start`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * @summary Stop the virtual machine
- */
-const v1SpectroClustersVMStop = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Stop the virtual machine
+   */
+  const v1SpectroClustersVMStop = <TData = AxiosResponse<unknown>>(
     uid: string,
     vmName: string,
-    params: V1SpectroClustersVMStopParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    params: V1SpectroClustersVMStopParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
-      `/v1/spectroclusters/${uid}/vms/${vmName}/stop`,undefined,{
-    ...options,
-        params: {...params, ...options?.params},}
+      `/v1/spectroclusters/${uid}/vms/${vmName}/stop`,
+      undefined,
+      {
+        ...options,
+        params: { ...params, ...options?.params },
+      },
     );
-  }
+  };
 
-/**
- * Sync specified cluster workload
- * @summary Sync specified cluster workload
- */
-const v1SpectroClustersUidWorkloadsSync = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/spectroclusters/${uid}/workloads/sync`,undefined,options
-    );
-  }
-
-/**
- * @summary Sync specified cluster workload
- */
-const v1SpectroClustersUidWorkloadsKindSync = <TData = AxiosResponse<unknown>>(
+  /**
+   * Sync specified cluster workload
+   * @summary Sync specified cluster workload
+   */
+  const v1SpectroClustersUidWorkloadsSync = <TData = AxiosResponse<unknown>>(
     uid: string,
-    workloadKind: 'namespace' | 'pod' | 'deployment' | 'statefulset' | 'daemonset' | 'job' | 'cronjob' | 'rolebinding' | 'clusterrolebinding', options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
-      `/v1/spectroclusters/${uid}/workloads/${workloadKind}/sync`,undefined,options
+      `/v1/spectroclusters/${uid}/workloads/sync`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary get the system config reverse proxy
- */
-const v1SystemConfigReverseProxyGet = <TData = AxiosResponse<V1SystemReverseProxy>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/system/config/reverseproxy`,options
+  /**
+   * @summary Sync specified cluster workload
+   */
+  const v1SpectroClustersUidWorkloadsKindSync = <
+    TData = AxiosResponse<unknown>,
+  >(
+    uid: string,
+    workloadKind:
+      | "namespace"
+      | "pod"
+      | "deployment"
+      | "statefulset"
+      | "daemonset"
+      | "job"
+      | "cronjob"
+      | "rolebinding"
+      | "clusterrolebinding",
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(
+      `/v1/spectroclusters/${uid}/workloads/${workloadKind}/sync`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary updates the system config reverse proxy
- */
-const v1SystemConfigReverseProxyUpdate = <TData = AxiosResponse<V1Updated>>(
-    v1SystemReverseProxy: V1SystemReverseProxy, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary get the system config reverse proxy
+   */
+  const v1SystemConfigReverseProxyGet = <
+    TData = AxiosResponse<V1SystemReverseProxy>,
+  >(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/system/config/reverseproxy`, options);
+  };
+
+  /**
+   * @summary updates the system config reverse proxy
+   */
+  const v1SystemConfigReverseProxyUpdate = <TData = AxiosResponse<V1Updated>>(
+    v1SystemReverseProxy: V1SystemReverseProxy,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/system/config/reverseproxy`,
-      v1SystemReverseProxy,options
+      v1SystemReverseProxy,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete a list of block listed passwords
- */
-const v1PasswordsBlockListDelete = <TData = AxiosResponse<unknown>>(
-    v1PasswordsBlockList: V1PasswordsBlockList, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/system/passwords/blocklist`,{data:
-      v1PasswordsBlockList, ...options}
-    );
-  }
+  /**
+   * @summary Delete a list of block listed passwords
+   */
+  const v1PasswordsBlockListDelete = <TData = AxiosResponse<unknown>>(
+    v1PasswordsBlockList: V1PasswordsBlockList,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/system/passwords/blocklist`, {
+      data: v1PasswordsBlockList,
+      ...options,
+    });
+  };
 
-/**
- * @summary List of block listed passwords
- */
-const v1PasswordsBlockListUpdate = <TData = AxiosResponse<V1Updated>>(
-    v1PasswordsBlockList: V1PasswordsBlockList, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary List of block listed passwords
+   */
+  const v1PasswordsBlockListUpdate = <TData = AxiosResponse<V1Updated>>(
+    v1PasswordsBlockList: V1PasswordsBlockList,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/system/passwords/blocklist`,
-      v1PasswordsBlockList,options
+      v1PasswordsBlockList,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of teams
- */
-const v1TeamsList = <TData = AxiosResponse<V1Teams>>(
-    params?: V1TeamsListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/teams`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Retrieves a list of teams
+   */
+  const v1TeamsList = <TData = AxiosResponse<V1Teams>>(
+    params?: V1TeamsListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/teams`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates a team with the specified users and roles
- */
-const v1TeamsCreate = <TData = AxiosResponse<V1Uid>>(
-    v1Team?: V1Team, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/teams`,
-      v1Team,options
-    );
-  }
+  /**
+   * @summary Creates a team with the specified users and roles
+   */
+  const v1TeamsCreate = <TData = AxiosResponse<V1Uid>>(
+    v1Team?: V1Team,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/teams`, v1Team, options);
+  };
 
-/**
- * @summary Retrieves a list of teams summary with provided filter spec
- */
-const v1TeamsSummaryGet = <TData = AxiosResponse<V1TeamsSummaryList>>(
-    v1TeamsSummarySpec?: V1TeamsSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/teams/summary`,
-      v1TeamsSummarySpec,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of teams summary with provided filter spec
+   */
+  const v1TeamsSummaryGet = <TData = AxiosResponse<V1TeamsSummaryList>>(
+    v1TeamsSummarySpec?: V1TeamsSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/teams/summary`, v1TeamsSummarySpec, options);
+  };
 
-/**
- * @summary Deletes the specified team
- */
-const v1TeamsUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/teams/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the sepcified team
- */
-const v1TeamsUidGet = <TData = AxiosResponse<V1Team>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/teams/${uid}`,options
-    );
-  }
-
-/**
- * @summary Patches the specified team
- */
-const v1TeamsUidPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified team
+   */
+  const v1TeamsUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1TeamPatch: V1TeamPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/teams/${uid}`,
-      v1TeamPatch,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/teams/${uid}`, options);
+  };
 
-/**
- * @summary Updates the sepcified team
- */
-const v1TeamsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the sepcified team
+   */
+  const v1TeamsUidGet = <TData = AxiosResponse<V1Team>>(
     uid: string,
-    v1Team?: V1Team, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/teams/${uid}`,
-      v1Team,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/teams/${uid}`, options);
+  };
 
-/**
- * @summary Returns the specified team's project and roles data
- */
-const v1TeamsProjectRoles = <TData = AxiosResponse<V1ProjectRolesEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/teams/${uid}/projects`,options
-    );
-  }
-
-/**
- * @summary Updates the projects and roles for the specified team
- */
-const v1TeamsProjectRolesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Patches the specified team
+   */
+  const v1TeamsUidPatch = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ProjectRolesPatch: V1ProjectRolesPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/teams/${uid}/projects`,
-      v1ProjectRolesPatch,options
-    );
-  }
+    v1TeamPatch: V1TeamPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/teams/${uid}`, v1TeamPatch, options);
+  };
 
-/**
- * Returns resource roles for team
- * @summary Returns the specified individual and resource roles for a team
- */
-const v1TeamsUidResourceRoles = <TData = AxiosResponse<V1ResourceRoles>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/teams/${uid}/resourceRoles`,options
-    );
-  }
-
-/**
- * Resource roles added to specific team
- * @summary Add resource roles for team
- */
-const v1TeamsUidResourceRolesCreate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the sepcified team
+   */
+  const v1TeamsUidUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1Team?: V1Team,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/teams/${uid}`, v1Team, options);
+  };
+
+  /**
+   * @summary Returns the specified team's project and roles data
+   */
+  const v1TeamsProjectRoles = <TData = AxiosResponse<V1ProjectRolesEntity>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/teams/${uid}/projects`, options);
+  };
+
+  /**
+   * @summary Updates the projects and roles for the specified team
+   */
+  const v1TeamsProjectRolesPut = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ProjectRolesPatch: V1ProjectRolesPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/teams/${uid}/projects`, v1ProjectRolesPatch, options);
+  };
+
+  /**
+   * Returns resource roles for team
+   * @summary Returns the specified individual and resource roles for a team
+   */
+  const v1TeamsUidResourceRoles = <TData = AxiosResponse<V1ResourceRoles>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/teams/${uid}/resourceRoles`, options);
+  };
+
+  /**
+   * Resource roles added to specific team
+   * @summary Add resource roles for team
+   */
+  const v1TeamsUidResourceRolesCreate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/teams/${uid}/resourceRoles`,
-      v1ResourceRolesUpdateEntity,options
+      v1ResourceRolesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deleted the resource roles from team
- */
-const v1TeamsUidResourceRolesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    resourceRoleUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`,options
-    );
-  }
-
-/**
- * Specific resource roles fo team is updated
- * @summary Updates the resource roles for team
- */
-const v1TeamsResourceRolesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deleted the resource roles from team
+   */
+  const v1TeamsUidResourceRolesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     resourceRoleUid: string,
-    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`,
+      options,
+    );
+  };
+
+  /**
+   * Specific resource roles fo team is updated
+   * @summary Updates the resource roles for team
+   */
+  const v1TeamsResourceRolesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    resourceRoleUid: string,
+    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`,
-      v1ResourceRolesUpdateEntity,options
+      v1ResourceRolesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified team's tenant roles
- */
-const v1TeamsUidTenantRolesGet = <TData = AxiosResponse<V1TeamTenantRolesEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/teams/${uid}/roles`,options
-    );
-  }
-
-/**
- * @summary Updates the tenant roles of the specified team
- */
-const v1TeamsUidTenantRolesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified team's tenant roles
+   */
+  const v1TeamsUidTenantRolesGet = <
+    TData = AxiosResponse<V1TeamTenantRolesEntity>,
+  >(
     uid: string,
-    v1TeamTenantRolesUpdate: V1TeamTenantRolesUpdate, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/teams/${uid}/roles`, options);
+  };
+
+  /**
+   * @summary Updates the tenant roles of the specified team
+   */
+  const v1TeamsUidTenantRolesUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1TeamTenantRolesUpdate: V1TeamTenantRolesUpdate,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/teams/${uid}/roles`,
-      v1TeamTenantRolesUpdate,options
+      v1TeamTenantRolesUpdate,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update tenant address
- */
-const v1PatchTenantAddress = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update tenant address
+   */
+  const v1PatchTenantAddress = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1TenantAddressPatch?: V1TenantAddressPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1TenantAddressPatch?: V1TenantAddressPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/tenants/${tenantUid}/address`,
-      v1TenantAddressPatch,options
+      v1TenantAddressPatch,
+      options,
     );
-  }
+  };
 
-/**
- * @summary lists the certificates for the tenant
- */
-const v1TenantUIdAssetsCertsList = <TData = AxiosResponse<V1TenantAssetCerts>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/assets/certs`,options
-    );
-  }
-
-/**
- * @summary create the tenant certificate
- */
-const v1TenantUidAssetsCertsCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary lists the certificates for the tenant
+   */
+  const v1TenantUIdAssetsCertsList = <
+    TData = AxiosResponse<V1TenantAssetCerts>,
+  >(
     tenantUid: string,
-    v1TenantAssetCert?: V1TenantAssetCert, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/assets/certs`, options);
+  };
+
+  /**
+   * @summary create the tenant certificate
+   */
+  const v1TenantUidAssetsCertsCreate = <TData = AxiosResponse<V1Uid>>(
+    tenantUid: string,
+    v1TenantAssetCert?: V1TenantAssetCert,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/assets/certs`,
-      v1TenantAssetCert,options
+      v1TenantAssetCert,
+      options,
     );
-  }
+  };
 
-/**
- * @summary deletes the tenant certificate
- */
-const v1TenantUidAssetsCertsUidDelete = <TData = AxiosResponse<unknown>>(
-    tenantUid: string,
-    certificateUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`,options
-    );
-  }
-
-/**
- * @summary Returns the ca certificate for the tenant
- */
-const v1TenantUidAssetsCertsUidGet = <TData = AxiosResponse<V1TenantAssetCert>>(
-    tenantUid: string,
-    certificateUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`,options
-    );
-  }
-
-/**
- * @summary updates the tenant certificate
- */
-const v1TenantUidAssetsCertsUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary deletes the tenant certificate
+   */
+  const v1TenantUidAssetsCertsUidDelete = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
     certificateUid: string,
-    v1TenantAssetCert?: V1TenantAssetCert, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Returns the ca certificate for the tenant
+   */
+  const v1TenantUidAssetsCertsUidGet = <
+    TData = AxiosResponse<V1TenantAssetCert>,
+  >(
+    tenantUid: string,
+    certificateUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary updates the tenant certificate
+   */
+  const v1TenantUidAssetsCertsUidUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    certificateUid: string,
+    v1TenantAssetCert?: V1TenantAssetCert,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`,
-      v1TenantAssetCert,options
+      v1TenantAssetCert,
+      options,
     );
-  }
+  };
 
-/**
- * @summary deletes the tenant data sink config
- */
-const v1TenantUidAssetsDataSinksDelete = <TData = AxiosResponse<unknown>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/tenants/${tenantUid}/assets/dataSinks`,options
-    );
-  }
-
-/**
- * @summary Returns data sink config of tenant
- */
-const v1TenantUidAssetsDataSinksGet = <TData = AxiosResponse<V1DataSinkConfig>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/assets/dataSinks`,options
-    );
-  }
-
-/**
- * @summary create data sink config
- */
-const v1TenantUidAssetsDataSinksCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary deletes the tenant data sink config
+   */
+  const v1TenantUidAssetsDataSinksDelete = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1DataSinkConfig?: V1DataSinkConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/tenants/${tenantUid}/assets/dataSinks`, options);
+  };
+
+  /**
+   * @summary Returns data sink config of tenant
+   */
+  const v1TenantUidAssetsDataSinksGet = <
+    TData = AxiosResponse<V1DataSinkConfig>,
+  >(
+    tenantUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/assets/dataSinks`, options);
+  };
+
+  /**
+   * @summary create data sink config
+   */
+  const v1TenantUidAssetsDataSinksCreate = <TData = AxiosResponse<V1Uid>>(
+    tenantUid: string,
+    v1DataSinkConfig?: V1DataSinkConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/assets/dataSinks`,
-      v1DataSinkConfig,options
+      v1DataSinkConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary updates the tenant data sink config
- */
-const v1TenantUidAssetsDataSinksUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary updates the tenant data sink config
+   */
+  const v1TenantUidAssetsDataSinksUpdate = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1DataSinkConfig?: V1DataSinkConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1DataSinkConfig?: V1DataSinkConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/assets/dataSinks`,
-      v1DataSinkConfig,options
+      v1DataSinkConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant auth token settings
- */
-const v1TenantUidAuthTokenSettingsGet = <TData = AxiosResponse<V1AuthTokenSettings>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/authTokenSettings`,options
-    );
-  }
-
-/**
- * @summary Update tenant auth token settings
- */
-const v1TenantUidAuthTokenSettingsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get tenant auth token settings
+   */
+  const v1TenantUidAuthTokenSettingsGet = <
+    TData = AxiosResponse<V1AuthTokenSettings>,
+  >(
     tenantUid: string,
-    v1AuthTokenSettings?: V1AuthTokenSettings, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/authTokenSettings`, options);
+  };
+
+  /**
+   * @summary Update tenant auth token settings
+   */
+  const v1TenantUidAuthTokenSettingsUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1AuthTokenSettings?: V1AuthTokenSettings,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/authTokenSettings`,
-      v1AuthTokenSettings,options
+      v1AuthTokenSettings,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Tenant to accept the contract agreement
- */
-const v1TenantsUidContractAccept = <TData = AxiosResponse<unknown>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Tenant to accept the contract agreement
+   */
+  const v1TenantsUidContractAccept = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
-      `/v1/tenants/${tenantUid}/contract/accept`,undefined,options
+      `/v1/tenants/${tenantUid}/contract/accept`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the aws credit account for tenants
- */
-const v1TenantsCreditAccountDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the aws credit account for tenants
+   */
+  const v1TenantsCreditAccountDelete = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    params?: V1TenantsCreditAccountDeleteParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/tenants/${tenantUid}/creditAccount/aws`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1TenantsCreditAccountDeleteParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/tenants/${tenantUid}/creditAccount/aws`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Get the credit accounts for the tenants with free tier access
- */
-const v1TenantsCreditAccountGet = <TData = AxiosResponse<V1AwsCreditAccountEntity>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/creditAccount/aws`,options
-    );
-  }
-
-/**
- * @summary retrieves the domains for tenant
- */
-const v1TenantUidDomainsGet = <TData = AxiosResponse<V1TenantDomains>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/domains`,options
-    );
-  }
-
-/**
- * @summary creates or updates domains for tenant
- */
-const v1TenantUidDomainsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get the credit accounts for the tenants with free tier access
+   */
+  const v1TenantsCreditAccountGet = <
+    TData = AxiosResponse<V1AwsCreditAccountEntity>,
+  >(
     tenantUid: string,
-    v1TenantDomains?: V1TenantDomains, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/creditAccount/aws`, options);
+  };
+
+  /**
+   * @summary retrieves the domains for tenant
+   */
+  const v1TenantUidDomainsGet = <TData = AxiosResponse<V1TenantDomains>>(
+    tenantUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/domains`, options);
+  };
+
+  /**
+   * @summary creates or updates domains for tenant
+   */
+  const v1TenantUidDomainsUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantDomains?: V1TenantDomains,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/domains`,
-      v1TenantDomains,options
+      v1TenantDomains,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update tenant emailId
- */
-const v1PatchTenantEmailId = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update tenant emailId
+   */
+  const v1PatchTenantEmailId = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1TenantEmailPatch?: V1TenantEmailPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1TenantEmailPatch?: V1TenantEmailPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/tenants/${tenantUid}/emailId`,
-      v1TenantEmailPatch,options
+      v1TenantEmailPatch,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant level freemium configuration
- */
-const v1TenantFreemiumGet = <TData = AxiosResponse<V1TenantFreemium>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/freemium`,options
-    );
-  }
-
-/**
- * @summary Update tenant freemium configuration
- */
-const v1TenantFreemiumUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get tenant level freemium configuration
+   */
+  const v1TenantFreemiumGet = <TData = AxiosResponse<V1TenantFreemium>>(
     tenantUid: string,
-    v1TenantFreemium?: V1TenantFreemium, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/freemium`, options);
+  };
+
+  /**
+   * @summary Update tenant freemium configuration
+   */
+  const v1TenantFreemiumUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantFreemium?: V1TenantFreemium,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/freemium`,
-      v1TenantFreemium,options
+      v1TenantFreemium,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant freemium usage
- */
-const v1TenantFreemiumUsageGet = <TData = AxiosResponse<V1TenantFreemiumUsage>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/freemiumUsage`,options
-    );
-  }
-
-/**
- * @summary Returns a specified invoice
- */
-const v1InvoicesUidGet = <TData = AxiosResponse<V1Invoice>>(
+  /**
+   * @summary Get tenant freemium usage
+   */
+  const v1TenantFreemiumUsageGet = <
+    TData = AxiosResponse<V1TenantFreemiumUsage>,
+  >(
     tenantUid: string,
-    invoiceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}`,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/freemiumUsage`, options);
+  };
 
-/**
- * @summary Downloads the specified invoice report
- */
-const v1InvoiceUidReportInvoicePdf = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Returns a specified invoice
+   */
+  const v1InvoicesUidGet = <TData = AxiosResponse<V1Invoice>>(
     tenantUid: string,
-    invoiceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    invoiceUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/invoice/pdf`,{
-        responseType: 'blob',
-    ...options,}
+      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}`,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Downloads the specified monthly invoice report
- */
-const v1InvoiceUidReportPdf = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Downloads the specified invoice report
+   */
+  const v1InvoiceUidReportInvoicePdf = <TData = AxiosResponse<Blob>>(
     tenantUid: string,
-    invoiceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    invoiceUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/pdf`,{
-        responseType: 'blob',
-    ...options,}
+      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/invoice/pdf`,
+      {
+        responseType: "blob",
+        ...options,
+      },
     );
-  }
+  };
 
-/**
- * @summary Downloads the specified tenant usage
- */
-const v1InvoiceUidReportUsagePdf = <TData = AxiosResponse<Blob>>(
+  /**
+   * @summary Downloads the specified monthly invoice report
+   */
+  const v1InvoiceUidReportPdf = <TData = AxiosResponse<Blob>>(
     tenantUid: string,
-    invoiceUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    invoiceUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.get(
-      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/usage/pdf`,{
-        responseType: 'blob',
-    ...options,}
+      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/pdf`,
+      {
+        responseType: "blob",
+        ...options,
+      },
     );
-  }
+  };
 
-/**
- * @summary Get tenant login banner settings
- */
-const v1TenantUidLoginBannerGet = <TData = AxiosResponse<V1LoginBannerSettings>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/loginBanner`,options
-    );
-  }
-
-/**
- * @summary Update tenant login banner settings
- */
-const v1TenantUidLoginBannerUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Downloads the specified tenant usage
+   */
+  const v1InvoiceUidReportUsagePdf = <TData = AxiosResponse<Blob>>(
     tenantUid: string,
-    v1LoginBannerSettings?: V1LoginBannerSettings, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    invoiceUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/usage/pdf`,
+      {
+        responseType: "blob",
+        ...options,
+      },
+    );
+  };
+
+  /**
+   * @summary Get tenant login banner settings
+   */
+  const v1TenantUidLoginBannerGet = <
+    TData = AxiosResponse<V1LoginBannerSettings>,
+  >(
+    tenantUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/loginBanner`, options);
+  };
+
+  /**
+   * @summary Update tenant login banner settings
+   */
+  const v1TenantUidLoginBannerUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1LoginBannerSettings?: V1LoginBannerSettings,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/loginBanner`,
-      v1LoginBannerSettings,options
+      v1LoginBannerSettings,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Delete the macros for the specified tenant by given macro name
- */
-const v1TenantsUidMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Delete the macros for the specified tenant by given macro name
+   */
+  const v1TenantsUidMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/tenants/${tenantUid}/macros`,{data:
-      v1Macros, ...options}
-    );
-  }
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/tenants/${tenantUid}/macros`, {
+      data: v1Macros,
+      ...options,
+    });
+  };
 
-/**
- * @summary List the macros of the specified tenant
- */
-const v1TenantsUidMacrosList = <TData = AxiosResponse<V1Macros>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/macros`,options
-    );
-  }
-
-/**
- * @summary Update the macros for the specified tenant by given macro name
- */
-const v1TenantsUidMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary List the macros of the specified tenant
+   */
+  const v1TenantsUidMacrosList = <TData = AxiosResponse<V1Macros>>(
     tenantUid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/tenants/${tenantUid}/macros`,
-      v1Macros,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/macros`, options);
+  };
 
-/**
- * @summary Create or add new macros for the specified tenant
- */
-const v1TenantsUidMacrosCreate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the macros for the specified tenant by given macro name
+   */
+  const v1TenantsUidMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/tenants/${tenantUid}/macros`,
-      v1Macros,options
-    );
-  }
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/tenants/${tenantUid}/macros`, v1Macros, options);
+  };
 
-/**
- * @summary Update the macros of the specified tenant
- */
-const v1TenantsUidMacrosUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Create or add new macros for the specified tenant
+   */
+  const v1TenantsUidMacrosCreate = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/tenants/${tenantUid}/macros`,
-      v1Macros,options
-    );
-  }
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/tenants/${tenantUid}/macros`, v1Macros, options);
+  };
 
-/**
- * @summary Returns the oidc Spec for tenant
- */
-const v1TenantUidOidcConfigGet = <TData = AxiosResponse<V1TenantOidcClientSpec>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/oidc/config`,options
-    );
-  }
-
-/**
- * @summary Associates the  oidc Spec for the tenant
- */
-const v1TenantUidOidcConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the macros of the specified tenant
+   */
+  const v1TenantsUidMacrosUpdate = <TData = AxiosResponse<unknown>>(
     tenantUid: string,
-    v1TenantOidcClientSpec?: V1TenantOidcClientSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/tenants/${tenantUid}/macros`, v1Macros, options);
+  };
+
+  /**
+   * @summary Returns the oidc Spec for tenant
+   */
+  const v1TenantUidOidcConfigGet = <
+    TData = AxiosResponse<V1TenantOidcClientSpec>,
+  >(
+    tenantUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/oidc/config`, options);
+  };
+
+  /**
+   * @summary Associates the  oidc Spec for the tenant
+   */
+  const v1TenantUidOidcConfigUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantOidcClientSpec?: V1TenantOidcClientSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/oidc/config`,
-      v1TenantOidcClientSpec,options
+      v1TenantOidcClientSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary retrieves the password policy for tenant
- */
-const v1TenantUidPasswordPolicyGet = <TData = AxiosResponse<V1TenantPasswordPolicyEntity>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/password/policy`,options
-    );
-  }
-
-/**
- * @summary creates or updates a password policy for tenant
- */
-const v1TenantUidPasswordPolicyUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary retrieves the password policy for tenant
+   */
+  const v1TenantUidPasswordPolicyGet = <
+    TData = AxiosResponse<V1TenantPasswordPolicyEntity>,
+  >(
     tenantUid: string,
-    v1TenantPasswordPolicyEntity?: V1TenantPasswordPolicyEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/password/policy`, options);
+  };
+
+  /**
+   * @summary creates or updates a password policy for tenant
+   */
+  const v1TenantUidPasswordPolicyUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantPasswordPolicyEntity?: V1TenantPasswordPolicyEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/password/policy`,
-      v1TenantPasswordPolicyEntity,options
+      v1TenantPasswordPolicyEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get is cluster group enabled for a specific tenant
- */
-const v1TenantPrefClusterGroupGet = <TData = AxiosResponse<V1TenantEnableClusterGroup>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/preferences/clusterGroup`,options
-    );
-  }
-
-/**
- * @summary Enable or Disable cluster group for a specific tenant
- */
-const v1TenantPrefClusterGroupUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get is cluster group enabled for a specific tenant
+   */
+  const v1TenantPrefClusterGroupGet = <
+    TData = AxiosResponse<V1TenantEnableClusterGroup>,
+  >(
     tenantUid: string,
-    v1TenantEnableClusterGroup?: V1TenantEnableClusterGroup, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/tenants/${tenantUid}/preferences/clusterGroup`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Enable or Disable cluster group for a specific tenant
+   */
+  const v1TenantPrefClusterGroupUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantEnableClusterGroup?: V1TenantEnableClusterGroup,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/preferences/clusterGroup`,
-      v1TenantEnableClusterGroup,options
+      v1TenantEnableClusterGroup,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant cluster settings
- */
-const v1TenantClusterSettingsGet = <TData = AxiosResponse<V1TenantClusterSettings>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/preferences/clusterSettings`,options
-    );
-  }
-
-/**
- * @summary Update tenant clusters nodes auto remediation setting
- */
-const v1TenantClustersNodesAutoRemediationSettingUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get tenant cluster settings
+   */
+  const v1TenantClusterSettingsGet = <
+    TData = AxiosResponse<V1TenantClusterSettings>,
+  >(
     tenantUid: string,
-    v1NodesAutoRemediationSettings?: V1NodesAutoRemediationSettings, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/tenants/${tenantUid}/preferences/clusterSettings`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Update tenant clusters nodes auto remediation setting
+   */
+  const v1TenantClustersNodesAutoRemediationSettingUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
+    tenantUid: string,
+    v1NodesAutoRemediationSettings?: V1NodesAutoRemediationSettings,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/preferences/clusterSettings/nodesAutoRemediationSetting`,
-      v1NodesAutoRemediationSettings,options
+      v1NodesAutoRemediationSettings,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get developer credit enabled for a specific tenant
- */
-const v1TenantDeveloperCreditGet = <TData = AxiosResponse<V1DeveloperCredit>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/preferences/developerCredit`,options
-    );
-  }
-
-/**
- * @summary update developer credit for a specific tenant
- */
-const v1TenantDeveloperCreditUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get developer credit enabled for a specific tenant
+   */
+  const v1TenantDeveloperCreditGet = <TData = AxiosResponse<V1DeveloperCredit>>(
     tenantUid: string,
-    v1DeveloperCredit?: V1DeveloperCredit, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(
+      `/v1/tenants/${tenantUid}/preferences/developerCredit`,
+      options,
+    );
+  };
+
+  /**
+   * @summary update developer credit for a specific tenant
+   */
+  const v1TenantDeveloperCreditUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1DeveloperCredit?: V1DeveloperCredit,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/preferences/developerCredit`,
-      v1DeveloperCredit,options
+      v1DeveloperCredit,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant fips settings
- */
-const v1TenantFipsSettingsGet = <TData = AxiosResponse<V1FipsSettings>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/preferences/fips`,options
-    );
-  }
-
-/**
- * @summary Update tenant fips setting
- */
-const v1TenantFipsSettingsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get tenant fips settings
+   */
+  const v1TenantFipsSettingsGet = <TData = AxiosResponse<V1FipsSettings>>(
     tenantUid: string,
-    v1FipsSettings?: V1FipsSettings, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/preferences/fips`, options);
+  };
+
+  /**
+   * @summary Update tenant fips setting
+   */
+  const v1TenantFipsSettingsUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1FipsSettings?: V1FipsSettings,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/preferences/fips`,
-      v1FipsSettings,options
+      v1FipsSettings,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get all rate config for public and private cloud
- */
-const v1RateConfigGet = <TData = AxiosResponse<V1RateConfig>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/rateConfig`,options
-    );
-  }
-
-/**
- * @summary updates the rate config for public and private cloud
- */
-const v1RateConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get all rate config for public and private cloud
+   */
+  const v1RateConfigGet = <TData = AxiosResponse<V1RateConfig>>(
     tenantUid: string,
-    v1RateConfig?: V1RateConfig, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/rateConfig`, options);
+  };
+
+  /**
+   * @summary updates the rate config for public and private cloud
+   */
+  const v1RateConfigUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1RateConfig?: V1RateConfig,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/tenants/${tenantUid}/rateConfig`,
-      v1RateConfig,options
+      v1RateConfig,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get tenant level resource limits configuration
- */
-const v1TenantResourceLimitsGet = <TData = AxiosResponse<V1TenantResourceLimits>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/resourceLimits`,options
-    );
-  }
-
-/**
- * @summary Update tenant resource limits configuration
- */
-const v1TenantResourceLimitsUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Get tenant level resource limits configuration
+   */
+  const v1TenantResourceLimitsGet = <
+    TData = AxiosResponse<V1TenantResourceLimits>,
+  >(
     tenantUid: string,
-    v1TenantResourceLimitsEntity?: V1TenantResourceLimitsEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/resourceLimits`, options);
+  };
+
+  /**
+   * @summary Update tenant resource limits configuration
+   */
+  const v1TenantResourceLimitsUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantResourceLimitsEntity?: V1TenantResourceLimitsEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/tenants/${tenantUid}/resourceLimits`,
-      v1TenantResourceLimitsEntity,options
+      v1TenantResourceLimitsEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified service provider metadata and Saml Spec for tenant
- */
-const v1TenantUidSamlConfigSpecGet = <TData = AxiosResponse<V1TenantSamlSpec>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/saml/config`,options
-    );
-  }
-
-/**
- * @summary Associates the specified federation metadata for the tenant
- */
-const v1TenantUidSamlConfigUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified service provider metadata and Saml Spec for tenant
+   */
+  const v1TenantUidSamlConfigSpecGet = <
+    TData = AxiosResponse<V1TenantSamlSpec>,
+  >(
     tenantUid: string,
-    v1TenantSamlRequestSpec?: V1TenantSamlRequestSpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/saml/config`, options);
+  };
+
+  /**
+   * @summary Associates the specified federation metadata for the tenant
+   */
+  const v1TenantUidSamlConfigUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantSamlRequestSpec?: V1TenantSamlRequestSpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/saml/config`,
-      v1TenantSamlRequestSpec,options
+      v1TenantSamlRequestSpec,
+      options,
     );
-  }
+  };
 
-/**
- * @summary get sso logins for the tenants
- */
-const v1TenantUidSsoAuthProvidersGet = <TData = AxiosResponse<V1TenantSsoAuthProvidersEntity>>(
-    tenantUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/tenants/${tenantUid}/sso/auth/providers`,options
-    );
-  }
-
-/**
- * @summary enable sso logins for the tenants
- */
-const v1TenantUidSsoAuthProvidersUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary get sso logins for the tenants
+   */
+  const v1TenantUidSsoAuthProvidersGet = <
+    TData = AxiosResponse<V1TenantSsoAuthProvidersEntity>,
+  >(
     tenantUid: string,
-    v1TenantSsoAuthProvidersEntity?: V1TenantSsoAuthProvidersEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/tenants/${tenantUid}/sso/auth/providers`, options);
+  };
+
+  /**
+   * @summary enable sso logins for the tenants
+   */
+  const v1TenantUidSsoAuthProvidersUpdate = <TData = AxiosResponse<unknown>>(
+    tenantUid: string,
+    v1TenantSsoAuthProvidersEntity?: V1TenantSsoAuthProvidersEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/tenants/${tenantUid}/sso/auth/providers`,
-      v1TenantSsoAuthProvidersEntity,options
+      v1TenantSsoAuthProvidersEntity,
+      options,
     );
-  }
+  };
 
-/**
- * Lists users the given user context
- * @summary Lists users
- */
-const v1UsersList = <TData = AxiosResponse<V1Users>>(
-    params?: V1UsersListParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * Lists users the given user context
+   * @summary Lists users
+   */
+  const v1UsersList = <TData = AxiosResponse<V1Users>>(
+    params?: V1UsersListParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * A user is created for the given user context
- * @summary Create User
- */
-const v1UsersCreate = <TData = AxiosResponse<V1Uid>>(
-    v1UserEntity?: V1UserEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/users`,
-      v1UserEntity,options
-    );
-  }
+  /**
+   * A user is created for the given user context
+   * @summary Create User
+   */
+  const v1UsersCreate = <TData = AxiosResponse<V1Uid>>(
+    v1UserEntity?: V1UserEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/users`, v1UserEntity, options);
+  };
 
-/**
- * @summary Returns the specified users location
- */
-const v1UsersAssetsLocationGet = <TData = AxiosResponse<V1UserAssetsLocations>>(
-    params?: V1UsersAssetsLocationGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/locations`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the specified users location
+   */
+  const v1UsersAssetsLocationGet = <
+    TData = AxiosResponse<V1UserAssetsLocations>,
+  >(
+    params?: V1UsersAssetsLocationGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/locations`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Create a Azure location
- */
-const v1UsersAssetsLocationAzureCreate = <TData = AxiosResponse<V1Uid>>(
-    v1UserAssetsLocationAzure?: V1UserAssetsLocationAzure, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Create a Azure location
+   */
+  const v1UsersAssetsLocationAzureCreate = <TData = AxiosResponse<V1Uid>>(
+    v1UserAssetsLocationAzure?: V1UserAssetsLocationAzure,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/locations/azure`,
-      v1UserAssetsLocationAzure,options
+      v1UserAssetsLocationAzure,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified Azure location
- */
-const v1UsersAssetsLocationAzureGet = <TData = AxiosResponse<V1UserAssetsLocationAzure>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/locations/azure/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified Azure location
- */
-const v1UsersAssetsLocationAzureUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified Azure location
+   */
+  const v1UsersAssetsLocationAzureGet = <
+    TData = AxiosResponse<V1UserAssetsLocationAzure>,
+  >(
     uid: string,
-    v1UserAssetsLocationAzure?: V1UserAssetsLocationAzure, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/locations/azure/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified Azure location
+   */
+  const v1UsersAssetsLocationAzureUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserAssetsLocationAzure?: V1UserAssetsLocationAzure,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/locations/azure/${uid}`,
-      v1UserAssetsLocationAzure,options
+      v1UserAssetsLocationAzure,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create a GCP location
- */
-const v1UsersAssetsLocationGcpCreate = <TData = AxiosResponse<V1Uid>>(
-    v1UserAssetsLocationGcp?: V1UserAssetsLocationGcp, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Create a GCP location
+   */
+  const v1UsersAssetsLocationGcpCreate = <TData = AxiosResponse<V1Uid>>(
+    v1UserAssetsLocationGcp?: V1UserAssetsLocationGcp,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/locations/gcp`,
-      v1UserAssetsLocationGcp,options
+      v1UserAssetsLocationGcp,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified GCP location
- */
-const v1UsersAssetsLocationGcpGet = <TData = AxiosResponse<V1UserAssetsLocationGcp>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/locations/gcp/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified GCP location
- */
-const v1UsersAssetsLocationGcpUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified GCP location
+   */
+  const v1UsersAssetsLocationGcpGet = <
+    TData = AxiosResponse<V1UserAssetsLocationGcp>,
+  >(
     uid: string,
-    v1UserAssetsLocationGcp?: V1UserAssetsLocationGcp, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/locations/gcp/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified GCP location
+   */
+  const v1UsersAssetsLocationGcpUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserAssetsLocationGcp?: V1UserAssetsLocationGcp,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/locations/gcp/${uid}`,
-      v1UserAssetsLocationGcp,options
+      v1UserAssetsLocationGcp,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create a MinIO location
- */
-const v1UsersAssetsLocationMinioCreate = <TData = AxiosResponse<V1Uid>>(
-    v1UserAssetsLocationS3?: V1UserAssetsLocationS3, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Create a MinIO location
+   */
+  const v1UsersAssetsLocationMinioCreate = <TData = AxiosResponse<V1Uid>>(
+    v1UserAssetsLocationS3?: V1UserAssetsLocationS3,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/locations/minio`,
-      v1UserAssetsLocationS3,options
+      v1UserAssetsLocationS3,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified MinIO location
- */
-const v1UsersAssetsLocationMinioGet = <TData = AxiosResponse<V1UserAssetsLocationS3>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/locations/minio/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified MinIO location
- */
-const v1UsersAssetsLocationMinioUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified MinIO location
+   */
+  const v1UsersAssetsLocationMinioGet = <
+    TData = AxiosResponse<V1UserAssetsLocationS3>,
+  >(
     uid: string,
-    v1UserAssetsLocationS3?: V1UserAssetsLocationS3, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/locations/minio/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified MinIO location
+   */
+  const v1UsersAssetsLocationMinioUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserAssetsLocationS3?: V1UserAssetsLocationS3,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/locations/minio/${uid}`,
-      v1UserAssetsLocationS3,options
+      v1UserAssetsLocationS3,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create a S3 location
- */
-const v1UsersAssetsLocationS3Create = <TData = AxiosResponse<V1Uid>>(
-    v1UserAssetsLocationS3?: V1UserAssetsLocationS3, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Create a S3 location
+   */
+  const v1UsersAssetsLocationS3Create = <TData = AxiosResponse<V1Uid>>(
+    v1UserAssetsLocationS3?: V1UserAssetsLocationS3,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/locations/s3`,
-      v1UserAssetsLocationS3,options
+      v1UserAssetsLocationS3,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified S3 location
- */
-const v1UsersAssetsLocationS3Delete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/assets/locations/s3/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified S3 location
- */
-const v1UsersAssetsLocationS3Get = <TData = AxiosResponse<V1UserAssetsLocationS3>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/locations/s3/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified S3 location
- */
-const v1UsersAssetsLocationS3Update = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified S3 location
+   */
+  const v1UsersAssetsLocationS3Delete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1UserAssetsLocationS3?: V1UserAssetsLocationS3, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/assets/locations/s3/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified S3 location
+   */
+  const v1UsersAssetsLocationS3Get = <
+    TData = AxiosResponse<V1UserAssetsLocationS3>,
+  >(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/locations/s3/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified S3 location
+   */
+  const v1UsersAssetsLocationS3Update = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserAssetsLocationS3?: V1UserAssetsLocationS3,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/locations/s3/${uid}`,
-      v1UserAssetsLocationS3,options
+      v1UserAssetsLocationS3,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update the default backup location
- */
-const v1UsersAssetsLocationDefaultUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update the default backup location
+   */
+  const v1UsersAssetsLocationDefaultUpdate = <TData = AxiosResponse<unknown>>(
     type: string,
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
-      `/v1/users/assets/locations/${type}/${uid}/default`,undefined,options
+      `/v1/users/assets/locations/${type}/${uid}/default`,
+      undefined,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified location
- */
-const v1UsersAssetsLocationDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/assets/locations/${uid}`,options
-    );
-  }
+  /**
+   * @summary Deletes the specified location
+   */
+  const v1UsersAssetsLocationDelete = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/assets/locations/${uid}`, options);
+  };
 
-/**
- * @summary Returns the SSH keys
- */
-const v1UsersAssetsSshGet = <TData = AxiosResponse<V1UserAssetsSsh>>(
-    params?: V1UsersAssetsSshGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/sshkeys`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the SSH keys
+   */
+  const v1UsersAssetsSshGet = <TData = AxiosResponse<V1UserAssetsSsh>>(
+    params?: V1UsersAssetsSshGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/sshkeys`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Creates a SSH key
- */
-const v1UserAssetsSshCreate = <TData = AxiosResponse<V1Uid>>(
-    v1UserAssetSshEntity?: V1UserAssetSshEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Creates a SSH key
+   */
+  const v1UserAssetsSshCreate = <TData = AxiosResponse<V1Uid>>(
+    v1UserAssetSshEntity?: V1UserAssetSshEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/sshkeys`,
-      v1UserAssetSshEntity,options
+      v1UserAssetSshEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified user ssh key
- */
-const v1UsersAssetSshDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/assets/sshkeys/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified user ssh key
- */
-const v1UsersAssetSshGetUid = <TData = AxiosResponse<V1UserAssetSsh>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/sshkeys/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified user ssh key
- */
-const v1UsersAssetSshUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified user ssh key
+   */
+  const v1UsersAssetSshDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1UserAssetSsh?: V1UserAssetSsh, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/assets/sshkeys/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified user ssh key
+   */
+  const v1UsersAssetSshGetUid = <TData = AxiosResponse<V1UserAssetSsh>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/sshkeys/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified user ssh key
+   */
+  const v1UsersAssetSshUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserAssetSsh?: V1UserAssetSsh,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/sshkeys/${uid}`,
-      v1UserAssetSsh,options
+      v1UserAssetSsh,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Returns the specified vSphere DNS mapping
- */
-const v1VsphereMappingGet = <TData = AxiosResponse<V1VsphereDnsMapping>>(
-    params: V1VsphereMappingGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/vsphere/dnsMapping`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the specified vSphere DNS mapping
+   */
+  const v1VsphereMappingGet = <TData = AxiosResponse<V1VsphereDnsMapping>>(
+    params: V1VsphereMappingGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/vsphere/dnsMapping`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Returns the specified vSphere DNS mappings
- */
-const v1VsphereDnsMappingsGet = <TData = AxiosResponse<V1VsphereDnsMappings>>(
-    params?: V1VsphereDnsMappingsGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/vsphere/dnsMappings`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Returns the specified vSphere DNS mappings
+   */
+  const v1VsphereDnsMappingsGet = <TData = AxiosResponse<V1VsphereDnsMappings>>(
+    params?: V1VsphereDnsMappingsGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/vsphere/dnsMappings`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Create a vSphere DNS mapping
- */
-const v1VsphereDnsMappingCreate = <TData = AxiosResponse<V1Uid>>(
-    v1VsphereDnsMapping?: V1VsphereDnsMapping, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Create a vSphere DNS mapping
+   */
+  const v1VsphereDnsMappingCreate = <TData = AxiosResponse<V1Uid>>(
+    v1VsphereDnsMapping?: V1VsphereDnsMapping,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/assets/vsphere/dnsMappings`,
-      v1VsphereDnsMapping,options
+      v1VsphereDnsMapping,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified vSphere DNS mapping
- */
-const v1VsphereDnsMappingDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/assets/vsphere/dnsMappings/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified vSphere DNS mapping
- */
-const v1VsphereDnsMappingGet = <TData = AxiosResponse<V1VsphereDnsMapping>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/assets/vsphere/dnsMappings/${uid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified vSphere DNS mapping
- */
-const v1VsphereDnsMappingUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified vSphere DNS mapping
+   */
+  const v1VsphereDnsMappingDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1VsphereDnsMapping?: V1VsphereDnsMapping, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/assets/vsphere/dnsMappings/${uid}`, options);
+  };
+
+  /**
+   * @summary Returns the specified vSphere DNS mapping
+   */
+  const v1VsphereDnsMappingGet = <TData = AxiosResponse<V1VsphereDnsMapping>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/assets/vsphere/dnsMappings/${uid}`, options);
+  };
+
+  /**
+   * @summary Updates the specified vSphere DNS mapping
+   */
+  const v1VsphereDnsMappingUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1VsphereDnsMapping?: V1VsphereDnsMapping,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/users/assets/vsphere/dnsMappings/${uid}`,
-      v1VsphereDnsMapping,options
+      v1VsphereDnsMapping,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Revoke access of specific token(s)
- */
-const v1UsersAuthTokensRevoke = <TData = AxiosResponse<unknown>>(
-    v1AuthTokenRevoke?: V1AuthTokenRevoke, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * @summary Revoke access of specific token(s)
+   */
+  const v1UsersAuthTokensRevoke = <TData = AxiosResponse<unknown>>(
+    v1AuthTokenRevoke?: V1AuthTokenRevoke,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/auth/tokens/revoke`,
-      v1AuthTokenRevoke,options
+      v1AuthTokenRevoke,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Get the system Spectro repository. Restricted to edge services
- */
-const v1UsersConfigScarGet = <TData = AxiosResponse<V1SystemScarSpec>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/config/scar`,options
-    );
-  }
+  /**
+   * @summary Get the system Spectro repository. Restricted to edge services
+   */
+  const v1UsersConfigScarGet = <TData = AxiosResponse<V1SystemScarSpec>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/config/scar`, options);
+  };
 
-/**
- * Returns a basic information of User for the specified uid.
- * @summary Returns the base information of specified User
- */
-const v1UsersInfoGet = <TData = AxiosResponse<V1UserInfo>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/info`,options
-    );
-  }
+  /**
+   * Returns a basic information of User for the specified uid.
+   * @summary Returns the base information of specified User
+   */
+  const v1UsersInfoGet = <TData = AxiosResponse<V1UserInfo>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/info`, options);
+  };
 
-/**
- * gets users kubectl session
- * @summary gets users kubectl session
- */
-const v1UsersKubectlSessionUid = <TData = AxiosResponse<V1UserKubectlSession>>(
-    sessionUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/kubectl/session/${sessionUid}`,options
-    );
-  }
+  /**
+   * gets users kubectl session
+   * @summary gets users kubectl session
+   */
+  const v1UsersKubectlSessionUid = <
+    TData = AxiosResponse<V1UserKubectlSession>,
+  >(
+    sessionUid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/kubectl/session/${sessionUid}`, options);
+  };
 
-/**
- * @summary Retrieves a list of users metadata
- */
-const v1UsersMetadata = <TData = AxiosResponse<V1UsersMetadata>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/meta`,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of users metadata
+   */
+  const v1UsersMetadata = <TData = AxiosResponse<V1UsersMetadata>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/meta`, options);
+  };
 
-/**
- * User password change request via current password and emailId
- * @summary User password change request using the user emailId
- */
-const v1UsersPasswordChange = <TData = AxiosResponse<unknown>>(
-    v1UsersPasswordChangeRequest: V1UsersPasswordChangeRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * User password change request via current password and emailId
+   * @summary User password change request using the user emailId
+   */
+  const v1UsersPasswordChange = <TData = AxiosResponse<unknown>>(
+    v1UsersPasswordChangeRequest: V1UsersPasswordChangeRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/users/password/change`,
-      v1UsersPasswordChangeRequest,options
+      v1UsersPasswordChangeRequest,
+      options,
     );
-  }
+  };
 
-/**
- * User password request will be sent to the supplied emailId
- * @summary User password reset request using the email id
- */
-const v1UsersEmailPasswordReset = <TData = AxiosResponse<unknown>>(
-    v1UsersEmailPasswordResetRequest: V1UsersEmailPasswordResetRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+  /**
+   * User password request will be sent to the supplied emailId
+   * @summary User password reset request using the email id
+   */
+  const v1UsersEmailPasswordReset = <TData = AxiosResponse<unknown>>(
+    v1UsersEmailPasswordResetRequest: V1UsersEmailPasswordResetRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/users/password/reset`,
-      v1UsersEmailPasswordResetRequest,options
+      v1UsersEmailPasswordResetRequest,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Retrieves a list of users summary with provided filter spec
- */
-const v1UsersSummaryGet = <TData = AxiosResponse<V1UsersSummaryList>>(
-    v1UsersSummarySpec?: V1UsersSummarySpec, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/users/summary`,
-      v1UsersSummarySpec,options
-    );
-  }
+  /**
+   * @summary Retrieves a list of users summary with provided filter spec
+   */
+  const v1UsersSummaryGet = <TData = AxiosResponse<V1UsersSummaryList>>(
+    v1UsersSummarySpec?: V1UsersSummarySpec,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/users/summary`, v1UsersSummarySpec, options);
+  };
 
-/**
- * Returns the users system feature
- * @summary Returns the users system feature
- */
-const v1UsersSystemFeature = <TData = AxiosResponse<V1SystemFeatures>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/system/features`,options
-    );
-  }
+  /**
+   * Returns the users system feature
+   * @summary Returns the users system feature
+   */
+  const v1UsersSystemFeature = <TData = AxiosResponse<V1SystemFeatures>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/system/features`, options);
+  };
 
-/**
- * @summary Delete the macros for the system user by macro name
- */
-const v1UsersSystemMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/system/macros`,{data:
-      v1Macros, ...options}
-    );
-  }
+  /**
+   * @summary Delete the macros for the system user by macro name
+   */
+  const v1UsersSystemMacrosDeleteByMacroName = <TData = AxiosResponse<unknown>>(
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/system/macros`, {
+      data: v1Macros,
+      ...options,
+    });
+  };
 
-/**
- * @summary List the macros of the system
- */
-const v1UsersSystemMacrosList = <TData = AxiosResponse<V1Macros>>(
-     options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/system/macros`,options
-    );
-  }
+  /**
+   * @summary List the macros of the system
+   */
+  const v1UsersSystemMacrosList = <TData = AxiosResponse<V1Macros>>(
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/system/macros`, options);
+  };
 
-/**
- * @summary Update the macros for the system user by macro name
- */
-const v1UsersSystemMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/users/system/macros`,
-      v1Macros,options
-    );
-  }
+  /**
+   * @summary Update the macros for the system user by macro name
+   */
+  const v1UsersSystemMacrosUpdateByMacroName = <TData = AxiosResponse<unknown>>(
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/users/system/macros`, v1Macros, options);
+  };
 
-/**
- * @summary Create or add new macros for the system user
- */
-const v1UsersSystemMacrosCreate = <TData = AxiosResponse<unknown>>(
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/users/system/macros`,
-      v1Macros,options
-    );
-  }
+  /**
+   * @summary Create or add new macros for the system user
+   */
+  const v1UsersSystemMacrosCreate = <TData = AxiosResponse<unknown>>(
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/users/system/macros`, v1Macros, options);
+  };
 
-/**
- * @summary Update the macros of the system
- */
-const v1UsersSystemMacrosUpdate = <TData = AxiosResponse<unknown>>(
-    v1Macros?: V1Macros, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/users/system/macros`,
-      v1Macros,options
-    );
-  }
+  /**
+   * @summary Update the macros of the system
+   */
+  const v1UsersSystemMacrosUpdate = <TData = AxiosResponse<unknown>>(
+    v1Macros?: V1Macros,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/users/system/macros`, v1Macros, options);
+  };
 
-/**
- * Deletes the specified User for given uid
- * @summary Deletes the specified User
- */
-const v1UsersUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/${uid}`,options
-    );
-  }
-
-/**
- * Returns a User for the specified uid.
- * @summary Returns the specified User
- */
-const v1UsersUidGet = <TData = AxiosResponse<V1User>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/${uid}`,options
-    );
-  }
-
-/**
- * User is patched for the specified information
- * @summary Patches the specified User
- */
-const v1UsersUidPatch = <TData = AxiosResponse<unknown>>(
+  /**
+   * Deletes the specified User for given uid
+   * @summary Deletes the specified User
+   */
+  const v1UsersUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1UserPatch: V1UserPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/users/${uid}`,
-      v1UserPatch,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/users/${uid}`, options);
+  };
 
-/**
- * A user is created for the given user context
- * @summary Update User
- */
-const v1UsersUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns a User for the specified uid.
+   * @summary Returns the specified User
+   */
+  const v1UsersUidGet = <TData = AxiosResponse<V1User>>(
     uid: string,
-    v1UserUpdateEntity?: V1UserUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/users/${uid}`,
-      v1UserUpdateEntity,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/${uid}`, options);
+  };
 
-/**
- * User password change request via current password
- * @summary User password change request using the user uid
- */
-const v1UsersUidPasswordChange = <TData = AxiosResponse<unknown>>(
+  /**
+   * User is patched for the specified information
+   * @summary Patches the specified User
+   */
+  const v1UsersUidPatch = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1UsersUidPasswordChangeRequest: V1UsersUidPasswordChangeRequest, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1UserPatch: V1UserPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/users/${uid}`, v1UserPatch, options);
+  };
+
+  /**
+   * A user is created for the given user context
+   * @summary Update User
+   */
+  const v1UsersUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserUpdateEntity?: V1UserUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/users/${uid}`, v1UserUpdateEntity, options);
+  };
+
+  /**
+   * User password change request via current password
+   * @summary User password change request using the user uid
+   */
+  const v1UsersUidPasswordChange = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UsersUidPasswordChangeRequest: V1UsersUidPasswordChangeRequest,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/users/${uid}/password/change`,
-      v1UsersUidPasswordChangeRequest,options
+      v1UsersUidPasswordChangeRequest,
+      options,
     );
-  }
+  };
 
-/**
- * User password reset request, will send the password reset option through the emailId
- * @summary User password reset request using the user uid
- */
-const v1UsersUidPasswordReset = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.patch(
-      `/v1/users/${uid}/password/reset`,undefined,options
-    );
-  }
-
-/**
- * Returns a User with projects and roles
- * @summary Returns the specified User Projects and Roles information
- */
-const v1UsersProjectRoles = <TData = AxiosResponse<V1ProjectRolesEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/${uid}/projects`,options
-    );
-  }
-
-/**
- * User is updated with projects and roles
- * @summary Updates the projects and roles for user
- */
-const v1UsersProjectRolesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * User password reset request, will send the password reset option through the emailId
+   * @summary User password reset request using the user uid
+   */
+  const v1UsersUidPasswordReset = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ProjectRolesPatch: V1ProjectRolesPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/users/${uid}/projects`,
-      v1ProjectRolesPatch,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.patch(`/v1/users/${uid}/password/reset`, undefined, options);
+  };
 
-/**
- * Returns resource roles for user
- * @summary Returns the specified individual and resource roles for a user
- */
-const v1UsersUidResourceRoles = <TData = AxiosResponse<V1ResourceRoles>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/${uid}/resourceRoles`,options
-    );
-  }
-
-/**
- * Resource roles added to specific user
- * @summary Add resource roles for user
- */
-const v1UsersUidResourceRolesCreate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns a User with projects and roles
+   * @summary Returns the specified User Projects and Roles information
+   */
+  const v1UsersProjectRoles = <TData = AxiosResponse<V1ProjectRolesEntity>>(
     uid: string,
-    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/${uid}/projects`, options);
+  };
+
+  /**
+   * User is updated with projects and roles
+   * @summary Updates the projects and roles for user
+   */
+  const v1UsersProjectRolesPut = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ProjectRolesPatch: V1ProjectRolesPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/users/${uid}/projects`, v1ProjectRolesPatch, options);
+  };
+
+  /**
+   * Returns resource roles for user
+   * @summary Returns the specified individual and resource roles for a user
+   */
+  const v1UsersUidResourceRoles = <TData = AxiosResponse<V1ResourceRoles>>(
+    uid: string,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/${uid}/resourceRoles`, options);
+  };
+
+  /**
+   * Resource roles added to specific user
+   * @summary Add resource roles for user
+   */
+  const v1UsersUidResourceRolesCreate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/users/${uid}/resourceRoles`,
-      v1ResourceRolesUpdateEntity,options
+      v1ResourceRolesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deleted the resource roles from user
- */
-const v1UsersUidResourceRolesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    resourceRoleUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/users/${uid}/resourceRoles/${resourceRoleUid}`,options
-    );
-  }
-
-/**
- * Specific resource roles fo user is updated
- * @summary Updates the resource roles for user
- */
-const v1UsersResourceRolesUidUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deleted the resource roles from user
+   */
+  const v1UsersUidResourceRolesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     resourceRoleUid: string,
-    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/users/${uid}/resourceRoles/${resourceRoleUid}`,
+      options,
+    );
+  };
+
+  /**
+   * Specific resource roles fo user is updated
+   * @summary Updates the resource roles for user
+   */
+  const v1UsersResourceRolesUidUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    resourceRoleUid: string,
+    v1ResourceRolesUpdateEntity: V1ResourceRolesUpdateEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/users/${uid}/resourceRoles/${resourceRoleUid}`,
-      v1ResourceRolesUpdateEntity,options
+      v1ResourceRolesUpdateEntity,
+      options,
     );
-  }
+  };
 
-/**
- * Returns roles clubbed from team
- * @summary Returns the specified individual and team roles for a user
- */
-const v1UsersUidRoles = <TData = AxiosResponse<V1UserRolesEntity>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/users/${uid}/roles`,options
-    );
-  }
-
-/**
- * User is updated with roles
- * @summary Updates the roles for user
- */
-const v1UsersUidRolesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns roles clubbed from team
+   * @summary Returns the specified individual and team roles for a user
+   */
+  const v1UsersUidRoles = <TData = AxiosResponse<V1UserRolesEntity>>(
     uid: string,
-    v1UserRoleUIDs: V1UserRoleUIDs, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/users/${uid}/roles`,
-      v1UserRoleUIDs,options
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/users/${uid}/roles`, options);
+  };
 
-/**
- * @summary Users status login mode
- */
-const v1UsersStatusLoginMode = <TData = AxiosResponse<unknown>>(
+  /**
+   * User is updated with roles
+   * @summary Updates the roles for user
+   */
+  const v1UsersUidRolesUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1UserStatusLoginMode?: V1UserStatusLoginMode, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1UserRoleUIDs: V1UserRoleUIDs,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/users/${uid}/roles`, v1UserRoleUIDs, options);
+  };
+
+  /**
+   * @summary Users status login mode
+   */
+  const v1UsersStatusLoginMode = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    v1UserStatusLoginMode?: V1UserStatusLoginMode,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.patch(
       `/v1/users/${uid}/status/loginMode`,
-      v1UserStatusLoginMode,options
+      v1UserStatusLoginMode,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create workspace
- */
-const v1WorkspacesCreate = <TData = AxiosResponse<V1Uid>>(
-    v1WorkspaceEntity?: V1WorkspaceEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.post(
-      `/v1/workspaces`,
-      v1WorkspaceEntity,options
-    );
-  }
+  /**
+   * @summary Create workspace
+   */
+  const v1WorkspacesCreate = <TData = AxiosResponse<V1Uid>>(
+    v1WorkspaceEntity?: V1WorkspaceEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.post(`/v1/workspaces`, v1WorkspaceEntity, options);
+  };
 
-/**
- * @summary Returns the specified team's workspaces and roles data
- */
-const v1TeamsWorkspaceGetRoles = <TData = AxiosResponse<V1WorkspaceScopeRoles>>(
-    teamUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/teams/${teamUid}/roles`,options
-    );
-  }
-
-/**
- * @summary Updates the workspace roles for the specified team
- */
-const v1TeamsWorkspaceRolesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Returns the specified team's workspaces and roles data
+   */
+  const v1TeamsWorkspaceGetRoles = <
+    TData = AxiosResponse<V1WorkspaceScopeRoles>,
+  >(
     teamUid: string,
-    v1WorkspacesRolesPatch: V1WorkspacesRolesPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/teams/${teamUid}/roles`, options);
+  };
+
+  /**
+   * @summary Updates the workspace roles for the specified team
+   */
+  const v1TeamsWorkspaceRolesPut = <TData = AxiosResponse<unknown>>(
+    teamUid: string,
+    v1WorkspacesRolesPatch: V1WorkspacesRolesPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/workspaces/teams/${teamUid}/roles`,
-      v1WorkspacesRolesPatch,options
+      v1WorkspacesRolesPatch,
+      options,
     );
-  }
+  };
 
-/**
- * Returns a User with workspaces and roles
- * @summary Returns the specified User workspaces and Roles information
- */
-const v1UsersWorkspaceGetRoles = <TData = AxiosResponse<V1WorkspaceScopeRoles>>(
-    userUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/users/${userUid}/roles`,options
-    );
-  }
-
-/**
- * User is updated with workspace roles
- * @summary Updates the workspace roles for user
- */
-const v1UsersWorkspaceRolesPut = <TData = AxiosResponse<unknown>>(
+  /**
+   * Returns a User with workspaces and roles
+   * @summary Returns the specified User workspaces and Roles information
+   */
+  const v1UsersWorkspaceGetRoles = <
+    TData = AxiosResponse<V1WorkspaceScopeRoles>,
+  >(
     userUid: string,
-    v1WorkspacesRolesPatch: V1WorkspacesRolesPatch, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/users/${userUid}/roles`, options);
+  };
+
+  /**
+   * User is updated with workspace roles
+   * @summary Updates the workspace roles for user
+   */
+  const v1UsersWorkspaceRolesPut = <TData = AxiosResponse<unknown>>(
+    userUid: string,
+    v1WorkspacesRolesPatch: V1WorkspacesRolesPatch,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/workspaces/users/${userUid}/roles`,
-      v1WorkspacesRolesPatch,options
+      v1WorkspacesRolesPatch,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Validates the workspace name
- */
-const v1WorkspacesValidateName = <TData = AxiosResponse<unknown>>(
-    params: V1WorkspacesValidateNameParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/validate/name`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+  /**
+   * @summary Validates the workspace name
+   */
+  const v1WorkspacesValidateName = <TData = AxiosResponse<unknown>>(
+    params: V1WorkspacesValidateNameParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/validate/name`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Deletes the specified workspace
- */
-const v1WorkspacesUidDelete = <TData = AxiosResponse<unknown>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/workspaces/${uid}`,options
-    );
-  }
-
-/**
- * @summary Returns the specified workspace
- */
-const v1WorkspacesUidGet = <TData = AxiosResponse<V1Workspace>>(
-    uid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/${uid}`,options
-    );
-  }
-
-/**
- * @summary Delete workspace backup
- */
-const v1WorkspaceOpsBackupDelete = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified workspace
+   */
+  const v1WorkspacesUidDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1WorkspaceBackupDeleteEntity?: V1WorkspaceBackupDeleteEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/workspaces/${uid}/backup`,{data:
-      v1WorkspaceBackupDeleteEntity, ...options}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/workspaces/${uid}`, options);
+  };
 
-/**
- * @summary Returns the  workspace backup result
- */
-const v1WorkspaceOpsBackupGet = <TData = AxiosResponse<V1WorkspaceBackup>>(
+  /**
+   * @summary Returns the specified workspace
+   */
+  const v1WorkspacesUidGet = <TData = AxiosResponse<V1Workspace>>(
     uid: string,
-    params?: V1WorkspaceOpsBackupGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/${uid}/backup`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/${uid}`, options);
+  };
 
-/**
- * @summary Create workspace backup settings
- */
-const v1WorkspaceOpsBackupCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Delete workspace backup
+   */
+  const v1WorkspaceOpsBackupDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceBackupDeleteEntity?: V1WorkspaceBackupDeleteEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(`/v1/workspaces/${uid}/backup`, {
+      data: v1WorkspaceBackupDeleteEntity,
+      ...options,
+    });
+  };
+
+  /**
+   * @summary Returns the  workspace backup result
+   */
+  const v1WorkspaceOpsBackupGet = <TData = AxiosResponse<V1WorkspaceBackup>>(
+    uid: string,
+    params?: V1WorkspaceOpsBackupGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/${uid}/backup`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
+
+  /**
+   * @summary Create workspace backup settings
+   */
+  const v1WorkspaceOpsBackupCreate = <TData = AxiosResponse<V1Uid>>(
+    uid: string,
+    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/workspaces/${uid}/backup`,
-      v1WorkspaceBackupConfigEntity,options
+      v1WorkspaceBackupConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Update workspace backup settings
- */
-const v1WorkspaceOpsBackupUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Update workspace backup settings
+   */
+  const v1WorkspaceOpsBackupUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/workspaces/${uid}/backup`,
-      v1WorkspaceBackupConfigEntity,options
+      v1WorkspaceBackupConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create On demand Workspace Backup
- */
-const v1WorkspaceOpsBackupOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Create On demand Workspace Backup
+   */
+  const v1WorkspaceOpsBackupOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceBackupConfigEntity?: V1WorkspaceBackupConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/workspaces/${uid}/backup/onDemand`,
-      v1WorkspaceBackupConfigEntity,options
+      v1WorkspaceBackupConfigEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified workspace namespaces
- */
-const v1WorkspacesUidClusterNamespacesUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified workspace namespaces
+   */
+  const v1WorkspacesUidClusterNamespacesUpdate = <
+    TData = AxiosResponse<unknown>,
+  >(
     uid: string,
-    v1WorkspaceClusterNamespacesEntity?: V1WorkspaceClusterNamespacesEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceClusterNamespacesEntity?: V1WorkspaceClusterNamespacesEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/workspaces/${uid}/clusterNamespaces`,
-      v1WorkspaceClusterNamespacesEntity,options
+      v1WorkspaceClusterNamespacesEntity,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Create cluster rbac in workspace
- */
-const v1WorkspacesClusterRbacCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Create cluster rbac in workspace
+   */
+  const v1WorkspacesClusterRbacCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1ClusterRbac?: V1ClusterRbac, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1ClusterRbac?: V1ClusterRbac,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/workspaces/${uid}/clusterRbacs`,
-      v1ClusterRbac,options
+      v1ClusterRbac,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Deletes the specified workspace cluster rbac
- */
-const v1WorkspacesUidClusterRbacDelete = <TData = AxiosResponse<unknown>>(
-    uid: string,
-    clusterRbacUid: string, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.delete(
-      `/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`,options
-    );
-  }
-
-/**
- * @summary Updates the specified workspace cluster rbac
- */
-const v1WorkspacesUidClusterRbacUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Deletes the specified workspace cluster rbac
+   */
+  const v1WorkspacesUidClusterRbacDelete = <TData = AxiosResponse<unknown>>(
     uid: string,
     clusterRbacUid: string,
-    v1ClusterRbac?: V1ClusterRbac, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.delete(
+      `/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`,
+      options,
+    );
+  };
+
+  /**
+   * @summary Updates the specified workspace cluster rbac
+   */
+  const v1WorkspacesUidClusterRbacUpdate = <TData = AxiosResponse<unknown>>(
+    uid: string,
+    clusterRbacUid: string,
+    v1ClusterRbac?: V1ClusterRbac,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.put(
       `/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`,
-      v1ClusterRbac,options
+      v1ClusterRbac,
+      options,
     );
-  }
+  };
 
-/**
- * @summary Updates the specified workspace meta
- */
-const v1WorkspacesUidMetaUpdate = <TData = AxiosResponse<unknown>>(
+  /**
+   * @summary Updates the specified workspace meta
+   */
+  const v1WorkspacesUidMetaUpdate = <TData = AxiosResponse<unknown>>(
     uid: string,
-    v1ObjectMeta?: V1ObjectMeta, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.put(
-      `/v1/workspaces/${uid}/meta`,
-      v1ObjectMeta,options
-    );
-  }
+    v1ObjectMeta?: V1ObjectMeta,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.put(`/v1/workspaces/${uid}/meta`, v1ObjectMeta, options);
+  };
 
-/**
- * @summary Returns the  workspace restore result
- */
-const v1WorkspaceOpsRestoreGet = <TData = AxiosResponse<V1WorkspaceRestore>>(
+  /**
+   * @summary Returns the  workspace restore result
+   */
+  const v1WorkspaceOpsRestoreGet = <TData = AxiosResponse<V1WorkspaceRestore>>(
     uid: string,
-    params?: V1WorkspaceOpsRestoreGetParams, options?: AxiosRequestConfig
- ): Promise<TData> => {
-    return axios.get(
-      `/v1/workspaces/${uid}/restore`,{
-    ...options,
-        params: {...params, ...options?.params},}
-    );
-  }
+    params?: V1WorkspaceOpsRestoreGetParams,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
+    return axios.get(`/v1/workspaces/${uid}/restore`, {
+      ...options,
+      params: { ...params, ...options?.params },
+    });
+  };
 
-/**
- * @summary Create On demand Workspace Restore
- */
-const v1WorkspaceOpsRestoreOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
+  /**
+   * @summary Create On demand Workspace Restore
+   */
+  const v1WorkspaceOpsRestoreOnDemandCreate = <TData = AxiosResponse<V1Uid>>(
     uid: string,
-    v1WorkspaceRestoreConfigEntity?: V1WorkspaceRestoreConfigEntity, options?: AxiosRequestConfig
- ): Promise<TData> => {
+    v1WorkspaceRestoreConfigEntity?: V1WorkspaceRestoreConfigEntity,
+    options?: AxiosRequestConfig,
+  ): Promise<TData> => {
     return axios.post(
       `/v1/workspaces/${uid}/restore/onDemand`,
-      v1WorkspaceRestoreConfigEntity,options
+      v1WorkspaceRestoreConfigEntity,
+      options,
     );
-  }
+  };
 
-return {v1ApiKeysList,v1ApiKeysCreate,v1ApiKeysUidDelete,v1ApiKeysUidGet,v1ApiKeysUidActiveState,v1ApiKeysUidUpdate,v1ApiKeysUidState,v1AppDeploymentsVirtualClusterCreate,v1AppDeploymentsClusterGroupCreate,v1AppDeploymentsUidDelete,v1AppDeploymentsUidGet,v1AppDeploymentsUidProfileGet,v1AppDeploymentsUidProfileUpdate,v1AppDeploymentsUidProfileApply,v1AppDeploymentsProfileTiersUidGet,v1AppDeploymentsProfileTiersUidUpdate,v1AppDeploymentsProfileTiersUidManifestsGet,v1AppDeploymentsProfileTiersManifestsUidGet,v1AppDeploymentsProfileTiersManifestsUidUpdate,v1AppDeploymentsUidProfileVersionsGet,v1AppProfilesCreate,v1AppProfilesMacrosList,v1AppProfilesUidDelete,v1AppProfilesUidGet,v1AppProfilesUidUpdate,v1AppProfilesUidClone,v1AppProfilesUidCloneValidate,v1AppProfilesUidMetadataUpdate,v1AppProfilesUidTiersGet,v1AppProfilesUidTiersPatch,v1AppProfilesUidTiersCreate,v1AppProfilesUidTiersUidDelete,v1AppProfilesUidTiersUidGet,v1AppProfilesUidTiersUidUpdate,v1AppProfilesUidTiersUidManifestsGet,v1AppProfilesUidTiersUidManifestsCreate,v1AppProfilesUidTiersUidManifestsUidDelete,v1AppProfilesUidTiersUidManifestsUidGet,v1AppProfilesUidTiersUidManifestsUidUpdate,v1AppProfilesUidTiersUidResolvedValuesGet,v1AuditsList,v1AuditsUidGet,v1AuditsUidGetSysMsg,v1AuditsUidMsgUpdate,v1Authenticate,v1AuthOrg,v1OidcCallback,v1OidcLogout,v1SamlCallback,v1SamlLogout,v1AuthOrgs,v1PasswordActivate,v1PasswordReset,v1AuthRefresh,v1SsoIdps,v1SsoLogins,v1AuthSsoProviders,v1SsoCallback,v1AuthUserOrgForgot,v1PasswordResetRequest,v1CloudAccountsAwsList,v1CloudAccountsAwsCreate,v1CloudAccountsAwsDelete,v1CloudAccountsAwsGet,v1CloudAccountsAwsUpdate,v1CloudAccountsAzureList,v1CloudAccountsAzureCreate,v1CloudAccountsAzureDelete,v1CloudAccountsAzureGet,v1CloudAccountsAzureUpdate,v1CloudAccountsCustomList,v1CloudAccountsCustomCreate,v1CloudAccountsCustomDelete,v1CloudAccountsCustomGet,v1CloudAccountsCustomUpdate,v1CloudAccountsGcpList,v1CloudAccountsGcpCreate,v1CloudAccountsGcpDelete,v1CloudAccountsGcpGet,v1CloudAccountsGcpUpdate,v1CloudAccountsMaasList,v1CloudAccountsMaasCreate,v1CloudAccountsMaasDelete,v1CloudAccountsMaasGet,v1CloudAccountsMaasPatch,v1CloudAccountsMaasUpdate,v1MaasAccountsUidAzs,v1MaasAccountsUidDomains,v1MaasAccountsUidPools,v1MaasAccountsUidSubnets,v1MaasAccountsUidTags,v1CloudAccountsOpenStackList,v1CloudAccountsOpenStackCreate,v1CloudAccountsOpenStackDelete,v1CloudAccountsOpenStackGet,v1CloudAccountsOpenStackUpdate,v1OpenstackAccountsUidAzs,v1OpenstackAccountsUidFlavors,v1OpenstackAccountsUidKeypairs,v1OpenstackAccountsUidNetworks,v1OpenstackAccountsUidProjects,v1OpenstackAccountsUidRegions,v1CloudAccountsListSummary,v1CloudAccountsVsphereList,v1CloudAccountsVsphereCreate,v1CloudAccountsVsphereDelete,v1CloudAccountsVsphereGet,v1CloudAccountsVsphereUpdate,v1VsphereAccountsUidClusterRes,v1VsphereAccountsUidDatacenters,v1AccountsGeolocationPatch,v1CloudConfigsAksGet,v1CloudConfigsAksUidClusterConfig,v1CloudConfigsAksMachinePoolCreate,v1CloudConfigsAksMachinePoolDelete,v1CloudConfigsAksMachinePoolUpdate,v1CloudConfigsAksPoolMachinesList,v1CloudConfigsAksPoolMachinesAdd,v1CloudConfigsAksPoolMachinesUidDelete,v1CloudConfigsAksPoolMachinesUidGet,v1CloudConfigsAksPoolMachinesUidUpdate,v1CloudConfigsAwsGet,v1CloudConfigsAwsUidClusterConfig,v1AwsCloudConfigsUidHybridConfig,v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate,v1AwsCloudConfigsEdgeNativeMachinePoolDelete,v1AwsCloudConfigsEdgeNativeMachinePoolGet,v1AwsCloudConfigsEdgeNativeMachinePoolUpdate,v1CloudConfigsAwsMachinePoolCreate,v1CloudConfigsAwsMachinePoolDelete,v1CloudConfigsAwsMachinePoolUpdate,v1CloudConfigsAwsPoolMachinesList,v1CloudConfigsAwsPoolMachinesAdd,v1CloudConfigsAwsPoolMachinesUidDelete,v1CloudConfigsAwsPoolMachinesUidGet,v1CloudConfigsAwsPoolMachinesUidUpdate,v1CloudConfigsAzureGet,v1CloudConfigsAzureUidClusterConfig,v1CloudConfigsAzureMachinePoolCreate,v1CloudConfigsAzureMachinePoolDelete,v1CloudConfigsAzureMachinePoolUpdate,v1CloudConfigsAzurePoolMachinesList,v1CloudConfigsAzurePoolMachinesAdd,v1CloudConfigsAzurePoolMachinesUidDelete,v1CloudConfigsAzurePoolMachinesUidGet,v1CloudConfigsAzurePoolMachinesUidUpdate,v1CloudConfigsCustomGet,v1CloudConfigsCustomUidClusterConfig,v1CloudConfigsCustomMachinePoolCreate,v1CloudConfigsCustomMachinePoolDelete,v1CloudConfigsCustomMachinePoolUpdate,v1CloudConfigsCustomPoolMachinesList,v1CloudConfigsCustomPoolMachinesAdd,v1CloudConfigsCustomPoolMachinesUidDelete,v1CloudConfigsCustomPoolMachinesUidGet,v1CloudConfigsCustomPoolMachinesUidUpdate,v1CloudConfigsEdgeNativeGet,v1CloudConfigsEdgeNativeUidClusterConfig,v1CloudConfigsEdgeNativeMachinePoolCreate,v1CloudConfigsEdgeNativeMachinePoolDelete,v1CloudConfigsEdgeNativeMachinePoolUpdate,v1CloudConfigsEdgeNativePoolMachinesList,v1CloudConfigsEdgeNativePoolMachinesAdd,v1CloudConfigsEdgeNativePoolMachinesUidDelete,v1CloudConfigsEdgeNativePoolMachinesUidGet,v1CloudConfigsEdgeNativePoolMachinesUidUpdate,v1CloudConfigsEksGet,v1CloudConfigsEksUidClusterConfig,v1CloudConfigsEksUidFargateProfilesUpdate,v1CloudConfigsEksMachinePoolCreate,v1CloudConfigsEksMachinePoolDelete,v1CloudConfigsEksMachinePoolUpdate,v1CloudConfigsEksPoolMachinesList,v1CloudConfigsEksPoolMachinesAdd,v1CloudConfigsEksPoolMachinesUidDelete,v1CloudConfigsEksPoolMachinesUidGet,v1CloudConfigsEksPoolMachinesUidUpdate,v1CloudConfigsGcpGet,v1CloudConfigsGcpUidClusterConfig,v1CloudConfigsGcpMachinePoolCreate,v1CloudConfigsGcpMachinePoolDelete,v1CloudConfigsGcpMachinePoolUpdate,v1CloudConfigsGcpPoolMachinesList,v1CloudConfigsGcpPoolMachinesAdd,v1CloudConfigsGcpPoolMachinesUidDelete,v1CloudConfigsGcpPoolMachinesUidGet,v1CloudConfigsGcpPoolMachinesUidUpdate,v1CloudConfigsGenericGet,v1CloudConfigsGenericUidClusterConfig,v1CloudConfigsGenericMachinePoolCreate,v1CloudConfigsGenericMachinePoolDelete,v1CloudConfigsGenericMachinePoolUpdate,v1CloudConfigsGenericPoolMachinesList,v1CloudConfigsGenericPoolMachinesAdd,v1CloudConfigsGenericPoolMachinesUidDelete,v1CloudConfigsGenericPoolMachinesUidGet,v1CloudConfigsGenericPoolMachinesUidUpdate,v1CloudConfigsGkeGet,v1CloudConfigsGkeUidClusterConfig,v1CloudConfigsGkeMachinePoolCreate,v1CloudConfigsGkeMachinePoolDelete,v1CloudConfigsGkeMachinePoolUpdate,v1CloudConfigsGkePoolMachinesList,v1CloudConfigsGkePoolMachinesAdd,v1CloudConfigsGkePoolMachinesUidDelete,v1CloudConfigsGkePoolMachinesUidGet,v1CloudConfigsGkePoolMachinesUidUpdate,v1CloudConfigsMaasGet,v1CloudConfigsMaasUidClusterConfig,v1CloudConfigsMaasMachinePoolCreate,v1CloudConfigsMaasMachinePoolDelete,v1CloudConfigsMaasMachinePoolUpdate,v1CloudConfigsMaasPoolMachinesList,v1CloudConfigsMaasPoolMachinesAdd,v1CloudConfigsMaasPoolMachinesUidDelete,v1CloudConfigsMaasPoolMachinesUidGet,v1CloudConfigsMaasPoolMachinesUidUpdate,v1CloudConfigsOpenStackGet,v1CloudConfigsOpenStackUidClusterConfig,v1CloudConfigsOpenStackMachinePoolCreate,v1CloudConfigsOpenStackMachinePoolDelete,v1CloudConfigsOpenStackMachinePoolUpdate,v1CloudConfigsOpenStackPoolMachinesList,v1CloudConfigsOpenStackPoolMachinesAdd,v1CloudConfigsOpenStackPoolMachinesUidDelete,v1CloudConfigsOpenStackPoolMachinesUidGet,v1CloudConfigsOpenStackPoolMachinesUidUpdate,v1CloudConfigsVirtualGet,v1CloudConfigsVirtualUidClusterConfig,v1CloudConfigsVirtualMachinePoolCreate,v1CloudConfigsVirtualMachinePoolDelete,v1CloudConfigsVirtualMachinePoolUpdate,v1CloudConfigsVirtualPoolMachinesList,v1CloudConfigsVirtualPoolMachinesAdd,v1CloudConfigsVirtualPoolMachinesUidDelete,v1CloudConfigsVirtualPoolMachinesUidGet,v1CloudConfigsVirtualPoolMachinesUidUpdate,v1CloudConfigsVirtualUidUpdate,v1CloudConfigsVsphereGet,v1CloudConfigsVsphereUidClusterConfig,v1CloudConfigsVsphereMachinePoolCreate,v1CloudConfigsVsphereMachinePoolDelete,v1CloudConfigsVsphereMachinePoolUpdate,v1CloudConfigsVspherePoolMachinesList,v1CloudConfigsVspherePoolMachinesAdd,v1CloudConfigsVspherePoolMachinesUidDelete,v1CloudConfigsVspherePoolMachinesUidGet,v1CloudConfigsVspherePoolMachinesUidUpdate,v1CloudConfigsMachinePoolsMachineUidMaintenanceUpdate,v1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate,v1CloudConfigsMachinePoolsMachineUidsGet,v1AwsAccountSecretCredentials,v1AwsAccountStsGet,v1AwsAccountValidate,v1AwsAmiTypes,v1CloudsAwsCloudWatchValidate,v1AwsCloudCost,v1AwsVolumeSizeGet,v1AwsIamPolicies,v1AwsPolicyArnsValidate,v1AwsPropertiesValidate,v1AwsRegions,v1AwsZones,v1AwsCopyImageFromDefaultRegion,v1AwsClusterNameValidate,v1AwsFindImage,v1AwsInstanceTypes,v1AwsKeyPairs,v1AwsKeyPairValidate,v1AwsKmsKeyGet,v1AwsKmsKeys,v1AwsKmsKeyValidate,v1AwsStorageTypes,v1AwsVpcs,v1AwsS3Validate,v1AwsSecurityGroups,v1AwsVolumeTypesGet,v1AzureAccountValidate,v1AzureGroups,v1AzureRegions,v1AzureInstanceTypes,v1AzureStorageTypes,v1AzureClusterNameValidate,v1AzureVirtualNetworkList,v1AzureResourceGroupList,v1AzureZones,v1AzurePrivateDnsZones,v1AzureStorageAccounts,v1AzureStorageContainers,v1AzureStorageAccountTypes,v1AzureSubscriptionList,v1AzureVhdUrl,v1CustomCloudTypesGet,v1CustomCloudTypeRegister,v1CustomCloudTypesDelete,v1CustomCloudTypeCloudAccountKeysGet,v1CustomCloudTypeCloudAccountKeysUpdate,v1CustomCloudTypeBootstrapDelete,v1CustomCloudTypeBootstrapGet,v1CustomCloudTypeBootstrapUpdate,v1CustomCloudTypeCloudProviderDelete,v1CustomCloudTypeCloudProviderGet,v1CustomCloudTypeCloudProviderUpdate,v1CustomCloudTypeControlPlaneDelete,v1CustomCloudTypeControlPlaneGet,v1CustomCloudTypeControlPlaneUpdate,v1CustomCloudTypeCoreDelete,v1CustomCloudTypeCoreGet,v1CustomCloudTypeCoreUpdate,v1CustomCloudTypeClusterTemplateDelete,v1CustomCloudTypeClusterTemplateGet,v1CustomCloudTypeClusterTemplateUpdate,v1CustomCloudTypeControlPlanePoolTemplateDelete,v1CustomCloudTypeControlPlanePoolTemplateGet,v1CustomCloudTypeControlPlanePoolTemplateUpdate,v1CustomCloudTypeWorkerPoolTemplateDelete,v1CustomCloudTypeWorkerPoolTemplateGet,v1CustomCloudTypeWorkerPoolTemplateUpdate,v1CustomCloudTypeLogoGet,v1CustomCloudTypeLogoUpdate,v1CustomCloudTypeMetaGet,v1CustomCloudTypeMetaUpdate,v1EksPropertiesValidate,v1GcpAccountValidate,v1GcpAzValidate,v1GcpBucketNameValidate,v1GcpContainerImageValidate,v1GcpImageUrl,v1GcpProjects,v1GcpRegions,v1GcpNetworks,v1GcpZones,v1GcpProjectValidate,v1GcpAvailabilityZones,v1GcpPropertiesValidate,v1GcpInstanceTypes,v1GcpStorageTypes,v1MaasAccountValidate,v1MaasZonesGet,v1MaasDomainsGet,v1MaasPoolsGet,v1MaasSubnetsGet,v1MaasTagsGet,v1OpenStackAccountValidate,v1OpenStackAzsGet,v1OpenStackFlavorsGet,v1OpenStackKeypairsGet,v1OpenStackNetworksGet,v1OpenStackProjectsGet,v1OpenStackRegionsGet,v1VsphereAccountValidate,v1VsphereDatacenters,v1VsphereComputeClusterResources,v1VsphereEnv,v1CloudComputeRate,v1CloudStorageRate,v1ClusterGroupsCreate,v1ClusterGroupsDeveloperCreditUsageGet,v1ClusterGroupsHostClusterSummary,v1ClusterGroupsHostClusterMetadata,v1ClusterGroupsValidateName,v1ClusterGroupsUidDelete,v1ClusterGroupsUidGet,v1ClusterGroupsUidHostClusterUpdate,v1ClusterGroupsUidMetaUpdate,v1ClusterGroupsUidPacksResolvedValuesGet,v1ClusterGroupsUidProfilesGet,v1ClusterGroupsUidProfilesUpdate,v1ClusterProfilesCreate,v1ClusterProfilesBulkDelete,v1ClusterProfilesImport,v1ClusterProfilesImportFile,v1ClusterProfilesImportValidate,v1MacrosList,v1ClusterProfilesValidateNameVersion,v1ClusterProfilesValidatePacks,v1ClusterProfilesDelete,v1ClusterProfilesGet,v1ClusterProfilesUpdate,v1ClusterProfilesUidClone,v1ClusterProfilesUidCloneValidate,v1ClusterProfilesUidExport,v1ClusterProfilesUidExportTerraform,v1ClusterProfilesUidMetadataUpdate,v1ClusterProfilesPacksRefUpdate,v1ClusterProfilesUidPacksGet,v1ClusterProfilesUidPacksAdd,v1ClusterProfilesUidPacksManifestsGet,v1ClusterProfilesUidPacksResolvedValuesGet,v1ClusterProfilesUidPacksNameDelete,v1ClusterProfilesUidPacksNameGet,v1ClusterProfilesUidPacksNameUpdate,v1ClusterProfilesUidPacksConfigGet,v1ClusterProfilesUidPacksUidManifests,v1ClusterProfilesUidPacksNameManifestsAdd,v1ClusterProfilesUidPacksNameManifestsUidDelete,v1ClusterProfilesUidPacksNameManifestsUidGet,v1ClusterProfilesUidPacksNameManifestsUidUpdate,v1ClusterProfilesPublish,v1ClusterProfilesUidSpcDownload,v1ClusterProfilesUidValidatePacks,v1ClusterProfilesUidVariablesDelete,v1ClusterProfilesUidVariablesGet,v1ClusterProfilesUidVariablesPatch,v1ClusterProfilesUidVariablesPut,v1DashboardAppDeployments,v1DashboardAppProfiles,v1DashboardAppProfilesMetadata,v1EdgeHostsMetadata,v1DashboardCloudAccountsMetadata,v1ClusterGroupUidHostClustersSummary,v1ClusterGroupUidVirtualClustersSummary,v1ClusterProfilesFilterSummary,v1ClusterProfilesMetadata,v1ClusterProfilesUidSummary,v1DashboardEdgehostsSearch,v1DashboardEdgehostsSearchSchemaGet,v1DashboardPcgsSearchSummary,v1DashboardPcgSearchSchemaGet,v1ProjectsFilterSummary,v1ProjectsMetadata,v1DashboardSpectroClustersCostSummary,v1SpectroClustersFiltersWorkspace,v1SpectroClustersMetaGet,v1SpectroClustersMetadataGet,v1SpectroClustersMetadata,v1SpectroClustersMetadataSearch,v1SpectroClustersMetadataSearchSchema,v1DashboardSpectroClustersRepaveList,v1SpectroClustersResourcesConsumption,v1SpectroClustersResourcesCostSummary,v1SpectroClustersResourcesUsageSummary,v1SpectroClustersSearchFilterSummary,v1DashboardClustersSearchSummaryExportGet,v1DashboardClustersSearchSummaryExport,v1DashboardSpectroClustersSearchInput,v1SpectroClustersSearchSchema,v1DashboardVMEnabledClustersList,v1SpectroClustersSummaryUid,v1SpectroClustersUidCostSummary,v1SpectroClustersSummaryUidOverview,v1SpectroClustersUidResourcesConsumption,v1DashboardSpectroClustersUidWorkloads,v1DashboardSpectroClustersUidWorkloadsClusterRoleBinding,v1DashboardSpectroClustersUidWorkloadsCronJob,v1DashboardSpectroClustersUidWorkloadsDaemonSet,v1DashboardSpectroClustersUidWorkloadsDeployment,v1DashboardSpectroClustersUidWorkloadsJob,v1DashboardSpectroClustersUidWorkloadsNamespace,v1DashboardSpectroClustersUidWorkloadsPod,v1DashboardSpectroClustersUidWorkloadsRoleBinding,v1DashboardSpectroClustersUidWorkloadsStatefulSet,v1DashboardWorkspacesList,v1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding,v1DashboardWorkspacesUidSpectroClustersWorkloadsCronJob,v1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSet,v1DashboardWorkspacesUidSpectroClustersWorkloadsDeployment,v1DashboardWorkspacesUidSpectroClustersWorkloadsJob,v1DashboardWorkspacesUidSpectroClustersWorkloadsNamespace,v1DashboardWorkspacesUidSpectroClustersWorkloadsPod,v1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding,v1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet,v1DataSinksCloudWatchSink,v1EdgeHostDevicesCreate,v1EdgeHostsMetadataQuickFilterGet,v1EdgeHostDevicesRegister,v1EdgeHostsTagsGet,v1EdgeTokensList,v1EdgeTokensCreate,v1EdgeTokensUidDelete,v1EdgeTokensUidGet,v1EdgeTokensUidUpdate,v1EdgeTokensUidState,v1EdgeHostDevicesUidDelete,v1EdgeHostDevicesUidGet,v1EdgeHostDevicesUidUpdate,v1EdgeHostDevicesUidClusterDeassociate,v1EdgeHostDevicesUidClusterAssociate,v1EdgeHostDevicesUidConfigGet,v1EdgeHostDevicesHealthUpdate,v1EdgeHostDeviceHostCheckSumUpdate,v1EdgeHostDeviceHostPairingKeyUpdate,v1EdgeHostDevicesUidMetaUpdate,v1EdgeHostDevicesUidPackManifestsUidGet,v1EdgeHostDevicesUidPacksStatusPatch,v1EdgeHostDevicesUidProfilesGet,v1EdgeHostDevicesUidProfilesUpdate,v1EdgeHostsUidReset,v1EdgeHostDevicesUidSpcDownload,v1EdgeHostDevicesUidTunnelConfigUpdate,v1EdgeHostDevicesUidTunnelStatusUpdate,v1EdgeHostDevicesUidVspherePropertiesUpdate,v1EventsComponentsList,v1EventsComponentsCreate,v1EventsComponentsCreateBulk,v1EventsComponentsObjTypeUidDelete,v1EventsComponentsObjTypeUidList,v1FeaturesList,v1FeaturesUpdate,v1FiltersList,v1FiltersMetadata,v1TagFiltersCreate,v1TagFilterUidDelete,v1TagFilterUidGet,v1TagFilterUidUpdate,v1MetricsList,v1MetricsUidDelete,v1MetricsUidList,v1NotificationsList,v1NotificationsEventCreate,v1NotificationsObjTypeUidList,v1NotificationsUidAck,v1NotificationsUidDone,v1OverlordsList,v1OverlordsMaasManifest,v1OverlordsUidMaasAccountCreate,v1OverlordsUidMaasAccountUpdate,v1OverlordsUidMaasAccountValidate,v1OverlordsUidMaasCloudConfigCreate,v1OverlordsUidMaasCloudConfigUpdate,v1OverlordsUidMaasClusterProfile,v1OverlordsMigrate,v1OverlordsOpenStackManifest,v1OverlordsUidOpenStackAccountCreate,v1OverlordsUidOpenStackAccountUpdate,v1OverlordsUidOpenStackAccountValidate,v1OverlordsUidOpenStackCloudConfigCreate,v1OverlordsUidOpenStackCloudConfigUpdate,v1OverlordsUidOpenStackClusterProfile,v1OverlordsPairingCode,v1OverlordsVsphereManifest,v1OverlordsVsphereOvaGet,v1OverlordsUidVsphereAccountCreate,v1OverlordsUidVsphereAccountUpdate,v1OverlordsUidVsphereAccountValidate,v1OverlordsUidVsphereCloudConfigCreate,v1OverlordsUidVsphereCloudConfigUpdate,v1OverlordsUidVsphereClusterProfile,v1OverlordsUidPoolsList,v1OverlordsUidPoolCreate,v1OverlordsUidPoolDelete,v1OverlordsUidPoolUpdate,v1OverlordsUidVsphereComputeclusterRes,v1OverlordsUidVsphereDatacenters,v1OverlordsUidDelete,v1OverlordsUidGet,v1OverlordsUidMetadataUpdate,v1OverlordsUidReset,v1PacksSummaryList,v1PacksSearch,v1PacksNameRegistryUidList,v1PacksPackUidLogo,v1PacksUid,v1PacksUidReadme,v1PcgSelfHosted,v1PcgUidRegister,v1PcgUidAllyManifestGet,v1PcgUidJetManifestGet,v1PermissionsList,v1ProjectsCreate,v1ProjectsAlerts,v1ProjectsUidDelete,v1ProjectsUidGet,v1ProjectsUidUpdate,v1ProjectsUidAlertDelete,v1ProjectsUidAlertCreate,v1ProjectsUidAlertUpdate,v1ProjectsUidAlertsUidDelete,v1ProjectsUidAlertsUidGet,v1ProjectsUidAlertsUidUpdate,v1ProjectsUidMacrosDeleteByMacroName,v1ProjectsUidMacrosList,v1ProjectsUidMacrosUpdateByMacroName,v1ProjectsUidMacrosCreate,v1ProjectsUidMacrosUpdate,v1ProjectsUidMetaUpdate,v1ProjectClusterSettingsGet,v1ProjectClustersNodesAutoRemediationSettingUpdate,v1ProjectsUidTeamsUpdate,v1ProjectsUidUsersUpdate,v1ProjectsUidValidate,v1RegistriesHelmList,v1RegistriesHelmCreate,v1RegistriesHelmSummaryList,v1RegistriesHelmValidate,v1RegistriesHelmUidDelete,v1RegistriesHelmUidGet,v1RegistriesHelmUidUpdate,v1RegistriesHelmUidSync,v1RegistriesHelmUidSyncStatus,v1RegistriesMetadata,v1BasicOciRegistriesCreate,v1BasicOciRegistriesValidate,v1EcrRegistriesCreate,v1EcrRegistriesValidate,v1OciImageRegistryGet,v1OciRegistriesSummary,v1OciRegistriesGet,v1BasicOciRegistriesUidDelete,v1BasicOciRegistriesUidGet,v1BasicOciRegistriesUidUpdate,v1BasicOciRegistriesUidSync,v1BasicOciRegistriesUidSyncStatus,v1EcrRegistriesUidDelete,v1EcrRegistriesUidGet,v1EcrRegistriesUidUpdate,v1EcrRegistriesUidSync,v1EcrRegistriesUidSyncStatus,v1RegistriesPackList,v1RegistriesPackCreate,v1RegistriesPackSummaryList,v1RegistriesPackValidate,v1RegistriesPackUidDelete,v1RegistriesPackUidGet,v1RegistriesPackUidUpdate,v1RegistriesPackUidSync,v1RegistriesPackUidSyncStatus,v1RegistriesNameConfigGet,v1RegistriesUidDelete,v1RolesList,v1RolesCreate,v1RolesUidDelete,v1RolesUidGet,v1RolesUidUpdate,v1RolesClone,v1ServiceVersionGet,v1ServiceManifestGet,v1SpectroClustersAksCreate,v1SpectroClustersAksRate,v1SpectroClustersAksValidate,v1SpectroClustersAwsCreate,v1SpectroClustersAwsImport,v1SpectroClustersAwsRate,v1SpectroClustersAwsValidate,v1SpectroClustersAzureCreate,v1SpectroClustersAzureImport,v1SpectroClustersAzureRate,v1SpectroClustersAzureValidate,v1SpectroClustersCustomCreate,v1SpectroClustersCustomValidate,v1SpectroClustersConfigEdgeInstaller,v1SpectroClustersEdgeNativeCreate,v1SpectroClustersEdgeNativeImport,v1SpectroClustersEdgeNativeRate,v1SpectroClustersEdgeNativeValidate,v1SpectroClustersEksCreate,v1SpectroClustersEksRate,v1SpectroClustersEksValidate,v1ClusterFeatureBackupLocationUidGet,v1ClusterFeatureBackupLocationUidChange,v1ClusterFeatureLogFetcherLogDownload,v1ClusterFeatureLogFetcherLogUpdate,v1SpectroClustersGcpCreate,v1SpectroClustersGcpImport,v1SpectroClustersGcpRate,v1SpectroClustersGcpValidate,v1SpectroClustersGenericImport,v1SpectroClustersGenericRate,v1SpectroClustersGkeCreate,v1SpectroClustersGkeRate,v1SpectroClustersGkeValidate,v1SpectroClustersMaasCreate,v1SpectroClustersMaasImport,v1SpectroClustersMaasRate,v1SpectroClustersMaasValidate,v1SpectroClustersOpenStackCreate,v1SpectroClustersOpenStackImport,v1SpectroClustersOpenStackRate,v1SpectroClustersOpenStackValidate,v1SpectroClustersSpcDownload,v1SpectroClustersTagsGet,v1SpectroClustersUpgradeSettingsGet,v1SpectroClustersUpgradeSettings,v1SpectroClustersValidateName,v1SpectroClustersValidatePacks,v1SpectroClustersVirtualCreate,v1VirtualClustersPacksValues,v1SpectroClustersVirtualValidate,v1SpectroClustersVsphereCreate,v1SpectroClustersVsphereImport,v1SpectroClustersVsphereRate,v1SpectroClustersVsphereValidate,v1SpectroClustersDelete,v1SpectroClustersGet,v1SpectroClustersUidAssetsGet,v1SpectroClustersUidAssets,v1SpectroClustersUidAdminKubeConfig,v1SpectroClustersUidTokenKubeConfigDelete,v1SpectroClustersUidTokenKubeConfigGet,v1SpectroClustersUidTokenKubeConfigUpdate,v1SpectroClustersUidFrpKubeConfigDelete,v1SpectroClustersUidFrpKubeConfigGet,v1SpectroClustersUidFrpKubeConfigUpdate,v1SpectroClustersUidKubeConfig,v1SpectroClustersUidKubeConfigUpdate,v1SpectroClustersUidKubeConfigClientDelete,v1SpectroClustersUidKubeConfigClientGet,v1SpectroClustersUidKubeConfigClientUpdate,v1SpectroClustersUidManifestGet,v1SpectroClustersUidManifestUpdate,v1SpectroClustersUidClusterMetaAttributeUpdate,v1ControlPlaneHealthCheckTimeoutUpdate,v1HostClusterConfigUpdate,v1SpectroClustersUidLifecycleConfigUpdate,v1SpectroClustersUidOsPatchUpdate,v1SpectroClustersUidConfigNamespacesGet,v1SpectroClustersUidConfigNamespacesUpdate,v1SpectroClustersUidConfigNamespacesUidGet,v1SpectroClustersUidConfigNamespacesUidUpdate,v1SpectroClustersUidConfigRbacsGet,v1SpectroClustersUidConfigRbacsUpdate,v1SpectroClustersUidConfigRbacsUidGet,v1SpectroClustersUidConfigRbacsUidUpdate,v1SpectroClustersUidDownload,v1EdgeNativeClustersHostsList,v1SpectroClustersUidEdgeReset,v1ClusterFeatureBackupScheduleReset,v1ClusterFeatureBackupGet,v1ClusterFeatureBackupCreate,v1ClusterFeatureBackupUpdate,v1ClusterFeatureBackupOnDemandCreate,v1ClusterFeatureBackupDelete,v1ClusterFeatureComplianceScanGet,v1ClusterFeatureComplianceScanCreate,v1ClusterFeatureComplianceScanUpdate,v1ClusterFeatureComplianceScanLogsGet,v1ClusterFeatureScanKubeBenchLogUpdate,v1ClusterFeatureScanKubeHunterLogUpdate,v1ClusterFeatureScanSonobuoyLogUpdate,v1ClusterFeatureScanSyftLogUpdate,v1ClusterFeatureComplianceScanLogDelete,v1ClusterFeatureKubeBenchLogGet,v1ClusterFeatureKubeHunterLogGet,v1ClusterFeatureSonobuoyLogGet,v1ClusterFeatureSyftLogGet,v1SyftScanLogImageSBOMGet,v1ClusterFeatureDriverLogDownload,v1ClusterFeatureComplianceScanOnDemandCreate,v1ClusterFeatureHelmChartsGet,v1ClusterFeatureLogFetcherGet,v1ClusterFeatureLogFetcherCreate,v1ClusterFeatureManifestsGet,v1ClusterFeatureRestoreGet,v1ClusterFeatureRestoreOnDemandCreate,v1SpectroClustersUidHeartbeatUpdate,v1SpectroClustersGetHybridPoolsMetadata,v1SpectroClustersUidHybridSettings,v1SpectroClustersUidImportManifest,v1SpectroClustersUidImportUpgradePatch,v1SpectroClustersK8Certificate,v1SpectroClustersK8CertificateUpdate,v1SpectroClustersCertificatesRenew,v1SpectroClustersUidKubeCtlRedirect,v1SpectroClustersUidLocationPut,v1SpectroClustersUidMetadataUpdate,v1ClusterNamespacesGet,v1SpectroClustersUidOIDC,v1SpectroClustersUidOIDCDashboardUrl,v1SpectroClustersUidPackManifestsUidGet,v1SpectroClustersUidPackProperties,v1SpectroClustersPacksRefUpdate,v1SpectroClustersUidPacksResolvedValuesGet,v1SpectroClustersUidPacksStatusPatch,v1SpectroClustersGetProfileUpdates,v1SpectroClustersDeleteProfiles,v1SpectroClustersGetProfiles,v1SpectroClustersPatchProfiles,v1SpectroClustersUpdateProfiles,v1SpectroClustersGetProfilesPacksManifests,v1SpectroClustersUidProfilesUidPacksConfigGet,v1SpectroClustersProfilesUidPackManifestsGet,v1SpectroClustersProfilesUidPackManifestsUpdate,v1SpectroClustersUidRate,v1SpectroClustersUidRepaveApproveUpdate,v1SpectroClustersUidRepaveGet,v1SpectroClustersUidReset,v1SpectroClustersUidStatus,v1SpectroClustersUpdateStatusCondition,v1SpectroClustersUpdateStatusConditions,v1SpectroClustersUpdateStatusEndpoints,v1SpectroClustersUpdateStatusImported,v1SpectroClustersUpdateStatusServices,v1SpectroClustersUidStatusSpcApplyGet,v1SpectroClustersUidStatusSpcApply,v1SpectroClustersUidStatusSpcPatchTime,v1SpectroClustersUidUpgradesPut,v1SpectroClustersUidUpgradeSettings,v1SpectroClustersUidValidatePacks,v1SpectroClustersUidValidateRepave,v1SpectroClustersUidVariablesGet,v1SpectroClustersUidVariablesPatch,v1SpectroClustersVMList,v1SpectroClustersVMCreate,v1ClusterVMSnapshotsList,v1SpectroClustersVMDelete,v1SpectroClustersVMGet,v1SpectroClustersVMUpdate,v1SpectroClustersVMAddVolume,v1SpectroClustersVMClone,v1SpectroClustersVMMigrate,v1SpectroClustersVMPause,v1SpectroClustersVMRemoveVolume,v1SpectroClustersVMRestart,v1SpectroClustersVMResume,v1VMSnapshotCreate,v1VMSnapshotDelete,v1VMSnapshotGet,v1VMSnapshotUpdate,v1SpectroClustersVMStart,v1SpectroClustersVMStop,v1SpectroClustersUidWorkloadsSync,v1SpectroClustersUidWorkloadsKindSync,v1SystemConfigReverseProxyGet,v1SystemConfigReverseProxyUpdate,v1PasswordsBlockListDelete,v1PasswordsBlockListUpdate,v1TeamsList,v1TeamsCreate,v1TeamsSummaryGet,v1TeamsUidDelete,v1TeamsUidGet,v1TeamsUidPatch,v1TeamsUidUpdate,v1TeamsProjectRoles,v1TeamsProjectRolesPut,v1TeamsUidResourceRoles,v1TeamsUidResourceRolesCreate,v1TeamsUidResourceRolesUidDelete,v1TeamsResourceRolesUidUpdate,v1TeamsUidTenantRolesGet,v1TeamsUidTenantRolesUpdate,v1PatchTenantAddress,v1TenantUIdAssetsCertsList,v1TenantUidAssetsCertsCreate,v1TenantUidAssetsCertsUidDelete,v1TenantUidAssetsCertsUidGet,v1TenantUidAssetsCertsUidUpdate,v1TenantUidAssetsDataSinksDelete,v1TenantUidAssetsDataSinksGet,v1TenantUidAssetsDataSinksCreate,v1TenantUidAssetsDataSinksUpdate,v1TenantUidAuthTokenSettingsGet,v1TenantUidAuthTokenSettingsUpdate,v1TenantsUidContractAccept,v1TenantsCreditAccountDelete,v1TenantsCreditAccountGet,v1TenantUidDomainsGet,v1TenantUidDomainsUpdate,v1PatchTenantEmailId,v1TenantFreemiumGet,v1TenantFreemiumUpdate,v1TenantFreemiumUsageGet,v1InvoicesUidGet,v1InvoiceUidReportInvoicePdf,v1InvoiceUidReportPdf,v1InvoiceUidReportUsagePdf,v1TenantUidLoginBannerGet,v1TenantUidLoginBannerUpdate,v1TenantsUidMacrosDeleteByMacroName,v1TenantsUidMacrosList,v1TenantsUidMacrosUpdateByMacroName,v1TenantsUidMacrosCreate,v1TenantsUidMacrosUpdate,v1TenantUidOidcConfigGet,v1TenantUidOidcConfigUpdate,v1TenantUidPasswordPolicyGet,v1TenantUidPasswordPolicyUpdate,v1TenantPrefClusterGroupGet,v1TenantPrefClusterGroupUpdate,v1TenantClusterSettingsGet,v1TenantClustersNodesAutoRemediationSettingUpdate,v1TenantDeveloperCreditGet,v1TenantDeveloperCreditUpdate,v1TenantFipsSettingsGet,v1TenantFipsSettingsUpdate,v1RateConfigGet,v1RateConfigUpdate,v1TenantResourceLimitsGet,v1TenantResourceLimitsUpdate,v1TenantUidSamlConfigSpecGet,v1TenantUidSamlConfigUpdate,v1TenantUidSsoAuthProvidersGet,v1TenantUidSsoAuthProvidersUpdate,v1UsersList,v1UsersCreate,v1UsersAssetsLocationGet,v1UsersAssetsLocationAzureCreate,v1UsersAssetsLocationAzureGet,v1UsersAssetsLocationAzureUpdate,v1UsersAssetsLocationGcpCreate,v1UsersAssetsLocationGcpGet,v1UsersAssetsLocationGcpUpdate,v1UsersAssetsLocationMinioCreate,v1UsersAssetsLocationMinioGet,v1UsersAssetsLocationMinioUpdate,v1UsersAssetsLocationS3Create,v1UsersAssetsLocationS3Delete,v1UsersAssetsLocationS3Get,v1UsersAssetsLocationS3Update,v1UsersAssetsLocationDefaultUpdate,v1UsersAssetsLocationDelete,v1UsersAssetsSshGet,v1UserAssetsSshCreate,v1UsersAssetSshDelete,v1UsersAssetSshGetUid,v1UsersAssetSshUpdate,v1VsphereMappingGet,v1VsphereDnsMappingsGet,v1VsphereDnsMappingCreate,v1VsphereDnsMappingDelete,v1VsphereDnsMappingGet,v1VsphereDnsMappingUpdate,v1UsersAuthTokensRevoke,v1UsersConfigScarGet,v1UsersInfoGet,v1UsersKubectlSessionUid,v1UsersMetadata,v1UsersPasswordChange,v1UsersEmailPasswordReset,v1UsersSummaryGet,v1UsersSystemFeature,v1UsersSystemMacrosDeleteByMacroName,v1UsersSystemMacrosList,v1UsersSystemMacrosUpdateByMacroName,v1UsersSystemMacrosCreate,v1UsersSystemMacrosUpdate,v1UsersUidDelete,v1UsersUidGet,v1UsersUidPatch,v1UsersUidUpdate,v1UsersUidPasswordChange,v1UsersUidPasswordReset,v1UsersProjectRoles,v1UsersProjectRolesPut,v1UsersUidResourceRoles,v1UsersUidResourceRolesCreate,v1UsersUidResourceRolesUidDelete,v1UsersResourceRolesUidUpdate,v1UsersUidRoles,v1UsersUidRolesUpdate,v1UsersStatusLoginMode,v1WorkspacesCreate,v1TeamsWorkspaceGetRoles,v1TeamsWorkspaceRolesPut,v1UsersWorkspaceGetRoles,v1UsersWorkspaceRolesPut,v1WorkspacesValidateName,v1WorkspacesUidDelete,v1WorkspacesUidGet,v1WorkspaceOpsBackupDelete,v1WorkspaceOpsBackupGet,v1WorkspaceOpsBackupCreate,v1WorkspaceOpsBackupUpdate,v1WorkspaceOpsBackupOnDemandCreate,v1WorkspacesUidClusterNamespacesUpdate,v1WorkspacesClusterRbacCreate,v1WorkspacesUidClusterRbacDelete,v1WorkspacesUidClusterRbacUpdate,v1WorkspacesUidMetaUpdate,v1WorkspaceOpsRestoreGet,v1WorkspaceOpsRestoreOnDemandCreate}};
-export type V1ApiKeysListResult = AxiosResponse<V1ApiKeys>
-export type V1ApiKeysCreateResult = AxiosResponse<V1ApiKeyCreateResponse>
-export type V1ApiKeysUidDeleteResult = AxiosResponse<unknown>
-export type V1ApiKeysUidGetResult = AxiosResponse<V1ApiKey>
-export type V1ApiKeysUidActiveStateResult = AxiosResponse<unknown>
-export type V1ApiKeysUidUpdateResult = AxiosResponse<unknown>
-export type V1ApiKeysUidStateResult = AxiosResponse<unknown>
-export type V1AppDeploymentsVirtualClusterCreateResult = AxiosResponse<V1Uid>
-export type V1AppDeploymentsClusterGroupCreateResult = AxiosResponse<V1Uid>
-export type V1AppDeploymentsUidDeleteResult = AxiosResponse<unknown>
-export type V1AppDeploymentsUidGetResult = AxiosResponse<V1AppDeployment>
-export type V1AppDeploymentsUidProfileGetResult = AxiosResponse<V1AppDeploymentProfileSpec>
-export type V1AppDeploymentsUidProfileUpdateResult = AxiosResponse<unknown>
-export type V1AppDeploymentsUidProfileApplyResult = AxiosResponse<unknown>
-export type V1AppDeploymentsProfileTiersUidGetResult = AxiosResponse<V1AppTier>
-export type V1AppDeploymentsProfileTiersUidUpdateResult = AxiosResponse<unknown>
-export type V1AppDeploymentsProfileTiersUidManifestsGetResult = AxiosResponse<V1AppTierManifests>
-export type V1AppDeploymentsProfileTiersManifestsUidGetResult = AxiosResponse<V1Manifest>
-export type V1AppDeploymentsProfileTiersManifestsUidUpdateResult = AxiosResponse<unknown>
-export type V1AppDeploymentsUidProfileVersionsGetResult = AxiosResponse<V1AppDeploymentProfileVersions>
-export type V1AppProfilesCreateResult = AxiosResponse<V1Uid>
-export type V1AppProfilesMacrosListResult = AxiosResponse<V1Macros>
-export type V1AppProfilesUidDeleteResult = AxiosResponse<unknown>
-export type V1AppProfilesUidGetResult = AxiosResponse<V1AppProfile>
-export type V1AppProfilesUidUpdateResult = AxiosResponse<unknown>
-export type V1AppProfilesUidCloneResult = AxiosResponse<V1Uid>
-export type V1AppProfilesUidCloneValidateResult = AxiosResponse<unknown>
-export type V1AppProfilesUidMetadataUpdateResult = AxiosResponse<unknown>
-export type V1AppProfilesUidTiersGetResult = AxiosResponse<V1AppProfileTiers>
-export type V1AppProfilesUidTiersPatchResult = AxiosResponse<V1Uid>
-export type V1AppProfilesUidTiersCreateResult = AxiosResponse<V1Uid>
-export type V1AppProfilesUidTiersUidDeleteResult = AxiosResponse<unknown>
-export type V1AppProfilesUidTiersUidGetResult = AxiosResponse<V1AppTier>
-export type V1AppProfilesUidTiersUidUpdateResult = AxiosResponse<unknown>
-export type V1AppProfilesUidTiersUidManifestsGetResult = AxiosResponse<V1AppTierManifests>
-export type V1AppProfilesUidTiersUidManifestsCreateResult = AxiosResponse<V1Uid>
-export type V1AppProfilesUidTiersUidManifestsUidDeleteResult = AxiosResponse<unknown>
-export type V1AppProfilesUidTiersUidManifestsUidGetResult = AxiosResponse<V1Manifest>
-export type V1AppProfilesUidTiersUidManifestsUidUpdateResult = AxiosResponse<unknown>
-export type V1AppProfilesUidTiersUidResolvedValuesGetResult = AxiosResponse<V1AppTierResolvedValues>
-export type V1AuditsListResult = AxiosResponse<V1Audits>
-export type V1AuditsUidGetResult = AxiosResponse<V1Audit>
-export type V1AuditsUidGetSysMsgResult = AxiosResponse<V1AuditSysMsg>
-export type V1AuditsUidMsgUpdateResult = AxiosResponse<unknown>
-export type V1AuthenticateResult = AxiosResponse<V1UserToken>
-export type V1AuthOrgResult = AxiosResponse<V1LoginResponse>
-export type V1OidcCallbackResult = AxiosResponse<V1UserToken>
-export type V1OidcLogoutResult = AxiosResponse<unknown>
-export type V1SamlCallbackResult = AxiosResponse<V1UserToken>
-export type V1SamlLogoutResult = AxiosResponse<unknown>
-export type V1AuthOrgsResult = AxiosResponse<V1Organizations>
-export type V1PasswordActivateResult = AxiosResponse<unknown>
-export type V1PasswordResetResult = AxiosResponse<unknown>
-export type V1AuthRefreshResult = AxiosResponse<V1UserToken>
-export type V1SsoIdpsResult = AxiosResponse<V1IdentityProviders>
-export type V1SsoLoginsResult = AxiosResponse<V1SsoLogins>
-export type V1AuthSsoProvidersResult = AxiosResponse<V1SsoLogins>
-export type V1SsoCallbackResult = AxiosResponse<V1UserToken>
-export type V1AuthUserOrgForgotResult = AxiosResponse<unknown>
-export type V1PasswordResetRequestResult = AxiosResponse<unknown>
-export type V1CloudAccountsAwsListResult = AxiosResponse<V1AwsAccounts>
-export type V1CloudAccountsAwsCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsAwsDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsAwsGetResult = AxiosResponse<V1AwsAccount>
-export type V1CloudAccountsAwsUpdateResult = AxiosResponse<unknown>
-export type V1CloudAccountsAzureListResult = AxiosResponse<V1AzureAccounts>
-export type V1CloudAccountsAzureCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsAzureDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsAzureGetResult = AxiosResponse<V1AzureAccount>
-export type V1CloudAccountsAzureUpdateResult = AxiosResponse<unknown>
-export type V1CloudAccountsCustomListResult = AxiosResponse<V1CustomAccounts>
-export type V1CloudAccountsCustomCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsCustomDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsCustomGetResult = AxiosResponse<V1CustomAccount>
-export type V1CloudAccountsCustomUpdateResult = AxiosResponse<unknown>
-export type V1CloudAccountsGcpListResult = AxiosResponse<V1GcpAccounts>
-export type V1CloudAccountsGcpCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsGcpDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsGcpGetResult = AxiosResponse<V1GcpAccount>
-export type V1CloudAccountsGcpUpdateResult = AxiosResponse<unknown>
-export type V1CloudAccountsMaasListResult = AxiosResponse<V1MaasAccounts>
-export type V1CloudAccountsMaasCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsMaasDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsMaasGetResult = AxiosResponse<V1MaasAccount>
-export type V1CloudAccountsMaasPatchResult = AxiosResponse<unknown>
-export type V1CloudAccountsMaasUpdateResult = AxiosResponse<unknown>
-export type V1MaasAccountsUidAzsResult = AxiosResponse<V1MaasZones>
-export type V1MaasAccountsUidDomainsResult = AxiosResponse<V1MaasDomains>
-export type V1MaasAccountsUidPoolsResult = AxiosResponse<V1MaasPools>
-export type V1MaasAccountsUidSubnetsResult = AxiosResponse<V1MaasSubnets>
-export type V1MaasAccountsUidTagsResult = AxiosResponse<V1MaasTags>
-export type V1CloudAccountsOpenStackListResult = AxiosResponse<V1OpenStackAccounts>
-export type V1CloudAccountsOpenStackCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsOpenStackDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsOpenStackGetResult = AxiosResponse<V1OpenStackAccount>
-export type V1CloudAccountsOpenStackUpdateResult = AxiosResponse<unknown>
-export type V1OpenstackAccountsUidAzsResult = AxiosResponse<V1OpenStackAzs>
-export type V1OpenstackAccountsUidFlavorsResult = AxiosResponse<V1OpenStackFlavors>
-export type V1OpenstackAccountsUidKeypairsResult = AxiosResponse<V1OpenStackKeypairs>
-export type V1OpenstackAccountsUidNetworksResult = AxiosResponse<V1OpenStackNetworks>
-export type V1OpenstackAccountsUidProjectsResult = AxiosResponse<V1OpenStackProjects>
-export type V1OpenstackAccountsUidRegionsResult = AxiosResponse<V1OpenStackRegions>
-export type V1CloudAccountsListSummaryResult = AxiosResponse<V1CloudAccountsSummary>
-export type V1CloudAccountsVsphereListResult = AxiosResponse<V1VsphereAccounts>
-export type V1CloudAccountsVsphereCreateResult = AxiosResponse<V1Uid>
-export type V1CloudAccountsVsphereDeleteResult = AxiosResponse<unknown>
-export type V1CloudAccountsVsphereGetResult = AxiosResponse<V1VsphereAccount>
-export type V1CloudAccountsVsphereUpdateResult = AxiosResponse<unknown>
-export type V1VsphereAccountsUidClusterResResult = AxiosResponse<V1VsphereComputeClusterResources>
-export type V1VsphereAccountsUidDatacentersResult = AxiosResponse<V1VsphereDatacenters>
-export type V1AccountsGeolocationPatchResult = AxiosResponse<unknown>
-export type V1CloudConfigsAksGetResult = AxiosResponse<V1AzureCloudConfig>
-export type V1CloudConfigsAksUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsAksMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAksMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAksMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAksPoolMachinesListResult = AxiosResponse<V1AzureMachines>
-export type V1CloudConfigsAksPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAksPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAksPoolMachinesUidGetResult = AxiosResponse<V1AzureMachine>
-export type V1CloudConfigsAksPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAwsGetResult = AxiosResponse<V1AwsCloudConfig>
-export type V1CloudConfigsAwsUidClusterConfigResult = AxiosResponse<unknown>
-export type V1AwsCloudConfigsUidHybridConfigResult = AxiosResponse<unknown>
-export type V1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1AwsCloudConfigsEdgeNativeMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1AwsCloudConfigsEdgeNativeMachinePoolGetResult = AxiosResponse<V1HybridEdgeNativeMachinePoolConfig>
-export type V1AwsCloudConfigsEdgeNativeMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAwsMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAwsMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAwsMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAwsPoolMachinesListResult = AxiosResponse<V1AwsMachines>
-export type V1CloudConfigsAwsPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAwsPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAwsPoolMachinesUidGetResult = AxiosResponse<V1AwsMachine>
-export type V1CloudConfigsAwsPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAzureGetResult = AxiosResponse<V1AzureCloudConfig>
-export type V1CloudConfigsAzureUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsAzureMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAzureMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAzureMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsAzurePoolMachinesListResult = AxiosResponse<V1AzureMachines>
-export type V1CloudConfigsAzurePoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsAzurePoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsAzurePoolMachinesUidGetResult = AxiosResponse<V1AzureMachine>
-export type V1CloudConfigsAzurePoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsCustomGetResult = AxiosResponse<V1CustomCloudConfig>
-export type V1CloudConfigsCustomUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsCustomMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsCustomMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsCustomMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsCustomPoolMachinesListResult = AxiosResponse<V1CustomMachines>
-export type V1CloudConfigsCustomPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsCustomPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsCustomPoolMachinesUidGetResult = AxiosResponse<V1CustomMachine>
-export type V1CloudConfigsCustomPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsEdgeNativeGetResult = AxiosResponse<V1EdgeNativeCloudConfig>
-export type V1CloudConfigsEdgeNativeUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsEdgeNativeMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsEdgeNativeMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsEdgeNativeMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsEdgeNativePoolMachinesListResult = AxiosResponse<V1EdgeNativeMachines>
-export type V1CloudConfigsEdgeNativePoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsEdgeNativePoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsEdgeNativePoolMachinesUidGetResult = AxiosResponse<V1EdgeNativeMachine>
-export type V1CloudConfigsEdgeNativePoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksGetResult = AxiosResponse<V1EksCloudConfig>
-export type V1CloudConfigsEksUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksUidFargateProfilesUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsEksMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksPoolMachinesListResult = AxiosResponse<V1AwsMachines>
-export type V1CloudConfigsEksPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsEksPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsEksPoolMachinesUidGetResult = AxiosResponse<V1AwsMachine>
-export type V1CloudConfigsEksPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGcpGetResult = AxiosResponse<V1GcpCloudConfig>
-export type V1CloudConfigsGcpUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsGcpMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGcpMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGcpMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGcpPoolMachinesListResult = AxiosResponse<V1GcpMachines>
-export type V1CloudConfigsGcpPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGcpPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGcpPoolMachinesUidGetResult = AxiosResponse<V1GcpMachine>
-export type V1CloudConfigsGcpPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGenericGetResult = AxiosResponse<V1GenericCloudConfig>
-export type V1CloudConfigsGenericUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsGenericMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGenericMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGenericMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGenericPoolMachinesListResult = AxiosResponse<V1GenericMachines>
-export type V1CloudConfigsGenericPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGenericPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGenericPoolMachinesUidGetResult = AxiosResponse<V1GenericMachine>
-export type V1CloudConfigsGenericPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGkeGetResult = AxiosResponse<V1GcpCloudConfig>
-export type V1CloudConfigsGkeUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsGkeMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGkeMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGkeMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsGkePoolMachinesListResult = AxiosResponse<V1GcpMachines>
-export type V1CloudConfigsGkePoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsGkePoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsGkePoolMachinesUidGetResult = AxiosResponse<V1GcpMachine>
-export type V1CloudConfigsGkePoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsMaasGetResult = AxiosResponse<V1MaasCloudConfig>
-export type V1CloudConfigsMaasUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsMaasMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsMaasMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsMaasMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsMaasPoolMachinesListResult = AxiosResponse<V1MaasMachines>
-export type V1CloudConfigsMaasPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsMaasPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsMaasPoolMachinesUidGetResult = AxiosResponse<V1MaasMachine>
-export type V1CloudConfigsMaasPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsOpenStackGetResult = AxiosResponse<V1OpenStackCloudConfig>
-export type V1CloudConfigsOpenStackUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsOpenStackMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsOpenStackMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsOpenStackMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsOpenStackPoolMachinesListResult = AxiosResponse<V1OpenStackMachines>
-export type V1CloudConfigsOpenStackPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsOpenStackPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsOpenStackPoolMachinesUidGetResult = AxiosResponse<V1OpenStackMachine>
-export type V1CloudConfigsOpenStackPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualGetResult = AxiosResponse<V1VirtualCloudConfig>
-export type V1CloudConfigsVirtualUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsVirtualMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualPoolMachinesListResult = AxiosResponse<V1VirtualMachines>
-export type V1CloudConfigsVirtualPoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsVirtualPoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualPoolMachinesUidGetResult = AxiosResponse<V1VirtualMachine>
-export type V1CloudConfigsVirtualPoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsVirtualUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsVsphereGetResult = AxiosResponse<V1VsphereCloudConfig>
-export type V1CloudConfigsVsphereUidClusterConfigResult = AxiosResponse<unknown>
-export type V1CloudConfigsVsphereMachinePoolCreateResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsVsphereMachinePoolDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsVsphereMachinePoolUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsVspherePoolMachinesListResult = AxiosResponse<V1VsphereMachines>
-export type V1CloudConfigsVspherePoolMachinesAddResult = AxiosResponse<V1Uid>
-export type V1CloudConfigsVspherePoolMachinesUidDeleteResult = AxiosResponse<unknown>
-export type V1CloudConfigsVspherePoolMachinesUidGetResult = AxiosResponse<V1VsphereMachine>
-export type V1CloudConfigsVspherePoolMachinesUidUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsMachinePoolsMachineUidMaintenanceUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResult = AxiosResponse<unknown>
-export type V1CloudConfigsMachinePoolsMachineUidsGetResult = AxiosResponse<V1MachinePoolsMachineUids>
-export type V1AwsAccountSecretCredentialsResult = AxiosResponse<V1AwsAccountCredentials>
-export type V1AwsAccountStsGetResult = AxiosResponse<V1AwsAccountSts>
-export type V1AwsAccountValidateResult = AxiosResponse<unknown>
-export type V1AwsAmiTypesResult = AxiosResponse<V1AmiTypes>
-export type V1CloudsAwsCloudWatchValidateResult = AxiosResponse<unknown>
-export type V1AwsCloudCostResult = AxiosResponse<V1AwsCloudCostSummary>
-export type V1AwsVolumeSizeGetResult = AxiosResponse<V1AwsVolumeSize>
-export type V1AwsIamPoliciesResult = AxiosResponse<V1AwsPolicies>
-export type V1AwsPolicyArnsValidateResult = AxiosResponse<unknown>
-export type V1AwsPropertiesValidateResult = AxiosResponse<unknown>
-export type V1AwsRegionsResult = AxiosResponse<V1AwsRegions>
-export type V1AwsZonesResult = AxiosResponse<V1AwsAvailabilityZones>
-export type V1AwsCopyImageFromDefaultRegionResult = AxiosResponse<V1AsyncOperationIdEntity>
-export type V1AwsClusterNameValidateResult = AxiosResponse<unknown>
-export type V1AwsFindImageResult = AxiosResponse<V1AwsImage>
-export type V1AwsInstanceTypesResult = AxiosResponse<V1AwsInstanceTypes>
-export type V1AwsKeyPairsResult = AxiosResponse<V1AwsKeyPairs>
-export type V1AwsKeyPairValidateResult = AxiosResponse<unknown>
-export type V1AwsKmsKeyGetResult = AxiosResponse<V1AwsKmsKeyEntity>
-export type V1AwsKmsKeysResult = AxiosResponse<V1AwsKmsKeys>
-export type V1AwsKmsKeyValidateResult = AxiosResponse<unknown>
-export type V1AwsStorageTypesResult = AxiosResponse<V1AwsStorageTypes>
-export type V1AwsVpcsResult = AxiosResponse<V1AwsVpcs>
-export type V1AwsS3ValidateResult = AxiosResponse<unknown>
-export type V1AwsSecurityGroupsResult = AxiosResponse<V1AwsSecurityGroups>
-export type V1AwsVolumeTypesGetResult = AxiosResponse<V1AWSVolumeTypes>
-export type V1AzureAccountValidateResult = AxiosResponse<unknown>
-export type V1AzureGroupsResult = AxiosResponse<V1AzureGroups>
-export type V1AzureRegionsResult = AxiosResponse<V1AzureRegions>
-export type V1AzureInstanceTypesResult = AxiosResponse<V1AzureInstanceTypes>
-export type V1AzureStorageTypesResult = AxiosResponse<V1AzureStorageTypes>
-export type V1AzureClusterNameValidateResult = AxiosResponse<unknown>
-export type V1AzureVirtualNetworkListResult = AxiosResponse<V1AzureVirtualNetworkList>
-export type V1AzureResourceGroupListResult = AxiosResponse<V1AzureResourceGroupList>
-export type V1AzureZonesResult = AxiosResponse<V1AzureZoneEntity>
-export type V1AzurePrivateDnsZonesResult = AxiosResponse<V1AzurePrivateDnsZones>
-export type V1AzureStorageAccountsResult = AxiosResponse<V1AzureStorageAccounts>
-export type V1AzureStorageContainersResult = AxiosResponse<V1AzureStorageContainers>
-export type V1AzureStorageAccountTypesResult = AxiosResponse<V1AzureStorageAccountEntity>
-export type V1AzureSubscriptionListResult = AxiosResponse<V1AzureSubscriptionList>
-export type V1AzureVhdUrlResult = AxiosResponse<V1AzureVhdUrlEntity>
-export type V1CustomCloudTypesGetResult = AxiosResponse<V1CustomCloudTypes>
-export type V1CustomCloudTypeRegisterResult = AxiosResponse<V1Uid>
-export type V1CustomCloudTypesDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeCloudAccountKeysGetResult = AxiosResponse<V1CustomCloudTypeCloudAccountKeys>
-export type V1CustomCloudTypeCloudAccountKeysUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeBootstrapDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeBootstrapGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeBootstrapUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeCloudProviderDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeCloudProviderGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeCloudProviderUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeControlPlaneDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeControlPlaneGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeControlPlaneUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeCoreDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeCoreGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeCoreUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeClusterTemplateDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeClusterTemplateGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeClusterTemplateUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeControlPlanePoolTemplateDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeControlPlanePoolTemplateGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeControlPlanePoolTemplateUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeWorkerPoolTemplateDeleteResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeWorkerPoolTemplateGetResult = AxiosResponse<V1CustomCloudTypeContentResponse>
-export type V1CustomCloudTypeWorkerPoolTemplateUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeLogoGetResult = AxiosResponse<Blob>
-export type V1CustomCloudTypeLogoUpdateResult = AxiosResponse<unknown>
-export type V1CustomCloudTypeMetaGetResult = AxiosResponse<V1CustomCloudMetaEntity>
-export type V1CustomCloudTypeMetaUpdateResult = AxiosResponse<unknown>
-export type V1EksPropertiesValidateResult = AxiosResponse<unknown>
-export type V1GcpAccountValidateResult = AxiosResponse<unknown>
-export type V1GcpAzValidateResult = AxiosResponse<unknown>
-export type V1GcpBucketNameValidateResult = AxiosResponse<unknown>
-export type V1GcpContainerImageValidateResult = AxiosResponse<unknown>
-export type V1GcpImageUrlResult = AxiosResponse<V1GcpImageUrlEntity>
-export type V1GcpProjectsResult = AxiosResponse<V1GcpProjects>
-export type V1GcpRegionsResult = AxiosResponse<V1GcpRegions>
-export type V1GcpNetworksResult = AxiosResponse<V1GcpNetworks>
-export type V1GcpZonesResult = AxiosResponse<V1GcpZones>
-export type V1GcpProjectValidateResult = AxiosResponse<unknown>
-export type V1GcpAvailabilityZonesResult = AxiosResponse<V1GcpZones>
-export type V1GcpPropertiesValidateResult = AxiosResponse<unknown>
-export type V1GcpInstanceTypesResult = AxiosResponse<V1GcpInstanceTypes>
-export type V1GcpStorageTypesResult = AxiosResponse<V1GcpStorageTypes>
-export type V1MaasAccountValidateResult = AxiosResponse<unknown>
-export type V1MaasZonesGetResult = AxiosResponse<V1MaasZones>
-export type V1MaasDomainsGetResult = AxiosResponse<V1MaasDomains>
-export type V1MaasPoolsGetResult = AxiosResponse<V1MaasPools>
-export type V1MaasSubnetsGetResult = AxiosResponse<V1MaasSubnets>
-export type V1MaasTagsGetResult = AxiosResponse<V1MaasTags>
-export type V1OpenStackAccountValidateResult = AxiosResponse<unknown>
-export type V1OpenStackAzsGetResult = AxiosResponse<V1OpenStackAzs>
-export type V1OpenStackFlavorsGetResult = AxiosResponse<V1OpenStackFlavors>
-export type V1OpenStackKeypairsGetResult = AxiosResponse<V1OpenStackKeypairs>
-export type V1OpenStackNetworksGetResult = AxiosResponse<V1OpenStackNetworks>
-export type V1OpenStackProjectsGetResult = AxiosResponse<V1OpenStackProjects>
-export type V1OpenStackRegionsGetResult = AxiosResponse<V1OpenStackRegions>
-export type V1VsphereAccountValidateResult = AxiosResponse<unknown>
-export type V1VsphereDatacentersResult = AxiosResponse<V1VsphereDatacenters>
-export type V1VsphereComputeClusterResourcesResult = AxiosResponse<V1VsphereComputeClusterResources>
-export type V1VsphereEnvResult = AxiosResponse<V1VsphereEnv>
-export type V1CloudComputeRateResult = AxiosResponse<V1CloudCost>
-export type V1CloudStorageRateResult = AxiosResponse<V1CloudCost>
-export type V1ClusterGroupsCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterGroupsDeveloperCreditUsageGetResult = AxiosResponse<V1ClusterGroupsDeveloperCreditUsage>
-export type V1ClusterGroupsHostClusterSummaryResult = AxiosResponse<V1ClusterGroupsHostClusterSummary>
-export type V1ClusterGroupsHostClusterMetadataResult = AxiosResponse<V1ClusterGroupsHostClusterMetadata>
-export type V1ClusterGroupsValidateNameResult = AxiosResponse<unknown>
-export type V1ClusterGroupsUidDeleteResult = AxiosResponse<unknown>
-export type V1ClusterGroupsUidGetResult = AxiosResponse<V1ClusterGroup>
-export type V1ClusterGroupsUidHostClusterUpdateResult = AxiosResponse<unknown>
-export type V1ClusterGroupsUidMetaUpdateResult = AxiosResponse<unknown>
-export type V1ClusterGroupsUidPacksResolvedValuesGetResult = AxiosResponse<V1SpectroClusterProfilesResolvedValues>
-export type V1ClusterGroupsUidProfilesGetResult = AxiosResponse<V1SpectroClusterProfileList>
-export type V1ClusterGroupsUidProfilesUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesBulkDeleteResult = AxiosResponse<V1BulkDeleteResponse>
-export type V1ClusterProfilesImportResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesImportFileResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesImportValidateResult = AxiosResponse<V1ClusterProfileImportEntity>
-export type V1MacrosListResult = AxiosResponse<V1Macros>
-export type V1ClusterProfilesValidateNameVersionResult = AxiosResponse<unknown>
-export type V1ClusterProfilesValidatePacksResult = AxiosResponse<V1ClusterProfileValidatorResponse>
-export type V1ClusterProfilesDeleteResult = AxiosResponse<unknown>
-export type V1ClusterProfilesGetResult = AxiosResponse<V1ClusterProfile>
-export type V1ClusterProfilesUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidCloneResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesUidCloneValidateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidExportResult = AxiosResponse<Blob>
-export type V1ClusterProfilesUidExportTerraformResult = AxiosResponse<Blob>
-export type V1ClusterProfilesUidMetadataUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesPacksRefUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidPacksGetResult = AxiosResponse<V1ClusterProfilePacksEntities>
-export type V1ClusterProfilesUidPacksAddResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesUidPacksManifestsGetResult = AxiosResponse<V1ClusterProfilePacksManifests>
-export type V1ClusterProfilesUidPacksResolvedValuesGetResult = AxiosResponse<V1PackResolvedValues>
-export type V1ClusterProfilesUidPacksNameDeleteResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidPacksNameGetResult = AxiosResponse<V1PackRefSummaryResponse>
-export type V1ClusterProfilesUidPacksNameUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidPacksConfigGetResult = AxiosResponse<V1ClusterProfilePackConfigList>
-export type V1ClusterProfilesUidPacksUidManifestsResult = AxiosResponse<V1ManifestEntities>
-export type V1ClusterProfilesUidPacksNameManifestsAddResult = AxiosResponse<V1Uid>
-export type V1ClusterProfilesUidPacksNameManifestsUidDeleteResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidPacksNameManifestsUidGetResult = AxiosResponse<V1ManifestEntity>
-export type V1ClusterProfilesUidPacksNameManifestsUidUpdateResult = AxiosResponse<unknown>
-export type V1ClusterProfilesPublishResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidSpcDownloadResult = AxiosResponse<Blob>
-export type V1ClusterProfilesUidValidatePacksResult = AxiosResponse<V1ClusterProfileValidatorResponse>
-export type V1ClusterProfilesUidVariablesDeleteResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidVariablesGetResult = AxiosResponse<V1Variables>
-export type V1ClusterProfilesUidVariablesPatchResult = AxiosResponse<unknown>
-export type V1ClusterProfilesUidVariablesPutResult = AxiosResponse<unknown>
-export type V1DashboardAppDeploymentsResult = AxiosResponse<V1AppDeploymentsSummary>
-export type V1DashboardAppProfilesResult = AxiosResponse<V1AppProfilesSummary>
-export type V1DashboardAppProfilesMetadataResult = AxiosResponse<V1AppProfilesMetadata>
-export type V1EdgeHostsMetadataResult = AxiosResponse<V1EdgeHostsMetadataSummary>
-export type V1DashboardCloudAccountsMetadataResult = AxiosResponse<V1CloudAccountsMetadata>
-export type V1ClusterGroupUidHostClustersSummaryResult = AxiosResponse<V1SpectroClustersSummary>
-export type V1ClusterGroupUidVirtualClustersSummaryResult = AxiosResponse<V1SpectroClustersSummary>
-export type V1ClusterProfilesFilterSummaryResult = AxiosResponse<V1ClusterProfilesSummary>
-export type V1ClusterProfilesMetadataResult = AxiosResponse<V1ClusterProfilesMetadata>
-export type V1ClusterProfilesUidSummaryResult = AxiosResponse<V1ClusterProfileSummary>
-export type V1DashboardEdgehostsSearchResult = AxiosResponse<V1EdgeHostsSearchSummary>
-export type V1DashboardEdgehostsSearchSchemaGetResult = AxiosResponse<V1SearchFilterSchemaSpec>
-export type V1DashboardPcgsSearchSummaryResult = AxiosResponse<V1PcgsSummary>
-export type V1DashboardPcgSearchSchemaGetResult = AxiosResponse<V1SearchFilterSchemaSpec>
-export type V1ProjectsFilterSummaryResult = AxiosResponse<V1ProjectsSummary>
-export type V1ProjectsMetadataResult = AxiosResponse<V1ProjectsMetadata>
-export type V1DashboardSpectroClustersCostSummaryResult = AxiosResponse<V1ResourcesCloudCostSummary>
-export type V1SpectroClustersFiltersWorkspaceResult = AxiosResponse<V1SpectroClustersSummary>
-export type V1SpectroClustersMetaGetResult = AxiosResponse<V1SpectroClustersMeta>
-export type V1SpectroClustersMetadataGetResult = AxiosResponse<V1SpectroClustersMetadata>
-export type V1SpectroClustersMetadataResult = AxiosResponse<V1SpectroClustersMetadata>
-export type V1SpectroClustersMetadataSearchResult = AxiosResponse<V1SpectroClustersMetadataSearch>
-export type V1SpectroClustersMetadataSearchSchemaResult = AxiosResponse<V1SearchFilterSchemaSpec>
-export type V1DashboardSpectroClustersRepaveListResult = AxiosResponse<V1SpectroClustersSummary>
-export type V1SpectroClustersResourcesConsumptionResult = AxiosResponse<V1ResourcesConsumption>
-export type V1SpectroClustersResourcesCostSummaryResult = AxiosResponse<V1ResourcesCostSummary>
-export type V1SpectroClustersResourcesUsageSummaryResult = AxiosResponse<V1ResourcesUsageSummary>
-export type V1SpectroClustersSearchFilterSummaryResult = AxiosResponse<V1SpectroClustersSummary>
-export type V1DashboardClustersSearchSummaryExportGetResult = AxiosResponse<Blob>
-export type V1DashboardClustersSearchSummaryExportResult = AxiosResponse<Blob>
-export type V1DashboardSpectroClustersSearchInputResult = AxiosResponse<V1ClusterSearchInputSpec>
-export type V1SpectroClustersSearchSchemaResult = AxiosResponse<V1SearchFilterSchemaSpec>
-export type V1DashboardVMEnabledClustersListResult = AxiosResponse<V1VMClusters>
-export type V1SpectroClustersSummaryUidResult = AxiosResponse<V1SpectroClusterUidSummary>
-export type V1SpectroClustersUidCostSummaryResult = AxiosResponse<V1SpectroClusterCostSummary>
-export type V1SpectroClustersSummaryUidOverviewResult = AxiosResponse<V1SpectroClusterUidSummary>
-export type V1SpectroClustersUidResourcesConsumptionResult = AxiosResponse<V1ResourcesConsumption>
-export type V1DashboardSpectroClustersUidWorkloadsResult = AxiosResponse<V1ClusterWorkload>
-export type V1DashboardSpectroClustersUidWorkloadsClusterRoleBindingResult = AxiosResponse<V1ClusterWorkloadRoleBindings>
-export type V1DashboardSpectroClustersUidWorkloadsCronJobResult = AxiosResponse<V1ClusterWorkloadCronJobs>
-export type V1DashboardSpectroClustersUidWorkloadsDaemonSetResult = AxiosResponse<V1ClusterWorkloadDaemonSets>
-export type V1DashboardSpectroClustersUidWorkloadsDeploymentResult = AxiosResponse<V1ClusterWorkloadDeployments>
-export type V1DashboardSpectroClustersUidWorkloadsJobResult = AxiosResponse<V1ClusterWorkloadJobs>
-export type V1DashboardSpectroClustersUidWorkloadsNamespaceResult = AxiosResponse<V1ClusterWorkloadNamespaces>
-export type V1DashboardSpectroClustersUidWorkloadsPodResult = AxiosResponse<V1ClusterWorkloadPods>
-export type V1DashboardSpectroClustersUidWorkloadsRoleBindingResult = AxiosResponse<V1ClusterWorkloadRoleBindings>
-export type V1DashboardSpectroClustersUidWorkloadsStatefulSetResult = AxiosResponse<V1ClusterWorkloadStatefulSets>
-export type V1DashboardWorkspacesListResult = AxiosResponse<V1DashboardWorkspaces>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBindingResult = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResult = AxiosResponse<V1WorkspaceClustersWorkloadCronJobs>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSetResult = AxiosResponse<V1WorkspaceClustersWorkloadDaemonSets>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResult = AxiosResponse<V1WorkspaceClustersWorkloadDeployments>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsJobResult = AxiosResponse<V1WorkspaceClustersWorkloadJobs>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsNamespaceResult = AxiosResponse<V1WorkspaceClustersWorkloadNamespaces>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsPodResult = AxiosResponse<V1WorkspaceClustersWorkloadPods>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResult = AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>
-export type V1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResult = AxiosResponse<V1WorkspaceClustersWorkloadStatefulSets>
-export type V1DataSinksCloudWatchSinkResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesCreateResult = AxiosResponse<V1Uid>
-export type V1EdgeHostsMetadataQuickFilterGetResult = AxiosResponse<V1EdgeHostsMeta>
-export type V1EdgeHostDevicesRegisterResult = AxiosResponse<V1EdgeHostDevice>
-export type V1EdgeHostsTagsGetResult = AxiosResponse<V1EdgeHostsTags>
-export type V1EdgeTokensListResult = AxiosResponse<V1EdgeTokens>
-export type V1EdgeTokensCreateResult = AxiosResponse<V1Uid>
-export type V1EdgeTokensUidDeleteResult = AxiosResponse<unknown>
-export type V1EdgeTokensUidGetResult = AxiosResponse<V1EdgeToken>
-export type V1EdgeTokensUidUpdateResult = AxiosResponse<unknown>
-export type V1EdgeTokensUidStateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidDeleteResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidGetResult = AxiosResponse<V1EdgeHostDevice>
-export type V1EdgeHostDevicesUidUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidClusterDeassociateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidClusterAssociateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidConfigGetResult = AxiosResponse<V1EdgeHostConfig>
-export type V1EdgeHostDevicesHealthUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDeviceHostCheckSumUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDeviceHostPairingKeyUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidMetaUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidPackManifestsUidGetResult = AxiosResponse<V1Manifest>
-export type V1EdgeHostDevicesUidPacksStatusPatchResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidProfilesGetResult = AxiosResponse<V1SpectroClusterProfileList>
-export type V1EdgeHostDevicesUidProfilesUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostsUidResetResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidSpcDownloadResult = AxiosResponse<Blob>
-export type V1EdgeHostDevicesUidTunnelConfigUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidTunnelStatusUpdateResult = AxiosResponse<unknown>
-export type V1EdgeHostDevicesUidVspherePropertiesUpdateResult = AxiosResponse<unknown>
-export type V1EventsComponentsListResult = AxiosResponse<V1Events>
-export type V1EventsComponentsCreateResult = AxiosResponse<V1Uid>
-export type V1EventsComponentsCreateBulkResult = AxiosResponse<V1Uids>
-export type V1EventsComponentsObjTypeUidDeleteResult = AxiosResponse<unknown>
-export type V1EventsComponentsObjTypeUidListResult = AxiosResponse<V1Events>
-export type V1FeaturesListResult = AxiosResponse<V1Features>
-export type V1FeaturesUpdateResult = AxiosResponse<unknown>
-export type V1FiltersListResult = AxiosResponse<V1FiltersSummary>
-export type V1FiltersMetadataResult = AxiosResponse<V1FiltersMetadata>
-export type V1TagFiltersCreateResult = AxiosResponse<V1Uid>
-export type V1TagFilterUidDeleteResult = AxiosResponse<unknown>
-export type V1TagFilterUidGetResult = AxiosResponse<V1TagFilterSummary>
-export type V1TagFilterUidUpdateResult = AxiosResponse<unknown>
-export type V1MetricsListResult = AxiosResponse<V1MetricTimeSeriesList>
-export type V1MetricsUidDeleteResult = AxiosResponse<unknown>
-export type V1MetricsUidListResult = AxiosResponse<V1MetricTimeSeries>
-export type V1NotificationsListResult = AxiosResponse<V1Notifications>
-export type V1NotificationsEventCreateResult = AxiosResponse<V1Uid>
-export type V1NotificationsObjTypeUidListResult = AxiosResponse<V1Notifications>
-export type V1NotificationsUidAckResult = AxiosResponse<unknown>
-export type V1NotificationsUidDoneResult = AxiosResponse<unknown>
-export type V1OverlordsListResult = AxiosResponse<V1Overlords>
-export type V1OverlordsMaasManifestResult = AxiosResponse<V1OverlordManifest>
-export type V1OverlordsUidMaasAccountCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidMaasAccountUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidMaasAccountValidateResult = AxiosResponse<unknown>
-export type V1OverlordsUidMaasCloudConfigCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidMaasCloudConfigUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidMaasClusterProfileResult = AxiosResponse<V1ClusterProfile>
-export type V1OverlordsMigrateResult = AxiosResponse<unknown>
-export type V1OverlordsOpenStackManifestResult = AxiosResponse<V1OverlordManifest>
-export type V1OverlordsUidOpenStackAccountCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidOpenStackAccountUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidOpenStackAccountValidateResult = AxiosResponse<unknown>
-export type V1OverlordsUidOpenStackCloudConfigCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidOpenStackCloudConfigUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidOpenStackClusterProfileResult = AxiosResponse<V1ClusterProfile>
-export type V1OverlordsPairingCodeResult = AxiosResponse<V1PairingCode>
-export type V1OverlordsVsphereManifestResult = AxiosResponse<V1OverlordManifest>
-export type V1OverlordsVsphereOvaGetResult = AxiosResponse<V1OverloadVsphereOva>
-export type V1OverlordsUidVsphereAccountCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidVsphereAccountUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidVsphereAccountValidateResult = AxiosResponse<unknown>
-export type V1OverlordsUidVsphereCloudConfigCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidVsphereCloudConfigUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidVsphereClusterProfileResult = AxiosResponse<V1ClusterProfile>
-export type V1OverlordsUidPoolsListResult = AxiosResponse<V1IpPools>
-export type V1OverlordsUidPoolCreateResult = AxiosResponse<V1Uid>
-export type V1OverlordsUidPoolDeleteResult = AxiosResponse<unknown>
-export type V1OverlordsUidPoolUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidVsphereComputeclusterResResult = AxiosResponse<V1VsphereComputeClusterResources>
-export type V1OverlordsUidVsphereDatacentersResult = AxiosResponse<V1VsphereDatacenters>
-export type V1OverlordsUidDeleteResult = AxiosResponse<V1DeletedMsg>
-export type V1OverlordsUidGetResult = AxiosResponse<V1Overlord>
-export type V1OverlordsUidMetadataUpdateResult = AxiosResponse<unknown>
-export type V1OverlordsUidResetResult = AxiosResponse<V1UpdatedMsg>
-export type V1PacksSummaryListResult = AxiosResponse<V1PackSummaries>
-export type V1PacksSearchResult = AxiosResponse<V1PackMetadataList>
-export type V1PacksNameRegistryUidListResult = AxiosResponse<V1PackTagEntity>
-export type V1PacksPackUidLogoResult = AxiosResponse<Blob>
-export type V1PacksUidResult = AxiosResponse<V1PackTagEntity>
-export type V1PacksUidReadmeResult = AxiosResponse<V1PackReadme>
-export type V1PcgSelfHostedResult = AxiosResponse<V1PcgServiceKubectlCommands>
-export type V1PcgUidRegisterResult = AxiosResponse<unknown>
-export type V1PcgUidAllyManifestGetResult = AxiosResponse<Blob>
-export type V1PcgUidJetManifestGetResult = AxiosResponse<Blob>
-export type V1PermissionsListResult = AxiosResponse<V1Permissions>
-export type V1ProjectsCreateResult = AxiosResponse<V1Uid>
-export type V1ProjectsAlertsResult = AxiosResponse<V1ProjectAlertComponents>
-export type V1ProjectsUidDeleteResult = AxiosResponse<unknown>
-export type V1ProjectsUidGetResult = AxiosResponse<V1Project>
-export type V1ProjectsUidUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidAlertDeleteResult = AxiosResponse<unknown>
-export type V1ProjectsUidAlertCreateResult = AxiosResponse<V1Uid>
-export type V1ProjectsUidAlertUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidAlertsUidDeleteResult = AxiosResponse<unknown>
-export type V1ProjectsUidAlertsUidGetResult = AxiosResponse<V1Channel>
-export type V1ProjectsUidAlertsUidUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidMacrosDeleteByMacroNameResult = AxiosResponse<unknown>
-export type V1ProjectsUidMacrosListResult = AxiosResponse<V1Macros>
-export type V1ProjectsUidMacrosUpdateByMacroNameResult = AxiosResponse<unknown>
-export type V1ProjectsUidMacrosCreateResult = AxiosResponse<unknown>
-export type V1ProjectsUidMacrosUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidMetaUpdateResult = AxiosResponse<unknown>
-export type V1ProjectClusterSettingsGetResult = AxiosResponse<V1ProjectClusterSettings>
-export type V1ProjectClustersNodesAutoRemediationSettingUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidTeamsUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidUsersUpdateResult = AxiosResponse<unknown>
-export type V1ProjectsUidValidateResult = AxiosResponse<V1ProjectActiveResources>
-export type V1RegistriesHelmListResult = AxiosResponse<V1HelmRegistries>
-export type V1RegistriesHelmCreateResult = AxiosResponse<V1Uid>
-export type V1RegistriesHelmSummaryListResult = AxiosResponse<V1HelmRegistriesSummary>
-export type V1RegistriesHelmValidateResult = AxiosResponse<unknown>
-export type V1RegistriesHelmUidDeleteResult = AxiosResponse<unknown>
-export type V1RegistriesHelmUidGetResult = AxiosResponse<V1HelmRegistry>
-export type V1RegistriesHelmUidUpdateResult = AxiosResponse<unknown>
-export type V1RegistriesHelmUidSyncResult = AxiosResponse<unknown>
-export type V1RegistriesHelmUidSyncStatusResult = AxiosResponse<V1RegistrySyncStatus>
-export type V1RegistriesMetadataResult = AxiosResponse<V1RegistriesMetadata>
-export type V1BasicOciRegistriesCreateResult = AxiosResponse<V1Uid>
-export type V1BasicOciRegistriesValidateResult = AxiosResponse<unknown>
-export type V1EcrRegistriesCreateResult = AxiosResponse<V1Uid>
-export type V1EcrRegistriesValidateResult = AxiosResponse<unknown>
-export type V1OciImageRegistryGetResult = AxiosResponse<V1OciImageRegistry>
-export type V1OciRegistriesSummaryResult = AxiosResponse<V1OciRegistries>
-export type V1OciRegistriesGetResult = AxiosResponse<V1OciRegistryEntity>
-export type V1BasicOciRegistriesUidDeleteResult = AxiosResponse<unknown>
-export type V1BasicOciRegistriesUidGetResult = AxiosResponse<V1BasicOciRegistry>
-export type V1BasicOciRegistriesUidUpdateResult = AxiosResponse<unknown>
-export type V1BasicOciRegistriesUidSyncResult = AxiosResponse<unknown>
-export type V1BasicOciRegistriesUidSyncStatusResult = AxiosResponse<V1RegistrySyncStatus>
-export type V1EcrRegistriesUidDeleteResult = AxiosResponse<unknown>
-export type V1EcrRegistriesUidGetResult = AxiosResponse<V1EcrRegistry>
-export type V1EcrRegistriesUidUpdateResult = AxiosResponse<unknown>
-export type V1EcrRegistriesUidSyncResult = AxiosResponse<unknown>
-export type V1EcrRegistriesUidSyncStatusResult = AxiosResponse<V1RegistrySyncStatus>
-export type V1RegistriesPackListResult = AxiosResponse<V1PackRegistries>
-export type V1RegistriesPackCreateResult = AxiosResponse<V1Uid>
-export type V1RegistriesPackSummaryListResult = AxiosResponse<V1PackRegistriesSummary>
-export type V1RegistriesPackValidateResult = AxiosResponse<unknown>
-export type V1RegistriesPackUidDeleteResult = AxiosResponse<unknown>
-export type V1RegistriesPackUidGetResult = AxiosResponse<V1PackRegistry>
-export type V1RegistriesPackUidUpdateResult = AxiosResponse<unknown>
-export type V1RegistriesPackUidSyncResult = AxiosResponse<unknown>
-export type V1RegistriesPackUidSyncStatusResult = AxiosResponse<V1RegistrySyncStatus>
-export type V1RegistriesNameConfigGetResult = AxiosResponse<V1RegistryConfigEntity>
-export type V1RegistriesUidDeleteResult = AxiosResponse<unknown>
-export type V1RolesListResult = AxiosResponse<V1Roles>
-export type V1RolesCreateResult = AxiosResponse<V1Uid>
-export type V1RolesUidDeleteResult = AxiosResponse<unknown>
-export type V1RolesUidGetResult = AxiosResponse<V1Role>
-export type V1RolesUidUpdateResult = AxiosResponse<unknown>
-export type V1RolesCloneResult = AxiosResponse<V1Uid>
-export type V1ServiceVersionGetResult = AxiosResponse<V1ServiceVersion>
-export type V1ServiceManifestGetResult = AxiosResponse<V1ServiceManifest>
-export type V1SpectroClustersAksCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersAksRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersAksValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersAwsCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersAwsImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersAwsRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersAwsValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersAzureCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersAzureImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersAzureRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersAzureValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersCustomCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersCustomValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersConfigEdgeInstallerResult = AxiosResponse<V1ClusterEdgeInstallerConfig>
-export type V1SpectroClustersEdgeNativeCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersEdgeNativeImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersEdgeNativeRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersEdgeNativeValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersEksCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersEksRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersEksValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1ClusterFeatureBackupLocationUidGetResult = AxiosResponse<V1ClusterRefs>
-export type V1ClusterFeatureBackupLocationUidChangeResult = AxiosResponse<unknown>
-export type V1ClusterFeatureLogFetcherLogDownloadResult = AxiosResponse<Blob>
-export type V1ClusterFeatureLogFetcherLogUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersGcpCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersGcpImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersGcpRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersGcpValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersGenericImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersGenericRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersGkeCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersGkeRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersGkeValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersMaasCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersMaasImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersMaasRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersMaasValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersOpenStackCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersOpenStackImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersOpenStackRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersOpenStackValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersSpcDownloadResult = AxiosResponse<Blob>
-export type V1SpectroClustersTagsGetResult = AxiosResponse<V1SpectroClusterTags>
-export type V1SpectroClustersUpgradeSettingsGetResult = AxiosResponse<V1ClusterUpgradeSettingsEntity>
-export type V1SpectroClustersUpgradeSettingsResult = AxiosResponse<unknown>
-export type V1SpectroClustersValidateNameResult = AxiosResponse<unknown>
-export type V1SpectroClustersValidatePacksResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersVirtualCreateResult = AxiosResponse<V1Uid>
-export type V1VirtualClustersPacksValuesResult = AxiosResponse<V1ClusterVirtualPacksValues>
-export type V1SpectroClustersVirtualValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersVsphereCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersVsphereImportResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersVsphereRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersVsphereValidateResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersDeleteResult = AxiosResponse<unknown>
-export type V1SpectroClustersGetResult = AxiosResponse<V1SpectroCluster>
-export type V1SpectroClustersUidAssetsGetResult = AxiosResponse<V1SpectroClusterAssetEntity>
-export type V1SpectroClustersUidAssetsResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidAdminKubeConfigResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidTokenKubeConfigDeleteResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidTokenKubeConfigGetResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidTokenKubeConfigUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidFrpKubeConfigDeleteResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidFrpKubeConfigGetResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidFrpKubeConfigUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidKubeConfigResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidKubeConfigUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidKubeConfigClientDeleteResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidKubeConfigClientGetResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidKubeConfigClientUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidManifestGetResult = AxiosResponse<string>
-export type V1SpectroClustersUidManifestUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidClusterMetaAttributeUpdateResult = AxiosResponse<unknown>
-export type V1ControlPlaneHealthCheckTimeoutUpdateResult = AxiosResponse<unknown>
-export type V1HostClusterConfigUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidLifecycleConfigUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidOsPatchUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidConfigNamespacesGetResult = AxiosResponse<V1ClusterNamespaceResources>
-export type V1SpectroClustersUidConfigNamespacesUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidConfigNamespacesUidGetResult = AxiosResponse<V1ClusterNamespaceResource>
-export type V1SpectroClustersUidConfigNamespacesUidUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidConfigRbacsGetResult = AxiosResponse<V1ClusterRbacs>
-export type V1SpectroClustersUidConfigRbacsUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidConfigRbacsUidGetResult = AxiosResponse<V1ClusterRbac>
-export type V1SpectroClustersUidConfigRbacsUidUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidDownloadResult = AxiosResponse<Blob>
-export type V1EdgeNativeClustersHostsListResult = AxiosResponse<V1EdgeHostDevices>
-export type V1SpectroClustersUidEdgeResetResult = AxiosResponse<unknown>
-export type V1ClusterFeatureBackupScheduleResetResult = AxiosResponse<unknown>
-export type V1ClusterFeatureBackupGetResult = AxiosResponse<V1ClusterBackup>
-export type V1ClusterFeatureBackupCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterFeatureBackupUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureBackupOnDemandCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterFeatureBackupDeleteResult = AxiosResponse<unknown>
-export type V1ClusterFeatureComplianceScanGetResult = AxiosResponse<V1ClusterComplianceScan>
-export type V1ClusterFeatureComplianceScanCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterFeatureComplianceScanUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureComplianceScanLogsGetResult = AxiosResponse<V1ClusterComplianceScanLogs>
-export type V1ClusterFeatureScanKubeBenchLogUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureScanKubeHunterLogUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureScanSonobuoyLogUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureScanSyftLogUpdateResult = AxiosResponse<unknown>
-export type V1ClusterFeatureComplianceScanLogDeleteResult = AxiosResponse<unknown>
-export type V1ClusterFeatureKubeBenchLogGetResult = AxiosResponse<V1ClusterScanLogKubeBench>
-export type V1ClusterFeatureKubeHunterLogGetResult = AxiosResponse<V1ClusterScanLogKubeHunter>
-export type V1ClusterFeatureSonobuoyLogGetResult = AxiosResponse<V1ClusterScanLogSonobuoy>
-export type V1ClusterFeatureSyftLogGetResult = AxiosResponse<V1ClusterScanLogSyft>
-export type V1SyftScanLogImageSBOMGetResult = AxiosResponse<Blob>
-export type V1ClusterFeatureDriverLogDownloadResult = AxiosResponse<Blob>
-export type V1ClusterFeatureComplianceScanOnDemandCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterFeatureHelmChartsGetResult = AxiosResponse<V1ClusterHelmCharts>
-export type V1ClusterFeatureLogFetcherGetResult = AxiosResponse<V1ClusterLogFetcher>
-export type V1ClusterFeatureLogFetcherCreateResult = AxiosResponse<V1Uid>
-export type V1ClusterFeatureManifestsGetResult = AxiosResponse<V1ClusterManifests>
-export type V1ClusterFeatureRestoreGetResult = AxiosResponse<V1ClusterRestore>
-export type V1ClusterFeatureRestoreOnDemandCreateResult = AxiosResponse<V1Uid>
-export type V1SpectroClustersUidHeartbeatUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersGetHybridPoolsMetadataResult = AxiosResponse<V1SpectroClusterHybridPoolsMetadata>
-export type V1SpectroClustersUidHybridSettingsResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidImportManifestResult = AxiosResponse<Blob>
-export type V1SpectroClustersUidImportUpgradePatchResult = AxiosResponse<unknown>
-export type V1SpectroClustersK8CertificateResult = AxiosResponse<V1MachineCertificates>
-export type V1SpectroClustersK8CertificateUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersCertificatesRenewResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidKubeCtlRedirectResult = AxiosResponse<V1SpectroClusterKubeCtlRedirect>
-export type V1SpectroClustersUidLocationPutResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidMetadataUpdateResult = AxiosResponse<unknown>
-export type V1ClusterNamespacesGetResult = AxiosResponse<V1ClusterNamespaces>
-export type V1SpectroClustersUidOIDCResult = AxiosResponse<V1SpectroClusterOidcSpec>
-export type V1SpectroClustersUidOIDCDashboardUrlResult = AxiosResponse<V1SectroClusterK8sDashboardUrl>
-export type V1SpectroClustersUidPackManifestsUidGetResult = AxiosResponse<V1Manifest>
-export type V1SpectroClustersUidPackPropertiesResult = AxiosResponse<V1SpectroClusterPackProperties>
-export type V1SpectroClustersPacksRefUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidPacksResolvedValuesGetResult = AxiosResponse<V1SpectroClusterProfilesResolvedValues>
-export type V1SpectroClustersUidPacksStatusPatchResult = AxiosResponse<unknown>
-export type V1SpectroClustersGetProfileUpdatesResult = AxiosResponse<V1SpectroClusterProfileUpdates>
-export type V1SpectroClustersDeleteProfilesResult = AxiosResponse<unknown>
-export type V1SpectroClustersGetProfilesResult = AxiosResponse<V1SpectroClusterProfileList>
-export type V1SpectroClustersPatchProfilesResult = AxiosResponse<unknown>
-export type V1SpectroClustersUpdateProfilesResult = AxiosResponse<unknown>
-export type V1SpectroClustersGetProfilesPacksManifestsResult = AxiosResponse<V1SpectroClusterProfilesPacksManifests>
-export type V1SpectroClustersUidProfilesUidPacksConfigGetResult = AxiosResponse<V1SpectroClusterPackConfigList>
-export type V1SpectroClustersProfilesUidPackManifestsGetResult = AxiosResponse<V1PackManifests>
-export type V1SpectroClustersProfilesUidPackManifestsUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidRateResult = AxiosResponse<V1SpectroClusterRate>
-export type V1SpectroClustersUidRepaveApproveUpdateResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidRepaveGetResult = AxiosResponse<V1SpectroClusterRepave>
-export type V1SpectroClustersUidResetResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidStatusResult = AxiosResponse<V1SpectroClusterStatusEntity>
-export type V1SpectroClustersUpdateStatusConditionResult = AxiosResponse<unknown>
-export type V1SpectroClustersUpdateStatusConditionsResult = AxiosResponse<unknown>
-export type V1SpectroClustersUpdateStatusEndpointsResult = AxiosResponse<unknown>
-export type V1SpectroClustersUpdateStatusImportedResult = AxiosResponse<unknown>
-export type V1SpectroClustersUpdateStatusServicesResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidStatusSpcApplyGetResult = AxiosResponse<V1SpcApply>
-export type V1SpectroClustersUidStatusSpcApplyResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidStatusSpcPatchTimeResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidUpgradesPutResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidUpgradeSettingsResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidValidatePacksResult = AxiosResponse<V1SpectroClusterValidatorResponse>
-export type V1SpectroClustersUidValidateRepaveResult = AxiosResponse<V1SpectroClusterRepaveValidationResponse>
-export type V1SpectroClustersUidVariablesGetResult = AxiosResponse<V1SpectroClusterVariables[]>
-export type V1SpectroClustersUidVariablesPatchResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMListResult = AxiosResponse<V1ClusterVirtualMachineList>
-export type V1SpectroClustersVMCreateResult = AxiosResponse<V1ClusterVirtualMachine>
-export type V1ClusterVMSnapshotsListResult = AxiosResponse<V1VirtualMachineSnapshotList>
-export type V1SpectroClustersVMDeleteResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMGetResult = AxiosResponse<V1ClusterVirtualMachine>
-export type V1SpectroClustersVMUpdateResult = AxiosResponse<V1ClusterVirtualMachine>
-export type V1SpectroClustersVMAddVolumeResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMCloneResult = AxiosResponse<V1ClusterVirtualMachine>
-export type V1SpectroClustersVMMigrateResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMPauseResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMRemoveVolumeResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMRestartResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMResumeResult = AxiosResponse<unknown>
-export type V1VMSnapshotCreateResult = AxiosResponse<V1VirtualMachineSnapshot>
-export type V1VMSnapshotDeleteResult = AxiosResponse<unknown>
-export type V1VMSnapshotGetResult = AxiosResponse<V1VirtualMachineSnapshot>
-export type V1VMSnapshotUpdateResult = AxiosResponse<V1VirtualMachineSnapshot>
-export type V1SpectroClustersVMStartResult = AxiosResponse<unknown>
-export type V1SpectroClustersVMStopResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidWorkloadsSyncResult = AxiosResponse<unknown>
-export type V1SpectroClustersUidWorkloadsKindSyncResult = AxiosResponse<unknown>
-export type V1SystemConfigReverseProxyGetResult = AxiosResponse<V1SystemReverseProxy>
-export type V1SystemConfigReverseProxyUpdateResult = AxiosResponse<V1Updated>
-export type V1PasswordsBlockListDeleteResult = AxiosResponse<unknown>
-export type V1PasswordsBlockListUpdateResult = AxiosResponse<V1Updated>
-export type V1TeamsListResult = AxiosResponse<V1Teams>
-export type V1TeamsCreateResult = AxiosResponse<V1Uid>
-export type V1TeamsSummaryGetResult = AxiosResponse<V1TeamsSummaryList>
-export type V1TeamsUidDeleteResult = AxiosResponse<unknown>
-export type V1TeamsUidGetResult = AxiosResponse<V1Team>
-export type V1TeamsUidPatchResult = AxiosResponse<unknown>
-export type V1TeamsUidUpdateResult = AxiosResponse<unknown>
-export type V1TeamsProjectRolesResult = AxiosResponse<V1ProjectRolesEntity>
-export type V1TeamsProjectRolesPutResult = AxiosResponse<unknown>
-export type V1TeamsUidResourceRolesResult = AxiosResponse<V1ResourceRoles>
-export type V1TeamsUidResourceRolesCreateResult = AxiosResponse<unknown>
-export type V1TeamsUidResourceRolesUidDeleteResult = AxiosResponse<unknown>
-export type V1TeamsResourceRolesUidUpdateResult = AxiosResponse<unknown>
-export type V1TeamsUidTenantRolesGetResult = AxiosResponse<V1TeamTenantRolesEntity>
-export type V1TeamsUidTenantRolesUpdateResult = AxiosResponse<unknown>
-export type V1PatchTenantAddressResult = AxiosResponse<unknown>
-export type V1TenantUIdAssetsCertsListResult = AxiosResponse<V1TenantAssetCerts>
-export type V1TenantUidAssetsCertsCreateResult = AxiosResponse<V1Uid>
-export type V1TenantUidAssetsCertsUidDeleteResult = AxiosResponse<unknown>
-export type V1TenantUidAssetsCertsUidGetResult = AxiosResponse<V1TenantAssetCert>
-export type V1TenantUidAssetsCertsUidUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidAssetsDataSinksDeleteResult = AxiosResponse<unknown>
-export type V1TenantUidAssetsDataSinksGetResult = AxiosResponse<V1DataSinkConfig>
-export type V1TenantUidAssetsDataSinksCreateResult = AxiosResponse<V1Uid>
-export type V1TenantUidAssetsDataSinksUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidAuthTokenSettingsGetResult = AxiosResponse<V1AuthTokenSettings>
-export type V1TenantUidAuthTokenSettingsUpdateResult = AxiosResponse<unknown>
-export type V1TenantsUidContractAcceptResult = AxiosResponse<unknown>
-export type V1TenantsCreditAccountDeleteResult = AxiosResponse<unknown>
-export type V1TenantsCreditAccountGetResult = AxiosResponse<V1AwsCreditAccountEntity>
-export type V1TenantUidDomainsGetResult = AxiosResponse<V1TenantDomains>
-export type V1TenantUidDomainsUpdateResult = AxiosResponse<unknown>
-export type V1PatchTenantEmailIdResult = AxiosResponse<unknown>
-export type V1TenantFreemiumGetResult = AxiosResponse<V1TenantFreemium>
-export type V1TenantFreemiumUpdateResult = AxiosResponse<unknown>
-export type V1TenantFreemiumUsageGetResult = AxiosResponse<V1TenantFreemiumUsage>
-export type V1InvoicesUidGetResult = AxiosResponse<V1Invoice>
-export type V1InvoiceUidReportInvoicePdfResult = AxiosResponse<Blob>
-export type V1InvoiceUidReportPdfResult = AxiosResponse<Blob>
-export type V1InvoiceUidReportUsagePdfResult = AxiosResponse<Blob>
-export type V1TenantUidLoginBannerGetResult = AxiosResponse<V1LoginBannerSettings>
-export type V1TenantUidLoginBannerUpdateResult = AxiosResponse<unknown>
-export type V1TenantsUidMacrosDeleteByMacroNameResult = AxiosResponse<unknown>
-export type V1TenantsUidMacrosListResult = AxiosResponse<V1Macros>
-export type V1TenantsUidMacrosUpdateByMacroNameResult = AxiosResponse<unknown>
-export type V1TenantsUidMacrosCreateResult = AxiosResponse<unknown>
-export type V1TenantsUidMacrosUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidOidcConfigGetResult = AxiosResponse<V1TenantOidcClientSpec>
-export type V1TenantUidOidcConfigUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidPasswordPolicyGetResult = AxiosResponse<V1TenantPasswordPolicyEntity>
-export type V1TenantUidPasswordPolicyUpdateResult = AxiosResponse<unknown>
-export type V1TenantPrefClusterGroupGetResult = AxiosResponse<V1TenantEnableClusterGroup>
-export type V1TenantPrefClusterGroupUpdateResult = AxiosResponse<unknown>
-export type V1TenantClusterSettingsGetResult = AxiosResponse<V1TenantClusterSettings>
-export type V1TenantClustersNodesAutoRemediationSettingUpdateResult = AxiosResponse<unknown>
-export type V1TenantDeveloperCreditGetResult = AxiosResponse<V1DeveloperCredit>
-export type V1TenantDeveloperCreditUpdateResult = AxiosResponse<unknown>
-export type V1TenantFipsSettingsGetResult = AxiosResponse<V1FipsSettings>
-export type V1TenantFipsSettingsUpdateResult = AxiosResponse<unknown>
-export type V1RateConfigGetResult = AxiosResponse<V1RateConfig>
-export type V1RateConfigUpdateResult = AxiosResponse<unknown>
-export type V1TenantResourceLimitsGetResult = AxiosResponse<V1TenantResourceLimits>
-export type V1TenantResourceLimitsUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidSamlConfigSpecGetResult = AxiosResponse<V1TenantSamlSpec>
-export type V1TenantUidSamlConfigUpdateResult = AxiosResponse<unknown>
-export type V1TenantUidSsoAuthProvidersGetResult = AxiosResponse<V1TenantSsoAuthProvidersEntity>
-export type V1TenantUidSsoAuthProvidersUpdateResult = AxiosResponse<unknown>
-export type V1UsersListResult = AxiosResponse<V1Users>
-export type V1UsersCreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetsLocationGetResult = AxiosResponse<V1UserAssetsLocations>
-export type V1UsersAssetsLocationAzureCreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetsLocationAzureGetResult = AxiosResponse<V1UserAssetsLocationAzure>
-export type V1UsersAssetsLocationAzureUpdateResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationGcpCreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetsLocationGcpGetResult = AxiosResponse<V1UserAssetsLocationGcp>
-export type V1UsersAssetsLocationGcpUpdateResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationMinioCreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetsLocationMinioGetResult = AxiosResponse<V1UserAssetsLocationS3>
-export type V1UsersAssetsLocationMinioUpdateResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationS3CreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetsLocationS3DeleteResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationS3GetResult = AxiosResponse<V1UserAssetsLocationS3>
-export type V1UsersAssetsLocationS3UpdateResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationDefaultUpdateResult = AxiosResponse<unknown>
-export type V1UsersAssetsLocationDeleteResult = AxiosResponse<unknown>
-export type V1UsersAssetsSshGetResult = AxiosResponse<V1UserAssetsSsh>
-export type V1UserAssetsSshCreateResult = AxiosResponse<V1Uid>
-export type V1UsersAssetSshDeleteResult = AxiosResponse<unknown>
-export type V1UsersAssetSshGetUidResult = AxiosResponse<V1UserAssetSsh>
-export type V1UsersAssetSshUpdateResult = AxiosResponse<unknown>
-export type V1VsphereMappingGetResult = AxiosResponse<V1VsphereDnsMapping>
-export type V1VsphereDnsMappingsGetResult = AxiosResponse<V1VsphereDnsMappings>
-export type V1VsphereDnsMappingCreateResult = AxiosResponse<V1Uid>
-export type V1VsphereDnsMappingDeleteResult = AxiosResponse<unknown>
-export type V1VsphereDnsMappingGetResult = AxiosResponse<V1VsphereDnsMapping>
-export type V1VsphereDnsMappingUpdateResult = AxiosResponse<unknown>
-export type V1UsersAuthTokensRevokeResult = AxiosResponse<unknown>
-export type V1UsersConfigScarGetResult = AxiosResponse<V1SystemScarSpec>
-export type V1UsersInfoGetResult = AxiosResponse<V1UserInfo>
-export type V1UsersKubectlSessionUidResult = AxiosResponse<V1UserKubectlSession>
-export type V1UsersMetadataResult = AxiosResponse<V1UsersMetadata>
-export type V1UsersPasswordChangeResult = AxiosResponse<unknown>
-export type V1UsersEmailPasswordResetResult = AxiosResponse<unknown>
-export type V1UsersSummaryGetResult = AxiosResponse<V1UsersSummaryList>
-export type V1UsersSystemFeatureResult = AxiosResponse<V1SystemFeatures>
-export type V1UsersSystemMacrosDeleteByMacroNameResult = AxiosResponse<unknown>
-export type V1UsersSystemMacrosListResult = AxiosResponse<V1Macros>
-export type V1UsersSystemMacrosUpdateByMacroNameResult = AxiosResponse<unknown>
-export type V1UsersSystemMacrosCreateResult = AxiosResponse<unknown>
-export type V1UsersSystemMacrosUpdateResult = AxiosResponse<unknown>
-export type V1UsersUidDeleteResult = AxiosResponse<unknown>
-export type V1UsersUidGetResult = AxiosResponse<V1User>
-export type V1UsersUidPatchResult = AxiosResponse<unknown>
-export type V1UsersUidUpdateResult = AxiosResponse<unknown>
-export type V1UsersUidPasswordChangeResult = AxiosResponse<unknown>
-export type V1UsersUidPasswordResetResult = AxiosResponse<unknown>
-export type V1UsersProjectRolesResult = AxiosResponse<V1ProjectRolesEntity>
-export type V1UsersProjectRolesPutResult = AxiosResponse<unknown>
-export type V1UsersUidResourceRolesResult = AxiosResponse<V1ResourceRoles>
-export type V1UsersUidResourceRolesCreateResult = AxiosResponse<unknown>
-export type V1UsersUidResourceRolesUidDeleteResult = AxiosResponse<unknown>
-export type V1UsersResourceRolesUidUpdateResult = AxiosResponse<unknown>
-export type V1UsersUidRolesResult = AxiosResponse<V1UserRolesEntity>
-export type V1UsersUidRolesUpdateResult = AxiosResponse<unknown>
-export type V1UsersStatusLoginModeResult = AxiosResponse<unknown>
-export type V1WorkspacesCreateResult = AxiosResponse<V1Uid>
-export type V1TeamsWorkspaceGetRolesResult = AxiosResponse<V1WorkspaceScopeRoles>
-export type V1TeamsWorkspaceRolesPutResult = AxiosResponse<unknown>
-export type V1UsersWorkspaceGetRolesResult = AxiosResponse<V1WorkspaceScopeRoles>
-export type V1UsersWorkspaceRolesPutResult = AxiosResponse<unknown>
-export type V1WorkspacesValidateNameResult = AxiosResponse<unknown>
-export type V1WorkspacesUidDeleteResult = AxiosResponse<unknown>
-export type V1WorkspacesUidGetResult = AxiosResponse<V1Workspace>
-export type V1WorkspaceOpsBackupDeleteResult = AxiosResponse<unknown>
-export type V1WorkspaceOpsBackupGetResult = AxiosResponse<V1WorkspaceBackup>
-export type V1WorkspaceOpsBackupCreateResult = AxiosResponse<V1Uid>
-export type V1WorkspaceOpsBackupUpdateResult = AxiosResponse<unknown>
-export type V1WorkspaceOpsBackupOnDemandCreateResult = AxiosResponse<V1Uid>
-export type V1WorkspacesUidClusterNamespacesUpdateResult = AxiosResponse<unknown>
-export type V1WorkspacesClusterRbacCreateResult = AxiosResponse<V1Uid>
-export type V1WorkspacesUidClusterRbacDeleteResult = AxiosResponse<unknown>
-export type V1WorkspacesUidClusterRbacUpdateResult = AxiosResponse<unknown>
-export type V1WorkspacesUidMetaUpdateResult = AxiosResponse<unknown>
-export type V1WorkspaceOpsRestoreGetResult = AxiosResponse<V1WorkspaceRestore>
-export type V1WorkspaceOpsRestoreOnDemandCreateResult = AxiosResponse<V1Uid>
+  return {
+    v1ApiKeysList,
+    v1ApiKeysCreate,
+    v1ApiKeysUidDelete,
+    v1ApiKeysUidGet,
+    v1ApiKeysUidActiveState,
+    v1ApiKeysUidUpdate,
+    v1ApiKeysUidState,
+    v1AppDeploymentsVirtualClusterCreate,
+    v1AppDeploymentsClusterGroupCreate,
+    v1AppDeploymentsUidDelete,
+    v1AppDeploymentsUidGet,
+    v1AppDeploymentsUidProfileGet,
+    v1AppDeploymentsUidProfileUpdate,
+    v1AppDeploymentsUidProfileApply,
+    v1AppDeploymentsProfileTiersUidGet,
+    v1AppDeploymentsProfileTiersUidUpdate,
+    v1AppDeploymentsProfileTiersUidManifestsGet,
+    v1AppDeploymentsProfileTiersManifestsUidGet,
+    v1AppDeploymentsProfileTiersManifestsUidUpdate,
+    v1AppDeploymentsUidProfileVersionsGet,
+    v1AppProfilesCreate,
+    v1AppProfilesMacrosList,
+    v1AppProfilesUidDelete,
+    v1AppProfilesUidGet,
+    v1AppProfilesUidUpdate,
+    v1AppProfilesUidClone,
+    v1AppProfilesUidCloneValidate,
+    v1AppProfilesUidMetadataUpdate,
+    v1AppProfilesUidTiersGet,
+    v1AppProfilesUidTiersPatch,
+    v1AppProfilesUidTiersCreate,
+    v1AppProfilesUidTiersUidDelete,
+    v1AppProfilesUidTiersUidGet,
+    v1AppProfilesUidTiersUidUpdate,
+    v1AppProfilesUidTiersUidManifestsGet,
+    v1AppProfilesUidTiersUidManifestsCreate,
+    v1AppProfilesUidTiersUidManifestsUidDelete,
+    v1AppProfilesUidTiersUidManifestsUidGet,
+    v1AppProfilesUidTiersUidManifestsUidUpdate,
+    v1AppProfilesUidTiersUidResolvedValuesGet,
+    v1AuditsList,
+    v1AuditsUidGet,
+    v1AuditsUidGetSysMsg,
+    v1AuditsUidMsgUpdate,
+    v1Authenticate,
+    v1AuthOrg,
+    v1OidcCallback,
+    v1OidcLogout,
+    v1SamlCallback,
+    v1SamlLogout,
+    v1AuthOrgs,
+    v1PasswordActivate,
+    v1PasswordReset,
+    v1AuthRefresh,
+    v1SsoIdps,
+    v1SsoLogins,
+    v1AuthSsoProviders,
+    v1SsoCallback,
+    v1AuthUserOrgForgot,
+    v1PasswordResetRequest,
+    v1CloudAccountsAwsList,
+    v1CloudAccountsAwsCreate,
+    v1CloudAccountsAwsDelete,
+    v1CloudAccountsAwsGet,
+    v1CloudAccountsAwsUpdate,
+    v1CloudAccountsAzureList,
+    v1CloudAccountsAzureCreate,
+    v1CloudAccountsAzureDelete,
+    v1CloudAccountsAzureGet,
+    v1CloudAccountsAzureUpdate,
+    v1CloudAccountsCustomList,
+    v1CloudAccountsCustomCreate,
+    v1CloudAccountsCustomDelete,
+    v1CloudAccountsCustomGet,
+    v1CloudAccountsCustomUpdate,
+    v1CloudAccountsGcpList,
+    v1CloudAccountsGcpCreate,
+    v1CloudAccountsGcpDelete,
+    v1CloudAccountsGcpGet,
+    v1CloudAccountsGcpUpdate,
+    v1CloudAccountsMaasList,
+    v1CloudAccountsMaasCreate,
+    v1CloudAccountsMaasDelete,
+    v1CloudAccountsMaasGet,
+    v1CloudAccountsMaasPatch,
+    v1CloudAccountsMaasUpdate,
+    v1MaasAccountsUidAzs,
+    v1MaasAccountsUidDomains,
+    v1MaasAccountsUidPools,
+    v1MaasAccountsUidSubnets,
+    v1MaasAccountsUidTags,
+    v1CloudAccountsOpenStackList,
+    v1CloudAccountsOpenStackCreate,
+    v1CloudAccountsOpenStackDelete,
+    v1CloudAccountsOpenStackGet,
+    v1CloudAccountsOpenStackUpdate,
+    v1OpenstackAccountsUidAzs,
+    v1OpenstackAccountsUidFlavors,
+    v1OpenstackAccountsUidKeypairs,
+    v1OpenstackAccountsUidNetworks,
+    v1OpenstackAccountsUidProjects,
+    v1OpenstackAccountsUidRegions,
+    v1CloudAccountsListSummary,
+    v1CloudAccountsVsphereList,
+    v1CloudAccountsVsphereCreate,
+    v1CloudAccountsVsphereDelete,
+    v1CloudAccountsVsphereGet,
+    v1CloudAccountsVsphereUpdate,
+    v1VsphereAccountsUidClusterRes,
+    v1VsphereAccountsUidDatacenters,
+    v1AccountsGeolocationPatch,
+    v1CloudConfigsAksGet,
+    v1CloudConfigsAksUidClusterConfig,
+    v1CloudConfigsAksMachinePoolCreate,
+    v1CloudConfigsAksMachinePoolDelete,
+    v1CloudConfigsAksMachinePoolUpdate,
+    v1CloudConfigsAksPoolMachinesList,
+    v1CloudConfigsAksPoolMachinesAdd,
+    v1CloudConfigsAksPoolMachinesUidDelete,
+    v1CloudConfigsAksPoolMachinesUidGet,
+    v1CloudConfigsAksPoolMachinesUidUpdate,
+    v1CloudConfigsAwsGet,
+    v1CloudConfigsAwsUidClusterConfig,
+    v1AwsCloudConfigsUidHybridConfig,
+    v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate,
+    v1AwsCloudConfigsEdgeNativeMachinePoolDelete,
+    v1AwsCloudConfigsEdgeNativeMachinePoolGet,
+    v1AwsCloudConfigsEdgeNativeMachinePoolUpdate,
+    v1CloudConfigsAwsMachinePoolCreate,
+    v1CloudConfigsAwsMachinePoolDelete,
+    v1CloudConfigsAwsMachinePoolUpdate,
+    v1CloudConfigsAwsPoolMachinesList,
+    v1CloudConfigsAwsPoolMachinesAdd,
+    v1CloudConfigsAwsPoolMachinesUidDelete,
+    v1CloudConfigsAwsPoolMachinesUidGet,
+    v1CloudConfigsAwsPoolMachinesUidUpdate,
+    v1CloudConfigsAzureGet,
+    v1CloudConfigsAzureUidClusterConfig,
+    v1CloudConfigsAzureMachinePoolCreate,
+    v1CloudConfigsAzureMachinePoolDelete,
+    v1CloudConfigsAzureMachinePoolUpdate,
+    v1CloudConfigsAzurePoolMachinesList,
+    v1CloudConfigsAzurePoolMachinesAdd,
+    v1CloudConfigsAzurePoolMachinesUidDelete,
+    v1CloudConfigsAzurePoolMachinesUidGet,
+    v1CloudConfigsAzurePoolMachinesUidUpdate,
+    v1CloudConfigsCustomGet,
+    v1CloudConfigsCustomUidClusterConfig,
+    v1CloudConfigsCustomMachinePoolCreate,
+    v1CloudConfigsCustomMachinePoolDelete,
+    v1CloudConfigsCustomMachinePoolUpdate,
+    v1CloudConfigsCustomPoolMachinesList,
+    v1CloudConfigsCustomPoolMachinesAdd,
+    v1CloudConfigsCustomPoolMachinesUidDelete,
+    v1CloudConfigsCustomPoolMachinesUidGet,
+    v1CloudConfigsCustomPoolMachinesUidUpdate,
+    v1CloudConfigsEdgeNativeGet,
+    v1CloudConfigsEdgeNativeUidClusterConfig,
+    v1CloudConfigsEdgeNativeMachinePoolCreate,
+    v1CloudConfigsEdgeNativeMachinePoolDelete,
+    v1CloudConfigsEdgeNativeMachinePoolUpdate,
+    v1CloudConfigsEdgeNativePoolMachinesList,
+    v1CloudConfigsEdgeNativePoolMachinesAdd,
+    v1CloudConfigsEdgeNativePoolMachinesUidDelete,
+    v1CloudConfigsEdgeNativePoolMachinesUidGet,
+    v1CloudConfigsEdgeNativePoolMachinesUidUpdate,
+    v1CloudConfigsEksGet,
+    v1CloudConfigsEksUidClusterConfig,
+    v1CloudConfigsEksUidFargateProfilesUpdate,
+    v1CloudConfigsEksMachinePoolCreate,
+    v1CloudConfigsEksMachinePoolDelete,
+    v1CloudConfigsEksMachinePoolUpdate,
+    v1CloudConfigsEksPoolMachinesList,
+    v1CloudConfigsEksPoolMachinesAdd,
+    v1CloudConfigsEksPoolMachinesUidDelete,
+    v1CloudConfigsEksPoolMachinesUidGet,
+    v1CloudConfigsEksPoolMachinesUidUpdate,
+    v1CloudConfigsGcpGet,
+    v1CloudConfigsGcpUidClusterConfig,
+    v1CloudConfigsGcpMachinePoolCreate,
+    v1CloudConfigsGcpMachinePoolDelete,
+    v1CloudConfigsGcpMachinePoolUpdate,
+    v1CloudConfigsGcpPoolMachinesList,
+    v1CloudConfigsGcpPoolMachinesAdd,
+    v1CloudConfigsGcpPoolMachinesUidDelete,
+    v1CloudConfigsGcpPoolMachinesUidGet,
+    v1CloudConfigsGcpPoolMachinesUidUpdate,
+    v1CloudConfigsGenericGet,
+    v1CloudConfigsGenericUidClusterConfig,
+    v1CloudConfigsGenericMachinePoolCreate,
+    v1CloudConfigsGenericMachinePoolDelete,
+    v1CloudConfigsGenericMachinePoolUpdate,
+    v1CloudConfigsGenericPoolMachinesList,
+    v1CloudConfigsGenericPoolMachinesAdd,
+    v1CloudConfigsGenericPoolMachinesUidDelete,
+    v1CloudConfigsGenericPoolMachinesUidGet,
+    v1CloudConfigsGenericPoolMachinesUidUpdate,
+    v1CloudConfigsGkeGet,
+    v1CloudConfigsGkeUidClusterConfig,
+    v1CloudConfigsGkeMachinePoolCreate,
+    v1CloudConfigsGkeMachinePoolDelete,
+    v1CloudConfigsGkeMachinePoolUpdate,
+    v1CloudConfigsGkePoolMachinesList,
+    v1CloudConfigsGkePoolMachinesAdd,
+    v1CloudConfigsGkePoolMachinesUidDelete,
+    v1CloudConfigsGkePoolMachinesUidGet,
+    v1CloudConfigsGkePoolMachinesUidUpdate,
+    v1CloudConfigsMaasGet,
+    v1CloudConfigsMaasUidClusterConfig,
+    v1CloudConfigsMaasMachinePoolCreate,
+    v1CloudConfigsMaasMachinePoolDelete,
+    v1CloudConfigsMaasMachinePoolUpdate,
+    v1CloudConfigsMaasPoolMachinesList,
+    v1CloudConfigsMaasPoolMachinesAdd,
+    v1CloudConfigsMaasPoolMachinesUidDelete,
+    v1CloudConfigsMaasPoolMachinesUidGet,
+    v1CloudConfigsMaasPoolMachinesUidUpdate,
+    v1CloudConfigsOpenStackGet,
+    v1CloudConfigsOpenStackUidClusterConfig,
+    v1CloudConfigsOpenStackMachinePoolCreate,
+    v1CloudConfigsOpenStackMachinePoolDelete,
+    v1CloudConfigsOpenStackMachinePoolUpdate,
+    v1CloudConfigsOpenStackPoolMachinesList,
+    v1CloudConfigsOpenStackPoolMachinesAdd,
+    v1CloudConfigsOpenStackPoolMachinesUidDelete,
+    v1CloudConfigsOpenStackPoolMachinesUidGet,
+    v1CloudConfigsOpenStackPoolMachinesUidUpdate,
+    v1CloudConfigsVirtualGet,
+    v1CloudConfigsVirtualUidClusterConfig,
+    v1CloudConfigsVirtualMachinePoolCreate,
+    v1CloudConfigsVirtualMachinePoolDelete,
+    v1CloudConfigsVirtualMachinePoolUpdate,
+    v1CloudConfigsVirtualPoolMachinesList,
+    v1CloudConfigsVirtualPoolMachinesAdd,
+    v1CloudConfigsVirtualPoolMachinesUidDelete,
+    v1CloudConfigsVirtualPoolMachinesUidGet,
+    v1CloudConfigsVirtualPoolMachinesUidUpdate,
+    v1CloudConfigsVirtualUidUpdate,
+    v1CloudConfigsVsphereGet,
+    v1CloudConfigsVsphereUidClusterConfig,
+    v1CloudConfigsVsphereMachinePoolCreate,
+    v1CloudConfigsVsphereMachinePoolDelete,
+    v1CloudConfigsVsphereMachinePoolUpdate,
+    v1CloudConfigsVspherePoolMachinesList,
+    v1CloudConfigsVspherePoolMachinesAdd,
+    v1CloudConfigsVspherePoolMachinesUidDelete,
+    v1CloudConfigsVspherePoolMachinesUidGet,
+    v1CloudConfigsVspherePoolMachinesUidUpdate,
+    v1CloudConfigsMachinePoolsMachineUidMaintenanceUpdate,
+    v1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate,
+    v1CloudConfigsMachinePoolsMachineUidsGet,
+    v1AwsAccountSecretCredentials,
+    v1AwsAccountStsGet,
+    v1AwsAccountValidate,
+    v1AwsAmiTypes,
+    v1CloudsAwsCloudWatchValidate,
+    v1AwsCloudCost,
+    v1AwsVolumeSizeGet,
+    v1AwsIamPolicies,
+    v1AwsPolicyArnsValidate,
+    v1AwsPropertiesValidate,
+    v1AwsRegions,
+    v1AwsZones,
+    v1AwsCopyImageFromDefaultRegion,
+    v1AwsClusterNameValidate,
+    v1AwsFindImage,
+    v1AwsInstanceTypes,
+    v1AwsKeyPairs,
+    v1AwsKeyPairValidate,
+    v1AwsKmsKeyGet,
+    v1AwsKmsKeys,
+    v1AwsKmsKeyValidate,
+    v1AwsStorageTypes,
+    v1AwsVpcs,
+    v1AwsS3Validate,
+    v1AwsSecurityGroups,
+    v1AwsVolumeTypesGet,
+    v1AzureAccountValidate,
+    v1AzureGroups,
+    v1AzureRegions,
+    v1AzureInstanceTypes,
+    v1AzureStorageTypes,
+    v1AzureClusterNameValidate,
+    v1AzureVirtualNetworkList,
+    v1AzureResourceGroupList,
+    v1AzureZones,
+    v1AzurePrivateDnsZones,
+    v1AzureStorageAccounts,
+    v1AzureStorageContainers,
+    v1AzureStorageAccountTypes,
+    v1AzureSubscriptionList,
+    v1AzureVhdUrl,
+    v1CustomCloudTypesGet,
+    v1CustomCloudTypeRegister,
+    v1CustomCloudTypesDelete,
+    v1CustomCloudTypeCloudAccountKeysGet,
+    v1CustomCloudTypeCloudAccountKeysUpdate,
+    v1CustomCloudTypeBootstrapDelete,
+    v1CustomCloudTypeBootstrapGet,
+    v1CustomCloudTypeBootstrapUpdate,
+    v1CustomCloudTypeCloudProviderDelete,
+    v1CustomCloudTypeCloudProviderGet,
+    v1CustomCloudTypeCloudProviderUpdate,
+    v1CustomCloudTypeControlPlaneDelete,
+    v1CustomCloudTypeControlPlaneGet,
+    v1CustomCloudTypeControlPlaneUpdate,
+    v1CustomCloudTypeCoreDelete,
+    v1CustomCloudTypeCoreGet,
+    v1CustomCloudTypeCoreUpdate,
+    v1CustomCloudTypeClusterTemplateDelete,
+    v1CustomCloudTypeClusterTemplateGet,
+    v1CustomCloudTypeClusterTemplateUpdate,
+    v1CustomCloudTypeControlPlanePoolTemplateDelete,
+    v1CustomCloudTypeControlPlanePoolTemplateGet,
+    v1CustomCloudTypeControlPlanePoolTemplateUpdate,
+    v1CustomCloudTypeWorkerPoolTemplateDelete,
+    v1CustomCloudTypeWorkerPoolTemplateGet,
+    v1CustomCloudTypeWorkerPoolTemplateUpdate,
+    v1CustomCloudTypeLogoGet,
+    v1CustomCloudTypeLogoUpdate,
+    v1CustomCloudTypeMetaGet,
+    v1CustomCloudTypeMetaUpdate,
+    v1EksPropertiesValidate,
+    v1GcpAccountValidate,
+    v1GcpAzValidate,
+    v1GcpBucketNameValidate,
+    v1GcpContainerImageValidate,
+    v1GcpImageUrl,
+    v1GcpProjects,
+    v1GcpRegions,
+    v1GcpNetworks,
+    v1GcpZones,
+    v1GcpProjectValidate,
+    v1GcpAvailabilityZones,
+    v1GcpPropertiesValidate,
+    v1GcpInstanceTypes,
+    v1GcpStorageTypes,
+    v1MaasAccountValidate,
+    v1MaasZonesGet,
+    v1MaasDomainsGet,
+    v1MaasPoolsGet,
+    v1MaasSubnetsGet,
+    v1MaasTagsGet,
+    v1OpenStackAccountValidate,
+    v1OpenStackAzsGet,
+    v1OpenStackFlavorsGet,
+    v1OpenStackKeypairsGet,
+    v1OpenStackNetworksGet,
+    v1OpenStackProjectsGet,
+    v1OpenStackRegionsGet,
+    v1VsphereAccountValidate,
+    v1VsphereDatacenters,
+    v1VsphereComputeClusterResources,
+    v1VsphereEnv,
+    v1CloudComputeRate,
+    v1CloudStorageRate,
+    v1ClusterGroupsCreate,
+    v1ClusterGroupsDeveloperCreditUsageGet,
+    v1ClusterGroupsHostClusterSummary,
+    v1ClusterGroupsHostClusterMetadata,
+    v1ClusterGroupsValidateName,
+    v1ClusterGroupsUidDelete,
+    v1ClusterGroupsUidGet,
+    v1ClusterGroupsUidHostClusterUpdate,
+    v1ClusterGroupsUidMetaUpdate,
+    v1ClusterGroupsUidPacksResolvedValuesGet,
+    v1ClusterGroupsUidProfilesGet,
+    v1ClusterGroupsUidProfilesUpdate,
+    v1ClusterProfilesCreate,
+    v1ClusterProfilesBulkDelete,
+    v1ClusterProfilesImport,
+    v1ClusterProfilesImportFile,
+    v1ClusterProfilesImportValidate,
+    v1MacrosList,
+    v1ClusterProfilesValidateNameVersion,
+    v1ClusterProfilesValidatePacks,
+    v1ClusterProfilesDelete,
+    v1ClusterProfilesGet,
+    v1ClusterProfilesUpdate,
+    v1ClusterProfilesUidClone,
+    v1ClusterProfilesUidCloneValidate,
+    v1ClusterProfilesUidExport,
+    v1ClusterProfilesUidExportTerraform,
+    v1ClusterProfilesUidMetadataUpdate,
+    v1ClusterProfilesPacksRefUpdate,
+    v1ClusterProfilesUidPacksGet,
+    v1ClusterProfilesUidPacksAdd,
+    v1ClusterProfilesUidPacksManifestsGet,
+    v1ClusterProfilesUidPacksResolvedValuesGet,
+    v1ClusterProfilesUidPacksNameDelete,
+    v1ClusterProfilesUidPacksNameGet,
+    v1ClusterProfilesUidPacksNameUpdate,
+    v1ClusterProfilesUidPacksConfigGet,
+    v1ClusterProfilesUidPacksUidManifests,
+    v1ClusterProfilesUidPacksNameManifestsAdd,
+    v1ClusterProfilesUidPacksNameManifestsUidDelete,
+    v1ClusterProfilesUidPacksNameManifestsUidGet,
+    v1ClusterProfilesUidPacksNameManifestsUidUpdate,
+    v1ClusterProfilesPublish,
+    v1ClusterProfilesUidSpcDownload,
+    v1ClusterProfilesUidValidatePacks,
+    v1ClusterProfilesUidVariablesDelete,
+    v1ClusterProfilesUidVariablesGet,
+    v1ClusterProfilesUidVariablesPatch,
+    v1ClusterProfilesUidVariablesPut,
+    v1DashboardAppDeployments,
+    v1DashboardAppProfiles,
+    v1DashboardAppProfilesMetadata,
+    v1EdgeHostsMetadata,
+    v1DashboardCloudAccountsMetadata,
+    v1ClusterGroupUidHostClustersSummary,
+    v1ClusterGroupUidVirtualClustersSummary,
+    v1ClusterProfilesFilterSummary,
+    v1ClusterProfilesMetadata,
+    v1ClusterProfilesUidSummary,
+    v1DashboardEdgehostsSearch,
+    v1DashboardEdgehostsSearchSchemaGet,
+    v1DashboardPcgsSearchSummary,
+    v1DashboardPcgSearchSchemaGet,
+    v1ProjectsFilterSummary,
+    v1ProjectsMetadata,
+    v1DashboardSpectroClustersCostSummary,
+    v1SpectroClustersFiltersWorkspace,
+    v1SpectroClustersMetaGet,
+    v1SpectroClustersMetadataGet,
+    v1SpectroClustersMetadata,
+    v1SpectroClustersMetadataSearch,
+    v1SpectroClustersMetadataSearchSchema,
+    v1DashboardSpectroClustersRepaveList,
+    v1SpectroClustersResourcesConsumption,
+    v1SpectroClustersResourcesCostSummary,
+    v1SpectroClustersResourcesUsageSummary,
+    v1SpectroClustersSearchFilterSummary,
+    v1DashboardClustersSearchSummaryExportGet,
+    v1DashboardClustersSearchSummaryExport,
+    v1DashboardSpectroClustersSearchInput,
+    v1SpectroClustersSearchSchema,
+    v1DashboardVMEnabledClustersList,
+    v1SpectroClustersSummaryUid,
+    v1SpectroClustersUidCostSummary,
+    v1SpectroClustersSummaryUidOverview,
+    v1SpectroClustersUidResourcesConsumption,
+    v1DashboardSpectroClustersUidWorkloads,
+    v1DashboardSpectroClustersUidWorkloadsClusterRoleBinding,
+    v1DashboardSpectroClustersUidWorkloadsCronJob,
+    v1DashboardSpectroClustersUidWorkloadsDaemonSet,
+    v1DashboardSpectroClustersUidWorkloadsDeployment,
+    v1DashboardSpectroClustersUidWorkloadsJob,
+    v1DashboardSpectroClustersUidWorkloadsNamespace,
+    v1DashboardSpectroClustersUidWorkloadsPod,
+    v1DashboardSpectroClustersUidWorkloadsRoleBinding,
+    v1DashboardSpectroClustersUidWorkloadsStatefulSet,
+    v1DashboardWorkspacesList,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsCronJob,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSet,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsDeployment,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsJob,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsNamespace,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsPod,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding,
+    v1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet,
+    v1DataSinksCloudWatchSink,
+    v1EdgeHostDevicesCreate,
+    v1EdgeHostsMetadataQuickFilterGet,
+    v1EdgeHostDevicesRegister,
+    v1EdgeHostsTagsGet,
+    v1EdgeTokensList,
+    v1EdgeTokensCreate,
+    v1EdgeTokensUidDelete,
+    v1EdgeTokensUidGet,
+    v1EdgeTokensUidUpdate,
+    v1EdgeTokensUidState,
+    v1EdgeHostDevicesUidDelete,
+    v1EdgeHostDevicesUidGet,
+    v1EdgeHostDevicesUidUpdate,
+    v1EdgeHostDevicesUidClusterDeassociate,
+    v1EdgeHostDevicesUidClusterAssociate,
+    v1EdgeHostDevicesUidConfigGet,
+    v1EdgeHostDevicesHealthUpdate,
+    v1EdgeHostDeviceHostCheckSumUpdate,
+    v1EdgeHostDeviceHostPairingKeyUpdate,
+    v1EdgeHostDevicesUidMetaUpdate,
+    v1EdgeHostDevicesUidPackManifestsUidGet,
+    v1EdgeHostDevicesUidPacksStatusPatch,
+    v1EdgeHostDevicesUidProfilesGet,
+    v1EdgeHostDevicesUidProfilesUpdate,
+    v1EdgeHostsUidReset,
+    v1EdgeHostDevicesUidSpcDownload,
+    v1EdgeHostDevicesUidTunnelConfigUpdate,
+    v1EdgeHostDevicesUidTunnelStatusUpdate,
+    v1EdgeHostDevicesUidVspherePropertiesUpdate,
+    v1EventsComponentsList,
+    v1EventsComponentsCreate,
+    v1EventsComponentsCreateBulk,
+    v1EventsComponentsObjTypeUidDelete,
+    v1EventsComponentsObjTypeUidList,
+    v1FeaturesList,
+    v1FeaturesUpdate,
+    v1FiltersList,
+    v1FiltersMetadata,
+    v1TagFiltersCreate,
+    v1TagFilterUidDelete,
+    v1TagFilterUidGet,
+    v1TagFilterUidUpdate,
+    v1MetricsList,
+    v1MetricsUidDelete,
+    v1MetricsUidList,
+    v1NotificationsList,
+    v1NotificationsEventCreate,
+    v1NotificationsObjTypeUidList,
+    v1NotificationsUidAck,
+    v1NotificationsUidDone,
+    v1OverlordsList,
+    v1OverlordsMaasManifest,
+    v1OverlordsUidMaasAccountCreate,
+    v1OverlordsUidMaasAccountUpdate,
+    v1OverlordsUidMaasAccountValidate,
+    v1OverlordsUidMaasCloudConfigCreate,
+    v1OverlordsUidMaasCloudConfigUpdate,
+    v1OverlordsUidMaasClusterProfile,
+    v1OverlordsMigrate,
+    v1OverlordsOpenStackManifest,
+    v1OverlordsUidOpenStackAccountCreate,
+    v1OverlordsUidOpenStackAccountUpdate,
+    v1OverlordsUidOpenStackAccountValidate,
+    v1OverlordsUidOpenStackCloudConfigCreate,
+    v1OverlordsUidOpenStackCloudConfigUpdate,
+    v1OverlordsUidOpenStackClusterProfile,
+    v1OverlordsPairingCode,
+    v1OverlordsVsphereManifest,
+    v1OverlordsVsphereOvaGet,
+    v1OverlordsUidVsphereAccountCreate,
+    v1OverlordsUidVsphereAccountUpdate,
+    v1OverlordsUidVsphereAccountValidate,
+    v1OverlordsUidVsphereCloudConfigCreate,
+    v1OverlordsUidVsphereCloudConfigUpdate,
+    v1OverlordsUidVsphereClusterProfile,
+    v1OverlordsUidPoolsList,
+    v1OverlordsUidPoolCreate,
+    v1OverlordsUidPoolDelete,
+    v1OverlordsUidPoolUpdate,
+    v1OverlordsUidVsphereComputeclusterRes,
+    v1OverlordsUidVsphereDatacenters,
+    v1OverlordsUidDelete,
+    v1OverlordsUidGet,
+    v1OverlordsUidMetadataUpdate,
+    v1OverlordsUidReset,
+    v1PacksSummaryList,
+    v1PacksSearch,
+    v1PacksNameRegistryUidList,
+    v1PacksPackUidLogo,
+    v1PacksUid,
+    v1PacksUidReadme,
+    v1PcgSelfHosted,
+    v1PcgUidRegister,
+    v1PcgUidAllyManifestGet,
+    v1PcgUidJetManifestGet,
+    v1PermissionsList,
+    v1ProjectsCreate,
+    v1ProjectsAlerts,
+    v1ProjectsUidDelete,
+    v1ProjectsUidGet,
+    v1ProjectsUidUpdate,
+    v1ProjectsUidAlertDelete,
+    v1ProjectsUidAlertCreate,
+    v1ProjectsUidAlertUpdate,
+    v1ProjectsUidAlertsUidDelete,
+    v1ProjectsUidAlertsUidGet,
+    v1ProjectsUidAlertsUidUpdate,
+    v1ProjectsUidMacrosDeleteByMacroName,
+    v1ProjectsUidMacrosList,
+    v1ProjectsUidMacrosUpdateByMacroName,
+    v1ProjectsUidMacrosCreate,
+    v1ProjectsUidMacrosUpdate,
+    v1ProjectsUidMetaUpdate,
+    v1ProjectClusterSettingsGet,
+    v1ProjectClustersNodesAutoRemediationSettingUpdate,
+    v1ProjectsUidTeamsUpdate,
+    v1ProjectsUidUsersUpdate,
+    v1ProjectsUidValidate,
+    v1RegistriesHelmList,
+    v1RegistriesHelmCreate,
+    v1RegistriesHelmSummaryList,
+    v1RegistriesHelmValidate,
+    v1RegistriesHelmUidDelete,
+    v1RegistriesHelmUidGet,
+    v1RegistriesHelmUidUpdate,
+    v1RegistriesHelmUidSync,
+    v1RegistriesHelmUidSyncStatus,
+    v1RegistriesMetadata,
+    v1BasicOciRegistriesCreate,
+    v1BasicOciRegistriesValidate,
+    v1EcrRegistriesCreate,
+    v1EcrRegistriesValidate,
+    v1OciImageRegistryGet,
+    v1OciRegistriesSummary,
+    v1OciRegistriesGet,
+    v1BasicOciRegistriesUidDelete,
+    v1BasicOciRegistriesUidGet,
+    v1BasicOciRegistriesUidUpdate,
+    v1BasicOciRegistriesUidSync,
+    v1BasicOciRegistriesUidSyncStatus,
+    v1EcrRegistriesUidDelete,
+    v1EcrRegistriesUidGet,
+    v1EcrRegistriesUidUpdate,
+    v1EcrRegistriesUidSync,
+    v1EcrRegistriesUidSyncStatus,
+    v1RegistriesPackList,
+    v1RegistriesPackCreate,
+    v1RegistriesPackSummaryList,
+    v1RegistriesPackValidate,
+    v1RegistriesPackUidDelete,
+    v1RegistriesPackUidGet,
+    v1RegistriesPackUidUpdate,
+    v1RegistriesPackUidSync,
+    v1RegistriesPackUidSyncStatus,
+    v1RegistriesNameConfigGet,
+    v1RegistriesUidDelete,
+    v1RolesList,
+    v1RolesCreate,
+    v1RolesUidDelete,
+    v1RolesUidGet,
+    v1RolesUidUpdate,
+    v1RolesClone,
+    v1ServiceVersionGet,
+    v1ServiceManifestGet,
+    v1SpectroClustersAksCreate,
+    v1SpectroClustersAksRate,
+    v1SpectroClustersAksValidate,
+    v1SpectroClustersAwsCreate,
+    v1SpectroClustersAwsImport,
+    v1SpectroClustersAwsRate,
+    v1SpectroClustersAwsValidate,
+    v1SpectroClustersAzureCreate,
+    v1SpectroClustersAzureImport,
+    v1SpectroClustersAzureRate,
+    v1SpectroClustersAzureValidate,
+    v1SpectroClustersCustomCreate,
+    v1SpectroClustersCustomValidate,
+    v1SpectroClustersConfigEdgeInstaller,
+    v1SpectroClustersEdgeNativeCreate,
+    v1SpectroClustersEdgeNativeImport,
+    v1SpectroClustersEdgeNativeRate,
+    v1SpectroClustersEdgeNativeValidate,
+    v1SpectroClustersEksCreate,
+    v1SpectroClustersEksRate,
+    v1SpectroClustersEksValidate,
+    v1ClusterFeatureBackupLocationUidGet,
+    v1ClusterFeatureBackupLocationUidChange,
+    v1ClusterFeatureLogFetcherLogDownload,
+    v1ClusterFeatureLogFetcherLogUpdate,
+    v1SpectroClustersGcpCreate,
+    v1SpectroClustersGcpImport,
+    v1SpectroClustersGcpRate,
+    v1SpectroClustersGcpValidate,
+    v1SpectroClustersGenericImport,
+    v1SpectroClustersGenericRate,
+    v1SpectroClustersGkeCreate,
+    v1SpectroClustersGkeRate,
+    v1SpectroClustersGkeValidate,
+    v1SpectroClustersMaasCreate,
+    v1SpectroClustersMaasImport,
+    v1SpectroClustersMaasRate,
+    v1SpectroClustersMaasValidate,
+    v1SpectroClustersOpenStackCreate,
+    v1SpectroClustersOpenStackImport,
+    v1SpectroClustersOpenStackRate,
+    v1SpectroClustersOpenStackValidate,
+    v1SpectroClustersSpcDownload,
+    v1SpectroClustersTagsGet,
+    v1SpectroClustersUpgradeSettingsGet,
+    v1SpectroClustersUpgradeSettings,
+    v1SpectroClustersValidateName,
+    v1SpectroClustersValidatePacks,
+    v1SpectroClustersVirtualCreate,
+    v1VirtualClustersPacksValues,
+    v1SpectroClustersVirtualValidate,
+    v1SpectroClustersVsphereCreate,
+    v1SpectroClustersVsphereImport,
+    v1SpectroClustersVsphereRate,
+    v1SpectroClustersVsphereValidate,
+    v1SpectroClustersDelete,
+    v1SpectroClustersGet,
+    v1SpectroClustersUidAssetsGet,
+    v1SpectroClustersUidAssets,
+    v1SpectroClustersUidAdminKubeConfig,
+    v1SpectroClustersUidTokenKubeConfigDelete,
+    v1SpectroClustersUidTokenKubeConfigGet,
+    v1SpectroClustersUidTokenKubeConfigUpdate,
+    v1SpectroClustersUidFrpKubeConfigDelete,
+    v1SpectroClustersUidFrpKubeConfigGet,
+    v1SpectroClustersUidFrpKubeConfigUpdate,
+    v1SpectroClustersUidKubeConfig,
+    v1SpectroClustersUidKubeConfigUpdate,
+    v1SpectroClustersUidKubeConfigClientDelete,
+    v1SpectroClustersUidKubeConfigClientGet,
+    v1SpectroClustersUidKubeConfigClientUpdate,
+    v1SpectroClustersUidManifestGet,
+    v1SpectroClustersUidManifestUpdate,
+    v1SpectroClustersUidClusterMetaAttributeUpdate,
+    v1ControlPlaneHealthCheckTimeoutUpdate,
+    v1HostClusterConfigUpdate,
+    v1SpectroClustersUidLifecycleConfigUpdate,
+    v1SpectroClustersUidOsPatchUpdate,
+    v1SpectroClustersUidConfigNamespacesGet,
+    v1SpectroClustersUidConfigNamespacesUpdate,
+    v1SpectroClustersUidConfigNamespacesUidGet,
+    v1SpectroClustersUidConfigNamespacesUidUpdate,
+    v1SpectroClustersUidConfigRbacsGet,
+    v1SpectroClustersUidConfigRbacsUpdate,
+    v1SpectroClustersUidConfigRbacsUidGet,
+    v1SpectroClustersUidConfigRbacsUidUpdate,
+    v1SpectroClustersUidDownload,
+    v1EdgeNativeClustersHostsList,
+    v1SpectroClustersUidEdgeReset,
+    v1ClusterFeatureBackupScheduleReset,
+    v1ClusterFeatureBackupGet,
+    v1ClusterFeatureBackupCreate,
+    v1ClusterFeatureBackupUpdate,
+    v1ClusterFeatureBackupOnDemandCreate,
+    v1ClusterFeatureBackupDelete,
+    v1ClusterFeatureComplianceScanGet,
+    v1ClusterFeatureComplianceScanCreate,
+    v1ClusterFeatureComplianceScanUpdate,
+    v1ClusterFeatureComplianceScanLogsGet,
+    v1ClusterFeatureScanKubeBenchLogUpdate,
+    v1ClusterFeatureScanKubeHunterLogUpdate,
+    v1ClusterFeatureScanSonobuoyLogUpdate,
+    v1ClusterFeatureScanSyftLogUpdate,
+    v1ClusterFeatureComplianceScanLogDelete,
+    v1ClusterFeatureKubeBenchLogGet,
+    v1ClusterFeatureKubeHunterLogGet,
+    v1ClusterFeatureSonobuoyLogGet,
+    v1ClusterFeatureSyftLogGet,
+    v1SyftScanLogImageSBOMGet,
+    v1ClusterFeatureDriverLogDownload,
+    v1ClusterFeatureComplianceScanOnDemandCreate,
+    v1ClusterFeatureHelmChartsGet,
+    v1ClusterFeatureLogFetcherGet,
+    v1ClusterFeatureLogFetcherCreate,
+    v1ClusterFeatureManifestsGet,
+    v1ClusterFeatureRestoreGet,
+    v1ClusterFeatureRestoreOnDemandCreate,
+    v1SpectroClustersUidHeartbeatUpdate,
+    v1SpectroClustersGetHybridPoolsMetadata,
+    v1SpectroClustersUidHybridSettings,
+    v1SpectroClustersUidImportManifest,
+    v1SpectroClustersUidImportUpgradePatch,
+    v1SpectroClustersK8Certificate,
+    v1SpectroClustersK8CertificateUpdate,
+    v1SpectroClustersCertificatesRenew,
+    v1SpectroClustersUidKubeCtlRedirect,
+    v1SpectroClustersUidLocationPut,
+    v1SpectroClustersUidMetadataUpdate,
+    v1ClusterNamespacesGet,
+    v1SpectroClustersUidOIDC,
+    v1SpectroClustersUidOIDCDashboardUrl,
+    v1SpectroClustersUidPackManifestsUidGet,
+    v1SpectroClustersUidPackProperties,
+    v1SpectroClustersPacksRefUpdate,
+    v1SpectroClustersUidPacksResolvedValuesGet,
+    v1SpectroClustersUidPacksStatusPatch,
+    v1SpectroClustersGetProfileUpdates,
+    v1SpectroClustersDeleteProfiles,
+    v1SpectroClustersGetProfiles,
+    v1SpectroClustersPatchProfiles,
+    v1SpectroClustersUpdateProfiles,
+    v1SpectroClustersGetProfilesPacksManifests,
+    v1SpectroClustersUidProfilesUidPacksConfigGet,
+    v1SpectroClustersProfilesUidPackManifestsGet,
+    v1SpectroClustersProfilesUidPackManifestsUpdate,
+    v1SpectroClustersUidRate,
+    v1SpectroClustersUidRepaveApproveUpdate,
+    v1SpectroClustersUidRepaveGet,
+    v1SpectroClustersUidReset,
+    v1SpectroClustersUidStatus,
+    v1SpectroClustersUpdateStatusCondition,
+    v1SpectroClustersUpdateStatusConditions,
+    v1SpectroClustersUpdateStatusEndpoints,
+    v1SpectroClustersUpdateStatusImported,
+    v1SpectroClustersUpdateStatusServices,
+    v1SpectroClustersUidStatusSpcApplyGet,
+    v1SpectroClustersUidStatusSpcApply,
+    v1SpectroClustersUidStatusSpcPatchTime,
+    v1SpectroClustersUidUpgradesPut,
+    v1SpectroClustersUidUpgradeSettings,
+    v1SpectroClustersUidValidatePacks,
+    v1SpectroClustersUidValidateRepave,
+    v1SpectroClustersUidVariablesGet,
+    v1SpectroClustersUidVariablesPatch,
+    v1SpectroClustersVMList,
+    v1SpectroClustersVMCreate,
+    v1ClusterVMSnapshotsList,
+    v1SpectroClustersVMDelete,
+    v1SpectroClustersVMGet,
+    v1SpectroClustersVMUpdate,
+    v1SpectroClustersVMAddVolume,
+    v1SpectroClustersVMClone,
+    v1SpectroClustersVMMigrate,
+    v1SpectroClustersVMPause,
+    v1SpectroClustersVMRemoveVolume,
+    v1SpectroClustersVMRestart,
+    v1SpectroClustersVMResume,
+    v1VMSnapshotCreate,
+    v1VMSnapshotDelete,
+    v1VMSnapshotGet,
+    v1VMSnapshotUpdate,
+    v1SpectroClustersVMStart,
+    v1SpectroClustersVMStop,
+    v1SpectroClustersUidWorkloadsSync,
+    v1SpectroClustersUidWorkloadsKindSync,
+    v1SystemConfigReverseProxyGet,
+    v1SystemConfigReverseProxyUpdate,
+    v1PasswordsBlockListDelete,
+    v1PasswordsBlockListUpdate,
+    v1TeamsList,
+    v1TeamsCreate,
+    v1TeamsSummaryGet,
+    v1TeamsUidDelete,
+    v1TeamsUidGet,
+    v1TeamsUidPatch,
+    v1TeamsUidUpdate,
+    v1TeamsProjectRoles,
+    v1TeamsProjectRolesPut,
+    v1TeamsUidResourceRoles,
+    v1TeamsUidResourceRolesCreate,
+    v1TeamsUidResourceRolesUidDelete,
+    v1TeamsResourceRolesUidUpdate,
+    v1TeamsUidTenantRolesGet,
+    v1TeamsUidTenantRolesUpdate,
+    v1PatchTenantAddress,
+    v1TenantUIdAssetsCertsList,
+    v1TenantUidAssetsCertsCreate,
+    v1TenantUidAssetsCertsUidDelete,
+    v1TenantUidAssetsCertsUidGet,
+    v1TenantUidAssetsCertsUidUpdate,
+    v1TenantUidAssetsDataSinksDelete,
+    v1TenantUidAssetsDataSinksGet,
+    v1TenantUidAssetsDataSinksCreate,
+    v1TenantUidAssetsDataSinksUpdate,
+    v1TenantUidAuthTokenSettingsGet,
+    v1TenantUidAuthTokenSettingsUpdate,
+    v1TenantsUidContractAccept,
+    v1TenantsCreditAccountDelete,
+    v1TenantsCreditAccountGet,
+    v1TenantUidDomainsGet,
+    v1TenantUidDomainsUpdate,
+    v1PatchTenantEmailId,
+    v1TenantFreemiumGet,
+    v1TenantFreemiumUpdate,
+    v1TenantFreemiumUsageGet,
+    v1InvoicesUidGet,
+    v1InvoiceUidReportInvoicePdf,
+    v1InvoiceUidReportPdf,
+    v1InvoiceUidReportUsagePdf,
+    v1TenantUidLoginBannerGet,
+    v1TenantUidLoginBannerUpdate,
+    v1TenantsUidMacrosDeleteByMacroName,
+    v1TenantsUidMacrosList,
+    v1TenantsUidMacrosUpdateByMacroName,
+    v1TenantsUidMacrosCreate,
+    v1TenantsUidMacrosUpdate,
+    v1TenantUidOidcConfigGet,
+    v1TenantUidOidcConfigUpdate,
+    v1TenantUidPasswordPolicyGet,
+    v1TenantUidPasswordPolicyUpdate,
+    v1TenantPrefClusterGroupGet,
+    v1TenantPrefClusterGroupUpdate,
+    v1TenantClusterSettingsGet,
+    v1TenantClustersNodesAutoRemediationSettingUpdate,
+    v1TenantDeveloperCreditGet,
+    v1TenantDeveloperCreditUpdate,
+    v1TenantFipsSettingsGet,
+    v1TenantFipsSettingsUpdate,
+    v1RateConfigGet,
+    v1RateConfigUpdate,
+    v1TenantResourceLimitsGet,
+    v1TenantResourceLimitsUpdate,
+    v1TenantUidSamlConfigSpecGet,
+    v1TenantUidSamlConfigUpdate,
+    v1TenantUidSsoAuthProvidersGet,
+    v1TenantUidSsoAuthProvidersUpdate,
+    v1UsersList,
+    v1UsersCreate,
+    v1UsersAssetsLocationGet,
+    v1UsersAssetsLocationAzureCreate,
+    v1UsersAssetsLocationAzureGet,
+    v1UsersAssetsLocationAzureUpdate,
+    v1UsersAssetsLocationGcpCreate,
+    v1UsersAssetsLocationGcpGet,
+    v1UsersAssetsLocationGcpUpdate,
+    v1UsersAssetsLocationMinioCreate,
+    v1UsersAssetsLocationMinioGet,
+    v1UsersAssetsLocationMinioUpdate,
+    v1UsersAssetsLocationS3Create,
+    v1UsersAssetsLocationS3Delete,
+    v1UsersAssetsLocationS3Get,
+    v1UsersAssetsLocationS3Update,
+    v1UsersAssetsLocationDefaultUpdate,
+    v1UsersAssetsLocationDelete,
+    v1UsersAssetsSshGet,
+    v1UserAssetsSshCreate,
+    v1UsersAssetSshDelete,
+    v1UsersAssetSshGetUid,
+    v1UsersAssetSshUpdate,
+    v1VsphereMappingGet,
+    v1VsphereDnsMappingsGet,
+    v1VsphereDnsMappingCreate,
+    v1VsphereDnsMappingDelete,
+    v1VsphereDnsMappingGet,
+    v1VsphereDnsMappingUpdate,
+    v1UsersAuthTokensRevoke,
+    v1UsersConfigScarGet,
+    v1UsersInfoGet,
+    v1UsersKubectlSessionUid,
+    v1UsersMetadata,
+    v1UsersPasswordChange,
+    v1UsersEmailPasswordReset,
+    v1UsersSummaryGet,
+    v1UsersSystemFeature,
+    v1UsersSystemMacrosDeleteByMacroName,
+    v1UsersSystemMacrosList,
+    v1UsersSystemMacrosUpdateByMacroName,
+    v1UsersSystemMacrosCreate,
+    v1UsersSystemMacrosUpdate,
+    v1UsersUidDelete,
+    v1UsersUidGet,
+    v1UsersUidPatch,
+    v1UsersUidUpdate,
+    v1UsersUidPasswordChange,
+    v1UsersUidPasswordReset,
+    v1UsersProjectRoles,
+    v1UsersProjectRolesPut,
+    v1UsersUidResourceRoles,
+    v1UsersUidResourceRolesCreate,
+    v1UsersUidResourceRolesUidDelete,
+    v1UsersResourceRolesUidUpdate,
+    v1UsersUidRoles,
+    v1UsersUidRolesUpdate,
+    v1UsersStatusLoginMode,
+    v1WorkspacesCreate,
+    v1TeamsWorkspaceGetRoles,
+    v1TeamsWorkspaceRolesPut,
+    v1UsersWorkspaceGetRoles,
+    v1UsersWorkspaceRolesPut,
+    v1WorkspacesValidateName,
+    v1WorkspacesUidDelete,
+    v1WorkspacesUidGet,
+    v1WorkspaceOpsBackupDelete,
+    v1WorkspaceOpsBackupGet,
+    v1WorkspaceOpsBackupCreate,
+    v1WorkspaceOpsBackupUpdate,
+    v1WorkspaceOpsBackupOnDemandCreate,
+    v1WorkspacesUidClusterNamespacesUpdate,
+    v1WorkspacesClusterRbacCreate,
+    v1WorkspacesUidClusterRbacDelete,
+    v1WorkspacesUidClusterRbacUpdate,
+    v1WorkspacesUidMetaUpdate,
+    v1WorkspaceOpsRestoreGet,
+    v1WorkspaceOpsRestoreOnDemandCreate,
+  };
+};
+export type V1ApiKeysListResult = AxiosResponse<V1ApiKeys>;
+export type V1ApiKeysCreateResult = AxiosResponse<V1ApiKeyCreateResponse>;
+export type V1ApiKeysUidDeleteResult = AxiosResponse<unknown>;
+export type V1ApiKeysUidGetResult = AxiosResponse<V1ApiKey>;
+export type V1ApiKeysUidActiveStateResult = AxiosResponse<unknown>;
+export type V1ApiKeysUidUpdateResult = AxiosResponse<unknown>;
+export type V1ApiKeysUidStateResult = AxiosResponse<unknown>;
+export type V1AppDeploymentsVirtualClusterCreateResult = AxiosResponse<V1Uid>;
+export type V1AppDeploymentsClusterGroupCreateResult = AxiosResponse<V1Uid>;
+export type V1AppDeploymentsUidDeleteResult = AxiosResponse<unknown>;
+export type V1AppDeploymentsUidGetResult = AxiosResponse<V1AppDeployment>;
+export type V1AppDeploymentsUidProfileGetResult =
+  AxiosResponse<V1AppDeploymentProfileSpec>;
+export type V1AppDeploymentsUidProfileUpdateResult = AxiosResponse<unknown>;
+export type V1AppDeploymentsUidProfileApplyResult = AxiosResponse<unknown>;
+export type V1AppDeploymentsProfileTiersUidGetResult = AxiosResponse<V1AppTier>;
+export type V1AppDeploymentsProfileTiersUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1AppDeploymentsProfileTiersUidManifestsGetResult =
+  AxiosResponse<V1AppTierManifests>;
+export type V1AppDeploymentsProfileTiersManifestsUidGetResult =
+  AxiosResponse<V1Manifest>;
+export type V1AppDeploymentsProfileTiersManifestsUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1AppDeploymentsUidProfileVersionsGetResult =
+  AxiosResponse<V1AppDeploymentProfileVersions>;
+export type V1AppProfilesCreateResult = AxiosResponse<V1Uid>;
+export type V1AppProfilesMacrosListResult = AxiosResponse<V1Macros>;
+export type V1AppProfilesUidDeleteResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidGetResult = AxiosResponse<V1AppProfile>;
+export type V1AppProfilesUidUpdateResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidCloneResult = AxiosResponse<V1Uid>;
+export type V1AppProfilesUidCloneValidateResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidMetadataUpdateResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidTiersGetResult = AxiosResponse<V1AppProfileTiers>;
+export type V1AppProfilesUidTiersPatchResult = AxiosResponse<V1Uid>;
+export type V1AppProfilesUidTiersCreateResult = AxiosResponse<V1Uid>;
+export type V1AppProfilesUidTiersUidDeleteResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidTiersUidGetResult = AxiosResponse<V1AppTier>;
+export type V1AppProfilesUidTiersUidUpdateResult = AxiosResponse<unknown>;
+export type V1AppProfilesUidTiersUidManifestsGetResult =
+  AxiosResponse<V1AppTierManifests>;
+export type V1AppProfilesUidTiersUidManifestsCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1AppProfilesUidTiersUidManifestsUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1AppProfilesUidTiersUidManifestsUidGetResult =
+  AxiosResponse<V1Manifest>;
+export type V1AppProfilesUidTiersUidManifestsUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1AppProfilesUidTiersUidResolvedValuesGetResult =
+  AxiosResponse<V1AppTierResolvedValues>;
+export type V1AuditsListResult = AxiosResponse<V1Audits>;
+export type V1AuditsUidGetResult = AxiosResponse<V1Audit>;
+export type V1AuditsUidGetSysMsgResult = AxiosResponse<V1AuditSysMsg>;
+export type V1AuditsUidMsgUpdateResult = AxiosResponse<unknown>;
+export type V1AuthenticateResult = AxiosResponse<V1UserToken>;
+export type V1AuthOrgResult = AxiosResponse<V1LoginResponse>;
+export type V1OidcCallbackResult = AxiosResponse<V1UserToken>;
+export type V1OidcLogoutResult = AxiosResponse<unknown>;
+export type V1SamlCallbackResult = AxiosResponse<V1UserToken>;
+export type V1SamlLogoutResult = AxiosResponse<unknown>;
+export type V1AuthOrgsResult = AxiosResponse<V1Organizations>;
+export type V1PasswordActivateResult = AxiosResponse<unknown>;
+export type V1PasswordResetResult = AxiosResponse<unknown>;
+export type V1AuthRefreshResult = AxiosResponse<V1UserToken>;
+export type V1SsoIdpsResult = AxiosResponse<V1IdentityProviders>;
+export type V1SsoLoginsResult = AxiosResponse<V1SsoLogins>;
+export type V1AuthSsoProvidersResult = AxiosResponse<V1SsoLogins>;
+export type V1SsoCallbackResult = AxiosResponse<V1UserToken>;
+export type V1AuthUserOrgForgotResult = AxiosResponse<unknown>;
+export type V1PasswordResetRequestResult = AxiosResponse<unknown>;
+export type V1CloudAccountsAwsListResult = AxiosResponse<V1AwsAccounts>;
+export type V1CloudAccountsAwsCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsAwsDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsAwsGetResult = AxiosResponse<V1AwsAccount>;
+export type V1CloudAccountsAwsUpdateResult = AxiosResponse<unknown>;
+export type V1CloudAccountsAzureListResult = AxiosResponse<V1AzureAccounts>;
+export type V1CloudAccountsAzureCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsAzureDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsAzureGetResult = AxiosResponse<V1AzureAccount>;
+export type V1CloudAccountsAzureUpdateResult = AxiosResponse<unknown>;
+export type V1CloudAccountsCustomListResult = AxiosResponse<V1CustomAccounts>;
+export type V1CloudAccountsCustomCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsCustomDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsCustomGetResult = AxiosResponse<V1CustomAccount>;
+export type V1CloudAccountsCustomUpdateResult = AxiosResponse<unknown>;
+export type V1CloudAccountsGcpListResult = AxiosResponse<V1GcpAccounts>;
+export type V1CloudAccountsGcpCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsGcpDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsGcpGetResult = AxiosResponse<V1GcpAccount>;
+export type V1CloudAccountsGcpUpdateResult = AxiosResponse<unknown>;
+export type V1CloudAccountsMaasListResult = AxiosResponse<V1MaasAccounts>;
+export type V1CloudAccountsMaasCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsMaasDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsMaasGetResult = AxiosResponse<V1MaasAccount>;
+export type V1CloudAccountsMaasPatchResult = AxiosResponse<unknown>;
+export type V1CloudAccountsMaasUpdateResult = AxiosResponse<unknown>;
+export type V1MaasAccountsUidAzsResult = AxiosResponse<V1MaasZones>;
+export type V1MaasAccountsUidDomainsResult = AxiosResponse<V1MaasDomains>;
+export type V1MaasAccountsUidPoolsResult = AxiosResponse<V1MaasPools>;
+export type V1MaasAccountsUidSubnetsResult = AxiosResponse<V1MaasSubnets>;
+export type V1MaasAccountsUidTagsResult = AxiosResponse<V1MaasTags>;
+export type V1CloudAccountsOpenStackListResult =
+  AxiosResponse<V1OpenStackAccounts>;
+export type V1CloudAccountsOpenStackCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsOpenStackDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsOpenStackGetResult =
+  AxiosResponse<V1OpenStackAccount>;
+export type V1CloudAccountsOpenStackUpdateResult = AxiosResponse<unknown>;
+export type V1OpenstackAccountsUidAzsResult = AxiosResponse<V1OpenStackAzs>;
+export type V1OpenstackAccountsUidFlavorsResult =
+  AxiosResponse<V1OpenStackFlavors>;
+export type V1OpenstackAccountsUidKeypairsResult =
+  AxiosResponse<V1OpenStackKeypairs>;
+export type V1OpenstackAccountsUidNetworksResult =
+  AxiosResponse<V1OpenStackNetworks>;
+export type V1OpenstackAccountsUidProjectsResult =
+  AxiosResponse<V1OpenStackProjects>;
+export type V1OpenstackAccountsUidRegionsResult =
+  AxiosResponse<V1OpenStackRegions>;
+export type V1CloudAccountsListSummaryResult =
+  AxiosResponse<V1CloudAccountsSummary>;
+export type V1CloudAccountsVsphereListResult = AxiosResponse<V1VsphereAccounts>;
+export type V1CloudAccountsVsphereCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudAccountsVsphereDeleteResult = AxiosResponse<unknown>;
+export type V1CloudAccountsVsphereGetResult = AxiosResponse<V1VsphereAccount>;
+export type V1CloudAccountsVsphereUpdateResult = AxiosResponse<unknown>;
+export type V1VsphereAccountsUidClusterResResult =
+  AxiosResponse<V1VsphereComputeClusterResources>;
+export type V1VsphereAccountsUidDatacentersResult =
+  AxiosResponse<V1VsphereDatacenters>;
+export type V1AccountsGeolocationPatchResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAksGetResult = AxiosResponse<V1AzureCloudConfig>;
+export type V1CloudConfigsAksUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAksMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAksMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAksMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAksPoolMachinesListResult =
+  AxiosResponse<V1AzureMachines>;
+export type V1CloudConfigsAksPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAksPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAksPoolMachinesUidGetResult =
+  AxiosResponse<V1AzureMachine>;
+export type V1CloudConfigsAksPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAwsGetResult = AxiosResponse<V1AwsCloudConfig>;
+export type V1CloudConfigsAwsUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1AwsCloudConfigsUidHybridConfigResult = AxiosResponse<unknown>;
+export type V1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1AwsCloudConfigsEdgeNativeMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1AwsCloudConfigsEdgeNativeMachinePoolGetResult =
+  AxiosResponse<V1HybridEdgeNativeMachinePoolConfig>;
+export type V1AwsCloudConfigsEdgeNativeMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAwsMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAwsMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAwsMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAwsPoolMachinesListResult =
+  AxiosResponse<V1AwsMachines>;
+export type V1CloudConfigsAwsPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAwsPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAwsPoolMachinesUidGetResult =
+  AxiosResponse<V1AwsMachine>;
+export type V1CloudConfigsAwsPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAzureGetResult = AxiosResponse<V1AzureCloudConfig>;
+export type V1CloudConfigsAzureUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAzureMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAzureMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAzureMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsAzurePoolMachinesListResult =
+  AxiosResponse<V1AzureMachines>;
+export type V1CloudConfigsAzurePoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsAzurePoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsAzurePoolMachinesUidGetResult =
+  AxiosResponse<V1AzureMachine>;
+export type V1CloudConfigsAzurePoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsCustomGetResult = AxiosResponse<V1CustomCloudConfig>;
+export type V1CloudConfigsCustomUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsCustomMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsCustomMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsCustomMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsCustomPoolMachinesListResult =
+  AxiosResponse<V1CustomMachines>;
+export type V1CloudConfigsCustomPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsCustomPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsCustomPoolMachinesUidGetResult =
+  AxiosResponse<V1CustomMachine>;
+export type V1CloudConfigsCustomPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEdgeNativeGetResult =
+  AxiosResponse<V1EdgeNativeCloudConfig>;
+export type V1CloudConfigsEdgeNativeUidClusterConfigResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEdgeNativeMachinePoolCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1CloudConfigsEdgeNativeMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEdgeNativeMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEdgeNativePoolMachinesListResult =
+  AxiosResponse<V1EdgeNativeMachines>;
+export type V1CloudConfigsEdgeNativePoolMachinesAddResult =
+  AxiosResponse<V1Uid>;
+export type V1CloudConfigsEdgeNativePoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEdgeNativePoolMachinesUidGetResult =
+  AxiosResponse<V1EdgeNativeMachine>;
+export type V1CloudConfigsEdgeNativePoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEksGetResult = AxiosResponse<V1EksCloudConfig>;
+export type V1CloudConfigsEksUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsEksUidFargateProfilesUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEksMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsEksMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsEksMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsEksPoolMachinesListResult =
+  AxiosResponse<V1AwsMachines>;
+export type V1CloudConfigsEksPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsEksPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsEksPoolMachinesUidGetResult =
+  AxiosResponse<V1AwsMachine>;
+export type V1CloudConfigsEksPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGcpGetResult = AxiosResponse<V1GcpCloudConfig>;
+export type V1CloudConfigsGcpUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGcpMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGcpMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGcpMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGcpPoolMachinesListResult =
+  AxiosResponse<V1GcpMachines>;
+export type V1CloudConfigsGcpPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGcpPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGcpPoolMachinesUidGetResult =
+  AxiosResponse<V1GcpMachine>;
+export type V1CloudConfigsGcpPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGenericGetResult =
+  AxiosResponse<V1GenericCloudConfig>;
+export type V1CloudConfigsGenericUidClusterConfigResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGenericMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGenericMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGenericMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGenericPoolMachinesListResult =
+  AxiosResponse<V1GenericMachines>;
+export type V1CloudConfigsGenericPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGenericPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGenericPoolMachinesUidGetResult =
+  AxiosResponse<V1GenericMachine>;
+export type V1CloudConfigsGenericPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGkeGetResult = AxiosResponse<V1GcpCloudConfig>;
+export type V1CloudConfigsGkeUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGkeMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGkeMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGkeMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsGkePoolMachinesListResult =
+  AxiosResponse<V1GcpMachines>;
+export type V1CloudConfigsGkePoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsGkePoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsGkePoolMachinesUidGetResult =
+  AxiosResponse<V1GcpMachine>;
+export type V1CloudConfigsGkePoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsMaasGetResult = AxiosResponse<V1MaasCloudConfig>;
+export type V1CloudConfigsMaasUidClusterConfigResult = AxiosResponse<unknown>;
+export type V1CloudConfigsMaasMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsMaasMachinePoolDeleteResult = AxiosResponse<unknown>;
+export type V1CloudConfigsMaasMachinePoolUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsMaasPoolMachinesListResult =
+  AxiosResponse<V1MaasMachines>;
+export type V1CloudConfigsMaasPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsMaasPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsMaasPoolMachinesUidGetResult =
+  AxiosResponse<V1MaasMachine>;
+export type V1CloudConfigsMaasPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsOpenStackGetResult =
+  AxiosResponse<V1OpenStackCloudConfig>;
+export type V1CloudConfigsOpenStackUidClusterConfigResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsOpenStackMachinePoolCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1CloudConfigsOpenStackMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsOpenStackMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsOpenStackPoolMachinesListResult =
+  AxiosResponse<V1OpenStackMachines>;
+export type V1CloudConfigsOpenStackPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsOpenStackPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsOpenStackPoolMachinesUidGetResult =
+  AxiosResponse<V1OpenStackMachine>;
+export type V1CloudConfigsOpenStackPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualGetResult =
+  AxiosResponse<V1VirtualCloudConfig>;
+export type V1CloudConfigsVirtualUidClusterConfigResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsVirtualMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualPoolMachinesListResult =
+  AxiosResponse<V1VirtualMachines>;
+export type V1CloudConfigsVirtualPoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsVirtualPoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualPoolMachinesUidGetResult =
+  AxiosResponse<V1VirtualMachine>;
+export type V1CloudConfigsVirtualPoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVirtualUidUpdateResult = AxiosResponse<unknown>;
+export type V1CloudConfigsVsphereGetResult =
+  AxiosResponse<V1VsphereCloudConfig>;
+export type V1CloudConfigsVsphereUidClusterConfigResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVsphereMachinePoolCreateResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsVsphereMachinePoolDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVsphereMachinePoolUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVspherePoolMachinesListResult =
+  AxiosResponse<V1VsphereMachines>;
+export type V1CloudConfigsVspherePoolMachinesAddResult = AxiosResponse<V1Uid>;
+export type V1CloudConfigsVspherePoolMachinesUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsVspherePoolMachinesUidGetResult =
+  AxiosResponse<V1VsphereMachine>;
+export type V1CloudConfigsVspherePoolMachinesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsMachinePoolsMachineUidMaintenanceUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CloudConfigsMachinePoolsMachineUidsGetResult =
+  AxiosResponse<V1MachinePoolsMachineUids>;
+export type V1AwsAccountSecretCredentialsResult =
+  AxiosResponse<V1AwsAccountCredentials>;
+export type V1AwsAccountStsGetResult = AxiosResponse<V1AwsAccountSts>;
+export type V1AwsAccountValidateResult = AxiosResponse<unknown>;
+export type V1AwsAmiTypesResult = AxiosResponse<V1AmiTypes>;
+export type V1CloudsAwsCloudWatchValidateResult = AxiosResponse<unknown>;
+export type V1AwsCloudCostResult = AxiosResponse<V1AwsCloudCostSummary>;
+export type V1AwsVolumeSizeGetResult = AxiosResponse<V1AwsVolumeSize>;
+export type V1AwsIamPoliciesResult = AxiosResponse<V1AwsPolicies>;
+export type V1AwsPolicyArnsValidateResult = AxiosResponse<unknown>;
+export type V1AwsPropertiesValidateResult = AxiosResponse<unknown>;
+export type V1AwsRegionsResult = AxiosResponse<V1AwsRegions>;
+export type V1AwsZonesResult = AxiosResponse<V1AwsAvailabilityZones>;
+export type V1AwsCopyImageFromDefaultRegionResult =
+  AxiosResponse<V1AsyncOperationIdEntity>;
+export type V1AwsClusterNameValidateResult = AxiosResponse<unknown>;
+export type V1AwsFindImageResult = AxiosResponse<V1AwsImage>;
+export type V1AwsInstanceTypesResult = AxiosResponse<V1AwsInstanceTypes>;
+export type V1AwsKeyPairsResult = AxiosResponse<V1AwsKeyPairs>;
+export type V1AwsKeyPairValidateResult = AxiosResponse<unknown>;
+export type V1AwsKmsKeyGetResult = AxiosResponse<V1AwsKmsKeyEntity>;
+export type V1AwsKmsKeysResult = AxiosResponse<V1AwsKmsKeys>;
+export type V1AwsKmsKeyValidateResult = AxiosResponse<unknown>;
+export type V1AwsStorageTypesResult = AxiosResponse<V1AwsStorageTypes>;
+export type V1AwsVpcsResult = AxiosResponse<V1AwsVpcs>;
+export type V1AwsS3ValidateResult = AxiosResponse<unknown>;
+export type V1AwsSecurityGroupsResult = AxiosResponse<V1AwsSecurityGroups>;
+export type V1AwsVolumeTypesGetResult = AxiosResponse<V1AWSVolumeTypes>;
+export type V1AzureAccountValidateResult = AxiosResponse<unknown>;
+export type V1AzureGroupsResult = AxiosResponse<V1AzureGroups>;
+export type V1AzureRegionsResult = AxiosResponse<V1AzureRegions>;
+export type V1AzureInstanceTypesResult = AxiosResponse<V1AzureInstanceTypes>;
+export type V1AzureStorageTypesResult = AxiosResponse<V1AzureStorageTypes>;
+export type V1AzureClusterNameValidateResult = AxiosResponse<unknown>;
+export type V1AzureVirtualNetworkListResult =
+  AxiosResponse<V1AzureVirtualNetworkList>;
+export type V1AzureResourceGroupListResult =
+  AxiosResponse<V1AzureResourceGroupList>;
+export type V1AzureZonesResult = AxiosResponse<V1AzureZoneEntity>;
+export type V1AzurePrivateDnsZonesResult =
+  AxiosResponse<V1AzurePrivateDnsZones>;
+export type V1AzureStorageAccountsResult =
+  AxiosResponse<V1AzureStorageAccounts>;
+export type V1AzureStorageContainersResult =
+  AxiosResponse<V1AzureStorageContainers>;
+export type V1AzureStorageAccountTypesResult =
+  AxiosResponse<V1AzureStorageAccountEntity>;
+export type V1AzureSubscriptionListResult =
+  AxiosResponse<V1AzureSubscriptionList>;
+export type V1AzureVhdUrlResult = AxiosResponse<V1AzureVhdUrlEntity>;
+export type V1CustomCloudTypesGetResult = AxiosResponse<V1CustomCloudTypes>;
+export type V1CustomCloudTypeRegisterResult = AxiosResponse<V1Uid>;
+export type V1CustomCloudTypesDeleteResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeCloudAccountKeysGetResult =
+  AxiosResponse<V1CustomCloudTypeCloudAccountKeys>;
+export type V1CustomCloudTypeCloudAccountKeysUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeBootstrapDeleteResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeBootstrapGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeBootstrapUpdateResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeCloudProviderDeleteResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeCloudProviderGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeCloudProviderUpdateResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeControlPlaneDeleteResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeControlPlaneGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeControlPlaneUpdateResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeCoreDeleteResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeCoreGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeCoreUpdateResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeClusterTemplateDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeClusterTemplateGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeClusterTemplateUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeControlPlanePoolTemplateDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeControlPlanePoolTemplateGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeControlPlanePoolTemplateUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeWorkerPoolTemplateDeleteResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeWorkerPoolTemplateGetResult =
+  AxiosResponse<V1CustomCloudTypeContentResponse>;
+export type V1CustomCloudTypeWorkerPoolTemplateUpdateResult =
+  AxiosResponse<unknown>;
+export type V1CustomCloudTypeLogoGetResult = AxiosResponse<Blob>;
+export type V1CustomCloudTypeLogoUpdateResult = AxiosResponse<unknown>;
+export type V1CustomCloudTypeMetaGetResult =
+  AxiosResponse<V1CustomCloudMetaEntity>;
+export type V1CustomCloudTypeMetaUpdateResult = AxiosResponse<unknown>;
+export type V1EksPropertiesValidateResult = AxiosResponse<unknown>;
+export type V1GcpAccountValidateResult = AxiosResponse<unknown>;
+export type V1GcpAzValidateResult = AxiosResponse<unknown>;
+export type V1GcpBucketNameValidateResult = AxiosResponse<unknown>;
+export type V1GcpContainerImageValidateResult = AxiosResponse<unknown>;
+export type V1GcpImageUrlResult = AxiosResponse<V1GcpImageUrlEntity>;
+export type V1GcpProjectsResult = AxiosResponse<V1GcpProjects>;
+export type V1GcpRegionsResult = AxiosResponse<V1GcpRegions>;
+export type V1GcpNetworksResult = AxiosResponse<V1GcpNetworks>;
+export type V1GcpZonesResult = AxiosResponse<V1GcpZones>;
+export type V1GcpProjectValidateResult = AxiosResponse<unknown>;
+export type V1GcpAvailabilityZonesResult = AxiosResponse<V1GcpZones>;
+export type V1GcpPropertiesValidateResult = AxiosResponse<unknown>;
+export type V1GcpInstanceTypesResult = AxiosResponse<V1GcpInstanceTypes>;
+export type V1GcpStorageTypesResult = AxiosResponse<V1GcpStorageTypes>;
+export type V1MaasAccountValidateResult = AxiosResponse<unknown>;
+export type V1MaasZonesGetResult = AxiosResponse<V1MaasZones>;
+export type V1MaasDomainsGetResult = AxiosResponse<V1MaasDomains>;
+export type V1MaasPoolsGetResult = AxiosResponse<V1MaasPools>;
+export type V1MaasSubnetsGetResult = AxiosResponse<V1MaasSubnets>;
+export type V1MaasTagsGetResult = AxiosResponse<V1MaasTags>;
+export type V1OpenStackAccountValidateResult = AxiosResponse<unknown>;
+export type V1OpenStackAzsGetResult = AxiosResponse<V1OpenStackAzs>;
+export type V1OpenStackFlavorsGetResult = AxiosResponse<V1OpenStackFlavors>;
+export type V1OpenStackKeypairsGetResult = AxiosResponse<V1OpenStackKeypairs>;
+export type V1OpenStackNetworksGetResult = AxiosResponse<V1OpenStackNetworks>;
+export type V1OpenStackProjectsGetResult = AxiosResponse<V1OpenStackProjects>;
+export type V1OpenStackRegionsGetResult = AxiosResponse<V1OpenStackRegions>;
+export type V1VsphereAccountValidateResult = AxiosResponse<unknown>;
+export type V1VsphereDatacentersResult = AxiosResponse<V1VsphereDatacenters>;
+export type V1VsphereComputeClusterResourcesResult =
+  AxiosResponse<V1VsphereComputeClusterResources>;
+export type V1VsphereEnvResult = AxiosResponse<V1VsphereEnv>;
+export type V1CloudComputeRateResult = AxiosResponse<V1CloudCost>;
+export type V1CloudStorageRateResult = AxiosResponse<V1CloudCost>;
+export type V1ClusterGroupsCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterGroupsDeveloperCreditUsageGetResult =
+  AxiosResponse<V1ClusterGroupsDeveloperCreditUsage>;
+export type V1ClusterGroupsHostClusterSummaryResult =
+  AxiosResponse<V1ClusterGroupsHostClusterSummary>;
+export type V1ClusterGroupsHostClusterMetadataResult =
+  AxiosResponse<V1ClusterGroupsHostClusterMetadata>;
+export type V1ClusterGroupsValidateNameResult = AxiosResponse<unknown>;
+export type V1ClusterGroupsUidDeleteResult = AxiosResponse<unknown>;
+export type V1ClusterGroupsUidGetResult = AxiosResponse<V1ClusterGroup>;
+export type V1ClusterGroupsUidHostClusterUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterGroupsUidMetaUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterGroupsUidPacksResolvedValuesGetResult =
+  AxiosResponse<V1SpectroClusterProfilesResolvedValues>;
+export type V1ClusterGroupsUidProfilesGetResult =
+  AxiosResponse<V1SpectroClusterProfileList>;
+export type V1ClusterGroupsUidProfilesUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterProfilesBulkDeleteResult =
+  AxiosResponse<V1BulkDeleteResponse>;
+export type V1ClusterProfilesImportResult = AxiosResponse<V1Uid>;
+export type V1ClusterProfilesImportFileResult = AxiosResponse<V1Uid>;
+export type V1ClusterProfilesImportValidateResult =
+  AxiosResponse<V1ClusterProfileImportEntity>;
+export type V1MacrosListResult = AxiosResponse<V1Macros>;
+export type V1ClusterProfilesValidateNameVersionResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesValidatePacksResult =
+  AxiosResponse<V1ClusterProfileValidatorResponse>;
+export type V1ClusterProfilesDeleteResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesGetResult = AxiosResponse<V1ClusterProfile>;
+export type V1ClusterProfilesUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidCloneResult = AxiosResponse<V1Uid>;
+export type V1ClusterProfilesUidCloneValidateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidExportResult = AxiosResponse<Blob>;
+export type V1ClusterProfilesUidExportTerraformResult = AxiosResponse<Blob>;
+export type V1ClusterProfilesUidMetadataUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesPacksRefUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidPacksGetResult =
+  AxiosResponse<V1ClusterProfilePacksEntities>;
+export type V1ClusterProfilesUidPacksAddResult = AxiosResponse<V1Uid>;
+export type V1ClusterProfilesUidPacksManifestsGetResult =
+  AxiosResponse<V1ClusterProfilePacksManifests>;
+export type V1ClusterProfilesUidPacksResolvedValuesGetResult =
+  AxiosResponse<V1PackResolvedValues>;
+export type V1ClusterProfilesUidPacksNameDeleteResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidPacksNameGetResult =
+  AxiosResponse<V1PackRefSummaryResponse>;
+export type V1ClusterProfilesUidPacksNameUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidPacksConfigGetResult =
+  AxiosResponse<V1ClusterProfilePackConfigList>;
+export type V1ClusterProfilesUidPacksUidManifestsResult =
+  AxiosResponse<V1ManifestEntities>;
+export type V1ClusterProfilesUidPacksNameManifestsAddResult =
+  AxiosResponse<V1Uid>;
+export type V1ClusterProfilesUidPacksNameManifestsUidDeleteResult =
+  AxiosResponse<unknown>;
+export type V1ClusterProfilesUidPacksNameManifestsUidGetResult =
+  AxiosResponse<V1ManifestEntity>;
+export type V1ClusterProfilesUidPacksNameManifestsUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ClusterProfilesPublishResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidSpcDownloadResult = AxiosResponse<Blob>;
+export type V1ClusterProfilesUidValidatePacksResult =
+  AxiosResponse<V1ClusterProfileValidatorResponse>;
+export type V1ClusterProfilesUidVariablesDeleteResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidVariablesGetResult = AxiosResponse<V1Variables>;
+export type V1ClusterProfilesUidVariablesPatchResult = AxiosResponse<unknown>;
+export type V1ClusterProfilesUidVariablesPutResult = AxiosResponse<unknown>;
+export type V1DashboardAppDeploymentsResult =
+  AxiosResponse<V1AppDeploymentsSummary>;
+export type V1DashboardAppProfilesResult = AxiosResponse<V1AppProfilesSummary>;
+export type V1DashboardAppProfilesMetadataResult =
+  AxiosResponse<V1AppProfilesMetadata>;
+export type V1EdgeHostsMetadataResult =
+  AxiosResponse<V1EdgeHostsMetadataSummary>;
+export type V1DashboardCloudAccountsMetadataResult =
+  AxiosResponse<V1CloudAccountsMetadata>;
+export type V1ClusterGroupUidHostClustersSummaryResult =
+  AxiosResponse<V1SpectroClustersSummary>;
+export type V1ClusterGroupUidVirtualClustersSummaryResult =
+  AxiosResponse<V1SpectroClustersSummary>;
+export type V1ClusterProfilesFilterSummaryResult =
+  AxiosResponse<V1ClusterProfilesSummary>;
+export type V1ClusterProfilesMetadataResult =
+  AxiosResponse<V1ClusterProfilesMetadata>;
+export type V1ClusterProfilesUidSummaryResult =
+  AxiosResponse<V1ClusterProfileSummary>;
+export type V1DashboardEdgehostsSearchResult =
+  AxiosResponse<V1EdgeHostsSearchSummary>;
+export type V1DashboardEdgehostsSearchSchemaGetResult =
+  AxiosResponse<V1SearchFilterSchemaSpec>;
+export type V1DashboardPcgsSearchSummaryResult = AxiosResponse<V1PcgsSummary>;
+export type V1DashboardPcgSearchSchemaGetResult =
+  AxiosResponse<V1SearchFilterSchemaSpec>;
+export type V1ProjectsFilterSummaryResult = AxiosResponse<V1ProjectsSummary>;
+export type V1ProjectsMetadataResult = AxiosResponse<V1ProjectsMetadata>;
+export type V1DashboardSpectroClustersCostSummaryResult =
+  AxiosResponse<V1ResourcesCloudCostSummary>;
+export type V1SpectroClustersFiltersWorkspaceResult =
+  AxiosResponse<V1SpectroClustersSummary>;
+export type V1SpectroClustersMetaGetResult =
+  AxiosResponse<V1SpectroClustersMeta>;
+export type V1SpectroClustersMetadataGetResult =
+  AxiosResponse<V1SpectroClustersMetadata>;
+export type V1SpectroClustersMetadataResult =
+  AxiosResponse<V1SpectroClustersMetadata>;
+export type V1SpectroClustersMetadataSearchResult =
+  AxiosResponse<V1SpectroClustersMetadataSearch>;
+export type V1SpectroClustersMetadataSearchSchemaResult =
+  AxiosResponse<V1SearchFilterSchemaSpec>;
+export type V1DashboardSpectroClustersRepaveListResult =
+  AxiosResponse<V1SpectroClustersSummary>;
+export type V1SpectroClustersResourcesConsumptionResult =
+  AxiosResponse<V1ResourcesConsumption>;
+export type V1SpectroClustersResourcesCostSummaryResult =
+  AxiosResponse<V1ResourcesCostSummary>;
+export type V1SpectroClustersResourcesUsageSummaryResult =
+  AxiosResponse<V1ResourcesUsageSummary>;
+export type V1SpectroClustersSearchFilterSummaryResult =
+  AxiosResponse<V1SpectroClustersSummary>;
+export type V1DashboardClustersSearchSummaryExportGetResult =
+  AxiosResponse<Blob>;
+export type V1DashboardClustersSearchSummaryExportResult = AxiosResponse<Blob>;
+export type V1DashboardSpectroClustersSearchInputResult =
+  AxiosResponse<V1ClusterSearchInputSpec>;
+export type V1SpectroClustersSearchSchemaResult =
+  AxiosResponse<V1SearchFilterSchemaSpec>;
+export type V1DashboardVMEnabledClustersListResult =
+  AxiosResponse<V1VMClusters>;
+export type V1SpectroClustersSummaryUidResult =
+  AxiosResponse<V1SpectroClusterUidSummary>;
+export type V1SpectroClustersUidCostSummaryResult =
+  AxiosResponse<V1SpectroClusterCostSummary>;
+export type V1SpectroClustersSummaryUidOverviewResult =
+  AxiosResponse<V1SpectroClusterUidSummary>;
+export type V1SpectroClustersUidResourcesConsumptionResult =
+  AxiosResponse<V1ResourcesConsumption>;
+export type V1DashboardSpectroClustersUidWorkloadsResult =
+  AxiosResponse<V1ClusterWorkload>;
+export type V1DashboardSpectroClustersUidWorkloadsClusterRoleBindingResult =
+  AxiosResponse<V1ClusterWorkloadRoleBindings>;
+export type V1DashboardSpectroClustersUidWorkloadsCronJobResult =
+  AxiosResponse<V1ClusterWorkloadCronJobs>;
+export type V1DashboardSpectroClustersUidWorkloadsDaemonSetResult =
+  AxiosResponse<V1ClusterWorkloadDaemonSets>;
+export type V1DashboardSpectroClustersUidWorkloadsDeploymentResult =
+  AxiosResponse<V1ClusterWorkloadDeployments>;
+export type V1DashboardSpectroClustersUidWorkloadsJobResult =
+  AxiosResponse<V1ClusterWorkloadJobs>;
+export type V1DashboardSpectroClustersUidWorkloadsNamespaceResult =
+  AxiosResponse<V1ClusterWorkloadNamespaces>;
+export type V1DashboardSpectroClustersUidWorkloadsPodResult =
+  AxiosResponse<V1ClusterWorkloadPods>;
+export type V1DashboardSpectroClustersUidWorkloadsRoleBindingResult =
+  AxiosResponse<V1ClusterWorkloadRoleBindings>;
+export type V1DashboardSpectroClustersUidWorkloadsStatefulSetResult =
+  AxiosResponse<V1ClusterWorkloadStatefulSets>;
+export type V1DashboardWorkspacesListResult =
+  AxiosResponse<V1DashboardWorkspaces>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBindingResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadCronJobs>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsDaemonSetResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadDaemonSets>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadDeployments>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsJobResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadJobs>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsNamespaceResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadNamespaces>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsPodResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadPods>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadRoleBindings>;
+export type V1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResult =
+  AxiosResponse<V1WorkspaceClustersWorkloadStatefulSets>;
+export type V1DataSinksCloudWatchSinkResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesCreateResult = AxiosResponse<V1Uid>;
+export type V1EdgeHostsMetadataQuickFilterGetResult =
+  AxiosResponse<V1EdgeHostsMeta>;
+export type V1EdgeHostDevicesRegisterResult = AxiosResponse<V1EdgeHostDevice>;
+export type V1EdgeHostsTagsGetResult = AxiosResponse<V1EdgeHostsTags>;
+export type V1EdgeTokensListResult = AxiosResponse<V1EdgeTokens>;
+export type V1EdgeTokensCreateResult = AxiosResponse<V1Uid>;
+export type V1EdgeTokensUidDeleteResult = AxiosResponse<unknown>;
+export type V1EdgeTokensUidGetResult = AxiosResponse<V1EdgeToken>;
+export type V1EdgeTokensUidUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeTokensUidStateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidDeleteResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidGetResult = AxiosResponse<V1EdgeHostDevice>;
+export type V1EdgeHostDevicesUidUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidClusterDeassociateResult =
+  AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidClusterAssociateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidConfigGetResult =
+  AxiosResponse<V1EdgeHostConfig>;
+export type V1EdgeHostDevicesHealthUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDeviceHostCheckSumUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDeviceHostPairingKeyUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidMetaUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidPackManifestsUidGetResult =
+  AxiosResponse<V1Manifest>;
+export type V1EdgeHostDevicesUidPacksStatusPatchResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidProfilesGetResult =
+  AxiosResponse<V1SpectroClusterProfileList>;
+export type V1EdgeHostDevicesUidProfilesUpdateResult = AxiosResponse<unknown>;
+export type V1EdgeHostsUidResetResult = AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidSpcDownloadResult = AxiosResponse<Blob>;
+export type V1EdgeHostDevicesUidTunnelConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidTunnelStatusUpdateResult =
+  AxiosResponse<unknown>;
+export type V1EdgeHostDevicesUidVspherePropertiesUpdateResult =
+  AxiosResponse<unknown>;
+export type V1EventsComponentsListResult = AxiosResponse<V1Events>;
+export type V1EventsComponentsCreateResult = AxiosResponse<V1Uid>;
+export type V1EventsComponentsCreateBulkResult = AxiosResponse<V1Uids>;
+export type V1EventsComponentsObjTypeUidDeleteResult = AxiosResponse<unknown>;
+export type V1EventsComponentsObjTypeUidListResult = AxiosResponse<V1Events>;
+export type V1FeaturesListResult = AxiosResponse<V1Features>;
+export type V1FeaturesUpdateResult = AxiosResponse<unknown>;
+export type V1FiltersListResult = AxiosResponse<V1FiltersSummary>;
+export type V1FiltersMetadataResult = AxiosResponse<V1FiltersMetadata>;
+export type V1TagFiltersCreateResult = AxiosResponse<V1Uid>;
+export type V1TagFilterUidDeleteResult = AxiosResponse<unknown>;
+export type V1TagFilterUidGetResult = AxiosResponse<V1TagFilterSummary>;
+export type V1TagFilterUidUpdateResult = AxiosResponse<unknown>;
+export type V1MetricsListResult = AxiosResponse<V1MetricTimeSeriesList>;
+export type V1MetricsUidDeleteResult = AxiosResponse<unknown>;
+export type V1MetricsUidListResult = AxiosResponse<V1MetricTimeSeries>;
+export type V1NotificationsListResult = AxiosResponse<V1Notifications>;
+export type V1NotificationsEventCreateResult = AxiosResponse<V1Uid>;
+export type V1NotificationsObjTypeUidListResult =
+  AxiosResponse<V1Notifications>;
+export type V1NotificationsUidAckResult = AxiosResponse<unknown>;
+export type V1NotificationsUidDoneResult = AxiosResponse<unknown>;
+export type V1OverlordsListResult = AxiosResponse<V1Overlords>;
+export type V1OverlordsMaasManifestResult = AxiosResponse<V1OverlordManifest>;
+export type V1OverlordsUidMaasAccountCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidMaasAccountUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidMaasAccountValidateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidMaasCloudConfigCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidMaasCloudConfigUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidMaasClusterProfileResult =
+  AxiosResponse<V1ClusterProfile>;
+export type V1OverlordsMigrateResult = AxiosResponse<unknown>;
+export type V1OverlordsOpenStackManifestResult =
+  AxiosResponse<V1OverlordManifest>;
+export type V1OverlordsUidOpenStackAccountCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidOpenStackAccountUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidOpenStackAccountValidateResult =
+  AxiosResponse<unknown>;
+export type V1OverlordsUidOpenStackCloudConfigCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1OverlordsUidOpenStackCloudConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1OverlordsUidOpenStackClusterProfileResult =
+  AxiosResponse<V1ClusterProfile>;
+export type V1OverlordsPairingCodeResult = AxiosResponse<V1PairingCode>;
+export type V1OverlordsVsphereManifestResult =
+  AxiosResponse<V1OverlordManifest>;
+export type V1OverlordsVsphereOvaGetResult =
+  AxiosResponse<V1OverloadVsphereOva>;
+export type V1OverlordsUidVsphereAccountCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidVsphereAccountUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidVsphereAccountValidateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidVsphereCloudConfigCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidVsphereCloudConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1OverlordsUidVsphereClusterProfileResult =
+  AxiosResponse<V1ClusterProfile>;
+export type V1OverlordsUidPoolsListResult = AxiosResponse<V1IpPools>;
+export type V1OverlordsUidPoolCreateResult = AxiosResponse<V1Uid>;
+export type V1OverlordsUidPoolDeleteResult = AxiosResponse<unknown>;
+export type V1OverlordsUidPoolUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidVsphereComputeclusterResResult =
+  AxiosResponse<V1VsphereComputeClusterResources>;
+export type V1OverlordsUidVsphereDatacentersResult =
+  AxiosResponse<V1VsphereDatacenters>;
+export type V1OverlordsUidDeleteResult = AxiosResponse<V1DeletedMsg>;
+export type V1OverlordsUidGetResult = AxiosResponse<V1Overlord>;
+export type V1OverlordsUidMetadataUpdateResult = AxiosResponse<unknown>;
+export type V1OverlordsUidResetResult = AxiosResponse<V1UpdatedMsg>;
+export type V1PacksSummaryListResult = AxiosResponse<V1PackSummaries>;
+export type V1PacksSearchResult = AxiosResponse<V1PackMetadataList>;
+export type V1PacksNameRegistryUidListResult = AxiosResponse<V1PackTagEntity>;
+export type V1PacksPackUidLogoResult = AxiosResponse<Blob>;
+export type V1PacksUidResult = AxiosResponse<V1PackTagEntity>;
+export type V1PacksUidReadmeResult = AxiosResponse<V1PackReadme>;
+export type V1PcgSelfHostedResult = AxiosResponse<V1PcgServiceKubectlCommands>;
+export type V1PcgUidRegisterResult = AxiosResponse<unknown>;
+export type V1PcgUidAllyManifestGetResult = AxiosResponse<Blob>;
+export type V1PcgUidJetManifestGetResult = AxiosResponse<Blob>;
+export type V1PermissionsListResult = AxiosResponse<V1Permissions>;
+export type V1ProjectsCreateResult = AxiosResponse<V1Uid>;
+export type V1ProjectsAlertsResult = AxiosResponse<V1ProjectAlertComponents>;
+export type V1ProjectsUidDeleteResult = AxiosResponse<unknown>;
+export type V1ProjectsUidGetResult = AxiosResponse<V1Project>;
+export type V1ProjectsUidUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidAlertDeleteResult = AxiosResponse<unknown>;
+export type V1ProjectsUidAlertCreateResult = AxiosResponse<V1Uid>;
+export type V1ProjectsUidAlertUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidAlertsUidDeleteResult = AxiosResponse<unknown>;
+export type V1ProjectsUidAlertsUidGetResult = AxiosResponse<V1Channel>;
+export type V1ProjectsUidAlertsUidUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidMacrosDeleteByMacroNameResult = AxiosResponse<unknown>;
+export type V1ProjectsUidMacrosListResult = AxiosResponse<V1Macros>;
+export type V1ProjectsUidMacrosUpdateByMacroNameResult = AxiosResponse<unknown>;
+export type V1ProjectsUidMacrosCreateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidMacrosUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidMetaUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectClusterSettingsGetResult =
+  AxiosResponse<V1ProjectClusterSettings>;
+export type V1ProjectClustersNodesAutoRemediationSettingUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ProjectsUidTeamsUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidUsersUpdateResult = AxiosResponse<unknown>;
+export type V1ProjectsUidValidateResult =
+  AxiosResponse<V1ProjectActiveResources>;
+export type V1RegistriesHelmListResult = AxiosResponse<V1HelmRegistries>;
+export type V1RegistriesHelmCreateResult = AxiosResponse<V1Uid>;
+export type V1RegistriesHelmSummaryListResult =
+  AxiosResponse<V1HelmRegistriesSummary>;
+export type V1RegistriesHelmValidateResult = AxiosResponse<unknown>;
+export type V1RegistriesHelmUidDeleteResult = AxiosResponse<unknown>;
+export type V1RegistriesHelmUidGetResult = AxiosResponse<V1HelmRegistry>;
+export type V1RegistriesHelmUidUpdateResult = AxiosResponse<unknown>;
+export type V1RegistriesHelmUidSyncResult = AxiosResponse<unknown>;
+export type V1RegistriesHelmUidSyncStatusResult =
+  AxiosResponse<V1RegistrySyncStatus>;
+export type V1RegistriesMetadataResult = AxiosResponse<V1RegistriesMetadata>;
+export type V1BasicOciRegistriesCreateResult = AxiosResponse<V1Uid>;
+export type V1BasicOciRegistriesValidateResult = AxiosResponse<unknown>;
+export type V1EcrRegistriesCreateResult = AxiosResponse<V1Uid>;
+export type V1EcrRegistriesValidateResult = AxiosResponse<unknown>;
+export type V1OciImageRegistryGetResult = AxiosResponse<V1OciImageRegistry>;
+export type V1OciRegistriesSummaryResult = AxiosResponse<V1OciRegistries>;
+export type V1OciRegistriesGetResult = AxiosResponse<V1OciRegistryEntity>;
+export type V1BasicOciRegistriesUidDeleteResult = AxiosResponse<unknown>;
+export type V1BasicOciRegistriesUidGetResult =
+  AxiosResponse<V1BasicOciRegistry>;
+export type V1BasicOciRegistriesUidUpdateResult = AxiosResponse<unknown>;
+export type V1BasicOciRegistriesUidSyncResult = AxiosResponse<unknown>;
+export type V1BasicOciRegistriesUidSyncStatusResult =
+  AxiosResponse<V1RegistrySyncStatus>;
+export type V1EcrRegistriesUidDeleteResult = AxiosResponse<unknown>;
+export type V1EcrRegistriesUidGetResult = AxiosResponse<V1EcrRegistry>;
+export type V1EcrRegistriesUidUpdateResult = AxiosResponse<unknown>;
+export type V1EcrRegistriesUidSyncResult = AxiosResponse<unknown>;
+export type V1EcrRegistriesUidSyncStatusResult =
+  AxiosResponse<V1RegistrySyncStatus>;
+export type V1RegistriesPackListResult = AxiosResponse<V1PackRegistries>;
+export type V1RegistriesPackCreateResult = AxiosResponse<V1Uid>;
+export type V1RegistriesPackSummaryListResult =
+  AxiosResponse<V1PackRegistriesSummary>;
+export type V1RegistriesPackValidateResult = AxiosResponse<unknown>;
+export type V1RegistriesPackUidDeleteResult = AxiosResponse<unknown>;
+export type V1RegistriesPackUidGetResult = AxiosResponse<V1PackRegistry>;
+export type V1RegistriesPackUidUpdateResult = AxiosResponse<unknown>;
+export type V1RegistriesPackUidSyncResult = AxiosResponse<unknown>;
+export type V1RegistriesPackUidSyncStatusResult =
+  AxiosResponse<V1RegistrySyncStatus>;
+export type V1RegistriesNameConfigGetResult =
+  AxiosResponse<V1RegistryConfigEntity>;
+export type V1RegistriesUidDeleteResult = AxiosResponse<unknown>;
+export type V1RolesListResult = AxiosResponse<V1Roles>;
+export type V1RolesCreateResult = AxiosResponse<V1Uid>;
+export type V1RolesUidDeleteResult = AxiosResponse<unknown>;
+export type V1RolesUidGetResult = AxiosResponse<V1Role>;
+export type V1RolesUidUpdateResult = AxiosResponse<unknown>;
+export type V1RolesCloneResult = AxiosResponse<V1Uid>;
+export type V1ServiceVersionGetResult = AxiosResponse<V1ServiceVersion>;
+export type V1ServiceManifestGetResult = AxiosResponse<V1ServiceManifest>;
+export type V1SpectroClustersAksCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersAksRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersAksValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersAwsCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersAwsImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersAwsRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersAwsValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersAzureCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersAzureImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersAzureRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersAzureValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersCustomCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersCustomValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersConfigEdgeInstallerResult =
+  AxiosResponse<V1ClusterEdgeInstallerConfig>;
+export type V1SpectroClustersEdgeNativeCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersEdgeNativeImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersEdgeNativeRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersEdgeNativeValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersEksCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersEksRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersEksValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1ClusterFeatureBackupLocationUidGetResult =
+  AxiosResponse<V1ClusterRefs>;
+export type V1ClusterFeatureBackupLocationUidChangeResult =
+  AxiosResponse<unknown>;
+export type V1ClusterFeatureLogFetcherLogDownloadResult = AxiosResponse<Blob>;
+export type V1ClusterFeatureLogFetcherLogUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGcpCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersGcpImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersGcpRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersGcpValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersGenericImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersGenericRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersGkeCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersGkeRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersGkeValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersMaasCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersMaasImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersMaasRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersMaasValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersOpenStackCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersOpenStackImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersOpenStackRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersOpenStackValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersSpcDownloadResult = AxiosResponse<Blob>;
+export type V1SpectroClustersTagsGetResult =
+  AxiosResponse<V1SpectroClusterTags>;
+export type V1SpectroClustersUpgradeSettingsGetResult =
+  AxiosResponse<V1ClusterUpgradeSettingsEntity>;
+export type V1SpectroClustersUpgradeSettingsResult = AxiosResponse<unknown>;
+export type V1SpectroClustersValidateNameResult = AxiosResponse<unknown>;
+export type V1SpectroClustersValidatePacksResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersVirtualCreateResult = AxiosResponse<V1Uid>;
+export type V1VirtualClustersPacksValuesResult =
+  AxiosResponse<V1ClusterVirtualPacksValues>;
+export type V1SpectroClustersVirtualValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersVsphereCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersVsphereImportResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersVsphereRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersVsphereValidateResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersDeleteResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGetResult = AxiosResponse<V1SpectroCluster>;
+export type V1SpectroClustersUidAssetsGetResult =
+  AxiosResponse<V1SpectroClusterAssetEntity>;
+export type V1SpectroClustersUidAssetsResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidAdminKubeConfigResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidTokenKubeConfigDeleteResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidTokenKubeConfigGetResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidTokenKubeConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidFrpKubeConfigDeleteResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidFrpKubeConfigGetResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidFrpKubeConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidKubeConfigResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidKubeConfigUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidKubeConfigClientDeleteResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidKubeConfigClientGetResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidKubeConfigClientUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidManifestGetResult = AxiosResponse<string>;
+export type V1SpectroClustersUidManifestUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidClusterMetaAttributeUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ControlPlaneHealthCheckTimeoutUpdateResult =
+  AxiosResponse<unknown>;
+export type V1HostClusterConfigUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidLifecycleConfigUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidOsPatchUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidConfigNamespacesGetResult =
+  AxiosResponse<V1ClusterNamespaceResources>;
+export type V1SpectroClustersUidConfigNamespacesUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidConfigNamespacesUidGetResult =
+  AxiosResponse<V1ClusterNamespaceResource>;
+export type V1SpectroClustersUidConfigNamespacesUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidConfigRbacsGetResult =
+  AxiosResponse<V1ClusterRbacs>;
+export type V1SpectroClustersUidConfigRbacsUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidConfigRbacsUidGetResult =
+  AxiosResponse<V1ClusterRbac>;
+export type V1SpectroClustersUidConfigRbacsUidUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidDownloadResult = AxiosResponse<Blob>;
+export type V1EdgeNativeClustersHostsListResult =
+  AxiosResponse<V1EdgeHostDevices>;
+export type V1SpectroClustersUidEdgeResetResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureBackupScheduleResetResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureBackupGetResult = AxiosResponse<V1ClusterBackup>;
+export type V1ClusterFeatureBackupCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterFeatureBackupUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureBackupOnDemandCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterFeatureBackupDeleteResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureComplianceScanGetResult =
+  AxiosResponse<V1ClusterComplianceScan>;
+export type V1ClusterFeatureComplianceScanCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterFeatureComplianceScanUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureComplianceScanLogsGetResult =
+  AxiosResponse<V1ClusterComplianceScanLogs>;
+export type V1ClusterFeatureScanKubeBenchLogUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ClusterFeatureScanKubeHunterLogUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ClusterFeatureScanSonobuoyLogUpdateResult =
+  AxiosResponse<unknown>;
+export type V1ClusterFeatureScanSyftLogUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterFeatureComplianceScanLogDeleteResult =
+  AxiosResponse<unknown>;
+export type V1ClusterFeatureKubeBenchLogGetResult =
+  AxiosResponse<V1ClusterScanLogKubeBench>;
+export type V1ClusterFeatureKubeHunterLogGetResult =
+  AxiosResponse<V1ClusterScanLogKubeHunter>;
+export type V1ClusterFeatureSonobuoyLogGetResult =
+  AxiosResponse<V1ClusterScanLogSonobuoy>;
+export type V1ClusterFeatureSyftLogGetResult =
+  AxiosResponse<V1ClusterScanLogSyft>;
+export type V1SyftScanLogImageSBOMGetResult = AxiosResponse<Blob>;
+export type V1ClusterFeatureDriverLogDownloadResult = AxiosResponse<Blob>;
+export type V1ClusterFeatureComplianceScanOnDemandCreateResult =
+  AxiosResponse<V1Uid>;
+export type V1ClusterFeatureHelmChartsGetResult =
+  AxiosResponse<V1ClusterHelmCharts>;
+export type V1ClusterFeatureLogFetcherGetResult =
+  AxiosResponse<V1ClusterLogFetcher>;
+export type V1ClusterFeatureLogFetcherCreateResult = AxiosResponse<V1Uid>;
+export type V1ClusterFeatureManifestsGetResult =
+  AxiosResponse<V1ClusterManifests>;
+export type V1ClusterFeatureRestoreGetResult = AxiosResponse<V1ClusterRestore>;
+export type V1ClusterFeatureRestoreOnDemandCreateResult = AxiosResponse<V1Uid>;
+export type V1SpectroClustersUidHeartbeatUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGetHybridPoolsMetadataResult =
+  AxiosResponse<V1SpectroClusterHybridPoolsMetadata>;
+export type V1SpectroClustersUidHybridSettingsResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidImportManifestResult = AxiosResponse<Blob>;
+export type V1SpectroClustersUidImportUpgradePatchResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersK8CertificateResult =
+  AxiosResponse<V1MachineCertificates>;
+export type V1SpectroClustersK8CertificateUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersCertificatesRenewResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidKubeCtlRedirectResult =
+  AxiosResponse<V1SpectroClusterKubeCtlRedirect>;
+export type V1SpectroClustersUidLocationPutResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidMetadataUpdateResult = AxiosResponse<unknown>;
+export type V1ClusterNamespacesGetResult = AxiosResponse<V1ClusterNamespaces>;
+export type V1SpectroClustersUidOIDCResult =
+  AxiosResponse<V1SpectroClusterOidcSpec>;
+export type V1SpectroClustersUidOIDCDashboardUrlResult =
+  AxiosResponse<V1SectroClusterK8sDashboardUrl>;
+export type V1SpectroClustersUidPackManifestsUidGetResult =
+  AxiosResponse<V1Manifest>;
+export type V1SpectroClustersUidPackPropertiesResult =
+  AxiosResponse<V1SpectroClusterPackProperties>;
+export type V1SpectroClustersPacksRefUpdateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidPacksResolvedValuesGetResult =
+  AxiosResponse<V1SpectroClusterProfilesResolvedValues>;
+export type V1SpectroClustersUidPacksStatusPatchResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGetProfileUpdatesResult =
+  AxiosResponse<V1SpectroClusterProfileUpdates>;
+export type V1SpectroClustersDeleteProfilesResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGetProfilesResult =
+  AxiosResponse<V1SpectroClusterProfileList>;
+export type V1SpectroClustersPatchProfilesResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUpdateProfilesResult = AxiosResponse<unknown>;
+export type V1SpectroClustersGetProfilesPacksManifestsResult =
+  AxiosResponse<V1SpectroClusterProfilesPacksManifests>;
+export type V1SpectroClustersUidProfilesUidPacksConfigGetResult =
+  AxiosResponse<V1SpectroClusterPackConfigList>;
+export type V1SpectroClustersProfilesUidPackManifestsGetResult =
+  AxiosResponse<V1PackManifests>;
+export type V1SpectroClustersProfilesUidPackManifestsUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidRateResult =
+  AxiosResponse<V1SpectroClusterRate>;
+export type V1SpectroClustersUidRepaveApproveUpdateResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidRepaveGetResult =
+  AxiosResponse<V1SpectroClusterRepave>;
+export type V1SpectroClustersUidResetResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidStatusResult =
+  AxiosResponse<V1SpectroClusterStatusEntity>;
+export type V1SpectroClustersUpdateStatusConditionResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUpdateStatusConditionsResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUpdateStatusEndpointsResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUpdateStatusImportedResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUpdateStatusServicesResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidStatusSpcApplyGetResult =
+  AxiosResponse<V1SpcApply>;
+export type V1SpectroClustersUidStatusSpcApplyResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidStatusSpcPatchTimeResult =
+  AxiosResponse<unknown>;
+export type V1SpectroClustersUidUpgradesPutResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidUpgradeSettingsResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidValidatePacksResult =
+  AxiosResponse<V1SpectroClusterValidatorResponse>;
+export type V1SpectroClustersUidValidateRepaveResult =
+  AxiosResponse<V1SpectroClusterRepaveValidationResponse>;
+export type V1SpectroClustersUidVariablesGetResult = AxiosResponse<
+  V1SpectroClusterVariables[]
+>;
+export type V1SpectroClustersUidVariablesPatchResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMListResult =
+  AxiosResponse<V1ClusterVirtualMachineList>;
+export type V1SpectroClustersVMCreateResult =
+  AxiosResponse<V1ClusterVirtualMachine>;
+export type V1ClusterVMSnapshotsListResult =
+  AxiosResponse<V1VirtualMachineSnapshotList>;
+export type V1SpectroClustersVMDeleteResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMGetResult =
+  AxiosResponse<V1ClusterVirtualMachine>;
+export type V1SpectroClustersVMUpdateResult =
+  AxiosResponse<V1ClusterVirtualMachine>;
+export type V1SpectroClustersVMAddVolumeResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMCloneResult =
+  AxiosResponse<V1ClusterVirtualMachine>;
+export type V1SpectroClustersVMMigrateResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMPauseResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMRemoveVolumeResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMRestartResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMResumeResult = AxiosResponse<unknown>;
+export type V1VMSnapshotCreateResult = AxiosResponse<V1VirtualMachineSnapshot>;
+export type V1VMSnapshotDeleteResult = AxiosResponse<unknown>;
+export type V1VMSnapshotGetResult = AxiosResponse<V1VirtualMachineSnapshot>;
+export type V1VMSnapshotUpdateResult = AxiosResponse<V1VirtualMachineSnapshot>;
+export type V1SpectroClustersVMStartResult = AxiosResponse<unknown>;
+export type V1SpectroClustersVMStopResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidWorkloadsSyncResult = AxiosResponse<unknown>;
+export type V1SpectroClustersUidWorkloadsKindSyncResult =
+  AxiosResponse<unknown>;
+export type V1SystemConfigReverseProxyGetResult =
+  AxiosResponse<V1SystemReverseProxy>;
+export type V1SystemConfigReverseProxyUpdateResult = AxiosResponse<V1Updated>;
+export type V1PasswordsBlockListDeleteResult = AxiosResponse<unknown>;
+export type V1PasswordsBlockListUpdateResult = AxiosResponse<V1Updated>;
+export type V1TeamsListResult = AxiosResponse<V1Teams>;
+export type V1TeamsCreateResult = AxiosResponse<V1Uid>;
+export type V1TeamsSummaryGetResult = AxiosResponse<V1TeamsSummaryList>;
+export type V1TeamsUidDeleteResult = AxiosResponse<unknown>;
+export type V1TeamsUidGetResult = AxiosResponse<V1Team>;
+export type V1TeamsUidPatchResult = AxiosResponse<unknown>;
+export type V1TeamsUidUpdateResult = AxiosResponse<unknown>;
+export type V1TeamsProjectRolesResult = AxiosResponse<V1ProjectRolesEntity>;
+export type V1TeamsProjectRolesPutResult = AxiosResponse<unknown>;
+export type V1TeamsUidResourceRolesResult = AxiosResponse<V1ResourceRoles>;
+export type V1TeamsUidResourceRolesCreateResult = AxiosResponse<unknown>;
+export type V1TeamsUidResourceRolesUidDeleteResult = AxiosResponse<unknown>;
+export type V1TeamsResourceRolesUidUpdateResult = AxiosResponse<unknown>;
+export type V1TeamsUidTenantRolesGetResult =
+  AxiosResponse<V1TeamTenantRolesEntity>;
+export type V1TeamsUidTenantRolesUpdateResult = AxiosResponse<unknown>;
+export type V1PatchTenantAddressResult = AxiosResponse<unknown>;
+export type V1TenantUIdAssetsCertsListResult =
+  AxiosResponse<V1TenantAssetCerts>;
+export type V1TenantUidAssetsCertsCreateResult = AxiosResponse<V1Uid>;
+export type V1TenantUidAssetsCertsUidDeleteResult = AxiosResponse<unknown>;
+export type V1TenantUidAssetsCertsUidGetResult =
+  AxiosResponse<V1TenantAssetCert>;
+export type V1TenantUidAssetsCertsUidUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidAssetsDataSinksDeleteResult = AxiosResponse<unknown>;
+export type V1TenantUidAssetsDataSinksGetResult =
+  AxiosResponse<V1DataSinkConfig>;
+export type V1TenantUidAssetsDataSinksCreateResult = AxiosResponse<V1Uid>;
+export type V1TenantUidAssetsDataSinksUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidAuthTokenSettingsGetResult =
+  AxiosResponse<V1AuthTokenSettings>;
+export type V1TenantUidAuthTokenSettingsUpdateResult = AxiosResponse<unknown>;
+export type V1TenantsUidContractAcceptResult = AxiosResponse<unknown>;
+export type V1TenantsCreditAccountDeleteResult = AxiosResponse<unknown>;
+export type V1TenantsCreditAccountGetResult =
+  AxiosResponse<V1AwsCreditAccountEntity>;
+export type V1TenantUidDomainsGetResult = AxiosResponse<V1TenantDomains>;
+export type V1TenantUidDomainsUpdateResult = AxiosResponse<unknown>;
+export type V1PatchTenantEmailIdResult = AxiosResponse<unknown>;
+export type V1TenantFreemiumGetResult = AxiosResponse<V1TenantFreemium>;
+export type V1TenantFreemiumUpdateResult = AxiosResponse<unknown>;
+export type V1TenantFreemiumUsageGetResult =
+  AxiosResponse<V1TenantFreemiumUsage>;
+export type V1InvoicesUidGetResult = AxiosResponse<V1Invoice>;
+export type V1InvoiceUidReportInvoicePdfResult = AxiosResponse<Blob>;
+export type V1InvoiceUidReportPdfResult = AxiosResponse<Blob>;
+export type V1InvoiceUidReportUsagePdfResult = AxiosResponse<Blob>;
+export type V1TenantUidLoginBannerGetResult =
+  AxiosResponse<V1LoginBannerSettings>;
+export type V1TenantUidLoginBannerUpdateResult = AxiosResponse<unknown>;
+export type V1TenantsUidMacrosDeleteByMacroNameResult = AxiosResponse<unknown>;
+export type V1TenantsUidMacrosListResult = AxiosResponse<V1Macros>;
+export type V1TenantsUidMacrosUpdateByMacroNameResult = AxiosResponse<unknown>;
+export type V1TenantsUidMacrosCreateResult = AxiosResponse<unknown>;
+export type V1TenantsUidMacrosUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidOidcConfigGetResult =
+  AxiosResponse<V1TenantOidcClientSpec>;
+export type V1TenantUidOidcConfigUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidPasswordPolicyGetResult =
+  AxiosResponse<V1TenantPasswordPolicyEntity>;
+export type V1TenantUidPasswordPolicyUpdateResult = AxiosResponse<unknown>;
+export type V1TenantPrefClusterGroupGetResult =
+  AxiosResponse<V1TenantEnableClusterGroup>;
+export type V1TenantPrefClusterGroupUpdateResult = AxiosResponse<unknown>;
+export type V1TenantClusterSettingsGetResult =
+  AxiosResponse<V1TenantClusterSettings>;
+export type V1TenantClustersNodesAutoRemediationSettingUpdateResult =
+  AxiosResponse<unknown>;
+export type V1TenantDeveloperCreditGetResult = AxiosResponse<V1DeveloperCredit>;
+export type V1TenantDeveloperCreditUpdateResult = AxiosResponse<unknown>;
+export type V1TenantFipsSettingsGetResult = AxiosResponse<V1FipsSettings>;
+export type V1TenantFipsSettingsUpdateResult = AxiosResponse<unknown>;
+export type V1RateConfigGetResult = AxiosResponse<V1RateConfig>;
+export type V1RateConfigUpdateResult = AxiosResponse<unknown>;
+export type V1TenantResourceLimitsGetResult =
+  AxiosResponse<V1TenantResourceLimits>;
+export type V1TenantResourceLimitsUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidSamlConfigSpecGetResult =
+  AxiosResponse<V1TenantSamlSpec>;
+export type V1TenantUidSamlConfigUpdateResult = AxiosResponse<unknown>;
+export type V1TenantUidSsoAuthProvidersGetResult =
+  AxiosResponse<V1TenantSsoAuthProvidersEntity>;
+export type V1TenantUidSsoAuthProvidersUpdateResult = AxiosResponse<unknown>;
+export type V1UsersListResult = AxiosResponse<V1Users>;
+export type V1UsersCreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetsLocationGetResult =
+  AxiosResponse<V1UserAssetsLocations>;
+export type V1UsersAssetsLocationAzureCreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetsLocationAzureGetResult =
+  AxiosResponse<V1UserAssetsLocationAzure>;
+export type V1UsersAssetsLocationAzureUpdateResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationGcpCreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetsLocationGcpGetResult =
+  AxiosResponse<V1UserAssetsLocationGcp>;
+export type V1UsersAssetsLocationGcpUpdateResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationMinioCreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetsLocationMinioGetResult =
+  AxiosResponse<V1UserAssetsLocationS3>;
+export type V1UsersAssetsLocationMinioUpdateResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationS3CreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetsLocationS3DeleteResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationS3GetResult =
+  AxiosResponse<V1UserAssetsLocationS3>;
+export type V1UsersAssetsLocationS3UpdateResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationDefaultUpdateResult = AxiosResponse<unknown>;
+export type V1UsersAssetsLocationDeleteResult = AxiosResponse<unknown>;
+export type V1UsersAssetsSshGetResult = AxiosResponse<V1UserAssetsSsh>;
+export type V1UserAssetsSshCreateResult = AxiosResponse<V1Uid>;
+export type V1UsersAssetSshDeleteResult = AxiosResponse<unknown>;
+export type V1UsersAssetSshGetUidResult = AxiosResponse<V1UserAssetSsh>;
+export type V1UsersAssetSshUpdateResult = AxiosResponse<unknown>;
+export type V1VsphereMappingGetResult = AxiosResponse<V1VsphereDnsMapping>;
+export type V1VsphereDnsMappingsGetResult = AxiosResponse<V1VsphereDnsMappings>;
+export type V1VsphereDnsMappingCreateResult = AxiosResponse<V1Uid>;
+export type V1VsphereDnsMappingDeleteResult = AxiosResponse<unknown>;
+export type V1VsphereDnsMappingGetResult = AxiosResponse<V1VsphereDnsMapping>;
+export type V1VsphereDnsMappingUpdateResult = AxiosResponse<unknown>;
+export type V1UsersAuthTokensRevokeResult = AxiosResponse<unknown>;
+export type V1UsersConfigScarGetResult = AxiosResponse<V1SystemScarSpec>;
+export type V1UsersInfoGetResult = AxiosResponse<V1UserInfo>;
+export type V1UsersKubectlSessionUidResult =
+  AxiosResponse<V1UserKubectlSession>;
+export type V1UsersMetadataResult = AxiosResponse<V1UsersMetadata>;
+export type V1UsersPasswordChangeResult = AxiosResponse<unknown>;
+export type V1UsersEmailPasswordResetResult = AxiosResponse<unknown>;
+export type V1UsersSummaryGetResult = AxiosResponse<V1UsersSummaryList>;
+export type V1UsersSystemFeatureResult = AxiosResponse<V1SystemFeatures>;
+export type V1UsersSystemMacrosDeleteByMacroNameResult = AxiosResponse<unknown>;
+export type V1UsersSystemMacrosListResult = AxiosResponse<V1Macros>;
+export type V1UsersSystemMacrosUpdateByMacroNameResult = AxiosResponse<unknown>;
+export type V1UsersSystemMacrosCreateResult = AxiosResponse<unknown>;
+export type V1UsersSystemMacrosUpdateResult = AxiosResponse<unknown>;
+export type V1UsersUidDeleteResult = AxiosResponse<unknown>;
+export type V1UsersUidGetResult = AxiosResponse<V1User>;
+export type V1UsersUidPatchResult = AxiosResponse<unknown>;
+export type V1UsersUidUpdateResult = AxiosResponse<unknown>;
+export type V1UsersUidPasswordChangeResult = AxiosResponse<unknown>;
+export type V1UsersUidPasswordResetResult = AxiosResponse<unknown>;
+export type V1UsersProjectRolesResult = AxiosResponse<V1ProjectRolesEntity>;
+export type V1UsersProjectRolesPutResult = AxiosResponse<unknown>;
+export type V1UsersUidResourceRolesResult = AxiosResponse<V1ResourceRoles>;
+export type V1UsersUidResourceRolesCreateResult = AxiosResponse<unknown>;
+export type V1UsersUidResourceRolesUidDeleteResult = AxiosResponse<unknown>;
+export type V1UsersResourceRolesUidUpdateResult = AxiosResponse<unknown>;
+export type V1UsersUidRolesResult = AxiosResponse<V1UserRolesEntity>;
+export type V1UsersUidRolesUpdateResult = AxiosResponse<unknown>;
+export type V1UsersStatusLoginModeResult = AxiosResponse<unknown>;
+export type V1WorkspacesCreateResult = AxiosResponse<V1Uid>;
+export type V1TeamsWorkspaceGetRolesResult =
+  AxiosResponse<V1WorkspaceScopeRoles>;
+export type V1TeamsWorkspaceRolesPutResult = AxiosResponse<unknown>;
+export type V1UsersWorkspaceGetRolesResult =
+  AxiosResponse<V1WorkspaceScopeRoles>;
+export type V1UsersWorkspaceRolesPutResult = AxiosResponse<unknown>;
+export type V1WorkspacesValidateNameResult = AxiosResponse<unknown>;
+export type V1WorkspacesUidDeleteResult = AxiosResponse<unknown>;
+export type V1WorkspacesUidGetResult = AxiosResponse<V1Workspace>;
+export type V1WorkspaceOpsBackupDeleteResult = AxiosResponse<unknown>;
+export type V1WorkspaceOpsBackupGetResult = AxiosResponse<V1WorkspaceBackup>;
+export type V1WorkspaceOpsBackupCreateResult = AxiosResponse<V1Uid>;
+export type V1WorkspaceOpsBackupUpdateResult = AxiosResponse<unknown>;
+export type V1WorkspaceOpsBackupOnDemandCreateResult = AxiosResponse<V1Uid>;
+export type V1WorkspacesUidClusterNamespacesUpdateResult =
+  AxiosResponse<unknown>;
+export type V1WorkspacesClusterRbacCreateResult = AxiosResponse<V1Uid>;
+export type V1WorkspacesUidClusterRbacDeleteResult = AxiosResponse<unknown>;
+export type V1WorkspacesUidClusterRbacUpdateResult = AxiosResponse<unknown>;
+export type V1WorkspacesUidMetaUpdateResult = AxiosResponse<unknown>;
+export type V1WorkspaceOpsRestoreGetResult = AxiosResponse<V1WorkspaceRestore>;
+export type V1WorkspaceOpsRestoreOnDemandCreateResult = AxiosResponse<V1Uid>;

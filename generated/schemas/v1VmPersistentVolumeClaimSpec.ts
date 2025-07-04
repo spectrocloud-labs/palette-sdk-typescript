@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmTypedLocalObjectReference } from './v1VmTypedLocalObjectReference';
-import type { V1VmCoreResourceRequirements } from './v1VmCoreResourceRequirements';
-import type { V1VmLabelSelector } from './v1VmLabelSelector';
+import type { V1VmTypedLocalObjectReference } from "./v1VmTypedLocalObjectReference";
+import type { V1VmCoreResourceRequirements } from "./v1VmCoreResourceRequirements";
+import type { V1VmLabelSelector } from "./v1VmLabelSelector";
 
 /**
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes

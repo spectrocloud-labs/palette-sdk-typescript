@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1HostClusterEndpointConfig } from './v1HostClusterEndpointConfig';
-import type { V1HostClusterEndpointType } from './v1HostClusterEndpointType';
+import type { V1HostClusterEndpointConfig } from "./v1HostClusterEndpointConfig";
+import type { V1HostClusterEndpointType } from "./v1HostClusterEndpointType";
 
 export interface V1HostClusterEndpoint {
   config?: V1HostClusterEndpointConfig;

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ArchType } from './v1ArchType';
-import type { V1CloudAccountMeta } from './v1CloudAccountMeta';
-import type { V1CloudConfigMeta } from './v1CloudConfigMeta';
-import type { V1ClusterConfigResponse } from './v1ClusterConfigResponse';
-import type { V1ClusterProfileTemplateMeta } from './v1ClusterProfileTemplateMeta';
-import type { V1ProjectMeta } from './v1ProjectMeta';
+import type { V1ArchType } from "./v1ArchType";
+import type { V1CloudAccountMeta } from "./v1CloudAccountMeta";
+import type { V1CloudConfigMeta } from "./v1CloudConfigMeta";
+import type { V1ClusterConfigResponse } from "./v1ClusterConfigResponse";
+import type { V1ClusterProfileTemplateMeta } from "./v1ClusterProfileTemplateMeta";
+import type { V1ProjectMeta } from "./v1ProjectMeta";
 
 /**
  * Spectro cluster spec summary

@@ -14,14 +14,15 @@
  * Packs sort by fields
  * @nullable
  */
-export type V1PackSortFields = typeof V1PackSortFields[keyof typeof V1PackSortFields] | null;
-
+export type V1PackSortFields =
+  | (typeof V1PackSortFields)[keyof typeof V1PackSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1PackSortFields = {
-  name: 'name',
-  type: 'type',
-  layer: 'layer',
-  addOnType: 'addOnType',
-  displayName: 'displayName',
+  name: "name",
+  type: "type",
+  layer: "layer",
+  addOnType: "addOnType",
+  displayName: "displayName",
 } as const;

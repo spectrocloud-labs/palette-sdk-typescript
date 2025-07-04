@@ -13,14 +13,14 @@
 /**
  * Describes action type for the notification. Possible Values [NotifyActionPacksUpdate, NotifyActionClusterProfileUpdate, NotifyActionPackRegistryUpdate, NotifyActionClusterUpdate, NotifyActionNone]
  */
-export type V1NotificationActionActionType = typeof V1NotificationActionActionType[keyof typeof V1NotificationActionActionType];
-
+export type V1NotificationActionActionType =
+  (typeof V1NotificationActionActionType)[keyof typeof V1NotificationActionActionType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1NotificationActionActionType = {
-  NotifyActionPacksUpdate: 'NotifyActionPacksUpdate',
-  NotifyActionClusterProfileUpdate: 'NotifyActionClusterProfileUpdate',
-  NotifyActionPackRegistryUpdate: 'NotifyActionPackRegistryUpdate',
-  NotifyActionClusterUpdate: 'NotifyActionClusterUpdate',
-  NotifyActionNone: 'NotifyActionNone',
+  NotifyActionPacksUpdate: "NotifyActionPacksUpdate",
+  NotifyActionClusterProfileUpdate: "NotifyActionClusterProfileUpdate",
+  NotifyActionPackRegistryUpdate: "NotifyActionPackRegistryUpdate",
+  NotifyActionClusterUpdate: "NotifyActionClusterUpdate",
+  NotifyActionNone: "NotifyActionNone",
 } as const;

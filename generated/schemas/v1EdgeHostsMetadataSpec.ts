@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProfileTemplateSummary } from './v1ProfileTemplateSummary';
-import type { V1DeviceSpec } from './v1DeviceSpec';
-import type { V1EdgeHostSpecHost } from './v1EdgeHostSpecHost';
-import type { V1ProjectMeta } from './v1ProjectMeta';
+import type { V1ProfileTemplateSummary } from "./v1ProfileTemplateSummary";
+import type { V1DeviceSpec } from "./v1DeviceSpec";
+import type { V1EdgeHostSpecHost } from "./v1EdgeHostSpecHost";
+import type { V1ProjectMeta } from "./v1ProjectMeta";
 
 export interface V1EdgeHostsMetadataSpec {
   clusterProfileTemplates?: V1ProfileTemplateSummary[];

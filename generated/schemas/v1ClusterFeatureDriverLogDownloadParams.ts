@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterFeatureDriverLogDownloadParams = {
-fileFormat?: string;
+  fileFormat?: string;
 };

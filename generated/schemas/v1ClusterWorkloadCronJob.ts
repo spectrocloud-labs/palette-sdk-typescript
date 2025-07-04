@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadMetadata } from './v1ClusterWorkloadMetadata';
-import type { V1ClusterWorkloadCronJobSpec } from './v1ClusterWorkloadCronJobSpec';
-import type { V1ClusterWorkloadCronJobStatus } from './v1ClusterWorkloadCronJobStatus';
+import type { V1ClusterWorkloadMetadata } from "./v1ClusterWorkloadMetadata";
+import type { V1ClusterWorkloadCronJobSpec } from "./v1ClusterWorkloadCronJobSpec";
+import type { V1ClusterWorkloadCronJobStatus } from "./v1ClusterWorkloadCronJobStatus";
 
 /**
  * Cluster workload cronjob summary

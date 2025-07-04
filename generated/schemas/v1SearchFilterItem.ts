@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SearchFilterCondition } from './v1SearchFilterCondition';
-import type { V1SearchFilterPropertyType } from './v1SearchFilterPropertyType';
+import type { V1SearchFilterCondition } from "./v1SearchFilterCondition";
+import type { V1SearchFilterPropertyType } from "./v1SearchFilterPropertyType";
 
 export interface V1SearchFilterItem {
   condition?: V1SearchFilterCondition;

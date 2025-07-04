@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterHealthCondition } from './v1SpectroClusterHealthCondition';
+import type { V1SpectroClusterHealthCondition } from "./v1SpectroClusterHealthCondition";
 
 /**
  * Spectro cluster health status

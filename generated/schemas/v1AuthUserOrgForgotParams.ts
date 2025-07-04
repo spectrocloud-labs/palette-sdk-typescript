@@ -11,8 +11,8 @@
  */
 
 export type V1AuthUserOrgForgotParams = {
-/**
- * Describes user's email id for sending organzation(s) details via email.
- */
-emailId: string;
+  /**
+   * Describes user's email id for sending organzation(s) details via email.
+   */
+  emailId: string;
 };

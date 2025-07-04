@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ComputeMetrics } from './v1ComputeMetrics';
+import type { V1ComputeMetrics } from "./v1ComputeMetrics";
 
 /**
  * Spectro cluster metrics

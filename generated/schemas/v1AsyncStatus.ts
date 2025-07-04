@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AsyncResult } from './v1AsyncResult';
+import type { V1AsyncResult } from "./v1AsyncResult";
 
 export interface V1AsyncStatus {
   /** Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. */

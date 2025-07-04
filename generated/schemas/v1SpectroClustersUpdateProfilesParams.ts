@@ -11,8 +11,8 @@
  */
 
 export type V1SpectroClustersUpdateProfilesParams = {
-/**
- * Resolve pending cluster notification if set to true
- */
-resolveNotification?: boolean;
+  /**
+   * Resolve pending cluster notification if set to true
+   */
+  resolveNotification?: boolean;
 };

@@ -11,8 +11,8 @@
  */
 
 export type V1ClusterProfilesUidPacksConfigGetParams = {
-/**
- * Cluster profile pack uid
- */
-packUid: string;
+  /**
+   * Cluster profile pack uid
+   */
+  packUid: string;
 };

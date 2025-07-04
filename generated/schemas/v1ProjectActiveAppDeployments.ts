@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectActiveAppDeployment } from './v1ProjectActiveAppDeployment';
+import type { V1ProjectActiveAppDeployment } from "./v1ProjectActiveAppDeployment";
 
 /**
  * Active app deployment

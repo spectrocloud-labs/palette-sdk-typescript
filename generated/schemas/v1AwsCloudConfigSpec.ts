@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1AwsClusterConfig } from './v1AwsClusterConfig';
-import type { V1AwsHybridMachinePool } from './v1AwsHybridMachinePool';
-import type { V1AwsMachinePoolConfig } from './v1AwsMachinePoolConfig';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1AwsClusterConfig } from "./v1AwsClusterConfig";
+import type { V1AwsHybridMachinePool } from "./v1AwsHybridMachinePool";
+import type { V1AwsMachinePoolConfig } from "./v1AwsMachinePoolConfig";
 
 /**
  * AwsCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistriesHelmCreateScope } from './v1RegistriesHelmCreateScope';
+import type { V1RegistriesHelmCreateScope } from "./v1RegistriesHelmCreateScope";
 
 export type V1RegistriesHelmCreateParams = {
-scope?: V1RegistriesHelmCreateScope;
+  scope?: V1RegistriesHelmCreateScope;
 };

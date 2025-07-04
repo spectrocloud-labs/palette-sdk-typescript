@@ -10,12 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1TaintEffect = typeof V1TaintEffect[keyof typeof V1TaintEffect];
-
+export type V1TaintEffect = (typeof V1TaintEffect)[keyof typeof V1TaintEffect];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1TaintEffect = {
-  NoSchedule: 'NoSchedule',
-  PreferNoSchedule: 'PreferNoSchedule',
-  NoExecute: 'NoExecute',
+  NoSchedule: "NoSchedule",
+  PreferNoSchedule: "PreferNoSchedule",
+  NoExecute: "NoExecute",
 } as const;

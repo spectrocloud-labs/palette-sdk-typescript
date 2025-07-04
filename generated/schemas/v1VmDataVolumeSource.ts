@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmDataVolumeSourceBlank } from './v1VmDataVolumeSourceBlank';
-import type { V1VmDataVolumeSourceHttp } from './v1VmDataVolumeSourceHttp';
-import type { V1VmDataVolumeSourceImageIO } from './v1VmDataVolumeSourceImageIO';
-import type { V1VmDataVolumeSourcePVC } from './v1VmDataVolumeSourcePVC';
-import type { V1VmDataVolumeSourceRegistry } from './v1VmDataVolumeSourceRegistry';
-import type { V1VmDataVolumeSourceS3 } from './v1VmDataVolumeSourceS3';
-import type { V1VmDataVolumeSourceUploadProperty } from './v1VmDataVolumeSourceUploadProperty';
-import type { V1VmDataVolumeSourceVDDK } from './v1VmDataVolumeSourceVDDK';
+import type { V1VmDataVolumeSourceBlank } from "./v1VmDataVolumeSourceBlank";
+import type { V1VmDataVolumeSourceHttp } from "./v1VmDataVolumeSourceHttp";
+import type { V1VmDataVolumeSourceImageIO } from "./v1VmDataVolumeSourceImageIO";
+import type { V1VmDataVolumeSourcePVC } from "./v1VmDataVolumeSourcePVC";
+import type { V1VmDataVolumeSourceRegistry } from "./v1VmDataVolumeSourceRegistry";
+import type { V1VmDataVolumeSourceS3 } from "./v1VmDataVolumeSourceS3";
+import type { V1VmDataVolumeSourceUploadProperty } from "./v1VmDataVolumeSourceUploadProperty";
+import type { V1VmDataVolumeSourceVDDK } from "./v1VmDataVolumeSourceVDDK";
 
 /**
  * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC

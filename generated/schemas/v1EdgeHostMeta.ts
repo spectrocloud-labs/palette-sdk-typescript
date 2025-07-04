@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ArchType } from './v1ArchType';
-import type { V1EdgeHostMetaEdgeHostType } from './v1EdgeHostMetaEdgeHostType';
+import type { V1ArchType } from "./v1ArchType";
+import type { V1EdgeHostMetaEdgeHostType } from "./v1EdgeHostMetaEdgeHostType";
 
 export interface V1EdgeHostMeta {
   archType?: V1ArchType;

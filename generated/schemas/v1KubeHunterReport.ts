@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1KubeHunterLog } from './v1KubeHunterLog';
-import type { V1KubeHunterVulnerabilities } from './v1KubeHunterVulnerabilities';
+import type { V1KubeHunterLog } from "./v1KubeHunterLog";
+import type { V1KubeHunterVulnerabilities } from "./v1KubeHunterVulnerabilities";
 
 /**
  * Compliance Scan KubeHunter Report

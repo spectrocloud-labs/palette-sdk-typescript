@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsResourceReference } from './v1AwsResourceReference';
-import type { V1AwsMachinePoolCloudConfigEntityCapacityType } from './v1AwsMachinePoolCloudConfigEntityCapacityType';
-import type { V1SpotMarketOptions } from './v1SpotMarketOptions';
-import type { V1AwsSubnetEntity } from './v1AwsSubnetEntity';
+import type { V1AwsResourceReference } from "./v1AwsResourceReference";
+import type { V1AwsMachinePoolCloudConfigEntityCapacityType } from "./v1AwsMachinePoolCloudConfigEntityCapacityType";
+import type { V1SpotMarketOptions } from "./v1SpotMarketOptions";
+import type { V1AwsSubnetEntity } from "./v1AwsSubnetEntity";
 
 export interface V1AwsMachinePoolCloudConfigEntity {
   /** Additional Security groups */

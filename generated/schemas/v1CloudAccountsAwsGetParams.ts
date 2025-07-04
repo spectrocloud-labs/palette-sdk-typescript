@@ -11,5 +11,5 @@
  */
 
 export type V1CloudAccountsAwsGetParams = {
-assumeCredentials?: boolean;
+  assumeCredentials?: boolean;
 };

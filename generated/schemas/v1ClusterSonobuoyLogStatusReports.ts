@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SonobuoyReport } from './v1SonobuoyReport';
+import type { V1SonobuoyReport } from "./v1SonobuoyReport";
 
-export type V1ClusterSonobuoyLogStatusReports = {[key: string]: V1SonobuoyReport};
+export type V1ClusterSonobuoyLogStatusReports = {
+  [key: string]: V1SonobuoyReport;
+};

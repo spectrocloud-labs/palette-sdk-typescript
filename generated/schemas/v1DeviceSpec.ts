@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DeviceSpecArchType } from './v1DeviceSpecArchType';
-import type { V1CPU } from './v1cpu';
-import type { V1Disk } from './v1Disk';
-import type { V1GPUDeviceSpec } from './v1GPUDeviceSpec';
-import type { V1DeviceSpecHostState } from './v1DeviceSpecHostState';
-import type { V1DeviceSpecHostType } from './v1DeviceSpecHostType';
-import type { V1Memory } from './v1Memory';
-import type { V1Nic } from './v1Nic';
-import type { V1OS } from './v1os';
+import type { V1DeviceSpecArchType } from "./v1DeviceSpecArchType";
+import type { V1CPU } from "./v1cpu";
+import type { V1Disk } from "./v1Disk";
+import type { V1GPUDeviceSpec } from "./v1GPUDeviceSpec";
+import type { V1DeviceSpecHostState } from "./v1DeviceSpecHostState";
+import type { V1DeviceSpecHostType } from "./v1DeviceSpecHostType";
+import type { V1Memory } from "./v1Memory";
+import type { V1Nic } from "./v1Nic";
+import type { V1OS } from "./v1os";
 
 /**
  * DeviceSpec defines the desired state of Device

@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmAccessCredential } from './v1VmAccessCredential';
-import type { V1VmAffinity } from './v1VmAffinity';
-import type { V1VmPodDnsConfig } from './v1VmPodDnsConfig';
-import type { V1VmDomainSpec } from './v1VmDomainSpec';
-import type { V1VmProbe } from './v1VmProbe';
-import type { V1VmNetwork } from './v1VmNetwork';
-import type { V1VmVirtualMachineInstanceSpecNodeSelector } from './v1VmVirtualMachineInstanceSpecNodeSelector';
-import type { V1VmToleration } from './v1VmToleration';
-import type { V1VmTopologySpreadConstraint } from './v1VmTopologySpreadConstraint';
-import type { V1VmVolume } from './v1VmVolume';
+import type { V1VmAccessCredential } from "./v1VmAccessCredential";
+import type { V1VmAffinity } from "./v1VmAffinity";
+import type { V1VmPodDnsConfig } from "./v1VmPodDnsConfig";
+import type { V1VmDomainSpec } from "./v1VmDomainSpec";
+import type { V1VmProbe } from "./v1VmProbe";
+import type { V1VmNetwork } from "./v1VmNetwork";
+import type { V1VmVirtualMachineInstanceSpecNodeSelector } from "./v1VmVirtualMachineInstanceSpecNodeSelector";
+import type { V1VmToleration } from "./v1VmToleration";
+import type { V1VmTopologySpreadConstraint } from "./v1VmTopologySpreadConstraint";
+import type { V1VmVolume } from "./v1VmVolume";
 
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.

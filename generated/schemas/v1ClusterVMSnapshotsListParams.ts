@@ -11,21 +11,21 @@
  */
 
 export type V1ClusterVMSnapshotsListParams = {
-/**
- * vmName is comma separated value (ex: name1,name2).
- */
-vmName?: string[];
-/**
- * Namespace names, comma separated value (ex: dev,test). If namespace is empty it returns the specific resource under all namespace
- */
-namespace?: string[];
-/**
+  /**
+   * vmName is comma separated value (ex: name1,name2).
+   */
+  vmName?: string[];
+  /**
+   * Namespace names, comma separated value (ex: dev,test). If namespace is empty it returns the specific resource under all namespace
+   */
+  namespace?: string[];
+  /**
  * limit is a maximum number of responses to return for a list call. Default and maximum value of the limit is 50.
 If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results.
  */
-limit?: number;
-/**
- * continue token to paginate the subsequent data items
- */
-continue?: string;
+  limit?: number;
+  /**
+   * continue token to paginate the subsequent data items
+   */
+  continue?: string;
 };

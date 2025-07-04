@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpAccountEntitySpec } from './v1GcpAccountEntitySpec';
+import type { V1GcpAccountEntitySpec } from "./v1GcpAccountEntitySpec";
 
 /**
  * GCP storage config object

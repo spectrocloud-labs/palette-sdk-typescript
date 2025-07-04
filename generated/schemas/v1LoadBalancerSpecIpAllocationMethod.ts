@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1LoadBalancerSpecIpAllocationMethod = typeof V1LoadBalancerSpecIpAllocationMethod[keyof typeof V1LoadBalancerSpecIpAllocationMethod];
-
+export type V1LoadBalancerSpecIpAllocationMethod =
+  (typeof V1LoadBalancerSpecIpAllocationMethod)[keyof typeof V1LoadBalancerSpecIpAllocationMethod];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1LoadBalancerSpecIpAllocationMethod = {
-  Static: 'Static',
-  Dynamic: 'Dynamic',
+  Static: "Static",
+  Dynamic: "Dynamic",
 } as const;

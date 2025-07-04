@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceWorkloadsFilter } from './v1WorkspaceWorkloadsFilter';
+import type { V1WorkspaceWorkloadsFilter } from "./v1WorkspaceWorkloadsFilter";
 
 /**
  * Workspace workloads spec

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpClusterConfig } from './v1GcpClusterConfig';
-import type { V1GcpMachinePoolConfigEntity } from './v1GcpMachinePoolConfigEntity';
+import type { V1GcpClusterConfig } from "./v1GcpClusterConfig";
+import type { V1GcpMachinePoolConfigEntity } from "./v1GcpMachinePoolConfigEntity";
 
 /**
  * Gcp cluster request payload for estimating rate

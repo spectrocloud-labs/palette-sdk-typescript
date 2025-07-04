@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterLogFetcherK8sRequest } from './v1ClusterLogFetcherK8sRequest';
-import type { V1ClusterLogFetcherRequestMode } from './v1ClusterLogFetcherRequestMode';
-import type { V1ClusterLogFetcherNodeRequest } from './v1ClusterLogFetcherNodeRequest';
+import type { V1ClusterLogFetcherK8sRequest } from "./v1ClusterLogFetcherK8sRequest";
+import type { V1ClusterLogFetcherRequestMode } from "./v1ClusterLogFetcherRequestMode";
+import type { V1ClusterLogFetcherNodeRequest } from "./v1ClusterLogFetcherNodeRequest";
 
 /**
  * Cluster Log Fetcher Request

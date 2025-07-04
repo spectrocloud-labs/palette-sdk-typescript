@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsResourceFilter } from './v1AwsResourceFilter';
+import type { V1AwsResourceFilter } from "./v1AwsResourceFilter";
 
 /**
  * AWSResourceReference is a reference to a specific AWS resource by ID or filters

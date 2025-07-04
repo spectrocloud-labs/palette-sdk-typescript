@@ -11,12 +11,12 @@
  */
 
 export type V1AzureVirtualNetworkListParams = {
-/**
- * Uid for the specific Azure cloud account
- */
-cloudAccountUid: string;
-/**
- * Resource group for which Azure virtual networks are requested
- */
-resourceGroup?: string;
+  /**
+   * Uid for the specific Azure cloud account
+   */
+  cloudAccountUid: string;
+  /**
+   * Resource group for which Azure virtual networks are requested
+   */
+  resourceGroup?: string;
 };

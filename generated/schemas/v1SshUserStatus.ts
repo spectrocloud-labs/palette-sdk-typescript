@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SshUserCredentials } from './v1SshUserCredentials';
-import type { V1SshUserStatusState } from './v1SshUserStatusState';
+import type { V1SshUserCredentials } from "./v1SshUserCredentials";
+import type { V1SshUserStatusState } from "./v1SshUserStatusState";
 
 export interface V1SshUserStatus {
   credentials?: V1SshUserCredentials;

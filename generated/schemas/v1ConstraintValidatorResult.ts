@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ConstraintError } from './v1ConstraintError';
+import type { V1ConstraintError } from "./v1ConstraintError";
 
 /**
  * Constraint validator result

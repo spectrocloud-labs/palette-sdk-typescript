@@ -13,11 +13,11 @@
 /**
  * Deprecated. Cloudtype of the provisioned edge host
  */
-export type V1EdgeHostDeviceSpecType = typeof V1EdgeHostDeviceSpecType[keyof typeof V1EdgeHostDeviceSpecType];
-
+export type V1EdgeHostDeviceSpecType =
+  (typeof V1EdgeHostDeviceSpecType)[keyof typeof V1EdgeHostDeviceSpecType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostDeviceSpecType = {
-  vsphere: 'vsphere',
-  'edge-native': 'edge-native',
+  vsphere: "vsphere",
+  "edge-native": "edge-native",
 } as const;

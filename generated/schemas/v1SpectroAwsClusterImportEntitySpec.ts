@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ImportClusterConfig } from './v1ImportClusterConfig';
+import type { V1ImportClusterConfig } from "./v1ImportClusterConfig";
 
 export interface V1SpectroAwsClusterImportEntitySpec {
   clusterConfig?: V1ImportClusterConfig;

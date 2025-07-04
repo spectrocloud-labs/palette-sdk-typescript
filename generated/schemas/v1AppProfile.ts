@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1AppProfileSpec } from './v1AppProfileSpec';
-import type { V1AppProfileStatus } from './v1AppProfileStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1AppProfileSpec } from "./v1AppProfileSpec";
+import type { V1AppProfileStatus } from "./v1AppProfileStatus";
 
 /**
  * Application profile response

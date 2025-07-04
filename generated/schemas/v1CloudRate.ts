@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ComputeRate } from './v1ComputeRate';
-import type { V1StorageRate } from './v1StorageRate';
+import type { V1ComputeRate } from "./v1ComputeRate";
+import type { V1StorageRate } from "./v1StorageRate";
 
 /**
  * Cloud estimated rate information

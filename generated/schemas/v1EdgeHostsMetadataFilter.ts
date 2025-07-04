@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostsMetadataFilterSpec } from './v1EdgeHostsMetadataFilterSpec';
-import type { V1EdgeHostsMetadataSortSpec } from './v1EdgeHostsMetadataSortSpec';
+import type { V1EdgeHostsMetadataFilterSpec } from "./v1EdgeHostsMetadataFilterSpec";
+import type { V1EdgeHostsMetadataSortSpec } from "./v1EdgeHostsMetadataSortSpec";
 
 /**
  * Edge host metadata spec

@@ -13,11 +13,11 @@
 /**
  * Application deployment source cluster type[ "virtualCluster", "hostCluster" ]
  */
-export type V1AppDeploymentClusterRefSummaryDeploymentClusterType = typeof V1AppDeploymentClusterRefSummaryDeploymentClusterType[keyof typeof V1AppDeploymentClusterRefSummaryDeploymentClusterType];
-
+export type V1AppDeploymentClusterRefSummaryDeploymentClusterType =
+  (typeof V1AppDeploymentClusterRefSummaryDeploymentClusterType)[keyof typeof V1AppDeploymentClusterRefSummaryDeploymentClusterType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AppDeploymentClusterRefSummaryDeploymentClusterType = {
-  virtual: 'virtual',
-  host: 'host',
+  virtual: "virtual",
+  host: "host",
 } as const;

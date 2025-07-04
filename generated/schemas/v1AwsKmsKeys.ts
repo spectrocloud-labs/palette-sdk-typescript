@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsKmsKey } from './v1AwsKmsKey';
+import type { V1AwsKmsKey } from "./v1AwsKmsKey";
 
 /**
  * List of AWS Keys

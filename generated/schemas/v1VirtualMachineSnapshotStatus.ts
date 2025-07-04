@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmCondition } from './v1VmCondition';
-import type { V1VmError } from './v1VmError';
-import type { V1VmSnapshotVolumesLists } from './v1VmSnapshotVolumesLists';
+import type { V1VmCondition } from "./v1VmCondition";
+import type { V1VmError } from "./v1VmError";
+import type { V1VmSnapshotVolumesLists } from "./v1VmSnapshotVolumesLists";
 
 /**
  * VirtualMachineSnapshotStatus is the status for a VirtualMachineSnapshot resource

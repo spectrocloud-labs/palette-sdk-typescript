@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmHttpHeader } from './v1VmHttpHeader';
+import type { V1VmHttpHeader } from "./v1VmHttpHeader";
 
 /**
  * HTTPGetAction describes an action based on HTTP Get requests.

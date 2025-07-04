@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OsPatchConfig } from './v1OsPatchConfig';
+import type { V1OsPatchConfig } from "./v1OsPatchConfig";
 
 export interface V1MachineManagementConfig {
   osPatchConfig?: V1OsPatchConfig;

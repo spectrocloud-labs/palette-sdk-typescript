@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceNamespaceImage } from './v1WorkspaceNamespaceImage';
-import type { V1WorkspaceNamespaceResourceAllocation } from './v1WorkspaceNamespaceResourceAllocation';
+import type { V1WorkspaceNamespaceImage } from "./v1WorkspaceNamespaceImage";
+import type { V1WorkspaceNamespaceResourceAllocation } from "./v1WorkspaceNamespaceResourceAllocation";
 
 /**
  * Workspace cluster namespace

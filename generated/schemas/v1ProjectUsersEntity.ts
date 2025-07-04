@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UserRoleMap } from './v1UserRoleMap';
+import type { V1UserRoleMap } from "./v1UserRoleMap";
 
 export interface V1ProjectUsersEntity {
   users?: V1UserRoleMap[];

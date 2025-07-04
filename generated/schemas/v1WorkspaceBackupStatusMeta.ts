@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterFeatureActor } from './v1ClusterFeatureActor';
-import type { V1WorkspaceClusterBackupConfig } from './v1WorkspaceClusterBackupConfig';
+import type { V1ClusterFeatureActor } from "./v1ClusterFeatureActor";
+import type { V1WorkspaceClusterBackupConfig } from "./v1WorkspaceClusterBackupConfig";
 
 /**
  * Workspace backup status meta

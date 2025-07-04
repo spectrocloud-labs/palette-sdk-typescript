@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceUsageSummaryFilter } from './v1ResourceUsageSummaryFilter';
-import type { V1ResourceUsageSummaryOptions } from './v1ResourceUsageSummaryOptions';
+import type { V1ResourceUsageSummaryFilter } from "./v1ResourceUsageSummaryFilter";
+import type { V1ResourceUsageSummaryOptions } from "./v1ResourceUsageSummaryOptions";
 
 /**
  * Resource usage summary spec

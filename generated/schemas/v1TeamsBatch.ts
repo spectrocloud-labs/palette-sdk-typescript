@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Team } from './v1Team';
+import type { V1Team } from "./v1Team";
 
 export type V1TeamsBatch = V1Team[];

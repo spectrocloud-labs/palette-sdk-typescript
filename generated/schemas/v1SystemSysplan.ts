@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SystemSysplanSpec } from './v1SystemSysplanSpec';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SystemSysplanSpec } from "./v1SystemSysplanSpec";
 
 export interface V1SystemSysplan {
   metadata?: V1ObjectMeta;

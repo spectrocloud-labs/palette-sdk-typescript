@@ -11,8 +11,8 @@
  */
 
 export type V1AzureSubscriptionListParams = {
-/**
- * Uid for the specific Azure cloud account
- */
-cloudAccountUid: string;
+  /**
+   * Uid for the specific Azure cloud account
+   */
+  cloudAccountUid: string;
 };

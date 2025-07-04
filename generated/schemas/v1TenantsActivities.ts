@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantsActivitiesTenants } from './v1TenantsActivitiesTenants';
+import type { V1TenantsActivitiesTenants } from "./v1TenantsActivitiesTenants";
 
 /**
  * Active tenants and clusters data

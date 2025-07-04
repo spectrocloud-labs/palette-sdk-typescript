@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1IngressConfig } from './v1IngressConfig';
-import type { V1LoadBalancerConfig } from './v1LoadBalancerConfig';
+import type { V1IngressConfig } from "./v1IngressConfig";
+import type { V1LoadBalancerConfig } from "./v1LoadBalancerConfig";
 
 export interface V1HostClusterEndpointConfig {
   ingressConfig?: V1IngressConfig;

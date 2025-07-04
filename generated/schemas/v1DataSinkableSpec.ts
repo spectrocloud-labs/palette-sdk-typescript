@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CloudWatch } from './v1CloudWatch';
-import type { V1DataSinkableSpecType } from './v1DataSinkableSpecType';
+import type { V1CloudWatch } from "./v1CloudWatch";
+import type { V1DataSinkableSpecType } from "./v1DataSinkableSpecType";
 
 export interface V1DataSinkableSpec {
   cloudWatch?: V1CloudWatch;

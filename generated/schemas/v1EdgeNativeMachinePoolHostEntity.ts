@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Nic } from './v1Nic';
-import type { V1EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority } from './v1EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority';
+import type { V1Nic } from "./v1Nic";
+import type { V1EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority } from "./v1EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority";
 
 export interface V1EdgeNativeMachinePoolHostEntity {
   /** Edge host name */

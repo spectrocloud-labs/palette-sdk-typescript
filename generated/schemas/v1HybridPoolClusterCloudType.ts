@@ -13,10 +13,10 @@
 /**
  * Flag to indicate whether the pool is deployed in any cloud or an edge environment
  */
-export type V1HybridPoolClusterCloudType = typeof V1HybridPoolClusterCloudType[keyof typeof V1HybridPoolClusterCloudType];
-
+export type V1HybridPoolClusterCloudType =
+  (typeof V1HybridPoolClusterCloudType)[keyof typeof V1HybridPoolClusterCloudType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1HybridPoolClusterCloudType = {
-  'edge-native': 'edge-native',
+  "edge-native": "edge-native",
 } as const;

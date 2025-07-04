@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1FargateProfileAdditionalTags } from './v1FargateProfileAdditionalTags';
-import type { V1FargateSelector } from './v1FargateSelector';
+import type { V1FargateProfileAdditionalTags } from "./v1FargateProfileAdditionalTags";
+import type { V1FargateSelector } from "./v1FargateSelector";
 
 /**
  * FargateProfile defines the desired state of FargateProfile

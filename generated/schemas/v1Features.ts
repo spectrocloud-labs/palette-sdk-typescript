@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Feature } from './v1Feature';
+import type { V1Feature } from "./v1Feature";
 
 export interface V1Features {
   /** List of features */

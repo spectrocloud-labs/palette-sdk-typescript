@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1S3StorageConfig } from './v1S3StorageConfig';
+import type { V1S3StorageConfig } from "./v1S3StorageConfig";
 
 /**
  * S3 location specification

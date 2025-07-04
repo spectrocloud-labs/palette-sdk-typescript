@@ -11,8 +11,8 @@
  */
 
 export type V1MaasDomainsGetParams = {
-/**
- * Uid for the specific Maas cloud account
- */
-cloudAccountUid?: string;
+  /**
+   * Uid for the specific Maas cloud account
+   */
+  cloudAccountUid?: string;
 };

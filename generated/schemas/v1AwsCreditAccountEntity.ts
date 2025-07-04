@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsLoginCredentials } from './v1AwsLoginCredentials';
-import type { V1AwsUserCloudAccount } from './v1AwsUserCloudAccount';
+import type { V1AwsLoginCredentials } from "./v1AwsLoginCredentials";
+import type { V1AwsUserCloudAccount } from "./v1AwsUserCloudAccount";
 
 export interface V1AwsCreditAccountEntity {
   creditLimitInDollars?: number;

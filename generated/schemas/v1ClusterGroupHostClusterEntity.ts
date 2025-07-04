@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterGroupClusterRef } from './v1ClusterGroupClusterRef';
-import type { V1ClusterGroupClustersConfig } from './v1ClusterGroupClustersConfig';
+import type { V1ClusterGroupClusterRef } from "./v1ClusterGroupClusterRef";
+import type { V1ClusterGroupClustersConfig } from "./v1ClusterGroupClustersConfig";
 
 /**
  * Clusters and clusters config of cluster group

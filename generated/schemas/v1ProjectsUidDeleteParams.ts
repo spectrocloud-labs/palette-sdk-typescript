@@ -11,5 +11,5 @@
  */
 
 export type V1ProjectsUidDeleteParams = {
-cleanupProjectResources?: boolean;
+  cleanupProjectResources?: boolean;
 };

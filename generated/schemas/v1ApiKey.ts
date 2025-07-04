@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1ApiKeySpec } from './v1ApiKeySpec';
-import type { V1ApiKeyStatus } from './v1ApiKeyStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1ApiKeySpec } from "./v1ApiKeySpec";
+import type { V1ApiKeyStatus } from "./v1ApiKeyStatus";
 
 /**
  * API key information

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppDeploymentVirtualClusterConfigEntity } from './v1AppDeploymentVirtualClusterConfigEntity';
-import type { V1AppDeploymentProfileEntity } from './v1AppDeploymentProfileEntity';
+import type { V1AppDeploymentVirtualClusterConfigEntity } from "./v1AppDeploymentVirtualClusterConfigEntity";
+import type { V1AppDeploymentProfileEntity } from "./v1AppDeploymentProfileEntity";
 
 /**
  * Application deployment virtual cluster spec

@@ -13,11 +13,11 @@
 /**
  * Deprecated.
  */
-export type V1AuthLoginsAuthType = typeof V1AuthLoginsAuthType[keyof typeof V1AuthLoginsAuthType];
-
+export type V1AuthLoginsAuthType =
+  (typeof V1AuthLoginsAuthType)[keyof typeof V1AuthLoginsAuthType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AuthLoginsAuthType = {
-  password: 'password',
-  sso: 'sso',
+  password: "password",
+  sso: "sso",
 } as const;

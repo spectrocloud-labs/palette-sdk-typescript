@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterDefinitionProfileEntity } from './v1ClusterDefinitionProfileEntity';
+import type { V1ClusterDefinitionProfileEntity } from "./v1ClusterDefinitionProfileEntity";
 
 /**
  * Cluster definition spec entity

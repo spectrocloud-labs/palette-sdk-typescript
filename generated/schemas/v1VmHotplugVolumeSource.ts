@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmCoreDataVolumeSource } from './v1VmCoreDataVolumeSource';
-import type { V1VmPersistentVolumeClaimVolumeSource } from './v1VmPersistentVolumeClaimVolumeSource';
+import type { V1VmCoreDataVolumeSource } from "./v1VmCoreDataVolumeSource";
+import type { V1VmPersistentVolumeClaimVolumeSource } from "./v1VmPersistentVolumeClaimVolumeSource";
 
 /**
  * HotplugVolumeSource Represents the source of a volume to mount which are capable of being hotplugged on a live running VMI. Only one of its members may be specified.

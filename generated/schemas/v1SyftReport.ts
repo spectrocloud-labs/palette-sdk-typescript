@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SyftDependency } from './v1SyftDependency';
-import type { V1SyftImageContext } from './v1SyftImageContext';
-import type { V1SyftVulnerability } from './v1SyftVulnerability';
-import type { V1SyftVulnerabilitySummary } from './v1SyftVulnerabilitySummary';
+import type { V1SyftDependency } from "./v1SyftDependency";
+import type { V1SyftImageContext } from "./v1SyftImageContext";
+import type { V1SyftVulnerability } from "./v1SyftVulnerability";
+import type { V1SyftVulnerabilitySummary } from "./v1SyftVulnerabilitySummary";
 
 /**
  * Compliance Scan Syft Report

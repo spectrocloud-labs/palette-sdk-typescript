@@ -11,8 +11,8 @@
  */
 
 export type V1VMSnapshotCreateParams = {
-/**
- * Namespace name of virtual machine
- */
-namespace: string;
+  /**
+   * Namespace name of virtual machine
+   */
+  namespace: string;
 };

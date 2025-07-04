@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1FargateProfile } from './v1FargateProfile';
+import type { V1FargateProfile } from "./v1FargateProfile";
 
 /**
  * Fargate profiles

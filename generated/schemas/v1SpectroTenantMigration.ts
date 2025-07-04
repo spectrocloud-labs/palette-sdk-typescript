@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroTenantClusterMigration } from './v1SpectroTenantClusterMigration';
+import type { V1SpectroTenantClusterMigration } from "./v1SpectroTenantClusterMigration";
 
 /**
  * Spectro tenant migration status

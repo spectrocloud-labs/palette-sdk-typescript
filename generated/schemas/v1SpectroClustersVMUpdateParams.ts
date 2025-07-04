@@ -11,8 +11,8 @@
  */
 
 export type V1SpectroClustersVMUpdateParams = {
-/**
- * Namespace name
- */
-namespace: string;
+  /**
+   * Namespace name
+   */
+  namespace: string;
 };

@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostCloudProperties } from './v1EdgeHostCloudProperties';
-import type { V1ClusterProfileTemplate } from './v1ClusterProfileTemplate';
-import type { V1DeviceSpec } from './v1DeviceSpec';
-import type { V1EdgeHost } from './v1EdgeHost';
-import type { V1EdgeHostProperties } from './v1EdgeHostProperties';
-import type { V1ServiceSpec } from './v1ServiceSpec';
-import type { V1SpectroTunnelConfig } from './v1SpectroTunnelConfig';
-import type { V1EdgeHostDeviceSpecType } from './v1EdgeHostDeviceSpecType';
+import type { V1EdgeHostCloudProperties } from "./v1EdgeHostCloudProperties";
+import type { V1ClusterProfileTemplate } from "./v1ClusterProfileTemplate";
+import type { V1DeviceSpec } from "./v1DeviceSpec";
+import type { V1EdgeHost } from "./v1EdgeHost";
+import type { V1EdgeHostProperties } from "./v1EdgeHostProperties";
+import type { V1ServiceSpec } from "./v1ServiceSpec";
+import type { V1SpectroTunnelConfig } from "./v1SpectroTunnelConfig";
+import type { V1EdgeHostDeviceSpecType } from "./v1EdgeHostDeviceSpecType";
 
 /**
  * EdgeHostDeviceSpec defines the desired state of EdgeHostDevice

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmCpuFeature } from './v1VmCpuFeature';
-import type { V1VmNUMA } from './v1VmNUMA';
-import type { V1VmRealtime } from './v1VmRealtime';
+import type { V1VmCpuFeature } from "./v1VmCpuFeature";
+import type { V1VmNUMA } from "./v1VmNUMA";
+import type { V1VmRealtime } from "./v1VmRealtime";
 
 /**
  * CPU allows specifying the CPU topology.

@@ -13,4 +13,4 @@
 /**
  * Cluster profile pack resolved values
  */
-export type V1ProfileResolvedValuesResolved = {[key: string]: string};
+export type V1ProfileResolvedValuesResolved = { [key: string]: string };

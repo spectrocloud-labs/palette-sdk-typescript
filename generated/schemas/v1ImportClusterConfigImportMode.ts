@@ -13,10 +13,10 @@
 /**
  * If the importMode is empty then cluster is imported with full permission mode. By default importMode is empty and cluster is imported in full permission mode.
  */
-export type V1ImportClusterConfigImportMode = typeof V1ImportClusterConfigImportMode[keyof typeof V1ImportClusterConfigImportMode];
-
+export type V1ImportClusterConfigImportMode =
+  (typeof V1ImportClusterConfigImportMode)[keyof typeof V1ImportClusterConfigImportMode];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ImportClusterConfigImportMode = {
-  'read-only': 'read-only',
+  "read-only": "read-only",
 } as const;

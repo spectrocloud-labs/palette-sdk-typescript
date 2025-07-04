@@ -13,4 +13,4 @@
 /**
  * params passed as env variables to be consumed at installation time
  */
-export type V1PackRefParams = {[key: string]: string};
+export type V1PackRefParams = { [key: string]: string };

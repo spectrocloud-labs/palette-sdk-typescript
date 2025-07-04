@@ -13,14 +13,15 @@
 /**
  * @nullable
  */
-export type V1SpectroClusterSortFields = typeof V1SpectroClusterSortFields[keyof typeof V1SpectroClusterSortFields] | null;
-
+export type V1SpectroClusterSortFields =
+  | (typeof V1SpectroClusterSortFields)[keyof typeof V1SpectroClusterSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClusterSortFields = {
-  environment: 'environment',
-  clusterName: 'clusterName',
-  healthState: 'healthState',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  environment: "environment",
+  clusterName: "clusterName",
+  healthState: "healthState",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

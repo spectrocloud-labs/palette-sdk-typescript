@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpNetwork } from './v1GcpNetwork';
+import type { V1GcpNetwork } from "./v1GcpNetwork";
 
 /**
  * List of GCP networks

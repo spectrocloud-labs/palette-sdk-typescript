@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtAppObjectStatus } from './v1MgmtAppObjectStatus';
+import type { V1MgmtAppObjectStatus } from "./v1MgmtAppObjectStatus";
 
-export type V1MgmtAppNameSpaceStatusDeployments = {[key: string]: V1MgmtAppObjectStatus};
+export type V1MgmtAppNameSpaceStatusDeployments = {
+  [key: string]: V1MgmtAppObjectStatus;
+};

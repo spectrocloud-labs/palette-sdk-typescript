@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceConsumptionOptionsGroupBy } from './v1ResourceConsumptionOptionsGroupBy';
+import type { V1ResourceConsumptionOptionsGroupBy } from "./v1ResourceConsumptionOptionsGroupBy";
 
 /**
  * Resource consumption options

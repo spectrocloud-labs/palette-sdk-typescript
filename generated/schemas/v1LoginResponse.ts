@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1LoginResponseAuthType } from './v1LoginResponseAuthType';
-import type { V1SsoLogin } from './v1SsoLogin';
+import type { V1LoginResponseAuthType } from "./v1LoginResponseAuthType";
+import type { V1SsoLogin } from "./v1SsoLogin";
 
 /**
  * Returns the allowed login method and information with the organization details

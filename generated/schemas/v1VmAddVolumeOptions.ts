@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmDisk } from './v1VmDisk';
-import type { V1VmHotplugVolumeSource } from './v1VmHotplugVolumeSource';
+import type { V1VmDisk } from "./v1VmDisk";
+import type { V1VmHotplugVolumeSource } from "./v1VmHotplugVolumeSource";
 
 /**
  * AddVolumeOptions is provided when dynamically hot plugging a volume and disk

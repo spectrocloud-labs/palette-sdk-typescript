@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppProfileTemplate } from './v1AppProfileTemplate';
-import type { V1AppProfileVersion } from './v1AppProfileVersion';
+import type { V1AppProfileTemplate } from "./v1AppProfileTemplate";
+import type { V1AppProfileVersion } from "./v1AppProfileVersion";
 
 export interface V1AppProfileSpec {
   /** Application profile parent profile uid */

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceCostSummaryOptionsGroupBy } from './v1ResourceCostSummaryOptionsGroupBy';
+import type { V1ResourceCostSummaryOptionsGroupBy } from "./v1ResourceCostSummaryOptionsGroupBy";
 
 /**
  * Resource cost summary options

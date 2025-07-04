@@ -13,4 +13,6 @@
 /**
  * REQUIRED. JSON array containing a list of the JWS signing algorithms (alg values) supported by the OP for the ID Token to encode the Claims in a JWT
  */
-export type V1OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported = { [key: string]: unknown };
+export type V1OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported = {
+  [key: string]: unknown;
+};

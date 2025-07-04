@@ -13,13 +13,13 @@
 /**
  * AWS accounts are scoped to a single partition. Allowed values [aws, aws-us-gov], Default values
  */
-export type V1AwsCloudAccountPartition = typeof V1AwsCloudAccountPartition[keyof typeof V1AwsCloudAccountPartition];
-
+export type V1AwsCloudAccountPartition =
+  (typeof V1AwsCloudAccountPartition)[keyof typeof V1AwsCloudAccountPartition];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AwsCloudAccountPartition = {
-  aws: 'aws',
-  'aws-us-gov': 'aws-us-gov',
-  'aws-iso': 'aws-iso',
-  'aws-iso-b': 'aws-iso-b',
+  aws: "aws",
+  "aws-us-gov": "aws-us-gov",
+  "aws-iso": "aws-iso",
+  "aws-iso-b": "aws-iso-b",
 } as const;

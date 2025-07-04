@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Card } from './v1Card';
+import type { V1Card } from "./v1Card";
 
 /**
  * Payment method object

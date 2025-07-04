@@ -9,23 +9,23 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterAddOnServiceSummary } from './v1SpectroClusterAddOnServiceSummary';
-import type { V1APIEndpoint } from './v1APIEndpoint';
-import type { V1ClusterImport } from './v1ClusterImport';
-import type { V1ClusterCondition } from './v1ClusterCondition';
-import type { V1ResourceCost } from './v1ResourceCost';
-import type { V1ClusterFips } from './v1ClusterFips';
-import type { V1SpectroClusterHealthStatus } from './v1SpectroClusterHealthStatus';
-import type { V1KubeMeta } from './v1KubeMeta';
-import type { V1ClusterMetaSpecLocation } from './v1ClusterMetaSpecLocation';
-import type { V1SpectroClusterMetrics } from './v1SpectroClusterMetrics';
-import type { V1ClusterNotificationStatus } from './v1ClusterNotificationStatus';
-import type { V1ClusterPackStatus } from './v1ClusterPackStatus';
-import type { V1LoadBalancerService } from './v1LoadBalancerService';
-import type { V1SpcApply } from './v1SpcApply';
-import type { V1Upgrades } from './v1Upgrades';
-import type { V1Virtual } from './v1Virtual';
-import type { V1ResourceReference } from './v1ResourceReference';
+import type { V1SpectroClusterAddOnServiceSummary } from "./v1SpectroClusterAddOnServiceSummary";
+import type { V1APIEndpoint } from "./v1APIEndpoint";
+import type { V1ClusterImport } from "./v1ClusterImport";
+import type { V1ClusterCondition } from "./v1ClusterCondition";
+import type { V1ResourceCost } from "./v1ResourceCost";
+import type { V1ClusterFips } from "./v1ClusterFips";
+import type { V1SpectroClusterHealthStatus } from "./v1SpectroClusterHealthStatus";
+import type { V1KubeMeta } from "./v1KubeMeta";
+import type { V1ClusterMetaSpecLocation } from "./v1ClusterMetaSpecLocation";
+import type { V1SpectroClusterMetrics } from "./v1SpectroClusterMetrics";
+import type { V1ClusterNotificationStatus } from "./v1ClusterNotificationStatus";
+import type { V1ClusterPackStatus } from "./v1ClusterPackStatus";
+import type { V1LoadBalancerService } from "./v1LoadBalancerService";
+import type { V1SpcApply } from "./v1SpcApply";
+import type { V1Upgrades } from "./v1Upgrades";
+import type { V1Virtual } from "./v1Virtual";
+import type { V1ResourceReference } from "./v1ResourceReference";
 
 /**
  * Spectro cluster status summary

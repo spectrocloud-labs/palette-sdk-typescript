@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackRef } from './v1PackRef';
+import type { V1PackRef } from "./v1PackRef";
 
 /**
  * Cluster pack difference

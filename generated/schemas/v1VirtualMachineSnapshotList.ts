@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VirtualMachineSnapshot } from './v1VirtualMachineSnapshot';
-import type { V1VmListMeta } from './v1VmListMeta';
+import type { V1VirtualMachineSnapshot } from "./v1VirtualMachineSnapshot";
+import type { V1VmListMeta } from "./v1VmListMeta";
 
 /**
  * VirtualMachineSnapshotList is a list of VirtualMachineSnapshot resources

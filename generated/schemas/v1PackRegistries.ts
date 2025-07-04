@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackRegistry } from './v1PackRegistry';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1PackRegistry } from "./v1PackRegistry";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 export interface V1PackRegistries {
   items: V1PackRegistry[];

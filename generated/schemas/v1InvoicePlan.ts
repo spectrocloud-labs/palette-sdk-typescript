@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InvoicePlanCredit } from './v1InvoicePlanCredit';
-import type { V1InvoicePlanPlantype } from './v1InvoicePlanPlantype';
+import type { V1InvoicePlanCredit } from "./v1InvoicePlanCredit";
+import type { V1InvoicePlanPlantype } from "./v1InvoicePlanPlantype";
 
 /**
  * Invoice plan object

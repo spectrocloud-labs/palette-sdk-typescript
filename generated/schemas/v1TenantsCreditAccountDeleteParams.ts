@@ -11,5 +11,5 @@
  */
 
 export type V1TenantsCreditAccountDeleteParams = {
-forceDelete?: boolean;
+  forceDelete?: boolean;
 };

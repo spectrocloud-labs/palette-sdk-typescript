@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MfaCredentialDescriptor } from './v1MfaCredentialDescriptor';
-import type { V1MfaPublicKeyCredentialRequestOptionsExtensions } from './v1MfaPublicKeyCredentialRequestOptionsExtensions';
+import type { V1MfaCredentialDescriptor } from "./v1MfaCredentialDescriptor";
+import type { V1MfaPublicKeyCredentialRequestOptionsExtensions } from "./v1MfaPublicKeyCredentialRequestOptionsExtensions";
 
 export interface V1MfaPublicKeyCredentialRequestOptions {
   allowCredentials?: V1MfaCredentialDescriptor[];

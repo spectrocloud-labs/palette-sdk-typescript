@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ActivationsSystemResponseStatusState = typeof V1ActivationsSystemResponseStatusState[keyof typeof V1ActivationsSystemResponseStatusState];
-
+export type V1ActivationsSystemResponseStatusState =
+  (typeof V1ActivationsSystemResponseStatusState)[keyof typeof V1ActivationsSystemResponseStatusState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ActivationsSystemResponseStatusState = {
-  Active: 'Active',
-  Pending: 'Pending',
-  Inactive: 'Inactive',
+  Active: "Active",
+  Pending: "Pending",
+  Inactive: "Inactive",
 } as const;

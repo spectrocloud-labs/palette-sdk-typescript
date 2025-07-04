@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistriesPackCreateScope } from './v1RegistriesPackCreateScope';
+import type { V1RegistriesPackCreateScope } from "./v1RegistriesPackCreateScope";
 
 export type V1RegistriesPackCreateParams = {
-scope?: V1RegistriesPackCreateScope;
-skipPackSync?: boolean;
+  scope?: V1RegistriesPackCreateScope;
+  skipPackSync?: boolean;
 };

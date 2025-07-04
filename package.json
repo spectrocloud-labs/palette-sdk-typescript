@@ -36,6 +36,9 @@
     "prettier": "3.6.2"
   },
   "peerDependencies": {
-    "axios": "^1.0.0"
+    "axios": "^1.10.0"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.45.2"
   }
 }

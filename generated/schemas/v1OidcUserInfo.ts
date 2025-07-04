@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantOidcClaims } from './v1TenantOidcClaims';
+import type { V1TenantOidcClaims } from "./v1TenantOidcClaims";
 
 export interface V1OidcUserInfo {
   claims?: V1TenantOidcClaims;

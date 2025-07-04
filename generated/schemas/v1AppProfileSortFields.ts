@@ -13,12 +13,13 @@
 /**
  * @nullable
  */
-export type V1AppProfileSortFields = typeof V1AppProfileSortFields[keyof typeof V1AppProfileSortFields] | null;
-
+export type V1AppProfileSortFields =
+  | (typeof V1AppProfileSortFields)[keyof typeof V1AppProfileSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AppProfileSortFields = {
-  profileName: 'profileName',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  profileName: "profileName",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterNamespaceResourceInputEntity } from './v1ClusterNamespaceResourceInputEntity';
+import type { V1ClusterNamespaceResourceInputEntity } from "./v1ClusterNamespaceResourceInputEntity";
 
 export interface V1ClusterNamespaceResourcesUpdateEntity {
   namespaces?: V1ClusterNamespaceResourceInputEntity[];

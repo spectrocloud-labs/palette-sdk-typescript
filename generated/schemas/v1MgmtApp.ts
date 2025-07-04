@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1MgmtAppSpec } from './v1MgmtAppSpec';
-import type { V1MgmtAppStatus } from './v1MgmtAppStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1MgmtAppSpec } from "./v1MgmtAppSpec";
+import type { V1MgmtAppStatus } from "./v1MgmtAppStatus";
 
 /**
  * Spectro application management data

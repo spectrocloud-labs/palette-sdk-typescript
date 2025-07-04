@@ -13,12 +13,12 @@
 /**
  * State is the state of the SSH tunnel
  */
-export type V1SshUserStatusState = typeof V1SshUserStatusState[keyof typeof V1SshUserStatusState];
-
+export type V1SshUserStatusState =
+  (typeof V1SshUserStatusState)[keyof typeof V1SshUserStatusState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SshUserStatusState = {
-  Created: 'Created',
-  Deleted: 'Deleted',
-  Failed: 'Failed',
+  Created: "Created",
+  Deleted: "Deleted",
+  Failed: "Failed",
 } as const;

@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1KubeBenchReportEntity } from './v1KubeBenchReportEntity';
+import type { V1KubeBenchReportEntity } from "./v1KubeBenchReportEntity";
 
-export type V1KubeBenchEntityReports = {[key: string]: V1KubeBenchReportEntity};
+export type V1KubeBenchEntityReports = {
+  [key: string]: V1KubeBenchReportEntity;
+};

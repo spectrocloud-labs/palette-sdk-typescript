@@ -11,5 +11,5 @@
  */
 
 export type V1RegistriesPackUidSyncParams = {
-forceSync?: boolean;
+  forceSync?: boolean;
 };

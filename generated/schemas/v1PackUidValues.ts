@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackUidValuesAnnotations } from './v1PackUidValuesAnnotations';
-import type { V1PackDependencyMeta } from './v1PackDependencyMeta';
-import type { V1PackPreset } from './v1PackPreset';
-import type { V1PackSchema } from './v1PackSchema';
-import type { V1PackTemplate } from './v1PackTemplate';
+import type { V1PackUidValuesAnnotations } from "./v1PackUidValuesAnnotations";
+import type { V1PackDependencyMeta } from "./v1PackDependencyMeta";
+import type { V1PackPreset } from "./v1PackPreset";
+import type { V1PackSchema } from "./v1PackSchema";
+import type { V1PackTemplate } from "./v1PackTemplate";
 
 export interface V1PackUidValues {
   /** Pack annotations is used to allow pack to add more arbitrary configurations */

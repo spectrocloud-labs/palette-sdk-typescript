@@ -11,8 +11,8 @@
  */
 
 export type V1SpectroClustersValidateNameParams = {
-/**
- * Cluster name
- */
-name?: string;
+  /**
+   * Cluster name
+   */
+  name?: string;
 };

@@ -13,12 +13,13 @@
 /**
  * @nullable
  */
-export type V1AppDeploymentSortFields = typeof V1AppDeploymentSortFields[keyof typeof V1AppDeploymentSortFields] | null;
-
+export type V1AppDeploymentSortFields =
+  | (typeof V1AppDeploymentSortFields)[keyof typeof V1AppDeploymentSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AppDeploymentSortFields = {
-  appDeploymentName: 'appDeploymentName',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  appDeploymentName: "appDeploymentName",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

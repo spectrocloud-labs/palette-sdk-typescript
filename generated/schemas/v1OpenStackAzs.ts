@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackAz } from './v1OpenStackAz';
+import type { V1OpenStackAz } from "./v1OpenStackAz";
 
 /**
  * List of OpenStack azs

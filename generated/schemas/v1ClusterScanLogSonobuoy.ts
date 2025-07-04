@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1ClusterComplianceScanLogSpec } from './v1ClusterComplianceScanLogSpec';
-import type { V1ClusterSonobuoyLogStatus } from './v1ClusterSonobuoyLogStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1ClusterComplianceScanLogSpec } from "./v1ClusterComplianceScanLogSpec";
+import type { V1ClusterSonobuoyLogStatus } from "./v1ClusterSonobuoyLogStatus";
 
 /**
  * Cluster compliance scan Sonobuoy Log

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmFeatureState } from './v1VmFeatureState';
-import type { V1VmFeatureSpinlocks } from './v1VmFeatureSpinlocks';
-import type { V1VmSyNICTimer } from './v1VmSyNICTimer';
-import type { V1VmFeatureVendorId } from './v1VmFeatureVendorId';
+import type { V1VmFeatureState } from "./v1VmFeatureState";
+import type { V1VmFeatureSpinlocks } from "./v1VmFeatureSpinlocks";
+import type { V1VmSyNICTimer } from "./v1VmSyNICTimer";
+import type { V1VmFeatureVendorId } from "./v1VmFeatureVendorId";
 
 /**
  * Hyperv specific features.

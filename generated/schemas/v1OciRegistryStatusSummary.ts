@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistrySyncStatus } from './v1RegistrySyncStatus';
+import type { V1RegistrySyncStatus } from "./v1RegistrySyncStatus";
 
 /**
  * OCI registry status summary

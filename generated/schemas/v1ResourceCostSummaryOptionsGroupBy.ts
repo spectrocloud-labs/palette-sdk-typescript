@@ -10,16 +10,16 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ResourceCostSummaryOptionsGroupBy = typeof V1ResourceCostSummaryOptionsGroupBy[keyof typeof V1ResourceCostSummaryOptionsGroupBy];
-
+export type V1ResourceCostSummaryOptionsGroupBy =
+  (typeof V1ResourceCostSummaryOptionsGroupBy)[keyof typeof V1ResourceCostSummaryOptionsGroupBy];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ResourceCostSummaryOptionsGroupBy = {
-  tenant: 'tenant',
-  project: 'project',
-  workspace: 'workspace',
-  cluster: 'cluster',
-  namespace: 'namespace',
-  deployment: 'deployment',
-  cloud: 'cloud',
+  tenant: "tenant",
+  project: "project",
+  workspace: "workspace",
+  cluster: "cluster",
+  namespace: "namespace",
+  deployment: "deployment",
+  cloud: "cloud",
 } as const;

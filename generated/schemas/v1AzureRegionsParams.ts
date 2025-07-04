@@ -11,12 +11,12 @@
  */
 
 export type V1AzureRegionsParams = {
-/**
- * Uid for the specific Azure cloud account
- */
-cloudAccountUid?: string;
-/**
- * SubscriptionId for which resources is requested
- */
-subscriptionId?: string;
+  /**
+   * Uid for the specific Azure cloud account
+   */
+  cloudAccountUid?: string;
+  /**
+   * SubscriptionId for which resources is requested
+   */
+  subscriptionId?: string;
 };

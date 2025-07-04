@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmFeatureState } from './v1VmFeatureState';
+import type { V1VmFeatureState } from "./v1VmFeatureState";
 
 export interface V1VmVGPUDisplayOptions {
   /** Enabled determines if a display addapter backed by a vGPU should be enabled or disabled on the guest. Defaults to true. */

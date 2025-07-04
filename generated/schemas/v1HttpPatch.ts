@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1HttpPatchOp } from './v1HttpPatchOp';
-import type { V1HttpPatchValue } from './v1HttpPatchValue';
+import type { V1HttpPatchOp } from "./v1HttpPatchOp";
+import type { V1HttpPatchValue } from "./v1HttpPatchValue";
 
 export interface V1HttpPatch {
   /** A path to the pointer from which reference will be taken */

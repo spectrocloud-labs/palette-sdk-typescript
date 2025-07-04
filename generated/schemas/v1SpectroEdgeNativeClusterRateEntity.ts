@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeNativeClusterConfig } from './v1EdgeNativeClusterConfig';
-import type { V1EdgeNativeMachinePoolConfigEntity } from './v1EdgeNativeMachinePoolConfigEntity';
+import type { V1EdgeNativeClusterConfig } from "./v1EdgeNativeClusterConfig";
+import type { V1EdgeNativeMachinePoolConfigEntity } from "./v1EdgeNativeMachinePoolConfigEntity";
 
 /**
  * Edge-native cluster request payload for estimating rate

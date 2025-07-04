@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ConstraintValidatorResult } from './v1ConstraintValidatorResult';
+import type { V1ConstraintValidatorResult } from "./v1ConstraintValidatorResult";
 
 /**
  * Constraint validator response

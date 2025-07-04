@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ActiveTenantResources } from './v1ActiveTenantResources';
-import type { V1TenantCleanUpStatus } from './v1TenantCleanUpStatus';
+import type { V1ActiveTenantResources } from "./v1ActiveTenantResources";
+import type { V1TenantCleanUpStatus } from "./v1TenantCleanUpStatus";
 
 /**
  * Resources of tenant

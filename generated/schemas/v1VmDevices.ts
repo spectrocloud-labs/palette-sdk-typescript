@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmDevicesClientPassthrough } from './v1VmDevicesClientPassthrough';
-import type { V1VmDisk } from './v1VmDisk';
-import type { V1VmFilesystem } from './v1VmFilesystem';
-import type { V1VmGPU } from './v1VmGPU';
-import type { V1VmHostDevice } from './v1VmHostDevice';
-import type { V1VmInput } from './v1VmInput';
-import type { V1VmInterface } from './v1VmInterface';
-import type { V1VmDevicesRng } from './v1VmDevicesRng';
-import type { V1VmSoundDevice } from './v1VmSoundDevice';
-import type { V1VmDevicesTpm } from './v1VmDevicesTpm';
-import type { V1VmWatchdog } from './v1VmWatchdog';
+import type { V1VmDevicesClientPassthrough } from "./v1VmDevicesClientPassthrough";
+import type { V1VmDisk } from "./v1VmDisk";
+import type { V1VmFilesystem } from "./v1VmFilesystem";
+import type { V1VmGPU } from "./v1VmGPU";
+import type { V1VmHostDevice } from "./v1VmHostDevice";
+import type { V1VmInput } from "./v1VmInput";
+import type { V1VmInterface } from "./v1VmInterface";
+import type { V1VmDevicesRng } from "./v1VmDevicesRng";
+import type { V1VmSoundDevice } from "./v1VmSoundDevice";
+import type { V1VmDevicesTpm } from "./v1VmDevicesTpm";
+import type { V1VmWatchdog } from "./v1VmWatchdog";
 
 export interface V1VmDevices {
   /** Whether to attach the default graphics device or not. VNC will not be available if set to false. Defaults to true. */

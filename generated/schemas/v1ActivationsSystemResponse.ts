@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ActivationsSystemResponseStatus } from './v1ActivationsSystemResponseStatus';
+import type { V1ActivationsSystemResponseStatus } from "./v1ActivationsSystemResponseStatus";
 
 export interface V1ActivationsSystemResponse {
   status?: V1ActivationsSystemResponseStatus;

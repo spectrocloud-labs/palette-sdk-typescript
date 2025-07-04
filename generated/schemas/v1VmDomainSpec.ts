@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmChassis } from './v1VmChassis';
-import type { V1VmClock } from './v1VmClock';
-import type { V1VmCpu } from './v1VmCpu';
-import type { V1VmDevices } from './v1VmDevices';
-import type { V1VmFeatures } from './v1VmFeatures';
-import type { V1VmFirmware } from './v1VmFirmware';
-import type { V1VmLaunchSecurity } from './v1VmLaunchSecurity';
-import type { V1VmMachine } from './v1VmMachine';
-import type { V1VmMemory } from './v1VmMemory';
-import type { V1VmResourceRequirements } from './v1VmResourceRequirements';
+import type { V1VmChassis } from "./v1VmChassis";
+import type { V1VmClock } from "./v1VmClock";
+import type { V1VmCpu } from "./v1VmCpu";
+import type { V1VmDevices } from "./v1VmDevices";
+import type { V1VmFeatures } from "./v1VmFeatures";
+import type { V1VmFirmware } from "./v1VmFirmware";
+import type { V1VmLaunchSecurity } from "./v1VmLaunchSecurity";
+import type { V1VmMachine } from "./v1VmMachine";
+import type { V1VmMemory } from "./v1VmMemory";
+import type { V1VmResourceRequirements } from "./v1VmResourceRequirements";
 
 export interface V1VmDomainSpec {
   chassis?: V1VmChassis;

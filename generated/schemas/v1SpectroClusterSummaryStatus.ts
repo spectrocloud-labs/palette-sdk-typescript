@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterImport } from './v1ClusterImport';
-import type { V1ResourceCost } from './v1ResourceCost';
-import type { V1ClusterFips } from './v1ClusterFips';
-import type { V1SpectroClusterHealthStatus } from './v1SpectroClusterHealthStatus';
-import type { V1ClusterMetaSpecLocation } from './v1ClusterMetaSpecLocation';
-import type { V1SpectroClusterMetrics } from './v1SpectroClusterMetrics';
-import type { V1ClusterNotificationStatus } from './v1ClusterNotificationStatus';
-import type { V1ClusterRepaveStatus } from './v1ClusterRepaveStatus';
-import type { V1Virtual } from './v1Virtual';
+import type { V1ClusterImport } from "./v1ClusterImport";
+import type { V1ResourceCost } from "./v1ResourceCost";
+import type { V1ClusterFips } from "./v1ClusterFips";
+import type { V1SpectroClusterHealthStatus } from "./v1SpectroClusterHealthStatus";
+import type { V1ClusterMetaSpecLocation } from "./v1ClusterMetaSpecLocation";
+import type { V1SpectroClusterMetrics } from "./v1SpectroClusterMetrics";
+import type { V1ClusterNotificationStatus } from "./v1ClusterNotificationStatus";
+import type { V1ClusterRepaveStatus } from "./v1ClusterRepaveStatus";
+import type { V1Virtual } from "./v1Virtual";
 
 /**
  * Spectro cluster status summary

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterCondition } from './v1ClusterCondition';
+import type { V1ClusterCondition } from "./v1ClusterCondition";
 
 /**
  * Defines the status of virtual cloud config

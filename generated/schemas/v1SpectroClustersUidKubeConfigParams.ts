@@ -11,8 +11,8 @@
  */
 
 export type V1SpectroClustersUidKubeConfigParams = {
-/**
- * FRP (reverse-proxy) based kube config will be returned if available
- */
-frp?: boolean;
+  /**
+   * FRP (reverse-proxy) based kube config will be returned if available
+   */
+  frp?: boolean;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterUpgradeSettingsEntitySpectroComponents } from './v1ClusterUpgradeSettingsEntitySpectroComponents';
+import type { V1ClusterUpgradeSettingsEntitySpectroComponents } from "./v1ClusterUpgradeSettingsEntitySpectroComponents";
 
 export interface V1ClusterUpgradeSettingsEntity {
   spectroComponents?: V1ClusterUpgradeSettingsEntitySpectroComponents;

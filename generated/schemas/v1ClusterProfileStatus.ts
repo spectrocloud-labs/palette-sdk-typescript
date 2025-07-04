@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectResReference } from './v1ObjectResReference';
+import type { V1ObjectResReference } from "./v1ObjectResReference";
 
 /**
  * ClusterProfileStatus defines the observed state of ClusterProfile

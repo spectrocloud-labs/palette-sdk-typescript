@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TierPrice } from './v1TierPrice';
+import type { V1TierPrice } from "./v1TierPrice";
 
 /**
  * billing preference

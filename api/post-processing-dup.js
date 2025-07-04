@@ -201,6 +201,52 @@ export { init } from "./client";
 }
 
 /**
+ * Add license headers to all generated files using make license
+ */
+function addLicenseHeaders() {
+  const { execSync } = require('child_process');
+  
+  try {
+    console.log("📄 Adding license headers to generated files...");
+    
+    // Run make license
+    execSync('make license', { 
+      stdio: 'inherit',
+      cwd: path.join(__dirname, '..')
+    });
+    
+    console.log("✅ License headers added successfully");
+    return true;
+  } catch (error) {
+    console.error("❌ License header addition failed:", error.message);
+    return false;
+  }
+}
+
+/**
+ * Run Prettier to format all generated files
+ */
+function runPrettier() {
+  const { execSync } = require('child_process');
+  
+  try {
+    console.log("🎨 Running Prettier to format generated files...");
+    
+    // Run prettier on the generated directory
+    execSync('npx prettier --write generated/', { 
+      stdio: 'inherit',
+      cwd: path.join(__dirname, '..')
+    });
+    
+    console.log("✅ Prettier formatting completed");
+    return true;
+  } catch (error) {
+    console.error("❌ Prettier formatting failed:", error.message);
+    return false;
+  }
+}
+
+/**
  * Main execution
  */
 function main() {
@@ -209,8 +255,10 @@ function main() {
     const success2 = fixSchemaFiles();
     const success3 = fixFunctionName();
     const success4 = createIndexFile();
+    const success5 = addLicenseHeaders();
+    const success6 = runPrettier();
 
-    if (success1 && success2 && success3 && success4) {
+    if (success1 && success2 && success3 && success4 && success5 && success6) {
       console.log("\n🎉 Post-processing completed successfully!");
       console.log(
         "The generated TypeScript code should now compile without duplicate export errors."
@@ -218,6 +266,8 @@ function main() {
       console.log(
         "Main function is now available as 'init' for initializing the API client."
       );
+      console.log("License headers have been added to all files.");
+      console.log("Code has been formatted with Prettier.");
       process.exit(0);
     } else {
       console.log("\n❌ Post-processing encountered errors");

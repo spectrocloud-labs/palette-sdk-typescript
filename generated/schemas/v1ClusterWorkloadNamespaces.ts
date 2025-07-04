@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadNamespace } from './v1ClusterWorkloadNamespace';
+import type { V1ClusterWorkloadNamespace } from "./v1ClusterWorkloadNamespace";
 
 /**
  * Cluster workload namespaces summary

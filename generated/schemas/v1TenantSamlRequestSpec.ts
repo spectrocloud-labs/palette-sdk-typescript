@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantSamlSpecAttribute } from './v1TenantSamlSpecAttribute';
+import type { V1TenantSamlSpecAttribute } from "./v1TenantSamlSpecAttribute";
 
 /**
  * Tenant

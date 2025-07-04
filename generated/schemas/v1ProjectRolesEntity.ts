@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UidRoleSummary } from './v1UidRoleSummary';
+import type { V1UidRoleSummary } from "./v1UidRoleSummary";
 
 export interface V1ProjectRolesEntity {
   projects?: V1UidRoleSummary[];

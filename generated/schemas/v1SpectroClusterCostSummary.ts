@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterCost } from './v1SpectroClusterCost';
+import type { V1SpectroClusterCost } from "./v1SpectroClusterCost";
 
 export interface V1SpectroClusterCostSummary {
   cluster?: V1SpectroClusterCost;

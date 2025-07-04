@@ -13,4 +13,4 @@
 /**
  * Describes a event messages with meta digest as the key
  */
-export type V1NotificationEventMeta = {[key: string]: string};
+export type V1NotificationEventMeta = { [key: string]: string };

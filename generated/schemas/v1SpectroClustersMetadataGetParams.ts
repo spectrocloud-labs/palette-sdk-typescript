@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClustersMetadataGetQuickFilter } from './v1SpectroClustersMetadataGetQuickFilter';
+import type { V1SpectroClustersMetadataGetQuickFilter } from "./v1SpectroClustersMetadataGetQuickFilter";
 
 export type V1SpectroClustersMetadataGetParams = {
-quickFilter?: V1SpectroClustersMetadataGetQuickFilter;
+  quickFilter?: V1SpectroClustersMetadataGetQuickFilter;
 };

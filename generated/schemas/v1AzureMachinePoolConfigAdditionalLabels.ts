@@ -13,4 +13,6 @@
 /**
  * additionalLabels
  */
-export type V1AzureMachinePoolConfigAdditionalLabels = {[key: string]: string};
+export type V1AzureMachinePoolConfigAdditionalLabels = {
+  [key: string]: string;
+};

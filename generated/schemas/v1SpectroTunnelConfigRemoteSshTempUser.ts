@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpectroTunnelConfigRemoteSshTempUser = typeof V1SpectroTunnelConfigRemoteSshTempUser[keyof typeof V1SpectroTunnelConfigRemoteSshTempUser];
-
+export type V1SpectroTunnelConfigRemoteSshTempUser =
+  (typeof V1SpectroTunnelConfigRemoteSshTempUser)[keyof typeof V1SpectroTunnelConfigRemoteSshTempUser];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroTunnelConfigRemoteSshTempUser = {
-  enabled: 'enabled',
-  disabled: 'disabled',
+  enabled: "enabled",
+  disabled: "disabled",
 } as const;

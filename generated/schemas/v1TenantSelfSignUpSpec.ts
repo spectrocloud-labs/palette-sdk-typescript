@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantSelfSignUpSpecLoginMode } from './v1TenantSelfSignUpSpecLoginMode';
+import type { V1TenantSelfSignUpSpecLoginMode } from "./v1TenantSelfSignUpSpecLoginMode";
 
 /**
  * Tenant sign up data

@@ -15,4 +15,6 @@
 
 The struct is currently empty as there is no immediate request for user-facing APIs. This structure simply turns on USB redirection of UsbClientPassthroughMaxNumberOf devices.
  */
-export interface V1VmClientPassthroughDevices { [key: string]: unknown }
+export interface V1VmClientPassthroughDevices {
+  [key: string]: unknown;
+}

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsSecuritygroup } from './v1AwsSecuritygroup';
+import type { V1AwsSecuritygroup } from "./v1AwsSecuritygroup";
 
 export interface V1AwsSecurityGroups {
   groups: V1AwsSecuritygroup[];

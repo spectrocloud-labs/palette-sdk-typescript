@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AuthMfaLoginFinishRequestClientExtensionResults } from './v1AuthMfaLoginFinishRequestClientExtensionResults';
-import type { V1AuthMfaLoginFinishRequestResponse } from './v1AuthMfaLoginFinishRequestResponse';
+import type { V1AuthMfaLoginFinishRequestClientExtensionResults } from "./v1AuthMfaLoginFinishRequestClientExtensionResults";
+import type { V1AuthMfaLoginFinishRequestResponse } from "./v1AuthMfaLoginFinishRequestResponse";
 
 export interface V1AuthMfaLoginFinishRequest {
   _type?: string;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1PlanSpec } from './v1PlanSpec';
-import type { V1PlanStatus } from './v1PlanStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1PlanSpec } from "./v1PlanSpec";
+import type { V1PlanStatus } from "./v1PlanStatus";
 
 /**
  * Plan

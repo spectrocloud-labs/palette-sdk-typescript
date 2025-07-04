@@ -11,8 +11,8 @@
  */
 
 export type V1AwsKeyPairsParams = {
-/**
- * Uid for the specific AWS cloud account
- */
-cloudAccountUid: string;
+  /**
+   * Uid for the specific AWS cloud account
+   */
+  cloudAccountUid: string;
 };

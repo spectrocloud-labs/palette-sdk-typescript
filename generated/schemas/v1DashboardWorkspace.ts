@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DashboardWorkspaceMeta } from './v1DashboardWorkspaceMeta';
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1DashboardWorkspaceSpec } from './v1DashboardWorkspaceSpec';
-import type { V1DashboardWorkspaceStatus } from './v1DashboardWorkspaceStatus';
+import type { V1DashboardWorkspaceMeta } from "./v1DashboardWorkspaceMeta";
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1DashboardWorkspaceSpec } from "./v1DashboardWorkspaceSpec";
+import type { V1DashboardWorkspaceStatus } from "./v1DashboardWorkspaceStatus";
 
 /**
  * Workspace information

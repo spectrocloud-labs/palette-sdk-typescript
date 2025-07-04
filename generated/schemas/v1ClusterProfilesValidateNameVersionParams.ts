@@ -11,12 +11,12 @@
  */
 
 export type V1ClusterProfilesValidateNameVersionParams = {
-/**
- * Cluster profile name
- */
-name?: string;
-/**
- * Cluster profile version
- */
-version?: string;
+  /**
+   * Cluster profile name
+   */
+  name?: string;
+  /**
+   * Cluster profile version
+   */
+  version?: string;
 };

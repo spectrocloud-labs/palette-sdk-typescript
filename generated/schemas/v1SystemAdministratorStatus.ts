@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemAdminActivation } from './v1SystemAdminActivation';
+import type { V1SystemAdminActivation } from "./v1SystemAdminActivation";
 
 /**
  * System Administrator Status

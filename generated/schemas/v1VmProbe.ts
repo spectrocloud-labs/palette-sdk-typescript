@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmExecAction } from './v1VmExecAction';
-import type { V1VmProbeGuestAgentPing } from './v1VmProbeGuestAgentPing';
-import type { V1VmHttpGetAction } from './v1VmHttpGetAction';
-import type { V1VmTcpSocketAction } from './v1VmTcpSocketAction';
+import type { V1VmExecAction } from "./v1VmExecAction";
+import type { V1VmProbeGuestAgentPing } from "./v1VmProbeGuestAgentPing";
+import type { V1VmHttpGetAction } from "./v1VmHttpGetAction";
+import type { V1VmTcpSocketAction } from "./v1VmTcpSocketAction";
 
 /**
  * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.

@@ -11,12 +11,12 @@
  */
 
 export type V1SpectroClustersGetProfilesPacksManifestsParams = {
-/**
- * Includes pack meta such as schema, presets
- */
-includePackMeta?: string;
-/**
- * Resolve pack macro variables if set to true
- */
-resolveMacros?: boolean;
+  /**
+   * Includes pack meta such as schema, presets
+   */
+  includePackMeta?: string;
+  /**
+   * Resolve pack macro variables if set to true
+   */
+  resolveMacros?: boolean;
 };

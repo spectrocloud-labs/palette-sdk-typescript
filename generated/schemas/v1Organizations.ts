@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Organization } from './v1Organization';
+import type { V1Organization } from "./v1Organization";
 
 /**
  * Returns a list of user's organizations details and login methods

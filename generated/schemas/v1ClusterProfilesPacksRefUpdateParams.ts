@@ -11,8 +11,8 @@
  */
 
 export type V1ClusterProfilesPacksRefUpdateParams = {
-/**
- * Cluster profile notification uid
- */
-notify?: string;
+  /**
+   * Cluster profile notification uid
+   */
+  notify?: string;
 };

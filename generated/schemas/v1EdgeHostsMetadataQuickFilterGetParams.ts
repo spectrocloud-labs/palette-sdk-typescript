@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostsMetadataQuickFilterGetType } from './v1EdgeHostsMetadataQuickFilterGetType';
-import type { V1EdgeHostsMetadataQuickFilterGetQuickFilter } from './v1EdgeHostsMetadataQuickFilterGetQuickFilter';
+import type { V1EdgeHostsMetadataQuickFilterGetType } from "./v1EdgeHostsMetadataQuickFilterGetType";
+import type { V1EdgeHostsMetadataQuickFilterGetQuickFilter } from "./v1EdgeHostsMetadataQuickFilterGetQuickFilter";
 
 export type V1EdgeHostsMetadataQuickFilterGetParams = {
-type?: V1EdgeHostsMetadataQuickFilterGetType;
-quickFilter?: V1EdgeHostsMetadataQuickFilterGetQuickFilter;
+  type?: V1EdgeHostsMetadataQuickFilterGetType;
+  quickFilter?: V1EdgeHostsMetadataQuickFilterGetQuickFilter;
 };

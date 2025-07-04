@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtAppUpgradeSpec } from './v1MgmtAppUpgradeSpec';
-import type { V1MgmtAppUpgradeStatus } from './v1MgmtAppUpgradeStatus';
+import type { V1MgmtAppUpgradeSpec } from "./v1MgmtAppUpgradeSpec";
+import type { V1MgmtAppUpgradeStatus } from "./v1MgmtAppUpgradeStatus";
 
 export interface V1MgmtAppUpgrade {
   spec?: V1MgmtAppUpgradeSpec;

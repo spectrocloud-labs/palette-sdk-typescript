@@ -13,11 +13,11 @@
 /**
  * EC2 instance capacity type
  */
-export type V1EksMachinePoolConfigCapacityType = typeof V1EksMachinePoolConfigCapacityType[keyof typeof V1EksMachinePoolConfigCapacityType];
-
+export type V1EksMachinePoolConfigCapacityType =
+  (typeof V1EksMachinePoolConfigCapacityType)[keyof typeof V1EksMachinePoolConfigCapacityType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EksMachinePoolConfigCapacityType = {
-  'on-demand': 'on-demand',
-  spot: 'spot',
+  "on-demand": "on-demand",
+  spot: "spot",
 } as const;

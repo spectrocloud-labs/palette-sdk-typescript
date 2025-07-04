@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistryPackMetadataAnnotations } from './v1RegistryPackMetadataAnnotations';
+import type { V1RegistryPackMetadataAnnotations } from "./v1RegistryPackMetadataAnnotations";
 
 /**
  * Registry metadata information

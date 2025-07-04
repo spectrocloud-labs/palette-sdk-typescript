@@ -13,4 +13,4 @@
 /**
  * Pack annotations is used to allow pack to add more arbitrary configurations
  */
-export type V1RegistryPackMetadataAnnotations = {[key: string]: string};
+export type V1RegistryPackMetadataAnnotations = { [key: string]: string };

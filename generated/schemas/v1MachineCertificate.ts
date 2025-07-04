@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CertificateAuthority } from './v1CertificateAuthority';
+import type { V1CertificateAuthority } from "./v1CertificateAuthority";
 
 /**
  * K8 Certificates for control plane nodes

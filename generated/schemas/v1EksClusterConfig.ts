@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EksAddon } from './v1EksAddon';
-import type { V1EncryptionConfig } from './v1EncryptionConfig';
-import type { V1EksClusterConfigEndpointAccess } from './v1EksClusterConfigEndpointAccess';
+import type { V1EksAddon } from "./v1EksAddon";
+import type { V1EncryptionConfig } from "./v1EncryptionConfig";
+import type { V1EksClusterConfigEndpointAccess } from "./v1EksClusterConfigEndpointAccess";
 
 /**
  * EksClusterConfig defines EKS specific config

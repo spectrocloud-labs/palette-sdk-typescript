@@ -13,15 +13,16 @@
 /**
  * @nullable
  */
-export type V1SearchSortFields = typeof V1SearchSortFields[keyof typeof V1SearchSortFields] | null;
-
+export type V1SearchSortFields =
+  | (typeof V1SearchSortFields)[keyof typeof V1SearchSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchSortFields = {
-  environment: 'environment',
-  clusterName: 'clusterName',
-  clusterState: 'clusterState',
-  healthState: 'healthState',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  environment: "environment",
+  clusterName: "clusterName",
+  clusterState: "clusterState",
+  healthState: "healthState",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1LifecycleConfig } from './v1LifecycleConfig';
+import type { V1LifecycleConfig } from "./v1LifecycleConfig";
 
 export interface V1LifecycleConfigEntity {
   lifecycleConfig?: V1LifecycleConfig;

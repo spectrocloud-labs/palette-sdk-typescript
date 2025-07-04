@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpcApplyActionType = typeof V1SpcApplyActionType[keyof typeof V1SpcApplyActionType];
-
+export type V1SpcApplyActionType =
+  (typeof V1SpcApplyActionType)[keyof typeof V1SpcApplyActionType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpcApplyActionType = {
-  DownloadAndInstall: 'DownloadAndInstall',
-  DownloadAndInstallLater: 'DownloadAndInstallLater',
+  DownloadAndInstall: "DownloadAndInstall",
+  DownloadAndInstallLater: "DownloadAndInstallLater",
 } as const;

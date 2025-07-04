@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureClusterConfig } from './v1AzureClusterConfig';
+import type { V1AzureClusterConfig } from "./v1AzureClusterConfig";
 
 /**
  * Azure cloud cluster config entity

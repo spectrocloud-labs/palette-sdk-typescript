@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VsphereInstanceType } from './v1VsphereInstanceType';
-import type { V1VspherePlacementConfigEntity } from './v1VspherePlacementConfigEntity';
+import type { V1VsphereInstanceType } from "./v1VsphereInstanceType";
+import type { V1VspherePlacementConfigEntity } from "./v1VspherePlacementConfigEntity";
 
 export interface V1VsphereMachinePoolCloudConfigEntity {
   instanceType?: V1VsphereInstanceType;

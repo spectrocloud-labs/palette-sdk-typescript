@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsAvailabilityZone } from './v1AwsAvailabilityZone';
+import type { V1AwsAvailabilityZone } from "./v1AwsAvailabilityZone";
 
 export interface V1AwsAvailabilityZones {
   /** List of AWS Zones */

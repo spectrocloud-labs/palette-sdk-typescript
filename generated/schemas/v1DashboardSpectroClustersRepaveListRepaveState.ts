@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1DashboardSpectroClustersRepaveListRepaveState = typeof V1DashboardSpectroClustersRepaveListRepaveState[keyof typeof V1DashboardSpectroClustersRepaveListRepaveState];
-
+export type V1DashboardSpectroClustersRepaveListRepaveState =
+  (typeof V1DashboardSpectroClustersRepaveListRepaveState)[keyof typeof V1DashboardSpectroClustersRepaveListRepaveState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1DashboardSpectroClustersRepaveListRepaveState = {
-  Pending: 'Pending',
-  Approved: 'Approved',
-  Reverted: 'Reverted',
+  Pending: "Pending",
+  Approved: "Approved",
+  Reverted: "Reverted",
 } as const;

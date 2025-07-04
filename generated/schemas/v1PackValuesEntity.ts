@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ManifestRefUpdateEntity } from './v1ManifestRefUpdateEntity';
-import type { V1PackType } from './v1PackType';
+import type { V1ManifestRefUpdateEntity } from "./v1ManifestRefUpdateEntity";
+import type { V1PackType } from "./v1PackType";
 
 /**
  * Pack values entity to refer the existing pack for the values override

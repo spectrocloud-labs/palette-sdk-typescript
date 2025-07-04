@@ -11,20 +11,20 @@
  */
 
 export type V1OpenStackFlavorsGetParams = {
-/**
- * Uid for the specific OpenStack cloud account
- */
-cloudAccountUid?: string;
-/**
- * project for which OpenStack flavors are requested
- */
-project?: string;
-/**
- * region for which OpenStack flavors are requested
- */
-region?: string;
-/**
- * domain for which OpenStack flavors are requested
- */
-domain?: string;
+  /**
+   * Uid for the specific OpenStack cloud account
+   */
+  cloudAccountUid?: string;
+  /**
+   * project for which OpenStack flavors are requested
+   */
+  project?: string;
+  /**
+   * region for which OpenStack flavors are requested
+   */
+  region?: string;
+  /**
+   * domain for which OpenStack flavors are requested
+   */
+  domain?: string;
 };

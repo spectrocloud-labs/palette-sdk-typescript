@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpRegion } from './v1GcpRegion';
+import type { V1GcpRegion } from "./v1GcpRegion";
 
 /**
  * List of GCP Regions

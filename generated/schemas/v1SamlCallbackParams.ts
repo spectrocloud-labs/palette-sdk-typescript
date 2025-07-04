@@ -11,8 +11,8 @@
  */
 
 export type V1SamlCallbackParams = {
-/**
- * Deprecated.
- */
-authToken?: string;
+  /**
+   * Deprecated.
+   */
+  authToken?: string;
 };

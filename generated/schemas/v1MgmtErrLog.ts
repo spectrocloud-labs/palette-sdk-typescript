@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtErrSpec } from './v1MgmtErrSpec';
+import type { V1MgmtErrSpec } from "./v1MgmtErrSpec";
 
 export interface V1MgmtErrLog {
   ref?: string;

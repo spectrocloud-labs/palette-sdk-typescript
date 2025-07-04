@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterRbacBindingType = typeof V1ClusterRbacBindingType[keyof typeof V1ClusterRbacBindingType];
-
+export type V1ClusterRbacBindingType =
+  (typeof V1ClusterRbacBindingType)[keyof typeof V1ClusterRbacBindingType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterRbacBindingType = {
-  RoleBinding: 'RoleBinding',
-  ClusterRoleBinding: 'ClusterRoleBinding',
+  RoleBinding: "RoleBinding",
+  ClusterRoleBinding: "ClusterRoleBinding",
 } as const;

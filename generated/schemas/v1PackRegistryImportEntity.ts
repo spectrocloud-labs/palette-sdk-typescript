@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackRegistryMetadata } from './v1PackRegistryMetadata';
+import type { V1PackRegistryMetadata } from "./v1PackRegistryMetadata";
 
 /**
  * Pack registry import entity

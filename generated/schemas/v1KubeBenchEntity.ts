@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1KubeBenchEntityReports } from './v1KubeBenchEntityReports';
-import type { V1KubeBenchEntityStatus } from './v1KubeBenchEntityStatus';
+import type { V1KubeBenchEntityReports } from "./v1KubeBenchEntityReports";
+import type { V1KubeBenchEntityStatus } from "./v1KubeBenchEntityStatus";
 
 /**
  * KubeBench response

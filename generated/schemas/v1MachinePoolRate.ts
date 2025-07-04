@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CloudRate } from './v1CloudRate';
+import type { V1CloudRate } from "./v1CloudRate";
 
 /**
  * Machine pool estimated rate information

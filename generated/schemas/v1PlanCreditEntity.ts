@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PlanCreditEntityType } from './v1PlanCreditEntityType';
+import type { V1PlanCreditEntityType } from "./v1PlanCreditEntityType";
 
 /**
  * Plan Credit entity for create/update request

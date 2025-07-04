@@ -11,5 +11,5 @@
  */
 
 export type V1AuthOrgParams = {
-orgName?: string;
+  orgName?: string;
 };

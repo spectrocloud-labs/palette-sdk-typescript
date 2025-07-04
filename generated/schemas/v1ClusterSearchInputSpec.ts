@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterSearchInputSpecInputs } from './v1ClusterSearchInputSpecInputs';
+import type { V1ClusterSearchInputSpecInputs } from "./v1ClusterSearchInputSpecInputs";
 
 export interface V1ClusterSearchInputSpec {
   inputs?: V1ClusterSearchInputSpecInputs;

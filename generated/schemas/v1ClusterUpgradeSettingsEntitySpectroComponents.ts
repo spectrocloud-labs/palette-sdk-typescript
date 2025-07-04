@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterUpgradeSettingsEntitySpectroComponents = typeof V1ClusterUpgradeSettingsEntitySpectroComponents[keyof typeof V1ClusterUpgradeSettingsEntitySpectroComponents];
-
+export type V1ClusterUpgradeSettingsEntitySpectroComponents =
+  (typeof V1ClusterUpgradeSettingsEntitySpectroComponents)[keyof typeof V1ClusterUpgradeSettingsEntitySpectroComponents];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterUpgradeSettingsEntitySpectroComponents = {
-  lock: 'lock',
-  unlock: 'unlock',
+  lock: "lock",
+  unlock: "unlock",
 } as const;

@@ -11,8 +11,8 @@
  */
 
 export type V1ClusterFeatureLogFetcherLogUpdateParams = {
-/**
- * Unique request Id
- */
-requestId?: string;
+  /**
+   * Unique request Id
+   */
+  requestId?: string;
 };

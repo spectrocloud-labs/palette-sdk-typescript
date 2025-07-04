@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfileMetadata } from './v1ClusterProfileMetadata';
+import type { V1ClusterProfileMetadata } from "./v1ClusterProfileMetadata";
 
 export interface V1ClusterProfilesMetadata {
   items: V1ClusterProfileMetadata[];

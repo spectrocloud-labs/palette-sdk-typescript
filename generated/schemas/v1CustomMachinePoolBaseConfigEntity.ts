@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CustomMachinePoolBaseConfigEntityAdditionalLabels } from './v1CustomMachinePoolBaseConfigEntityAdditionalLabels';
-import type { V1Taint } from './v1Taint';
+import type { V1CustomMachinePoolBaseConfigEntityAdditionalLabels } from "./v1CustomMachinePoolBaseConfigEntityAdditionalLabels";
+import type { V1Taint } from "./v1Taint";
 
 /**
  * Machine pool configuration for the custom cluster

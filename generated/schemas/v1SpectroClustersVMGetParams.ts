@@ -11,8 +11,8 @@
  */
 
 export type V1SpectroClustersVMGetParams = {
-/**
- * Namespace name
- */
-namespace: string;
+  /**
+   * Namespace name
+   */
+  namespace: string;
 };

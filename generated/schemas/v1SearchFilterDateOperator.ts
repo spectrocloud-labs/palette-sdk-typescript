@@ -10,15 +10,15 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SearchFilterDateOperator = typeof V1SearchFilterDateOperator[keyof typeof V1SearchFilterDateOperator];
-
+export type V1SearchFilterDateOperator =
+  (typeof V1SearchFilterDateOperator)[keyof typeof V1SearchFilterDateOperator];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchFilterDateOperator = {
-  eq: 'eq',
-  gt: 'gt',
-  gte: 'gte',
-  lt: 'lt',
-  lte: 'lte',
-  range: 'range',
+  eq: "eq",
+  gt: "gt",
+  gte: "gte",
+  lt: "lt",
+  lte: "lte",
+  range: "range",
 } as const;

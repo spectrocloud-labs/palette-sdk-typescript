@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsSecretSpecInputEntityPartition } from './v1AwsSecretSpecInputEntityPartition';
-import type { V1AwsSecretSpec } from './v1AwsSecretSpec';
+import type { V1AwsSecretSpecInputEntityPartition } from "./v1AwsSecretSpecInputEntityPartition";
+import type { V1AwsSecretSpec } from "./v1AwsSecretSpec";
 
 /**
  * AWS Secret spec input entity

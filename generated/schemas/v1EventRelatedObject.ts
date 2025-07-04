@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EventRelatedObjectKind } from './v1EventRelatedObjectKind';
+import type { V1EventRelatedObjectKind } from "./v1EventRelatedObjectKind";
 
 /**
  * Object for which the event is related

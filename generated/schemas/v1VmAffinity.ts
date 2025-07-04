@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmNodeAffinity } from './v1VmNodeAffinity';
-import type { V1VmPodAffinity } from './v1VmPodAffinity';
-import type { V1PodAntiAffinity } from './v1PodAntiAffinity';
+import type { V1VmNodeAffinity } from "./v1VmNodeAffinity";
+import type { V1VmPodAffinity } from "./v1VmPodAffinity";
+import type { V1PodAntiAffinity } from "./v1PodAntiAffinity";
 
 /**
  * Affinity is a group of affinity scheduling rules.

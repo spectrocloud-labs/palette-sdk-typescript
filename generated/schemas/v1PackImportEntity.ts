@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackManifestImportEntity } from './v1PackManifestImportEntity';
-import type { V1PackRegistryImportEntity } from './v1PackRegistryImportEntity';
+import type { V1PackManifestImportEntity } from "./v1PackManifestImportEntity";
+import type { V1PackRegistryImportEntity } from "./v1PackRegistryImportEntity";
 
 /**
  * Pack import request payload

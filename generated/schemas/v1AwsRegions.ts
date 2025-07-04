@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsRegion } from './v1AwsRegion';
+import type { V1AwsRegion } from "./v1AwsRegion";
 
 export interface V1AwsRegions {
   /** List of AWS regions */

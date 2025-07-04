@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1AzureCloudConfigSpec } from './v1AzureCloudConfigSpec';
-import type { V1AzureCloudConfigStatus } from './v1AzureCloudConfigStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1AzureCloudConfigSpec } from "./v1AzureCloudConfigSpec";
+import type { V1AzureCloudConfigStatus } from "./v1AzureCloudConfigStatus";
 
 /**
  * AzureCloudConfig is the Schema for the azurecloudconfigs API

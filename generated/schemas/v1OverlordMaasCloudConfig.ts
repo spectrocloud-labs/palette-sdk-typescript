@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasClusterConfig } from './v1MaasClusterConfig';
-import type { V1SpectroClusterProfileEntity } from './v1SpectroClusterProfileEntity';
-import type { V1ClusterConfigEntity } from './v1ClusterConfigEntity';
-import type { V1MaasMachineConfigEntity } from './v1MaasMachineConfigEntity';
+import type { V1MaasClusterConfig } from "./v1MaasClusterConfig";
+import type { V1SpectroClusterProfileEntity } from "./v1SpectroClusterProfileEntity";
+import type { V1ClusterConfigEntity } from "./v1ClusterConfigEntity";
+import type { V1MaasMachineConfigEntity } from "./v1MaasMachineConfigEntity";
 
 export interface V1OverlordMaasCloudConfig {
   clusterConfig?: V1MaasClusterConfig;

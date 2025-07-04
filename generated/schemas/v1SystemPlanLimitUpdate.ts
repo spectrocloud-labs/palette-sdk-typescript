@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemPlanLimit } from './v1SystemPlanLimit';
+import type { V1SystemPlanLimit } from "./v1SystemPlanLimit";
 
 /**
  * System Plan limit change update entity

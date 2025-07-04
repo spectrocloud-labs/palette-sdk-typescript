@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantResourceLimit } from './v1TenantResourceLimit';
+import type { V1TenantResourceLimit } from "./v1TenantResourceLimit";
 
 /**
  * Tenant resource limits

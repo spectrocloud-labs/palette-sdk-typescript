@@ -11,8 +11,8 @@
  */
 
 export type V1AppDeploymentsUidProfileApplyParams = {
-/**
- * Application deployment notification uid
- */
-notify?: string;
+  /**
+   * Application deployment notification uid
+   */
+  notify?: string;
 };

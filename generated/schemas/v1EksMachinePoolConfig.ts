@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EksMachinePoolConfigAdditionalLabels } from './v1EksMachinePoolConfigAdditionalLabels';
-import type { V1EksMachinePoolConfigAdditionalTags } from './v1EksMachinePoolConfigAdditionalTags';
-import type { V1AwsLaunchTemplate } from './v1AwsLaunchTemplate';
-import type { V1EksMachinePoolConfigCapacityType } from './v1EksMachinePoolConfigCapacityType';
-import type { V1InstanceConfig } from './v1InstanceConfig';
-import type { V1MachinePoolProperties } from './v1MachinePoolProperties';
-import type { V1SpotMarketOptions } from './v1SpotMarketOptions';
-import type { V1EksMachinePoolConfigSubnetIds } from './v1EksMachinePoolConfigSubnetIds';
-import type { V1Taint } from './v1Taint';
-import type { V1UpdateStrategy } from './v1UpdateStrategy';
+import type { V1EksMachinePoolConfigAdditionalLabels } from "./v1EksMachinePoolConfigAdditionalLabels";
+import type { V1EksMachinePoolConfigAdditionalTags } from "./v1EksMachinePoolConfigAdditionalTags";
+import type { V1AwsLaunchTemplate } from "./v1AwsLaunchTemplate";
+import type { V1EksMachinePoolConfigCapacityType } from "./v1EksMachinePoolConfigCapacityType";
+import type { V1InstanceConfig } from "./v1InstanceConfig";
+import type { V1MachinePoolProperties } from "./v1MachinePoolProperties";
+import type { V1SpotMarketOptions } from "./v1SpotMarketOptions";
+import type { V1EksMachinePoolConfigSubnetIds } from "./v1EksMachinePoolConfigSubnetIds";
+import type { V1Taint } from "./v1Taint";
+import type { V1UpdateStrategy } from "./v1UpdateStrategy";
 
 export interface V1EksMachinePoolConfig {
   /** additionalLabels */

@@ -13,4 +13,6 @@
 /**
  * NewMacAddresses manually sets that target interfaces' mac addresses. The key is the interface name and the value is the new mac address. If this field is not specified, a new MAC address will be generated automatically, as for any interface that is not included in this map
  */
-export type V1SpectroClusterVMCloneEntityNewMacAddresses = {[key: string]: string};
+export type V1SpectroClusterVMCloneEntityNewMacAddresses = {
+  [key: string]: string;
+};

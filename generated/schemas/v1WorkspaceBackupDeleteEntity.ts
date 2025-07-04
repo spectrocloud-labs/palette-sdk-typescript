@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceBackupClusterRef } from './v1WorkspaceBackupClusterRef';
+import type { V1WorkspaceBackupClusterRef } from "./v1WorkspaceBackupClusterRef";
 
 /**
  * Cluster backup delete config

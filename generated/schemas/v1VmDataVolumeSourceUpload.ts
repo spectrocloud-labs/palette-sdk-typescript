@@ -13,4 +13,6 @@
 /**
  * DataVolumeSourceUpload provides the parameters to create a Data Volume by uploading the source
  */
-export interface V1VmDataVolumeSourceUpload { [key: string]: unknown }
+export interface V1VmDataVolumeSourceUpload {
+  [key: string]: unknown;
+}

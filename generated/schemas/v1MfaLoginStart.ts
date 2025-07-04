@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MfaPublicKeyCredentialRequestOptions } from './v1MfaPublicKeyCredentialRequestOptions';
+import type { V1MfaPublicKeyCredentialRequestOptions } from "./v1MfaPublicKeyCredentialRequestOptions";
 
 export interface V1MfaLoginStart {
   publicKey?: V1MfaPublicKeyCredentialRequestOptions;

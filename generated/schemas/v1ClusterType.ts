@@ -10,11 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterType = typeof V1ClusterType[keyof typeof V1ClusterType];
-
+export type V1ClusterType = (typeof V1ClusterType)[keyof typeof V1ClusterType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterType = {
-  PureManage: 'PureManage',
-  PureAttach: 'PureAttach',
+  PureManage: "PureManage",
+  PureAttach: "PureAttach",
 } as const;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UserSummarySortFields } from './v1UserSummarySortFields';
-import type { V1SortOrder } from './v1SortOrder';
+import type { V1UserSummarySortFields } from "./v1UserSummarySortFields";
+import type { V1SortOrder } from "./v1SortOrder";
 
 export interface V1UserSummarySortSpec {
   field?: V1UserSummarySortFields;

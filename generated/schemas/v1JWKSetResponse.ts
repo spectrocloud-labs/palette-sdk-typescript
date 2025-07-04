@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1JWKResponse } from './v1JWKResponse';
+import type { V1JWKResponse } from "./v1JWKResponse";
 
 export interface V1JWKSetResponse {
   /** The value of the "keys" parameter is an array of JWK values */

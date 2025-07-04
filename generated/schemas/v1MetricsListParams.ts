@@ -11,27 +11,27 @@
  */
 
 export type V1MetricsListParams = {
-metricKind?: string;
-/**
- * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
- */
-startTime?: string;
-/**
- * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
- */
-endTime?: string;
-period?: number;
-/**
- * Deprecated. includeMasterMachines in boolean, group the data point by including control plane nodes if set to true
- */
-includeMasterMachines?: boolean;
-/**
- * includeControlPlaneMachines in boolean, group the data point by including control plane nodes if set to true
- */
-includeControlPlaneMachines?: boolean;
-/**
- * if true then api returns only aggregation values, else api returns all data points by default
- */
-discrete?: boolean;
-spectroClusterUid?: string;
+  metricKind?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   */
+  startTime?: string;
+  /**
+   * Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.
+   */
+  endTime?: string;
+  period?: number;
+  /**
+   * Deprecated. includeMasterMachines in boolean, group the data point by including control plane nodes if set to true
+   */
+  includeMasterMachines?: boolean;
+  /**
+   * includeControlPlaneMachines in boolean, group the data point by including control plane nodes if set to true
+   */
+  includeControlPlaneMachines?: boolean;
+  /**
+   * if true then api returns only aggregation values, else api returns all data points by default
+   */
+  discrete?: boolean;
+  spectroClusterUid?: string;
 };

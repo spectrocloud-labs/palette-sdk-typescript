@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GPUDeviceSpecAddresses } from './v1GPUDeviceSpecAddresses';
+import type { V1GPUDeviceSpecAddresses } from "./v1GPUDeviceSpecAddresses";
 
 export interface V1GPUDeviceSpec {
   /** Addresses is a map of PCI device entry name to its addresses.

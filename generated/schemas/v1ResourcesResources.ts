@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceEntity } from './v1ResourceEntity';
+import type { V1ResourceEntity } from "./v1ResourceEntity";
 
-export type V1ResourcesResources = {[key: string]: V1ResourceEntity};
+export type V1ResourcesResources = { [key: string]: V1ResourceEntity };

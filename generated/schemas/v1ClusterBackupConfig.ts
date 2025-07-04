@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1IncludeClusterResourceMode } from './v1IncludeClusterResourceMode';
-import type { V1ClusterFeatureSchedule } from './v1ClusterFeatureSchedule';
+import type { V1IncludeClusterResourceMode } from "./v1IncludeClusterResourceMode";
+import type { V1ClusterFeatureSchedule } from "./v1ClusterFeatureSchedule";
 
 /**
  * Cluster backup config

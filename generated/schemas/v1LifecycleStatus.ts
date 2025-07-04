@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1LifecycleStatusStatus } from './v1LifecycleStatusStatus';
+import type { V1LifecycleStatusStatus } from "./v1LifecycleStatusStatus";
 
 export interface V1LifecycleStatus {
   /** error or success msg of lifecycle */

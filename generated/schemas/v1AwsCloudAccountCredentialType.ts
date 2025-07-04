@@ -13,11 +13,11 @@
 /**
  * Allowed Values [secret, sts]. STS type will be used for role assumption for sts type, accessKey/secretKey contains the source account, Arn is the target account.
  */
-export type V1AwsCloudAccountCredentialType = typeof V1AwsCloudAccountCredentialType[keyof typeof V1AwsCloudAccountCredentialType];
-
+export type V1AwsCloudAccountCredentialType =
+  (typeof V1AwsCloudAccountCredentialType)[keyof typeof V1AwsCloudAccountCredentialType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AwsCloudAccountCredentialType = {
-  secret: 'secret',
-  sts: 'sts',
+  secret: "secret",
+  sts: "sts",
 } as const;

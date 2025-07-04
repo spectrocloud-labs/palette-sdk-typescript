@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PlanRenewal } from './v1PlanRenewal';
+import type { V1PlanRenewal } from "./v1PlanRenewal";
 
 /**
  * Plan add renawal update entity

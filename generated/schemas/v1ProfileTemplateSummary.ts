@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackRefSummary } from './v1PackRefSummary';
+import type { V1PackRefSummary } from "./v1PackRefSummary";
 
 /**
  * Edge host clusterprofile template summary

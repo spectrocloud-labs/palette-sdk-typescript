@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Event } from './v1Event';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1Event } from "./v1Event";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 /**
  * An array of component events items

@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ResourceWorkloadFilterType = typeof V1ResourceWorkloadFilterType[keyof typeof V1ResourceWorkloadFilterType];
-
+export type V1ResourceWorkloadFilterType =
+  (typeof V1ResourceWorkloadFilterType)[keyof typeof V1ResourceWorkloadFilterType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ResourceWorkloadFilterType = {
-  deployment: 'deployment',
-  statefulset: 'statefulset',
-  daemonset: 'daemonset',
-  all: 'all',
+  deployment: "deployment",
+  statefulset: "statefulset",
+  daemonset: "daemonset",
+  all: "all",
 } as const;

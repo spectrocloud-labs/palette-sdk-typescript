@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceRolesUidSummary } from './v1WorkspaceRolesUidSummary';
+import type { V1WorkspaceRolesUidSummary } from "./v1WorkspaceRolesUidSummary";
 
 /**
  * Workspace users and their roles

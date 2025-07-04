@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackEntity } from './v1PackEntity';
+import type { V1PackEntity } from "./v1PackEntity";
 
 /**
  * Pack update request payload

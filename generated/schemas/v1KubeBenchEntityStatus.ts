@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type V1KubeBenchEntityStatus = typeof V1KubeBenchEntityStatus[keyof typeof V1KubeBenchEntityStatus];
-
+export type V1KubeBenchEntityStatus =
+  (typeof V1KubeBenchEntityStatus)[keyof typeof V1KubeBenchEntityStatus];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1KubeBenchEntityStatus = {
-  Completed: 'Completed',
-  InProgress: 'InProgress',
-  Failed: 'Failed',
-  Initiated: 'Initiated',
+  Completed: "Completed",
+  InProgress: "InProgress",
+  Failed: "Failed",
+  Initiated: "Initiated",
 } as const;

@@ -13,11 +13,11 @@
 /**
  * Machine maintenance mode action
  */
-export type V1MachineMaintenanceAction = typeof V1MachineMaintenanceAction[keyof typeof V1MachineMaintenanceAction];
-
+export type V1MachineMaintenanceAction =
+  (typeof V1MachineMaintenanceAction)[keyof typeof V1MachineMaintenanceAction];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1MachineMaintenanceAction = {
-  cordon: 'cordon',
-  uncordon: 'uncordon',
+  cordon: "cordon",
+  uncordon: "uncordon",
 } as const;

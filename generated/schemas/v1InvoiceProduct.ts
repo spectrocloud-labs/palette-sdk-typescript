@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InvoiceProductData } from './v1InvoiceProductData';
+import type { V1InvoiceProductData } from "./v1InvoiceProductData";
 
 /**
  * Product invoice object

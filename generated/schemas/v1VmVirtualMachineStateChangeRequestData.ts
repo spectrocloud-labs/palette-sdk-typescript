@@ -13,4 +13,6 @@
 /**
  * Provides additional data in order to perform the Action
  */
-export type V1VmVirtualMachineStateChangeRequestData = {[key: string]: string};
+export type V1VmVirtualMachineStateChangeRequestData = {
+  [key: string]: string;
+};

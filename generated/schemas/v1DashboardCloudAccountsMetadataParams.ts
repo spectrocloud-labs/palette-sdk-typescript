@@ -11,5 +11,5 @@
  */
 
 export type V1DashboardCloudAccountsMetadataParams = {
-environment?: string;
+  environment?: string;
 };

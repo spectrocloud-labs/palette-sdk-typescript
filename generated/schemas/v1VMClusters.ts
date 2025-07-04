@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VMCluster } from './v1VMCluster';
+import type { V1VMCluster } from "./v1VMCluster";
 
 export interface V1VMClusters {
   items: V1VMCluster[];

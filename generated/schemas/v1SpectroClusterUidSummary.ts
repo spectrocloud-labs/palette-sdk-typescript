@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SpectroClusterUidSummarySpec } from './v1SpectroClusterUidSummarySpec';
-import type { V1SpectroClusterUidStatusSummary } from './v1SpectroClusterUidStatusSummary';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SpectroClusterUidSummarySpec } from "./v1SpectroClusterUidSummarySpec";
+import type { V1SpectroClusterUidStatusSummary } from "./v1SpectroClusterUidStatusSummary";
 
 /**
  * Spectro cluster summary

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasClusterConfig } from './v1MaasClusterConfig';
+import type { V1MaasClusterConfig } from "./v1MaasClusterConfig";
 
 /**
  * Maas cloud cluster config entity

@@ -10,11 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1OsType = typeof V1OsType[keyof typeof V1OsType];
-
+export type V1OsType = (typeof V1OsType)[keyof typeof V1OsType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1OsType = {
-  Linux: 'Linux',
-  Windows: 'Windows',
+  Linux: "Linux",
+  Windows: "Windows",
 } as const;

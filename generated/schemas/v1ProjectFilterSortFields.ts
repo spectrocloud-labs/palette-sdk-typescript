@@ -13,12 +13,13 @@
 /**
  * @nullable
  */
-export type V1ProjectFilterSortFields = typeof V1ProjectFilterSortFields[keyof typeof V1ProjectFilterSortFields] | null;
-
+export type V1ProjectFilterSortFields =
+  | (typeof V1ProjectFilterSortFields)[keyof typeof V1ProjectFilterSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ProjectFilterSortFields = {
-  name: 'name',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  name: "name",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmI6300ESBWatchdog } from './v1VmI6300ESBWatchdog';
+import type { V1VmI6300ESBWatchdog } from "./v1VmI6300ESBWatchdog";
 
 /**
  * Named watchdog device.

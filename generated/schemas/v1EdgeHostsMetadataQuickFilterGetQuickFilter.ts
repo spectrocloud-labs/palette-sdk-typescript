@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EdgeHostsMetadataQuickFilterGetQuickFilter = typeof V1EdgeHostsMetadataQuickFilterGetQuickFilter[keyof typeof V1EdgeHostsMetadataQuickFilterGetQuickFilter];
-
+export type V1EdgeHostsMetadataQuickFilterGetQuickFilter =
+  (typeof V1EdgeHostsMetadataQuickFilterGetQuickFilter)[keyof typeof V1EdgeHostsMetadataQuickFilterGetQuickFilter];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostsMetadataQuickFilterGetQuickFilter = {
-  unusedEdgeHosts: 'unusedEdgeHosts',
+  unusedEdgeHosts: "unusedEdgeHosts",
 } as const;

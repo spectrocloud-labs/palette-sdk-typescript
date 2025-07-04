@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceEntityData } from './v1ResourceEntityData';
+import type { V1ResourceEntityData } from "./v1ResourceEntityData";
 
 export interface V1ResourceEntity {
   checks?: string[];

@@ -13,4 +13,4 @@
 /**
  * Annotations is used to allow packref to add more arbitrary information one example is to add git reference for values.yaml
  */
-export type V1PackRefAnnotations = {[key: string]: string};
+export type V1PackRefAnnotations = { [key: string]: string };

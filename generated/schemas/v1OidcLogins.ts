@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SsoLogin } from './v1SsoLogin';
-import type { V1OidcLoginsTenantLogin } from './v1OidcLoginsTenantLogin';
+import type { V1SsoLogin } from "./v1SsoLogin";
+import type { V1OidcLoginsTenantLogin } from "./v1OidcLoginsTenantLogin";
 
 /**
  * loginsDetails

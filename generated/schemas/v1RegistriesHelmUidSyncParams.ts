@@ -11,5 +11,5 @@
  */
 
 export type V1RegistriesHelmUidSyncParams = {
-forceSync?: boolean;
+  forceSync?: boolean;
 };

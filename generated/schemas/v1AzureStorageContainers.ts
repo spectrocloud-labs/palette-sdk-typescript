@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1StorageContainer } from './v1StorageContainer';
+import type { V1StorageContainer } from "./v1StorageContainer";
 
 /**
  * List of Azure storage containers

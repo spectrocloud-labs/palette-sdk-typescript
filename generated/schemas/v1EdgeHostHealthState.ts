@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EdgeHostHealthState = typeof V1EdgeHostHealthState[keyof typeof V1EdgeHostHealthState];
-
+export type V1EdgeHostHealthState =
+  (typeof V1EdgeHostHealthState)[keyof typeof V1EdgeHostHealthState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostHealthState = {
-  healthy: 'healthy',
-  unhealthy: 'unhealthy',
+  healthy: "healthy",
+  unhealthy: "unhealthy",
 } as const;

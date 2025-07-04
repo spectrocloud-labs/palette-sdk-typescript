@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1AwsMachineSpec } from './v1AwsMachineSpec';
-import type { V1CloudMachineStatus } from './v1CloudMachineStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1AwsMachineSpec } from "./v1AwsMachineSpec";
+import type { V1CloudMachineStatus } from "./v1CloudMachineStatus";
 
 /**
  * AWS cloud VM definition

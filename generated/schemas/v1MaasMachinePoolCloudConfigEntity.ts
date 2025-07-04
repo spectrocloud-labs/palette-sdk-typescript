@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasInstanceType } from './v1MaasInstanceType';
+import type { V1MaasInstanceType } from "./v1MaasInstanceType";
 
 export interface V1MaasMachinePoolCloudConfigEntity {
   azs?: string[];

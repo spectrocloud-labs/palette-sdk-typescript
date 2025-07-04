@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterRepaveState } from './v1ClusterRepaveState';
+import type { V1ClusterRepaveState } from "./v1ClusterRepaveState";
 
 export interface V1SpectroClusterRepaveStatus {
   message?: string;

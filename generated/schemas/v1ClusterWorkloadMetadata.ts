@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadRef } from './v1ClusterWorkloadRef';
-import type { V1ClusterWorkloadMetadataLabels } from './v1ClusterWorkloadMetadataLabels';
+import type { V1ClusterWorkloadRef } from "./v1ClusterWorkloadRef";
+import type { V1ClusterWorkloadMetadataLabels } from "./v1ClusterWorkloadMetadataLabels";
 
 /**
  * Cluster workload metadata

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterScanLogKubeBench } from './v1ClusterScanLogKubeBench';
-import type { V1ClusterScanLogKubeHunter } from './v1ClusterScanLogKubeHunter';
-import type { V1ClusterScanLogSonobuoy } from './v1ClusterScanLogSonobuoy';
-import type { V1ClusterScanLogSyft } from './v1ClusterScanLogSyft';
+import type { V1ClusterScanLogKubeBench } from "./v1ClusterScanLogKubeBench";
+import type { V1ClusterScanLogKubeHunter } from "./v1ClusterScanLogKubeHunter";
+import type { V1ClusterScanLogSonobuoy } from "./v1ClusterScanLogSonobuoy";
+import type { V1ClusterScanLogSyft } from "./v1ClusterScanLogSyft";
 
 /**
  * Cluster compliance scan Logs

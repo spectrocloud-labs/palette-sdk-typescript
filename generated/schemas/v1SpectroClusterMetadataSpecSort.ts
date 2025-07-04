@@ -13,12 +13,13 @@
 /**
  * @nullable
  */
-export type V1SpectroClusterMetadataSpecSort = typeof V1SpectroClusterMetadataSpecSort[keyof typeof V1SpectroClusterMetadataSpecSort] | null;
-
+export type V1SpectroClusterMetadataSpecSort =
+  | (typeof V1SpectroClusterMetadataSpecSort)[keyof typeof V1SpectroClusterMetadataSpecSort]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClusterMetadataSpecSort = {
-  environment: 'environment',
-  state: 'state',
-  name: 'name',
+  environment: "environment",
+  state: "state",
+  name: "name",
 } as const;

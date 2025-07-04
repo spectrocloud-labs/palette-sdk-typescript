@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1DatabaseTransferJobMode = typeof V1DatabaseTransferJobMode[keyof typeof V1DatabaseTransferJobMode];
-
+export type V1DatabaseTransferJobMode =
+  (typeof V1DatabaseTransferJobMode)[keyof typeof V1DatabaseTransferJobMode];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1DatabaseTransferJobMode = {
-  FileSystem: 'FileSystem',
-  Ftp: 'Ftp',
+  FileSystem: "FileSystem",
+  Ftp: "Ftp",
 } as const;

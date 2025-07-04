@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DataSinkPayload } from './v1DataSinkPayload';
-import type { V1CloudWatchConfig } from './v1CloudWatchConfig';
+import type { V1DataSinkPayload } from "./v1DataSinkPayload";
+import type { V1CloudWatchConfig } from "./v1CloudWatchConfig";
 
 /**
  * Data sink cloud watch config

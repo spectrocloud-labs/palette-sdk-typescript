@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsCloudAccount } from './v1AwsCloudAccount';
-import type { V1EcrRegistrySpecProviderType } from './v1EcrRegistrySpecProviderType';
-import type { V1TlsConfiguration } from './v1TlsConfiguration';
+import type { V1AwsCloudAccount } from "./v1AwsCloudAccount";
+import type { V1EcrRegistrySpecProviderType } from "./v1EcrRegistrySpecProviderType";
+import type { V1TlsConfiguration } from "./v1TlsConfiguration";
 
 /**
  * Ecr registry spec

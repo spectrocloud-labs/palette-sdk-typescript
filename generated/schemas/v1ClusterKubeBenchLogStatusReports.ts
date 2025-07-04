@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1KubeBenchReport } from './v1KubeBenchReport';
+import type { V1KubeBenchReport } from "./v1KubeBenchReport";
 
-export type V1ClusterKubeBenchLogStatusReports = {[key: string]: V1KubeBenchReport};
+export type V1ClusterKubeBenchLogStatusReports = {
+  [key: string]: V1KubeBenchReport;
+};

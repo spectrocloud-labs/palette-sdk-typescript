@@ -11,8 +11,8 @@
  */
 
 export type V1ClusterProfilesCreateParams = {
-/**
- * If true then cluster profile will be created and published in a single transaction
- */
-publish?: boolean;
+  /**
+   * If true then cluster profile will be created and published in a single transaction
+   */
+  publish?: boolean;
 };

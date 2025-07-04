@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EcrRegistrySpecProviderType = typeof V1EcrRegistrySpecProviderType[keyof typeof V1EcrRegistrySpecProviderType];
-
+export type V1EcrRegistrySpecProviderType =
+  (typeof V1EcrRegistrySpecProviderType)[keyof typeof V1EcrRegistrySpecProviderType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EcrRegistrySpecProviderType = {
-  helm: 'helm',
-  pack: 'pack',
+  helm: "helm",
+  pack: "pack",
 } as const;

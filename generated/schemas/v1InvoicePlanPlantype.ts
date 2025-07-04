@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1InvoicePlanPlantype = typeof V1InvoicePlanPlantype[keyof typeof V1InvoicePlanPlantype];
-
+export type V1InvoicePlanPlantype =
+  (typeof V1InvoicePlanPlantype)[keyof typeof V1InvoicePlanPlantype];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1InvoicePlanPlantype = {
-  Trial: 'Trial',
-  MonthlyOnDemand: 'MonthlyOnDemand',
-  AnnualSubscription: 'AnnualSubscription',
+  Trial: "Trial",
+  MonthlyOnDemand: "MonthlyOnDemand",
+  AnnualSubscription: "AnnualSubscription",
 } as const;

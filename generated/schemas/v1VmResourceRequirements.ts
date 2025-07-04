@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmResourceRequirementsLimits } from './v1VmResourceRequirementsLimits';
-import type { V1VmResourceRequirementsRequests } from './v1VmResourceRequirementsRequests';
+import type { V1VmResourceRequirementsLimits } from "./v1VmResourceRequirementsLimits";
+import type { V1VmResourceRequirementsRequests } from "./v1VmResourceRequirementsRequests";
 
 export interface V1VmResourceRequirements {
   /** Limits describes the maximum amount of compute resources allowed. Valid resource keys are "memory" and "cpu". */

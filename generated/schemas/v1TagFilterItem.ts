@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SearchFilterKeyValueOperator } from './v1SearchFilterKeyValueOperator';
+import type { V1SearchFilterKeyValueOperator } from "./v1SearchFilterKeyValueOperator";
 
 export interface V1TagFilterItem {
   key?: string;

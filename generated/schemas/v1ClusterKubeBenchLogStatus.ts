@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterFeatureActor } from './v1ClusterFeatureActor';
-import type { V1ClusterKubeBenchLogStatusReports } from './v1ClusterKubeBenchLogStatusReports';
-import type { V1ClusterScanTime } from './v1ClusterScanTime';
+import type { V1ClusterFeatureActor } from "./v1ClusterFeatureActor";
+import type { V1ClusterKubeBenchLogStatusReports } from "./v1ClusterKubeBenchLogStatusReports";
+import type { V1ClusterScanTime } from "./v1ClusterScanTime";
 
 /**
  * Cluster compliance scan KubeBench Log Status

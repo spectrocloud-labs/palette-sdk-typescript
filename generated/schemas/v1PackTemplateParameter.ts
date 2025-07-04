@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackTemplateParameterOptions } from './v1PackTemplateParameterOptions';
+import type { V1PackTemplateParameterOptions } from "./v1PackTemplateParameterOptions";
 
 /**
  * Pack template parameter

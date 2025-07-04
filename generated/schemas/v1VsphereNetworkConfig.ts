@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1IPPool } from './v1IPPool';
-import type { V1ObjectReference } from './v1ObjectReference';
+import type { V1IPPool } from "./v1IPPool";
+import type { V1ObjectReference } from "./v1ObjectReference";
 
 export interface V1VsphereNetworkConfig {
   ipPool?: V1IPPool;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectResReference } from './v1ObjectResReference';
-import type { V1LifecycleStatus } from './v1LifecycleStatus';
+import type { V1ObjectResReference } from "./v1ObjectResReference";
+import type { V1LifecycleStatus } from "./v1LifecycleStatus";
 
 export interface V1Virtual {
   /** list of apps deployed on the virtual cluster */

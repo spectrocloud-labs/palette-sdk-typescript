@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppDeploymentTargetClusterLimits } from './v1AppDeploymentTargetClusterLimits';
+import type { V1AppDeploymentTargetClusterLimits } from "./v1AppDeploymentTargetClusterLimits";
 
 /**
  * Application deployment cluster group target spec

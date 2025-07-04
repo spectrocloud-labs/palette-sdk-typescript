@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasCloudAccount } from './v1MaasCloudAccount';
+import type { V1MaasCloudAccount } from "./v1MaasCloudAccount";
 
 export interface V1OverlordsUidMaasAccountValidateRequest {
   account?: V1MaasCloudAccount;

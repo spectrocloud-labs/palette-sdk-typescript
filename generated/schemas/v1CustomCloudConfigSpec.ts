@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1CustomClusterConfig } from './v1CustomClusterConfig';
-import type { V1CustomMachinePoolConfig } from './v1CustomMachinePoolConfig';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1CustomClusterConfig } from "./v1CustomClusterConfig";
+import type { V1CustomMachinePoolConfig } from "./v1CustomMachinePoolConfig";
 
 /**
  * CustomCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api

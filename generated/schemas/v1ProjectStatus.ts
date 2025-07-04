@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectCleanUpStatus } from './v1ProjectCleanUpStatus';
+import type { V1ProjectCleanUpStatus } from "./v1ProjectCleanUpStatus";
 
 /**
  * Project status

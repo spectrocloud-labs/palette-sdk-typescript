@@ -11,8 +11,8 @@
  */
 
 export type V1AzureStorageAccountTypesParams = {
-/**
- * Region for which Azure storage account types are requested
- */
-region?: string;
+  /**
+   * Region for which Azure storage account types are requested
+   */
+  region?: string;
 };

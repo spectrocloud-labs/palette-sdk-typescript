@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AuditSpecActionType } from './v1AuditSpecActionType';
-import type { V1AuditActor } from './v1AuditActor';
-import type { V1AuditResourceReference } from './v1AuditResourceReference';
+import type { V1AuditSpecActionType } from "./v1AuditSpecActionType";
+import type { V1AuditActor } from "./v1AuditActor";
+import type { V1AuditResourceReference } from "./v1AuditResourceReference";
 
 /**
  * Audit specifications

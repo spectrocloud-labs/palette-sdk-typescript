@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterRbacSubjectsType = typeof V1ClusterRbacSubjectsType[keyof typeof V1ClusterRbacSubjectsType];
-
+export type V1ClusterRbacSubjectsType =
+  (typeof V1ClusterRbacSubjectsType)[keyof typeof V1ClusterRbacSubjectsType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterRbacSubjectsType = {
-  User: 'User',
-  Group: 'Group',
-  ServiceAccount: 'ServiceAccount',
+  User: "User",
+  Group: "Group",
+  ServiceAccount: "ServiceAccount",
 } as const;

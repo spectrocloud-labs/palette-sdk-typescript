@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackMachinePoolConfigAdditionalLabels } from './v1OpenStackMachinePoolConfigAdditionalLabels';
-import type { V1OpenStackMachinePoolConfigAdditionalTags } from './v1OpenStackMachinePoolConfigAdditionalTags';
-import type { V1OpenstackFlavorConfig } from './v1OpenstackFlavorConfig';
-import type { V1MachinePoolProperties } from './v1MachinePoolProperties';
-import type { V1OpenStackResource } from './v1OpenStackResource';
-import type { V1Taint } from './v1Taint';
-import type { V1UpdateStrategy } from './v1UpdateStrategy';
+import type { V1OpenStackMachinePoolConfigAdditionalLabels } from "./v1OpenStackMachinePoolConfigAdditionalLabels";
+import type { V1OpenStackMachinePoolConfigAdditionalTags } from "./v1OpenStackMachinePoolConfigAdditionalTags";
+import type { V1OpenstackFlavorConfig } from "./v1OpenstackFlavorConfig";
+import type { V1MachinePoolProperties } from "./v1MachinePoolProperties";
+import type { V1OpenStackResource } from "./v1OpenStackResource";
+import type { V1Taint } from "./v1Taint";
+import type { V1UpdateStrategy } from "./v1UpdateStrategy";
 
 export interface V1OpenStackMachinePoolConfig {
   /** additionalLabels */

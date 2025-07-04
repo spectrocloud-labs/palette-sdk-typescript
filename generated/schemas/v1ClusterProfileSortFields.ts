@@ -13,14 +13,15 @@
 /**
  * @nullable
  */
-export type V1ClusterProfileSortFields = typeof V1ClusterProfileSortFields[keyof typeof V1ClusterProfileSortFields] | null;
-
+export type V1ClusterProfileSortFields =
+  | (typeof V1ClusterProfileSortFields)[keyof typeof V1ClusterProfileSortFields]
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterProfileSortFields = {
-  profileName: 'profileName',
-  environment: 'environment',
-  profileType: 'profileType',
-  creationTimestamp: 'creationTimestamp',
-  lastModifiedTimestamp: 'lastModifiedTimestamp',
+  profileName: "profileName",
+  environment: "environment",
+  profileType: "profileType",
+  creationTimestamp: "creationTimestamp",
+  lastModifiedTimestamp: "lastModifiedTimestamp",
 } as const;

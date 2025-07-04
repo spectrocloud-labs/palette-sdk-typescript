@@ -13,4 +13,4 @@
 /**
  * AZ to subnet mapping filled by ally from hubble SubnetIDs ["us-west-2d"] = "subnet-079b6061" This field is optional If we don't provide a subnetId then by default the first private subnet from the AZ will be picked up for deployment
  */
-export type V1GcpMachinePoolConfigSubnetIds = {[key: string]: string};
+export type V1GcpMachinePoolConfigSubnetIds = { [key: string]: string };

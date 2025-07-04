@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1OverlordsPairingCodeCloudType = typeof V1OverlordsPairingCodeCloudType[keyof typeof V1OverlordsPairingCodeCloudType];
-
+export type V1OverlordsPairingCodeCloudType =
+  (typeof V1OverlordsPairingCodeCloudType)[keyof typeof V1OverlordsPairingCodeCloudType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1OverlordsPairingCodeCloudType = {
-  vsphere: 'vsphere',
-  openstack: 'openstack',
-  maas: 'maas',
+  vsphere: "vsphere",
+  openstack: "openstack",
+  maas: "maas",
 } as const;

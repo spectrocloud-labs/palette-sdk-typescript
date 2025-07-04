@@ -13,11 +13,11 @@
 /**
  * AWS accounts are scoped to a single partition. Allowed values [aws, aws-us-gov], Default values
  */
-export type V1AwsPartition = typeof V1AwsPartition[keyof typeof V1AwsPartition];
-
+export type V1AwsPartition =
+  (typeof V1AwsPartition)[keyof typeof V1AwsPartition];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AwsPartition = {
-  aws: 'aws',
-  'aws-us-gov': 'aws-us-gov',
+  aws: "aws",
+  "aws-us-gov": "aws-us-gov",
 } as const;

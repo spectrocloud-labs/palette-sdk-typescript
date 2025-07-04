@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtAppObjectStatusPods } from './v1MgmtAppObjectStatusPods';
+import type { V1MgmtAppObjectStatusPods } from "./v1MgmtAppObjectStatusPods";
 
 export interface V1MgmtAppObjectStatus {
   availableReplicas?: number;

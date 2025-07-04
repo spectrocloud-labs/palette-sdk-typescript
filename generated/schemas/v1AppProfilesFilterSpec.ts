@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppProfileFilterSpec } from './v1AppProfileFilterSpec';
-import type { V1AppProfileSortSpec } from './v1AppProfileSortSpec';
+import type { V1AppProfileFilterSpec } from "./v1AppProfileFilterSpec";
+import type { V1AppProfileSortSpec } from "./v1AppProfileSortSpec";
 
 /**
  * Application profile filter summary spec

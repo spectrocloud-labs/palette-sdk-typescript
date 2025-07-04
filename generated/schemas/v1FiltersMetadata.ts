@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1FilterMetadata } from './v1FilterMetadata';
+import type { V1FilterMetadata } from "./v1FilterMetadata";
 
 export interface V1FiltersMetadata {
   items: V1FilterMetadata[];

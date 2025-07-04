@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InstanceType } from './v1InstanceType';
+import type { V1InstanceType } from "./v1InstanceType";
 
-export type V1CloudResourceMetadataInstanceTypes = {[key: string]: V1InstanceType};
+export type V1CloudResourceMetadataInstanceTypes = {
+  [key: string]: V1InstanceType;
+};

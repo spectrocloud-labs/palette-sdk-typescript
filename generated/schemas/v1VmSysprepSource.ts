@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmLocalObjectReference } from './v1VmLocalObjectReference';
+import type { V1VmLocalObjectReference } from "./v1VmLocalObjectReference";
 
 /**
  * Represents a Sysprep volume source.

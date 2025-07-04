@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadReplicaStatus } from './v1ClusterWorkloadReplicaStatus';
+import type { V1ClusterWorkloadReplicaStatus } from "./v1ClusterWorkloadReplicaStatus";
 
 /**
  * Cluster workload deployment status

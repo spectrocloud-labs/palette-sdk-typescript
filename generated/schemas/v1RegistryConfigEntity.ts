@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistryConfiguration } from './v1RegistryConfiguration';
+import type { V1RegistryConfiguration } from "./v1RegistryConfiguration";
 
 /**
  * Registry configuration entity

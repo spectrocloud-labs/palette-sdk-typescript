@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SearchFilterStringOperator = typeof V1SearchFilterStringOperator[keyof typeof V1SearchFilterStringOperator];
-
+export type V1SearchFilterStringOperator =
+  (typeof V1SearchFilterStringOperator)[keyof typeof V1SearchFilterStringOperator];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchFilterStringOperator = {
-  eq: 'eq',
-  contains: 'contains',
-  beginsWith: 'beginsWith',
+  eq: "eq",
+  contains: "contains",
+  beginsWith: "beginsWith",
 } as const;

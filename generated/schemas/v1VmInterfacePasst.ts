@@ -13,4 +13,6 @@
 /**
  * InterfacePasst connects to a given network.
  */
-export interface V1VmInterfacePasst { [key: string]: unknown }
+export interface V1VmInterfacePasst {
+  [key: string]: unknown;
+}

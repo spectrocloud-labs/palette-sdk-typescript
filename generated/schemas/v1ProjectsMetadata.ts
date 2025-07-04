@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectMetadata } from './v1ProjectMetadata';
+import type { V1ProjectMetadata } from "./v1ProjectMetadata";
 
 export interface V1ProjectsMetadata {
   items: V1ProjectMetadata[];

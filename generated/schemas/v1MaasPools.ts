@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasPool } from './v1MaasPool';
+import type { V1MaasPool } from "./v1MaasPool";
 
 /**
  * List of Maas pools

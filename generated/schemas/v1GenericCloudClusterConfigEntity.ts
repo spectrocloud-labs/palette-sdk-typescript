@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GenericClusterConfig } from './v1GenericClusterConfig';
+import type { V1GenericClusterConfig } from "./v1GenericClusterConfig";
 
 /**
  * Generic cloud cluster config entity

@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterProfilesUidExportFormat = typeof V1ClusterProfilesUidExportFormat[keyof typeof V1ClusterProfilesUidExportFormat];
-
+export type V1ClusterProfilesUidExportFormat =
+  (typeof V1ClusterProfilesUidExportFormat)[keyof typeof V1ClusterProfilesUidExportFormat];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterProfilesUidExportFormat = {
-  yaml: 'yaml',
-  json: 'json',
+  yaml: "yaml",
+  json: "json",
 } as const;

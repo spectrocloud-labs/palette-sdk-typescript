@@ -13,4 +13,6 @@
 /**
  * Team status
  */
-export interface V1TeamStatus { [key: string]: unknown }
+export interface V1TeamStatus {
+  [key: string]: unknown;
+}

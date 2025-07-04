@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmFeatureState } from './v1VmFeatureState';
-import type { V1VmFeatureApiC } from './v1VmFeatureApiC';
-import type { V1VmFeatureHyperv } from './v1VmFeatureHyperv';
-import type { V1VmFeatureKVm } from './v1VmFeatureKVm';
+import type { V1VmFeatureState } from "./v1VmFeatureState";
+import type { V1VmFeatureApiC } from "./v1VmFeatureApiC";
+import type { V1VmFeatureHyperv } from "./v1VmFeatureHyperv";
+import type { V1VmFeatureKVm } from "./v1VmFeatureKVm";
 
 export interface V1VmFeatures {
   acpi?: V1VmFeatureState;

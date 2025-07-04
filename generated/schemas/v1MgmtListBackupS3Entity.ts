@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtFileTransferS3Entity } from './v1MgmtFileTransferS3Entity';
+import type { V1MgmtFileTransferS3Entity } from "./v1MgmtFileTransferS3Entity";
 
 /**
  * list s3 backups

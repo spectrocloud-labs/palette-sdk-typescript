@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsIamPolicy } from './v1AwsIamPolicy';
+import type { V1AwsIamPolicy } from "./v1AwsIamPolicy";
 
 export interface V1AwsPolicies {
   policies: V1AwsIamPolicy[];

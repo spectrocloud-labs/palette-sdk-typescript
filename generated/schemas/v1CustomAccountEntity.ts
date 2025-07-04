@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMetaInputEntity } from './v1ObjectMetaInputEntity';
-import type { V1CustomCloudAccount } from './v1CustomCloudAccount';
+import type { V1ObjectMetaInputEntity } from "./v1ObjectMetaInputEntity";
+import type { V1CustomCloudAccount } from "./v1CustomCloudAccount";
 
 /**
  * Custom account information

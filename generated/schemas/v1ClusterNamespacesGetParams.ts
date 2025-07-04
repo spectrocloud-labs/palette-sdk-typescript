@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterNamespacesGetParams = {
-skipEmptyNamespaces?: boolean;
+  skipEmptyNamespaces?: boolean;
 };

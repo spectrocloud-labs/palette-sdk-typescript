@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MachineUids } from './v1MachineUids';
+import type { V1MachineUids } from "./v1MachineUids";
 
-export type V1MachinePoolsMachineUidsMachinePools = {[key: string]: V1MachineUids};
+export type V1MachinePoolsMachineUidsMachinePools = {
+  [key: string]: V1MachineUids;
+};

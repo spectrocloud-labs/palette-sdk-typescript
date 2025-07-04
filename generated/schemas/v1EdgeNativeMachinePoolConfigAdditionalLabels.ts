@@ -13,4 +13,6 @@
 /**
  * AdditionalLabels
  */
-export type V1EdgeNativeMachinePoolConfigAdditionalLabels = {[key: string]: string};
+export type V1EdgeNativeMachinePoolConfigAdditionalLabels = {
+  [key: string]: string;
+};

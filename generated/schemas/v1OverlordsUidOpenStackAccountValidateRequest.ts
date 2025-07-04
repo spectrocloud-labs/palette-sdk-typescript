@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackCloudAccount } from './v1OpenStackCloudAccount';
+import type { V1OpenStackCloudAccount } from "./v1OpenStackCloudAccount";
 
 export interface V1OverlordsUidOpenStackAccountValidateRequest {
   account?: V1OpenStackCloudAccount;

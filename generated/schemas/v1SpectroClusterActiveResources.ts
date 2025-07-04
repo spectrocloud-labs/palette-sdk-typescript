@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterActiveAppDeployment } from './v1SpectroClusterActiveAppDeployment';
-import type { V1SpectroClusterActiveCluster } from './v1SpectroClusterActiveCluster';
+import type { V1SpectroClusterActiveAppDeployment } from "./v1SpectroClusterActiveAppDeployment";
+import type { V1SpectroClusterActiveCluster } from "./v1SpectroClusterActiveCluster";
 
 /**
  * Active cluster resources

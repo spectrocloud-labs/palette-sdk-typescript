@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterRestoreStatusMeta } from './v1ClusterRestoreStatusMeta';
+import type { V1ClusterRestoreStatusMeta } from "./v1ClusterRestoreStatusMeta";
 
 /**
  * Cluster Restore Status

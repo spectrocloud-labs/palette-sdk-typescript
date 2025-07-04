@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackResolvedValues } from './v1PackResolvedValues';
-import type { V1PackSummarySpec } from './v1PackSummarySpec';
-import type { V1RegistryMetadata } from './v1RegistryMetadata';
+import type { V1PackResolvedValues } from "./v1PackResolvedValues";
+import type { V1PackSummarySpec } from "./v1PackSummarySpec";
+import type { V1RegistryMetadata } from "./v1RegistryMetadata";
 
 /**
  * Pack summary spec

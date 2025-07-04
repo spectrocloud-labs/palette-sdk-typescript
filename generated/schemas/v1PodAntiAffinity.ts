@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmWeightedPodAffinityTerm } from './v1VmWeightedPodAffinityTerm';
-import type { V1VmPodAffinityTerm } from './v1VmPodAffinityTerm';
+import type { V1VmWeightedPodAffinityTerm } from "./v1VmWeightedPodAffinityTerm";
+import type { V1VmPodAffinityTerm } from "./v1VmPodAffinityTerm";
 
 /**
  * Pod anti affinity is a group of inter pod anti affinity scheduling rules.

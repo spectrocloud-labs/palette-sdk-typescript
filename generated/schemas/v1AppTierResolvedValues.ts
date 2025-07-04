@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppTierResolvedValuesResolved } from './v1AppTierResolvedValuesResolved';
+import type { V1AppTierResolvedValuesResolved } from "./v1AppTierResolvedValuesResolved";
 
 /**
  * Application tier resolved macro values

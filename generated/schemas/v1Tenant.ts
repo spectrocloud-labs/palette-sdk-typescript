@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1TenantSpec } from './v1TenantSpec';
-import type { V1TenantStatus } from './v1TenantStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1TenantSpec } from "./v1TenantSpec";
+import type { V1TenantStatus } from "./v1TenantStatus";
 
 /**
  * Tenant

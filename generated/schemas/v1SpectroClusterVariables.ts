@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterVariableResponse } from './v1SpectroClusterVariableResponse';
+import type { V1SpectroClusterVariableResponse } from "./v1SpectroClusterVariableResponse";
 
 /**
  * List of cluster variables with schema belonging to a cluster

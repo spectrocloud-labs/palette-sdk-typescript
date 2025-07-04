@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TransferJob } from './v1TransferJob';
-import type { V1DatabaseTransferJobMode } from './v1DatabaseTransferJobMode';
+import type { V1TransferJob } from "./v1TransferJob";
+import type { V1DatabaseTransferJobMode } from "./v1DatabaseTransferJobMode";
 
 /**
  * database transfer job details

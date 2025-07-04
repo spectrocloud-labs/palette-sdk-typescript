@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VsphereImage } from './v1VsphereImage';
-import type { V1VsphereInstanceType } from './v1VsphereInstanceType';
-import type { V1VsphereNic } from './v1VsphereNic';
-import type { V1VspherePlacementConfig } from './v1VspherePlacementConfig';
+import type { V1VsphereImage } from "./v1VsphereImage";
+import type { V1VsphereInstanceType } from "./v1VsphereInstanceType";
+import type { V1VsphereNic } from "./v1VsphereNic";
+import type { V1VspherePlacementConfig } from "./v1VspherePlacementConfig";
 
 /**
  * vSphere cloud VM definition spec

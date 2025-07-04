@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceBackupState } from './v1WorkspaceBackupState';
-import type { V1WorkspaceClusterBackupResponse } from './v1WorkspaceClusterBackupResponse';
-import type { V1WorkspaceBackupStatusConfig } from './v1WorkspaceBackupStatusConfig';
+import type { V1WorkspaceBackupState } from "./v1WorkspaceBackupState";
+import type { V1WorkspaceClusterBackupResponse } from "./v1WorkspaceClusterBackupResponse";
+import type { V1WorkspaceBackupStatusConfig } from "./v1WorkspaceBackupStatusConfig";
 
 /**
  * Workspace cluster backup config

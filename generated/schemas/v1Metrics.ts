@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MetricAggregation } from './v1MetricAggregation';
-import type { V1MetricPoint } from './v1MetricPoint';
+import type { V1MetricAggregation } from "./v1MetricAggregation";
+import type { V1MetricPoint } from "./v1MetricPoint";
 
 export interface V1Metrics {
   aggregation?: V1MetricAggregation;

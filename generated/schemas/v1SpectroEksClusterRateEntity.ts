@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EksClusterConfig } from './v1EksClusterConfig';
-import type { V1EksMachinePoolConfigEntity } from './v1EksMachinePoolConfigEntity';
+import type { V1EksClusterConfig } from "./v1EksClusterConfig";
+import type { V1EksMachinePoolConfigEntity } from "./v1EksMachinePoolConfigEntity";
 
 /**
  * Spectro EKS cluster request payload for estimating rate

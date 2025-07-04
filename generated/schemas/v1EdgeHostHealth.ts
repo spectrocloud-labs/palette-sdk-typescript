@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostHealthState } from './v1EdgeHostHealthState';
+import type { V1EdgeHostHealthState } from "./v1EdgeHostHealthState";
 
 /**
  * EdgeHostHealth defines the desired health state of EdgeHostDevice

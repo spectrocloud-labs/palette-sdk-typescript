@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1ProjectSpecSummary } from './v1ProjectSpecSummary';
-import type { V1ProjectStatusSummary } from './v1ProjectStatusSummary';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1ProjectSpecSummary } from "./v1ProjectSpecSummary";
+import type { V1ProjectStatusSummary } from "./v1ProjectStatusSummary";
 
 /**
  * Project summary

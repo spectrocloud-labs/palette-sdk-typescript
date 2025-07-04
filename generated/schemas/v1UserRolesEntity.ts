@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UidSummary } from './v1UidSummary';
+import type { V1UidSummary } from "./v1UidSummary";
 
 export interface V1UserRolesEntity {
   inheritedRoles?: V1UidSummary[];

@@ -11,20 +11,20 @@
  */
 
 export type V1OpenStackKeypairsGetParams = {
-/**
- * Uid for the specific OpenStack cloud account
- */
-cloudAccountUid?: string;
-/**
- * project for which OpenStack keypairs are requested
- */
-project?: string;
-/**
- * region for which OpenStack keypairs are requested
- */
-region?: string;
-/**
- * domain for which OpenStack keypairs are requested
- */
-domain?: string;
+  /**
+   * Uid for the specific OpenStack cloud account
+   */
+  cloudAccountUid?: string;
+  /**
+   * project for which OpenStack keypairs are requested
+   */
+  project?: string;
+  /**
+   * region for which OpenStack keypairs are requested
+   */
+  region?: string;
+  /**
+   * domain for which OpenStack keypairs are requested
+   */
+  domain?: string;
 };

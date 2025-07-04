@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VsphereCloudDatacenter } from './v1VsphereCloudDatacenter';
+import type { V1VsphereCloudDatacenter } from "./v1VsphereCloudDatacenter";
 
 /**
  * Vsphere cloud properties of edge host

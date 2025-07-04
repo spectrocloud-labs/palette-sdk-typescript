@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterFeatureActor } from './v1ClusterFeatureActor';
-import type { V1RestoreStatusMeta } from './v1RestoreStatusMeta';
-import type { V1ResourceReference } from './v1ResourceReference';
+import type { V1ClusterFeatureActor } from "./v1ClusterFeatureActor";
+import type { V1RestoreStatusMeta } from "./v1RestoreStatusMeta";
+import type { V1ResourceReference } from "./v1ResourceReference";
 
 /**
  * Cluster Restore Status Meta

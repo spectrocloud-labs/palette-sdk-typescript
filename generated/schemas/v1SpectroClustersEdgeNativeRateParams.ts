@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClustersEdgeNativeRatePeriodType } from './v1SpectroClustersEdgeNativeRatePeriodType';
+import type { V1SpectroClustersEdgeNativeRatePeriodType } from "./v1SpectroClustersEdgeNativeRatePeriodType";
 
 export type V1SpectroClustersEdgeNativeRateParams = {
-periodType?: V1SpectroClustersEdgeNativeRatePeriodType;
+  periodType?: V1SpectroClustersEdgeNativeRatePeriodType;
 };

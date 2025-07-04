@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SearchFilterConjunctionOperator } from './v1SearchFilterConjunctionOperator';
+import type { V1SearchFilterConjunctionOperator } from "./v1SearchFilterConjunctionOperator";
 
 export interface V1SearchFilterStringConditionMatch {
   conjunction?: V1SearchFilterConjunctionOperator;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppProfileMetaUpdateEntityAnnotations } from './v1AppProfileMetaUpdateEntityAnnotations';
-import type { V1AppProfileMetaUpdateEntityLabels } from './v1AppProfileMetaUpdateEntityLabels';
+import type { V1AppProfileMetaUpdateEntityAnnotations } from "./v1AppProfileMetaUpdateEntityAnnotations";
+import type { V1AppProfileMetaUpdateEntityLabels } from "./v1AppProfileMetaUpdateEntityLabels";
 
 /**
  * Application profile metadata update request payload

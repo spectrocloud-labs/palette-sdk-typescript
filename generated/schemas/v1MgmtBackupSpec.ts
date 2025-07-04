@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtBackupSpecScheduleType } from './v1MgmtBackupSpecScheduleType';
+import type { V1MgmtBackupSpecScheduleType } from "./v1MgmtBackupSpecScheduleType";
 
 /**
  * backup spec

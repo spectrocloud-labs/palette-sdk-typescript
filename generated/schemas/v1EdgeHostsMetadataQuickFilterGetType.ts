@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EdgeHostsMetadataQuickFilterGetType = typeof V1EdgeHostsMetadataQuickFilterGetType[keyof typeof V1EdgeHostsMetadataQuickFilterGetType];
-
+export type V1EdgeHostsMetadataQuickFilterGetType =
+  (typeof V1EdgeHostsMetadataQuickFilterGetType)[keyof typeof V1EdgeHostsMetadataQuickFilterGetType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostsMetadataQuickFilterGetType = {
-  'edge-native': 'edge-native',
-  vsphere: 'vsphere',
+  "edge-native": "edge-native",
+  vsphere: "vsphere",
 } as const;

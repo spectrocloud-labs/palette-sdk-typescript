@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmKernelBootContainer } from './v1VmKernelBootContainer';
+import type { V1VmKernelBootContainer } from "./v1VmKernelBootContainer";
 
 /**
  * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments

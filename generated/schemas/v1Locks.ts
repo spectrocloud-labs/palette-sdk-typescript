@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Lock } from './v1Lock';
+import type { V1Lock } from "./v1Lock";
 
 export type V1Locks = V1Lock[];

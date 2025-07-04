@@ -13,12 +13,12 @@
 /**
  * VIP or External
  */
-export type V1ControlPlaneEndPointType = typeof V1ControlPlaneEndPointType[keyof typeof V1ControlPlaneEndPointType];
-
+export type V1ControlPlaneEndPointType =
+  (typeof V1ControlPlaneEndPointType)[keyof typeof V1ControlPlaneEndPointType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ControlPlaneEndPointType = {
-  VIP: 'VIP',
-  External: 'External',
-  DDNS: 'DDNS',
+  VIP: "VIP",
+  External: "External",
+  DDNS: "DDNS",
 } as const;

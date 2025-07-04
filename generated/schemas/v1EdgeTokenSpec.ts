@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeTokenProject } from './v1EdgeTokenProject';
+import type { V1EdgeTokenProject } from "./v1EdgeTokenProject";
 
 /**
  * Edge token specification

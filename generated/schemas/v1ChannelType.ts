@@ -10,12 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ChannelType = typeof V1ChannelType[keyof typeof V1ChannelType];
-
+export type V1ChannelType = (typeof V1ChannelType)[keyof typeof V1ChannelType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ChannelType = {
-  email: 'email',
-  app: 'app',
-  http: 'http',
+  email: "email",
+  app: "app",
+  http: "http",
 } as const;

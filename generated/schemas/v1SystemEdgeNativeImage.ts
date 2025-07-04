@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemEdgeNativeImageSpec } from './v1SystemEdgeNativeImageSpec';
+import type { V1SystemEdgeNativeImageSpec } from "./v1SystemEdgeNativeImageSpec";
 
 /**
  * SystemAdmin

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SpectroClusterRepaveSpec } from './v1SpectroClusterRepaveSpec';
-import type { V1SpectroClusterRepaveStatus } from './v1SpectroClusterRepaveStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SpectroClusterRepaveSpec } from "./v1SpectroClusterRepaveSpec";
+import type { V1SpectroClusterRepaveStatus } from "./v1SpectroClusterRepaveStatus";
 
 /**
  * Spectro cluster repave status information

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VirtualNetwork } from './v1VirtualNetwork';
+import type { V1VirtualNetwork } from "./v1VirtualNetwork";
 
 /**
  * List of Azure virtual network

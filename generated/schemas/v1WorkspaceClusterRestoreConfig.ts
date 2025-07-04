@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1WorkspaceClusterRestoreResponse } from './v1WorkspaceClusterRestoreResponse';
-import type { V1WorkspaceRestoreState } from './v1WorkspaceRestoreState';
+import type { V1WorkspaceClusterRestoreResponse } from "./v1WorkspaceClusterRestoreResponse";
+import type { V1WorkspaceRestoreState } from "./v1WorkspaceRestoreState";
 
 /**
  * Workspace cluster restore config

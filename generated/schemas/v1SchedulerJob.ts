@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SchedulerJobSpec } from './v1SchedulerJobSpec';
-import type { V1SchedulerJobStatus } from './v1SchedulerJobStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SchedulerJobSpec } from "./v1SchedulerJobSpec";
+import type { V1SchedulerJobStatus } from "./v1SchedulerJobStatus";
 
 export interface V1SchedulerJob {
   metadata?: V1ObjectMeta;

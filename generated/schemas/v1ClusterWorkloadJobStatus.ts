@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadCondition } from './v1ClusterWorkloadCondition';
+import type { V1ClusterWorkloadCondition } from "./v1ClusterWorkloadCondition";
 
 /**
  * Cluster workload job status

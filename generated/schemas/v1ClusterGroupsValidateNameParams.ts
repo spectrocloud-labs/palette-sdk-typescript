@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterGroupsValidateNameParams = {
-name: string;
+  name: string;
 };

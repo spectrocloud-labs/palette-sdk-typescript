@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CustomCloudAccountCredentials } from './v1CustomCloudAccountCredentials';
+import type { V1CustomCloudAccountCredentials } from "./v1CustomCloudAccountCredentials";
 
 export interface V1CustomCloudAccount {
   /** Cloud account credentials */

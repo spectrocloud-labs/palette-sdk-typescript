@@ -11,7 +11,7 @@
  */
 
 export type V1OpenstackAccountsUidAzsParams = {
-region?: string;
-project?: string;
-domain?: string;
+  region?: string;
+  project?: string;
+  domain?: string;
 };

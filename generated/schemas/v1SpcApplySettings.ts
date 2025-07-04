@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpcApplySettingsActionType } from './v1SpcApplySettingsActionType';
+import type { V1SpcApplySettingsActionType } from "./v1SpcApplySettingsActionType";
 
 export interface V1SpcApplySettings {
   actionType?: V1SpcApplySettingsActionType;

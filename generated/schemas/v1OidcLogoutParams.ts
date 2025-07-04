@@ -11,8 +11,8 @@
  */
 
 export type V1OidcLogoutParams = {
-/**
- * Describes a state to validate and associate request and response
- */
-state?: string;
+  /**
+   * Describes a state to validate and associate request and response
+   */
+  state?: string;
 };

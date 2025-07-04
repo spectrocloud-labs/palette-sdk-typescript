@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasNic } from './v1MaasNic';
+import type { V1MaasNic } from "./v1MaasNic";
 
 /**
  * Maas cloud VM definition spec

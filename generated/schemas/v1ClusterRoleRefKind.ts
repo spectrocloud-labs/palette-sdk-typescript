@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterRoleRefKind = typeof V1ClusterRoleRefKind[keyof typeof V1ClusterRoleRefKind];
-
+export type V1ClusterRoleRefKind =
+  (typeof V1ClusterRoleRefKind)[keyof typeof V1ClusterRoleRefKind];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterRoleRefKind = {
-  Role: 'Role',
-  ClusterRole: 'ClusterRole',
+  Role: "Role",
+  ClusterRole: "ClusterRole",
 } as const;

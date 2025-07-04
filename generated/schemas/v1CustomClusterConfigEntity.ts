@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterLocation } from './v1ClusterLocation';
-import type { V1MachineManagementConfig } from './v1MachineManagementConfig';
-import type { V1ClusterResourcesEntity } from './v1ClusterResourcesEntity';
+import type { V1ClusterLocation } from "./v1ClusterLocation";
+import type { V1MachineManagementConfig } from "./v1MachineManagementConfig";
+import type { V1ClusterResourcesEntity } from "./v1ClusterResourcesEntity";
 
 export interface V1CustomClusterConfigEntity {
   location?: V1ClusterLocation;

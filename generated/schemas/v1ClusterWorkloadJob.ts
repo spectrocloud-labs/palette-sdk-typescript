@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadMetadata } from './v1ClusterWorkloadMetadata';
-import type { V1ClusterWorkloadJobStatus } from './v1ClusterWorkloadJobStatus';
+import type { V1ClusterWorkloadMetadata } from "./v1ClusterWorkloadMetadata";
+import type { V1ClusterWorkloadJobStatus } from "./v1ClusterWorkloadJobStatus";
 
 /**
  * Cluster workload job summary

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterRevisionMeta } from './v1SpectroClusterRevisionMeta';
+import type { V1SpectroClusterRevisionMeta } from "./v1SpectroClusterRevisionMeta";
 
 export interface V1SpectroClusterRevisionMetaList {
   spcRevisions?: V1SpectroClusterRevisionMeta[];

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterManifest } from './v1ClusterManifest';
+import type { V1ClusterManifest } from "./v1ClusterManifest";
 
 /**
  * Cluster manifests information

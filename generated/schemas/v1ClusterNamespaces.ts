@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterNamespace } from './v1ClusterNamespace';
+import type { V1ClusterNamespace } from "./v1ClusterNamespace";
 
 /**
  * Cluster's available namespaces

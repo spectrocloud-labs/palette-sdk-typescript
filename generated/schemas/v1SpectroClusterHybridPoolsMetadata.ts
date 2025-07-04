@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SpectroClusterHybridPoolsMetadataSpec } from './v1SpectroClusterHybridPoolsMetadataSpec';
-import type { V1SpectroClusterStatus } from './v1SpectroClusterStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SpectroClusterHybridPoolsMetadataSpec } from "./v1SpectroClusterHybridPoolsMetadataSpec";
+import type { V1SpectroClusterStatus } from "./v1SpectroClusterStatus";
 
 /**
  * Metadata of clusters launched as hybrid machine pools

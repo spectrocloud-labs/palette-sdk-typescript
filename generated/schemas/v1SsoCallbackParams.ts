@@ -11,20 +11,20 @@
  */
 
 export type V1SsoCallbackParams = {
-/**
- * Describes temporary and very short lived code sent by IDP to validate the token
- */
-code?: string;
-/**
- * Describes a state to validate and associate request and response
- */
-state?: string;
-/**
- * Describes a error code in case the IDP is not able to validate and authenticates the user
- */
-error?: string;
-/**
- * Describes a error in case the IDP is not able to validate and authenticates the user
- */
-error_description?: string;
+  /**
+   * Describes temporary and very short lived code sent by IDP to validate the token
+   */
+  code?: string;
+  /**
+   * Describes a state to validate and associate request and response
+   */
+  state?: string;
+  /**
+   * Describes a error code in case the IDP is not able to validate and authenticates the user
+   */
+  error?: string;
+  /**
+   * Describes a error in case the IDP is not able to validate and authenticates the user
+   */
+  error_description?: string;
 };

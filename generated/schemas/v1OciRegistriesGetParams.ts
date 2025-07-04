@@ -11,5 +11,5 @@
  */
 
 export type V1OciRegistriesGetParams = {
-clusterUid?: string;
+  clusterUid?: string;
 };

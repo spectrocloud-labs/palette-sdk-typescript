@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMetaInputEntity } from './v1ObjectMetaInputEntity';
-import type { V1SpectroCustomClusterEntitySpec } from './v1SpectroCustomClusterEntitySpec';
+import type { V1ObjectMetaInputEntity } from "./v1ObjectMetaInputEntity";
+import type { V1SpectroCustomClusterEntitySpec } from "./v1SpectroCustomClusterEntitySpec";
 
 /**
  * Custom cluster request payload for create and update

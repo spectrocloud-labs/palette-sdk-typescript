@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsLaunchTemplate } from './v1AwsLaunchTemplate';
-import type { V1EksMachineCloudConfigEntityCapacityType } from './v1EksMachineCloudConfigEntityCapacityType';
-import type { V1SpotMarketOptions } from './v1SpotMarketOptions';
-import type { V1EksSubnetEntity } from './v1EksSubnetEntity';
+import type { V1AwsLaunchTemplate } from "./v1AwsLaunchTemplate";
+import type { V1EksMachineCloudConfigEntityCapacityType } from "./v1EksMachineCloudConfigEntityCapacityType";
+import type { V1SpotMarketOptions } from "./v1SpotMarketOptions";
+import type { V1EksSubnetEntity } from "./v1EksSubnetEntity";
 
 export interface V1EksMachineCloudConfigEntity {
   /** ami type */

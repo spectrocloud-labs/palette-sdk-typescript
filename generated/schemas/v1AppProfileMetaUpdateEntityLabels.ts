@@ -13,4 +13,4 @@
 /**
  * Application profile labels
  */
-export type V1AppProfileMetaUpdateEntityLabels = {[key: string]: string};
+export type V1AppProfileMetaUpdateEntityLabels = { [key: string]: string };

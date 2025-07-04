@@ -11,5 +11,5 @@
  */
 
 export type V1EcrRegistriesCreateParams = {
-skipPackSync?: boolean;
+  skipPackSync?: boolean;
 };

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CloudAccountSummary } from './v1CloudAccountSummary';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1CloudAccountSummary } from "./v1CloudAccountSummary";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 export interface V1CloudAccountsSummary {
   items: V1CloudAccountSummary[];

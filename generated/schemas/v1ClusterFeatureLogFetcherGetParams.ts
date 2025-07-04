@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterFeatureLogFetcherGetParams = {
-requestId?: string;
+  requestId?: string;
 };

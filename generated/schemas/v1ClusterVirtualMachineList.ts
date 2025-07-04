@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterVirtualMachine } from './v1ClusterVirtualMachine';
-import type { V1VmListMeta } from './v1VmListMeta';
+import type { V1ClusterVirtualMachine } from "./v1ClusterVirtualMachine";
+import type { V1VmListMeta } from "./v1VmListMeta";
 
 /**
  * VirtualMachineList is a list of virtual machines

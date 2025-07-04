@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmDownwardApiVolumeFile } from './v1VmDownwardApiVolumeFile';
+import type { V1VmDownwardApiVolumeFile } from "./v1VmDownwardApiVolumeFile";
 
 /**
  * DownwardAPIVolumeSource represents a volume containing downward API info.

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackConfig } from './v1PackConfig';
+import type { V1PackConfig } from "./v1PackConfig";
 
 export interface V1SpectroClusterPackConfigList {
   items: V1PackConfig[];

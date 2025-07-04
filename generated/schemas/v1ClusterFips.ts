@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterFipsMode } from './v1ClusterFipsMode';
+import type { V1ClusterFipsMode } from "./v1ClusterFipsMode";
 
 export interface V1ClusterFips {
   mode?: V1ClusterFipsMode;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectFilterSpec } from './v1ProjectFilterSpec';
-import type { V1ProjectFilterSortSpec } from './v1ProjectFilterSortSpec';
+import type { V1ProjectFilterSpec } from "./v1ProjectFilterSpec";
+import type { V1ProjectFilterSortSpec } from "./v1ProjectFilterSortSpec";
 
 /**
  * Project filter summary spec

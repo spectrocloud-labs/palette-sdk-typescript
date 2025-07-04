@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectAlertComponent } from './v1ProjectAlertComponent';
+import type { V1ProjectAlertComponent } from "./v1ProjectAlertComponent";
 
 /**
  * Supported project alerts component

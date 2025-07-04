@@ -10,15 +10,15 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SearchFilterPropertyType = typeof V1SearchFilterPropertyType[keyof typeof V1SearchFilterPropertyType];
-
+export type V1SearchFilterPropertyType =
+  (typeof V1SearchFilterPropertyType)[keyof typeof V1SearchFilterPropertyType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchFilterPropertyType = {
-  string: 'string',
-  int: 'int',
-  float: 'float',
-  bool: 'bool',
-  date: 'date',
-  keyValue: 'keyValue',
+  string: "string",
+  int: "int",
+  float: "float",
+  bool: "bool",
+  date: "date",
+  keyValue: "keyValue",
 } as const;

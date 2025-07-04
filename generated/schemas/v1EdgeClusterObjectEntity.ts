@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1HybridClusterMeta } from './v1HybridClusterMeta';
+import type { V1HybridClusterMeta } from "./v1HybridClusterMeta";
 
 /**
  * Object identity meta of the cluster

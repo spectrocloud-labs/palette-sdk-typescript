@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1HelmChartOption } from './v1HelmChartOption';
+import type { V1HelmChartOption } from "./v1HelmChartOption";
 
 /**
  * Helm registry create options

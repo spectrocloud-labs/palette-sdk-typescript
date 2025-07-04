@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfilePackManifests } from './v1ClusterProfilePackManifests';
+import type { V1ClusterProfilePackManifests } from "./v1ClusterProfilePackManifests";
 
 export interface V1ClusterProfilePacksManifestsSpec {
   /** Cluster profile packs array */

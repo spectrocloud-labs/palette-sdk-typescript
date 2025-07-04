@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmNodeSelectorRequirement } from './v1VmNodeSelectorRequirement';
+import type { V1VmNodeSelectorRequirement } from "./v1VmNodeSelectorRequirement";
 
 /**
  * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.

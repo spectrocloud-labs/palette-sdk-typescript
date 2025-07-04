@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppProfileSortFields } from './v1AppProfileSortFields';
-import type { V1SortOrder } from './v1SortOrder';
+import type { V1AppProfileSortFields } from "./v1AppProfileSortFields";
+import type { V1SortOrder } from "./v1SortOrder";
 
 export interface V1AppProfileSortSpec {
   field?: V1AppProfileSortFields;

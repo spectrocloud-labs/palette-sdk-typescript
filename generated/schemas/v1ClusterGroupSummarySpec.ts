@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfileTemplateMeta } from './v1ClusterProfileTemplateMeta';
-import type { V1ClusterGroupResource } from './v1ClusterGroupResource';
-import type { V1ClusterGroupSummarySpecEndpointType } from './v1ClusterGroupSummarySpecEndpointType';
-import type { V1ObjectResReference } from './v1ObjectResReference';
-import type { V1ClusterKubernetesDistroType } from './v1ClusterKubernetesDistroType';
+import type { V1ClusterProfileTemplateMeta } from "./v1ClusterProfileTemplateMeta";
+import type { V1ClusterGroupResource } from "./v1ClusterGroupResource";
+import type { V1ClusterGroupSummarySpecEndpointType } from "./v1ClusterGroupSummarySpecEndpointType";
+import type { V1ObjectResReference } from "./v1ObjectResReference";
+import type { V1ClusterKubernetesDistroType } from "./v1ClusterKubernetesDistroType";
 
 /**
  * Cluster group summay spec

@@ -13,12 +13,12 @@
 /**
  * Location type
  */
-export type V1LocationType = typeof V1LocationType[keyof typeof V1LocationType];
-
+export type V1LocationType =
+  (typeof V1LocationType)[keyof typeof V1LocationType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1LocationType = {
-  s3: 's3',
-  gcp: 'gcp',
-  minio: 'minio',
+  s3: "s3",
+  gcp: "gcp",
+  minio: "minio",
 } as const;

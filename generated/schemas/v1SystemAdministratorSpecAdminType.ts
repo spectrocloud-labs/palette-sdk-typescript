@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SystemAdministratorSpecAdminType = typeof V1SystemAdministratorSpecAdminType[keyof typeof V1SystemAdministratorSpecAdminType];
-
+export type V1SystemAdministratorSpecAdminType =
+  (typeof V1SystemAdministratorSpecAdminType)[keyof typeof V1SystemAdministratorSpecAdminType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SystemAdministratorSpecAdminType = {
-  AccountAdmin: 'AccountAdmin',
-  OperationAdmin: 'OperationAdmin',
+  AccountAdmin: "AccountAdmin",
+  OperationAdmin: "OperationAdmin",
 } as const;

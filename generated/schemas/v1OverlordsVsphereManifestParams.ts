@@ -11,5 +11,5 @@
  */
 
 export type V1OverlordsVsphereManifestParams = {
-pairingCode: string;
+  pairingCode: string;
 };

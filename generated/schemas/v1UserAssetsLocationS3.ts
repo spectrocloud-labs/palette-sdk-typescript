@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMetaInputEntity } from './v1ObjectMetaInputEntity';
-import type { V1UserAssetsLocationS3Spec } from './v1UserAssetsLocationS3Spec';
+import type { V1ObjectMetaInputEntity } from "./v1ObjectMetaInputEntity";
+import type { V1UserAssetsLocationS3Spec } from "./v1UserAssetsLocationS3Spec";
 
 /**
  * S3 location object

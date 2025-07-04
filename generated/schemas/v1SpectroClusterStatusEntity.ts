@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterState } from './v1SpectroClusterState';
+import type { V1SpectroClusterState } from "./v1SpectroClusterState";
 
 /**
  * Spectrocluster status entity

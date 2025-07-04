@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Uid } from './v1Uid';
+import type { V1Uid } from "./v1Uid";
 
 export type V1Uids = V1Uid[];

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MaasDomain } from './v1MaasDomain';
+import type { V1MaasDomain } from "./v1MaasDomain";
 
 /**
  * List of Maas domains

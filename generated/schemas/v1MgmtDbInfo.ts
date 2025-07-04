@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MgmtDbCollectionInfo } from './v1MgmtDbCollectionInfo';
+import type { V1MgmtDbCollectionInfo } from "./v1MgmtDbCollectionInfo";
 
 /**
  * Database info

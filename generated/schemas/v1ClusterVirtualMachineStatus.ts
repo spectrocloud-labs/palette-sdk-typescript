@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmVirtualMachineCondition } from './v1VmVirtualMachineCondition';
-import type { V1VmVirtualMachineMemoryDumpRequest } from './v1VmVirtualMachineMemoryDumpRequest';
-import type { V1VmVirtualMachineStartFailure } from './v1VmVirtualMachineStartFailure';
-import type { V1VmVirtualMachineStateChangeRequest } from './v1VmVirtualMachineStateChangeRequest';
-import type { V1VmVirtualMachineVolumeRequest } from './v1VmVirtualMachineVolumeRequest';
-import type { V1VmVolumeSnapshotStatus } from './v1VmVolumeSnapshotStatus';
+import type { V1VmVirtualMachineCondition } from "./v1VmVirtualMachineCondition";
+import type { V1VmVirtualMachineMemoryDumpRequest } from "./v1VmVirtualMachineMemoryDumpRequest";
+import type { V1VmVirtualMachineStartFailure } from "./v1VmVirtualMachineStartFailure";
+import type { V1VmVirtualMachineStateChangeRequest } from "./v1VmVirtualMachineStateChangeRequest";
+import type { V1VmVirtualMachineVolumeRequest } from "./v1VmVirtualMachineVolumeRequest";
+import type { V1VmVolumeSnapshotStatus } from "./v1VmVolumeSnapshotStatus";
 
 /**
  * VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing

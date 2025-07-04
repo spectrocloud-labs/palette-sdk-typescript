@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TlsConfiguration } from './v1TlsConfiguration';
-import type { V1RegistryAuthType } from './v1RegistryAuthType';
+import type { V1TlsConfiguration } from "./v1TlsConfiguration";
+import type { V1RegistryAuthType } from "./v1RegistryAuthType";
 
 /**
  * Auth credentials of the registry

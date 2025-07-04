@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RelatedObjectKind } from './v1RelatedObjectKind';
+import type { V1RelatedObjectKind } from "./v1RelatedObjectKind";
 
 /**
  * Object for which the resource is related

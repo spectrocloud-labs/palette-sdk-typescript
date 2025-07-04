@@ -10,11 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ArchType = typeof V1ArchType[keyof typeof V1ArchType];
-
+export type V1ArchType = (typeof V1ArchType)[keyof typeof V1ArchType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ArchType = {
-  amd64: 'amd64',
-  arm64: 'arm64',
+  amd64: "amd64",
+  arm64: "arm64",
 } as const;

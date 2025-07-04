@@ -13,4 +13,6 @@
 /**
  * InterfaceMasquerade connects to a given network using netfilter rules to nat the traffic.
  */
-export interface V1VmInterfaceMasquerade { [key: string]: unknown }
+export interface V1VmInterfaceMasquerade {
+  [key: string]: unknown;
+}

@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpectroClusterFilterSpecHealthState = typeof V1SpectroClusterFilterSpecHealthState[keyof typeof V1SpectroClusterFilterSpecHealthState];
-
+export type V1SpectroClusterFilterSpecHealthState =
+  (typeof V1SpectroClusterFilterSpecHealthState)[keyof typeof V1SpectroClusterFilterSpecHealthState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClusterFilterSpecHealthState = {
-  all: 'all',
-  Healthy: 'Healthy',
-  UnHealthy: 'UnHealthy',
+  all: "all",
+  Healthy: "Healthy",
+  UnHealthy: "UnHealthy",
 } as const;

@@ -13,12 +13,12 @@
 /**
  * Cloud category description
  */
-export type V1CloudCategory = typeof V1CloudCategory[keyof typeof V1CloudCategory];
-
+export type V1CloudCategory =
+  (typeof V1CloudCategory)[keyof typeof V1CloudCategory];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1CloudCategory = {
-  datacenter: 'datacenter',
-  cloud: 'cloud',
-  edge: 'edge',
+  datacenter: "datacenter",
+  cloud: "cloud",
+  edge: "edge",
 } as const;

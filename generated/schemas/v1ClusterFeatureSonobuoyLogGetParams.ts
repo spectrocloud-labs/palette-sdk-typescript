@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterFeatureSonobuoyLogGetParams = {
-reportId?: string;
+  reportId?: string;
 };

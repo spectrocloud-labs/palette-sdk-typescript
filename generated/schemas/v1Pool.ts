@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Nameserver } from './v1Nameserver';
+import type { V1Nameserver } from "./v1Nameserver";
 
 /**
  * Pool defines IP ranges or with CIDR for available IPs Gateway, Prefix and Nameserver if provided, will overwrite values in IPPool

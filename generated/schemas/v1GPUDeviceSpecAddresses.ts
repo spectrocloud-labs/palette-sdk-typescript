@@ -20,4 +20,4 @@ is Device,0 is function. The values of these addreses are expected in hexadecima
 format
 
  */
-export type V1GPUDeviceSpecAddresses = {[key: string]: string};
+export type V1GPUDeviceSpecAddresses = { [key: string]: string };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Partition } from './v1Partition';
+import type { V1Partition } from "./v1Partition";
 
 export interface V1Disk {
   controller?: string;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmLocalObjectReference } from './v1VmLocalObjectReference';
+import type { V1VmLocalObjectReference } from "./v1VmLocalObjectReference";
 
 /**
  * Represents a cloud-init nocloud user data source. More info: http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html

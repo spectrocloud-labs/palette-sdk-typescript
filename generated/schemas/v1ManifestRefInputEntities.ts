@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ManifestRefInputEntity } from './v1ManifestRefInputEntity';
+import type { V1ManifestRefInputEntity } from "./v1ManifestRefInputEntity";
 
 /**
  * Pack manifests input params

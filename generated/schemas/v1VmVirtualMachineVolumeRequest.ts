@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmAddVolumeOptions } from './v1VmAddVolumeOptions';
-import type { V1VmRemoveVolumeOptions } from './v1VmRemoveVolumeOptions';
+import type { V1VmAddVolumeOptions } from "./v1VmAddVolumeOptions";
+import type { V1VmRemoveVolumeOptions } from "./v1VmRemoveVolumeOptions";
 
 export interface V1VmVirtualMachineVolumeRequest {
   addVolumeOptions?: V1VmAddVolumeOptions;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Subnet } from './v1Subnet';
+import type { V1Subnet } from "./v1Subnet";
 
 /**
  * Azure virtual network is the fundamental building block for your private network in Azure.

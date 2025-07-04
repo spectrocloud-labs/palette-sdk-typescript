@@ -11,12 +11,12 @@
  */
 
 export type V1AzurePrivateDnsZonesParams = {
-/**
- * Uid for the specific Azure cloud account
- */
-cloudAccountUid: string;
-/**
- * subscriptionId for which Azure private dns zones are requested
- */
-subscriptionId: string;
+  /**
+   * Uid for the specific Azure cloud account
+   */
+  cloudAccountUid: string;
+  /**
+   * subscriptionId for which Azure private dns zones are requested
+   */
+  subscriptionId: string;
 };

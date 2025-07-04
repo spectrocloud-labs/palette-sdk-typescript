@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1FreemiumUsageLimit } from './v1FreemiumUsageLimit';
-import type { V1FreemiumUsage } from './v1FreemiumUsage';
+import type { V1FreemiumUsageLimit } from "./v1FreemiumUsageLimit";
+import type { V1FreemiumUsage } from "./v1FreemiumUsage";
 
 export interface V1TenantFreemiumUsage {
   isFreemium?: boolean;

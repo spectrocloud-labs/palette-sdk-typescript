@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1IdentityProvider } from './v1IdentityProvider';
+import type { V1IdentityProvider } from "./v1IdentityProvider";
 
 /**
  * Describes a list of predefined Identity Provider (IDP)

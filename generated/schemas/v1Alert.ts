@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Channel } from './v1Channel';
+import type { V1Channel } from "./v1Channel";
 
 export interface V1Alert {
   channels?: V1Channel[];

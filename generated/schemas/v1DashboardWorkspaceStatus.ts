@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DashboardWorkspaceNamespaceAllocation } from './v1DashboardWorkspaceNamespaceAllocation';
-import type { V1DashboardWorkspaceAllocation } from './v1DashboardWorkspaceAllocation';
+import type { V1DashboardWorkspaceNamespaceAllocation } from "./v1DashboardWorkspaceNamespaceAllocation";
+import type { V1DashboardWorkspaceAllocation } from "./v1DashboardWorkspaceAllocation";
 
 /**
  * Workspace status

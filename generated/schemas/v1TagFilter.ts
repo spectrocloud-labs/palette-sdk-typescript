@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMetaInputEntity } from './v1ObjectMetaInputEntity';
-import type { V1TagFilterSpec } from './v1TagFilterSpec';
+import type { V1ObjectMetaInputEntity } from "./v1ObjectMetaInputEntity";
+import type { V1TagFilterSpec } from "./v1TagFilterSpec";
 
 /**
  * Tag Filter create spec

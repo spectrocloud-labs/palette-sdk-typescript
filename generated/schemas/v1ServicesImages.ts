@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ServiceImage } from './v1ServiceImage';
+import type { V1ServiceImage } from "./v1ServiceImage";
 
 export interface V1ServicesImages {
   serviceImages?: V1ServiceImage[];

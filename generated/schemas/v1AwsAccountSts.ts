@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsPartition } from './v1AwsPartition';
+import type { V1AwsPartition } from "./v1AwsPartition";
 
 /**
  * AWS cloud account sts

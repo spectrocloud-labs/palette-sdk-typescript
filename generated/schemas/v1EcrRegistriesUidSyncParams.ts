@@ -11,5 +11,5 @@
  */
 
 export type V1EcrRegistriesUidSyncParams = {
-forceSync?: boolean;
+  forceSync?: boolean;
 };

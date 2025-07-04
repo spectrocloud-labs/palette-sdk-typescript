@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeHostSSHSecret } from './v1EdgeHostSSHSecret';
+import type { V1EdgeHostSSHSecret } from "./v1EdgeHostSSHSecret";
 
 export interface V1EdgeHostIdentity {
   /** CACert is the client CA certificate */

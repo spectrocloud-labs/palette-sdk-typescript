@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1RegistriesHelmCreateScope = typeof V1RegistriesHelmCreateScope[keyof typeof V1RegistriesHelmCreateScope];
-
+export type V1RegistriesHelmCreateScope =
+  (typeof V1RegistriesHelmCreateScope)[keyof typeof V1RegistriesHelmCreateScope];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1RegistriesHelmCreateScope = {
-  system: 'system',
-  tenant: 'tenant',
-  all: 'all',
+  system: "system",
+  tenant: "tenant",
+  all: "all",
 } as const;

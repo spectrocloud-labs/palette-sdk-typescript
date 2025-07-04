@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1RegistryAuth } from './v1RegistryAuth';
-import type { V1HelmRegistryCreateOption } from './v1HelmRegistryCreateOption';
+import type { V1RegistryAuth } from "./v1RegistryAuth";
+import type { V1HelmRegistryCreateOption } from "./v1HelmRegistryCreateOption";
 
 /**
  * Helm registry credentials spec

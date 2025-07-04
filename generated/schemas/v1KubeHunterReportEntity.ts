@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1KubeHunterLogEntity } from './v1KubeHunterLogEntity';
-import type { V1KubeHunterVulnerabilityDataEntity } from './v1KubeHunterVulnerabilityDataEntity';
+import type { V1KubeHunterLogEntity } from "./v1KubeHunterLogEntity";
+import type { V1KubeHunterVulnerabilityDataEntity } from "./v1KubeHunterVulnerabilityDataEntity";
 
 /**
  * KubeHunter report

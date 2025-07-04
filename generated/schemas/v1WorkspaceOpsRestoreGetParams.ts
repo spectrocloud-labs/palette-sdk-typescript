@@ -11,5 +11,5 @@
  */
 
 export type V1WorkspaceOpsRestoreGetParams = {
-restoreRequestUid?: string;
+  restoreRequestUid?: string;
 };

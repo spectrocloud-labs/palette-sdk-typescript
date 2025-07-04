@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1EdgeHostState = typeof V1EdgeHostState[keyof typeof V1EdgeHostState];
-
+export type V1EdgeHostState =
+  (typeof V1EdgeHostState)[keyof typeof V1EdgeHostState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostState = {
-  ready: 'ready',
-  unpaired: 'unpaired',
-  'in-use': 'in-use',
+  ready: "ready",
+  unpaired: "unpaired",
+  "in-use": "in-use",
 } as const;

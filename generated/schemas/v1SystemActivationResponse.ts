@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1SystemActivationResponseSpec } from './v1SystemActivationResponseSpec';
-import type { V1SystemActivationResponseStatus } from './v1SystemActivationResponseStatus';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1SystemActivationResponseSpec } from "./v1SystemActivationResponseSpec";
+import type { V1SystemActivationResponseStatus } from "./v1SystemActivationResponseStatus";
 
 export interface V1SystemActivationResponse {
   metadata?: V1ObjectMeta;

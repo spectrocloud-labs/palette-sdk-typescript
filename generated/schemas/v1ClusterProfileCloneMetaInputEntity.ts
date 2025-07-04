@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfileCloneTarget } from './v1ClusterProfileCloneTarget';
+import type { V1ClusterProfileCloneTarget } from "./v1ClusterProfileCloneTarget";
 
 /**
  * Cluster profile clone metadata

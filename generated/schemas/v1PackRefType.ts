@@ -13,13 +13,12 @@
 /**
  * type of the pack
  */
-export type V1PackRefType = typeof V1PackRefType[keyof typeof V1PackRefType];
-
+export type V1PackRefType = (typeof V1PackRefType)[keyof typeof V1PackRefType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1PackRefType = {
-  spectro: 'spectro',
-  helm: 'helm',
-  manifest: 'manifest',
-  oci: 'oci',
+  spectro: "spectro",
+  helm: "helm",
+  manifest: "manifest",
+  oci: "oci",
 } as const;

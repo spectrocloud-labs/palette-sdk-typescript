@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PlanCost } from './v1PlanCost';
-import type { V1DeveloperCredit } from './v1DeveloperCredit';
-import type { V1PlanCredit } from './v1PlanCredit';
-import type { V1PlanLimit } from './v1PlanLimit';
-import type { V1PlanRenewal } from './v1PlanRenewal';
-import type { V1TierPrice } from './v1TierPrice';
-import type { V1PlanSpecType } from './v1PlanSpecType';
+import type { V1PlanCost } from "./v1PlanCost";
+import type { V1DeveloperCredit } from "./v1DeveloperCredit";
+import type { V1PlanCredit } from "./v1PlanCredit";
+import type { V1PlanLimit } from "./v1PlanLimit";
+import type { V1PlanRenewal } from "./v1PlanRenewal";
+import type { V1TierPrice } from "./v1TierPrice";
+import type { V1PlanSpecType } from "./v1PlanSpecType";
 
 /**
  * Plan specifications

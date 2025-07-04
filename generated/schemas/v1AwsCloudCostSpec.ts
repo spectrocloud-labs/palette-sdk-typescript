@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsCloudAccount } from './v1AwsCloudAccount';
-import type { V1AwsCloudCostSpecFilter } from './v1AwsCloudCostSpecFilter';
+import type { V1AwsCloudAccount } from "./v1AwsCloudAccount";
+import type { V1AwsCloudCostSpecFilter } from "./v1AwsCloudCostSpecFilter";
 
 /**
  * Aws cloud account usage cost payload spec

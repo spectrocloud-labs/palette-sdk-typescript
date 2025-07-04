@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemAwsImageSpec } from './v1SystemAwsImageSpec';
+import type { V1SystemAwsImageSpec } from "./v1SystemAwsImageSpec";
 
 /**
  * SystemAdmin

@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SearchFilterKeyValueOperator = typeof V1SearchFilterKeyValueOperator[keyof typeof V1SearchFilterKeyValueOperator];
-
+export type V1SearchFilterKeyValueOperator =
+  (typeof V1SearchFilterKeyValueOperator)[keyof typeof V1SearchFilterKeyValueOperator];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SearchFilterKeyValueOperator = {
-  eq: 'eq',
+  eq: "eq",
 } as const;

@@ -9,6 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GrpcSubjectMonitoringData } from './v1GrpcSubjectMonitoringData';
+import type { V1GrpcSubjectMonitoringData } from "./v1GrpcSubjectMonitoringData";
 
-export type V1GrpcServerMonitoringDataSubjects = {[key: string]: V1GrpcSubjectMonitoringData};
+export type V1GrpcServerMonitoringDataSubjects = {
+  [key: string]: V1GrpcSubjectMonitoringData;
+};

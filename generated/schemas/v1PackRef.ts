@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackRefAnnotations } from './v1PackRefAnnotations';
-import type { V1PackRefLayer } from './v1PackRefLayer';
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1PackRefParams } from './v1PackRefParams';
-import type { V1PackPreset } from './v1PackPreset';
-import type { V1PackSchema } from './v1PackSchema';
-import type { V1PackRefType } from './v1PackRefType';
+import type { V1PackRefAnnotations } from "./v1PackRefAnnotations";
+import type { V1PackRefLayer } from "./v1PackRefLayer";
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1PackRefParams } from "./v1PackRefParams";
+import type { V1PackPreset } from "./v1PackPreset";
+import type { V1PackSchema } from "./v1PackSchema";
+import type { V1PackRefType } from "./v1PackRefType";
 
 /**
  * PackRef server/name:tag to point to a pack PackRef is used when construct a ClusterProfile PackSpec is used for UI to render the parameters form ClusterProfile will not know inner details of a pack ClusterProfile only contain pack name:tag, and the param values user entered for it

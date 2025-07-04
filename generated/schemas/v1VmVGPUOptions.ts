@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmVGPUDisplayOptions } from './v1VmVGPUDisplayOptions';
+import type { V1VmVGPUDisplayOptions } from "./v1VmVGPUDisplayOptions";
 
 export interface V1VmVGPUOptions {
   display?: V1VmVGPUDisplayOptions;

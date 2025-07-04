@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ArchType } from './v1ArchType';
-import type { V1EdgeNativeHybridMachinePoolHost } from './v1EdgeNativeHybridMachinePoolHost';
+import type { V1ArchType } from "./v1ArchType";
+import type { V1EdgeNativeHybridMachinePoolHost } from "./v1EdgeNativeHybridMachinePoolHost";
 
 /**
  * EdgeNativeHybridMachineConfigEntity defines Edge Native machine configuration

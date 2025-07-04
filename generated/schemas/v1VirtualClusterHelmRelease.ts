@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VirtualClusterHelmChart } from './v1VirtualClusterHelmChart';
+import type { V1VirtualClusterHelmChart } from "./v1VirtualClusterHelmChart";
 
 export interface V1VirtualClusterHelmRelease {
   chart?: V1VirtualClusterHelmChart;

@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1RegistriesPackCreateScope = typeof V1RegistriesPackCreateScope[keyof typeof V1RegistriesPackCreateScope];
-
+export type V1RegistriesPackCreateScope =
+  (typeof V1RegistriesPackCreateScope)[keyof typeof V1RegistriesPackCreateScope];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1RegistriesPackCreateScope = {
-  system: 'system',
-  tenant: 'tenant',
-  all: 'all',
+  system: "system",
+  tenant: "tenant",
+  all: "all",
 } as const;

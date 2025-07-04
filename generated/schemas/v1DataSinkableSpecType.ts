@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type V1DataSinkableSpecType = typeof V1DataSinkableSpecType[keyof typeof V1DataSinkableSpecType];
-
+export type V1DataSinkableSpecType =
+  (typeof V1DataSinkableSpecType)[keyof typeof V1DataSinkableSpecType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1DataSinkableSpecType = {
-  cloudwatch: 'cloudwatch',
+  cloudwatch: "cloudwatch",
 } as const;

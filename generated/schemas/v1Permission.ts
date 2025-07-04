@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Scope } from './v1Scope';
+import type { V1Scope } from "./v1Scope";
 
 /**
  * Permission information

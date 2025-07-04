@@ -13,11 +13,11 @@
 /**
  * Type of the edge host device
  */
-export type V1DeviceSpecHostType = typeof V1DeviceSpecHostType[keyof typeof V1DeviceSpecHostType];
-
+export type V1DeviceSpecHostType =
+  (typeof V1DeviceSpecHostType)[keyof typeof V1DeviceSpecHostType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1DeviceSpecHostType = {
-  appliance: 'appliance',
-  'agent-mode': 'agent-mode',
+  appliance: "appliance",
+  "agent-mode": "agent-mode",
 } as const;

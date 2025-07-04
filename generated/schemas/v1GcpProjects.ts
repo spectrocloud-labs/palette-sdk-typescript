@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1GcpProject } from './v1GcpProject';
+import type { V1GcpProject } from "./v1GcpProject";
 
 /**
  * List of GCP Projects

@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ClusterProfilesImportFileFormat = typeof V1ClusterProfilesImportFileFormat[keyof typeof V1ClusterProfilesImportFileFormat];
-
+export type V1ClusterProfilesImportFileFormat =
+  (typeof V1ClusterProfilesImportFileFormat)[keyof typeof V1ClusterProfilesImportFileFormat];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ClusterProfilesImportFileFormat = {
-  yaml: 'yaml',
-  json: 'json',
+  yaml: "yaml",
+  json: "json",
 } as const;

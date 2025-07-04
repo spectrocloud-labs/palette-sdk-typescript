@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AuthLoginEntityAuthType } from './v1AuthLoginEntityAuthType';
+import type { V1AuthLoginEntityAuthType } from "./v1AuthLoginEntityAuthType";
 
 /**
  * Auth login entity

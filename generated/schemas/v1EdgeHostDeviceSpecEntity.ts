@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ArchType } from './v1ArchType';
-import type { V1SpectroTunnelConfig } from './v1SpectroTunnelConfig';
+import type { V1ArchType } from "./v1ArchType";
+import type { V1SpectroTunnelConfig } from "./v1SpectroTunnelConfig";
 
 /**
  * Edge host device spec

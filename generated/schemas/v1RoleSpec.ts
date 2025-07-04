@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Scope } from './v1Scope';
-import type { V1RoleSpecType } from './v1RoleSpecType';
+import type { V1Scope } from "./v1Scope";
+import type { V1RoleSpecType } from "./v1RoleSpecType";
 
 /**
  * Role specifications

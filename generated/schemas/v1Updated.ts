@@ -13,4 +13,6 @@
 /**
  * The resource was updated successfully
  */
-export interface V1Updated { [key: string]: unknown }
+export interface V1Updated {
+  [key: string]: unknown;
+}

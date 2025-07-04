@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1ServiceManifestGetAction = typeof V1ServiceManifestGetAction[keyof typeof V1ServiceManifestGetAction];
-
+export type V1ServiceManifestGetAction =
+  (typeof V1ServiceManifestGetAction)[keyof typeof V1ServiceManifestGetAction];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1ServiceManifestGetAction = {
-  apply: 'apply',
-  delete: 'delete',
-  resources: 'resources',
+  apply: "apply",
+  delete: "delete",
+  resources: "resources",
 } as const;

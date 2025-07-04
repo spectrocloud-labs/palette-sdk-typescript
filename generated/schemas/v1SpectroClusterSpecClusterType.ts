@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type V1SpectroClusterSpecClusterType = typeof V1SpectroClusterSpecClusterType[keyof typeof V1SpectroClusterSpecClusterType];
-
+export type V1SpectroClusterSpecClusterType =
+  (typeof V1SpectroClusterSpecClusterType)[keyof typeof V1SpectroClusterSpecClusterType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1SpectroClusterSpecClusterType = {
-  PureManage: 'PureManage',
-  AlloyMonitor: 'AlloyMonitor',
-  AlloyAssist: 'AlloyAssist',
-  AlloyExtend: 'AlloyExtend',
+  PureManage: "PureManage",
+  AlloyMonitor: "AlloyMonitor",
+  AlloyAssist: "AlloyAssist",
+  AlloyExtend: "AlloyExtend",
 } as const;

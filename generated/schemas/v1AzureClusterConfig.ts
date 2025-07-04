@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AADProfile } from './v1AADProfile';
-import type { V1APIServerAccessProfile } from './v1APIServerAccessProfile';
-import type { V1Subnet } from './v1Subnet';
-import type { V1InfraLBConfig } from './v1InfraLBConfig';
+import type { V1AADProfile } from "./v1AADProfile";
+import type { V1APIServerAccessProfile } from "./v1APIServerAccessProfile";
+import type { V1Subnet } from "./v1Subnet";
+import type { V1InfraLBConfig } from "./v1InfraLBConfig";
 
 /**
  * Cluster level configuration for Azure cloud and applicable for all the machine pools

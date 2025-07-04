@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterCondition } from './v1ClusterCondition';
-import type { V1AwsAMI } from './v1AwsAMI';
-import type { V1AwsCloudConfigStatusRoleDigest } from './v1AwsCloudConfigStatusRoleDigest';
+import type { V1ClusterCondition } from "./v1ClusterCondition";
+import type { V1AwsAMI } from "./v1AwsAMI";
+import type { V1AwsCloudConfigStatusRoleDigest } from "./v1AwsCloudConfigStatusRoleDigest";
 
 /**
  * AwsCloudConfigStatus defines the observed state of AwsCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool

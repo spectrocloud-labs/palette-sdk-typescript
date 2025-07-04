@@ -13,4 +13,6 @@
 /**
  * Rng represents the random device passed from host
  */
-export interface V1VmRng { [key: string]: unknown }
+export interface V1VmRng {
+  [key: string]: unknown;
+}

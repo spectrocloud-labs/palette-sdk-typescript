@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmTimer } from './v1VmTimer';
-import type { V1VmClockOffsetUTC } from './v1VmClockOffsetUTC';
+import type { V1VmTimer } from "./v1VmTimer";
+import type { V1VmClockOffsetUTC } from "./v1VmClockOffsetUTC";
 
 /**
  * Represents the clock and timers of a vmi.

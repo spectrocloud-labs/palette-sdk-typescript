@@ -11,5 +11,5 @@
  */
 
 export type V1WorkspaceOpsBackupGetParams = {
-backupRequestUid?: string;
+  backupRequestUid?: string;
 };

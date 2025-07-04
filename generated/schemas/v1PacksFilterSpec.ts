@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PackFilterSpec } from './v1PackFilterSpec';
-import type { V1PackSortSpec } from './v1PackSortSpec';
+import type { V1PackFilterSpec } from "./v1PackFilterSpec";
+import type { V1PackSortSpec } from "./v1PackSortSpec";
 
 /**
  * Packs filter spec

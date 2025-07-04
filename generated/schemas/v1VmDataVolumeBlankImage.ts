@@ -13,4 +13,6 @@
 /**
  * DataVolumeBlankImage provides the parameters to create a new raw blank image for the PVC
  */
-export interface V1VmDataVolumeBlankImage { [key: string]: unknown }
+export interface V1VmDataVolumeBlankImage {
+  [key: string]: unknown;
+}

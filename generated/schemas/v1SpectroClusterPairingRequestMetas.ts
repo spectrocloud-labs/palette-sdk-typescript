@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterPairingRequestMeta } from './v1SpectroClusterPairingRequestMeta';
+import type { V1SpectroClusterPairingRequestMeta } from "./v1SpectroClusterPairingRequestMeta";
 
 /**
  * Spectro cluster pairing request meta

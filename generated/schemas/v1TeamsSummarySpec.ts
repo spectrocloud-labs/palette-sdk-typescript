@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TeamsFilterSpec } from './v1TeamsFilterSpec';
-import type { V1TeamSummarySortSpec } from './v1TeamSummarySortSpec';
+import type { V1TeamsFilterSpec } from "./v1TeamsFilterSpec";
+import type { V1TeamSummarySortSpec } from "./v1TeamSummarySortSpec";
 
 /**
  * Teams filter summary spec

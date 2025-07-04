@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterCondition } from './v1ClusterCondition';
-import type { V1VsphereImage } from './v1VsphereImage';
-import type { V1VsphereCloudConfigStatusRoleDigest } from './v1VsphereCloudConfigStatusRoleDigest';
+import type { V1ClusterCondition } from "./v1ClusterCondition";
+import type { V1VsphereImage } from "./v1VsphereImage";
+import type { V1VsphereCloudConfigStatusRoleDigest } from "./v1VsphereCloudConfigStatusRoleDigest";
 
 /**
  * VsphereCloudConfigStatus defines the observed state of VsphereCloudConfig

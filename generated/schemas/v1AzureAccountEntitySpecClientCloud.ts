@@ -13,12 +13,12 @@
 /**
  * Contains configuration for Azure cloud
  */
-export type V1AzureAccountEntitySpecClientCloud = typeof V1AzureAccountEntitySpecClientCloud[keyof typeof V1AzureAccountEntitySpecClientCloud];
-
+export type V1AzureAccountEntitySpecClientCloud =
+  (typeof V1AzureAccountEntitySpecClientCloud)[keyof typeof V1AzureAccountEntitySpecClientCloud];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AzureAccountEntitySpecClientCloud = {
-  'azure-china': 'azure-china',
-  'azure-government': 'azure-government',
-  public: 'public',
+  "azure-china": "azure-china",
+  "azure-government": "azure-government",
+  public: "public",
 } as const;

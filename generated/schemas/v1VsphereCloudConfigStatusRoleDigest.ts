@@ -13,4 +13,4 @@
 /**
  * this map will be for ansible roles present in eack pack
  */
-export type V1VsphereCloudConfigStatusRoleDigest = {[key: string]: string};
+export type V1VsphereCloudConfigStatusRoleDigest = { [key: string]: string };

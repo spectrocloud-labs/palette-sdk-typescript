@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VsphereClusterConfigEntity } from './v1VsphereClusterConfigEntity';
+import type { V1VsphereClusterConfigEntity } from "./v1VsphereClusterConfigEntity";
 
 /**
  * vSphere cloud cluster config entity

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1InstancePriceOs } from './v1InstancePriceOs';
+import type { V1InstancePriceOs } from "./v1InstancePriceOs";
 
 /**
  * Cloud instance price

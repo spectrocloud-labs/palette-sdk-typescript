@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UserSummary } from './v1UserSummary';
+import type { V1UserSummary } from "./v1UserSummary";
 
 export interface V1UsersSummaryList {
   items: V1UserSummary[];

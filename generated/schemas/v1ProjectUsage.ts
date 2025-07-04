@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ProjectUsageData } from './v1ProjectUsageData';
+import type { V1ProjectUsageData } from "./v1ProjectUsageData";
 
 /**
  * Project usage object

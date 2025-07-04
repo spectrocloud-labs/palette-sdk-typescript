@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterMetaStatusCost } from './v1ClusterMetaStatusCost';
-import type { V1ClusterFips } from './v1ClusterFips';
-import type { V1ClusterMetaStatusHealth } from './v1ClusterMetaStatusHealth';
-import type { V1ClusterMetaStatusUpdates } from './v1ClusterMetaStatusUpdates';
+import type { V1ClusterMetaStatusCost } from "./v1ClusterMetaStatusCost";
+import type { V1ClusterFips } from "./v1ClusterFips";
+import type { V1ClusterMetaStatusHealth } from "./v1ClusterMetaStatusHealth";
+import type { V1ClusterMetaStatusUpdates } from "./v1ClusterMetaStatusUpdates";
 
 /**
  * Spectro cluster meta status summary

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1StorageCost } from './v1StorageCost';
+import type { V1StorageCost } from "./v1StorageCost";
 
 /**
  * Cloud cloud Storage type details

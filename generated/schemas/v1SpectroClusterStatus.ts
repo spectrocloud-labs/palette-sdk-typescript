@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterAddOnService } from './v1SpectroClusterAddOnService';
-import type { V1APIEndpoint } from './v1APIEndpoint';
-import type { V1ClusterImport } from './v1ClusterImport';
-import type { V1ClusterCondition } from './v1ClusterCondition';
-import type { V1ClusterFips } from './v1ClusterFips';
-import type { V1ClusterLocation } from './v1ClusterLocation';
-import type { V1ClusterPackStatus } from './v1ClusterPackStatus';
-import type { V1ProfileStatus } from './v1ProfileStatus';
-import type { V1ClusterRepaveStatus } from './v1ClusterRepaveStatus';
-import type { V1LoadBalancerService } from './v1LoadBalancerService';
-import type { V1SpcApply } from './v1SpcApply';
-import type { V1Upgrades } from './v1Upgrades';
-import type { V1Virtual } from './v1Virtual';
+import type { V1SpectroClusterAddOnService } from "./v1SpectroClusterAddOnService";
+import type { V1APIEndpoint } from "./v1APIEndpoint";
+import type { V1ClusterImport } from "./v1ClusterImport";
+import type { V1ClusterCondition } from "./v1ClusterCondition";
+import type { V1ClusterFips } from "./v1ClusterFips";
+import type { V1ClusterLocation } from "./v1ClusterLocation";
+import type { V1ClusterPackStatus } from "./v1ClusterPackStatus";
+import type { V1ProfileStatus } from "./v1ProfileStatus";
+import type { V1ClusterRepaveStatus } from "./v1ClusterRepaveStatus";
+import type { V1LoadBalancerService } from "./v1LoadBalancerService";
+import type { V1SpcApply } from "./v1SpcApply";
+import type { V1Upgrades } from "./v1Upgrades";
+import type { V1Virtual } from "./v1Virtual";
 
 /**
  * SpectroClusterStatus

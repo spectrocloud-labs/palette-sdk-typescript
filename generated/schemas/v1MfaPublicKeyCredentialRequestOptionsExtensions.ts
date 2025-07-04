@@ -10,4 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export type V1MfaPublicKeyCredentialRequestOptionsExtensions = {[key: string]: { [key: string]: unknown }};
+export type V1MfaPublicKeyCredentialRequestOptionsExtensions = {
+  [key: string]: { [key: string]: unknown };
+};

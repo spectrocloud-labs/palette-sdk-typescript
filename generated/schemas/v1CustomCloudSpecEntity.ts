@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1CloudCategory } from './v1CloudCategory';
+import type { V1CloudCategory } from "./v1CloudCategory";
 
 /**
  * Custom cloud request entity spec

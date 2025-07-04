@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1StorageAccountEntity } from './v1StorageAccountEntity';
+import type { V1StorageAccountEntity } from "./v1StorageAccountEntity";
 
 /**
  * Azure Storage Account Entity

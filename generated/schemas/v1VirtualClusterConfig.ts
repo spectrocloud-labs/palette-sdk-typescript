@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1APIEndpoint } from './v1APIEndpoint';
-import type { V1VirtualClusterHelmRelease } from './v1VirtualClusterHelmRelease';
+import type { V1APIEndpoint } from "./v1APIEndpoint";
+import type { V1VirtualClusterHelmRelease } from "./v1VirtualClusterHelmRelease";
 
 /**
  * Cluster level configuration for virtual cluster

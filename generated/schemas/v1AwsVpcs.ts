@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsVpc } from './v1AwsVpc';
+import type { V1AwsVpc } from "./v1AwsVpc";
 
 /**
  * List of AWS VPCs

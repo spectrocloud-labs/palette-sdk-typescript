@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemAdministratorSpecAdminType } from './v1SystemAdministratorSpecAdminType';
-import type { V1SystemAdminMfa } from './v1SystemAdminMfa';
+import type { V1SystemAdministratorSpecAdminType } from "./v1SystemAdministratorSpecAdminType";
+import type { V1SystemAdminMfa } from "./v1SystemAdminMfa";
 
 /**
  * System Administrator Entity Specification

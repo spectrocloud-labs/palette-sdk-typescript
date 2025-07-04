@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectReference } from './v1ObjectReference';
-import type { V1GenericClusterConfig } from './v1GenericClusterConfig';
-import type { V1GenericMachinePoolConfig } from './v1GenericMachinePoolConfig';
+import type { V1ObjectReference } from "./v1ObjectReference";
+import type { V1GenericClusterConfig } from "./v1GenericClusterConfig";
+import type { V1GenericMachinePoolConfig } from "./v1GenericMachinePoolConfig";
 
 /**
  * Generic CloudConfig spec for all cloud types

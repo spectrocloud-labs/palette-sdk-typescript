@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsAmiReferenceEksOptimizedLookupType } from './v1AwsAmiReferenceEksOptimizedLookupType';
+import type { V1AwsAmiReferenceEksOptimizedLookupType } from "./v1AwsAmiReferenceEksOptimizedLookupType";
 
 /**
  * AMI is the reference to the AMI from which to create the machine instance

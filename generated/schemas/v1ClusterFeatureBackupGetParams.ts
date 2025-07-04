@@ -11,5 +11,5 @@
  */
 
 export type V1ClusterFeatureBackupGetParams = {
-backupRequestUid?: string;
+  backupRequestUid?: string;
 };

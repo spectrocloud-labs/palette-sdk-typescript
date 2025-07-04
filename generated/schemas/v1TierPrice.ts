@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1PriceRange } from './v1PriceRange';
+import type { V1PriceRange } from "./v1PriceRange";
 
 /**
  * tier price

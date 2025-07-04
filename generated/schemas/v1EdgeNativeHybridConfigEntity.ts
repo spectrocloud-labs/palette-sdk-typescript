@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeNativeHybridClusterConfig } from './v1EdgeNativeHybridClusterConfig';
-import type { V1EdgeNativeHybridMachineConfigEntity } from './v1EdgeNativeHybridMachineConfigEntity';
-import type { V1SpectroClusterProfileEntity } from './v1SpectroClusterProfileEntity';
+import type { V1EdgeNativeHybridClusterConfig } from "./v1EdgeNativeHybridClusterConfig";
+import type { V1EdgeNativeHybridMachineConfigEntity } from "./v1EdgeNativeHybridMachineConfigEntity";
+import type { V1SpectroClusterProfileEntity } from "./v1SpectroClusterProfileEntity";
 
 /**
  * EdgeNativeHybridMachineConfigEntity defines Edge Native machine configuration

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1BackupState } from './v1BackupState';
+import type { V1BackupState } from "./v1BackupState";
 
 /**
  * Backup  status meta

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Certificate } from './v1Certificate';
+import type { V1Certificate } from "./v1Certificate";
 
 /**
  * Certificate Authority

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1EdgeNativeInstanceType } from './v1EdgeNativeInstanceType';
-import type { V1EdgeNativeNic } from './v1EdgeNativeNic';
+import type { V1EdgeNativeInstanceType } from "./v1EdgeNativeInstanceType";
+import type { V1EdgeNativeNic } from "./v1EdgeNativeNic";
 
 /**
  * EdgeNative cloud VM definition spec

@@ -13,4 +13,4 @@
 /**
  * Cloud account credentials
  */
-export type V1CustomCloudAccountCredentials = {[key: string]: string};
+export type V1CustomCloudAccountCredentials = { [key: string]: string };

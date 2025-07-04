@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackFlavor } from './v1OpenStackFlavor';
+import type { V1OpenStackFlavor } from "./v1OpenStackFlavor";
 
 /**
  * List of OpenStack flavours

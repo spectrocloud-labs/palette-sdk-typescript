@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1PlanCreditEntityType = typeof V1PlanCreditEntityType[keyof typeof V1PlanCreditEntityType];
-
+export type V1PlanCreditEntityType =
+  (typeof V1PlanCreditEntityType)[keyof typeof V1PlanCreditEntityType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1PlanCreditEntityType = {
-  Pure: 'Pure',
-  Alloy: 'Alloy',
+  Pure: "Pure",
+  Alloy: "Alloy",
 } as const;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ResourceReference } from './v1ResourceReference';
+import type { V1ResourceReference } from "./v1ResourceReference";
 
 export interface V1ClusterResources {
   /** Cluster namespaces */

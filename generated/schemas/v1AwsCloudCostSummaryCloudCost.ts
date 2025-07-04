@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsCloudCostSummaryMonthlyCost } from './v1AwsCloudCostSummaryMonthlyCost';
+import type { V1AwsCloudCostSummaryMonthlyCost } from "./v1AwsCloudCostSummaryMonthlyCost";
 
 /**
  * AWS cloud account usage cost summary of monthlyCosts and totalCost

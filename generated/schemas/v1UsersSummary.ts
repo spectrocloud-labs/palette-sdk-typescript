@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UserSummary } from './v1UserSummary';
-import type { V1ListMetaData } from './v1ListMetaData';
+import type { V1UserSummary } from "./v1UserSummary";
+import type { V1ListMetaData } from "./v1ListMetaData";
 
 /**
  * Deprecated, Use v1UsersSummaryList - Returns User summary

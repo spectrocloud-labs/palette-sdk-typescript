@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantActivity } from './v1TenantActivity';
+import type { V1TenantActivity } from "./v1TenantActivity";
 
-export type V1TenantsActivitiesTenants = {[key: string]: V1TenantActivity};
+export type V1TenantsActivitiesTenants = { [key: string]: V1TenantActivity };

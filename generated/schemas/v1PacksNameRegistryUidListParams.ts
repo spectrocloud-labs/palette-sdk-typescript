@@ -11,16 +11,16 @@
  */
 
 export type V1PacksNameRegistryUidListParams = {
-/**
- * Pack cloud type
- */
-cloudType?: string;
-/**
- * Pack layer
- */
-layer?: string;
-/**
- * Comma seperated pack states. Example values are "deprecated" "deprecated,disabled". If states is not specified or empty then by default API will return all packs except "disabled" packs
- */
-states?: string;
+  /**
+   * Pack cloud type
+   */
+  cloudType?: string;
+  /**
+   * Pack layer
+   */
+  layer?: string;
+  /**
+   * Comma seperated pack states. Example values are "deprecated" "deprecated,disabled". If states is not specified or empty then by default API will return all packs except "disabled" packs
+   */
+  states?: string;
 };

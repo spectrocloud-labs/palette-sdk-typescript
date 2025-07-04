@@ -13,4 +13,6 @@
 /**
  * Describes the events happened for the notifications
  */
-export type V1NotificationActionEvents = {[key: string]: {[key: string]: string}};
+export type V1NotificationActionEvents = {
+  [key: string]: { [key: string]: string };
+};

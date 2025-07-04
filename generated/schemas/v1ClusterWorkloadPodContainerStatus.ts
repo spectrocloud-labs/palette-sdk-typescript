@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterWorkloadPodContainerState } from './v1ClusterWorkloadPodContainerState';
+import type { V1ClusterWorkloadPodContainerState } from "./v1ClusterWorkloadPodContainerState";
 
 /**
  * Cluster workload pod container status

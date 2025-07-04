@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantUsage } from './v1TenantUsage';
+import type { V1TenantUsage } from "./v1TenantUsage";
 
 /**
  * Monthly usage object

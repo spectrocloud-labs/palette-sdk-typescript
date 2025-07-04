@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ObjectMeta } from './v1ObjectMeta';
-import type { V1AppTierSpec } from './v1AppTierSpec';
+import type { V1ObjectMeta } from "./v1ObjectMeta";
+import type { V1AppTierSpec } from "./v1AppTierSpec";
 
 export interface V1AppTier {
   metadata?: V1ObjectMeta;

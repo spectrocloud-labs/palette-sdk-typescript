@@ -13,11 +13,11 @@
 /**
  * NetworkType  specifies the type of network
  */
-export type V1EdgeHostNetworkNetworkType = typeof V1EdgeHostNetworkNetworkType[keyof typeof V1EdgeHostNetworkNetworkType];
-
+export type V1EdgeHostNetworkNetworkType =
+  (typeof V1EdgeHostNetworkNetworkType)[keyof typeof V1EdgeHostNetworkNetworkType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1EdgeHostNetworkNetworkType = {
-  default: 'default',
-  bridge: 'bridge',
+  default: "default",
+  bridge: "bridge",
 } as const;

@@ -13,11 +13,11 @@
 /**
  * Os associated with instance price. Allowed values - [linux, windows]
  */
-export type V1InstancePriceOs = typeof V1InstancePriceOs[keyof typeof V1InstancePriceOs];
-
+export type V1InstancePriceOs =
+  (typeof V1InstancePriceOs)[keyof typeof V1InstancePriceOs];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1InstancePriceOs = {
-  linux: 'linux',
-  windows: 'windows',
+  linux: "linux",
+  windows: "windows",
 } as const;

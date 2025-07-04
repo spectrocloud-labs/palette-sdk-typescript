@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfilesImportFileFormat } from './v1ClusterProfilesImportFileFormat';
+import type { V1ClusterProfilesImportFileFormat } from "./v1ClusterProfilesImportFileFormat";
 
 export type V1ClusterProfilesImportFileParams = {
-/**
- * If true then cluster profile will be published post successful import
- */
-publish?: boolean;
-/**
- * Cluster profile import file format ["yaml", "json"]
- */
-format?: V1ClusterProfilesImportFileFormat;
+  /**
+   * If true then cluster profile will be published post successful import
+   */
+  publish?: boolean;
+  /**
+   * Cluster profile import file format ["yaml", "json"]
+   */
+  format?: V1ClusterProfilesImportFileFormat;
 };

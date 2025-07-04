@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1VmLaunchSecuritySev } from './v1VmLaunchSecuritySev';
+import type { V1VmLaunchSecuritySev } from "./v1VmLaunchSecuritySev";
 
 export interface V1VmLaunchSecurity {
   sev?: V1VmLaunchSecuritySev;

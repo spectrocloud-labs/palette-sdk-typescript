@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1DeveloperCredit } from './v1DeveloperCredit';
-import type { V1AppFeatureFreemium } from './v1AppFeatureFreemium';
+import type { V1DeveloperCredit } from "./v1DeveloperCredit";
+import type { V1AppFeatureFreemium } from "./v1AppFeatureFreemium";
 
 /**
  * System app features

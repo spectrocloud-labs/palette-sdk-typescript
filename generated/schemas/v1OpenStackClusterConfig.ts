@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1OpenStackResource } from './v1OpenStackResource';
+import type { V1OpenStackResource } from "./v1OpenStackResource";
 
 /**
  * Cluster level configuration for OpenStack cloud and applicable for all the machine pools

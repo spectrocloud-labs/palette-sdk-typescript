@@ -11,8 +11,8 @@
  */
 
 export type V1AwsVolumeTypesGetParams = {
-/**
- * Specific AWS Region
- */
-region: string;
+  /**
+   * Specific AWS Region
+   */
+  region: string;
 };

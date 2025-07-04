@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1TenantAssetCert } from './v1TenantAssetCert';
+import type { V1TenantAssetCert } from "./v1TenantAssetCert";
 
 export interface V1TenantAssetCerts {
   items: V1TenantAssetCert[];

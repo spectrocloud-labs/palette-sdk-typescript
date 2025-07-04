@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterComplianceScanKubeBenchScheduleConfig } from './v1ClusterComplianceScanKubeBenchScheduleConfig';
-import type { V1ClusterComplianceScanKubeHunterScheduleConfig } from './v1ClusterComplianceScanKubeHunterScheduleConfig';
-import type { V1ClusterComplianceScanSonobuoyScheduleConfig } from './v1ClusterComplianceScanSonobuoyScheduleConfig';
+import type { V1ClusterComplianceScanKubeBenchScheduleConfig } from "./v1ClusterComplianceScanKubeBenchScheduleConfig";
+import type { V1ClusterComplianceScanKubeHunterScheduleConfig } from "./v1ClusterComplianceScanKubeHunterScheduleConfig";
+import type { V1ClusterComplianceScanSonobuoyScheduleConfig } from "./v1ClusterComplianceScanSonobuoyScheduleConfig";
 
 /**
  * Cluster compliance scan schedule configuration

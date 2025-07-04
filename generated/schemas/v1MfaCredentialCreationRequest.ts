@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1MfaCredentialCreationRequestClientExtensionResults } from './v1MfaCredentialCreationRequestClientExtensionResults';
-import type { V1MfaCredentialCreationRequestResponse } from './v1MfaCredentialCreationRequestResponse';
+import type { V1MfaCredentialCreationRequestClientExtensionResults } from "./v1MfaCredentialCreationRequestClientExtensionResults";
+import type { V1MfaCredentialCreationRequestResponse } from "./v1MfaCredentialCreationRequestResponse";
 
 export interface V1MfaCredentialCreationRequest {
   _type?: string;

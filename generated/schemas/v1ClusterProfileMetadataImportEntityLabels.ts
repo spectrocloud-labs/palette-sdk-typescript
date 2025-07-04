@@ -13,4 +13,6 @@
 /**
  * Cluster profile labels
  */
-export type V1ClusterProfileMetadataImportEntityLabels = {[key: string]: string};
+export type V1ClusterProfileMetadataImportEntityLabels = {
+  [key: string]: string;
+};

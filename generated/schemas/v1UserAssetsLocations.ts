@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1UserAssetsLocation } from './v1UserAssetsLocation';
+import type { V1UserAssetsLocation } from "./v1UserAssetsLocation";
 
 export interface V1UserAssetsLocations {
   /** List of locations */

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1IpPoolEntity } from './v1IpPoolEntity';
+import type { V1IpPoolEntity } from "./v1IpPoolEntity";
 
 /**
  * Overload spec

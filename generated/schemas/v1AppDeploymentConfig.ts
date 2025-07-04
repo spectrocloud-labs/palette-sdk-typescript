@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AppDeploymentTargetConfig } from './v1AppDeploymentTargetConfig';
+import type { V1AppDeploymentTargetConfig } from "./v1AppDeploymentTargetConfig";
 
 /**
  * Application deployment config response

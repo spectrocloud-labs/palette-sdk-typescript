@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SystemTimeseriesMetrics } from './v1SystemTimeseriesMetrics';
+import type { V1SystemTimeseriesMetrics } from "./v1SystemTimeseriesMetrics";
 
 /**
  * system timeseries config spec

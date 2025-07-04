@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1LocationType } from './v1LocationType';
+import type { V1LocationType } from "./v1LocationType";
 
 /**
  * Location specification

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1SpectroClusterOidcIssuerTlsSpec } from './v1SpectroClusterOidcIssuerTlsSpec';
-import type { V1SpectroClusterOidcClaims } from './v1SpectroClusterOidcClaims';
+import type { V1SpectroClusterOidcIssuerTlsSpec } from "./v1SpectroClusterOidcIssuerTlsSpec";
+import type { V1SpectroClusterOidcClaims } from "./v1SpectroClusterOidcClaims";
 
 export interface V1SpectroClusterOidcSpec {
   clientId?: string;

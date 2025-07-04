@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type V1RegistriesMetadataScope = typeof V1RegistriesMetadataScope[keyof typeof V1RegistriesMetadataScope];
-
+export type V1RegistriesMetadataScope =
+  (typeof V1RegistriesMetadataScope)[keyof typeof V1RegistriesMetadataScope];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1RegistriesMetadataScope = {
-  system: 'system',
-  tenant: 'tenant',
-  all: 'all',
+  system: "system",
+  tenant: "tenant",
+  all: "all",
 } as const;

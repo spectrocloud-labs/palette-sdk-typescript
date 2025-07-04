@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1HostClusterConfigResponse } from './v1HostClusterConfigResponse';
+import type { V1HostClusterConfigResponse } from "./v1HostClusterConfigResponse";
 
 export interface V1ClusterConfigResponse {
   hostClusterConfig?: V1HostClusterConfigResponse;
