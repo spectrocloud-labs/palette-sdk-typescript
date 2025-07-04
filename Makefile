@@ -2,6 +2,7 @@
 # https://suva.sh/posts/well-documented-makefiles/
 
 .DEFAULT_GOAL:=help
+.PHONY: help generate install-dependencies test clean license
 
 # Output
 TIME   = `date +%H:%M:%S`
@@ -26,9 +27,17 @@ generate: install-dependencies ## Generate models
 		-i ./api/palette-apis-spec-fixed.json \
 		-o .
 	npx orval
+	@$(OK) "Code generation complete"
 
 install-dependencies:
 	npm install --save-dev openapitools/openapi-generator-cli orval
+	@$(OK) "Dependencies installed"
+
+##@ Test Targets
+
+test: ## Run integration tests
+	npm test
+	@$(OK) "Integration tests passed"
 
 ##@ Static Analysis Targets
 
@@ -56,3 +65,16 @@ pre-commit:
 			pip install pre-commit; \
 		} \
 	fi
+
+##@ Formatting Targets
+prettier:
+	npx prettier --write .
+
+license:
+	copywrite headers .
+
+##@ Maintenance Targets
+
+clean: ## Clean generated files
+	rm -rf generated/
+	@$(OK) "Clean complete"

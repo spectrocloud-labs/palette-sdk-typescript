@@ -5,3 +5,35 @@
 # Directories
 api/hapi
 node_modules
+dist/
+
+# Build outputs (not needed since we publish TypeScript source directly)
+# dist/
+# *.tsbuildinfo
+
+# npm package files
+*.tgz
+.npm
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

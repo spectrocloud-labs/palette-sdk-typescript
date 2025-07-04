@@ -1,6 +1,41 @@
 {
+  "name": "palette-sdk-typescript",
+  "version": "4.6.41",
+  "description": "TypeScript SDK for Spectro Cloud Palette API",
+  "main": "generated/index.ts",
+  "types": "generated/index.ts",
+  "files": [
+    "generated/**/*",
+    "test/**/*",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "generate": "make generate",
+    "post-process": "node api/post-processing-dup.js",
+    "test": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts",
+    "test:integration": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts"
+  },
+  "keywords": [
+    "palette",
+    "spectro-cloud",
+    "kubernetes",
+    "k8s",
+    "cloud",
+    "api",
+    "sdk",
+    "typescript",
+    "cluster-management",
+    "devops"
+  ],
+  "author": "Spectro Cloud",
+  "license": "Apache-2.0",
   "devDependencies": {
     "openapitools": "github:openapitools/openapi-generator-cli",
-    "orval": "^7.10.0"
+    "orval": "^7.10.0",
+    "prettier": "3.6.2"
+  },
+  "peerDependencies": {
+    "axios": "^1.0.0"
   }
 }
