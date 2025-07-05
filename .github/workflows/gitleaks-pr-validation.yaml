@@ -13,9 +13,8 @@ jobs:
       env:
         REPO: ${{ github.event.repository.name }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITLEAKS_CONFIG: /workspace/config.toml
+        GITLEAKS_CONFIG: config.toml
     steps:
-
       - name: run-bulwark-gitleaks-scan
         shell: sh
         env:

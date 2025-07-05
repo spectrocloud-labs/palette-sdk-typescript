@@ -12,10 +12,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Unshallow
-        run: git fetch --prune --unshallow
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Setup Copywrite
+        uses: hashicorp/setup-copywrite
+
+      - name: Install dependencies
+        run: make install-dependencies
 
       - name: Configure git for private modules
         env:
@@ -23,13 +32,11 @@ jobs:
           USER: ${{ secrets.SPECTRO_USER }}
         run: git config --global url."https://${USER}:${TOKEN}@github.com".insteadOf "https://github.com"
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version-file: go.mod
-
       - name: Ensure Reviewable
         run: make check-diff
+
+      - name: Generate
+        run: make generate
 
       - name: Test
         run: make test

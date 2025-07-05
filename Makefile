@@ -2,6 +2,7 @@
 # https://suva.sh/posts/well-documented-makefiles/
 
 .DEFAULT_GOAL:=help
+.PHONY: help generate install-dependencies test clean license
 
 # Output
 TIME   = `date +%H:%M:%S`
@@ -18,17 +19,27 @@ help:  ## Display this help
 
 ##@ Build Targets
 
-generate: install-dependencies ## Generate models
+generate: install-dependencies ## Generate models with tags-split organization
 	(cd api && ./generate.sh)
 	python3 api/fix-duplicates.py api/palette-apis-spec.json api/palette-apis-spec-fixed.json
+	node api/tag-transformer.js api/palette-apis-spec-fixed.json api/palette-apis-spec-tagged.json
 	npx @openapitools/openapi-generator-cli generate \
 		-g openapi-yaml \
-		-i ./api/palette-apis-spec-fixed.json \
-		-o .
+		-i /local/api/palette-apis-spec-tagged.json \
+		-o /local
 	npx orval
+	node api/post-processing.js
+	@$(OK) "Code generation complete with tags-split organization"
 
 install-dependencies:
-	npm install --save-dev openapitools/openapi-generator-cli orval
+	npm ci && npm install --save-dev @openapitools/openapi-generator-cli orval
+	@$(OK) "Dependencies installed"
+
+##@ Test Targets
+
+test: ## Run integration tests
+	npm test
+	@$(OK) "Integration tests passed"
 
 ##@ Static Analysis Targets
 
@@ -56,3 +67,17 @@ pre-commit:
 			pip install pre-commit; \
 		} \
 	fi
+
+##@ Formatting Targets
+prettier:
+	npx prettier --write .
+
+license:
+	copywrite headers .
+
+##@ Maintenance Targets
+
+clean: ## Clean generated files except httpClient folder
+	find palette/ -mindepth 1 -maxdepth 1 ! -name 'httpClient' -exec rm -rf {} +
+	rm -f api/palette-apis-spec-tagged.json
+	@$(OK) "Clean complete"
