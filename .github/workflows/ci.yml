@@ -20,6 +20,9 @@ jobs:
           node-version: "22"
           cache: "npm"
 
+      - name: Setup Copywrite
+        uses: hashicorp/setup-copywrite
+
       - name: Install dependencies
         run: make install-dependencies
 

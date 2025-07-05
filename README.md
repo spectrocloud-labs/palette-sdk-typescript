@@ -220,6 +220,14 @@ This SDK is generated from the Palette OpenAPI specification. To contribute:
 3. Run tests: `npm test`
 4. Submit a pull request
 
+### Requirements
+
+- Node.js 22 or higher
+- Python 3.10 or higher
+- Make
+- [Copywrite](https://github.com/hashicorp/copywrite)
+- Docker
+
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
