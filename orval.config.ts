@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-module.exports = {
+import { defineConfig } from "orval";
+
+export default defineConfig({
   palette: {
     input: {
       target: "./api/palette-apis-spec-tagged.json",
@@ -18,4 +20,4 @@ module.exports = {
       prettier: true,
     },
   },
-};
+});
