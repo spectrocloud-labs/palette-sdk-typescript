@@ -12,9 +12,10 @@
   ],
   "scripts": {
     "generate": "make generate",
-    "post-process": "node api/post-processing-dup.js",
+    "post-process": "node api/post-processing.js",
     "test": "npx ts-node --transpile-only --project test/tsconfig.json test/run-all-tests.ts",
-    "test:integration": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts"
+    "test:integration": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts",
+    "lint": "eslint generated/**/*.ts --fix"
   },
   "keywords": [
     "palette",
@@ -31,10 +32,16 @@
   "author": "Spectro Cloud",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@eslint/js": "^9.30.1",
     "@openapitools/openapi-generator-cli": "^2.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
+    "eslint": "^9.30.1",
+    "globals": "^16.3.0",
     "openapitools": "github:openapitools/openapi-generator-cli",
     "orval": "^7.10.0",
-    "prettier": "3.6.2"
+    "prettier": "3.6.2",
+    "typescript-eslint": "^8.35.1"
   },
   "peerDependencies": {
     "axios": "^1.10.0"

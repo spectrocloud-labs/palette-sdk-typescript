@@ -189,51 +189,30 @@ function addLicenseHeaders() {
 }
 
 /**
- * Convert kebab-case directory names to camelCase
+ * Run ESLint on generated files to catch type errors and fix issues
  */
-function convertDirectoriesToCamelCase() {
-  const generatedDir = path.join(__dirname, "../generated");
-
-  if (!fs.existsSync(generatedDir)) {
-    console.log("⚠️  Generated directory not found");
-    return true;
-  }
-
-  let renamedDirs = 0;
-
-  // Get all directories in the generated folder (excluding schemas)
-  const items = fs.readdirSync(generatedDir);
+function runEslint() {
+  const { execSync } = require('child_process');
   
-  for (const item of items) {
-    const itemPath = path.join(generatedDir, item);
+  try {
+    console.log("🔍 Running ESLint on generated files...");
     
-    if (fs.statSync(itemPath).isDirectory() && item !== "schemas") {
-      // Convert kebab-case to camelCase
-      const camelCaseName = item.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
-      
-      if (camelCaseName !== item) {
-        const newPath = path.join(generatedDir, camelCaseName);
-        
-        try {
-          fs.renameSync(itemPath, newPath);
-          console.log(`📁 Renamed directory: ${item} → ${camelCaseName}`);
-          renamedDirs++;
-        } catch (error) {
-          console.log(`❌ Failed to rename directory ${item}: ${error.message}`);
-          return false;
-        }
-      }
-    }
+    // Run ESLint with --fix to automatically fix issues
+    execSync('npm run lint', { 
+      stdio: 'inherit',
+      cwd: path.join(__dirname, '..')
+    });
+    
+    console.log("✅ ESLint completed successfully");
+    return true;
+  } catch (error) {
+    console.error("❌ ESLint found issues:", error.message);
+    console.error("⚠️  Please review the ESLint output above for type errors in generated files");
+    
+    return false;
   }
-
-  if (renamedDirs > 0) {
-    console.log(`✅ Successfully renamed ${renamedDirs} directories to camelCase`);
-  } else {
-    console.log("✅ All directories already in camelCase format");
-  }
-
-  return true;
 }
+
 
 /**
  * Create main index file that exports all functions from directories
@@ -436,25 +415,17 @@ function main() {
     const success5 = createMainIndexFile();
     const success6 = renameDirectoriesToCamelCase();
     const success7 = fixMainIndexImports();
+    const success8 = runEslint();
 
-
-    if (success1 && success2 && success3 && success4 && success5 && success6 && success7) {
+    if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8) {
       console.log("\n🎉 Post-processing completed successfully!");
-      console.log(
-        "The generated TypeScript code should now compile without duplicate export errors."
-      );
-      console.log(
-        "Functions are now organized by functional areas (tags-split mode) with camelCase directories."
-      );
       console.log("License headers have been added to all files.");
-
-      console.log("\n📁 Generated structure:");
-      console.log("  • Functions organized into 32+ functional directories");
-      console.log("  • Clean function names without v1 prefixes (handled by Orval transformer)");
-      console.log("  • Clean schema types without v1 prefixes (handled by Orval transformer)");
-      console.log("  • CamelCase directory naming");
+      console.log("ESLint has validated all generated files for type errors.");
     } else {
       console.log("\n❌ Post-processing completed with some issues");
+      if (!success8) {
+        console.log("⚠️  ESLint found type errors in generated files. Please review the output above.");
+      }
       process.exit(1);
     }
   } catch (error) {
