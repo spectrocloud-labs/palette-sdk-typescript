@@ -24,8 +24,8 @@ generate: install-dependencies ## Generate models
 	python3 api/fix-duplicates.py api/palette-apis-spec.json api/palette-apis-spec-fixed.json
 	npx @openapitools/openapi-generator-cli generate \
 		-g openapi-yaml \
-		-i ./api/palette-apis-spec-fixed.json \
-		-o .
+		-i /local/api/palette-apis-spec-fixed.json \
+		-o /local
 	npx orval
 	@$(OK) "Code generation complete"
 
