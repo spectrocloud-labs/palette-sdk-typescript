@@ -7,19 +7,19 @@
  * Integration test to verify that the palette-sdk-typescript package works correctly
  */
 
-// Test importing individual functions from local generated files
+// Test importing individual functions from local palette files
 import {
   spectroClustersGet,
   spectroClustersAwsCreate,
   cloudAccountsAwsList,
   apiKeysList,
-} from "../generated/index";
+} from "../palette/index";
 
 // Test importing the client wrapper
-import { setupConfig } from "../generated";
+import { setupConfig } from "../palette";
 
-// Test importing types from local generated files
-import type { SpectroCluster, AwsAccount, AuthLogin } from "../generated/index";
+// Test importing types from local palette files
+import type { SpectroCluster, AwsAccount, AuthLogin } from "../palette/index";
 
 console.log("🚀 Running palette-sdk-typescript integration tests...\n");
 

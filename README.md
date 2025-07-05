@@ -2,6 +2,9 @@
 
 A TypeScript SDK for the Spectro Cloud Palette API. This package provides a comprehensive set of functions to manage Kubernetes clusters, applications, and cloud resources through the Palette API.
 
+> [!WARNING]
+> This is an experimental SDK and subject to change.
+
 ## Features
 
 - **Complete API Coverage**: All Palette API endpoints are supported
@@ -9,6 +12,8 @@ A TypeScript SDK for the Spectro Cloud Palette API. This package provides a comp
 - **Fetch-based**: Built on the modern Fetch API
 - **Tree-shakable**: Import only the functions you need
 - **Modern**: Written in TypeScript with ES6+ features
+- **Client Pattern**: Pre-configured client for simplified usage
+- **Clean Naming**: Function names without version prefixes for better developer experience
 
 ## Installation
 
@@ -19,17 +24,26 @@ npm install palette-sdk-typescript
 > [!IMPORTANT]
 > This package is published as TypeScript source code. You'll need TypeScript in your project to use it. If you're using JavaScript, you may need to configure your build tools to handle TypeScript files.
 
-- Node.js 16 or higher
-- TypeScript 4.5 or higher (if using TypeScript)
+- Node.js 22 or higher
+- TypeScript 5.5 or higher (if using TypeScript)
 - A Palette API key
 
 ## Getting Started
 
-### Basic Usage
+### Authentication
 
-You can use the SDK in two ways:
+To use the Palette API, you need an API key. Check the [Create API Key](https://docs.spectrocloud.com/user-management/authentication/api-key/create-api-key/) guide for more information.
 
-#### Option 1: Pre-configured Client (Recommended)
+Set the API key as an environment variable:
+
+```bash
+export PALETTE_API_KEY="your-api-key-here"
+export PROJECT_UID="your-project-uid-here"
+```
+
+### Usage
+
+The recommended way to use the SDK is with the pre-configured client pattern:
 
 ```typescript
 import { setupConfig } from "palette-sdk-typescript";
@@ -40,99 +54,13 @@ const palette = setupConfig({
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID, // Specify project scope
   },
 });
 
 // Now you can call any API method directly without passing config each time
 const clusters = await palette.spectroClustersGet("");
 const cluster = await palette.spectroClustersGet("cluster-uid");
-const newCluster = await palette.spectroClustersAwsCreate({
-  metadata: {
-    name: "my-cluster",
-    // ... other metadata
-  },
-  spec: {
-    // ... cluster specification
-  },
-});
-```
-
-#### Option 2: Individual Function Imports
-
-```typescript
-import {
-  spectroClustersGet,
-  spectroClustersAwsCreate,
-} from "palette-sdk-typescript";
-
-// Set up authentication config
-const config = {
-  baseURL: "https://api.spectrocloud.com",
-  headers: {
-    ApiKey: process.env.PALETTE_API_KEY,
-    "Content-Type": "application/json",
-    ProjectUID: process.env.PROJECT_UID,
-  },
-};
-
-// Pass config to each function call
-const clusters = await spectroClustersGet("", undefined, config);
-const cluster = await spectroClustersGet("cluster-uid", undefined, config);
-const newCluster = await spectroClustersAwsCreate(clusterSpec, config);
-```
-
-### Authentication
-
-To use the Palette API, you need an API key. You can generate one from the Palette console:
-
-1. Log in to your Palette console
-2. Navigate to **User Menu → My API Keys**
-3. Click **Add New API Key**
-4. Copy the generated API key
-
-Set the API key as an environment variable:
-
-```bash
-export PALETTE_API_KEY="your-api-key-here"
-```
-
-### Cluster Management
-
-```typescript
-import { setupConfig } from "palette-sdk-typescript";
-
-// Configuration with authentication
-// Add ProjectUID to the headers to specify the project to use. Otherwise API calls will default to the tenant scope and could result in bad request or no results.
-const palette = setupConfig({
-  baseURL: "https://api.spectrocloud.com",
-  headers: {
-    ApiKey: process.env.PALETTE_API_KEY,
-    "Content-Type": "application/json",
-    ProjectUID: process.env.PROJECT_UID,
-  },
-});
-
-// List all clusters (empty string for listing all)
-const clusters = await palette.spectroClustersGet("");
-
-// Get cluster by UID
-const cluster = await palette.spectroClustersGet("cluster-uid");
-
-// Create AWS cluster
-const awsCluster = await palette.spectroClustersAwsCreate(clusterSpec);
-
-// Create Azure cluster
-const azureCluster = await palette.spectroClustersAzureCreate(clusterSpec);
-
-// Delete cluster
-await palette.spectroClustersDelete("cluster-uid");
-
-// Get cluster status
-const status = await palette.spectroClustersUidStatus("cluster-uid");
-
-// Get admin kubeconfig
-const kubeconfig =
-  await palette.spectroClustersUidAdminKubeConfig("cluster-uid");
 ```
 
 ### Advanced Configuration
@@ -148,6 +76,7 @@ const palette = setupConfig({
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
   },
 });
 
@@ -160,21 +89,50 @@ const cluster = await palette.spectroClustersGet("cluster-uid", undefined, {
 });
 ```
 
+### Alternative: Individual Function Imports
+
+If you prefer to import individual functions, you can still do so:
+
+```typescript
+import {
+  spectroClustersGet,
+  spectroClustersAwsCreate,
+  cloudAccountsAwsList,
+} from "palette-sdk-typescript";
+
+// Set up authentication config
+const config = {
+  baseURL: "https://api.spectrocloud.com",
+  headers: {
+    ApiKey: process.env.PALETTE_API_KEY,
+    "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
+  },
+};
+
+// Pass config to each function call
+const clusters = await spectroClustersGet("", undefined, config);
+const awsAccounts = await cloudAccountsAwsList(config);
+```
+
 ### Import Examples
 
 ```typescript
-// Import specific functions you need
+// Primary: Import the client setup function
+import { setupConfig } from "palette-sdk-typescript";
+
+// Alternative: Import specific functions you need
 import {
-  v1SpectroClustersGet,
-  v1CloudAccountsAwsList,
-  v1ClusterProfilesGet,
+  spectroClustersGet,
+  cloudAccountsAwsList,
+  clusterProfilesGet,
 } from "palette-sdk-typescript";
 
 // Import types
 import type {
-  V1SpectroCluster,
-  V1AwsCloudAccount,
-  V1ClusterProfile,
+  SpectroCluster,
+  AwsAccount,
+  ClusterProfile,
 } from "palette-sdk-typescript";
 
 // You can also import everything if needed
@@ -183,28 +141,41 @@ import * as PaletteSDK from "palette-sdk-typescript";
 
 ## TypeScript Support
 
-The SDK includes comprehensive TypeScript definitions:
+The SDK includes TypeScript definitions:
 
 ```typescript
 import {
-  v1SpectroClustersGet,
-  V1SpectroCluster,
-  V1AwsCloudAccount,
+  setupConfig,
+  SpectroCluster,
+  AwsCloudAccount,
 } from "palette-sdk-typescript";
 
+// Create typed client
+const palette = setupConfig({
+  baseURL: "https://api.spectrocloud.com",
+  headers: {
+    ApiKey: process.env.PALETTE_API_KEY,
+    "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
+  },
+});
+
 // Typed responses
-const clusters: V1SpectroCluster[] = await v1SpectroClustersGet(config);
+const clusters: SpectroCluster[] = await palette.spectroClustersGet("");
 
 // Typed request bodies
-const cloudAccount: V1AwsCloudAccount = {
+const cloudAccount: AwsCloudAccount = {
   metadata: {
     name: "my-aws-account",
     uid: "account-uid",
   },
   spec: {
+    credentialType: "secret",
     // ... AWS account specification
   },
 };
+
+const newAccount = await palette.cloudAccountsAwsCreate(cloudAccount);
 ```
 
 ## Error Handling
@@ -212,10 +183,20 @@ const cloudAccount: V1AwsCloudAccount = {
 The SDK uses the Fetch API for HTTP requests, so you can handle errors using standard JavaScript error handling:
 
 ```typescript
-import { v1SpectroClustersGet } from "palette-sdk-typescript";
+import { setupConfig } from "palette-sdk-typescript";
+
+const palette = setupConfig({
+  baseURL: "https://api.spectrocloud.com",
+  headers: {
+    ApiKey: process.env.PALETTE_API_KEY,
+    "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
+  },
+});
 
 try {
-  const clusters = await v1SpectroClustersGet(config);
+  const clusters = await palette.spectroClustersGet("");
+  console.log("Found clusters:", clusters.length);
 } catch (error) {
   if (error.response) {
     // Server responded with error status

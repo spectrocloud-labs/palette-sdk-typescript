@@ -8,7 +8,7 @@
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { setupConfig } from "../generated";
+import { setupConfig } from "../palette";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({

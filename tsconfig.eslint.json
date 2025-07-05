@@ -24,6 +24,6 @@
     "exactOptionalPropertyTypes": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["generated/**/*", "test/**/*", "api/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["palette/**/*", "api/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
 }

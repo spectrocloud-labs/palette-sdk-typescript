@@ -16,8 +16,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const GENERATED_DIR = path.join(__dirname, "../generated");
-const GENERATED_SCHEMAS_INDEX = path.join(GENERATED_DIR, "schemas/index.ts");
+const PALETTE_DIR = path.join(__dirname, "../palette");
+const PALETTE_SCHEMAS_INDEX = path.join(PALETTE_DIR, "schemas/index.ts");
 
 console.log("🔧 Post-processing generated code to fix duplicate exports...\n");
 
@@ -25,8 +25,8 @@ console.log("🔧 Post-processing generated code to fix duplicate exports...\n")
  * Fix duplicate exports in the schemas index file
  */
 function fixDuplicateExports() {
-  const schemasIndexPath = path.join(__dirname, "../generated/schemas/index.ts");
-  const schemasDir = path.join(__dirname, "../generated/schemas");
+  const schemasIndexPath = path.join(__dirname, "../palette/schemas/index.ts");
+  const schemasDir = path.join(__dirname, "../palette/schemas");
 
   if (!fs.existsSync(schemasIndexPath)) {
     console.log("⚠️  Schemas index file not found");
@@ -60,10 +60,10 @@ function fixDuplicateExports() {
  * Fix syntax errors and import casing issues in all schema files
  */
 function fixSchemaFiles() {
-  const schemasDir = path.join(__dirname, "../generated/schemas");
+  const schemasDir = path.join(__dirname, "../palette/schemas");
 
   if (!fs.existsSync(schemasDir)) {
-    console.log("⚠️  Generated schemas directory not found");
+    console.log("⚠️  Palette schemas directory not found");
     return true;
   }
 
@@ -123,22 +123,22 @@ function fixSchemaFiles() {
  * Fix syntax errors in all generated client files (tags-split mode)
  */
 function fixClientFiles() {
-  const generatedDir = path.join(__dirname, "../generated");
+  const paletteDir = path.join(__dirname, "../palette");
 
-  if (!fs.existsSync(generatedDir)) {
-    console.log("⚠️  Generated directory not found");
+  if (!fs.existsSync(paletteDir)) {
+    console.log("⚠️  Palette directory not found");
     return true;
   }
 
   let fixedFiles = 0;
 
-  // Get all TypeScript files in the generated directory (excluding schemas)
+  // Get all TypeScript files in the palette directory (excluding schemas)
   const files = fs
-    .readdirSync(generatedDir)
+    .readdirSync(paletteDir)
     .filter((file) => file.endsWith(".ts") && file !== "index.ts");
 
   files.forEach((filename) => {
-    const filePath = path.join(generatedDir, filename);
+    const filePath = path.join(paletteDir, filename);
     let content = fs.readFileSync(filePath, "utf8");
     let originalContent = content;
 
@@ -218,19 +218,19 @@ function runEslint() {
  * Create main index file with exports from all directories
  */
 function createMainIndexFile() {
-  const generatedDir = path.join(__dirname, "../generated");
-  const mainIndexPath = path.join(generatedDir, "index.ts");
+  const paletteDir = path.join(__dirname, "../palette");
+  const mainIndexPath = path.join(paletteDir, "index.ts");
   
-  if (!fs.existsSync(generatedDir)) {
-    console.log("⚠️  Generated directory not found");
+  if (!fs.existsSync(paletteDir)) {
+    console.log("⚠️  Palette directory not found");
     return false;
   }
 
-  // Get all directories in the generated folder (excluding schemas and httpClient)
+  // Get all directories in the palette folder (excluding schemas and httpClient)
   const directories = fs
-    .readdirSync(generatedDir)
+    .readdirSync(paletteDir)
     .filter((item) => {
-      const itemPath = path.join(generatedDir, item);
+      const itemPath = path.join(paletteDir, item);
       return fs.statSync(itemPath).isDirectory() && item !== "schemas" && item !== "httpClient";
     })
     .sort();
@@ -276,18 +276,18 @@ ${exports.join('\n')}
  * Rename directories and files from kebab-case to camelCase, and fix all imports
  */
 function renameDirectoriesToCamelCase() {
-  const generatedDir = path.join(__dirname, "../generated");
+  const paletteDir = path.join(__dirname, "../palette");
   
-  if (!fs.existsSync(generatedDir)) {
-    console.log("⚠️  Generated directory not found");
+  if (!fs.existsSync(paletteDir)) {
+    console.log("⚠️  Palette directory not found");
     return false;
   }
 
-  // Get all directories in the generated folder (excluding schemas)
+  // Get all directories in the palette folder (excluding schemas)
   const directories = fs
-    .readdirSync(generatedDir)
+    .readdirSync(paletteDir)
     .filter((item) => {
-      const itemPath = path.join(generatedDir, item);
+      const itemPath = path.join(paletteDir, item);
       return fs.statSync(itemPath).isDirectory() && item !== "schemas";
     });
 
@@ -300,8 +300,8 @@ function renameDirectoriesToCamelCase() {
     // Convert kebab-case to camelCase
     const camelCaseDirName = dirName.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
     
-    const oldDirPath = path.join(generatedDir, dirName);
-    const newDirPath = path.join(generatedDir, camelCaseDirName);
+    const oldDirPath = path.join(paletteDir, dirName);
+    const newDirPath = path.join(paletteDir, camelCaseDirName);
     
     // Rename directory if needed
     if (dirName !== camelCaseDirName) {
@@ -345,7 +345,7 @@ function renameDirectoriesToCamelCase() {
   });
 
   // Step 2: Fix imports in the main index file
-  const mainIndexPath = path.join(generatedDir, "index.ts");
+  const mainIndexPath = path.join(paletteDir, "index.ts");
   if (fs.existsSync(mainIndexPath)) {
     let indexContent = fs.readFileSync(mainIndexPath, "utf8");
     let importsFixed = 0;
@@ -386,7 +386,7 @@ function renameDirectoriesToCamelCase() {
  * Fix imports in main index file
  */
 function fixMainIndexImports() {
-  const mainIndexPath = path.join(__dirname, "../generated/index.ts");
+  const mainIndexPath = path.join(__dirname, "../palette/index.ts");
   
   if (!fs.existsSync(mainIndexPath)) {
     console.log("⚠️  Main index file not found");

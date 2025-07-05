@@ -10,8 +10,6 @@ openapitools.json
 orval.config.ts
 tsconfig.json
 
-# Source files (only include built dist/)
-generated/
 
 # Development dependencies
 node_modules/

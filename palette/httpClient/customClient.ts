@@ -2,6 +2,7 @@
  * Copyright (c) Spectro Cloud
  * SPDX-License-Identifier: Apache-2.0
  */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export interface PaletteConfig {
   baseURL: string;

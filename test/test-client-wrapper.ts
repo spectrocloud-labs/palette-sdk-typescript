@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { setupConfig } from "../generated";
+import { setupConfig } from "../palette";
 import dotenvx from "@dotenvx/dotenvx";
 
 const result = dotenvx.config({
