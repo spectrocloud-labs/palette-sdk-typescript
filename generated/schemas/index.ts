@@ -2616,7 +2616,7 @@ export * from "./WorkspacesRolesPatchBody";
 export * from "./WorkspacesValidateNameParams";
 export * from "./YearlyUsage";
 export * from "./ZoneEntity";
-export * from "./uRLEncodedBase64";
+export * from "./urlEncodedBase64";
 export * from "./v1cpu";
 export * from "./v1k8CertificateAuthority";
 export * from "./v1os";

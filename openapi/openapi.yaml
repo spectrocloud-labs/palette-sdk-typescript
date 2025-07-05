@@ -1628,7 +1628,7 @@ paths:
           description: An array of cloud account items
       summary: Retrieves a list of AWS cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsAwsCreate
       requestBody:
@@ -1652,7 +1652,7 @@ paths:
                 type: string
       summary: Creates an AWS cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/aws/{uid}:
     delete:
@@ -1670,7 +1670,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified AWS account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsAwsGet
       parameters:
@@ -1694,7 +1694,7 @@ paths:
           description: OK
       summary: Returns the specified AWS account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsAwsUpdate
       parameters:
@@ -1716,7 +1716,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified AWS account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/azure:
     get:
@@ -1773,7 +1773,7 @@ paths:
           description: An array of azure cloud account items
       summary: Retrieves a list of azure cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsAzureCreate
       requestBody:
@@ -1797,7 +1797,7 @@ paths:
                 type: string
       summary: Create azure cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/azure/{uid}:
     delete:
@@ -1815,7 +1815,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified azure account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsAzureGet
       parameters:
@@ -1834,7 +1834,7 @@ paths:
           description: OK
       summary: Returns the specified azure cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsAzureUpdate
       parameters:
@@ -1856,7 +1856,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified azure account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/cloudTypes/{cloudType}:
     get:
@@ -1919,7 +1919,7 @@ paths:
           description: An array of cloud account by specified cloud type items
       summary: Retrieves a list of cloud accounts by cloud type
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsCustomCreate
       parameters:
@@ -1950,7 +1950,7 @@ paths:
                 type: string
       summary: Creates an cloud account of specific cloud type
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/cloudTypes/{cloudType}/{uid}:
     delete:
@@ -1974,7 +1974,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified account by cloud type
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsCustomGet
       parameters:
@@ -1999,7 +1999,7 @@ paths:
           description: OK
       summary: Returns the specified account by cloud type
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsCustomUpdate
       parameters:
@@ -2027,7 +2027,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified account by cloud type
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/gcp:
     get:
@@ -2084,7 +2084,7 @@ paths:
           description: An array of gcp cloud account items
       summary: Retrieves a list of gcp cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsGcpCreate
       requestBody:
@@ -2108,7 +2108,7 @@ paths:
                 type: string
       summary: Creates a GCP cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/gcp/{uid}:
     delete:
@@ -2126,7 +2126,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified GCP account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsGcpGet
       parameters:
@@ -2145,7 +2145,7 @@ paths:
           description: OK
       summary: Returns the specified GCP cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsGcpUpdate
       parameters:
@@ -2168,7 +2168,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified GCP account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/maas:
     get:
@@ -2225,7 +2225,7 @@ paths:
           description: An array of cloud account items
       summary: Retrieves a list of Maas cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsMaasCreate
       requestBody:
@@ -2249,7 +2249,7 @@ paths:
                 type: string
       summary: Creates an Maas cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/maas/{uid}:
     delete:
@@ -2267,7 +2267,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Maas account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsMaasGet
       parameters:
@@ -2286,7 +2286,7 @@ paths:
           description: OK
       summary: Returns the specified Maas account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     patch:
       operationId: v1CloudAccountsMaasPatch
       parameters:
@@ -2308,7 +2308,7 @@ paths:
           description: The resource was updated successfully
       summary: Patches the specified CloudAccount Maas
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
     put:
       operationId: v1CloudAccountsMaasUpdate
@@ -2331,7 +2331,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified Maas account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/maas/{uid}/properties/azs:
     get:
@@ -2351,7 +2351,7 @@ paths:
           description: (empty)
       summary: Get the maas azs for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/maas/{uid}/properties/domains:
     get:
       operationId: v1MaasAccountsUidDomains
@@ -2370,7 +2370,7 @@ paths:
           description: (empty)
       summary: Get the maas domains for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/maas/{uid}/properties/resourcePools:
     get:
       operationId: v1MaasAccountsUidPools
@@ -2389,7 +2389,7 @@ paths:
           description: (empty)
       summary: Get the maas pools for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/maas/{uid}/properties/subnets:
     get:
       operationId: v1MaasAccountsUidSubnets
@@ -2408,7 +2408,7 @@ paths:
           description: (empty)
       summary: Get the maas subnets for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/maas/{uid}/properties/tags:
     get:
       operationId: v1MaasAccountsUidTags
@@ -2427,7 +2427,7 @@ paths:
           description: (empty)
       summary: Get the maas tags for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack:
     get:
       operationId: v1CloudAccountsOpenStackList
@@ -2483,7 +2483,7 @@ paths:
           description: An array of cloud account items
       summary: Retrieves a list of OpenStack cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsOpenStackCreate
       requestBody:
@@ -2507,7 +2507,7 @@ paths:
                 type: string
       summary: Creates a OpenStack cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/openstack/{uid}:
     delete:
@@ -2525,7 +2525,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified OpenStack account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsOpenStackGet
       parameters:
@@ -2544,7 +2544,7 @@ paths:
           description: OK
       summary: Returns the specified OpenStack account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsOpenStackUpdate
       parameters:
@@ -2566,7 +2566,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified OpenStack account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/openstack/{uid}/properties/azs:
     get:
@@ -2598,7 +2598,7 @@ paths:
           description: (empty)
       summary: Get the openstack azs for a given account and region
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack/{uid}/properties/flavors:
     get:
       operationId: v1OpenstackAccountsUidFlavors
@@ -2629,7 +2629,7 @@ paths:
           description: (empty)
       summary: Get the openstack keypairs for a given account and scope
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack/{uid}/properties/keypairs:
     get:
       operationId: v1OpenstackAccountsUidKeypairs
@@ -2660,7 +2660,7 @@ paths:
           description: (empty)
       summary: Get the openstack keypairs for a given account and scope
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack/{uid}/properties/networks:
     get:
       operationId: v1OpenstackAccountsUidNetworks
@@ -2691,7 +2691,7 @@ paths:
           description: (empty)
       summary: Get the openstack networks for a given account and scope
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack/{uid}/properties/projects:
     get:
       operationId: v1OpenstackAccountsUidProjects
@@ -2710,7 +2710,7 @@ paths:
           description: (empty)
       summary: Get the openstack projects for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/openstack/{uid}/properties/regions:
     get:
       operationId: v1OpenstackAccountsUidRegions
@@ -2729,7 +2729,7 @@ paths:
           description: (empty)
       summary: Get the openstack regions for a given account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/summary:
     get:
       operationId: v1CloudAccountsListSummary
@@ -2779,7 +2779,7 @@ paths:
           description: An array of cloud account summary items
       summary: Retrieves a list of cloud accounts summary
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/vsphere:
     get:
       operationId: v1CloudAccountsVsphereList
@@ -2835,7 +2835,7 @@ paths:
           description: An array of cloud account items
       summary: Retrieves a list of vSphere cloud accounts
       tags:
-      - cloudAccounts
+      - cloudaccounts
     post:
       operationId: v1CloudAccountsVsphereCreate
       requestBody:
@@ -2859,7 +2859,7 @@ paths:
                 type: string
       summary: Creates a vSphere cloud account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/vsphere/{uid}:
     delete:
@@ -2877,7 +2877,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified vSphere account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     get:
       operationId: v1CloudAccountsVsphereGet
       parameters:
@@ -2896,7 +2896,7 @@ paths:
           description: OK
       summary: Returns the specified vSphere account
       tags:
-      - cloudAccounts
+      - cloudaccounts
     put:
       operationId: v1CloudAccountsVsphereUpdate
       parameters:
@@ -2919,7 +2919,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified VSphere account
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudaccounts/vsphere/{uid}/properties/computecluster/resources:
     get:
@@ -2953,7 +2953,7 @@ paths:
           description: (empty)
       summary: Get the vSphere computecluster resources for the given overlord account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/vsphere/{uid}/properties/datacenters:
     get:
       operationId: v1VsphereAccountsUidDatacenters
@@ -2972,7 +2972,7 @@ paths:
           description: (empty)
       summary: Get the vSphere datacenters & datacluster for the given overlord account
       tags:
-      - cloudAccounts
+      - cloudaccounts
   /v1/cloudaccounts/{uid}/geoLocation:
     patch:
       operationId: v1AccountsGeolocationPatch
@@ -2994,7 +2994,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the geolocation annotation
       tags:
-      - cloudAccounts
+      - cloudaccounts
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aks/{configUid}:
     get:
@@ -3015,7 +3015,7 @@ paths:
           description: OK
       summary: Returns the specified AKS cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/aks/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsAksUidClusterConfig
@@ -3038,7 +3038,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aks/{configUid}/machinePools:
     post:
@@ -3070,7 +3070,7 @@ paths:
                 type: string
       summary: Creates an AKS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aks/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -3094,7 +3094,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAksMachinePoolUpdate
       parameters:
@@ -3122,7 +3122,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified AKS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aks/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -3191,7 +3191,7 @@ paths:
           description: An array of AKS machine items
       summary: Retrieves a list of AKS machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsAksPoolMachinesAdd
       parameters:
@@ -3227,7 +3227,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aks/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -3257,7 +3257,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Azure machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsAksPoolMachinesUidGet
       parameters:
@@ -3288,7 +3288,7 @@ paths:
           description: OK
       summary: Returns the specified AKS machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAksPoolMachinesUidUpdate
       parameters:
@@ -3322,7 +3322,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}:
     get:
@@ -3343,7 +3343,7 @@ paths:
           description: OK
       summary: Returns the specified AWS cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/aws/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsAwsUidClusterConfig
@@ -3366,7 +3366,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/clusterConfig/hybridConfig:
     put:
@@ -3390,7 +3390,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the hybrid configuration information of AWS cluster
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/edge-native/machinePools:
     post:
@@ -3422,7 +3422,7 @@ paths:
                 type: string
       summary: Creates an Hybrid AWS cloud config's Edge-Native machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/edge-native/machinePools/{machinePoolName}:
     delete:
@@ -3446,7 +3446,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Edge-Native machine pool of hybrid AWS cluster
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1AwsCloudConfigsEdgeNativeMachinePoolGet
       parameters:
@@ -3471,7 +3471,7 @@ paths:
           description: OK
       summary: Returns the specified AWS Cluster's Edge-Native machine pool configuration
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1AwsCloudConfigsEdgeNativeMachinePoolUpdate
       parameters:
@@ -3500,7 +3500,7 @@ paths:
       summary: Updates the specified Hybrid AWS cluster cloud config's Edge-Native
         machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/machinePools:
     post:
@@ -3532,7 +3532,7 @@ paths:
                 type: string
       summary: Creates an AWS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -3556,7 +3556,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAwsMachinePoolUpdate
       parameters:
@@ -3584,7 +3584,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified AWS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -3653,7 +3653,7 @@ paths:
           description: An array of AWS machine items
       summary: Retrieves a list of AWS machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsAwsPoolMachinesAdd
       parameters:
@@ -3689,7 +3689,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/aws/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -3719,7 +3719,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified AWS machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsAwsPoolMachinesUidGet
       parameters:
@@ -3750,7 +3750,7 @@ paths:
           description: OK
       summary: Returns the specified AWS machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAwsPoolMachinesUidUpdate
       parameters:
@@ -3784,7 +3784,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/azure/{configUid}:
     get:
@@ -3805,7 +3805,7 @@ paths:
           description: OK
       summary: Returns the specified Azure cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/azure/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsAzureUidClusterConfig
@@ -3828,7 +3828,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/azure/{configUid}/machinePools:
     post:
@@ -3860,7 +3860,7 @@ paths:
                 type: string
       summary: Creates an Azure cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/azure/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -3884,7 +3884,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAzureMachinePoolUpdate
       parameters:
@@ -3912,7 +3912,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified Azure cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/azure/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -3983,7 +3983,7 @@ paths:
           description: An array of AWS machine items
       summary: Retrieves a list of Azure machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsAzurePoolMachinesAdd
       parameters:
@@ -4019,7 +4019,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/azure/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -4049,7 +4049,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Azure machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       description: Returns a Azure machine for the specified uid.
       operationId: v1CloudConfigsAzurePoolMachinesUidGet
@@ -4081,7 +4081,7 @@ paths:
           description: OK
       summary: Returns the specified Azure machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsAzurePoolMachinesUidUpdate
       parameters:
@@ -4115,7 +4115,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}:
     get:
@@ -4142,7 +4142,7 @@ paths:
           description: OK
       summary: Returns the specified Custom cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsCustomUidClusterConfig
@@ -4171,7 +4171,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}/machinePools:
     post:
@@ -4209,7 +4209,7 @@ paths:
                 type: string
       summary: Creates an Custom cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -4239,7 +4239,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsCustomMachinePoolUpdate
       parameters:
@@ -4273,7 +4273,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified Custom cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -4348,7 +4348,7 @@ paths:
           description: An array of Custom machine items
       summary: Retrieves a list of Custom machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsCustomPoolMachinesAdd
       parameters:
@@ -4390,7 +4390,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/cloudTypes/{cloudType}/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -4426,7 +4426,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Custom machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsCustomPoolMachinesUidGet
       parameters:
@@ -4463,7 +4463,7 @@ paths:
           description: OK
       summary: Returns the specified Custom machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsCustomPoolMachinesUidUpdate
       parameters:
@@ -4503,7 +4503,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/edge-native/{configUid}:
     get:
@@ -4524,7 +4524,7 @@ paths:
           description: OK
       summary: Returns the specified edge-native cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/edge-native/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsEdgeNativeUidClusterConfig
@@ -4547,7 +4547,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/edge-native/{configUid}/machinePools:
     post:
@@ -4579,7 +4579,7 @@ paths:
                 type: string
       summary: Creates a edge-native cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/edge-native/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -4603,7 +4603,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsEdgeNativeMachinePoolUpdate
       parameters:
@@ -4631,7 +4631,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge-native cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/edge-native/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -4658,7 +4658,7 @@ paths:
           description: An array of edge-native machine items
       summary: Retrieves a list of edge-native machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsEdgeNativePoolMachinesAdd
       parameters:
@@ -4694,7 +4694,7 @@ paths:
                 type: string
       summary: Adds the edge-native machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/edge-native/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -4724,7 +4724,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified edge-native machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsEdgeNativePoolMachinesUidGet
       parameters:
@@ -4755,7 +4755,7 @@ paths:
           description: OK
       summary: Returns the specified edge-native machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsEdgeNativePoolMachinesUidUpdate
       parameters:
@@ -4789,7 +4789,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}:
     get:
@@ -4810,7 +4810,7 @@ paths:
           description: OK
       summary: Returns the specified EKS cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/eks/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsEksUidClusterConfig
@@ -4833,7 +4833,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}/fargateProfiles:
     put:
@@ -4857,7 +4857,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates EKS cloud config's fargate profiles
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}/machinePools:
     post:
@@ -4889,7 +4889,7 @@ paths:
                 type: string
       summary: Creates an EKS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -4913,7 +4913,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsEksMachinePoolUpdate
       parameters:
@@ -4941,7 +4941,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified EKS cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -5010,7 +5010,7 @@ paths:
           description: An array of EKS machine items
       summary: Retrieves a list of EKS machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsEksPoolMachinesAdd
       parameters:
@@ -5046,7 +5046,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/eks/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -5076,7 +5076,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified EKS machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsEksPoolMachinesUidGet
       parameters:
@@ -5107,7 +5107,7 @@ paths:
           description: OK
       summary: Returns the specified EKS machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsEksPoolMachinesUidUpdate
       parameters:
@@ -5141,7 +5141,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gcp/{configUid}:
     get:
@@ -5162,7 +5162,7 @@ paths:
           description: OK
       summary: Returns the specified GCP cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/gcp/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsGcpUidClusterConfig
@@ -5185,7 +5185,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gcp/{configUid}/machinePools:
     post:
@@ -5217,7 +5217,7 @@ paths:
                 type: string
       summary: Creates a Gcp cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gcp/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -5241,7 +5241,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGcpMachinePoolUpdate
       parameters:
@@ -5269,7 +5269,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified GCP cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gcp/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -5338,7 +5338,7 @@ paths:
           description: An array of GCP machine items
       summary: Retrieves a list of GCP machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsGcpPoolMachinesAdd
       parameters:
@@ -5374,7 +5374,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gcp/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -5404,7 +5404,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified GCP machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsGcpPoolMachinesUidGet
       parameters:
@@ -5435,7 +5435,7 @@ paths:
           description: OK
       summary: Returns the specified GCP machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGcpPoolMachinesUidUpdate
       parameters:
@@ -5469,7 +5469,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/generic/{configUid}:
     get:
@@ -5490,7 +5490,7 @@ paths:
           description: OK
       summary: Returns the specified Generic cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/generic/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsGenericUidClusterConfig
@@ -5513,7 +5513,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/generic/{configUid}/machinePools:
     post:
@@ -5545,7 +5545,7 @@ paths:
                 type: string
       summary: Creates a generic cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/generic/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -5569,7 +5569,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGenericMachinePoolUpdate
       parameters:
@@ -5597,7 +5597,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified generic cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/generic/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -5666,7 +5666,7 @@ paths:
           description: An array of Generic machine items
       summary: Retrieves a list of Generic machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsGenericPoolMachinesAdd
       parameters:
@@ -5702,7 +5702,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/generic/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -5732,7 +5732,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsGenericPoolMachinesUidGet
       parameters:
@@ -5763,7 +5763,7 @@ paths:
           description: OK
       summary: Returns the specified generic machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGenericPoolMachinesUidUpdate
       parameters:
@@ -5797,7 +5797,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gke/{configUid}:
     get:
@@ -5818,7 +5818,7 @@ paths:
           description: OK
       summary: Returns the specified GKE cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/gke/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsGkeUidClusterConfig
@@ -5841,7 +5841,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gke/{configUid}/machinePools:
     post:
@@ -5873,7 +5873,7 @@ paths:
                 type: string
       summary: Creates an GKE cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gke/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -5897,7 +5897,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGkeMachinePoolUpdate
       parameters:
@@ -5925,7 +5925,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified GKE cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gke/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -5994,7 +5994,7 @@ paths:
           description: An array of GKE machine items
       summary: Retrieves a list of GKE machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsGkePoolMachinesAdd
       parameters:
@@ -6030,7 +6030,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/gke/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -6060,7 +6060,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Gcp machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsGkePoolMachinesUidGet
       parameters:
@@ -6091,7 +6091,7 @@ paths:
           description: OK
       summary: Returns the specified GKE machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsGkePoolMachinesUidUpdate
       parameters:
@@ -6125,7 +6125,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/maas/{configUid}:
     get:
@@ -6146,7 +6146,7 @@ paths:
           description: OK
       summary: Returns the specified Maas cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/maas/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsMaasUidClusterConfig
@@ -6169,7 +6169,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/maas/{configUid}/machinePools:
     post:
@@ -6201,7 +6201,7 @@ paths:
                 type: string
       summary: Creates an Maas cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/maas/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -6225,7 +6225,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsMaasMachinePoolUpdate
       parameters:
@@ -6253,7 +6253,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified Maas cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/maas/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -6322,7 +6322,7 @@ paths:
           description: An array of Maas machine items
       summary: Retrieves a list of Maas machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsMaasPoolMachinesAdd
       parameters:
@@ -6358,7 +6358,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/maas/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -6388,7 +6388,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified Maas machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsMaasPoolMachinesUidGet
       parameters:
@@ -6419,7 +6419,7 @@ paths:
           description: OK
       summary: Returns the specified Maas machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsMaasPoolMachinesUidUpdate
       parameters:
@@ -6453,7 +6453,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/openstack/{configUid}:
     get:
@@ -6474,7 +6474,7 @@ paths:
           description: OK
       summary: Returns the specified OpenStack cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/openstack/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsOpenStackUidClusterConfig
@@ -6497,7 +6497,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/openstack/{configUid}/machinePools:
     post:
@@ -6529,7 +6529,7 @@ paths:
                 type: string
       summary: Creates a OpenStack cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/openstack/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -6553,7 +6553,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsOpenStackMachinePoolUpdate
       parameters:
@@ -6581,7 +6581,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified OpenStack cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/openstack/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -6608,7 +6608,7 @@ paths:
           description: An array of OpenStack machine items
       summary: Retrieves a list of OpenStack machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsOpenStackPoolMachinesAdd
       parameters:
@@ -6644,7 +6644,7 @@ paths:
                 type: string
       summary: Adds the OpenStack machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/openstack/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -6674,7 +6674,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified OpenStack machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsOpenStackPoolMachinesUidGet
       parameters:
@@ -6705,7 +6705,7 @@ paths:
           description: OK
       summary: Returns the specified OpenStack machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsOpenStackPoolMachinesUidUpdate
       parameters:
@@ -6739,7 +6739,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}:
     get:
@@ -6760,7 +6760,7 @@ paths:
           description: OK
       summary: Returns the specified Virtual cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/virtual/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsVirtualUidClusterConfig
@@ -6783,7 +6783,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}/machinePools:
     post:
@@ -6815,7 +6815,7 @@ paths:
                 type: string
       summary: Creates a virtual cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -6839,7 +6839,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsVirtualMachinePoolUpdate
       parameters:
@@ -6867,7 +6867,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified virtual cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -6936,7 +6936,7 @@ paths:
           description: An array of virtual machine items
       summary: Retrieves a list of virtual machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsVirtualPoolMachinesAdd
       parameters:
@@ -6972,7 +6972,7 @@ paths:
                 type: string
       summary: Adds the machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -7002,7 +7002,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified virtual machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsVirtualPoolMachinesUidGet
       parameters:
@@ -7033,7 +7033,7 @@ paths:
           description: OK
       summary: Returns the specified virtual machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsVirtualPoolMachinesUidUpdate
       parameters:
@@ -7067,7 +7067,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to the cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/virtual/{configUid}/resize:
     put:
@@ -7091,7 +7091,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates and resizes the virtual cluster
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/vsphere/{configUid}:
     get:
@@ -7112,7 +7112,7 @@ paths:
           description: OK
       summary: Returns the specified vSphere cloud config
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/cloudconfigs/vsphere/{configUid}/clusterConfig:
     put:
       operationId: v1CloudConfigsVsphereUidClusterConfig
@@ -7135,7 +7135,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster configuration information
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/vsphere/{configUid}/machinePools:
     post:
@@ -7167,7 +7167,7 @@ paths:
                 type: string
       summary: Creates a vSphere cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/vsphere/{configUid}/machinePools/{machinePoolName}:
     delete:
@@ -7191,7 +7191,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsVsphereMachinePoolUpdate
       parameters:
@@ -7219,7 +7219,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified vSphere cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/vsphere/{configUid}/machinePools/{machinePoolName}/machines:
     get:
@@ -7288,7 +7288,7 @@ paths:
           description: An array of vSphere machine items
       summary: Retrieves a list of vSphere machines
       tags:
-      - cloudConfigs
+      - cloudconfigs
     post:
       operationId: v1CloudConfigsVspherePoolMachinesAdd
       parameters:
@@ -7324,7 +7324,7 @@ paths:
                 type: string
       summary: Adds the vSphere machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/vsphere/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}:
     delete:
@@ -7354,7 +7354,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified vSphere machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     get:
       operationId: v1CloudConfigsVspherePoolMachinesUidGet
       parameters:
@@ -7385,7 +7385,7 @@ paths:
           description: OK
       summary: Returns the specified vSphere machine
       tags:
-      - cloudConfigs
+      - cloudconfigs
     put:
       operationId: v1CloudConfigsVspherePoolMachinesUidUpdate
       parameters:
@@ -7419,7 +7419,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine to cloud config's machine pool
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/{cloudType}/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}/maintenance:
     put:
@@ -7461,7 +7461,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine maintenance
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/{cloudType}/{configUid}/machinePools/{machinePoolName}/machines/{machineUid}/maintenance/status:
     put:
@@ -7503,7 +7503,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified machine maintenance
       tags:
-      - cloudConfigs
+      - cloudconfigs
       x-codegen-request-body-name: body
   /v1/cloudconfigs/{configUid}/machinePools/machineUids:
     get:
@@ -7524,7 +7524,7 @@ paths:
           description: OK
       summary: Returns the specified cloud config's machine pools and machine uid
       tags:
-      - cloudConfigs
+      - cloudconfigs
   /v1/clouds/aws/account/secret/credentials:
     post:
       operationId: V1AwsAccountSecretCredentials
@@ -10177,7 +10177,7 @@ paths:
                 type: string
       summary: Create cluster groups
       tags:
-      - clusterGroups
+      - clustergroups
       x-codegen-request-body-name: body
   /v1/clustergroups/developerCredit/usage/{scope}:
     get:
@@ -10200,7 +10200,7 @@ paths:
           description: Cluster group developer credit usage
       summary: Get cluster group developer credit usage by scope
       tags:
-      - clusterGroups
+      - clustergroups
   /v1/clustergroups/hostCluster:
     get:
       operationId: v1ClusterGroupsHostClusterSummary
@@ -10213,7 +10213,7 @@ paths:
           description: An array of cluster groups of host cluster type summary
       summary: Retrieves a list of cluster groups host cluster summary
       tags:
-      - clusterGroups
+      - clustergroups
   /v1/clustergroups/hostCluster/metadata:
     get:
       operationId: v1ClusterGroupsHostClusterMetadata
@@ -10226,7 +10226,7 @@ paths:
           description: An array of cluster groups host cluster metadata items
       summary: Retrieves a list of cluster groups host cluster metadata
       tags:
-      - clusterGroups
+      - clustergroups
   /v1/clustergroups/validate/name:
     get:
       operationId: v1ClusterGroupsValidateName
@@ -10247,7 +10247,7 @@ paths:
                 type: string
       summary: Validates the cluster groups name
       tags:
-      - clusterGroups
+      - clustergroups
   /v1/clustergroups/{uid}:
     delete:
       operationId: v1ClusterGroupsUidDelete
@@ -10263,7 +10263,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified cluster group
       tags:
-      - clusterGroups
+      - clustergroups
     get:
       operationId: v1ClusterGroupsUidGet
       parameters:
@@ -10281,7 +10281,7 @@ paths:
           description: OK
       summary: Returns the specified cluster groups
       tags:
-      - clusterGroups
+      - clustergroups
   /v1/clustergroups/{uid}/hostCluster:
     put:
       operationId: v1ClusterGroupsUidHostClusterUpdate
@@ -10303,7 +10303,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates cluster reference and host cluster config
       tags:
-      - clusterGroups
+      - clustergroups
       x-codegen-request-body-name: body
   /v1/clustergroups/{uid}/meta:
     put:
@@ -10326,7 +10326,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster groups meta
       tags:
-      - clusterGroups
+      - clustergroups
       x-codegen-request-body-name: body
   /v1/clustergroups/{uid}/packs/resolvedValues:
     get:
@@ -10353,7 +10353,7 @@ paths:
           description: OK
       summary: Returns the specified clustergroup's profile packs resolved values
       tags:
-      - clusterGroups
+      - clustergroups
       x-codegen-request-body-name: body
   /v1/clustergroups/{uid}/profiles:
     get:
@@ -10379,7 +10379,7 @@ paths:
           description: OK
       summary: Returns the associated profiles of a specified cluster group
       tags:
-      - clusterGroups
+      - clustergroups
     put:
       operationId: v1ClusterGroupsUidProfilesUpdate
       parameters:
@@ -10401,7 +10401,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster groups profiles
       tags:
-      - clusterGroups
+      - clustergroups
       x-codegen-request-body-name: body
   /v1/clusterprofiles:
     post:
@@ -10433,7 +10433,7 @@ paths:
                 type: string
       summary: Creates a cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/bulk:
     delete:
@@ -10453,7 +10453,7 @@ paths:
           description: OK
       summary: Deletes list of cluster profiles
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/import:
     post:
@@ -10485,7 +10485,7 @@ paths:
                 type: string
       summary: Imports a cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/import/file:
     post:
@@ -10525,7 +10525,7 @@ paths:
                 type: string
       summary: Imports a cluster profile via file
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/import/validate:
     post:
       operationId: v1ClusterProfilesImportValidate
@@ -10544,7 +10544,7 @@ paths:
           description: Cluster profile import validated response
       summary: Validates cluster profile import
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/macros:
     get:
@@ -10558,7 +10558,7 @@ paths:
           description: OK
       summary: Retrieves a list of macros
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/validate/name:
     get:
       description: Validates the cluster profile name and version
@@ -10585,7 +10585,7 @@ paths:
                 type: string
       summary: Validates the cluster profile metadata
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/validate/packs:
     post:
       operationId: v1ClusterProfilesValidatePacks
@@ -10604,7 +10604,7 @@ paths:
           description: Cluster profile packs validation response
       summary: Validates cluster profile packs
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}:
     delete:
@@ -10627,7 +10627,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
     get:
       operationId: v1ClusterProfilesGet
       parameters:
@@ -10651,7 +10651,7 @@ paths:
           description: OK
       summary: Returns a specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
     put:
       operationId: v1ClusterProfilesUpdate
       parameters:
@@ -10678,7 +10678,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/clone:
     post:
@@ -10710,7 +10710,7 @@ paths:
                 type: string
       summary: Creates a clone of the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/clone/validate:
     post:
@@ -10741,7 +10741,7 @@ paths:
                 type: string
       summary: Validates the cluster profile clone
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/export:
     get:
@@ -10776,7 +10776,7 @@ paths:
                 type: string
       summary: Export the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/export/terraform:
     get:
       operationId: V1ClusterProfilesUidExportTerraform
@@ -10810,7 +10810,7 @@ paths:
                 type: string
       summary: Downloads the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/metadata:
     patch:
       operationId: v1ClusterProfilesUidMetadataUpdate
@@ -10833,7 +10833,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster profile metadata
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packRefs:
     patch:
@@ -10862,7 +10862,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates cluster profile packs ref
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packs:
     get:
@@ -10888,7 +10888,7 @@ paths:
           description: OK
       summary: Returns the specified cluster profile packs
       tags:
-      - clusterProfiles
+      - clusterprofiles
     post:
       operationId: v1ClusterProfilesUidPacksAdd
       parameters:
@@ -10924,7 +10924,7 @@ paths:
       summary: Adds a new pack to the specified cluster profile and returns the created
         pack uid
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packs/manifests:
     get:
@@ -10950,7 +10950,7 @@ paths:
           description: OK
       summary: Returns the specified cluster profile pack manifests
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/packs/resolvedValues:
     get:
       operationId: v1ClusterProfilesUidPacksResolvedValuesGet
@@ -10976,7 +10976,7 @@ paths:
           description: OK
       summary: Returns the specified cluster profile packs resolved values
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packs/{packName}:
     delete:
@@ -11000,7 +11000,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified pack information in the cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
     get:
       operationId: V1ClusterProfilesUidPacksNameGet
       parameters:
@@ -11025,7 +11025,7 @@ paths:
           description: OK
       summary: Returns the specified cluster profile pack
       tags:
-      - clusterProfiles
+      - clusterprofiles
     put:
       operationId: v1ClusterProfilesUidPacksNameUpdate
       parameters:
@@ -11053,7 +11053,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified pack information in the cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packs/{packName}/config:
     get:
@@ -11086,7 +11086,7 @@ paths:
           description: An array of cluster profile pack configurations
       summary: Returns the specified cluster profile pack configuration
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/packs/{packName}/manifests:
     get:
       operationId: v1ClusterProfilesUidPacksUidManifests
@@ -11112,7 +11112,7 @@ paths:
           description: OK
       summary: Returns the associated manifests for the specified profile's pack
       tags:
-      - clusterProfiles
+      - clusterprofiles
     post:
       operationId: v1ClusterProfilesUidPacksNameManifestsAdd
       parameters:
@@ -11149,7 +11149,7 @@ paths:
       summary: Adds manifest to the profiles packs and returns the added manifests
         uid
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/packs/{packName}/manifests/{manifestUid}:
     delete:
@@ -11179,7 +11179,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified cluster profile pack manifest
       tags:
-      - clusterProfiles
+      - clusterprofiles
     get:
       operationId: v1ClusterProfilesUidPacksNameManifestsUidGet
       parameters:
@@ -11210,7 +11210,7 @@ paths:
           description: OK
       summary: Returns the specified cluster profile pack manifest
       tags:
-      - clusterProfiles
+      - clusterprofiles
     put:
       operationId: v1ClusterProfilesUidPacksNameManifestsUidUpdate
       parameters:
@@ -11244,7 +11244,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified manifest of the profile's pack
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/publish:
     patch:
@@ -11265,7 +11265,7 @@ paths:
           description: Cluster profile published successfully
       summary: Publishes the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/spc/download:
     get:
       operationId: v1ClusterProfilesUidSpcDownload
@@ -11290,7 +11290,7 @@ paths:
                 type: string
       summary: Downloads the specified cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
   /v1/clusterprofiles/{uid}/validate/packs:
     post:
       operationId: v1ClusterProfilesUidValidatePacks
@@ -11316,7 +11316,7 @@ paths:
           description: Cluster profile packs validation response
       summary: Validates specified cluster profile packs
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/clusterprofiles/{uid}/variables:
     delete:
@@ -11340,7 +11340,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified cluster profile variables
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
     get:
       operationId: V1ClusterProfilesUidVariablesGet
@@ -11360,7 +11360,7 @@ paths:
           description: OK
       summary: Retrieve a list of variables defined for the cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
     patch:
       operationId: V1ClusterProfilesUidVariablesPatch
       parameters:
@@ -11382,7 +11382,7 @@ paths:
           description: The resource was updated successfully
       summary: Update specific variables defined for a cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
     put:
       operationId: V1ClusterProfilesUidVariablesPut
@@ -11405,7 +11405,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the variables defined for a cluster profile
       tags:
-      - clusterProfiles
+      - clusterprofiles
       x-codegen-request-body-name: body
   /v1/dashboard/appDeployments:
     post:
@@ -12935,7 +12935,7 @@ paths:
                 type: string
       summary: sync data to cloud watch
       tags:
-      - dataSinks
+      - datasinks
       x-codegen-request-body-name: dataSinkCloudWatchConfig
   /v1/edgehosts:
     post:
@@ -12960,7 +12960,7 @@ paths:
                 type: string
       summary: Create the edge host device
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/metadata:
     get:
@@ -12988,7 +12988,7 @@ paths:
           description: An array of edge host metadata
       summary: Retrieves a list of edge hosts metadata matching the filter condition
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/register:
     post:
       operationId: v1EdgeHostDevicesRegister
@@ -13007,7 +13007,7 @@ paths:
           description: OK
       summary: Registers the edge host device
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/tags:
     get:
@@ -13021,7 +13021,7 @@ paths:
           description: An array of edge hosts tags
       summary: Retrieves a list of edge hosts tags
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/tokens:
     get:
       operationId: v1EdgeTokensList
@@ -13034,7 +13034,7 @@ paths:
           description: An array of edge tokens
       summary: Retrieves a list of edge tokens
       tags:
-      - edgeHosts
+      - edgehosts
     post:
       operationId: v1EdgeTokensCreate
       requestBody:
@@ -13057,7 +13057,7 @@ paths:
                 type: string
       summary: Create the edge token
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/tokens/{uid}:
     delete:
@@ -13075,7 +13075,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified edge token
       tags:
-      - edgeHosts
+      - edgehosts
     get:
       operationId: v1EdgeTokensUidGet
       parameters:
@@ -13094,7 +13094,7 @@ paths:
           description: OK
       summary: Returns the specified edge token
       tags:
-      - edgeHosts
+      - edgehosts
     put:
       operationId: v1EdgeTokensUidUpdate
       parameters:
@@ -13116,7 +13116,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge token
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/tokens/{uid}/state:
     put:
@@ -13140,7 +13140,7 @@ paths:
           description: The resource was updated successfully
       summary: Revoke or re-activate the edge token access
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}:
     delete:
@@ -13157,7 +13157,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified edge host device
       tags:
-      - edgeHosts
+      - edgehosts
     get:
       operationId: v1EdgeHostDevicesUidGet
       parameters:
@@ -13181,7 +13181,7 @@ paths:
           description: OK
       summary: Returns the specified edge host device
       tags:
-      - edgeHosts
+      - edgehosts
     put:
       operationId: v1EdgeHostDevicesUidUpdate
       parameters:
@@ -13202,7 +13202,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge host device
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/cluster/associate:
     delete:
@@ -13219,7 +13219,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deassociate the clusters to the edge host
       tags:
-      - edgeHosts
+      - edgehosts
     patch:
       operationId: v1EdgeHostDevicesUidClusterAssociate
       parameters:
@@ -13240,7 +13240,7 @@ paths:
           description: The resource was updated successfully
       summary: Associate the clusters to the edge host
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/config:
     get:
@@ -13260,7 +13260,7 @@ paths:
           description: OK
       summary: Get the specified edge host device configuration
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/{uid}/health:
     patch:
       operationId: v1EdgeHostDevicesHealthUpdate
@@ -13282,7 +13282,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the edge host health
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/hostCheckSum:
     patch:
@@ -13305,7 +13305,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the specified edge host device host check sum
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/hostPairingKey:
     patch:
@@ -13328,7 +13328,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the specified edge host device host pairing key
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/meta:
     put:
@@ -13351,7 +13351,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge host device meta
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/pack/manifests/{manifestUid}:
     get:
@@ -13384,7 +13384,7 @@ paths:
           description: Pack manifest content
       summary: Returns the specified edge host's manifest
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/{uid}/packs/status:
     patch:
       operationId: v1EdgeHostDevicesUidPacksStatusPatch
@@ -13406,7 +13406,7 @@ paths:
           description: The resource was updated successfully
       summary: Patch update specified edge host's packs status
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/profiles:
     get:
@@ -13431,7 +13431,7 @@ paths:
           description: OK
       summary: Returns the associated profiles of a specified edge host device
       tags:
-      - edgeHosts
+      - edgehosts
     put:
       operationId: v1EdgeHostDevicesUidProfilesUpdate
       parameters:
@@ -13452,7 +13452,7 @@ paths:
           description: The resource was updated successfully
       summary: Associate cluster profiles to the specified edge host device
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/reset:
     put:
@@ -13475,7 +13475,7 @@ paths:
                 type: string
       summary: Reset the cluster through edge host
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/{uid}/spc/download:
     get:
       operationId: v1EdgeHostDevicesUidSpcDownload
@@ -13499,7 +13499,7 @@ paths:
                 type: string
       summary: Download the specified edge host device spc
       tags:
-      - edgeHosts
+      - edgehosts
   /v1/edgehosts/{uid}/tunnelConfig:
     patch:
       operationId: v1EdgeHostDevicesUidTunnelConfigUpdate
@@ -13521,7 +13521,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge host device tunnel configuration
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/tunnelStatus:
     patch:
@@ -13544,7 +13544,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the edge host tunnel status
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/edgehosts/{uid}/vsphere/properties:
     put:
@@ -13567,7 +13567,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified edge host device vsphere properties
       tags:
-      - edgeHosts
+      - edgehosts
       x-codegen-request-body-name: body
   /v1/events/components:
     get:
@@ -17301,7 +17301,7 @@ paths:
                 type: string
       summary: Creates an AKS cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aks/rate:
     post:
@@ -17331,7 +17331,7 @@ paths:
           description: Aks Cluster estimated rate response
       summary: Get AKS cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aks/validate:
     post:
@@ -17351,7 +17351,7 @@ paths:
           description: Aks Cluster validation response
       summary: Validates AKS cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aws:
     post:
@@ -17376,7 +17376,7 @@ paths:
                 type: string
       summary: Creates an AWS cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aws/import:
     post:
@@ -17401,7 +17401,7 @@ paths:
                 type: string
       summary: Imports an AWS cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aws/rate:
     post:
@@ -17431,7 +17431,7 @@ paths:
           description: Aws Cluster estimated rate response
       summary: Get AWS cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/aws/validate:
     post:
@@ -17451,7 +17451,7 @@ paths:
           description: Aws Cluster validation response
       summary: Validates AWS cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/azure:
     post:
@@ -17476,7 +17476,7 @@ paths:
                 type: string
       summary: Creates an Azure cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/azure/import:
     post:
@@ -17501,7 +17501,7 @@ paths:
                 type: string
       summary: Imports an Azure cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/azure/rate:
     post:
@@ -17531,7 +17531,7 @@ paths:
           description: Azure Cluster estimated rate response
       summary: Get Azure cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/azure/validate:
     post:
@@ -17551,7 +17551,7 @@ paths:
           description: Azure Cluster validation response
       summary: Validates Azure cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/cloudTypes/{cloudType}:
     post:
@@ -17583,7 +17583,7 @@ paths:
                 type: string
       summary: Creates a Custom cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/cloudTypes/{cloudType}/validate:
     post:
@@ -17610,7 +17610,7 @@ paths:
           description: Custom Cluster validation response
       summary: Validates Custom cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/config/edgeInstaller:
     get:
@@ -17624,7 +17624,7 @@ paths:
           description: (empty)
       summary: Cluster configuration for the edge installer
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/edge-native:
     post:
       operationId: v1SpectroClustersEdgeNativeCreate
@@ -17648,7 +17648,7 @@ paths:
                 type: string
       summary: Creates an EdgeNative cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/edge-native/import:
     post:
@@ -17673,7 +17673,7 @@ paths:
                 type: string
       summary: Imports an EdgeNative cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/edge-native/rate:
     post:
@@ -17703,7 +17703,7 @@ paths:
           description: EdgeNative Cluster estimated rate response
       summary: Get edge-native cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/edge-native/validate:
     post:
@@ -17723,7 +17723,7 @@ paths:
           description: EdgeNative Cluster validation response
       summary: Validates edge-native cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/eks:
     post:
@@ -17748,7 +17748,7 @@ paths:
                 type: string
       summary: Creates an EKS cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/eks/rate:
     post:
@@ -17778,7 +17778,7 @@ paths:
           description: Eks Cluster estimated rate response
       summary: Get EKS cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/eks/validate:
     post:
@@ -17798,7 +17798,7 @@ paths:
           description: Eks Cluster validation response
       summary: Validates EKS cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/features/backup/locations/{uid}:
     get:
@@ -17818,7 +17818,7 @@ paths:
           description: OK
       summary: Returns the cluster object references based on locationUid
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: V1ClusterFeatureBackupLocationUidChange
       parameters:
@@ -17839,7 +17839,7 @@ paths:
           description: The resource was updated successfully
       summary: Change cluster backup location
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/features/logFetcher/{uid}/download:
     get:
@@ -17872,7 +17872,7 @@ paths:
                 type: string
       summary: Download log fetcher logs for cluster by log fetcher uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/features/logFetcher/{uid}/log:
     post:
       operationId: v1ClusterFeatureLogFetcherLogUpdate
@@ -17904,7 +17904,7 @@ paths:
                 type: string
       summary: Update log fetcher logs by log fetcher uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/gcp:
     post:
       operationId: v1SpectroClustersGcpCreate
@@ -17928,7 +17928,7 @@ paths:
                 type: string
       summary: Creates a GCP cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gcp/import:
     post:
@@ -17953,7 +17953,7 @@ paths:
                 type: string
       summary: Imports a GCP cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gcp/rate:
     post:
@@ -17983,7 +17983,7 @@ paths:
           description: Gcp Cluster estimated rate response
       summary: Get GCP cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gcp/validate:
     post:
@@ -18003,7 +18003,7 @@ paths:
           description: Gcp Cluster validation response
       summary: Validates GCP cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/generic/import:
     post:
@@ -18030,7 +18030,7 @@ paths:
                 type: string
       summary: Imports a cluster of any cloud type in generic way
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/generic/rate:
     post:
@@ -18060,7 +18060,7 @@ paths:
           description: Genric Cluster estimated rate response
       summary: Get generic cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gke:
     post:
@@ -18085,7 +18085,7 @@ paths:
                 type: string
       summary: Creates an GKE cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gke/rate:
     post:
@@ -18115,7 +18115,7 @@ paths:
           description: Gke Cluster estimated rate response
       summary: Get GKE cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/gke/validate:
     post:
@@ -18135,7 +18135,7 @@ paths:
           description: Gke Cluster validation response
       summary: Validates GKE cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/maas:
     post:
@@ -18160,7 +18160,7 @@ paths:
                 type: string
       summary: Creates a MAAS cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/maas/import:
     post:
@@ -18185,7 +18185,7 @@ paths:
                 type: string
       summary: Imports a Maas cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/maas/rate:
     post:
@@ -18215,7 +18215,7 @@ paths:
           description: Maas Cluster estimated rate response
       summary: Get maas cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/maas/validate:
     post:
@@ -18235,7 +18235,7 @@ paths:
           description: Maas Cluster validation response
       summary: Validates MAAS cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/openstack:
     post:
@@ -18260,7 +18260,7 @@ paths:
                 type: string
       summary: Creates a OpenStack cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/openstack/import:
     post:
@@ -18285,7 +18285,7 @@ paths:
                 type: string
       summary: Imports an OpenStack cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/openstack/rate:
     post:
@@ -18315,7 +18315,7 @@ paths:
           description: Openstack Cluster estimated rate response
       summary: Get openstack cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/openstack/validate:
     post:
@@ -18335,7 +18335,7 @@ paths:
           description: vSphere Cluster validation response
       summary: Validates OpenStack cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/spc/download:
     post:
@@ -18360,7 +18360,7 @@ paths:
                 type: string
       summary: Downloads the cluster definition archive file
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/tags:
     get:
@@ -18374,7 +18374,7 @@ paths:
           description: An array of spectrocluster tags
       summary: Retrieves a list of spectrocluster tags
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/upgrade/settings:
     get:
       operationId: v1SpectroClustersUpgradeSettingsGet
@@ -18387,7 +18387,7 @@ paths:
           description: (empty)
       summary: Get cluster settings by context
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1SpectroClustersUpgradeSettings
       requestBody:
@@ -18407,7 +18407,7 @@ paths:
                 type: string
       summary: Update all clusters upgrade settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/validate/name:
     get:
@@ -18429,7 +18429,7 @@ paths:
                 type: string
       summary: Validates the cluster name
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/validate/packs:
     post:
       operationId: v1SpectroClustersValidatePacks
@@ -18448,7 +18448,7 @@ paths:
           description: Cluster packs validation response
       summary: Validates spectro cluster packs
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/virtual:
     post:
@@ -18473,7 +18473,7 @@ paths:
                 type: string
       summary: Creates a virtual cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/virtual/packs/values:
     get:
@@ -18498,7 +18498,7 @@ paths:
           description: Successful response
       summary: Get the cluster pack values yaml
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/virtual/validate:
     post:
       operationId: v1SpectroClustersVirtualValidate
@@ -18517,7 +18517,7 @@ paths:
           description: Virtual Cluster validation response
       summary: Validates virtual cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/vsphere:
     post:
@@ -18542,7 +18542,7 @@ paths:
                 type: string
       summary: Creates a vSphere cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/vsphere/import:
     post:
@@ -18567,7 +18567,7 @@ paths:
                 type: string
       summary: Imports a vSphere cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/vsphere/rate:
     post:
@@ -18597,7 +18597,7 @@ paths:
           description: Vsphere Cluster estimated rate response
       summary: Get vSphere cluster estimated rate information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/vsphere/validate:
     post:
@@ -18617,7 +18617,7 @@ paths:
           description: vSphere Cluster validation response
       summary: Validates vSphere cluster create operation
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}:
     delete:
@@ -18641,7 +18641,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the specified cluster
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1SpectroClustersGet
       parameters:
@@ -18687,7 +18687,7 @@ paths:
           description: OK
       summary: Returns the specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/assets:
     get:
       operationId: v1SpectroClustersUidAssetsGet
@@ -18706,7 +18706,7 @@ paths:
           description: OK
       summary: Get the cluster asset doc
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1SpectroClustersUidAssets
       parameters:
@@ -18732,7 +18732,7 @@ paths:
                 type: string
       summary: Associate the assets for the cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/assets/adminKubeconfig:
     get:
@@ -18758,7 +18758,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's kube config file
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/assets/adminTokenKubeconfig:
     delete:
       operationId: v1SpectroClustersUidTokenKubeConfigDelete
@@ -18775,7 +18775,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the cluster's token kube config data
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1SpectroClustersUidTokenKubeConfigGet
       parameters:
@@ -18799,7 +18799,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's token kube config file
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidTokenKubeConfigUpdate
       parameters:
@@ -18821,7 +18821,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's token kube config data
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/assets/frpKubeconfig:
     delete:
@@ -18839,7 +18839,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the cluster's frp kube config client data
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1SpectroClustersUidFrpKubeConfigGet
       parameters:
@@ -18863,7 +18863,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's frp kube config file
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidFrpKubeConfigUpdate
       parameters:
@@ -18885,7 +18885,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's frp kube config data
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/assets/kubeconfig:
     get:
@@ -18917,7 +18917,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's kube config file
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidKubeConfigUpdate
       parameters:
@@ -18939,7 +18939,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's manifest data
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/assets/kubeconfigclient:
     delete:
@@ -18957,7 +18957,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the cluster's kube config client data
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1SpectroClustersUidKubeConfigClientGet
       parameters:
@@ -18981,7 +18981,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's kube config client file
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidKubeConfigClientUpdate
       parameters:
@@ -19003,7 +19003,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's kube config client data
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/assets/manifest:
     get:
@@ -19024,7 +19024,7 @@ paths:
           description: OK
       summary: Returns the specified cluster's manifest data
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidManifestUpdate
       parameters:
@@ -19046,7 +19046,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster's manifest data
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/clusterConfig/clusterMetaAttribute:
     patch:
@@ -19070,7 +19070,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster meta attribute
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/clusterConfig/controlPlaneHealthCheckTimeout:
     patch:
@@ -19094,7 +19094,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster controlPlane health check timeout
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/clusterConfig/hostCluster:
     patch:
@@ -19118,7 +19118,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster host config
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/clusterConfig/lifecycleConfig:
     patch:
@@ -19142,7 +19142,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster Life cycle configuration
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/clusterConfig/osPatch:
     patch:
@@ -19166,7 +19166,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster OS patch configuration
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/config/namespaces:
     get:
@@ -19187,7 +19187,7 @@ paths:
           description: OK
       summary: Retrieves namespaces for the specified cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidConfigNamespacesUpdate
       parameters:
@@ -19209,7 +19209,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates namespaces for the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/config/namespaces/{namespaceUid}:
     get:
@@ -19236,7 +19236,7 @@ paths:
           description: Cluster's namespace response
       summary: Retrieves the specified namespace of the cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidConfigNamespacesUidUpdate
       parameters:
@@ -19264,7 +19264,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified namespace of the cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/config/rbacs:
     get:
@@ -19285,7 +19285,7 @@ paths:
           description: OK
       summary: Retrieves RBAC information for the specified cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidConfigRbacsUpdate
       parameters:
@@ -19307,7 +19307,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates RBAC information for the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/config/rbacs/{rbacUid}:
     get:
@@ -19334,7 +19334,7 @@ paths:
           description: Cluster's RBAC response
       summary: Retrieves the specified RBAC of the cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersUidConfigRbacsUidUpdate
       parameters:
@@ -19362,7 +19362,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified RBAC of the cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/download:
     get:
@@ -19388,7 +19388,7 @@ paths:
                 type: string
       summary: Download the specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/edge-native/edgeHosts:
     get:
       operationId: v1EdgeNativeClustersHostsList
@@ -19408,7 +19408,7 @@ paths:
           description: List of edge host device
       summary: Retrieves a list of edge host of edge-native cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/edge/reset:
     post:
       operationId: V1SpectroClustersUidEdgeReset
@@ -19430,7 +19430,7 @@ paths:
                 type: string
       summary: reset the edge clusters by deleting machine pools and conditions
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/backup:
     delete:
       operationId: v1ClusterFeatureBackupScheduleReset
@@ -19446,7 +19446,7 @@ paths:
           description: The resource was deleted successfully
       summary: Reset cluster backup schedule settings
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1ClusterFeatureBackupGet
       parameters:
@@ -19468,7 +19468,7 @@ paths:
           description: OK
       summary: Returns the cluster backup result
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1ClusterFeatureBackupCreate
       parameters:
@@ -19497,7 +19497,7 @@ paths:
                 type: string
       summary: Create cluster backup settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
     put:
       operationId: v1ClusterFeatureBackupUpdate
@@ -19519,7 +19519,7 @@ paths:
           description: The resource was updated successfully
       summary: Update cluster backup settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/backup/onDemand:
     post:
@@ -19550,7 +19550,7 @@ paths:
                 type: string
       summary: Create on demand cluster backup
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/backup/{backupName}/request/{requestUid}:
     delete:
@@ -19577,7 +19577,7 @@ paths:
           description: The resource was deleted successfully
       summary: Delete cluster backup
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan:
     get:
       operationId: v1ClusterFeatureComplianceScanGet
@@ -19597,7 +19597,7 @@ paths:
       summary: "Returns the compliance scan of cluster, if driverType is provided\
         \ then specific status of driverType will be returned"
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1ClusterFeatureComplianceScanCreate
       parameters:
@@ -19626,7 +19626,7 @@ paths:
                 type: string
       summary: Create cluster compliance scan
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
     put:
       operationId: v1ClusterFeatureComplianceScanUpdate
@@ -19648,7 +19648,7 @@ paths:
           description: The resource was updated successfully
       summary: Update cluster compliance scan settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/complianceScan/logs/drivers:
     get:
@@ -19668,7 +19668,7 @@ paths:
           description: OK
       summary: Returns the compliance scan log by cluster uid and driver type
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/drivers/kubeBench:
     put:
       operationId: v1ClusterFeatureScanKubeBenchLogUpdate
@@ -19690,7 +19690,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the KubeBench compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/complianceScan/logs/drivers/kubeHunter:
     put:
@@ -19713,7 +19713,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the KubeHunter compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/complianceScan/logs/drivers/sonobuoy:
     put:
@@ -19736,7 +19736,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the Sonobuoy compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/complianceScan/logs/drivers/syft:
     patch:
@@ -19759,7 +19759,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the Syft compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}:
     delete:
@@ -19781,7 +19781,7 @@ paths:
           description: The resource was deleted successfully
       summary: Delete the compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/kubeBench:
     get:
       operationId: v1ClusterFeatureKubeBenchLogGet
@@ -19809,7 +19809,7 @@ paths:
           description: OK
       summary: Returns the KubeBench compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/kubeHunter:
     get:
       operationId: v1ClusterFeatureKubeHunterLogGet
@@ -19837,7 +19837,7 @@ paths:
           description: OK
       summary: Returns the KubeHunter compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/sonobuoy:
     get:
       operationId: v1ClusterFeatureSonobuoyLogGet
@@ -19865,7 +19865,7 @@ paths:
           description: OK
       summary: Returns the Sonobuoy compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/syft:
     get:
       operationId: v1ClusterFeatureSyftLogGet
@@ -19889,7 +19889,7 @@ paths:
           description: OK
       summary: Returns the Syft compliance scan log by uid
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/syft/sbom:
     get:
       operationId: v1SyftScanLogImageSBOMGet
@@ -19923,7 +19923,7 @@ paths:
                 type: string
       summary: Returns the image sbom of syft scan log of cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/logs/{logUid}/drivers/{driver}/download:
     get:
       operationId: v1ClusterFeatureDriverLogDownload
@@ -19970,7 +19970,7 @@ paths:
                 type: string
       summary: Downloads the driver cluster logs
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/complianceScan/onDemand:
     post:
       operationId: v1ClusterFeatureComplianceScanOnDemandCreate
@@ -20000,7 +20000,7 @@ paths:
                 type: string
       summary: Create on demand cluster compliance scan
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/helmCharts:
     get:
@@ -20020,7 +20020,7 @@ paths:
           description: OK
       summary: Get the installed helm charts of a specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/logFetcher:
     get:
       operationId: v1ClusterFeatureLogFetcherGet
@@ -20044,7 +20044,7 @@ paths:
           description: OK
       summary: Get the log fetcher for cluster
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1ClusterFeatureLogFetcherCreate
       parameters:
@@ -20074,7 +20074,7 @@ paths:
                 type: string
       summary: Create the log fetcher for cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/features/manifests:
     get:
@@ -20094,7 +20094,7 @@ paths:
           description: OK
       summary: Get the installed manifests of a specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/restore:
     get:
       operationId: v1ClusterFeatureRestoreGet
@@ -20117,7 +20117,7 @@ paths:
           description: OK
       summary: Returns the cluster restore of cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/features/restore/onDemand:
     post:
       operationId: v1ClusterFeatureRestoreOnDemandCreate
@@ -20147,7 +20147,7 @@ paths:
                 type: string
       summary: Create on demand cluster restore
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/heartbeat:
     put:
@@ -20171,7 +20171,7 @@ paths:
           description: The resource was updated successfully
       summary: Update specific cluster heartbeat
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/hybridPools/metadata:
     get:
@@ -20193,7 +20193,7 @@ paths:
       summary: Returns the metadata of all hybrid pools associated with the specified
         cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/hybridSettings:
     patch:
       operationId: v1SpectroClustersUidHybridSettings
@@ -20221,7 +20221,7 @@ paths:
                 type: string
       summary: Update specific cluster hybrid settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/import/manifest:
     get:
@@ -20246,7 +20246,7 @@ paths:
                 type: string
       summary: Returns the specified cluster's import manifest file
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/import/upgrade:
     patch:
       operationId: v1SpectroClustersUidImportUpgradePatch
@@ -20263,7 +20263,7 @@ paths:
           description: The resource was updated successfully
       summary: Upgrade the specified imported read only cluster with full permissions
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/k8certificates:
     get:
       operationId: v1SpectroClustersK8Certificate
@@ -20283,7 +20283,7 @@ paths:
           description: OK
       summary: Get K8Certificate for spectro cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersK8CertificateUpdate
       parameters:
@@ -20305,7 +20305,7 @@ paths:
           description: The resource was updated successfully
       summary: Update K8Certificate for spectro cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/k8certificates/renew:
     patch:
@@ -20323,7 +20323,7 @@ paths:
           description: The resource was updated successfully
       summary: Sets the cluster control plane nodes Kubernetes certificates for renewal
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/kubectl/redirect:
     get:
       operationId: V1SpectroClustersUidKubeCtlRedirect
@@ -20343,7 +20343,7 @@ paths:
           description: (empty)
       summary: Returns the specified cluster's kube config file
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/location:
     put:
       operationId: v1SpectroClustersUidLocationPut
@@ -20371,7 +20371,7 @@ paths:
                 type: string
       summary: Associate the assets for the cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/metadata:
     patch:
@@ -20395,7 +20395,7 @@ paths:
           description: The resource was updated successfully
       summary: Update the specified spectro cluster metadata
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/namespaces:
     get:
@@ -20420,7 +20420,7 @@ paths:
           description: OK
       summary: Returns available namespaces for the cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/oidc:
     get:
       operationId: V1SpectroClustersUidOIDC
@@ -20440,7 +20440,7 @@ paths:
           description: OK
       summary: Returns k8s spectrocluster oidc
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/oidc/dashboard/url:
     get:
       operationId: V1SpectroClustersUidOIDCDashboardUrl
@@ -20460,7 +20460,7 @@ paths:
           description: OK
       summary: Returns k8s dashboard url
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/pack/manifests/{manifestUid}:
     get:
       operationId: v1SpectroClustersUidPackManifestsUidGet
@@ -20492,7 +20492,7 @@ paths:
           description: Pack manifest content
       summary: Returns the specified cluster's manifest
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/pack/properties:
     get:
       operationId: v1SpectroClustersUidPackProperties
@@ -20535,7 +20535,7 @@ paths:
           description: Cluster's pack properties response
       summary: Get specified cluster pack properties
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/packRefs:
     patch:
       operationId: v1SpectroClustersPacksRefUpdate
@@ -20561,7 +20561,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's pack references
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/packs/resolvedValues:
     get:
@@ -20588,7 +20588,7 @@ paths:
           description: OK
       summary: Returns the specified cluster's packs resolved values
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/packs/status:
     patch:
@@ -20612,7 +20612,7 @@ paths:
           description: The resource was updated successfully
       summary: Patch update specified cluster's packs status
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/profileUpdates:
     get:
@@ -20633,7 +20633,7 @@ paths:
           description: OK
       summary: Returns the profile updates of a specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/profiles:
     delete:
       operationId: v1SpectroClustersDeleteProfiles
@@ -20656,7 +20656,7 @@ paths:
           description: The resource was updated successfully
       summary: Remove cluster profiles from the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
     get:
       operationId: v1SpectroClustersGetProfiles
@@ -20681,7 +20681,7 @@ paths:
           description: OK
       summary: Returns the associated profiles of a specified cluster
       tags:
-      - clusters
+      - spectroclusters
     patch:
       operationId: v1SpectroClustersPatchProfiles
       parameters:
@@ -20709,7 +20709,7 @@ paths:
           description: The resource was updated successfully
       summary: Patch cluster profiles to the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
     put:
       operationId: v1SpectroClustersUpdateProfiles
@@ -20738,7 +20738,7 @@ paths:
           description: The resource was updated successfully
       summary: Associate cluster profiles to the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/profiles/packs/manifests:
     get:
@@ -20770,7 +20770,7 @@ paths:
           description: OK
       summary: Returns the associated profile's pack manifests of a specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/profiles/{profileUid}/packs/{packName}/config:
     get:
       operationId: v1SpectroClustersUidProfilesUidPacksConfigGet
@@ -20802,7 +20802,7 @@ paths:
           description: An array of cluster pack values
       summary: Returns the specified cluster's profile pack configuration
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/profiles/{profileUid}/packs/{packName}/manifests:
     get:
       operationId: v1SpectroClustersProfilesUidPackManifestsGet
@@ -20834,7 +20834,7 @@ paths:
           description: OK
       summary: Returns the associated profiles pack manifests of the specified cluster
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersProfilesUidPackManifestsUpdate
       parameters:
@@ -20868,7 +20868,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates cluster profiles pack manifests to the specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/rate:
     get:
@@ -20899,7 +20899,7 @@ paths:
           description: OK
       summary: Returns the estimated rate of the specified cluster
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/repave/approve:
     patch:
       operationId: v1SpectroClustersUidRepaveApproveUpdate
@@ -20916,7 +20916,7 @@ paths:
           description: The resource was updated successfully
       summary: Returns the spectrocluster repave approve update
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/repave/status:
     get:
       operationId: v1SpectroClustersUidRepaveGet
@@ -20936,7 +20936,7 @@ paths:
           description: Returns cluster repave status
       summary: Returns the spectrocluster repave
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/reset:
     put:
       operationId: V1SpectroClustersUidReset
@@ -20958,7 +20958,7 @@ paths:
                 type: string
       summary: reset the cluster s by deleting machine pools and condtions
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/status:
     get:
       operationId: v1SpectroClustersUidStatus
@@ -20978,7 +20978,7 @@ paths:
           description: OK
       summary: Get the cluster's status
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/status/condition:
     put:
       operationId: v1SpectroClustersUpdateStatusCondition
@@ -21000,7 +21000,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster status condition
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/status/conditions:
     patch:
@@ -21025,7 +21025,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster status conditions
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/status/endpoints:
     put:
@@ -21050,7 +21050,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster's service endpoints information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/status/imported:
     patch:
@@ -21067,7 +21067,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster status as imported
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/status/services:
     put:
       operationId: v1SpectroClustersUpdateStatusServices
@@ -21091,7 +21091,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the specified cluster's services information
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/status/spcApply:
     get:
@@ -21111,7 +21111,7 @@ paths:
           description: (empty)
       summary: Returns the SPC apply information for the agent
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1SpectroClustersUidStatusSpcApply
       parameters:
@@ -21132,7 +21132,7 @@ paths:
       summary: Set the CanBeApplied to true on the spcApply status. CanBeApplied indicates
         the agent to orchestrate the spc changes
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/status/spcApply/patchTime:
     patch:
       operationId: v1SpectroClustersUidStatusSpcPatchTime
@@ -21154,7 +21154,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the agent patch time for the SPC changes
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/status/upgrades:
     put:
@@ -21177,7 +21177,7 @@ paths:
           description: The resource was updated successfully
       summary: Updates the cluster's upgrade status
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/upgrade/settings:
     post:
@@ -21206,7 +21206,7 @@ paths:
                 type: string
       summary: Update specific cluster upgrade settings
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/validate/packs:
     post:
@@ -21233,7 +21233,7 @@ paths:
           description: Cluster packs validation response
       summary: Validates cluster packs
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/validate/repave:
     post:
@@ -21260,7 +21260,7 @@ paths:
           description: Cluster repave validation response
       summary: Validates if cluster gets repaved for the specified packs
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/variables:
     get:
@@ -21283,7 +21283,7 @@ paths:
           description: (empty)
       summary: Retrieve a list of variables associated with the cluster
       tags:
-      - clusters
+      - spectroclusters
     patch:
       operationId: v1SpectroClustersUidVariablesPatch
       parameters:
@@ -21307,7 +21307,7 @@ paths:
           description: The resource was updated successfully
       summary: Update cluster variable values for specified cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms:
     get:
@@ -21352,7 +21352,7 @@ paths:
           description: OK
       summary: Returns the list of virtual machines
       tags:
-      - clusters
+      - spectroclusters
     post:
       operationId: v1SpectroClustersVMCreate
       parameters:
@@ -21383,7 +21383,7 @@ paths:
           description: (empty)
       summary: Create virtual machine
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/snapshot:
     get:
@@ -21437,7 +21437,7 @@ paths:
           description: OK
       summary: Returns the list of snapshots of given namespaces
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}:
     delete:
       operationId: v1SpectroClustersVMDelete
@@ -21466,7 +21466,7 @@ paths:
           description: The resource was deleted successfully
       summary: Deletes the virtual machine
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1SpectroClustersVMGet
       parameters:
@@ -21497,7 +21497,7 @@ paths:
           description: (empty)
       summary: Get virtual machine
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1SpectroClustersVMUpdate
       parameters:
@@ -21534,7 +21534,7 @@ paths:
           description: (empty)
       summary: Updates the specified virtual machine of the cluster
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/addVolume:
     put:
@@ -21575,7 +21575,7 @@ paths:
                 type: string
       summary: Add volume to the virtual machine instance
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/clone:
     post:
@@ -21614,7 +21614,7 @@ paths:
           description: (empty)
       summary: Clone virtual machine
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/migrate:
     put:
@@ -21649,7 +21649,7 @@ paths:
                 type: string
       summary: Migrate the virtual machine
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}/pause:
     put:
       operationId: v1SpectroClustersVMPause
@@ -21683,7 +21683,7 @@ paths:
                 type: string
       summary: Pause the virtual machine instance
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}/removeVolume:
     put:
       operationId: v1SpectroClustersVMRemoveVolume
@@ -21723,7 +21723,7 @@ paths:
                 type: string
       summary: Remove volume from the virtual machine instance
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/restart:
     put:
@@ -21758,7 +21758,7 @@ paths:
                 type: string
       summary: Restart the virtual machine
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}/resume:
     put:
       operationId: v1SpectroClustersVMResume
@@ -21792,7 +21792,7 @@ paths:
                 type: string
       summary: Resume the virtual machine instance
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}/snapshot:
     post:
       operationId: v1VMSnapshotCreate
@@ -21830,7 +21830,7 @@ paths:
           description: (empty)
       summary: Create snapshot of virtual machine
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/snapshot/{snapshotName}:
     delete:
@@ -21866,7 +21866,7 @@ paths:
           description: The resource was deleted successfully
       summary: Delete the snapshot of virtual machine
       tags:
-      - clusters
+      - spectroclusters
     get:
       operationId: v1VMSnapshotGet
       parameters:
@@ -21903,7 +21903,7 @@ paths:
           description: (empty)
       summary: Get virtual machine snapshot
       tags:
-      - clusters
+      - spectroclusters
     put:
       operationId: v1VMSnapshotUpdate
       parameters:
@@ -21946,7 +21946,7 @@ paths:
           description: (empty)
       summary: Updates the specified snapshot of a virtual machine
       tags:
-      - clusters
+      - spectroclusters
       x-codegen-request-body-name: body
   /v1/spectroclusters/{uid}/vms/{vmName}/start:
     put:
@@ -21981,7 +21981,7 @@ paths:
                 type: string
       summary: Start the virtual machine
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/vms/{vmName}/stop:
     put:
       operationId: v1SpectroClustersVMStop
@@ -22015,7 +22015,7 @@ paths:
                 type: string
       summary: Stop the virtual machine
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/workloads/sync:
     post:
       description: Sync specified cluster workload
@@ -22037,7 +22037,7 @@ paths:
                 type: string
       summary: Sync specified cluster workload
       tags:
-      - clusters
+      - spectroclusters
   /v1/spectroclusters/{uid}/workloads/{workloadKind}/sync:
     post:
       operationId: v1SpectroClustersUidWorkloadsKindSync
@@ -22075,7 +22075,7 @@ paths:
                 type: string
       summary: Sync specified cluster workload
       tags:
-      - clusters
+      - spectroclusters
   /v1/system/config/reverseproxy:
     get:
       operationId: V1SystemConfigReverseProxyGet

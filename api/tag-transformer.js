@@ -12,6 +12,15 @@ const fs = require('fs');
 const path = require('path');
 
 /**
+ * Convert string to camelCase
+ * @param {string} str - The string to convert
+ * @returns {string} - The camelCase string
+ */
+function toCamelCase(str) {
+  return str.replace(/[-_]([a-z])/g, (match, letter) => letter.toUpperCase());
+}
+
+/**
  * Extract meaningful tag from endpoint path
  * @param {string} path - The endpoint path
  * @returns {string} - The extracted tag
@@ -21,51 +30,17 @@ function extractTagFromPath(path) {
   const segments = path.replace(/^\/v1\//, '').split('/');
   const firstSegment = segments[0];
   
-  // Map common patterns to meaningful tags (using camelCase)
-  const tagMap = {
-    'apiKeys': 'apiKeys',
-    'appDeployments': 'appDeployments', 
-    'appProfiles': 'appProfiles',
-    'appTiers': 'appTiers',
-    'audits': 'audits',
-    'auth': 'auth',
-    'cloudaccounts': 'cloudAccounts',
-    'cloudconfigs': 'cloudConfigs',
-    'clustergroups': 'clusterGroups',
-    'clusterprofiles': 'clusterProfiles',
-    'spectroclusters': 'clusters',
-    'clusters': 'clusters',
-    'dashboard': 'dashboard',
-    'datasinks': 'dataSinks',
-    'edgehosts': 'edgeHosts',
-    'events': 'events',
-    'features': 'features',
-    'filters': 'filters',
-    'metrics': 'metrics',
-    'notifications': 'notifications',
-    'overlords': 'overlords',
-    'packs': 'packs',
-    'pcg': 'pcg',
-    'permissions': 'permissions',
-    'projects': 'projects',
-    'registries': 'registries',
-    'roles': 'roles',
-    'services': 'services',
-    'system': 'system',
-    'teams': 'teams',
-    'tenants': 'tenants',
-    'users': 'users',
-    'workspaces': 'workspaces',
-    'clouds': 'clouds'
+  // Handle special cases that don't follow the standard camelCase pattern
+  const specialCases = {
+    'spectroclusters': 'spectroclusters'
   };
-
-  // Return mapped tag or use the first segment as fallback (converted to camelCase)
-  if (tagMap[firstSegment]) {
-    return tagMap[firstSegment];
+  
+  if (specialCases[firstSegment]) {
+    return specialCases[firstSegment];
   }
   
-  // Convert kebab-case or snake_case to camelCase as fallback
-  return firstSegment.replace(/[-_]([a-z])/g, (match, letter) => letter.toUpperCase());
+  // Convert to camelCase for all other cases
+  return toCamelCase(firstSegment);
 }
 
 /**

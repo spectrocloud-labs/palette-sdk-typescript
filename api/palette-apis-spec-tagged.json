@@ -39881,7 +39881,7 @@
         },
         "summary": "Retrieves a list of AWS cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -39912,7 +39912,7 @@
         },
         "summary": "Creates an AWS cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -39926,7 +39926,7 @@
         },
         "summary": "Deletes the specified AWS account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -39949,7 +39949,7 @@
         },
         "summary": "Returns the specified AWS account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -39979,7 +39979,7 @@
         },
         "summary": "Updates the specified AWS account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40037,7 +40037,7 @@
         },
         "summary": "Retrieves a list of azure cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -40068,7 +40068,7 @@
         },
         "summary": "Create azure cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40082,7 +40082,7 @@
         },
         "summary": "Deletes the specified azure account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -40097,7 +40097,7 @@
         },
         "summary": "Returns the specified azure cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40127,7 +40127,7 @@
         },
         "summary": "Updates the specified azure account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40185,7 +40185,7 @@
         },
         "summary": "Retrieves a list of cloud accounts by cloud type",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40225,7 +40225,7 @@
         },
         "summary": "Creates an cloud account of specific cloud type",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40239,7 +40239,7 @@
         },
         "summary": "Deletes the specified account by cloud type",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -40254,7 +40254,7 @@
         },
         "summary": "Returns the specified account by cloud type",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40291,7 +40291,7 @@
         },
         "summary": "Updates the specified account by cloud type",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40349,7 +40349,7 @@
         },
         "summary": "Retrieves a list of gcp cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -40380,7 +40380,7 @@
         },
         "summary": "Creates a GCP cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40394,7 +40394,7 @@
         },
         "summary": "Deletes the specified GCP account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -40409,7 +40409,7 @@
         },
         "summary": "Returns the specified GCP cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40440,7 +40440,7 @@
         },
         "summary": "Updates the specified GCP account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40498,7 +40498,7 @@
         },
         "summary": "Retrieves a list of Maas cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -40529,7 +40529,7 @@
         },
         "summary": "Creates an Maas cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40543,7 +40543,7 @@
         },
         "summary": "Deletes the specified Maas account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -40558,7 +40558,7 @@
         },
         "summary": "Returns the specified Maas account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40589,7 +40589,7 @@
         },
         "summary": "Patches the specified CloudAccount Maas",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "put": {
@@ -40610,7 +40610,7 @@
         },
         "summary": "Updates the specified Maas account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40627,7 +40627,7 @@
         },
         "summary": "Get the maas azs for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40652,7 +40652,7 @@
         },
         "summary": "Get the maas domains for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40677,7 +40677,7 @@
         },
         "summary": "Get the maas pools for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40702,7 +40702,7 @@
         },
         "summary": "Get the maas subnets for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40727,7 +40727,7 @@
         },
         "summary": "Get the maas tags for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40793,7 +40793,7 @@
         },
         "summary": "Retrieves a list of OpenStack cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -40824,7 +40824,7 @@
         },
         "summary": "Creates a OpenStack cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40838,7 +40838,7 @@
         },
         "summary": "Deletes the specified OpenStack account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -40853,7 +40853,7 @@
         },
         "summary": "Returns the specified OpenStack account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40883,7 +40883,7 @@
         },
         "summary": "Updates the specified OpenStack account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -40917,7 +40917,7 @@
         },
         "summary": "Get the openstack azs for a given account and region",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -40959,7 +40959,7 @@
         },
         "summary": "Get the openstack keypairs for a given account and scope",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41001,7 +41001,7 @@
         },
         "summary": "Get the openstack keypairs for a given account and scope",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41043,7 +41043,7 @@
         },
         "summary": "Get the openstack networks for a given account and scope",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41068,7 +41068,7 @@
         },
         "summary": "Get the openstack projects for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41093,7 +41093,7 @@
         },
         "summary": "Get the openstack regions for a given account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41153,7 +41153,7 @@
         },
         "summary": "Retrieves a list of cloud accounts summary",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -41211,7 +41211,7 @@
         },
         "summary": "Retrieves a list of vSphere cloud accounts",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "post": {
@@ -41242,7 +41242,7 @@
         },
         "summary": "Creates a vSphere cloud account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -41256,7 +41256,7 @@
         },
         "summary": "Deletes the specified vSphere account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "get": {
@@ -41271,7 +41271,7 @@
         },
         "summary": "Returns the specified vSphere account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41302,7 +41302,7 @@
         },
         "summary": "Updates the specified VSphere account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -41319,7 +41319,7 @@
         },
         "summary": "Get the vSphere computecluster resources for the given overlord account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41361,7 +41361,7 @@
         },
         "summary": "Get the vSphere datacenters & datacluster for the given overlord account",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       },
       "parameters": [
@@ -41401,7 +41401,7 @@
         },
         "summary": "Update the geolocation annotation",
         "tags": [
-          "cloudAccounts"
+          "cloudaccounts"
         ]
       }
     },
@@ -41418,7 +41418,7 @@
         },
         "summary": "Returns the specified AKS cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41459,7 +41459,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41500,7 +41500,7 @@
         },
         "summary": "Creates an AKS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41514,7 +41514,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41551,7 +41551,7 @@
         },
         "summary": "Updates the specified AKS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41609,7 +41609,7 @@
         },
         "summary": "Retrieves a list of AKS machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41655,7 +41655,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41669,7 +41669,7 @@
         },
         "summary": "Deletes the specified Azure machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -41684,7 +41684,7 @@
         },
         "summary": "Returns the specified AKS machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41728,7 +41728,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41745,7 +41745,7 @@
         },
         "summary": "Returns the specified AWS cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41786,7 +41786,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41818,7 +41818,7 @@
         },
         "summary": "Updates the hybrid configuration information of AWS cluster",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41859,7 +41859,7 @@
         },
         "summary": "Creates an Hybrid AWS cloud config's Edge-Native machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41873,7 +41873,7 @@
         },
         "summary": "Deletes the specified Edge-Native machine pool of hybrid AWS cluster",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -41888,7 +41888,7 @@
         },
         "summary": "Returns the specified AWS Cluster's Edge-Native machine pool configuration",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -41925,7 +41925,7 @@
         },
         "summary": "Updates the specified Hybrid AWS cluster cloud config's Edge-Native machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41966,7 +41966,7 @@
         },
         "summary": "Creates an AWS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -41980,7 +41980,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42017,7 +42017,7 @@
         },
         "summary": "Updates the specified AWS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42075,7 +42075,7 @@
         },
         "summary": "Retrieves a list of AWS machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42121,7 +42121,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42135,7 +42135,7 @@
         },
         "summary": "Deletes the specified AWS machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -42150,7 +42150,7 @@
         },
         "summary": "Returns the specified AWS machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42194,7 +42194,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42211,7 +42211,7 @@
         },
         "summary": "Returns the specified Azure cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42252,7 +42252,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42293,7 +42293,7 @@
         },
         "summary": "Creates an Azure cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42307,7 +42307,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42344,7 +42344,7 @@
         },
         "summary": "Updates the specified Azure cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42403,7 +42403,7 @@
         },
         "summary": "Retrieves a list of Azure machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42449,7 +42449,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42463,7 +42463,7 @@
         },
         "summary": "Deletes the specified Azure machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -42479,7 +42479,7 @@
         },
         "summary": "Returns the specified Azure machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42523,7 +42523,7 @@
         },
         "summary": "Updates the specified machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42540,7 +42540,7 @@
         },
         "summary": "Returns the specified Custom cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42595,7 +42595,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42643,7 +42643,7 @@
         },
         "summary": "Creates an Custom cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42657,7 +42657,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42701,7 +42701,7 @@
         },
         "summary": "Updates the specified Custom cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42759,7 +42759,7 @@
         },
         "summary": "Retrieves a list of Custom machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42812,7 +42812,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42826,7 +42826,7 @@
         },
         "summary": "Deletes the specified Custom machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -42841,7 +42841,7 @@
         },
         "summary": "Returns the specified Custom machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42892,7 +42892,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42909,7 +42909,7 @@
         },
         "summary": "Returns the specified edge-native cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -42950,7 +42950,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -42991,7 +42991,7 @@
         },
         "summary": "Creates a edge-native cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43005,7 +43005,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43042,7 +43042,7 @@
         },
         "summary": "Updates the specified edge-native cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43059,7 +43059,7 @@
         },
         "summary": "Retrieves a list of edge-native machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43105,7 +43105,7 @@
         },
         "summary": "Adds the edge-native machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43119,7 +43119,7 @@
         },
         "summary": "Deletes the specified edge-native machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -43134,7 +43134,7 @@
         },
         "summary": "Returns the specified edge-native machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43178,7 +43178,7 @@
         },
         "summary": "Updates the specified machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43195,7 +43195,7 @@
         },
         "summary": "Returns the specified EKS cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43236,7 +43236,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43268,7 +43268,7 @@
         },
         "summary": "Updates EKS cloud config's fargate profiles",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43309,7 +43309,7 @@
         },
         "summary": "Creates an EKS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43323,7 +43323,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43360,7 +43360,7 @@
         },
         "summary": "Updates the specified EKS cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43418,7 +43418,7 @@
         },
         "summary": "Retrieves a list of EKS machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43464,7 +43464,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43478,7 +43478,7 @@
         },
         "summary": "Deletes the specified EKS machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -43493,7 +43493,7 @@
         },
         "summary": "Returns the specified EKS machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43537,7 +43537,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43554,7 +43554,7 @@
         },
         "summary": "Returns the specified GCP cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43595,7 +43595,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43636,7 +43636,7 @@
         },
         "summary": "Creates a Gcp cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43650,7 +43650,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43687,7 +43687,7 @@
         },
         "summary": "Updates the specified GCP cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43745,7 +43745,7 @@
         },
         "summary": "Retrieves a list of GCP machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43791,7 +43791,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43805,7 +43805,7 @@
         },
         "summary": "Deletes the specified GCP machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -43820,7 +43820,7 @@
         },
         "summary": "Returns the specified GCP machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43864,7 +43864,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43881,7 +43881,7 @@
         },
         "summary": "Returns the specified Generic cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -43922,7 +43922,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43963,7 +43963,7 @@
         },
         "summary": "Creates a generic cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -43977,7 +43977,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44014,7 +44014,7 @@
         },
         "summary": "Updates the specified generic cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44072,7 +44072,7 @@
         },
         "summary": "Retrieves a list of Generic machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44118,7 +44118,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44132,7 +44132,7 @@
         },
         "summary": "Deletes the specified machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -44147,7 +44147,7 @@
         },
         "summary": "Returns the specified generic machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44191,7 +44191,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44208,7 +44208,7 @@
         },
         "summary": "Returns the specified GKE cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44249,7 +44249,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44290,7 +44290,7 @@
         },
         "summary": "Creates an GKE cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44304,7 +44304,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44341,7 +44341,7 @@
         },
         "summary": "Updates the specified GKE cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44399,7 +44399,7 @@
         },
         "summary": "Retrieves a list of GKE machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44445,7 +44445,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44459,7 +44459,7 @@
         },
         "summary": "Deletes the specified Gcp machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -44474,7 +44474,7 @@
         },
         "summary": "Returns the specified GKE machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44518,7 +44518,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44535,7 +44535,7 @@
         },
         "summary": "Returns the specified Maas cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44576,7 +44576,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44617,7 +44617,7 @@
         },
         "summary": "Creates an Maas cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44631,7 +44631,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44668,7 +44668,7 @@
         },
         "summary": "Updates the specified Maas cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44726,7 +44726,7 @@
         },
         "summary": "Retrieves a list of Maas machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44772,7 +44772,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44786,7 +44786,7 @@
         },
         "summary": "Deletes the specified Maas machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -44801,7 +44801,7 @@
         },
         "summary": "Returns the specified Maas machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44845,7 +44845,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44862,7 +44862,7 @@
         },
         "summary": "Returns the specified OpenStack cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44903,7 +44903,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44944,7 +44944,7 @@
         },
         "summary": "Creates a OpenStack cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -44958,7 +44958,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -44995,7 +44995,7 @@
         },
         "summary": "Updates the specified OpenStack cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45012,7 +45012,7 @@
         },
         "summary": "Retrieves a list of OpenStack machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45058,7 +45058,7 @@
         },
         "summary": "Adds the OpenStack machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45072,7 +45072,7 @@
         },
         "summary": "Deletes the specified OpenStack machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -45087,7 +45087,7 @@
         },
         "summary": "Returns the specified OpenStack machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45131,7 +45131,7 @@
         },
         "summary": "Updates the specified machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45148,7 +45148,7 @@
         },
         "summary": "Returns the specified Virtual cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45189,7 +45189,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45230,7 +45230,7 @@
         },
         "summary": "Creates a virtual cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45244,7 +45244,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45281,7 +45281,7 @@
         },
         "summary": "Updates the specified virtual cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45339,7 +45339,7 @@
         },
         "summary": "Retrieves a list of virtual machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45385,7 +45385,7 @@
         },
         "summary": "Adds the machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45399,7 +45399,7 @@
         },
         "summary": "Deletes the specified virtual machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -45414,7 +45414,7 @@
         },
         "summary": "Returns the specified virtual machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45458,7 +45458,7 @@
         },
         "summary": "Updates the specified machine to the cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45490,7 +45490,7 @@
         },
         "summary": "Updates and resizes the virtual cluster",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45507,7 +45507,7 @@
         },
         "summary": "Returns the specified vSphere cloud config",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45548,7 +45548,7 @@
         },
         "summary": "Updates the cluster configuration information",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45589,7 +45589,7 @@
         },
         "summary": "Creates a vSphere cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45603,7 +45603,7 @@
         },
         "summary": "Deletes the specified machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45640,7 +45640,7 @@
         },
         "summary": "Updates the specified vSphere cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45698,7 +45698,7 @@
         },
         "summary": "Retrieves a list of vSphere machines",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45744,7 +45744,7 @@
         },
         "summary": "Adds the vSphere machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45758,7 +45758,7 @@
         },
         "summary": "Deletes the specified vSphere machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "get": {
@@ -45773,7 +45773,7 @@
         },
         "summary": "Returns the specified vSphere machine",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -45817,7 +45817,7 @@
         },
         "summary": "Updates the specified machine to cloud config's machine pool",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45870,7 +45870,7 @@
         },
         "summary": "Updates the specified machine maintenance",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45923,7 +45923,7 @@
         },
         "summary": "Updates the specified machine maintenance",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       }
     },
@@ -45940,7 +45940,7 @@
         },
         "summary": "Returns the specified cloud config's machine pools and machine uid",
         "tags": [
-          "cloudConfigs"
+          "cloudconfigs"
         ]
       },
       "parameters": [
@@ -49236,7 +49236,7 @@
         },
         "summary": "Create cluster groups",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49253,7 +49253,7 @@
         },
         "summary": "Get cluster group developer credit usage by scope",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       },
       "parameters": [
@@ -49282,7 +49282,7 @@
         },
         "summary": "Retrieves a list of cluster groups host cluster summary",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49299,7 +49299,7 @@
         },
         "summary": "Retrieves a list of cluster groups host cluster metadata",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49327,7 +49327,7 @@
         },
         "summary": "Validates the cluster groups name",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49341,7 +49341,7 @@
         },
         "summary": "Deletes the specified cluster group",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       },
       "get": {
@@ -49356,7 +49356,7 @@
         },
         "summary": "Returns the specified cluster groups",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       },
       "parameters": [
@@ -49395,7 +49395,7 @@
         },
         "summary": "Updates cluster reference and host cluster config",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49426,7 +49426,7 @@
         },
         "summary": "Updates the specified cluster groups meta",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49443,7 +49443,7 @@
         },
         "summary": "Returns the specified clustergroup's profile packs resolved values",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       },
       "parameters": [
@@ -49484,7 +49484,7 @@
         },
         "summary": "Returns the associated profiles of a specified cluster group",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       },
       "parameters": [
@@ -49514,7 +49514,7 @@
         },
         "summary": "Updates the specified cluster groups profiles",
         "tags": [
-          "clusterGroups"
+          "clustergroups"
         ]
       }
     },
@@ -49552,7 +49552,7 @@
         },
         "summary": "Creates a cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49578,7 +49578,7 @@
         },
         "summary": "Deletes list of cluster profiles",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49616,7 +49616,7 @@
         },
         "summary": "Imports a cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49667,7 +49667,7 @@
         },
         "summary": "Imports a cluster profile via file",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49693,7 +49693,7 @@
         },
         "summary": "Validates cluster profile import",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49710,7 +49710,7 @@
         },
         "summary": "Retrieves a list of macros",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49745,7 +49745,7 @@
         },
         "summary": "Validates the cluster profile metadata",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49771,7 +49771,7 @@
         },
         "summary": "Validates cluster profile packs",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49785,7 +49785,7 @@
         },
         "summary": "Deletes the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "get": {
@@ -49800,7 +49800,7 @@
         },
         "summary": "Returns a specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -49836,7 +49836,7 @@
         },
         "summary": "Updates the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49877,7 +49877,7 @@
         },
         "summary": "Creates a clone of the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49916,7 +49916,7 @@
         },
         "summary": "Validates the cluster profile clone",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -49942,7 +49942,7 @@
         },
         "summary": "Export the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -49988,7 +49988,7 @@
         },
         "summary": "Downloads the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50040,7 +50040,7 @@
         },
         "summary": "Updates the specified cluster profile metadata",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50076,7 +50076,7 @@
         },
         "summary": "Updates cluster profile packs ref",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50093,7 +50093,7 @@
         },
         "summary": "Returns the specified cluster profile packs",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50138,7 +50138,7 @@
         },
         "summary": "Adds a new pack to the specified cluster profile and returns the created pack uid",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50155,7 +50155,7 @@
         },
         "summary": "Returns the specified cluster profile pack manifests",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50187,7 +50187,7 @@
         },
         "summary": "Returns the specified cluster profile packs resolved values",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50217,7 +50217,7 @@
         },
         "summary": "Deletes the specified pack information in the cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "get": {
@@ -50232,7 +50232,7 @@
         },
         "summary": "Returns the specified cluster profile pack",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50269,7 +50269,7 @@
         },
         "summary": "Updates the specified pack information in the cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50309,7 +50309,7 @@
         },
         "summary": "Returns the specified cluster profile pack configuration",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50326,7 +50326,7 @@
         },
         "summary": "Returns the associated manifests for the specified profile's pack",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50372,7 +50372,7 @@
         },
         "summary": "Adds manifest to the profiles packs and returns the added manifests uid",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50386,7 +50386,7 @@
         },
         "summary": "Deletes the specified cluster profile pack manifest",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "get": {
@@ -50401,7 +50401,7 @@
         },
         "summary": "Returns the specified cluster profile pack manifest",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50445,7 +50445,7 @@
         },
         "summary": "Updates the specified manifest of the profile's pack",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50469,7 +50469,7 @@
         },
         "summary": "Publishes the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50495,7 +50495,7 @@
         },
         "summary": "Downloads the specified cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50537,7 +50537,7 @@
         },
         "summary": "Validates specified cluster profile packs",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -50560,7 +50560,7 @@
         },
         "summary": "Deletes the specified cluster profile variables",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "get": {
@@ -50575,7 +50575,7 @@
         },
         "summary": "Retrieve a list of variables defined for the cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "parameters": [
@@ -50605,7 +50605,7 @@
         },
         "summary": "Update specific variables defined for a cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       },
       "put": {
@@ -50626,7 +50626,7 @@
         },
         "summary": "Update the variables defined for a cluster profile",
         "tags": [
-          "clusterProfiles"
+          "clusterprofiles"
         ]
       }
     },
@@ -52501,7 +52501,7 @@
         },
         "summary": "sync data to cloud watch",
         "tags": [
-          "dataSinks"
+          "datasinks"
         ]
       }
     },
@@ -52533,7 +52533,7 @@
         },
         "summary": "Create the edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52569,7 +52569,7 @@
         },
         "summary": "Retrieves a list of edge hosts metadata matching the filter condition",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52595,7 +52595,7 @@
         },
         "summary": "Registers the edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52612,7 +52612,7 @@
         },
         "summary": "Retrieves a list of edge hosts tags",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52629,7 +52629,7 @@
         },
         "summary": "Retrieves a list of edge tokens",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "post": {
@@ -52659,7 +52659,7 @@
         },
         "summary": "Create the edge token",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52673,7 +52673,7 @@
         },
         "summary": "Deletes the specified edge token",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "get": {
@@ -52688,7 +52688,7 @@
         },
         "summary": "Returns the specified edge token",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -52718,7 +52718,7 @@
         },
         "summary": "Updates the specified edge token",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52750,7 +52750,7 @@
         },
         "summary": "Revoke or re-activate the edge token access",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52764,7 +52764,7 @@
         },
         "summary": "Deletes the specified edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "get": {
@@ -52788,7 +52788,7 @@
         },
         "summary": "Returns the specified edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -52817,7 +52817,7 @@
         },
         "summary": "Updates the specified edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52831,7 +52831,7 @@
         },
         "summary": "Deassociate the clusters to the edge host",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -52860,7 +52860,7 @@
         },
         "summary": "Associate the clusters to the edge host",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52877,7 +52877,7 @@
         },
         "summary": "Get the specified edge host device configuration",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -52916,7 +52916,7 @@
         },
         "summary": "Updates the edge host health",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52947,7 +52947,7 @@
         },
         "summary": "Update the specified edge host device host check sum",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -52978,7 +52978,7 @@
         },
         "summary": "Update the specified edge host device host pairing key",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53009,7 +53009,7 @@
         },
         "summary": "Updates the specified edge host device meta",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53049,7 +53049,7 @@
         },
         "summary": "Returns the specified edge host's manifest",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53080,7 +53080,7 @@
         },
         "summary": "Patch update specified edge host's packs status",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53105,7 +53105,7 @@
         },
         "summary": "Returns the associated profiles of a specified edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -53134,7 +53134,7 @@
         },
         "summary": "Associate cluster profiles to the specified edge host device",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53163,7 +53163,7 @@
         },
         "summary": "Reset the cluster through edge host",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53189,7 +53189,7 @@
         },
         "summary": "Download the specified edge host device spc",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       },
       "parameters": [
@@ -53228,7 +53228,7 @@
         },
         "summary": "Updates the specified edge host device tunnel configuration",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53259,7 +53259,7 @@
         },
         "summary": "Updates the edge host tunnel status",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -53290,7 +53290,7 @@
         },
         "summary": "Updates the specified edge host device vsphere properties",
         "tags": [
-          "edgeHosts"
+          "edgehosts"
         ]
       }
     },
@@ -57615,7 +57615,7 @@
         },
         "summary": "Creates an AKS cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57652,7 +57652,7 @@
         },
         "summary": "Get AKS cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57678,7 +57678,7 @@
         },
         "summary": "Validates AKS cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57710,7 +57710,7 @@
         },
         "summary": "Creates an AWS cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57742,7 +57742,7 @@
         },
         "summary": "Imports an AWS cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57779,7 +57779,7 @@
         },
         "summary": "Get AWS cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57805,7 +57805,7 @@
         },
         "summary": "Validates AWS cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57837,7 +57837,7 @@
         },
         "summary": "Creates an Azure cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57869,7 +57869,7 @@
         },
         "summary": "Imports an Azure cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57906,7 +57906,7 @@
         },
         "summary": "Get Azure cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57932,7 +57932,7 @@
         },
         "summary": "Validates Azure cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -57973,7 +57973,7 @@
         },
         "summary": "Creates a Custom cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58008,7 +58008,7 @@
         },
         "summary": "Validates Custom cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58025,7 +58025,7 @@
         },
         "summary": "Cluster configuration for the edge installer",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58057,7 +58057,7 @@
         },
         "summary": "Creates an EdgeNative cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58089,7 +58089,7 @@
         },
         "summary": "Imports an EdgeNative cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58126,7 +58126,7 @@
         },
         "summary": "Get edge-native cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58152,7 +58152,7 @@
         },
         "summary": "Validates edge-native cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58184,7 +58184,7 @@
         },
         "summary": "Creates an EKS cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58221,7 +58221,7 @@
         },
         "summary": "Get EKS cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58247,7 +58247,7 @@
         },
         "summary": "Validates EKS cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58264,7 +58264,7 @@
         },
         "summary": "Returns the cluster object references based on locationUid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -58293,7 +58293,7 @@
         },
         "summary": "Change cluster backup location",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58328,7 +58328,7 @@
         },
         "summary": "Download log fetcher logs for cluster by log fetcher uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -58383,7 +58383,7 @@
         },
         "summary": "Update log fetcher logs by log fetcher uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58415,7 +58415,7 @@
         },
         "summary": "Creates a GCP cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58447,7 +58447,7 @@
         },
         "summary": "Imports a GCP cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58484,7 +58484,7 @@
         },
         "summary": "Get GCP cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58510,7 +58510,7 @@
         },
         "summary": "Validates GCP cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58543,7 +58543,7 @@
         },
         "summary": "Imports a cluster of any cloud type in generic way",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58580,7 +58580,7 @@
         },
         "summary": "Get generic cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58612,7 +58612,7 @@
         },
         "summary": "Creates an GKE cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58649,7 +58649,7 @@
         },
         "summary": "Get GKE cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58675,7 +58675,7 @@
         },
         "summary": "Validates GKE cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58707,7 +58707,7 @@
         },
         "summary": "Creates a MAAS cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58739,7 +58739,7 @@
         },
         "summary": "Imports a Maas cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58776,7 +58776,7 @@
         },
         "summary": "Get maas cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58802,7 +58802,7 @@
         },
         "summary": "Validates MAAS cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58834,7 +58834,7 @@
         },
         "summary": "Creates a OpenStack cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58866,7 +58866,7 @@
         },
         "summary": "Imports an OpenStack cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58903,7 +58903,7 @@
         },
         "summary": "Get openstack cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58929,7 +58929,7 @@
         },
         "summary": "Validates OpenStack cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58964,7 +58964,7 @@
         },
         "summary": "Downloads the cluster definition archive file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58981,7 +58981,7 @@
         },
         "summary": "Retrieves a list of spectrocluster tags",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -58998,7 +58998,7 @@
         },
         "summary": "Get cluster settings by context",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "post": {
@@ -59025,7 +59025,7 @@
         },
         "summary": "Update all clusters upgrade settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59053,7 +59053,7 @@
         },
         "summary": "Validates the cluster name",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59079,7 +59079,7 @@
         },
         "summary": "Validates spectro cluster packs",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59111,7 +59111,7 @@
         },
         "summary": "Creates a virtual cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59142,7 +59142,7 @@
         },
         "summary": "Get the cluster pack values yaml",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59168,7 +59168,7 @@
         },
         "summary": "Validates virtual cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59200,7 +59200,7 @@
         },
         "summary": "Creates a vSphere cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59232,7 +59232,7 @@
         },
         "summary": "Imports a vSphere cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59269,7 +59269,7 @@
         },
         "summary": "Get vSphere cluster estimated rate information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59295,7 +59295,7 @@
         },
         "summary": "Validates vSphere cluster create operation",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59317,7 +59317,7 @@
         },
         "summary": "Deletes the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -59366,7 +59366,7 @@
         },
         "summary": "Returns the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59392,7 +59392,7 @@
         },
         "summary": "Get the cluster asset doc",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59427,7 +59427,7 @@
         },
         "summary": "Associate the assets for the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59453,7 +59453,7 @@
         },
         "summary": "Returns the specified cluster's kube config file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59476,7 +59476,7 @@
         },
         "summary": "Deletes the cluster's token kube config data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -59500,7 +59500,7 @@
         },
         "summary": "Returns the specified cluster's token kube config file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59530,7 +59530,7 @@
         },
         "summary": "Updates the cluster's token kube config data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59544,7 +59544,7 @@
         },
         "summary": "Deletes the cluster's frp kube config client data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -59568,7 +59568,7 @@
         },
         "summary": "Returns the specified cluster's frp kube config file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59598,7 +59598,7 @@
         },
         "summary": "Updates the cluster's frp kube config data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59633,7 +59633,7 @@
         },
         "summary": "Returns the specified cluster's kube config file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59663,7 +59663,7 @@
         },
         "summary": "Updates the cluster's manifest data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59677,7 +59677,7 @@
         },
         "summary": "Deletes the cluster's kube config client data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -59701,7 +59701,7 @@
         },
         "summary": "Returns the specified cluster's kube config client file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59731,7 +59731,7 @@
         },
         "summary": "Updates the cluster's kube config client data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59748,7 +59748,7 @@
         },
         "summary": "Returns the specified cluster's manifest data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59778,7 +59778,7 @@
         },
         "summary": "Updates the specified cluster's manifest data",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59810,7 +59810,7 @@
         },
         "summary": "Updates the specified cluster meta attribute",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59842,7 +59842,7 @@
         },
         "summary": "Updates the specified cluster controlPlane health check timeout",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59874,7 +59874,7 @@
         },
         "summary": "Updates the specified cluster host config",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59906,7 +59906,7 @@
         },
         "summary": "Updates the specified cluster Life cycle configuration",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59938,7 +59938,7 @@
         },
         "summary": "Updates the specified cluster OS patch configuration",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -59955,7 +59955,7 @@
         },
         "summary": "Retrieves namespaces for the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -59985,7 +59985,7 @@
         },
         "summary": "Updates namespaces for the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60002,7 +60002,7 @@
         },
         "summary": "Retrieves the specified namespace of the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60039,7 +60039,7 @@
         },
         "summary": "Updates the specified namespace of the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60056,7 +60056,7 @@
         },
         "summary": "Retrieves RBAC information for the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60086,7 +60086,7 @@
         },
         "summary": "Updates RBAC information for the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60103,7 +60103,7 @@
         },
         "summary": "Retrieves the specified RBAC of the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60140,7 +60140,7 @@
         },
         "summary": "Updates the specified RBAC of the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60166,7 +60166,7 @@
         },
         "summary": "Download the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60192,7 +60192,7 @@
         },
         "summary": "Retrieves a list of edge host of edge-native cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60230,7 +60230,7 @@
         },
         "summary": "reset the edge clusters by deleting machine pools and conditions",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60244,7 +60244,7 @@
         },
         "summary": "Reset cluster backup schedule settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -60266,7 +60266,7 @@
         },
         "summary": "Returns the cluster backup result",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60304,7 +60304,7 @@
         },
         "summary": "Create cluster backup settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "put": {
@@ -60325,7 +60325,7 @@
         },
         "summary": "Update cluster backup settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60365,7 +60365,7 @@
         },
         "summary": "Create on demand cluster backup",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60379,7 +60379,7 @@
         },
         "summary": "Delete cluster backup",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60416,7 +60416,7 @@
         },
         "summary": "Returns the compliance scan of cluster, if driverType is provided then specific status of driverType will be returned",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60454,7 +60454,7 @@
         },
         "summary": "Create cluster compliance scan",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "put": {
@@ -60475,7 +60475,7 @@
         },
         "summary": "Update cluster compliance scan settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60492,7 +60492,7 @@
         },
         "summary": "Returns the compliance scan log by cluster uid and driver type",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60531,7 +60531,7 @@
         },
         "summary": "Update the KubeBench compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60562,7 +60562,7 @@
         },
         "summary": "Update the KubeHunter compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60593,7 +60593,7 @@
         },
         "summary": "Update the Sonobuoy compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60624,7 +60624,7 @@
         },
         "summary": "Update the Syft compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60638,7 +60638,7 @@
         },
         "summary": "Delete the compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60669,7 +60669,7 @@
         },
         "summary": "Returns the KubeBench compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60705,7 +60705,7 @@
         },
         "summary": "Returns the KubeHunter compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60741,7 +60741,7 @@
         },
         "summary": "Returns the Sonobuoy compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60777,7 +60777,7 @@
         },
         "summary": "Returns the Syft compliance scan log by uid",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60817,7 +60817,7 @@
         },
         "summary": "Returns the image sbom of syft scan log of cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60865,7 +60865,7 @@
         },
         "summary": "Downloads the driver cluster logs",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60937,7 +60937,7 @@
         },
         "summary": "Create on demand cluster compliance scan",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -60954,7 +60954,7 @@
         },
         "summary": "Get the installed helm charts of a specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -60986,7 +60986,7 @@
         },
         "summary": "Get the log fetcher for cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61025,7 +61025,7 @@
         },
         "summary": "Create the log fetcher for cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61042,7 +61042,7 @@
         },
         "summary": "Get the installed manifests of a specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61074,7 +61074,7 @@
         },
         "summary": "Returns the cluster restore of cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61122,7 +61122,7 @@
         },
         "summary": "Create on demand cluster restore",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61154,7 +61154,7 @@
         },
         "summary": "Update specific cluster heartbeat",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61171,7 +61171,7 @@
         },
         "summary": "Returns the metadata of all hybrid pools associated with the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61218,7 +61218,7 @@
         },
         "summary": "Update specific cluster hybrid settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61244,7 +61244,7 @@
         },
         "summary": "Returns the specified cluster's import manifest file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61275,7 +61275,7 @@
         },
         "summary": "Upgrade the specified imported read only cluster with full permissions",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61292,7 +61292,7 @@
         },
         "summary": "Get K8Certificate for spectro cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61322,7 +61322,7 @@
         },
         "summary": "Update K8Certificate for spectro cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61345,7 +61345,7 @@
         },
         "summary": "Sets the cluster control plane nodes Kubernetes certificates for renewal",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61362,7 +61362,7 @@
         },
         "summary": "Returns the specified cluster's kube config file",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61409,7 +61409,7 @@
         },
         "summary": "Associate the assets for the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61441,7 +61441,7 @@
         },
         "summary": "Update the specified spectro cluster metadata",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61458,7 +61458,7 @@
         },
         "summary": "Returns available namespaces for the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61498,7 +61498,7 @@
         },
         "summary": "Returns k8s spectrocluster oidc",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61524,7 +61524,7 @@
         },
         "summary": "Returns k8s dashboard url",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61564,7 +61564,7 @@
         },
         "summary": "Returns the specified cluster's manifest",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61617,7 +61617,7 @@
         },
         "summary": "Get specified cluster pack properties",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61653,7 +61653,7 @@
         },
         "summary": "Updates the cluster's pack references",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61670,7 +61670,7 @@
         },
         "summary": "Returns the specified cluster's packs resolved values",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61718,7 +61718,7 @@
         },
         "summary": "Patch update specified cluster's packs status",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61735,7 +61735,7 @@
         },
         "summary": "Returns the profile updates of a specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61767,7 +61767,7 @@
         },
         "summary": "Remove cluster profiles from the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -61790,7 +61790,7 @@
         },
         "summary": "Returns the associated profiles of a specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61827,7 +61827,7 @@
         },
         "summary": "Patch cluster profiles to the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "put": {
@@ -61855,7 +61855,7 @@
         },
         "summary": "Associate cluster profiles to the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61887,7 +61887,7 @@
         },
         "summary": "Returns the associated profile's pack manifests of a specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61936,7 +61936,7 @@
         },
         "summary": "Returns the specified cluster's profile pack configuration",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -61953,7 +61953,7 @@
         },
         "summary": "Returns the associated profiles pack manifests of the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -61997,7 +61997,7 @@
         },
         "summary": "Updates cluster profiles pack manifests to the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62014,7 +62014,7 @@
         },
         "summary": "Returns the estimated rate of the specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62058,7 +62058,7 @@
         },
         "summary": "Returns the spectrocluster repave approve update",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62084,7 +62084,7 @@
         },
         "summary": "Returns the spectrocluster repave",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62113,7 +62113,7 @@
         },
         "summary": "reset the cluster s by deleting machine pools and condtions",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62130,7 +62130,7 @@
         },
         "summary": "Get the cluster's status",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62170,7 +62170,7 @@
         },
         "summary": "Updates the specified cluster status condition",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62204,7 +62204,7 @@
         },
         "summary": "Updates the specified cluster status conditions",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62238,7 +62238,7 @@
         },
         "summary": "Updates the specified cluster's service endpoints information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62260,7 +62260,7 @@
         },
         "summary": "Updates the specified cluster status as imported",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62294,7 +62294,7 @@
         },
         "summary": "Updates the specified cluster's services information",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62311,7 +62311,7 @@
         },
         "summary": "Returns the SPC apply information for the agent",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62337,7 +62337,7 @@
         },
         "summary": "Set the CanBeApplied to true on the spcApply status. CanBeApplied indicates the agent to orchestrate the spc changes",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62368,7 +62368,7 @@
         },
         "summary": "Updates the agent patch time for the SPC changes",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62399,7 +62399,7 @@
         },
         "summary": "Updates the cluster's upgrade status",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62437,7 +62437,7 @@
         },
         "summary": "Update specific cluster upgrade settings",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62470,7 +62470,7 @@
         },
         "summary": "Validates cluster packs",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62503,7 +62503,7 @@
         },
         "summary": "Validates if cluster gets repaved for the specified packs",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62523,7 +62523,7 @@
         },
         "summary": "Retrieve a list of variables associated with the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62556,7 +62556,7 @@
         },
         "summary": "Update cluster variable values for specified cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62599,7 +62599,7 @@
         },
         "summary": "Returns the list of virtual machines",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62639,7 +62639,7 @@
         },
         "summary": "Create virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62692,7 +62692,7 @@
         },
         "summary": "Returns the list of snapshots of given namespaces",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62715,7 +62715,7 @@
         },
         "summary": "Deletes the virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -62730,7 +62730,7 @@
         },
         "summary": "Get virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -62777,7 +62777,7 @@
         },
         "summary": "Updates the specified virtual machine of the cluster",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62829,7 +62829,7 @@
         },
         "summary": "Add volume to the virtual machine instance",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62878,7 +62878,7 @@
         },
         "summary": "Clone virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62921,7 +62921,7 @@
         },
         "summary": "Migrate the virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -62964,7 +62964,7 @@
         },
         "summary": "Pause the virtual machine instance",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63016,7 +63016,7 @@
         },
         "summary": "Remove volume from the virtual machine instance",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63059,7 +63059,7 @@
         },
         "summary": "Restart the virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63102,7 +63102,7 @@
         },
         "summary": "Resume the virtual machine instance",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63151,7 +63151,7 @@
         },
         "summary": "Create snapshot of virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63165,7 +63165,7 @@
         },
         "summary": "Delete the snapshot of virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "get": {
@@ -63180,7 +63180,7 @@
         },
         "summary": "Get virtual machine snapshot",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       },
       "parameters": [
@@ -63234,7 +63234,7 @@
         },
         "summary": "Updates the specified snapshot of a virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63277,7 +63277,7 @@
         },
         "summary": "Start the virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63320,7 +63320,7 @@
         },
         "summary": "Stop the virtual machine",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63349,7 +63349,7 @@
         },
         "summary": "Sync specified cluster workload",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },
@@ -63396,7 +63396,7 @@
         },
         "summary": "Sync specified cluster workload",
         "tags": [
-          "clusters"
+          "spectroclusters"
         ]
       }
     },

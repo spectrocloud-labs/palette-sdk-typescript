@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type UrlEncodedBase64 = string;
+export type URLEncodedBase64 = string;
