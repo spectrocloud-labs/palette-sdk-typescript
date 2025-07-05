@@ -253,8 +253,12 @@ function createMainIndexFile() {
   // Add client wrapper exports from httpClient directory
   exports.push('');
   exports.push('// Export the client wrapper');
-  exports.push('export { setupConfig, PaletteClient } from "./httpClient/paletteClient";');
-  exports.push('export type { PaletteClientConfig, PaletteConfig } from "./httpClient/paletteClient";');
+  exports.push('export { setupConfig } from "./httpClient/paletteClient";');
+  exports.push('export type {');
+  exports.push('  PaletteClientConfig,');
+  exports.push('  PaletteConfig,');
+  exports.push('  PaletteAPIFunctions,');
+  exports.push('} from "./httpClient/paletteClient";');
 
   const content = `/**
  * Copyright (c) Spectro Cloud

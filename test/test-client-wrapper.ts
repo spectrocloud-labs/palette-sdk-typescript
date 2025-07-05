@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { setupConfig } from "../palette";
+import { setupConfig, type PaletteAPIFunctions } from "../palette";
 import dotenvx from "@dotenvx/dotenvx";
 
 const result = dotenvx.config({
@@ -36,7 +36,7 @@ async function testClientWrapper() {
 
   try {
     // Test the new client pattern
-    const palette = setupConfig({
+    const palette: PaletteAPIFunctions = setupConfig({
       baseURL: BASE_URL,
       headers: {
         ApiKey: API_KEY,
@@ -50,7 +50,7 @@ async function testClientWrapper() {
     console.log("🔍 Testing client function availability...");
 
     // Check if functions are available on the client
-    if (typeof (palette as any).clusterProfilesFilterSummary === "function") {
+    if (typeof palette.clusterProfilesFilterSummary === "function") {
       console.log("✅ clusterProfilesFilterSummary is available");
     } else {
       console.log("❌ clusterProfilesFilterSummary is not available");
@@ -59,13 +59,13 @@ async function testClientWrapper() {
 
     // Test making an API call with the client
     console.log("🔍 Testing API call with client...");
-    const response = await (palette as any).clusterProfilesFilterSummary(
+    const response = await palette.clusterProfilesFilterSummary(
       {
         // Filter criteria
-        metadata: {
-          annotations: {},
-          labels: {},
+        filter: {
+          // Optional filter properties
         },
+        sort: [],
       },
       {
         // Query parameters
@@ -84,11 +84,11 @@ async function testClientWrapper() {
     // Test another function to ensure the proxy works for multiple functions
     console.log("🔍 Testing another function...");
 
-    if (typeof (palette as any).clusterProfilesMetadata === "function") {
+    if (typeof palette.clusterProfilesMetadata === "function") {
       console.log("✅ clusterProfilesMetadata is also available");
 
       // Test calling it
-      const metadataResponse = await (palette as any).clusterProfilesMetadata();
+      const metadataResponse = await palette.clusterProfilesMetadata();
       if (metadataResponse && metadataResponse.data) {
         console.log("✅ clusterProfilesMetadata call successful");
       } else {
