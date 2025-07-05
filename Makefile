@@ -32,7 +32,7 @@ generate: install-dependencies ## Generate models with tags-split organization
 	@$(OK) "Code generation complete with tags-split organization"
 
 install-dependencies:
-	npm install --save-dev @openapitools/openapi-generator-cli orval
+	npm ci && npm install --save-dev @openapitools/openapi-generator-cli orval
 	@$(OK) "Dependencies installed"
 
 ##@ Test Targets

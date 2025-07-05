@@ -16,6 +16,11 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.4.0
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: make install
 
       - name: Configure git for private modules
         env:
@@ -23,11 +28,11 @@ jobs:
           USER: ${{ secrets.SPECTRO_USER }}
         run: git config --global url."https://${USER}:${TOKEN}@github.com".insteadOf "https://github.com"
 
-      - name: Generate
-        run: make generate
-
       - name: Ensure Reviewable
         run: make check-diff
+
+      - name: Generate
+        run: make generate
 
       - name: Test
         run: make test
