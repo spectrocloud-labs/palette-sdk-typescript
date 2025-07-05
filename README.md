@@ -11,9 +11,7 @@ A TypeScript SDK for the Spectro Cloud Palette API. This package provides a comp
 - **TypeScript Support**: Full type definitions for all API requests and responses
 - **Fetch-based**: Built on the modern Fetch API
 - **Tree-shakable**: Import only the functions you need
-- **Modern**: Written in TypeScript with ES6+ features
 - **Client Pattern**: Pre-configured client for simplified usage
-- **Clean Naming**: Function names without version prefixes for better developer experience
 
 ## Installation
 
@@ -25,8 +23,8 @@ npm install palette-sdk-typescript
 > This package is published as TypeScript source code. You'll need TypeScript in your project to use it. If you're using JavaScript, you may need to configure your build tools to handle TypeScript files.
 
 - Node.js 22 or higher
-- TypeScript 5.5 or higher (if using TypeScript)
-- A Palette API key
+- TypeScript 5.5 or higher
+- A Palette API key and project UID
 
 ## Getting Started
 
@@ -54,7 +52,7 @@ const palette = setupConfig({
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
-    ProjectUID: process.env.PROJECT_UID, // Specify project scope
+    ProjectUID: process.env.PROJECT_UID,
   },
 });
 
@@ -62,6 +60,8 @@ const palette = setupConfig({
 const clusters = await palette.spectroClustersGet("");
 const cluster = await palette.spectroClustersGet("cluster-uid");
 ```
+
+If a project UID is not specified, then the Palette API will use the tenant scope. Keep this in mind when using the SDK. There may be some cases where you want to use the tenant scope.
 
 ### Advanced Configuration
 
