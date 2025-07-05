@@ -16,6 +16,8 @@ import type {
   MetricsUidListParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Returns all the metrics for a given resource kind
  * @summary Retrieves the list of metrics for a specified resource kind
@@ -55,19 +57,13 @@ export const metricsList = async (
   params?: MetricsListParams,
   options?: RequestInit,
 ): Promise<metricsListResponse> => {
-  const res = await fetch(getMetricsListUrl(resourceKind, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: metricsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as metricsListResponse;
+  return customInstance<metricsListResponse>(
+    getMetricsListUrl(resourceKind, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -96,19 +92,13 @@ export const metricsUidDelete = async (
   resourceUid: string,
   options?: RequestInit,
 ): Promise<metricsUidDeleteResponse> => {
-  const res = await fetch(getMetricsUidDeleteUrl(resourceKind, resourceUid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: metricsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as metricsUidDeleteResponse;
+  return customInstance<metricsUidDeleteResponse>(
+    getMetricsUidDeleteUrl(resourceKind, resourceUid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -151,20 +141,11 @@ export const metricsUidList = async (
   params?: MetricsUidListParams,
   options?: RequestInit,
 ): Promise<metricsUidListResponse> => {
-  const res = await fetch(
+  return customInstance<metricsUidListResponse>(
     getMetricsUidListUrl(resourceKind, resourceUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: metricsUidListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as metricsUidListResponse;
 };

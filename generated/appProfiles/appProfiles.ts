@@ -29,6 +29,8 @@ import type {
   V1ManifestRefUpdateEntityBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Creates a application profile
  */
@@ -51,21 +53,12 @@ export const appProfilesCreate = async (
   v1AppProfileEntityBody: V1AppProfileEntityBody,
   options?: RequestInit,
 ): Promise<appProfilesCreateResponse> => {
-  const res = await fetch(getAppProfilesCreateUrl(), {
+  return customInstance<appProfilesCreateResponse>(getAppProfilesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1AppProfileEntityBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesCreateResponse;
 };
 
 /**
@@ -91,21 +84,13 @@ export const getAppProfilesMacrosListUrl = () => {
 export const appProfilesMacrosList = async (
   options?: RequestInit,
 ): Promise<appProfilesMacrosListResponse> => {
-  const res = await fetch(getAppProfilesMacrosListUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesMacrosListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesMacrosListResponse;
+  return customInstance<appProfilesMacrosListResponse>(
+    getAppProfilesMacrosListUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -132,21 +117,13 @@ export const appProfilesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidDeleteResponse> => {
-  const res = await fetch(getAppProfilesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidDeleteResponse;
+  return customInstance<appProfilesUidDeleteResponse>(
+    getAppProfilesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -171,19 +148,13 @@ export const appProfilesUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidGetResponse> => {
-  const res = await fetch(getAppProfilesUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidGetResponse;
+  return customInstance<appProfilesUidGetResponse>(
+    getAppProfilesUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -211,23 +182,15 @@ export const appProfilesUidUpdate = async (
   v1AppProfileEntityBody: V1AppProfileEntityBody,
   options?: RequestInit,
 ): Promise<appProfilesUidUpdateResponse> => {
-  const res = await fetch(getAppProfilesUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AppProfileEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidUpdateResponse;
+  return customInstance<appProfilesUidUpdateResponse>(
+    getAppProfilesUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AppProfileEntityBody),
+    },
+  );
 };
 
 /**
@@ -255,23 +218,15 @@ export const appProfilesUidClone = async (
   appProfileCloneEntity: AppProfileCloneEntity,
   options?: RequestInit,
 ): Promise<appProfilesUidCloneResponse> => {
-  const res = await fetch(getAppProfilesUidCloneUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appProfileCloneEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidCloneResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidCloneResponse;
+  return customInstance<appProfilesUidCloneResponse>(
+    getAppProfilesUidCloneUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appProfileCloneEntity),
+    },
+  );
 };
 
 /**
@@ -299,23 +254,15 @@ export const appProfilesUidCloneValidate = async (
   appProfileCloneMetaInputEntity: AppProfileCloneMetaInputEntity,
   options?: RequestInit,
 ): Promise<appProfilesUidCloneValidateResponse> => {
-  const res = await fetch(getAppProfilesUidCloneValidateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appProfileCloneMetaInputEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidCloneValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidCloneValidateResponse;
+  return customInstance<appProfilesUidCloneValidateResponse>(
+    getAppProfilesUidCloneValidateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appProfileCloneMetaInputEntity),
+    },
+  );
 };
 
 /**
@@ -343,23 +290,15 @@ export const appProfilesUidMetadataUpdate = async (
   appProfileMetaEntity: AppProfileMetaEntity,
   options?: RequestInit,
 ): Promise<appProfilesUidMetadataUpdateResponse> => {
-  const res = await fetch(getAppProfilesUidMetadataUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appProfileMetaEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidMetadataUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidMetadataUpdateResponse;
+  return customInstance<appProfilesUidMetadataUpdateResponse>(
+    getAppProfilesUidMetadataUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appProfileMetaEntity),
+    },
+  );
 };
 
 /**
@@ -386,21 +325,13 @@ export const appProfilesUidTiersGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersGetResponse> => {
-  const res = await fetch(getAppProfilesUidTiersGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersGetResponse;
+  return customInstance<appProfilesUidTiersGetResponse>(
+    getAppProfilesUidTiersGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -428,23 +359,15 @@ export const appProfilesUidTiersPatch = async (
   appTierPatchEntity: AppTierPatchEntity,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersPatchResponse> => {
-  const res = await fetch(getAppProfilesUidTiersPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appTierPatchEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersPatchResponse;
+  return customInstance<appProfilesUidTiersPatchResponse>(
+    getAppProfilesUidTiersPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appTierPatchEntity),
+    },
+  );
 };
 
 /**
@@ -472,23 +395,15 @@ export const appProfilesUidTiersCreate = async (
   appTierEntity: AppTierEntity,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersCreateResponse> => {
-  const res = await fetch(getAppProfilesUidTiersCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appTierEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersCreateResponse;
+  return customInstance<appProfilesUidTiersCreateResponse>(
+    getAppProfilesUidTiersCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appTierEntity),
+    },
+  );
 };
 
 /**
@@ -519,21 +434,13 @@ export const appProfilesUidTiersUidDelete = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidDeleteResponse> => {
-  const res = await fetch(getAppProfilesUidTiersUidDeleteUrl(uid, tierUid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidDeleteResponse;
+  return customInstance<appProfilesUidTiersUidDeleteResponse>(
+    getAppProfilesUidTiersUidDeleteUrl(uid, tierUid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -564,21 +471,13 @@ export const appProfilesUidTiersUidGet = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidGetResponse> => {
-  const res = await fetch(getAppProfilesUidTiersUidGetUrl(uid, tierUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidGetResponse;
+  return customInstance<appProfilesUidTiersUidGetResponse>(
+    getAppProfilesUidTiersUidGetUrl(uid, tierUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -610,23 +509,15 @@ export const appProfilesUidTiersUidUpdate = async (
   v1AppTierUpdateEntityBody: V1AppTierUpdateEntityBody,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidUpdateResponse> => {
-  const res = await fetch(getAppProfilesUidTiersUidUpdateUrl(uid, tierUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AppTierUpdateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidUpdateResponse;
+  return customInstance<appProfilesUidTiersUidUpdateResponse>(
+    getAppProfilesUidTiersUidUpdateUrl(uid, tierUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AppTierUpdateEntityBody),
+    },
+  );
 };
 
 /**
@@ -657,24 +548,13 @@ export const appProfilesUidTiersUidManifestsGet = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidManifestsGetResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidManifestsGetResponse>(
     getAppProfilesUidTiersUidManifestsGetUrl(uid, tierUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidManifestsGetResponse;
 };
 
 /**
@@ -706,7 +586,7 @@ export const appProfilesUidTiersUidManifestsCreate = async (
   v1ManifestInputEntityBody: V1ManifestInputEntityBody,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidManifestsCreateResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidManifestsCreateResponse>(
     getAppProfilesUidTiersUidManifestsCreateUrl(uid, tierUid),
     {
       ...options,
@@ -715,17 +595,6 @@ export const appProfilesUidTiersUidManifestsCreate = async (
       body: JSON.stringify(v1ManifestInputEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidManifestsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidManifestsCreateResponse;
 };
 
 /**
@@ -758,24 +627,13 @@ export const appProfilesUidTiersUidManifestsUidDelete = async (
   manifestUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidManifestsUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidManifestsUidDeleteResponse>(
     getAppProfilesUidTiersUidManifestsUidDeleteUrl(uid, tierUid, manifestUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidManifestsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidManifestsUidDeleteResponse;
 };
 
 /**
@@ -808,24 +666,13 @@ export const appProfilesUidTiersUidManifestsUidGet = async (
   manifestUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidManifestsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidManifestsUidGetResponse>(
     getAppProfilesUidTiersUidManifestsUidGetUrl(uid, tierUid, manifestUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidManifestsUidGetResponse;
 };
 
 /**
@@ -859,7 +706,7 @@ export const appProfilesUidTiersUidManifestsUidUpdate = async (
   v1ManifestRefUpdateEntityBody: V1ManifestRefUpdateEntityBody,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidManifestsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidManifestsUidUpdateResponse>(
     getAppProfilesUidTiersUidManifestsUidUpdateUrl(uid, tierUid, manifestUid),
     {
       ...options,
@@ -868,17 +715,6 @@ export const appProfilesUidTiersUidManifestsUidUpdate = async (
       body: JSON.stringify(v1ManifestRefUpdateEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidManifestsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidManifestsUidUpdateResponse;
 };
 
 /**
@@ -909,22 +745,11 @@ export const appProfilesUidTiersUidResolvedValuesGet = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appProfilesUidTiersUidResolvedValuesGetResponse> => {
-  const res = await fetch(
+  return customInstance<appProfilesUidTiersUidResolvedValuesGetResponse>(
     getAppProfilesUidTiersUidResolvedValuesGetUrl(uid, tierUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appProfilesUidTiersUidResolvedValuesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appProfilesUidTiersUidResolvedValuesGetResponse;
 };

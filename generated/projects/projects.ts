@@ -29,6 +29,8 @@ import type {
   V1ProjectEntityBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Creates a project
  */
@@ -51,21 +53,12 @@ export const projectsCreate = async (
   v1ProjectEntityBody: V1ProjectEntityBody,
   options?: RequestInit,
 ): Promise<projectsCreateResponse> => {
-  const res = await fetch(getProjectsCreateUrl(), {
+  return customInstance<projectsCreateResponse>(getProjectsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1ProjectEntityBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsCreateResponse;
 };
 
 /**
@@ -89,19 +82,10 @@ export const getProjectsAlertsUrl = () => {
 export const projectsAlerts = async (
   options?: RequestInit,
 ): Promise<projectsAlertsResponse> => {
-  const res = await fetch(getProjectsAlertsUrl(), {
+  return customInstance<projectsAlertsResponse>(getProjectsAlertsUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsAlertsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsAlertsResponse;
 };
 
 /**
@@ -143,21 +127,15 @@ export const projectsUidDelete = async (
   params?: ProjectsUidDeleteParams,
   options?: RequestInit,
 ): Promise<projectsUidDeleteResponse> => {
-  const res = await fetch(getProjectsUidDeleteUrl(uid, params), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(projectCleanup),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidDeleteResponse;
+  return customInstance<projectsUidDeleteResponse>(
+    getProjectsUidDeleteUrl(uid, params),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(projectCleanup),
+    },
+  );
 };
 
 /**
@@ -182,19 +160,10 @@ export const projectsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<projectsUidGetResponse> => {
-  const res = await fetch(getProjectsUidGetUrl(uid), {
+  return customInstance<projectsUidGetResponse>(getProjectsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidGetResponse;
 };
 
 /**
@@ -220,21 +189,15 @@ export const projectsUidUpdate = async (
   v1ProjectEntityBody: V1ProjectEntityBody,
   options?: RequestInit,
 ): Promise<projectsUidUpdateResponse> => {
-  const res = await fetch(getProjectsUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ProjectEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidUpdateResponse;
+  return customInstance<projectsUidUpdateResponse>(
+    getProjectsUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ProjectEntityBody),
+    },
+  );
 };
 
 /**
@@ -265,21 +228,13 @@ export const projectsUidAlertDelete = async (
   component: string,
   options?: RequestInit,
 ): Promise<projectsUidAlertDeleteResponse> => {
-  const res = await fetch(getProjectsUidAlertDeleteUrl(uid, component), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertDeleteResponse;
+  return customInstance<projectsUidAlertDeleteResponse>(
+    getProjectsUidAlertDeleteUrl(uid, component),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -311,23 +266,15 @@ export const projectsUidAlertCreate = async (
   v1ChannelBody: V1ChannelBody,
   options?: RequestInit,
 ): Promise<projectsUidAlertCreateResponse> => {
-  const res = await fetch(getProjectsUidAlertCreateUrl(uid, component), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ChannelBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertCreateResponse;
+  return customInstance<projectsUidAlertCreateResponse>(
+    getProjectsUidAlertCreateUrl(uid, component),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ChannelBody),
+    },
+  );
 };
 
 /**
@@ -359,23 +306,15 @@ export const projectsUidAlertUpdate = async (
   alertEntity: AlertEntity,
   options?: RequestInit,
 ): Promise<projectsUidAlertUpdateResponse> => {
-  const res = await fetch(getProjectsUidAlertUpdateUrl(uid, component), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(alertEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertUpdateResponse;
+  return customInstance<projectsUidAlertUpdateResponse>(
+    getProjectsUidAlertUpdateUrl(uid, component),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(alertEntity),
+    },
+  );
 };
 
 /**
@@ -408,24 +347,13 @@ export const projectsUidAlertsUidDelete = async (
   alertUid: string,
   options?: RequestInit,
 ): Promise<projectsUidAlertsUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<projectsUidAlertsUidDeleteResponse>(
     getProjectsUidAlertsUidDeleteUrl(uid, component, alertUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertsUidDeleteResponse;
 };
 
 /**
@@ -458,24 +386,13 @@ export const projectsUidAlertsUidGet = async (
   alertUid: string,
   options?: RequestInit,
 ): Promise<projectsUidAlertsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<projectsUidAlertsUidGetResponse>(
     getProjectsUidAlertsUidGetUrl(uid, component, alertUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertsUidGetResponse;
 };
 
 /**
@@ -509,7 +426,7 @@ export const projectsUidAlertsUidUpdate = async (
   v1ChannelBody: V1ChannelBody,
   options?: RequestInit,
 ): Promise<projectsUidAlertsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<projectsUidAlertsUidUpdateResponse>(
     getProjectsUidAlertsUidUpdateUrl(uid, component, alertUid),
     {
       ...options,
@@ -518,17 +435,6 @@ export const projectsUidAlertsUidUpdate = async (
       body: JSON.stringify(v1ChannelBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidAlertsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidAlertsUidUpdateResponse;
 };
 
 /**
@@ -556,23 +462,15 @@ export const projectsUidMacrosDeleteByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<projectsUidMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(getProjectsUidMacrosDeleteByMacroNameUrl(uid), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMacrosDeleteByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMacrosDeleteByMacroNameResponse;
+  return customInstance<projectsUidMacrosDeleteByMacroNameResponse>(
+    getProjectsUidMacrosDeleteByMacroNameUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -599,21 +497,13 @@ export const projectsUidMacrosList = async (
   uid: string,
   options?: RequestInit,
 ): Promise<projectsUidMacrosListResponse> => {
-  const res = await fetch(getProjectsUidMacrosListUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMacrosListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMacrosListResponse;
+  return customInstance<projectsUidMacrosListResponse>(
+    getProjectsUidMacrosListUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -641,23 +531,15 @@ export const projectsUidMacrosUpdateByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<projectsUidMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(getProjectsUidMacrosUpdateByMacroNameUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMacrosUpdateByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMacrosUpdateByMacroNameResponse;
+  return customInstance<projectsUidMacrosUpdateByMacroNameResponse>(
+    getProjectsUidMacrosUpdateByMacroNameUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -685,23 +567,15 @@ export const projectsUidMacrosCreate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<projectsUidMacrosCreateResponse> => {
-  const res = await fetch(getProjectsUidMacrosCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMacrosCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMacrosCreateResponse;
+  return customInstance<projectsUidMacrosCreateResponse>(
+    getProjectsUidMacrosCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -729,23 +603,15 @@ export const projectsUidMacrosUpdate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<projectsUidMacrosUpdateResponse> => {
-  const res = await fetch(getProjectsUidMacrosUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMacrosUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMacrosUpdateResponse;
+  return customInstance<projectsUidMacrosUpdateResponse>(
+    getProjectsUidMacrosUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -773,23 +639,15 @@ export const projectsUidMetaUpdate = async (
   v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
 ): Promise<projectsUidMetaUpdateResponse> => {
-  const res = await fetch(getProjectsUidMetaUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ObjectMetaBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidMetaUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidMetaUpdateResponse;
+  return customInstance<projectsUidMetaUpdateResponse>(
+    getProjectsUidMetaUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ObjectMetaBody),
+    },
+  );
 };
 
 /**
@@ -816,21 +674,13 @@ export const projectClusterSettingsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<projectClusterSettingsGetResponse> => {
-  const res = await fetch(getProjectClusterSettingsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectClusterSettingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectClusterSettingsGetResponse;
+  return customInstance<projectClusterSettingsGetResponse>(
+    getProjectClusterSettingsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -860,7 +710,7 @@ export const projectClustersNodesAutoRemediationSettingUpdate = async (
   v1NodesAutoRemediationSettingsBody: V1NodesAutoRemediationSettingsBody,
   options?: RequestInit,
 ): Promise<projectClustersNodesAutoRemediationSettingUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<projectClustersNodesAutoRemediationSettingUpdateResponse>(
     getProjectClustersNodesAutoRemediationSettingUpdateUrl(uid),
     {
       ...options,
@@ -869,16 +719,6 @@ export const projectClustersNodesAutoRemediationSettingUpdate = async (
       body: JSON.stringify(v1NodesAutoRemediationSettingsBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectClustersNodesAutoRemediationSettingUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectClustersNodesAutoRemediationSettingUpdateResponse;
 };
 
 /**
@@ -906,23 +746,15 @@ export const projectsUidTeamsUpdate = async (
   projectTeamsEntity: ProjectTeamsEntity,
   options?: RequestInit,
 ): Promise<projectsUidTeamsUpdateResponse> => {
-  const res = await fetch(getProjectsUidTeamsUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(projectTeamsEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidTeamsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidTeamsUpdateResponse;
+  return customInstance<projectsUidTeamsUpdateResponse>(
+    getProjectsUidTeamsUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(projectTeamsEntity),
+    },
+  );
 };
 
 /**
@@ -950,23 +782,15 @@ export const projectsUidUsersUpdate = async (
   projectUsersEntity: ProjectUsersEntity,
   options?: RequestInit,
 ): Promise<projectsUidUsersUpdateResponse> => {
-  const res = await fetch(getProjectsUidUsersUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(projectUsersEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidUsersUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidUsersUpdateResponse;
+  return customInstance<projectsUidUsersUpdateResponse>(
+    getProjectsUidUsersUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(projectUsersEntity),
+    },
+  );
 };
 
 /**
@@ -993,19 +817,11 @@ export const projectsUidValidate = async (
   uid: string,
   options?: RequestInit,
 ): Promise<projectsUidValidateResponse> => {
-  const res = await fetch(getProjectsUidValidateUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: projectsUidValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as projectsUidValidateResponse;
+  return customInstance<projectsUidValidateResponse>(
+    getProjectsUidValidateUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };

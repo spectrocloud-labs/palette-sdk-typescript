@@ -43,6 +43,8 @@ import type {
   V1TenantAssetCertBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Update tenant address
  */
@@ -66,21 +68,15 @@ export const patchTenantAddress = async (
   tenantAddressPatch: TenantAddressPatch,
   options?: RequestInit,
 ): Promise<patchTenantAddressResponse> => {
-  const res = await fetch(getPatchTenantAddressUrl(tenantUid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantAddressPatch),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: patchTenantAddressResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as patchTenantAddressResponse;
+  return customInstance<patchTenantAddressResponse>(
+    getPatchTenantAddressUrl(tenantUid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantAddressPatch),
+    },
+  );
 };
 
 /**
@@ -107,21 +103,13 @@ export const v1TenantUIdAssetsCertsList = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUIdAssetsCertsListResponse> => {
-  const res = await fetch(getV1TenantUIdAssetsCertsListUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUIdAssetsCertsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUIdAssetsCertsListResponse;
+  return customInstance<v1TenantUIdAssetsCertsListResponse>(
+    getV1TenantUIdAssetsCertsListUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -149,23 +137,15 @@ export const v1TenantUidAssetsCertsCreate = async (
   v1TenantAssetCertBody: V1TenantAssetCertBody,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsCertsCreateResponse> => {
-  const res = await fetch(getV1TenantUidAssetsCertsCreateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1TenantAssetCertBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsCertsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsCertsCreateResponse;
+  return customInstance<v1TenantUidAssetsCertsCreateResponse>(
+    getV1TenantUidAssetsCertsCreateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1TenantAssetCertBody),
+    },
+  );
 };
 
 /**
@@ -196,24 +176,13 @@ export const v1TenantUidAssetsCertsUidDelete = async (
   certificateUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsCertsUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1TenantUidAssetsCertsUidDeleteResponse>(
     getV1TenantUidAssetsCertsUidDeleteUrl(tenantUid, certificateUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsCertsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsCertsUidDeleteResponse;
 };
 
 /**
@@ -244,24 +213,13 @@ export const v1TenantUidAssetsCertsUidGet = async (
   certificateUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsCertsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1TenantUidAssetsCertsUidGetResponse>(
     getV1TenantUidAssetsCertsUidGetUrl(tenantUid, certificateUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsCertsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsCertsUidGetResponse;
 };
 
 /**
@@ -293,7 +251,7 @@ export const v1TenantUidAssetsCertsUidUpdate = async (
   v1TenantAssetCertBody: V1TenantAssetCertBody,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsCertsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<v1TenantUidAssetsCertsUidUpdateResponse>(
     getV1TenantUidAssetsCertsUidUpdateUrl(tenantUid, certificateUid),
     {
       ...options,
@@ -302,17 +260,6 @@ export const v1TenantUidAssetsCertsUidUpdate = async (
       body: JSON.stringify(v1TenantAssetCertBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsCertsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsCertsUidUpdateResponse;
 };
 
 /**
@@ -339,21 +286,13 @@ export const v1TenantUidAssetsDataSinksDelete = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsDataSinksDeleteResponse> => {
-  const res = await fetch(getV1TenantUidAssetsDataSinksDeleteUrl(tenantUid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsDataSinksDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsDataSinksDeleteResponse;
+  return customInstance<v1TenantUidAssetsDataSinksDeleteResponse>(
+    getV1TenantUidAssetsDataSinksDeleteUrl(tenantUid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -380,21 +319,13 @@ export const v1TenantUidAssetsDataSinksGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsDataSinksGetResponse> => {
-  const res = await fetch(getV1TenantUidAssetsDataSinksGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsDataSinksGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsDataSinksGetResponse;
+  return customInstance<v1TenantUidAssetsDataSinksGetResponse>(
+    getV1TenantUidAssetsDataSinksGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -422,23 +353,15 @@ export const v1TenantUidAssetsDataSinksCreate = async (
   v1DataSinkConfigBody: V1DataSinkConfigBody,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsDataSinksCreateResponse> => {
-  const res = await fetch(getV1TenantUidAssetsDataSinksCreateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1DataSinkConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsDataSinksCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsDataSinksCreateResponse;
+  return customInstance<v1TenantUidAssetsDataSinksCreateResponse>(
+    getV1TenantUidAssetsDataSinksCreateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1DataSinkConfigBody),
+    },
+  );
 };
 
 /**
@@ -466,23 +389,15 @@ export const v1TenantUidAssetsDataSinksUpdate = async (
   v1DataSinkConfigBody: V1DataSinkConfigBody,
   options?: RequestInit,
 ): Promise<v1TenantUidAssetsDataSinksUpdateResponse> => {
-  const res = await fetch(getV1TenantUidAssetsDataSinksUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1DataSinkConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidAssetsDataSinksUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidAssetsDataSinksUpdateResponse;
+  return customInstance<v1TenantUidAssetsDataSinksUpdateResponse>(
+    getV1TenantUidAssetsDataSinksUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1DataSinkConfigBody),
+    },
+  );
 };
 
 /**
@@ -509,21 +424,13 @@ export const tenantUidAuthTokenSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantUidAuthTokenSettingsGetResponse> => {
-  const res = await fetch(getTenantUidAuthTokenSettingsGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantUidAuthTokenSettingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantUidAuthTokenSettingsGetResponse;
+  return customInstance<tenantUidAuthTokenSettingsGetResponse>(
+    getTenantUidAuthTokenSettingsGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -551,23 +458,15 @@ export const tenantUidAuthTokenSettingsUpdate = async (
   authTokenSettings: AuthTokenSettings,
   options?: RequestInit,
 ): Promise<tenantUidAuthTokenSettingsUpdateResponse> => {
-  const res = await fetch(getTenantUidAuthTokenSettingsUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(authTokenSettings),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantUidAuthTokenSettingsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantUidAuthTokenSettingsUpdateResponse;
+  return customInstance<tenantUidAuthTokenSettingsUpdateResponse>(
+    getTenantUidAuthTokenSettingsUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(authTokenSettings),
+    },
+  );
 };
 
 /**
@@ -594,21 +493,13 @@ export const tenantsUidContractAccept = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantsUidContractAcceptResponse> => {
-  const res = await fetch(getTenantsUidContractAcceptUrl(tenantUid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidContractAcceptResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidContractAcceptResponse;
+  return customInstance<tenantsUidContractAcceptResponse>(
+    getTenantsUidContractAcceptUrl(tenantUid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -651,21 +542,13 @@ export const tenantsCreditAccountDelete = async (
   params?: TenantsCreditAccountDeleteParams,
   options?: RequestInit,
 ): Promise<tenantsCreditAccountDeleteResponse> => {
-  const res = await fetch(getTenantsCreditAccountDeleteUrl(tenantUid, params), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsCreditAccountDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsCreditAccountDeleteResponse;
+  return customInstance<tenantsCreditAccountDeleteResponse>(
+    getTenantsCreditAccountDeleteUrl(tenantUid, params),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -692,21 +575,13 @@ export const tenantsCreditAccountGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantsCreditAccountGetResponse> => {
-  const res = await fetch(getTenantsCreditAccountGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsCreditAccountGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsCreditAccountGetResponse;
+  return customInstance<tenantsCreditAccountGetResponse>(
+    getTenantsCreditAccountGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -733,21 +608,13 @@ export const v1TenantUidDomainsGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidDomainsGetResponse> => {
-  const res = await fetch(getV1TenantUidDomainsGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidDomainsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidDomainsGetResponse;
+  return customInstance<v1TenantUidDomainsGetResponse>(
+    getV1TenantUidDomainsGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -775,23 +642,15 @@ export const v1TenantUidDomainsUpdate = async (
   tenantDomains: TenantDomains,
   options?: RequestInit,
 ): Promise<v1TenantUidDomainsUpdateResponse> => {
-  const res = await fetch(getV1TenantUidDomainsUpdateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantDomains),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidDomainsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidDomainsUpdateResponse;
+  return customInstance<v1TenantUidDomainsUpdateResponse>(
+    getV1TenantUidDomainsUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantDomains),
+    },
+  );
 };
 
 /**
@@ -817,21 +676,15 @@ export const patchTenantEmailId = async (
   tenantEmailPatch: TenantEmailPatch,
   options?: RequestInit,
 ): Promise<patchTenantEmailIdResponse> => {
-  const res = await fetch(getPatchTenantEmailIdUrl(tenantUid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantEmailPatch),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: patchTenantEmailIdResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as patchTenantEmailIdResponse;
+  return customInstance<patchTenantEmailIdResponse>(
+    getPatchTenantEmailIdUrl(tenantUid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantEmailPatch),
+    },
+  );
 };
 
 /**
@@ -856,19 +709,13 @@ export const tenantFreemiumGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantFreemiumGetResponse> => {
-  const res = await fetch(getTenantFreemiumGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantFreemiumGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantFreemiumGetResponse;
+  return customInstance<tenantFreemiumGetResponse>(
+    getTenantFreemiumGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -896,23 +743,15 @@ export const tenantFreemiumUpdate = async (
   tenantFreemium: TenantFreemium,
   options?: RequestInit,
 ): Promise<tenantFreemiumUpdateResponse> => {
-  const res = await fetch(getTenantFreemiumUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantFreemium),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantFreemiumUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantFreemiumUpdateResponse;
+  return customInstance<tenantFreemiumUpdateResponse>(
+    getTenantFreemiumUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantFreemium),
+    },
+  );
 };
 
 /**
@@ -939,21 +778,13 @@ export const tenantFreemiumUsageGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantFreemiumUsageGetResponse> => {
-  const res = await fetch(getTenantFreemiumUsageGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantFreemiumUsageGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantFreemiumUsageGetResponse;
+  return customInstance<tenantFreemiumUsageGetResponse>(
+    getTenantFreemiumUsageGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -979,19 +810,13 @@ export const invoicesUidGet = async (
   invoiceUid: string,
   options?: RequestInit,
 ): Promise<invoicesUidGetResponse> => {
-  const res = await fetch(getInvoicesUidGetUrl(tenantUid, invoiceUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: invoicesUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as invoicesUidGetResponse;
+  return customInstance<invoicesUidGetResponse>(
+    getInvoicesUidGetUrl(tenantUid, invoiceUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1022,24 +847,13 @@ export const v1InvoiceUidReportInvoicePdf = async (
   invoiceUid: string,
   options?: RequestInit,
 ): Promise<v1InvoiceUidReportInvoicePdfResponse> => {
-  const res = await fetch(
+  return customInstance<v1InvoiceUidReportInvoicePdfResponse>(
     getV1InvoiceUidReportInvoicePdfUrl(tenantUid, invoiceUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1InvoiceUidReportInvoicePdfResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1InvoiceUidReportInvoicePdfResponse;
 };
 
 /**
@@ -1070,21 +884,13 @@ export const v1InvoiceUidReportPdf = async (
   invoiceUid: string,
   options?: RequestInit,
 ): Promise<v1InvoiceUidReportPdfResponse> => {
-  const res = await fetch(getV1InvoiceUidReportPdfUrl(tenantUid, invoiceUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1InvoiceUidReportPdfResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1InvoiceUidReportPdfResponse;
+  return customInstance<v1InvoiceUidReportPdfResponse>(
+    getV1InvoiceUidReportPdfUrl(tenantUid, invoiceUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1115,24 +921,13 @@ export const v1InvoiceUidReportUsagePdf = async (
   invoiceUid: string,
   options?: RequestInit,
 ): Promise<v1InvoiceUidReportUsagePdfResponse> => {
-  const res = await fetch(
+  return customInstance<v1InvoiceUidReportUsagePdfResponse>(
     getV1InvoiceUidReportUsagePdfUrl(tenantUid, invoiceUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1InvoiceUidReportUsagePdfResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1InvoiceUidReportUsagePdfResponse;
 };
 
 /**
@@ -1159,21 +954,13 @@ export const tenantUidLoginBannerGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantUidLoginBannerGetResponse> => {
-  const res = await fetch(getTenantUidLoginBannerGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantUidLoginBannerGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantUidLoginBannerGetResponse;
+  return customInstance<tenantUidLoginBannerGetResponse>(
+    getTenantUidLoginBannerGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1201,23 +988,15 @@ export const tenantUidLoginBannerUpdate = async (
   loginBannerSettings: LoginBannerSettings,
   options?: RequestInit,
 ): Promise<tenantUidLoginBannerUpdateResponse> => {
-  const res = await fetch(getTenantUidLoginBannerUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(loginBannerSettings),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantUidLoginBannerUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantUidLoginBannerUpdateResponse;
+  return customInstance<tenantUidLoginBannerUpdateResponse>(
+    getTenantUidLoginBannerUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(loginBannerSettings),
+    },
+  );
 };
 
 /**
@@ -1245,23 +1024,15 @@ export const tenantsUidMacrosDeleteByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<tenantsUidMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(getTenantsUidMacrosDeleteByMacroNameUrl(tenantUid), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidMacrosDeleteByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidMacrosDeleteByMacroNameResponse;
+  return customInstance<tenantsUidMacrosDeleteByMacroNameResponse>(
+    getTenantsUidMacrosDeleteByMacroNameUrl(tenantUid),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1288,21 +1059,13 @@ export const tenantsUidMacrosList = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantsUidMacrosListResponse> => {
-  const res = await fetch(getTenantsUidMacrosListUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidMacrosListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidMacrosListResponse;
+  return customInstance<tenantsUidMacrosListResponse>(
+    getTenantsUidMacrosListUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1330,23 +1093,15 @@ export const tenantsUidMacrosUpdateByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<tenantsUidMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(getTenantsUidMacrosUpdateByMacroNameUrl(tenantUid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidMacrosUpdateByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidMacrosUpdateByMacroNameResponse;
+  return customInstance<tenantsUidMacrosUpdateByMacroNameResponse>(
+    getTenantsUidMacrosUpdateByMacroNameUrl(tenantUid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1374,23 +1129,15 @@ export const tenantsUidMacrosCreate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<tenantsUidMacrosCreateResponse> => {
-  const res = await fetch(getTenantsUidMacrosCreateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidMacrosCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidMacrosCreateResponse;
+  return customInstance<tenantsUidMacrosCreateResponse>(
+    getTenantsUidMacrosCreateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1418,23 +1165,15 @@ export const tenantsUidMacrosUpdate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<tenantsUidMacrosUpdateResponse> => {
-  const res = await fetch(getTenantsUidMacrosUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantsUidMacrosUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantsUidMacrosUpdateResponse;
+  return customInstance<tenantsUidMacrosUpdateResponse>(
+    getTenantsUidMacrosUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1461,21 +1200,13 @@ export const v1TenantUidOidcConfigGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidOidcConfigGetResponse> => {
-  const res = await fetch(getV1TenantUidOidcConfigGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidOidcConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidOidcConfigGetResponse;
+  return customInstance<v1TenantUidOidcConfigGetResponse>(
+    getV1TenantUidOidcConfigGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1503,23 +1234,15 @@ export const v1TenantUidOidcConfigUpdate = async (
   tenantOidcClientSpec: TenantOidcClientSpec,
   options?: RequestInit,
 ): Promise<v1TenantUidOidcConfigUpdateResponse> => {
-  const res = await fetch(getV1TenantUidOidcConfigUpdateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantOidcClientSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidOidcConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidOidcConfigUpdateResponse;
+  return customInstance<v1TenantUidOidcConfigUpdateResponse>(
+    getV1TenantUidOidcConfigUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantOidcClientSpec),
+    },
+  );
 };
 
 /**
@@ -1546,21 +1269,13 @@ export const v1TenantUidPasswordPolicyGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidPasswordPolicyGetResponse> => {
-  const res = await fetch(getV1TenantUidPasswordPolicyGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidPasswordPolicyGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidPasswordPolicyGetResponse;
+  return customInstance<v1TenantUidPasswordPolicyGetResponse>(
+    getV1TenantUidPasswordPolicyGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1588,23 +1303,15 @@ export const v1TenantUidPasswordPolicyUpdate = async (
   tenantPasswordPolicyEntity: TenantPasswordPolicyEntity,
   options?: RequestInit,
 ): Promise<v1TenantUidPasswordPolicyUpdateResponse> => {
-  const res = await fetch(getV1TenantUidPasswordPolicyUpdateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantPasswordPolicyEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidPasswordPolicyUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidPasswordPolicyUpdateResponse;
+  return customInstance<v1TenantUidPasswordPolicyUpdateResponse>(
+    getV1TenantUidPasswordPolicyUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantPasswordPolicyEntity),
+    },
+  );
 };
 
 /**
@@ -1631,21 +1338,13 @@ export const v1TenantPrefClusterGroupGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantPrefClusterGroupGetResponse> => {
-  const res = await fetch(getV1TenantPrefClusterGroupGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantPrefClusterGroupGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantPrefClusterGroupGetResponse;
+  return customInstance<v1TenantPrefClusterGroupGetResponse>(
+    getV1TenantPrefClusterGroupGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1673,23 +1372,15 @@ export const v1TenantPrefClusterGroupUpdate = async (
   tenantEnableClusterGroup: TenantEnableClusterGroup,
   options?: RequestInit,
 ): Promise<v1TenantPrefClusterGroupUpdateResponse> => {
-  const res = await fetch(getV1TenantPrefClusterGroupUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantEnableClusterGroup),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantPrefClusterGroupUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantPrefClusterGroupUpdateResponse;
+  return customInstance<v1TenantPrefClusterGroupUpdateResponse>(
+    getV1TenantPrefClusterGroupUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantEnableClusterGroup),
+    },
+  );
 };
 
 /**
@@ -1716,21 +1407,13 @@ export const tenantClusterSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantClusterSettingsGetResponse> => {
-  const res = await fetch(getTenantClusterSettingsGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantClusterSettingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantClusterSettingsGetResponse;
+  return customInstance<tenantClusterSettingsGetResponse>(
+    getTenantClusterSettingsGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1760,7 +1443,7 @@ export const tenantClustersNodesAutoRemediationSettingUpdate = async (
   v1NodesAutoRemediationSettingsBody: V1NodesAutoRemediationSettingsBody,
   options?: RequestInit,
 ): Promise<tenantClustersNodesAutoRemediationSettingUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<tenantClustersNodesAutoRemediationSettingUpdateResponse>(
     getTenantClustersNodesAutoRemediationSettingUpdateUrl(tenantUid),
     {
       ...options,
@@ -1769,16 +1452,6 @@ export const tenantClustersNodesAutoRemediationSettingUpdate = async (
       body: JSON.stringify(v1NodesAutoRemediationSettingsBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantClustersNodesAutoRemediationSettingUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantClustersNodesAutoRemediationSettingUpdateResponse;
 };
 
 /**
@@ -1805,21 +1478,13 @@ export const v1TenantDeveloperCreditGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantDeveloperCreditGetResponse> => {
-  const res = await fetch(getV1TenantDeveloperCreditGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantDeveloperCreditGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantDeveloperCreditGetResponse;
+  return customInstance<v1TenantDeveloperCreditGetResponse>(
+    getV1TenantDeveloperCreditGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1847,23 +1512,15 @@ export const v1TenantDeveloperCreditUpdate = async (
   developerCredit: DeveloperCredit,
   options?: RequestInit,
 ): Promise<v1TenantDeveloperCreditUpdateResponse> => {
-  const res = await fetch(getV1TenantDeveloperCreditUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(developerCredit),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantDeveloperCreditUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantDeveloperCreditUpdateResponse;
+  return customInstance<v1TenantDeveloperCreditUpdateResponse>(
+    getV1TenantDeveloperCreditUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(developerCredit),
+    },
+  );
 };
 
 /**
@@ -1890,21 +1547,13 @@ export const tenantFipsSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantFipsSettingsGetResponse> => {
-  const res = await fetch(getTenantFipsSettingsGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantFipsSettingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantFipsSettingsGetResponse;
+  return customInstance<tenantFipsSettingsGetResponse>(
+    getTenantFipsSettingsGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1932,23 +1581,15 @@ export const tenantFipsSettingsUpdate = async (
   fipsSettings: FipsSettings,
   options?: RequestInit,
 ): Promise<tenantFipsSettingsUpdateResponse> => {
-  const res = await fetch(getTenantFipsSettingsUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(fipsSettings),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantFipsSettingsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantFipsSettingsUpdateResponse;
+  return customInstance<tenantFipsSettingsUpdateResponse>(
+    getTenantFipsSettingsUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(fipsSettings),
+    },
+  );
 };
 
 /**
@@ -1973,19 +1614,10 @@ export const rateConfigGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<rateConfigGetResponse> => {
-  const res = await fetch(getRateConfigGetUrl(tenantUid), {
+  return customInstance<rateConfigGetResponse>(getRateConfigGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rateConfigGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rateConfigGetResponse;
 };
 
 /**
@@ -2011,21 +1643,15 @@ export const rateConfigUpdate = async (
   rateConfig: RateConfig,
   options?: RequestInit,
 ): Promise<rateConfigUpdateResponse> => {
-  const res = await fetch(getRateConfigUpdateUrl(tenantUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(rateConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rateConfigUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rateConfigUpdateResponse;
+  return customInstance<rateConfigUpdateResponse>(
+    getRateConfigUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(rateConfig),
+    },
+  );
 };
 
 /**
@@ -2052,21 +1678,13 @@ export const tenantResourceLimitsGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<tenantResourceLimitsGetResponse> => {
-  const res = await fetch(getTenantResourceLimitsGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantResourceLimitsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantResourceLimitsGetResponse;
+  return customInstance<tenantResourceLimitsGetResponse>(
+    getTenantResourceLimitsGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2094,23 +1712,15 @@ export const tenantResourceLimitsUpdate = async (
   tenantResourceLimitsEntity: TenantResourceLimitsEntity,
   options?: RequestInit,
 ): Promise<tenantResourceLimitsUpdateResponse> => {
-  const res = await fetch(getTenantResourceLimitsUpdateUrl(tenantUid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantResourceLimitsEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tenantResourceLimitsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tenantResourceLimitsUpdateResponse;
+  return customInstance<tenantResourceLimitsUpdateResponse>(
+    getTenantResourceLimitsUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantResourceLimitsEntity),
+    },
+  );
 };
 
 /**
@@ -2137,21 +1747,13 @@ export const v1TenantUidSamlConfigSpecGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidSamlConfigSpecGetResponse> => {
-  const res = await fetch(getV1TenantUidSamlConfigSpecGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidSamlConfigSpecGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidSamlConfigSpecGetResponse;
+  return customInstance<v1TenantUidSamlConfigSpecGetResponse>(
+    getV1TenantUidSamlConfigSpecGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2179,23 +1781,15 @@ export const v1TenantUidSamlConfigUpdate = async (
   tenantSamlRequestSpec: TenantSamlRequestSpec,
   options?: RequestInit,
 ): Promise<v1TenantUidSamlConfigUpdateResponse> => {
-  const res = await fetch(getV1TenantUidSamlConfigUpdateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantSamlRequestSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidSamlConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidSamlConfigUpdateResponse;
+  return customInstance<v1TenantUidSamlConfigUpdateResponse>(
+    getV1TenantUidSamlConfigUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantSamlRequestSpec),
+    },
+  );
 };
 
 /**
@@ -2222,21 +1816,13 @@ export const v1TenantUidSsoAuthProvidersGet = async (
   tenantUid: string,
   options?: RequestInit,
 ): Promise<v1TenantUidSsoAuthProvidersGetResponse> => {
-  const res = await fetch(getV1TenantUidSsoAuthProvidersGetUrl(tenantUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidSsoAuthProvidersGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidSsoAuthProvidersGetResponse;
+  return customInstance<v1TenantUidSsoAuthProvidersGetResponse>(
+    getV1TenantUidSsoAuthProvidersGetUrl(tenantUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2264,21 +1850,13 @@ export const v1TenantUidSsoAuthProvidersUpdate = async (
   tenantSsoAuthProvidersEntity: TenantSsoAuthProvidersEntity,
   options?: RequestInit,
 ): Promise<v1TenantUidSsoAuthProvidersUpdateResponse> => {
-  const res = await fetch(getV1TenantUidSsoAuthProvidersUpdateUrl(tenantUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(tenantSsoAuthProvidersEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TenantUidSsoAuthProvidersUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TenantUidSsoAuthProvidersUpdateResponse;
+  return customInstance<v1TenantUidSsoAuthProvidersUpdateResponse>(
+    getV1TenantUidSsoAuthProvidersUpdateUrl(tenantUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(tenantSsoAuthProvidersEntity),
+    },
+  );
 };

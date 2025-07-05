@@ -17,6 +17,8 @@ import type {
   AuditsListParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves the list of audit logs
  */
@@ -51,19 +53,10 @@ export const auditsList = async (
   params?: AuditsListParams,
   options?: RequestInit,
 ): Promise<auditsListResponse> => {
-  const res = await fetch(getAuditsListUrl(params), {
+  return customInstance<auditsListResponse>(getAuditsListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: auditsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as auditsListResponse;
 };
 
 /**
@@ -88,19 +81,10 @@ export const auditsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<auditsUidGetResponse> => {
-  const res = await fetch(getAuditsUidGetUrl(uid), {
+  return customInstance<auditsUidGetResponse>(getAuditsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: auditsUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as auditsUidGetResponse;
 };
 
 /**
@@ -125,19 +109,13 @@ export const auditsUidGetSysMsg = async (
   uid: string,
   options?: RequestInit,
 ): Promise<auditsUidGetSysMsgResponse> => {
-  const res = await fetch(getAuditsUidGetSysMsgUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: auditsUidGetSysMsgResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as auditsUidGetSysMsgResponse;
+  return customInstance<auditsUidGetSysMsgResponse>(
+    getAuditsUidGetSysMsgUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -163,19 +141,13 @@ export const auditsUidMsgUpdate = async (
   auditMsgUpdate: AuditMsgUpdate,
   options?: RequestInit,
 ): Promise<auditsUidMsgUpdateResponse> => {
-  const res = await fetch(getAuditsUidMsgUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(auditMsgUpdate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: auditsUidMsgUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as auditsUidMsgUpdateResponse;
+  return customInstance<auditsUidMsgUpdateResponse>(
+    getAuditsUidMsgUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(auditMsgUpdate),
+    },
+  );
 };

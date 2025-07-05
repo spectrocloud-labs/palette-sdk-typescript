@@ -8,7 +8,7 @@
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { clusterProfilesFilterSummary } from "../generated/index";
+import { setupConfig } from "../generated";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -28,92 +28,93 @@ if (result.error) {
   );
 }
 
-// Configuration
+// Environment variables
 const API_KEY = process.env.PALETTE_API_KEY;
-const BASE_URL = "https://api.spectrocloud.com";
+const BASE_URL = process.env.PALETTE_BASE_URL || "https://api.spectrocloud.com";
 
-async function testClusterProfilesSimple() {
-  try {
-    console.log("🔍 Testing cluster profiles function availability...");
+if (!API_KEY) {
+  console.error("❌ PALETTE_API_KEY environment variable is required");
+  process.exit(1);
+}
 
-    // Test that the function is importable and callable
-    console.log(
-      `✅ clusterProfilesFilterSummary type: ${typeof clusterProfilesFilterSummary}`
+async function testClusterProfiles() {
+  console.log("🔍 Testing cluster profiles function availability...");
+
+  // Create a pre-configured client
+  const palette = setupConfig({
+    baseURL: BASE_URL,
+    headers: {
+      ApiKey: API_KEY,
+      "Content-Type": "application/json",
+      // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
+    },
+  });
+
+  // Test that the function is available
+  if (typeof (palette as any).clusterProfilesFilterSummary === "function") {
+    console.log("✅ clusterProfilesFilterSummary is available as a function");
+  } else {
+    console.error(
+      "❌ clusterProfilesFilterSummary is not available as a function"
     );
+    process.exit(1);
+  }
 
-    if (typeof clusterProfilesFilterSummary === "function") {
-      console.log("✅ clusterProfilesFilterSummary is available as a function");
-    } else {
-      throw new Error(
-        "clusterProfilesFilterSummary is not available as a function"
-      );
-    }
+  console.log("🔍 Retrieving cluster profiles from Palette API...");
 
-    if (!API_KEY) {
-      console.log("⚠️  PALETTE_API_KEY not found - skipping API call test");
-      console.log("✅ Function availability test passed");
-      return;
-    }
-
-    console.log("🔍 Retrieving cluster profiles from Palette API...\n");
-
-    // Configure the request
-    const response = await clusterProfilesFilterSummary(
-      {},
-      {},
+  try {
+    // Call the API using the client wrapper
+    const response = await (palette as any).clusterProfilesFilterSummary(
       {
-        headers: {
-          ApiKey: API_KEY,
-          "Content-Type": "application/json",
-          // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
+        // Filter criteria (empty object means get all)
+        metadata: {
+          annotations: {},
+          labels: {},
         },
+      },
+      {
+        // Query parameters (empty object means use defaults)
       }
     );
 
-    const profiles = response.data.items || [];
-
-    console.log(`✅ Found ${profiles.length} cluster profiles:\n`);
-
-    profiles.forEach((profile, index) => {
-      console.log(`${index + 1}. ${profile.metadata?.name || "Unnamed"}`);
-      console.log(`   UID: ${profile.metadata?.uid || "N/A"}`);
-      console.log(`   Version: ${profile.specSummary?.version || "N/A"}`);
+    if (response && response.data && Array.isArray(response.data.items)) {
       console.log(
-        `   Created: ${profile.metadata?.creationTimestamp || "N/A"}`
+        `\n✅ Found ${response.data.items.length} cluster profiles:\n`
       );
-      console.log("");
-    });
 
-    if (profiles.length === 0) {
-      console.log("No cluster profiles found in the default project.");
+      // Display the cluster profiles
+      response.data.items.forEach((profile: any, index: number) => {
+        console.log(`${index + 1}. ${profile.metadata.name}`);
+        console.log(`   UID: ${profile.metadata.uid}`);
+        console.log(`   Version: ${profile.specSummary?.version || "N/A"}`);
+        console.log(`   Created: ${profile.metadata.creationTimestamp}`);
+        console.log("");
+      });
+
+      console.log("✅ Cluster profiles test completed successfully");
+      return true;
+    } else {
+      console.error("❌ Unexpected response format:", response);
+      return false;
     }
-
-    console.log("✅ Cluster profiles test completed successfully");
-  } catch (error: any) {
-    console.error("❌ Error retrieving cluster profiles:");
-    console.error(error.message);
-
-    if (error.response) {
-      console.error(`Status: ${error.response.status}`);
-      console.error(
-        `Response: ${JSON.stringify(error.response.data, null, 2)}`
-      );
-    }
-    throw error;
+  } catch (error) {
+    console.error("❌ Error retrieving cluster profiles:", error);
+    return false;
   }
 }
 
-// Run the test if this file is executed directly
-if (require.main === module) {
-  testClusterProfilesSimple()
-    .then(() => {
+// Run the test
+testClusterProfiles()
+  .then((success) => {
+    if (success) {
       console.log("✅ Test completed successfully");
       process.exit(0);
-    })
-    .catch((error) => {
-      console.error("❌ Test failed:", error);
+    } else {
+      console.log("❌ Test failed");
       process.exit(1);
-    });
-}
-
-export { testClusterProfilesSimple };
+    }
+  })
+  .catch((error) => {
+    console.error("❌ Test failed:", error);
+    process.exit(1);
+  });

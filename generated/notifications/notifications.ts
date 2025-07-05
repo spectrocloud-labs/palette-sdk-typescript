@@ -17,6 +17,8 @@ import type {
   Uid,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Returns a paginated list of notifications based on request parameters
  * @summary Returns a paginated list of notifications based on request parameters
@@ -52,19 +54,13 @@ export const notificationsList = async (
   params?: NotificationsListParams,
   options?: RequestInit,
 ): Promise<notificationsListResponse> => {
-  const res = await fetch(getNotificationsListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: notificationsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as notificationsListResponse;
+  return customInstance<notificationsListResponse>(
+    getNotificationsListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -92,23 +88,15 @@ export const notificationsEventCreate = async (
   notificationEvent: NotificationEvent,
   options?: RequestInit,
 ): Promise<notificationsEventCreateResponse> => {
-  const res = await fetch(getNotificationsEventCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(notificationEvent),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: notificationsEventCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as notificationsEventCreateResponse;
+  return customInstance<notificationsEventCreateResponse>(
+    getNotificationsEventCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(notificationEvent),
+    },
+  );
 };
 
 /**
@@ -154,24 +142,13 @@ export const notificationsObjTypeUidList = async (
   params?: NotificationsObjTypeUidListParams,
   options?: RequestInit,
 ): Promise<notificationsObjTypeUidListResponse> => {
-  const res = await fetch(
+  return customInstance<notificationsObjTypeUidListResponse>(
     getNotificationsObjTypeUidListUrl(objectKind, objectUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: notificationsObjTypeUidListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as notificationsObjTypeUidListResponse;
 };
 
 /**
@@ -199,21 +176,13 @@ export const notificationsUidAck = async (
   uid: string,
   options?: RequestInit,
 ): Promise<notificationsUidAckResponse> => {
-  const res = await fetch(getNotificationsUidAckUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: notificationsUidAckResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as notificationsUidAckResponse;
+  return customInstance<notificationsUidAckResponse>(
+    getNotificationsUidAckUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -241,19 +210,11 @@ export const notificationsUidDone = async (
   uid: string,
   options?: RequestInit,
 ): Promise<notificationsUidDoneResponse> => {
-  const res = await fetch(getNotificationsUidDoneUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: notificationsUidDoneResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as notificationsUidDoneResponse;
+  return customInstance<notificationsUidDoneResponse>(
+    getNotificationsUidDoneUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };

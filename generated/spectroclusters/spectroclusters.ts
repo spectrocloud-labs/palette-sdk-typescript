@@ -191,6 +191,8 @@ import type {
   VirtualMachineSnapshotList,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Creates an AKS cluster
  */
@@ -215,23 +217,15 @@ export const spectroClustersAksCreate = async (
   v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAksCreateResponse> => {
-  const res = await fetch(getSpectroClustersAksCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAksCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAksCreateResponse;
+  return customInstance<spectroClustersAksCreateResponse>(
+    getSpectroClustersAksCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -273,23 +267,15 @@ export const spectroClustersAksRate = async (
   params?: SpectroClustersAksRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersAksRateResponse> => {
-  const res = await fetch(getSpectroClustersAksRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAksRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAksRateResponse;
+  return customInstance<spectroClustersAksRateResponse>(
+    getSpectroClustersAksRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
+    },
+  );
 };
 
 /**
@@ -316,23 +302,15 @@ export const spectroClustersAksValidate = async (
   v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAksValidateResponse> => {
-  const res = await fetch(getSpectroClustersAksValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAksValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAksValidateResponse;
+  return customInstance<spectroClustersAksValidateResponse>(
+    getSpectroClustersAksValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -359,23 +337,15 @@ export const spectroClustersAwsCreate = async (
   v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAwsCreateResponse> => {
-  const res = await fetch(getSpectroClustersAwsCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAwsClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAwsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAwsCreateResponse;
+  return customInstance<spectroClustersAwsCreateResponse>(
+    getSpectroClustersAwsCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAwsClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -402,23 +372,15 @@ export const spectroClustersAwsImport = async (
   spectroAwsClusterImportEntity: SpectroAwsClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersAwsImportResponse> => {
-  const res = await fetch(getSpectroClustersAwsImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroAwsClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAwsImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAwsImportResponse;
+  return customInstance<spectroClustersAwsImportResponse>(
+    getSpectroClustersAwsImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroAwsClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -460,23 +422,15 @@ export const spectroClustersAwsRate = async (
   params?: SpectroClustersAwsRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersAwsRateResponse> => {
-  const res = await fetch(getSpectroClustersAwsRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroAwsClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAwsRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAwsRateResponse;
+  return customInstance<spectroClustersAwsRateResponse>(
+    getSpectroClustersAwsRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroAwsClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -503,23 +457,15 @@ export const spectroClustersAwsValidate = async (
   v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAwsValidateResponse> => {
-  const res = await fetch(getSpectroClustersAwsValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAwsClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAwsValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAwsValidateResponse;
+  return customInstance<spectroClustersAwsValidateResponse>(
+    getSpectroClustersAwsValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAwsClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -546,23 +492,15 @@ export const spectroClustersAzureCreate = async (
   v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAzureCreateResponse> => {
-  const res = await fetch(getSpectroClustersAzureCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAzureCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAzureCreateResponse;
+  return customInstance<spectroClustersAzureCreateResponse>(
+    getSpectroClustersAzureCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -589,23 +527,15 @@ export const spectroClustersAzureImport = async (
   spectroAzureClusterImportEntity: SpectroAzureClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersAzureImportResponse> => {
-  const res = await fetch(getSpectroClustersAzureImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroAzureClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAzureImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAzureImportResponse;
+  return customInstance<spectroClustersAzureImportResponse>(
+    getSpectroClustersAzureImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroAzureClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -647,23 +577,15 @@ export const spectroClustersAzureRate = async (
   params?: SpectroClustersAzureRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersAzureRateResponse> => {
-  const res = await fetch(getSpectroClustersAzureRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAzureRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAzureRateResponse;
+  return customInstance<spectroClustersAzureRateResponse>(
+    getSpectroClustersAzureRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
+    },
+  );
 };
 
 /**
@@ -690,23 +612,15 @@ export const spectroClustersAzureValidate = async (
   v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersAzureValidateResponse> => {
-  const res = await fetch(getSpectroClustersAzureValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersAzureValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersAzureValidateResponse;
+  return customInstance<spectroClustersAzureValidateResponse>(
+    getSpectroClustersAzureValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroAzureClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -734,23 +648,15 @@ export const spectroClustersCustomCreate = async (
   v1SpectroCustomClusterEntityBody: V1SpectroCustomClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersCustomCreateResponse> => {
-  const res = await fetch(getSpectroClustersCustomCreateUrl(cloudType), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroCustomClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersCustomCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersCustomCreateResponse;
+  return customInstance<spectroClustersCustomCreateResponse>(
+    getSpectroClustersCustomCreateUrl(cloudType),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroCustomClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -778,23 +684,15 @@ export const spectroClustersCustomValidate = async (
   v1SpectroCustomClusterEntityBody: V1SpectroCustomClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersCustomValidateResponse> => {
-  const res = await fetch(getSpectroClustersCustomValidateUrl(cloudType), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroCustomClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersCustomValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersCustomValidateResponse;
+  return customInstance<spectroClustersCustomValidateResponse>(
+    getSpectroClustersCustomValidateUrl(cloudType),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroCustomClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -820,21 +718,13 @@ export const getSpectroClustersConfigEdgeInstallerUrl = () => {
 export const spectroClustersConfigEdgeInstaller = async (
   options?: RequestInit,
 ): Promise<spectroClustersConfigEdgeInstallerResponse> => {
-  const res = await fetch(getSpectroClustersConfigEdgeInstallerUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersConfigEdgeInstallerResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersConfigEdgeInstallerResponse;
+  return customInstance<spectroClustersConfigEdgeInstallerResponse>(
+    getSpectroClustersConfigEdgeInstallerUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -861,23 +751,15 @@ export const spectroClustersEdgeNativeCreate = async (
   v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersEdgeNativeCreateResponse> => {
-  const res = await fetch(getSpectroClustersEdgeNativeCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEdgeNativeCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEdgeNativeCreateResponse;
+  return customInstance<spectroClustersEdgeNativeCreateResponse>(
+    getSpectroClustersEdgeNativeCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -904,23 +786,15 @@ export const spectroClustersEdgeNativeImport = async (
   spectroEdgeNativeClusterImportEntity: SpectroEdgeNativeClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersEdgeNativeImportResponse> => {
-  const res = await fetch(getSpectroClustersEdgeNativeImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroEdgeNativeClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEdgeNativeImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEdgeNativeImportResponse;
+  return customInstance<spectroClustersEdgeNativeImportResponse>(
+    getSpectroClustersEdgeNativeImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroEdgeNativeClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -962,23 +836,15 @@ export const spectroClustersEdgeNativeRate = async (
   params?: SpectroClustersEdgeNativeRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersEdgeNativeRateResponse> => {
-  const res = await fetch(getSpectroClustersEdgeNativeRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroEdgeNativeClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEdgeNativeRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEdgeNativeRateResponse;
+  return customInstance<spectroClustersEdgeNativeRateResponse>(
+    getSpectroClustersEdgeNativeRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroEdgeNativeClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -1005,23 +871,15 @@ export const spectroClustersEdgeNativeValidate = async (
   v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersEdgeNativeValidateResponse> => {
-  const res = await fetch(getSpectroClustersEdgeNativeValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEdgeNativeValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEdgeNativeValidateResponse;
+  return customInstance<spectroClustersEdgeNativeValidateResponse>(
+    getSpectroClustersEdgeNativeValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1048,23 +906,15 @@ export const spectroClustersEksCreate = async (
   v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersEksCreateResponse> => {
-  const res = await fetch(getSpectroClustersEksCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroEksClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEksCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEksCreateResponse;
+  return customInstance<spectroClustersEksCreateResponse>(
+    getSpectroClustersEksCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroEksClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1106,23 +956,15 @@ export const spectroClustersEksRate = async (
   params?: SpectroClustersEksRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersEksRateResponse> => {
-  const res = await fetch(getSpectroClustersEksRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroEksClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEksRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEksRateResponse;
+  return customInstance<spectroClustersEksRateResponse>(
+    getSpectroClustersEksRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroEksClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -1149,23 +991,15 @@ export const spectroClustersEksValidate = async (
   v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersEksValidateResponse> => {
-  const res = await fetch(getSpectroClustersEksValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroEksClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersEksValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersEksValidateResponse;
+  return customInstance<spectroClustersEksValidateResponse>(
+    getSpectroClustersEksValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroEksClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1192,21 +1026,13 @@ export const v1ClusterFeatureBackupLocationUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1ClusterFeatureBackupLocationUidGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupLocationUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterFeatureBackupLocationUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterFeatureBackupLocationUidGetResponse;
+  return customInstance<v1ClusterFeatureBackupLocationUidGetResponse>(
+    getV1ClusterFeatureBackupLocationUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1234,23 +1060,15 @@ export const v1ClusterFeatureBackupLocationUidChange = async (
   clusterBackupLocationType: ClusterBackupLocationType,
   options?: RequestInit,
 ): Promise<v1ClusterFeatureBackupLocationUidChangeResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupLocationUidChangeUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterBackupLocationType),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterFeatureBackupLocationUidChangeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterFeatureBackupLocationUidChangeResponse;
+  return customInstance<v1ClusterFeatureBackupLocationUidChangeResponse>(
+    getV1ClusterFeatureBackupLocationUidChangeUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterBackupLocationType),
+    },
+  );
 };
 
 /**
@@ -1293,24 +1111,13 @@ export const clusterFeatureLogFetcherLogDownload = async (
   params?: ClusterFeatureLogFetcherLogDownloadParams,
   options?: RequestInit,
 ): Promise<clusterFeatureLogFetcherLogDownloadResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureLogFetcherLogDownloadResponse>(
     getClusterFeatureLogFetcherLogDownloadUrl(uid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureLogFetcherLogDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureLogFetcherLogDownloadResponse;
 };
 
 /**
@@ -1359,7 +1166,7 @@ export const clusterFeatureLogFetcherLogUpdate = async (
     formData.append(`fileName`, clusterFeatureLogFetcherLogUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<clusterFeatureLogFetcherLogUpdateResponse>(
     getClusterFeatureLogFetcherLogUpdateUrl(uid, params),
     {
       ...options,
@@ -1367,17 +1174,6 @@ export const clusterFeatureLogFetcherLogUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureLogFetcherLogUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureLogFetcherLogUpdateResponse;
 };
 
 /**
@@ -1404,23 +1200,15 @@ export const spectroClustersGcpCreate = async (
   v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersGcpCreateResponse> => {
-  const res = await fetch(getSpectroClustersGcpCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGcpCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGcpCreateResponse;
+  return customInstance<spectroClustersGcpCreateResponse>(
+    getSpectroClustersGcpCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1447,23 +1235,15 @@ export const spectroClustersGcpImport = async (
   spectroGcpClusterImportEntity: SpectroGcpClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersGcpImportResponse> => {
-  const res = await fetch(getSpectroClustersGcpImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroGcpClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGcpImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGcpImportResponse;
+  return customInstance<spectroClustersGcpImportResponse>(
+    getSpectroClustersGcpImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroGcpClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -1505,23 +1285,15 @@ export const spectroClustersGcpRate = async (
   params?: SpectroClustersGcpRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersGcpRateResponse> => {
-  const res = await fetch(getSpectroClustersGcpRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGcpRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGcpRateResponse;
+  return customInstance<spectroClustersGcpRateResponse>(
+    getSpectroClustersGcpRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
+    },
+  );
 };
 
 /**
@@ -1548,23 +1320,15 @@ export const spectroClustersGcpValidate = async (
   v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersGcpValidateResponse> => {
-  const res = await fetch(getSpectroClustersGcpValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGcpValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGcpValidateResponse;
+  return customInstance<spectroClustersGcpValidateResponse>(
+    getSpectroClustersGcpValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1592,23 +1356,15 @@ export const spectroClustersGenericImport = async (
   spectroGenericClusterImportEntity: SpectroGenericClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersGenericImportResponse> => {
-  const res = await fetch(getSpectroClustersGenericImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroGenericClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGenericImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGenericImportResponse;
+  return customInstance<spectroClustersGenericImportResponse>(
+    getSpectroClustersGenericImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroGenericClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -1650,23 +1406,15 @@ export const spectroClustersGenericRate = async (
   params?: SpectroClustersGenericRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersGenericRateResponse> => {
-  const res = await fetch(getSpectroClustersGenericRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroGenericClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGenericRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGenericRateResponse;
+  return customInstance<spectroClustersGenericRateResponse>(
+    getSpectroClustersGenericRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroGenericClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -1693,23 +1441,15 @@ export const spectroClustersGkeCreate = async (
   v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersGkeCreateResponse> => {
-  const res = await fetch(getSpectroClustersGkeCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGkeCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGkeCreateResponse;
+  return customInstance<spectroClustersGkeCreateResponse>(
+    getSpectroClustersGkeCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1751,23 +1491,15 @@ export const spectroClustersGkeRate = async (
   params?: SpectroClustersGkeRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersGkeRateResponse> => {
-  const res = await fetch(getSpectroClustersGkeRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGkeRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGkeRateResponse;
+  return customInstance<spectroClustersGkeRateResponse>(
+    getSpectroClustersGkeRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
+    },
+  );
 };
 
 /**
@@ -1794,23 +1526,15 @@ export const spectroClustersGkeValidate = async (
   v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersGkeValidateResponse> => {
-  const res = await fetch(getSpectroClustersGkeValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGkeValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGkeValidateResponse;
+  return customInstance<spectroClustersGkeValidateResponse>(
+    getSpectroClustersGkeValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroGcpClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1837,23 +1561,15 @@ export const spectroClustersMaasCreate = async (
   v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersMaasCreateResponse> => {
-  const res = await fetch(getSpectroClustersMaasCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroMaasClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersMaasCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersMaasCreateResponse;
+  return customInstance<spectroClustersMaasCreateResponse>(
+    getSpectroClustersMaasCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroMaasClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -1880,23 +1596,15 @@ export const spectroClustersMaasImport = async (
   spectroMaasClusterImportEntity: SpectroMaasClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersMaasImportResponse> => {
-  const res = await fetch(getSpectroClustersMaasImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroMaasClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersMaasImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersMaasImportResponse;
+  return customInstance<spectroClustersMaasImportResponse>(
+    getSpectroClustersMaasImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroMaasClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -1938,23 +1646,15 @@ export const spectroClustersMaasRate = async (
   params?: SpectroClustersMaasRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersMaasRateResponse> => {
-  const res = await fetch(getSpectroClustersMaasRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroMaasClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersMaasRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersMaasRateResponse;
+  return customInstance<spectroClustersMaasRateResponse>(
+    getSpectroClustersMaasRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroMaasClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -1981,23 +1681,15 @@ export const spectroClustersMaasValidate = async (
   v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersMaasValidateResponse> => {
-  const res = await fetch(getSpectroClustersMaasValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroMaasClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersMaasValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersMaasValidateResponse;
+  return customInstance<spectroClustersMaasValidateResponse>(
+    getSpectroClustersMaasValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroMaasClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2024,23 +1716,15 @@ export const spectroClustersOpenStackCreate = async (
   v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersOpenStackCreateResponse> => {
-  const res = await fetch(getSpectroClustersOpenStackCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersOpenStackCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersOpenStackCreateResponse;
+  return customInstance<spectroClustersOpenStackCreateResponse>(
+    getSpectroClustersOpenStackCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2067,23 +1751,15 @@ export const spectroClustersOpenStackImport = async (
   spectroOpenStackClusterImportEntity: SpectroOpenStackClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersOpenStackImportResponse> => {
-  const res = await fetch(getSpectroClustersOpenStackImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroOpenStackClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersOpenStackImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersOpenStackImportResponse;
+  return customInstance<spectroClustersOpenStackImportResponse>(
+    getSpectroClustersOpenStackImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroOpenStackClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -2125,23 +1801,15 @@ export const spectroClustersOpenStackRate = async (
   params?: SpectroClustersOpenStackRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersOpenStackRateResponse> => {
-  const res = await fetch(getSpectroClustersOpenStackRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroOpenStackClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersOpenStackRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersOpenStackRateResponse;
+  return customInstance<spectroClustersOpenStackRateResponse>(
+    getSpectroClustersOpenStackRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroOpenStackClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -2168,23 +1836,15 @@ export const spectroClustersOpenStackValidate = async (
   v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersOpenStackValidateResponse> => {
-  const res = await fetch(getSpectroClustersOpenStackValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersOpenStackValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersOpenStackValidateResponse;
+  return customInstance<spectroClustersOpenStackValidateResponse>(
+    getSpectroClustersOpenStackValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2211,23 +1871,15 @@ export const spectroClustersSpcDownload = async (
   clusterDefinitionEntity: ClusterDefinitionEntity,
   options?: RequestInit,
 ): Promise<spectroClustersSpcDownloadResponse> => {
-  const res = await fetch(getSpectroClustersSpcDownloadUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterDefinitionEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersSpcDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersSpcDownloadResponse;
+  return customInstance<spectroClustersSpcDownloadResponse>(
+    getSpectroClustersSpcDownloadUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterDefinitionEntity),
+    },
+  );
 };
 
 /**
@@ -2253,21 +1905,13 @@ export const getSpectroClustersTagsGetUrl = () => {
 export const spectroClustersTagsGet = async (
   options?: RequestInit,
 ): Promise<spectroClustersTagsGetResponse> => {
-  const res = await fetch(getSpectroClustersTagsGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersTagsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersTagsGetResponse;
+  return customInstance<spectroClustersTagsGetResponse>(
+    getSpectroClustersTagsGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2293,21 +1937,13 @@ export const getSpectroClustersUpgradeSettingsGetUrl = () => {
 export const spectroClustersUpgradeSettingsGet = async (
   options?: RequestInit,
 ): Promise<spectroClustersUpgradeSettingsGetResponse> => {
-  const res = await fetch(getSpectroClustersUpgradeSettingsGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpgradeSettingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpgradeSettingsGetResponse;
+  return customInstance<spectroClustersUpgradeSettingsGetResponse>(
+    getSpectroClustersUpgradeSettingsGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2334,23 +1970,15 @@ export const spectroClustersUpgradeSettings = async (
   v1ClusterUpgradeSettingsEntityBody: V1ClusterUpgradeSettingsEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersUpgradeSettingsResponse> => {
-  const res = await fetch(getSpectroClustersUpgradeSettingsUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpgradeSettingsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpgradeSettingsResponse;
+  return customInstance<spectroClustersUpgradeSettingsResponse>(
+    getSpectroClustersUpgradeSettingsUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
+    },
+  );
 };
 
 /**
@@ -2391,21 +2019,13 @@ export const spectroClustersValidateName = async (
   params?: SpectroClustersValidateNameParams,
   options?: RequestInit,
 ): Promise<spectroClustersValidateNameResponse> => {
-  const res = await fetch(getSpectroClustersValidateNameUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersValidateNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersValidateNameResponse;
+  return customInstance<spectroClustersValidateNameResponse>(
+    getSpectroClustersValidateNameUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2432,23 +2052,15 @@ export const spectroClustersValidatePacks = async (
   v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersValidatePacksResponse> => {
-  const res = await fetch(getSpectroClustersValidatePacksUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersValidatePacksResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersValidatePacksResponse;
+  return customInstance<spectroClustersValidatePacksResponse>(
+    getSpectroClustersValidatePacksUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterPacksEntityBody),
+    },
+  );
 };
 
 /**
@@ -2475,23 +2087,15 @@ export const spectroClustersVirtualCreate = async (
   v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersVirtualCreateResponse> => {
-  const res = await fetch(getSpectroClustersVirtualCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVirtualCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVirtualCreateResponse;
+  return customInstance<spectroClustersVirtualCreateResponse>(
+    getSpectroClustersVirtualCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2532,21 +2136,13 @@ export const virtualClustersPacksValues = async (
   params?: VirtualClustersPacksValuesParams,
   options?: RequestInit,
 ): Promise<virtualClustersPacksValuesResponse> => {
-  const res = await fetch(getVirtualClustersPacksValuesUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: virtualClustersPacksValuesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as virtualClustersPacksValuesResponse;
+  return customInstance<virtualClustersPacksValuesResponse>(
+    getVirtualClustersPacksValuesUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2573,23 +2169,15 @@ export const spectroClustersVirtualValidate = async (
   v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersVirtualValidateResponse> => {
-  const res = await fetch(getSpectroClustersVirtualValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVirtualValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVirtualValidateResponse;
+  return customInstance<spectroClustersVirtualValidateResponse>(
+    getSpectroClustersVirtualValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2616,23 +2204,15 @@ export const spectroClustersVsphereCreate = async (
   v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersVsphereCreateResponse> => {
-  const res = await fetch(getSpectroClustersVsphereCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVsphereCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVsphereCreateResponse;
+  return customInstance<spectroClustersVsphereCreateResponse>(
+    getSpectroClustersVsphereCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2659,23 +2239,15 @@ export const spectroClustersVsphereImport = async (
   spectroVsphereClusterImportEntity: SpectroVsphereClusterImportEntity,
   options?: RequestInit,
 ): Promise<spectroClustersVsphereImportResponse> => {
-  const res = await fetch(getSpectroClustersVsphereImportUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroVsphereClusterImportEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVsphereImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVsphereImportResponse;
+  return customInstance<spectroClustersVsphereImportResponse>(
+    getSpectroClustersVsphereImportUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroVsphereClusterImportEntity),
+    },
+  );
 };
 
 /**
@@ -2717,23 +2289,15 @@ export const spectroClustersVsphereRate = async (
   params?: SpectroClustersVsphereRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersVsphereRateResponse> => {
-  const res = await fetch(getSpectroClustersVsphereRateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroVsphereClusterRateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVsphereRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVsphereRateResponse;
+  return customInstance<spectroClustersVsphereRateResponse>(
+    getSpectroClustersVsphereRateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroVsphereClusterRateEntity),
+    },
+  );
 };
 
 /**
@@ -2760,23 +2324,15 @@ export const spectroClustersVsphereValidate = async (
   v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersVsphereValidateResponse> => {
-  const res = await fetch(getSpectroClustersVsphereValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVsphereValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVsphereValidateResponse;
+  return customInstance<spectroClustersVsphereValidateResponse>(
+    getSpectroClustersVsphereValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
+    },
+  );
 };
 
 /**
@@ -2819,21 +2375,13 @@ export const spectroClustersDelete = async (
   params?: SpectroClustersDeleteParams,
   options?: RequestInit,
 ): Promise<spectroClustersDeleteResponse> => {
-  const res = await fetch(getSpectroClustersDeleteUrl(uid, params), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersDeleteResponse;
+  return customInstance<spectroClustersDeleteResponse>(
+    getSpectroClustersDeleteUrl(uid, params),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -2874,19 +2422,13 @@ export const spectroClustersGet = async (
   params?: SpectroClustersGetParams,
   options?: RequestInit,
 ): Promise<spectroClustersGetResponse> => {
-  const res = await fetch(getSpectroClustersGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGetResponse;
+  return customInstance<spectroClustersGetResponse>(
+    getSpectroClustersGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2913,21 +2455,13 @@ export const spectroClustersUidAssetsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidAssetsGetResponse> => {
-  const res = await fetch(getSpectroClustersUidAssetsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidAssetsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidAssetsGetResponse;
+  return customInstance<spectroClustersUidAssetsGetResponse>(
+    getSpectroClustersUidAssetsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2955,23 +2489,15 @@ export const spectroClustersUidAssets = async (
   spectroClusterAssetEntity: SpectroClusterAssetEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidAssetsResponse> => {
-  const res = await fetch(getSpectroClustersUidAssetsUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidAssetsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidAssetsResponse;
+  return customInstance<spectroClustersUidAssetsResponse>(
+    getSpectroClustersUidAssetsUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetEntity),
+    },
+  );
 };
 
 /**
@@ -2998,21 +2524,13 @@ export const spectroClustersUidAdminKubeConfig = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidAdminKubeConfigResponse> => {
-  const res = await fetch(getSpectroClustersUidAdminKubeConfigUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidAdminKubeConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidAdminKubeConfigResponse;
+  return customInstance<spectroClustersUidAdminKubeConfigResponse>(
+    getSpectroClustersUidAdminKubeConfigUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3039,21 +2557,13 @@ export const spectroClustersUidTokenKubeConfigDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidTokenKubeConfigDeleteResponse> => {
-  const res = await fetch(getSpectroClustersUidTokenKubeConfigDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidTokenKubeConfigDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidTokenKubeConfigDeleteResponse;
+  return customInstance<spectroClustersUidTokenKubeConfigDeleteResponse>(
+    getSpectroClustersUidTokenKubeConfigDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -3080,21 +2590,13 @@ export const spectroClustersUidTokenKubeConfigGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidTokenKubeConfigGetResponse> => {
-  const res = await fetch(getSpectroClustersUidTokenKubeConfigGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidTokenKubeConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidTokenKubeConfigGetResponse;
+  return customInstance<spectroClustersUidTokenKubeConfigGetResponse>(
+    getSpectroClustersUidTokenKubeConfigGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3122,23 +2624,15 @@ export const spectroClustersUidTokenKubeConfigUpdate = async (
   spectroClusterAssetTokenKubeConfig: SpectroClusterAssetTokenKubeConfig,
   options?: RequestInit,
 ): Promise<spectroClustersUidTokenKubeConfigUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidTokenKubeConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetTokenKubeConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidTokenKubeConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidTokenKubeConfigUpdateResponse;
+  return customInstance<spectroClustersUidTokenKubeConfigUpdateResponse>(
+    getSpectroClustersUidTokenKubeConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetTokenKubeConfig),
+    },
+  );
 };
 
 /**
@@ -3165,21 +2659,13 @@ export const spectroClustersUidFrpKubeConfigDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidFrpKubeConfigDeleteResponse> => {
-  const res = await fetch(getSpectroClustersUidFrpKubeConfigDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidFrpKubeConfigDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidFrpKubeConfigDeleteResponse;
+  return customInstance<spectroClustersUidFrpKubeConfigDeleteResponse>(
+    getSpectroClustersUidFrpKubeConfigDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -3206,21 +2692,13 @@ export const spectroClustersUidFrpKubeConfigGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidFrpKubeConfigGetResponse> => {
-  const res = await fetch(getSpectroClustersUidFrpKubeConfigGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidFrpKubeConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidFrpKubeConfigGetResponse;
+  return customInstance<spectroClustersUidFrpKubeConfigGetResponse>(
+    getSpectroClustersUidFrpKubeConfigGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3248,23 +2726,15 @@ export const spectroClustersUidFrpKubeConfigUpdate = async (
   spectroClusterAssetFrpKubeConfig: SpectroClusterAssetFrpKubeConfig,
   options?: RequestInit,
 ): Promise<spectroClustersUidFrpKubeConfigUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidFrpKubeConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetFrpKubeConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidFrpKubeConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidFrpKubeConfigUpdateResponse;
+  return customInstance<spectroClustersUidFrpKubeConfigUpdateResponse>(
+    getSpectroClustersUidFrpKubeConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetFrpKubeConfig),
+    },
+  );
 };
 
 /**
@@ -3307,21 +2777,13 @@ export const spectroClustersUidKubeConfig = async (
   params?: SpectroClustersUidKubeConfigParams,
   options?: RequestInit,
 ): Promise<spectroClustersUidKubeConfigResponse> => {
-  const res = await fetch(getSpectroClustersUidKubeConfigUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidKubeConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidKubeConfigResponse;
+  return customInstance<spectroClustersUidKubeConfigResponse>(
+    getSpectroClustersUidKubeConfigUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3349,23 +2811,15 @@ export const spectroClustersUidKubeConfigUpdate = async (
   spectroClusterAssetKubeConfig: SpectroClusterAssetKubeConfig,
   options?: RequestInit,
 ): Promise<spectroClustersUidKubeConfigUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidKubeConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetKubeConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidKubeConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidKubeConfigUpdateResponse;
+  return customInstance<spectroClustersUidKubeConfigUpdateResponse>(
+    getSpectroClustersUidKubeConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetKubeConfig),
+    },
+  );
 };
 
 /**
@@ -3392,21 +2846,13 @@ export const spectroClustersUidKubeConfigClientDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidKubeConfigClientDeleteResponse> => {
-  const res = await fetch(getSpectroClustersUidKubeConfigClientDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidKubeConfigClientDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidKubeConfigClientDeleteResponse;
+  return customInstance<spectroClustersUidKubeConfigClientDeleteResponse>(
+    getSpectroClustersUidKubeConfigClientDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -3433,21 +2879,13 @@ export const spectroClustersUidKubeConfigClientGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidKubeConfigClientGetResponse> => {
-  const res = await fetch(getSpectroClustersUidKubeConfigClientGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidKubeConfigClientGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidKubeConfigClientGetResponse;
+  return customInstance<spectroClustersUidKubeConfigClientGetResponse>(
+    getSpectroClustersUidKubeConfigClientGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3475,23 +2913,15 @@ export const spectroClustersUidKubeConfigClientUpdate = async (
   spectroClusterAssetKubeConfigClient: SpectroClusterAssetKubeConfigClient,
   options?: RequestInit,
 ): Promise<spectroClustersUidKubeConfigClientUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidKubeConfigClientUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetKubeConfigClient),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidKubeConfigClientUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidKubeConfigClientUpdateResponse;
+  return customInstance<spectroClustersUidKubeConfigClientUpdateResponse>(
+    getSpectroClustersUidKubeConfigClientUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetKubeConfigClient),
+    },
+  );
 };
 
 /**
@@ -3518,21 +2948,13 @@ export const spectroClustersUidManifestGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidManifestGetResponse> => {
-  const res = await fetch(getSpectroClustersUidManifestGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidManifestGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidManifestGetResponse;
+  return customInstance<spectroClustersUidManifestGetResponse>(
+    getSpectroClustersUidManifestGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3560,23 +2982,15 @@ export const spectroClustersUidManifestUpdate = async (
   spectroClusterAssetManifest: SpectroClusterAssetManifest,
   options?: RequestInit,
 ): Promise<spectroClustersUidManifestUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidManifestUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterAssetManifest),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidManifestUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidManifestUpdateResponse;
+  return customInstance<spectroClustersUidManifestUpdateResponse>(
+    getSpectroClustersUidManifestUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterAssetManifest),
+    },
+  );
 };
 
 /**
@@ -3606,7 +3020,7 @@ export const spectroClustersUidClusterMetaAttributeUpdate = async (
   clusterMetaAttributeEntity: ClusterMetaAttributeEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidClusterMetaAttributeUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidClusterMetaAttributeUpdateResponse>(
     getSpectroClustersUidClusterMetaAttributeUpdateUrl(uid),
     {
       ...options,
@@ -3615,16 +3029,6 @@ export const spectroClustersUidClusterMetaAttributeUpdate = async (
       body: JSON.stringify(clusterMetaAttributeEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidClusterMetaAttributeUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidClusterMetaAttributeUpdateResponse;
 };
 
 /**
@@ -3652,23 +3056,15 @@ export const v1ControlPlaneHealthCheckTimeoutUpdate = async (
   controlPlaneHealthCheckTimeoutEntity: ControlPlaneHealthCheckTimeoutEntity,
   options?: RequestInit,
 ): Promise<v1ControlPlaneHealthCheckTimeoutUpdateResponse> => {
-  const res = await fetch(getV1ControlPlaneHealthCheckTimeoutUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(controlPlaneHealthCheckTimeoutEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ControlPlaneHealthCheckTimeoutUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ControlPlaneHealthCheckTimeoutUpdateResponse;
+  return customInstance<v1ControlPlaneHealthCheckTimeoutUpdateResponse>(
+    getV1ControlPlaneHealthCheckTimeoutUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(controlPlaneHealthCheckTimeoutEntity),
+    },
+  );
 };
 
 /**
@@ -3696,23 +3092,15 @@ export const v1HostClusterConfigUpdate = async (
   hostClusterConfigEntity: HostClusterConfigEntity,
   options?: RequestInit,
 ): Promise<v1HostClusterConfigUpdateResponse> => {
-  const res = await fetch(getV1HostClusterConfigUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(hostClusterConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1HostClusterConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1HostClusterConfigUpdateResponse;
+  return customInstance<v1HostClusterConfigUpdateResponse>(
+    getV1HostClusterConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(hostClusterConfigEntity),
+    },
+  );
 };
 
 /**
@@ -3740,23 +3128,15 @@ export const spectroClustersUidLifecycleConfigUpdate = async (
   lifecycleConfigEntity: LifecycleConfigEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidLifecycleConfigUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidLifecycleConfigUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(lifecycleConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidLifecycleConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidLifecycleConfigUpdateResponse;
+  return customInstance<spectroClustersUidLifecycleConfigUpdateResponse>(
+    getSpectroClustersUidLifecycleConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(lifecycleConfigEntity),
+    },
+  );
 };
 
 /**
@@ -3784,23 +3164,15 @@ export const spectroClustersUidOsPatchUpdate = async (
   osPatchEntity: OsPatchEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidOsPatchUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidOsPatchUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(osPatchEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidOsPatchUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidOsPatchUpdateResponse;
+  return customInstance<spectroClustersUidOsPatchUpdateResponse>(
+    getSpectroClustersUidOsPatchUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(osPatchEntity),
+    },
+  );
 };
 
 /**
@@ -3827,21 +3199,13 @@ export const spectroClustersUidConfigNamespacesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigNamespacesGetResponse> => {
-  const res = await fetch(getSpectroClustersUidConfigNamespacesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigNamespacesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigNamespacesGetResponse;
+  return customInstance<spectroClustersUidConfigNamespacesGetResponse>(
+    getSpectroClustersUidConfigNamespacesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3869,23 +3233,15 @@ export const spectroClustersUidConfigNamespacesUpdate = async (
   clusterNamespaceResourcesUpdateEntity: ClusterNamespaceResourcesUpdateEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigNamespacesUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidConfigNamespacesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterNamespaceResourcesUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigNamespacesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigNamespacesUpdateResponse;
+  return customInstance<spectroClustersUidConfigNamespacesUpdateResponse>(
+    getSpectroClustersUidConfigNamespacesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterNamespaceResourcesUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -3916,24 +3272,13 @@ export const spectroClustersUidConfigNamespacesUidGet = async (
   namespaceUid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigNamespacesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidConfigNamespacesUidGetResponse>(
     getSpectroClustersUidConfigNamespacesUidGetUrl(uid, namespaceUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigNamespacesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigNamespacesUidGetResponse;
 };
 
 /**
@@ -3965,7 +3310,7 @@ export const spectroClustersUidConfigNamespacesUidUpdate = async (
   clusterNamespaceResourceInputEntity: ClusterNamespaceResourceInputEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigNamespacesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidConfigNamespacesUidUpdateResponse>(
     getSpectroClustersUidConfigNamespacesUidUpdateUrl(uid, namespaceUid),
     {
       ...options,
@@ -3974,17 +3319,6 @@ export const spectroClustersUidConfigNamespacesUidUpdate = async (
       body: JSON.stringify(clusterNamespaceResourceInputEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigNamespacesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigNamespacesUidUpdateResponse;
 };
 
 /**
@@ -4011,21 +3345,13 @@ export const spectroClustersUidConfigRbacsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigRbacsGetResponse> => {
-  const res = await fetch(getSpectroClustersUidConfigRbacsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigRbacsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigRbacsGetResponse;
+  return customInstance<spectroClustersUidConfigRbacsGetResponse>(
+    getSpectroClustersUidConfigRbacsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4053,23 +3379,15 @@ export const spectroClustersUidConfigRbacsUpdate = async (
   clusterRbacResourcesUpdateEntity: ClusterRbacResourcesUpdateEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigRbacsUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidConfigRbacsUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterRbacResourcesUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigRbacsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigRbacsUpdateResponse;
+  return customInstance<spectroClustersUidConfigRbacsUpdateResponse>(
+    getSpectroClustersUidConfigRbacsUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterRbacResourcesUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -4100,24 +3418,13 @@ export const spectroClustersUidConfigRbacsUidGet = async (
   rbacUid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigRbacsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidConfigRbacsUidGetResponse>(
     getSpectroClustersUidConfigRbacsUidGetUrl(uid, rbacUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigRbacsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigRbacsUidGetResponse;
 };
 
 /**
@@ -4149,7 +3456,7 @@ export const spectroClustersUidConfigRbacsUidUpdate = async (
   clusterRbacInputEntity: ClusterRbacInputEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidConfigRbacsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidConfigRbacsUidUpdateResponse>(
     getSpectroClustersUidConfigRbacsUidUpdateUrl(uid, rbacUid),
     {
       ...options,
@@ -4158,17 +3465,6 @@ export const spectroClustersUidConfigRbacsUidUpdate = async (
       body: JSON.stringify(clusterRbacInputEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidConfigRbacsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidConfigRbacsUidUpdateResponse;
 };
 
 /**
@@ -4195,21 +3491,13 @@ export const spectroClustersUidDownload = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidDownloadResponse> => {
-  const res = await fetch(getSpectroClustersUidDownloadUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidDownloadResponse;
+  return customInstance<spectroClustersUidDownloadResponse>(
+    getSpectroClustersUidDownloadUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4236,21 +3524,13 @@ export const edgeNativeClustersHostsList = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeNativeClustersHostsListResponse> => {
-  const res = await fetch(getEdgeNativeClustersHostsListUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeNativeClustersHostsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeNativeClustersHostsListResponse;
+  return customInstance<edgeNativeClustersHostsListResponse>(
+    getEdgeNativeClustersHostsListUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4277,21 +3557,13 @@ export const v1SpectroClustersUidEdgeReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1SpectroClustersUidEdgeResetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidEdgeResetUrl(uid), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SpectroClustersUidEdgeResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SpectroClustersUidEdgeResetResponse;
+  return customInstance<v1SpectroClustersUidEdgeResetResponse>(
+    getV1SpectroClustersUidEdgeResetUrl(uid),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -4318,21 +3590,13 @@ export const clusterFeatureBackupScheduleReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupScheduleResetResponse> => {
-  const res = await fetch(getClusterFeatureBackupScheduleResetUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupScheduleResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupScheduleResetResponse;
+  return customInstance<clusterFeatureBackupScheduleResetResponse>(
+    getClusterFeatureBackupScheduleResetUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -4375,21 +3639,13 @@ export const clusterFeatureBackupGet = async (
   params?: ClusterFeatureBackupGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupGetResponse> => {
-  const res = await fetch(getClusterFeatureBackupGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupGetResponse;
+  return customInstance<clusterFeatureBackupGetResponse>(
+    getClusterFeatureBackupGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4417,23 +3673,15 @@ export const clusterFeatureBackupCreate = async (
   v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupCreateResponse> => {
-  const res = await fetch(getClusterFeatureBackupCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterBackupConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupCreateResponse;
+  return customInstance<clusterFeatureBackupCreateResponse>(
+    getClusterFeatureBackupCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterBackupConfigBody),
+    },
+  );
 };
 
 /**
@@ -4461,23 +3709,15 @@ export const clusterFeatureBackupUpdate = async (
   v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupUpdateResponse> => {
-  const res = await fetch(getClusterFeatureBackupUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterBackupConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupUpdateResponse;
+  return customInstance<clusterFeatureBackupUpdateResponse>(
+    getClusterFeatureBackupUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterBackupConfigBody),
+    },
+  );
 };
 
 /**
@@ -4505,23 +3745,15 @@ export const clusterFeatureBackupOnDemandCreate = async (
   v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupOnDemandCreateResponse> => {
-  const res = await fetch(getClusterFeatureBackupOnDemandCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterBackupConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupOnDemandCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupOnDemandCreateResponse;
+  return customInstance<clusterFeatureBackupOnDemandCreateResponse>(
+    getClusterFeatureBackupOnDemandCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterBackupConfigBody),
+    },
+  );
 };
 
 /**
@@ -4554,24 +3786,13 @@ export const clusterFeatureBackupDelete = async (
   requestUid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureBackupDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureBackupDeleteResponse>(
     getClusterFeatureBackupDeleteUrl(uid, backupName, requestUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureBackupDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureBackupDeleteResponse;
 };
 
 /**
@@ -4598,21 +3819,13 @@ export const clusterFeatureComplianceScanGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanGetResponse> => {
-  const res = await fetch(getClusterFeatureComplianceScanGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanGetResponse;
+  return customInstance<clusterFeatureComplianceScanGetResponse>(
+    getClusterFeatureComplianceScanGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4640,23 +3853,15 @@ export const clusterFeatureComplianceScanCreate = async (
   v1ClusterComplianceScheduleConfigBody: V1ClusterComplianceScheduleConfigBody,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanCreateResponse> => {
-  const res = await fetch(getClusterFeatureComplianceScanCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanCreateResponse;
+  return customInstance<clusterFeatureComplianceScanCreateResponse>(
+    getClusterFeatureComplianceScanCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
+    },
+  );
 };
 
 /**
@@ -4684,23 +3889,15 @@ export const clusterFeatureComplianceScanUpdate = async (
   v1ClusterComplianceScheduleConfigBody: V1ClusterComplianceScheduleConfigBody,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanUpdateResponse> => {
-  const res = await fetch(getClusterFeatureComplianceScanUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanUpdateResponse;
+  return customInstance<clusterFeatureComplianceScanUpdateResponse>(
+    getClusterFeatureComplianceScanUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
+    },
+  );
 };
 
 /**
@@ -4727,21 +3924,13 @@ export const clusterFeatureComplianceScanLogsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanLogsGetResponse> => {
-  const res = await fetch(getClusterFeatureComplianceScanLogsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanLogsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanLogsGetResponse;
+  return customInstance<clusterFeatureComplianceScanLogsGetResponse>(
+    getClusterFeatureComplianceScanLogsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4769,23 +3958,15 @@ export const clusterFeatureScanKubeBenchLogUpdate = async (
   kubeBenchEntity: KubeBenchEntity,
   options?: RequestInit,
 ): Promise<clusterFeatureScanKubeBenchLogUpdateResponse> => {
-  const res = await fetch(getClusterFeatureScanKubeBenchLogUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(kubeBenchEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureScanKubeBenchLogUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureScanKubeBenchLogUpdateResponse;
+  return customInstance<clusterFeatureScanKubeBenchLogUpdateResponse>(
+    getClusterFeatureScanKubeBenchLogUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(kubeBenchEntity),
+    },
+  );
 };
 
 /**
@@ -4813,23 +3994,15 @@ export const clusterFeatureScanKubeHunterLogUpdate = async (
   kubeHunterEntity: KubeHunterEntity,
   options?: RequestInit,
 ): Promise<clusterFeatureScanKubeHunterLogUpdateResponse> => {
-  const res = await fetch(getClusterFeatureScanKubeHunterLogUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(kubeHunterEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureScanKubeHunterLogUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureScanKubeHunterLogUpdateResponse;
+  return customInstance<clusterFeatureScanKubeHunterLogUpdateResponse>(
+    getClusterFeatureScanKubeHunterLogUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(kubeHunterEntity),
+    },
+  );
 };
 
 /**
@@ -4857,23 +4030,15 @@ export const clusterFeatureScanSonobuoyLogUpdate = async (
   sonobuoyEntity: SonobuoyEntity,
   options?: RequestInit,
 ): Promise<clusterFeatureScanSonobuoyLogUpdateResponse> => {
-  const res = await fetch(getClusterFeatureScanSonobuoyLogUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(sonobuoyEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureScanSonobuoyLogUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureScanSonobuoyLogUpdateResponse;
+  return customInstance<clusterFeatureScanSonobuoyLogUpdateResponse>(
+    getClusterFeatureScanSonobuoyLogUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(sonobuoyEntity),
+    },
+  );
 };
 
 /**
@@ -4901,23 +4066,15 @@ export const clusterFeatureScanSyftLogUpdate = async (
   syftEntity: SyftEntity,
   options?: RequestInit,
 ): Promise<clusterFeatureScanSyftLogUpdateResponse> => {
-  const res = await fetch(getClusterFeatureScanSyftLogUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(syftEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureScanSyftLogUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureScanSyftLogUpdateResponse;
+  return customInstance<clusterFeatureScanSyftLogUpdateResponse>(
+    getClusterFeatureScanSyftLogUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(syftEntity),
+    },
+  );
 };
 
 /**
@@ -4948,24 +4105,13 @@ export const clusterFeatureComplianceScanLogDelete = async (
   logUid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanLogDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureComplianceScanLogDeleteResponse>(
     getClusterFeatureComplianceScanLogDeleteUrl(uid, logUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanLogDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanLogDeleteResponse;
 };
 
 /**
@@ -5006,24 +4152,13 @@ export const clusterFeatureKubeBenchLogGet = async (
   params?: ClusterFeatureKubeBenchLogGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureKubeBenchLogGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureKubeBenchLogGetResponse>(
     getClusterFeatureKubeBenchLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureKubeBenchLogGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureKubeBenchLogGetResponse;
 };
 
 /**
@@ -5064,24 +4199,13 @@ export const clusterFeatureKubeHunterLogGet = async (
   params?: ClusterFeatureKubeHunterLogGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureKubeHunterLogGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureKubeHunterLogGetResponse>(
     getClusterFeatureKubeHunterLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureKubeHunterLogGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureKubeHunterLogGetResponse;
 };
 
 /**
@@ -5122,24 +4246,13 @@ export const clusterFeatureSonobuoyLogGet = async (
   params?: ClusterFeatureSonobuoyLogGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureSonobuoyLogGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureSonobuoyLogGetResponse>(
     getClusterFeatureSonobuoyLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureSonobuoyLogGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureSonobuoyLogGetResponse;
 };
 
 /**
@@ -5167,21 +4280,13 @@ export const clusterFeatureSyftLogGet = async (
   logUid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureSyftLogGetResponse> => {
-  const res = await fetch(getClusterFeatureSyftLogGetUrl(uid, logUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureSyftLogGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureSyftLogGetResponse;
+  return customInstance<clusterFeatureSyftLogGetResponse>(
+    getClusterFeatureSyftLogGetUrl(uid, logUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5222,21 +4327,13 @@ export const syftScanLogImageSBOMGet = async (
   params: SyftScanLogImageSBOMGetParams,
   options?: RequestInit,
 ): Promise<syftScanLogImageSBOMGetResponse> => {
-  const res = await fetch(getSyftScanLogImageSBOMGetUrl(uid, logUid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: syftScanLogImageSBOMGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as syftScanLogImageSBOMGetResponse;
+  return customInstance<syftScanLogImageSBOMGetResponse>(
+    getSyftScanLogImageSBOMGetUrl(uid, logUid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5279,24 +4376,13 @@ export const clusterFeatureDriverLogDownload = async (
   params?: ClusterFeatureDriverLogDownloadParams,
   options?: RequestInit,
 ): Promise<clusterFeatureDriverLogDownloadResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureDriverLogDownloadResponse>(
     getClusterFeatureDriverLogDownloadUrl(uid, logUid, driver, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureDriverLogDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureDriverLogDownloadResponse;
 };
 
 /**
@@ -5326,7 +4412,7 @@ export const clusterFeatureComplianceScanOnDemandCreate = async (
   clusterComplianceOnDemandConfig: ClusterComplianceOnDemandConfig,
   options?: RequestInit,
 ): Promise<clusterFeatureComplianceScanOnDemandCreateResponse> => {
-  const res = await fetch(
+  return customInstance<clusterFeatureComplianceScanOnDemandCreateResponse>(
     getClusterFeatureComplianceScanOnDemandCreateUrl(uid),
     {
       ...options,
@@ -5335,17 +4421,6 @@ export const clusterFeatureComplianceScanOnDemandCreate = async (
       body: JSON.stringify(clusterComplianceOnDemandConfig),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureComplianceScanOnDemandCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureComplianceScanOnDemandCreateResponse;
 };
 
 /**
@@ -5372,21 +4447,13 @@ export const clusterFeatureHelmChartsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureHelmChartsGetResponse> => {
-  const res = await fetch(getClusterFeatureHelmChartsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureHelmChartsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureHelmChartsGetResponse;
+  return customInstance<clusterFeatureHelmChartsGetResponse>(
+    getClusterFeatureHelmChartsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5429,21 +4496,13 @@ export const clusterFeatureLogFetcherGet = async (
   params?: ClusterFeatureLogFetcherGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureLogFetcherGetResponse> => {
-  const res = await fetch(getClusterFeatureLogFetcherGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureLogFetcherGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureLogFetcherGetResponse;
+  return customInstance<clusterFeatureLogFetcherGetResponse>(
+    getClusterFeatureLogFetcherGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5471,23 +4530,15 @@ export const clusterFeatureLogFetcherCreate = async (
   clusterLogFetcherRequest: ClusterLogFetcherRequest,
   options?: RequestInit,
 ): Promise<clusterFeatureLogFetcherCreateResponse> => {
-  const res = await fetch(getClusterFeatureLogFetcherCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterLogFetcherRequest),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureLogFetcherCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureLogFetcherCreateResponse;
+  return customInstance<clusterFeatureLogFetcherCreateResponse>(
+    getClusterFeatureLogFetcherCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterLogFetcherRequest),
+    },
+  );
 };
 
 /**
@@ -5514,21 +4565,13 @@ export const clusterFeatureManifestsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterFeatureManifestsGetResponse> => {
-  const res = await fetch(getClusterFeatureManifestsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureManifestsGetResponse;
+  return customInstance<clusterFeatureManifestsGetResponse>(
+    getClusterFeatureManifestsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5571,21 +4614,13 @@ export const clusterFeatureRestoreGet = async (
   params?: ClusterFeatureRestoreGetParams,
   options?: RequestInit,
 ): Promise<clusterFeatureRestoreGetResponse> => {
-  const res = await fetch(getClusterFeatureRestoreGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureRestoreGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureRestoreGetResponse;
+  return customInstance<clusterFeatureRestoreGetResponse>(
+    getClusterFeatureRestoreGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5613,23 +4648,15 @@ export const clusterFeatureRestoreOnDemandCreate = async (
   clusterRestoreConfig: ClusterRestoreConfig,
   options?: RequestInit,
 ): Promise<clusterFeatureRestoreOnDemandCreateResponse> => {
-  const res = await fetch(getClusterFeatureRestoreOnDemandCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterRestoreConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterFeatureRestoreOnDemandCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterFeatureRestoreOnDemandCreateResponse;
+  return customInstance<clusterFeatureRestoreOnDemandCreateResponse>(
+    getClusterFeatureRestoreOnDemandCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterRestoreConfig),
+    },
+  );
 };
 
 /**
@@ -5657,23 +4684,15 @@ export const spectroClustersUidHeartbeatUpdate = async (
   spectroClusterHeartbeat: SpectroClusterHeartbeat,
   options?: RequestInit,
 ): Promise<spectroClustersUidHeartbeatUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidHeartbeatUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterHeartbeat),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidHeartbeatUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidHeartbeatUpdateResponse;
+  return customInstance<spectroClustersUidHeartbeatUpdateResponse>(
+    getSpectroClustersUidHeartbeatUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterHeartbeat),
+    },
+  );
 };
 
 /**
@@ -5700,21 +4719,13 @@ export const spectroClustersGetHybridPoolsMetadata = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersGetHybridPoolsMetadataResponse> => {
-  const res = await fetch(getSpectroClustersGetHybridPoolsMetadataUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGetHybridPoolsMetadataResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGetHybridPoolsMetadataResponse;
+  return customInstance<spectroClustersGetHybridPoolsMetadataResponse>(
+    getSpectroClustersGetHybridPoolsMetadataUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5742,23 +4753,15 @@ export const spectroClustersUidHybridSettings = async (
   clusterHybridSettingsEntity: ClusterHybridSettingsEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidHybridSettingsResponse> => {
-  const res = await fetch(getSpectroClustersUidHybridSettingsUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterHybridSettingsEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidHybridSettingsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidHybridSettingsResponse;
+  return customInstance<spectroClustersUidHybridSettingsResponse>(
+    getSpectroClustersUidHybridSettingsUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterHybridSettingsEntity),
+    },
+  );
 };
 
 /**
@@ -5785,21 +4788,13 @@ export const spectroClustersUidImportManifest = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidImportManifestResponse> => {
-  const res = await fetch(getSpectroClustersUidImportManifestUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidImportManifestResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidImportManifestResponse;
+  return customInstance<spectroClustersUidImportManifestResponse>(
+    getSpectroClustersUidImportManifestUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5826,21 +4821,13 @@ export const spectroClustersUidImportUpgradePatch = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidImportUpgradePatchResponse> => {
-  const res = await fetch(getSpectroClustersUidImportUpgradePatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidImportUpgradePatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidImportUpgradePatchResponse;
+  return customInstance<spectroClustersUidImportUpgradePatchResponse>(
+    getSpectroClustersUidImportUpgradePatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -5867,21 +4854,13 @@ export const spectroClustersK8Certificate = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersK8CertificateResponse> => {
-  const res = await fetch(getSpectroClustersK8CertificateUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersK8CertificateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersK8CertificateResponse;
+  return customInstance<spectroClustersK8CertificateResponse>(
+    getSpectroClustersK8CertificateUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5909,23 +4888,15 @@ export const spectroClustersK8CertificateUpdate = async (
   spectroClusterK8sCertificate: SpectroClusterK8sCertificate,
   options?: RequestInit,
 ): Promise<spectroClustersK8CertificateUpdateResponse> => {
-  const res = await fetch(getSpectroClustersK8CertificateUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterK8sCertificate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersK8CertificateUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersK8CertificateUpdateResponse;
+  return customInstance<spectroClustersK8CertificateUpdateResponse>(
+    getSpectroClustersK8CertificateUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterK8sCertificate),
+    },
+  );
 };
 
 /**
@@ -5952,21 +4923,13 @@ export const spectroClustersCertificatesRenew = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersCertificatesRenewResponse> => {
-  const res = await fetch(getSpectroClustersCertificatesRenewUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersCertificatesRenewResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersCertificatesRenewResponse;
+  return customInstance<spectroClustersCertificatesRenewResponse>(
+    getSpectroClustersCertificatesRenewUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -5993,21 +4956,13 @@ export const v1SpectroClustersUidKubeCtlRedirect = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1SpectroClustersUidKubeCtlRedirectResponse> => {
-  const res = await fetch(getV1SpectroClustersUidKubeCtlRedirectUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SpectroClustersUidKubeCtlRedirectResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SpectroClustersUidKubeCtlRedirectResponse;
+  return customInstance<v1SpectroClustersUidKubeCtlRedirectResponse>(
+    getV1SpectroClustersUidKubeCtlRedirectUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6035,23 +4990,15 @@ export const spectroClustersUidLocationPut = async (
   spectroClusterLocationInputEntity: SpectroClusterLocationInputEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidLocationPutResponse> => {
-  const res = await fetch(getSpectroClustersUidLocationPutUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterLocationInputEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidLocationPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidLocationPutResponse;
+  return customInstance<spectroClustersUidLocationPutResponse>(
+    getSpectroClustersUidLocationPutUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterLocationInputEntity),
+    },
+  );
 };
 
 /**
@@ -6079,23 +5026,15 @@ export const spectroClustersUidMetadataUpdate = async (
   v1ObjectMetaInputEntitySchemaBody: V1ObjectMetaInputEntitySchemaBody,
   options?: RequestInit,
 ): Promise<spectroClustersUidMetadataUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidMetadataUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidMetadataUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidMetadataUpdateResponse;
+  return customInstance<spectroClustersUidMetadataUpdateResponse>(
+    getSpectroClustersUidMetadataUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
+    },
+  );
 };
 
 /**
@@ -6134,21 +5073,13 @@ export const clusterNamespacesGet = async (
   params?: ClusterNamespacesGetParams,
   options?: RequestInit,
 ): Promise<clusterNamespacesGetResponse> => {
-  const res = await fetch(getClusterNamespacesGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterNamespacesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterNamespacesGetResponse;
+  return customInstance<clusterNamespacesGetResponse>(
+    getClusterNamespacesGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6175,21 +5106,13 @@ export const v1SpectroClustersUidOIDC = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1SpectroClustersUidOIDCResponse> => {
-  const res = await fetch(getV1SpectroClustersUidOIDCUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SpectroClustersUidOIDCResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SpectroClustersUidOIDCResponse;
+  return customInstance<v1SpectroClustersUidOIDCResponse>(
+    getV1SpectroClustersUidOIDCUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6216,21 +5139,13 @@ export const v1SpectroClustersUidOIDCDashboardUrl = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1SpectroClustersUidOIDCDashboardUrlResponse> => {
-  const res = await fetch(getV1SpectroClustersUidOIDCDashboardUrlUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SpectroClustersUidOIDCDashboardUrlResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SpectroClustersUidOIDCDashboardUrlResponse;
+  return customInstance<v1SpectroClustersUidOIDCDashboardUrlResponse>(
+    getV1SpectroClustersUidOIDCDashboardUrlUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6275,24 +5190,13 @@ export const spectroClustersUidPackManifestsUidGet = async (
   params?: SpectroClustersUidPackManifestsUidGetParams,
   options?: RequestInit,
 ): Promise<spectroClustersUidPackManifestsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidPackManifestsUidGetResponse>(
     getSpectroClustersUidPackManifestsUidGetUrl(uid, manifestUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidPackManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidPackManifestsUidGetResponse;
 };
 
 /**
@@ -6335,21 +5239,13 @@ export const spectroClustersUidPackProperties = async (
   params: SpectroClustersUidPackPropertiesParams,
   options?: RequestInit,
 ): Promise<spectroClustersUidPackPropertiesResponse> => {
-  const res = await fetch(getSpectroClustersUidPackPropertiesUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidPackPropertiesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidPackPropertiesResponse;
+  return customInstance<spectroClustersUidPackPropertiesResponse>(
+    getSpectroClustersUidPackPropertiesUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6389,23 +5285,15 @@ export const spectroClustersPacksRefUpdate = async (
   params?: SpectroClustersPacksRefUpdateParams,
   options?: RequestInit,
 ): Promise<spectroClustersPacksRefUpdateResponse> => {
-  const res = await fetch(getSpectroClustersPacksRefUpdateUrl(uid, params), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterNotificationUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersPacksRefUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersPacksRefUpdateResponse;
+  return customInstance<spectroClustersPacksRefUpdateResponse>(
+    getSpectroClustersPacksRefUpdateUrl(uid, params),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterNotificationUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -6432,21 +5320,13 @@ export const spectroClustersUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(getSpectroClustersUidPacksResolvedValuesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidPacksResolvedValuesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidPacksResolvedValuesGetResponse;
+  return customInstance<spectroClustersUidPacksResolvedValuesGetResponse>(
+    getSpectroClustersUidPacksResolvedValuesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6474,23 +5354,15 @@ export const spectroClustersUidPacksStatusPatch = async (
   v1SpectroClusterPacksStatusEntityBody: V1SpectroClusterPacksStatusEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersUidPacksStatusPatchResponse> => {
-  const res = await fetch(getSpectroClustersUidPacksStatusPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidPacksStatusPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidPacksStatusPatchResponse;
+  return customInstance<spectroClustersUidPacksStatusPatchResponse>(
+    getSpectroClustersUidPacksStatusPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
+    },
+  );
 };
 
 /**
@@ -6517,21 +5389,13 @@ export const spectroClustersGetProfileUpdates = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersGetProfileUpdatesResponse> => {
-  const res = await fetch(getSpectroClustersGetProfileUpdatesUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGetProfileUpdatesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGetProfileUpdatesResponse;
+  return customInstance<spectroClustersGetProfileUpdatesResponse>(
+    getSpectroClustersGetProfileUpdatesUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6559,23 +5423,15 @@ export const spectroClustersDeleteProfiles = async (
   spectroClusterProfilesDeleteEntity: SpectroClusterProfilesDeleteEntity,
   options?: RequestInit,
 ): Promise<spectroClustersDeleteProfilesResponse> => {
-  const res = await fetch(getSpectroClustersDeleteProfilesUrl(uid), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterProfilesDeleteEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersDeleteProfilesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersDeleteProfilesResponse;
+  return customInstance<spectroClustersDeleteProfilesResponse>(
+    getSpectroClustersDeleteProfilesUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterProfilesDeleteEntity),
+    },
+  );
 };
 
 /**
@@ -6618,21 +5474,13 @@ export const spectroClustersGetProfiles = async (
   params?: SpectroClustersGetProfilesParams,
   options?: RequestInit,
 ): Promise<spectroClustersGetProfilesResponse> => {
-  const res = await fetch(getSpectroClustersGetProfilesUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGetProfilesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGetProfilesResponse;
+  return customInstance<spectroClustersGetProfilesResponse>(
+    getSpectroClustersGetProfilesUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6676,23 +5524,15 @@ export const spectroClustersPatchProfiles = async (
   params?: SpectroClustersPatchProfilesParams,
   options?: RequestInit,
 ): Promise<spectroClustersPatchProfilesResponse> => {
-  const res = await fetch(getSpectroClustersPatchProfilesUrl(uid, params), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterProfilesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersPatchProfilesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersPatchProfilesResponse;
+  return customInstance<spectroClustersPatchProfilesResponse>(
+    getSpectroClustersPatchProfilesUrl(uid, params),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterProfilesBody),
+    },
+  );
 };
 
 /**
@@ -6736,23 +5576,15 @@ export const spectroClustersUpdateProfiles = async (
   params?: SpectroClustersUpdateProfilesParams,
   options?: RequestInit,
 ): Promise<spectroClustersUpdateProfilesResponse> => {
-  const res = await fetch(getSpectroClustersUpdateProfilesUrl(uid, params), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterProfilesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateProfilesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateProfilesResponse;
+  return customInstance<spectroClustersUpdateProfilesResponse>(
+    getSpectroClustersUpdateProfilesUrl(uid, params),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterProfilesBody),
+    },
+  );
 };
 
 /**
@@ -6795,24 +5627,13 @@ export const spectroClustersGetProfilesPacksManifests = async (
   params?: SpectroClustersGetProfilesPacksManifestsParams,
   options?: RequestInit,
 ): Promise<spectroClustersGetProfilesPacksManifestsResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersGetProfilesPacksManifestsResponse>(
     getSpectroClustersGetProfilesPacksManifestsUrl(uid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersGetProfilesPacksManifestsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersGetProfilesPacksManifestsResponse;
 };
 
 /**
@@ -6845,7 +5666,7 @@ export const spectroClustersUidProfilesUidPacksConfigGet = async (
   packName: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidProfilesUidPacksConfigGetResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidProfilesUidPacksConfigGetResponse>(
     getSpectroClustersUidProfilesUidPacksConfigGetUrl(
       uid,
       profileUid,
@@ -6856,17 +5677,6 @@ export const spectroClustersUidProfilesUidPacksConfigGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidProfilesUidPacksConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidProfilesUidPacksConfigGetResponse;
 };
 
 /**
@@ -6899,24 +5709,13 @@ export const spectroClustersProfilesUidPackManifestsGet = async (
   packName: string,
   options?: RequestInit,
 ): Promise<spectroClustersProfilesUidPackManifestsGetResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersProfilesUidPackManifestsGetResponse>(
     getSpectroClustersProfilesUidPackManifestsGetUrl(uid, profileUid, packName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersProfilesUidPackManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersProfilesUidPackManifestsGetResponse;
 };
 
 /**
@@ -6950,7 +5749,7 @@ export const spectroClustersProfilesUidPackManifestsUpdate = async (
   manifestRefInputEntities: ManifestRefInputEntities,
   options?: RequestInit,
 ): Promise<spectroClustersProfilesUidPackManifestsUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersProfilesUidPackManifestsUpdateResponse>(
     getSpectroClustersProfilesUidPackManifestsUpdateUrl(
       uid,
       profileUid,
@@ -6963,16 +5762,6 @@ export const spectroClustersProfilesUidPackManifestsUpdate = async (
       body: JSON.stringify(manifestRefInputEntities),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersProfilesUidPackManifestsUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersProfilesUidPackManifestsUpdateResponse;
 };
 
 /**
@@ -7011,21 +5800,13 @@ export const spectroClustersUidRate = async (
   params?: SpectroClustersUidRateParams,
   options?: RequestInit,
 ): Promise<spectroClustersUidRateResponse> => {
-  const res = await fetch(getSpectroClustersUidRateUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidRateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidRateResponse;
+  return customInstance<spectroClustersUidRateResponse>(
+    getSpectroClustersUidRateUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7052,21 +5833,13 @@ export const spectroClustersUidRepaveApproveUpdate = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidRepaveApproveUpdateResponse> => {
-  const res = await fetch(getSpectroClustersUidRepaveApproveUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidRepaveApproveUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidRepaveApproveUpdateResponse;
+  return customInstance<spectroClustersUidRepaveApproveUpdateResponse>(
+    getSpectroClustersUidRepaveApproveUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -7093,21 +5866,13 @@ export const spectroClustersUidRepaveGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidRepaveGetResponse> => {
-  const res = await fetch(getSpectroClustersUidRepaveGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidRepaveGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidRepaveGetResponse;
+  return customInstance<spectroClustersUidRepaveGetResponse>(
+    getSpectroClustersUidRepaveGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7134,21 +5899,13 @@ export const v1SpectroClustersUidReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1SpectroClustersUidResetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidResetUrl(uid), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SpectroClustersUidResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SpectroClustersUidResetResponse;
+  return customInstance<v1SpectroClustersUidResetResponse>(
+    getV1SpectroClustersUidResetUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -7175,21 +5932,13 @@ export const spectroClustersUidStatus = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidStatusResponse> => {
-  const res = await fetch(getSpectroClustersUidStatusUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidStatusResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidStatusResponse;
+  return customInstance<spectroClustersUidStatusResponse>(
+    getSpectroClustersUidStatusUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7217,23 +5966,15 @@ export const spectroClustersUpdateStatusCondition = async (
   clusterCondition: ClusterCondition,
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusConditionResponse> => {
-  const res = await fetch(getSpectroClustersUpdateStatusConditionUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterCondition),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateStatusConditionResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateStatusConditionResponse;
+  return customInstance<spectroClustersUpdateStatusConditionResponse>(
+    getSpectroClustersUpdateStatusConditionUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterCondition),
+    },
+  );
 };
 
 /**
@@ -7261,23 +6002,15 @@ export const spectroClustersUpdateStatusConditions = async (
   clusterCondition: ClusterCondition[],
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusConditionsResponse> => {
-  const res = await fetch(getSpectroClustersUpdateStatusConditionsUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterCondition),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateStatusConditionsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateStatusConditionsResponse;
+  return customInstance<spectroClustersUpdateStatusConditionsResponse>(
+    getSpectroClustersUpdateStatusConditionsUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterCondition),
+    },
+  );
 };
 
 /**
@@ -7305,23 +6038,15 @@ export const spectroClustersUpdateStatusEndpoints = async (
   apiEndpoint: ApiEndpoint[],
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusEndpointsResponse> => {
-  const res = await fetch(getSpectroClustersUpdateStatusEndpointsUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(apiEndpoint),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateStatusEndpointsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateStatusEndpointsResponse;
+  return customInstance<spectroClustersUpdateStatusEndpointsResponse>(
+    getSpectroClustersUpdateStatusEndpointsUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(apiEndpoint),
+    },
+  );
 };
 
 /**
@@ -7348,21 +6073,13 @@ export const spectroClustersUpdateStatusImported = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusImportedResponse> => {
-  const res = await fetch(getSpectroClustersUpdateStatusImportedUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateStatusImportedResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateStatusImportedResponse;
+  return customInstance<spectroClustersUpdateStatusImportedResponse>(
+    getSpectroClustersUpdateStatusImportedUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -7390,23 +6107,15 @@ export const spectroClustersUpdateStatusServices = async (
   loadBalancerService: LoadBalancerService[],
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusServicesResponse> => {
-  const res = await fetch(getSpectroClustersUpdateStatusServicesUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(loadBalancerService),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUpdateStatusServicesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUpdateStatusServicesResponse;
+  return customInstance<spectroClustersUpdateStatusServicesResponse>(
+    getSpectroClustersUpdateStatusServicesUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(loadBalancerService),
+    },
+  );
 };
 
 /**
@@ -7433,21 +6142,13 @@ export const spectroClustersUidStatusSpcApplyGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidStatusSpcApplyGetResponse> => {
-  const res = await fetch(getSpectroClustersUidStatusSpcApplyGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidStatusSpcApplyGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidStatusSpcApplyGetResponse;
+  return customInstance<spectroClustersUidStatusSpcApplyGetResponse>(
+    getSpectroClustersUidStatusSpcApplyGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7474,21 +6175,13 @@ export const spectroClustersUidStatusSpcApply = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidStatusSpcApplyResponse> => {
-  const res = await fetch(getSpectroClustersUidStatusSpcApplyUrl(uid), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidStatusSpcApplyResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidStatusSpcApplyResponse;
+  return customInstance<spectroClustersUidStatusSpcApplyResponse>(
+    getSpectroClustersUidStatusSpcApplyUrl(uid),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -7516,23 +6209,15 @@ export const spectroClustersUidStatusSpcPatchTime = async (
   spcPatchTimeEntity: SpcPatchTimeEntity,
   options?: RequestInit,
 ): Promise<spectroClustersUidStatusSpcPatchTimeResponse> => {
-  const res = await fetch(getSpectroClustersUidStatusSpcPatchTimeUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spcPatchTimeEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidStatusSpcPatchTimeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidStatusSpcPatchTimeResponse;
+  return customInstance<spectroClustersUidStatusSpcPatchTimeResponse>(
+    getSpectroClustersUidStatusSpcPatchTimeUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spcPatchTimeEntity),
+    },
+  );
 };
 
 /**
@@ -7560,23 +6245,15 @@ export const spectroClustersUidUpgradesPut = async (
   spectroClusterUidUpgrades: SpectroClusterUidUpgrades,
   options?: RequestInit,
 ): Promise<spectroClustersUidUpgradesPutResponse> => {
-  const res = await fetch(getSpectroClustersUidUpgradesPutUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterUidUpgrades),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidUpgradesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidUpgradesPutResponse;
+  return customInstance<spectroClustersUidUpgradesPutResponse>(
+    getSpectroClustersUidUpgradesPutUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterUidUpgrades),
+    },
+  );
 };
 
 /**
@@ -7604,23 +6281,15 @@ export const spectroClustersUidUpgradeSettings = async (
   v1ClusterUpgradeSettingsEntityBody: V1ClusterUpgradeSettingsEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersUidUpgradeSettingsResponse> => {
-  const res = await fetch(getSpectroClustersUidUpgradeSettingsUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidUpgradeSettingsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidUpgradeSettingsResponse;
+  return customInstance<spectroClustersUidUpgradeSettingsResponse>(
+    getSpectroClustersUidUpgradeSettingsUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
+    },
+  );
 };
 
 /**
@@ -7648,23 +6317,15 @@ export const spectroClustersUidValidatePacks = async (
   v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersUidValidatePacksResponse> => {
-  const res = await fetch(getSpectroClustersUidValidatePacksUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidValidatePacksResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidValidatePacksResponse;
+  return customInstance<spectroClustersUidValidatePacksResponse>(
+    getSpectroClustersUidValidatePacksUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterPacksEntityBody),
+    },
+  );
 };
 
 /**
@@ -7692,23 +6353,15 @@ export const spectroClustersUidValidateRepave = async (
   v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
 ): Promise<spectroClustersUidValidateRepaveResponse> => {
-  const res = await fetch(getSpectroClustersUidValidateRepaveUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidValidateRepaveResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidValidateRepaveResponse;
+  return customInstance<spectroClustersUidValidateRepaveResponse>(
+    getSpectroClustersUidValidateRepaveUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterPacksEntityBody),
+    },
+  );
 };
 
 /**
@@ -7735,21 +6388,13 @@ export const spectroClustersUidVariablesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidVariablesGetResponse> => {
-  const res = await fetch(getSpectroClustersUidVariablesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidVariablesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidVariablesGetResponse;
+  return customInstance<spectroClustersUidVariablesGetResponse>(
+    getSpectroClustersUidVariablesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7777,23 +6422,15 @@ export const spectroClustersUidVariablesPatch = async (
   spectroClusterVariableUpdateEntity: SpectroClusterVariableUpdateEntity[],
   options?: RequestInit,
 ): Promise<spectroClustersUidVariablesPatchResponse> => {
-  const res = await fetch(getSpectroClustersUidVariablesPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterVariableUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidVariablesPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidVariablesPatchResponse;
+  return customInstance<spectroClustersUidVariablesPatchResponse>(
+    getSpectroClustersUidVariablesPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterVariableUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -7836,21 +6473,13 @@ export const spectroClustersVMList = async (
   params?: SpectroClustersVMListParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMListResponse> => {
-  const res = await fetch(getSpectroClustersVMListUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMListResponse;
+  return customInstance<spectroClustersVMListResponse>(
+    getSpectroClustersVMListUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -7894,23 +6523,15 @@ export const spectroClustersVMCreate = async (
   params: SpectroClustersVMCreateParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMCreateResponse> => {
-  const res = await fetch(getSpectroClustersVMCreateUrl(uid, params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterVirtualMachineBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMCreateResponse;
+  return customInstance<spectroClustersVMCreateResponse>(
+    getSpectroClustersVMCreateUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterVirtualMachineBody),
+    },
+  );
 };
 
 /**
@@ -7953,21 +6574,13 @@ export const clusterVMSnapshotsList = async (
   params?: ClusterVMSnapshotsListParams,
   options?: RequestInit,
 ): Promise<clusterVMSnapshotsListResponse> => {
-  const res = await fetch(getClusterVMSnapshotsListUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterVMSnapshotsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterVMSnapshotsListResponse;
+  return customInstance<clusterVMSnapshotsListResponse>(
+    getClusterVMSnapshotsListUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -8008,21 +6621,13 @@ export const spectroClustersVMDelete = async (
   params: SpectroClustersVMDeleteParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMDeleteResponse> => {
-  const res = await fetch(getSpectroClustersVMDeleteUrl(uid, vmName, params), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMDeleteResponse;
+  return customInstance<spectroClustersVMDeleteResponse>(
+    getSpectroClustersVMDeleteUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -8063,21 +6668,13 @@ export const spectroClustersVMGet = async (
   params: SpectroClustersVMGetParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMGetResponse> => {
-  const res = await fetch(getSpectroClustersVMGetUrl(uid, vmName, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMGetResponse;
+  return customInstance<spectroClustersVMGetResponse>(
+    getSpectroClustersVMGetUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -8119,23 +6716,15 @@ export const spectroClustersVMUpdate = async (
   params: SpectroClustersVMUpdateParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMUpdateResponse> => {
-  const res = await fetch(getSpectroClustersVMUpdateUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterVirtualMachineBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMUpdateResponse;
+  return customInstance<spectroClustersVMUpdateResponse>(
+    getSpectroClustersVMUpdateUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterVirtualMachineBody),
+    },
+  );
 };
 
 /**
@@ -8177,7 +6766,7 @@ export const spectroClustersVMAddVolume = async (
   params: SpectroClustersVMAddVolumeParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMAddVolumeResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersVMAddVolumeResponse>(
     getSpectroClustersVMAddVolumeUrl(uid, vmName, params),
     {
       ...options,
@@ -8186,17 +6775,6 @@ export const spectroClustersVMAddVolume = async (
       body: JSON.stringify(vMAddVolumeEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMAddVolumeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMAddVolumeResponse;
 };
 
 /**
@@ -8238,23 +6816,15 @@ export const spectroClustersVMClone = async (
   params: SpectroClustersVMCloneParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMCloneResponse> => {
-  const res = await fetch(getSpectroClustersVMCloneUrl(uid, vmName, params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroClusterVMCloneEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMCloneResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMCloneResponse;
+  return customInstance<spectroClustersVMCloneResponse>(
+    getSpectroClustersVMCloneUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroClusterVMCloneEntity),
+    },
+  );
 };
 
 /**
@@ -8295,21 +6865,13 @@ export const spectroClustersVMMigrate = async (
   params: SpectroClustersVMMigrateParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMMigrateResponse> => {
-  const res = await fetch(getSpectroClustersVMMigrateUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMMigrateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMMigrateResponse;
+  return customInstance<spectroClustersVMMigrateResponse>(
+    getSpectroClustersVMMigrateUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8350,21 +6912,13 @@ export const spectroClustersVMPause = async (
   params: SpectroClustersVMPauseParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMPauseResponse> => {
-  const res = await fetch(getSpectroClustersVMPauseUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMPauseResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMPauseResponse;
+  return customInstance<spectroClustersVMPauseResponse>(
+    getSpectroClustersVMPauseUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8406,7 +6960,7 @@ export const spectroClustersVMRemoveVolume = async (
   params: SpectroClustersVMRemoveVolumeParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMRemoveVolumeResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersVMRemoveVolumeResponse>(
     getSpectroClustersVMRemoveVolumeUrl(uid, vmName, params),
     {
       ...options,
@@ -8415,17 +6969,6 @@ export const spectroClustersVMRemoveVolume = async (
       body: JSON.stringify(vMRemoveVolumeEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMRemoveVolumeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMRemoveVolumeResponse;
 };
 
 /**
@@ -8466,21 +7009,13 @@ export const spectroClustersVMRestart = async (
   params: SpectroClustersVMRestartParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMRestartResponse> => {
-  const res = await fetch(getSpectroClustersVMRestartUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMRestartResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMRestartResponse;
+  return customInstance<spectroClustersVMRestartResponse>(
+    getSpectroClustersVMRestartUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8521,21 +7056,13 @@ export const spectroClustersVMResume = async (
   params: SpectroClustersVMResumeParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMResumeResponse> => {
-  const res = await fetch(getSpectroClustersVMResumeUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMResumeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMResumeResponse;
+  return customInstance<spectroClustersVMResumeResponse>(
+    getSpectroClustersVMResumeUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8575,21 +7102,15 @@ export const vMSnapshotCreate = async (
   params: VMSnapshotCreateParams,
   options?: RequestInit,
 ): Promise<vMSnapshotCreateResponse> => {
-  const res = await fetch(getVMSnapshotCreateUrl(uid, vmName, params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VirtualMachineSnapshotBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vMSnapshotCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vMSnapshotCreateResponse;
+  return customInstance<vMSnapshotCreateResponse>(
+    getVMSnapshotCreateUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VirtualMachineSnapshotBody),
+    },
+  );
 };
 
 /**
@@ -8630,22 +7151,13 @@ export const vMSnapshotDelete = async (
   params: VMSnapshotDeleteParams,
   options?: RequestInit,
 ): Promise<vMSnapshotDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<vMSnapshotDeleteResponse>(
     getVMSnapshotDeleteUrl(uid, vmName, snapshotName, params),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vMSnapshotDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vMSnapshotDeleteResponse;
 };
 
 /**
@@ -8686,22 +7198,13 @@ export const vMSnapshotGet = async (
   params: VMSnapshotGetParams,
   options?: RequestInit,
 ): Promise<vMSnapshotGetResponse> => {
-  const res = await fetch(
+  return customInstance<vMSnapshotGetResponse>(
     getVMSnapshotGetUrl(uid, vmName, snapshotName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vMSnapshotGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vMSnapshotGetResponse;
 };
 
 /**
@@ -8743,7 +7246,7 @@ export const vMSnapshotUpdate = async (
   params: VMSnapshotUpdateParams,
   options?: RequestInit,
 ): Promise<vMSnapshotUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<vMSnapshotUpdateResponse>(
     getVMSnapshotUpdateUrl(uid, vmName, snapshotName, params),
     {
       ...options,
@@ -8752,15 +7255,6 @@ export const vMSnapshotUpdate = async (
       body: JSON.stringify(v1VirtualMachineSnapshotBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vMSnapshotUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vMSnapshotUpdateResponse;
 };
 
 /**
@@ -8801,21 +7295,13 @@ export const spectroClustersVMStart = async (
   params: SpectroClustersVMStartParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMStartResponse> => {
-  const res = await fetch(getSpectroClustersVMStartUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMStartResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMStartResponse;
+  return customInstance<spectroClustersVMStartResponse>(
+    getSpectroClustersVMStartUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8856,21 +7342,13 @@ export const spectroClustersVMStop = async (
   params: SpectroClustersVMStopParams,
   options?: RequestInit,
 ): Promise<spectroClustersVMStopResponse> => {
-  const res = await fetch(getSpectroClustersVMStopUrl(uid, vmName, params), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersVMStopResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersVMStopResponse;
+  return customInstance<spectroClustersVMStopResponse>(
+    getSpectroClustersVMStopUrl(uid, vmName, params),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -8898,21 +7376,13 @@ export const spectroClustersUidWorkloadsSync = async (
   uid: string,
   options?: RequestInit,
 ): Promise<spectroClustersUidWorkloadsSyncResponse> => {
-  const res = await fetch(getSpectroClustersUidWorkloadsSyncUrl(uid), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidWorkloadsSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidWorkloadsSyncResponse;
+  return customInstance<spectroClustersUidWorkloadsSyncResponse>(
+    getSpectroClustersUidWorkloadsSyncUrl(uid),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -8961,22 +7431,11 @@ export const spectroClustersUidWorkloadsKindSync = async (
     | "clusterrolebinding",
   options?: RequestInit,
 ): Promise<spectroClustersUidWorkloadsKindSyncResponse> => {
-  const res = await fetch(
+  return customInstance<spectroClustersUidWorkloadsKindSyncResponse>(
     getSpectroClustersUidWorkloadsKindSyncUrl(uid, workloadKind),
     {
       ...options,
       method: "POST",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: spectroClustersUidWorkloadsKindSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as spectroClustersUidWorkloadsKindSyncResponse;
 };

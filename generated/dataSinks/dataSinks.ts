@@ -11,6 +11,8 @@
  */
 import type { V1DataSinkCloudWatchConfig } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Sync data to cloud watch
  * @summary sync data to cloud watch
@@ -36,21 +38,13 @@ export const v1DataSinksCloudWatchSink = async (
   v1DataSinkCloudWatchConfig: V1DataSinkCloudWatchConfig,
   options?: RequestInit,
 ): Promise<v1DataSinksCloudWatchSinkResponse> => {
-  const res = await fetch(getV1DataSinksCloudWatchSinkUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1DataSinkCloudWatchConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1DataSinksCloudWatchSinkResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1DataSinksCloudWatchSinkResponse;
+  return customInstance<v1DataSinksCloudWatchSinkResponse>(
+    getV1DataSinksCloudWatchSinkUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1DataSinkCloudWatchConfig),
+    },
+  );
 };

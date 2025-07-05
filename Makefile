@@ -77,7 +77,7 @@ license:
 
 ##@ Maintenance Targets
 
-clean: ## Clean generated files
-	rm -rf generated/
+clean: ## Clean generated files except httpClient folder
+	find generated/ -mindepth 1 -maxdepth 1 ! -name 'httpClient' -exec rm -rf {} +
 	rm -f api/palette-apis-spec-tagged.json
 	@$(OK) "Clean complete"

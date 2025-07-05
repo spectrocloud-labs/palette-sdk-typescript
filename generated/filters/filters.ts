@@ -19,6 +19,8 @@ import type {
   V1TagFilterBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Returns a list of Filters
  */
@@ -53,19 +55,10 @@ export const filtersList = async (
   params?: FiltersListParams,
   options?: RequestInit,
 ): Promise<filtersListResponse> => {
-  const res = await fetch(getFiltersListUrl(params), {
+  return customInstance<filtersListResponse>(getFiltersListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: filtersListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as filtersListResponse;
 };
 
 /**
@@ -102,19 +95,13 @@ export const filtersMetadata = async (
   params?: FiltersMetadataParams,
   options?: RequestInit,
 ): Promise<filtersMetadataResponse> => {
-  const res = await fetch(getFiltersMetadataUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: filtersMetadataResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as filtersMetadataResponse;
+  return customInstance<filtersMetadataResponse>(
+    getFiltersMetadataUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -139,21 +126,12 @@ export const tagFiltersCreate = async (
   v1TagFilterBody: V1TagFilterBody,
   options?: RequestInit,
 ): Promise<tagFiltersCreateResponse> => {
-  const res = await fetch(getTagFiltersCreateUrl(), {
+  return customInstance<tagFiltersCreateResponse>(getTagFiltersCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1TagFilterBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tagFiltersCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tagFiltersCreateResponse;
 };
 
 /**
@@ -178,19 +156,13 @@ export const tagFilterUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<tagFilterUidDeleteResponse> => {
-  const res = await fetch(getTagFilterUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tagFilterUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tagFilterUidDeleteResponse;
+  return customInstance<tagFilterUidDeleteResponse>(
+    getTagFilterUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -215,19 +187,10 @@ export const tagFilterUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<tagFilterUidGetResponse> => {
-  const res = await fetch(getTagFilterUidGetUrl(uid), {
+  return customInstance<tagFilterUidGetResponse>(getTagFilterUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tagFilterUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tagFilterUidGetResponse;
 };
 
 /**
@@ -253,19 +216,13 @@ export const tagFilterUidUpdate = async (
   v1TagFilterBody: V1TagFilterBody,
   options?: RequestInit,
 ): Promise<tagFilterUidUpdateResponse> => {
-  const res = await fetch(getTagFilterUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1TagFilterBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: tagFilterUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as tagFilterUidUpdateResponse;
+  return customInstance<tagFilterUidUpdateResponse>(
+    getTagFilterUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1TagFilterBody),
+    },
+  );
 };

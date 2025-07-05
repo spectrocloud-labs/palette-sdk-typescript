@@ -45,6 +45,8 @@ import type {
   VsphereDatacenters,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of overlords owned by the tenant
  */
@@ -79,19 +81,10 @@ export const overlordsList = async (
   params?: OverlordsListParams,
   options?: RequestInit,
 ): Promise<overlordsListResponse> => {
-  const res = await fetch(getOverlordsListUrl(params), {
+  return customInstance<overlordsListResponse>(getOverlordsListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsListResponse;
 };
 
 /**
@@ -128,21 +121,13 @@ export const v1OverlordsMaasManifest = async (
   params: V1OverlordsMaasManifestParams,
   options?: RequestInit,
 ): Promise<v1OverlordsMaasManifestResponse> => {
-  const res = await fetch(getV1OverlordsMaasManifestUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OverlordsMaasManifestResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OverlordsMaasManifestResponse;
+  return customInstance<v1OverlordsMaasManifestResponse>(
+    getV1OverlordsMaasManifestUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -170,23 +155,15 @@ export const overlordsUidMaasAccountCreate = async (
   overlordMaasAccountCreate: OverlordMaasAccountCreate,
   options?: RequestInit,
 ): Promise<overlordsUidMaasAccountCreateResponse> => {
-  const res = await fetch(getOverlordsUidMaasAccountCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordMaasAccountCreate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidMaasAccountCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidMaasAccountCreateResponse;
+  return customInstance<overlordsUidMaasAccountCreateResponse>(
+    getOverlordsUidMaasAccountCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordMaasAccountCreate),
+    },
+  );
 };
 
 /**
@@ -214,23 +191,15 @@ export const overlordsUidMaasAccountUpdate = async (
   overlordMaasAccountEntity: OverlordMaasAccountEntity,
   options?: RequestInit,
 ): Promise<overlordsUidMaasAccountUpdateResponse> => {
-  const res = await fetch(getOverlordsUidMaasAccountUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordMaasAccountEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidMaasAccountUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidMaasAccountUpdateResponse;
+  return customInstance<overlordsUidMaasAccountUpdateResponse>(
+    getOverlordsUidMaasAccountUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordMaasAccountEntity),
+    },
+  );
 };
 
 /**
@@ -258,23 +227,15 @@ export const overlordsUidMaasAccountValidate = async (
   overlordsUidMaasAccountValidateBody: OverlordsUidMaasAccountValidateBody,
   options?: RequestInit,
 ): Promise<overlordsUidMaasAccountValidateResponse> => {
-  const res = await fetch(getOverlordsUidMaasAccountValidateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordsUidMaasAccountValidateBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidMaasAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidMaasAccountValidateResponse;
+  return customInstance<overlordsUidMaasAccountValidateResponse>(
+    getOverlordsUidMaasAccountValidateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordsUidMaasAccountValidateBody),
+    },
+  );
 };
 
 /**
@@ -302,23 +263,15 @@ export const v1OverlordsUidMaasCloudConfigCreate = async (
   v1OverlordMaasCloudConfigBody: V1OverlordMaasCloudConfigBody,
   options?: RequestInit,
 ): Promise<v1OverlordsUidMaasCloudConfigCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasCloudConfigCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordMaasCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OverlordsUidMaasCloudConfigCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OverlordsUidMaasCloudConfigCreateResponse;
+  return customInstance<v1OverlordsUidMaasCloudConfigCreateResponse>(
+    getV1OverlordsUidMaasCloudConfigCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordMaasCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -346,23 +299,15 @@ export const v1OverlordsUidMaasCloudConfigUpdate = async (
   v1OverlordMaasCloudConfigBody: V1OverlordMaasCloudConfigBody,
   options?: RequestInit,
 ): Promise<v1OverlordsUidMaasCloudConfigUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasCloudConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordMaasCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OverlordsUidMaasCloudConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OverlordsUidMaasCloudConfigUpdateResponse;
+  return customInstance<v1OverlordsUidMaasCloudConfigUpdateResponse>(
+    getV1OverlordsUidMaasCloudConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordMaasCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -389,21 +334,13 @@ export const overlordsUidMaasClusterProfile = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidMaasClusterProfileResponse> => {
-  const res = await fetch(getOverlordsUidMaasClusterProfileUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidMaasClusterProfileResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidMaasClusterProfileResponse;
+  return customInstance<overlordsUidMaasClusterProfileResponse>(
+    getOverlordsUidMaasClusterProfileUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -428,21 +365,15 @@ export const v1OverlordsMigrate = async (
   overlordMigrateEntity: OverlordMigrateEntity,
   options?: RequestInit,
 ): Promise<v1OverlordsMigrateResponse> => {
-  const res = await fetch(getV1OverlordsMigrateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordMigrateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OverlordsMigrateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OverlordsMigrateResponse;
+  return customInstance<v1OverlordsMigrateResponse>(
+    getV1OverlordsMigrateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordMigrateEntity),
+    },
+  );
 };
 
 /**
@@ -479,21 +410,13 @@ export const overlordsOpenStackManifest = async (
   params: OverlordsOpenStackManifestParams,
   options?: RequestInit,
 ): Promise<overlordsOpenStackManifestResponse> => {
-  const res = await fetch(getOverlordsOpenStackManifestUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsOpenStackManifestResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsOpenStackManifestResponse;
+  return customInstance<overlordsOpenStackManifestResponse>(
+    getOverlordsOpenStackManifestUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -521,23 +444,15 @@ export const overlordsUidOpenStackAccountCreate = async (
   overlordOpenStackAccountCreate: OverlordOpenStackAccountCreate,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackAccountCreateResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackAccountCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordOpenStackAccountCreate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackAccountCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackAccountCreateResponse;
+  return customInstance<overlordsUidOpenStackAccountCreateResponse>(
+    getOverlordsUidOpenStackAccountCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordOpenStackAccountCreate),
+    },
+  );
 };
 
 /**
@@ -565,23 +480,15 @@ export const overlordsUidOpenStackAccountUpdate = async (
   overlordOpenStackAccountEntity: OverlordOpenStackAccountEntity,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackAccountUpdateResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackAccountUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordOpenStackAccountEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackAccountUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackAccountUpdateResponse;
+  return customInstance<overlordsUidOpenStackAccountUpdateResponse>(
+    getOverlordsUidOpenStackAccountUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordOpenStackAccountEntity),
+    },
+  );
 };
 
 /**
@@ -609,23 +516,15 @@ export const overlordsUidOpenStackAccountValidate = async (
   overlordsUidOpenStackAccountValidateBody: OverlordsUidOpenStackAccountValidateBody,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackAccountValidateResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackAccountValidateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordsUidOpenStackAccountValidateBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackAccountValidateResponse;
+  return customInstance<overlordsUidOpenStackAccountValidateResponse>(
+    getOverlordsUidOpenStackAccountValidateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordsUidOpenStackAccountValidateBody),
+    },
+  );
 };
 
 /**
@@ -653,23 +552,15 @@ export const overlordsUidOpenStackCloudConfigCreate = async (
   v1OverlordOpenStackCloudConfigBody: V1OverlordOpenStackCloudConfigBody,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackCloudConfigCreateResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackCloudConfigCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackCloudConfigCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackCloudConfigCreateResponse;
+  return customInstance<overlordsUidOpenStackCloudConfigCreateResponse>(
+    getOverlordsUidOpenStackCloudConfigCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -697,23 +588,15 @@ export const overlordsUidOpenStackCloudConfigUpdate = async (
   v1OverlordOpenStackCloudConfigBody: V1OverlordOpenStackCloudConfigBody,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackCloudConfigUpdateResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackCloudConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackCloudConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackCloudConfigUpdateResponse;
+  return customInstance<overlordsUidOpenStackCloudConfigUpdateResponse>(
+    getOverlordsUidOpenStackCloudConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -740,21 +623,13 @@ export const overlordsUidOpenStackClusterProfile = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidOpenStackClusterProfileResponse> => {
-  const res = await fetch(getOverlordsUidOpenStackClusterProfileUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidOpenStackClusterProfileResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidOpenStackClusterProfileResponse;
+  return customInstance<overlordsUidOpenStackClusterProfileResponse>(
+    getOverlordsUidOpenStackClusterProfileUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -795,21 +670,13 @@ export const overlordsPairingCode = async (
   params?: OverlordsPairingCodeParams,
   options?: RequestInit,
 ): Promise<overlordsPairingCodeResponse> => {
-  const res = await fetch(getOverlordsPairingCodeUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsPairingCodeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsPairingCodeResponse;
+  return customInstance<overlordsPairingCodeResponse>(
+    getOverlordsPairingCodeUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -846,21 +713,13 @@ export const overlordsVsphereManifest = async (
   params: OverlordsVsphereManifestParams,
   options?: RequestInit,
 ): Promise<overlordsVsphereManifestResponse> => {
-  const res = await fetch(getOverlordsVsphereManifestUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsVsphereManifestResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsVsphereManifestResponse;
+  return customInstance<overlordsVsphereManifestResponse>(
+    getOverlordsVsphereManifestUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -886,21 +745,13 @@ export const getOverlordsVsphereOvaGetUrl = () => {
 export const overlordsVsphereOvaGet = async (
   options?: RequestInit,
 ): Promise<overlordsVsphereOvaGetResponse> => {
-  const res = await fetch(getOverlordsVsphereOvaGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsVsphereOvaGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsVsphereOvaGetResponse;
+  return customInstance<overlordsVsphereOvaGetResponse>(
+    getOverlordsVsphereOvaGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -928,23 +779,15 @@ export const overlordsUidVsphereAccountCreate = async (
   overlordVsphereAccountCreate: OverlordVsphereAccountCreate,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereAccountCreateResponse> => {
-  const res = await fetch(getOverlordsUidVsphereAccountCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordVsphereAccountCreate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereAccountCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereAccountCreateResponse;
+  return customInstance<overlordsUidVsphereAccountCreateResponse>(
+    getOverlordsUidVsphereAccountCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordVsphereAccountCreate),
+    },
+  );
 };
 
 /**
@@ -972,23 +815,15 @@ export const overlordsUidVsphereAccountUpdate = async (
   overlordVsphereAccountEntity: OverlordVsphereAccountEntity,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereAccountUpdateResponse> => {
-  const res = await fetch(getOverlordsUidVsphereAccountUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordVsphereAccountEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereAccountUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereAccountUpdateResponse;
+  return customInstance<overlordsUidVsphereAccountUpdateResponse>(
+    getOverlordsUidVsphereAccountUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordVsphereAccountEntity),
+    },
+  );
 };
 
 /**
@@ -1016,23 +851,15 @@ export const overlordsUidVsphereAccountValidate = async (
   overlordsUidVsphereAccountValidateBody: OverlordsUidVsphereAccountValidateBody,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereAccountValidateResponse> => {
-  const res = await fetch(getOverlordsUidVsphereAccountValidateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(overlordsUidVsphereAccountValidateBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereAccountValidateResponse;
+  return customInstance<overlordsUidVsphereAccountValidateResponse>(
+    getOverlordsUidVsphereAccountValidateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(overlordsUidVsphereAccountValidateBody),
+    },
+  );
 };
 
 /**
@@ -1060,23 +887,15 @@ export const overlordsUidVsphereCloudConfigCreate = async (
   v1OverlordVsphereCloudConfigBody: V1OverlordVsphereCloudConfigBody,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereCloudConfigCreateResponse> => {
-  const res = await fetch(getOverlordsUidVsphereCloudConfigCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereCloudConfigCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereCloudConfigCreateResponse;
+  return customInstance<overlordsUidVsphereCloudConfigCreateResponse>(
+    getOverlordsUidVsphereCloudConfigCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -1104,23 +923,15 @@ export const overlordsUidVsphereCloudConfigUpdate = async (
   v1OverlordVsphereCloudConfigBody: V1OverlordVsphereCloudConfigBody,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereCloudConfigUpdateResponse> => {
-  const res = await fetch(getOverlordsUidVsphereCloudConfigUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereCloudConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereCloudConfigUpdateResponse;
+  return customInstance<overlordsUidVsphereCloudConfigUpdateResponse>(
+    getOverlordsUidVsphereCloudConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
+    },
+  );
 };
 
 /**
@@ -1147,21 +958,13 @@ export const overlordsUidVsphereClusterProfile = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereClusterProfileResponse> => {
-  const res = await fetch(getOverlordsUidVsphereClusterProfileUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereClusterProfileResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereClusterProfileResponse;
+  return customInstance<overlordsUidVsphereClusterProfileResponse>(
+    getOverlordsUidVsphereClusterProfileUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1188,21 +991,13 @@ export const overlordsUidPoolsList = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidPoolsListResponse> => {
-  const res = await fetch(getOverlordsUidPoolsListUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidPoolsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidPoolsListResponse;
+  return customInstance<overlordsUidPoolsListResponse>(
+    getOverlordsUidPoolsListUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1230,23 +1025,15 @@ export const overlordsUidPoolCreate = async (
   v1IpPoolInputEntityBody: V1IpPoolInputEntityBody,
   options?: RequestInit,
 ): Promise<overlordsUidPoolCreateResponse> => {
-  const res = await fetch(getOverlordsUidPoolCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1IpPoolInputEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidPoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidPoolCreateResponse;
+  return customInstance<overlordsUidPoolCreateResponse>(
+    getOverlordsUidPoolCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1IpPoolInputEntityBody),
+    },
+  );
 };
 
 /**
@@ -1274,21 +1061,13 @@ export const overlordsUidPoolDelete = async (
   poolUid: string,
   options?: RequestInit,
 ): Promise<overlordsUidPoolDeleteResponse> => {
-  const res = await fetch(getOverlordsUidPoolDeleteUrl(uid, poolUid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidPoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidPoolDeleteResponse;
+  return customInstance<overlordsUidPoolDeleteResponse>(
+    getOverlordsUidPoolDeleteUrl(uid, poolUid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1317,23 +1096,15 @@ export const overlordsUidPoolUpdate = async (
   v1IpPoolInputEntityBody: V1IpPoolInputEntityBody,
   options?: RequestInit,
 ): Promise<overlordsUidPoolUpdateResponse> => {
-  const res = await fetch(getOverlordsUidPoolUpdateUrl(uid, poolUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1IpPoolInputEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidPoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidPoolUpdateResponse;
+  return customInstance<overlordsUidPoolUpdateResponse>(
+    getOverlordsUidPoolUpdateUrl(uid, poolUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1IpPoolInputEntityBody),
+    },
+  );
 };
 
 /**
@@ -1372,24 +1143,13 @@ export const overlordsUidVsphereComputeclusterRes = async (
   params: OverlordsUidVsphereComputeclusterResParams,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereComputeclusterResResponse> => {
-  const res = await fetch(
+  return customInstance<overlordsUidVsphereComputeclusterResResponse>(
     getOverlordsUidVsphereComputeclusterResUrl(uid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereComputeclusterResResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereComputeclusterResResponse;
 };
 
 /**
@@ -1416,21 +1176,13 @@ export const overlordsUidVsphereDatacenters = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidVsphereDatacentersResponse> => {
-  const res = await fetch(getOverlordsUidVsphereDatacentersUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidVsphereDatacentersResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidVsphereDatacentersResponse;
+  return customInstance<overlordsUidVsphereDatacentersResponse>(
+    getOverlordsUidVsphereDatacentersUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1455,19 +1207,13 @@ export const overlordsUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidDeleteResponse> => {
-  const res = await fetch(getOverlordsUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidDeleteResponse;
+  return customInstance<overlordsUidDeleteResponse>(
+    getOverlordsUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1492,19 +1238,10 @@ export const overlordsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidGetResponse> => {
-  const res = await fetch(getOverlordsUidGetUrl(uid), {
+  return customInstance<overlordsUidGetResponse>(getOverlordsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidGetResponse;
 };
 
 /**
@@ -1532,23 +1269,15 @@ export const overlordsUidMetadataUpdate = async (
   v1ObjectMetaInputEntitySchemaBody: V1ObjectMetaInputEntitySchemaBody,
   options?: RequestInit,
 ): Promise<overlordsUidMetadataUpdateResponse> => {
-  const res = await fetch(getOverlordsUidMetadataUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidMetadataUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidMetadataUpdateResponse;
+  return customInstance<overlordsUidMetadataUpdateResponse>(
+    getOverlordsUidMetadataUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
+    },
+  );
 };
 
 /**
@@ -1573,17 +1302,11 @@ export const overlordsUidReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<overlordsUidResetResponse> => {
-  const res = await fetch(getOverlordsUidResetUrl(uid), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: overlordsUidResetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as overlordsUidResetResponse;
+  return customInstance<overlordsUidResetResponse>(
+    getOverlordsUidResetUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };

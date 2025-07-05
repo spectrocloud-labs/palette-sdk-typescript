@@ -54,6 +54,8 @@ import type {
   Variables,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Creates a cluster profile
  */
@@ -93,23 +95,15 @@ export const clusterProfilesCreate = async (
   params?: ClusterProfilesCreateParams,
   options?: RequestInit,
 ): Promise<clusterProfilesCreateResponse> => {
-  const res = await fetch(getClusterProfilesCreateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterProfileEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesCreateResponse;
+  return customInstance<clusterProfilesCreateResponse>(
+    getClusterProfilesCreateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterProfileEntity),
+    },
+  );
 };
 
 /**
@@ -136,23 +130,15 @@ export const clusterProfilesBulkDelete = async (
   bulkDeleteRequest: BulkDeleteRequest,
   options?: RequestInit,
 ): Promise<clusterProfilesBulkDeleteResponse> => {
-  const res = await fetch(getClusterProfilesBulkDeleteUrl(), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(bulkDeleteRequest),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesBulkDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesBulkDeleteResponse;
+  return customInstance<clusterProfilesBulkDeleteResponse>(
+    getClusterProfilesBulkDeleteUrl(),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(bulkDeleteRequest),
+    },
+  );
 };
 
 /**
@@ -194,23 +180,15 @@ export const clusterProfilesImport = async (
   params?: ClusterProfilesImportParams,
   options?: RequestInit,
 ): Promise<clusterProfilesImportResponse> => {
-  const res = await fetch(getClusterProfilesImportUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterProfileImportEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesImportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesImportResponse;
+  return customInstance<clusterProfilesImportResponse>(
+    getClusterProfilesImportUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterProfileImportEntityBody),
+    },
+  );
 };
 
 /**
@@ -257,22 +235,14 @@ export const clusterProfilesImportFile = async (
     formData.append(`importFile`, clusterProfilesImportFileBody.importFile);
   }
 
-  const res = await fetch(getClusterProfilesImportFileUrl(params), {
-    ...options,
-    method: "POST",
-    body: formData,
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesImportFileResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesImportFileResponse;
+  return customInstance<clusterProfilesImportFileResponse>(
+    getClusterProfilesImportFileUrl(params),
+    {
+      ...options,
+      method: "POST",
+      body: formData,
+    },
+  );
 };
 
 /**
@@ -299,23 +269,15 @@ export const clusterProfilesImportValidate = async (
   v1ClusterProfileImportEntityBody: V1ClusterProfileImportEntityBody,
   options?: RequestInit,
 ): Promise<clusterProfilesImportValidateResponse> => {
-  const res = await fetch(getClusterProfilesImportValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterProfileImportEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesImportValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesImportValidateResponse;
+  return customInstance<clusterProfilesImportValidateResponse>(
+    getClusterProfilesImportValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterProfileImportEntityBody),
+    },
+  );
 };
 
 /**
@@ -339,19 +301,10 @@ export const getMacrosListUrl = () => {
 export const macrosList = async (
   options?: RequestInit,
 ): Promise<macrosListResponse> => {
-  const res = await fetch(getMacrosListUrl(), {
+  return customInstance<macrosListResponse>(getMacrosListUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: macrosListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as macrosListResponse;
 };
 
 /**
@@ -393,21 +346,13 @@ export const clusterProfilesValidateNameVersion = async (
   params?: ClusterProfilesValidateNameVersionParams,
   options?: RequestInit,
 ): Promise<clusterProfilesValidateNameVersionResponse> => {
-  const res = await fetch(getClusterProfilesValidateNameVersionUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesValidateNameVersionResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesValidateNameVersionResponse;
+  return customInstance<clusterProfilesValidateNameVersionResponse>(
+    getClusterProfilesValidateNameVersionUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -434,23 +379,15 @@ export const clusterProfilesValidatePacks = async (
   v1ClusterProfileTemplateDraftBody: V1ClusterProfileTemplateDraftBody,
   options?: RequestInit,
 ): Promise<clusterProfilesValidatePacksResponse> => {
-  const res = await fetch(getClusterProfilesValidatePacksUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesValidatePacksResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesValidatePacksResponse;
+  return customInstance<clusterProfilesValidatePacksResponse>(
+    getClusterProfilesValidatePacksUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
+    },
+  );
 };
 
 /**
@@ -489,21 +426,13 @@ export const clusterProfilesDelete = async (
   params?: ClusterProfilesDeleteParams,
   options?: RequestInit,
 ): Promise<clusterProfilesDeleteResponse> => {
-  const res = await fetch(getClusterProfilesDeleteUrl(uid, params), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesDeleteResponse;
+  return customInstance<clusterProfilesDeleteResponse>(
+    getClusterProfilesDeleteUrl(uid, params),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -540,19 +469,13 @@ export const clusterProfilesGet = async (
   params?: ClusterProfilesGetParams,
   options?: RequestInit,
 ): Promise<clusterProfilesGetResponse> => {
-  const res = await fetch(getClusterProfilesGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesGetResponse;
+  return customInstance<clusterProfilesGetResponse>(
+    getClusterProfilesGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -592,23 +515,15 @@ export const clusterProfilesUpdate = async (
   params?: ClusterProfilesUpdateParams,
   options?: RequestInit,
 ): Promise<clusterProfilesUpdateResponse> => {
-  const res = await fetch(getClusterProfilesUpdateUrl(uid, params), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterProfileUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUpdateResponse;
+  return customInstance<clusterProfilesUpdateResponse>(
+    getClusterProfilesUpdateUrl(uid, params),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterProfileUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -636,23 +551,15 @@ export const clusterProfilesUidClone = async (
   clusterProfileCloneEntity: ClusterProfileCloneEntity,
   options?: RequestInit,
 ): Promise<clusterProfilesUidCloneResponse> => {
-  const res = await fetch(getClusterProfilesUidCloneUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterProfileCloneEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidCloneResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidCloneResponse;
+  return customInstance<clusterProfilesUidCloneResponse>(
+    getClusterProfilesUidCloneUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterProfileCloneEntity),
+    },
+  );
 };
 
 /**
@@ -681,23 +588,15 @@ export const clusterProfilesUidCloneValidate = async (
   clusterProfileCloneMetaInputEntity: ClusterProfileCloneMetaInputEntity,
   options?: RequestInit,
 ): Promise<clusterProfilesUidCloneValidateResponse> => {
-  const res = await fetch(getClusterProfilesUidCloneValidateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterProfileCloneMetaInputEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidCloneValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidCloneValidateResponse;
+  return customInstance<clusterProfilesUidCloneValidateResponse>(
+    getClusterProfilesUidCloneValidateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterProfileCloneMetaInputEntity),
+    },
+  );
 };
 
 /**
@@ -736,21 +635,13 @@ export const v1ClusterProfilesUidExport = async (
   params?: V1ClusterProfilesUidExportParams,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidExportResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidExportUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidExportResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidExportResponse;
+  return customInstance<v1ClusterProfilesUidExportResponse>(
+    getV1ClusterProfilesUidExportUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -789,24 +680,13 @@ export const v1ClusterProfilesUidExportTerraform = async (
   params?: V1ClusterProfilesUidExportTerraformParams,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidExportTerraformResponse> => {
-  const res = await fetch(
+  return customInstance<v1ClusterProfilesUidExportTerraformResponse>(
     getV1ClusterProfilesUidExportTerraformUrl(uid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidExportTerraformResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidExportTerraformResponse;
 };
 
 /**
@@ -834,23 +714,15 @@ export const clusterProfilesUidMetadataUpdate = async (
   profileMetaEntity: ProfileMetaEntity,
   options?: RequestInit,
 ): Promise<clusterProfilesUidMetadataUpdateResponse> => {
-  const res = await fetch(getClusterProfilesUidMetadataUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(profileMetaEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidMetadataUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidMetadataUpdateResponse;
+  return customInstance<clusterProfilesUidMetadataUpdateResponse>(
+    getClusterProfilesUidMetadataUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(profileMetaEntity),
+    },
+  );
 };
 
 /**
@@ -889,21 +761,13 @@ export const clusterProfilesPacksRefUpdate = async (
   params?: ClusterProfilesPacksRefUpdateParams,
   options?: RequestInit,
 ): Promise<clusterProfilesPacksRefUpdateResponse> => {
-  const res = await fetch(getClusterProfilesPacksRefUpdateUrl(uid, params), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesPacksRefUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesPacksRefUpdateResponse;
+  return customInstance<clusterProfilesPacksRefUpdateResponse>(
+    getClusterProfilesPacksRefUpdateUrl(uid, params),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -942,21 +806,13 @@ export const clusterProfilesUidPacksGet = async (
   params?: ClusterProfilesUidPacksGetParams,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksGetResponse> => {
-  const res = await fetch(getClusterProfilesUidPacksGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksGetResponse;
+  return customInstance<clusterProfilesUidPacksGetResponse>(
+    getClusterProfilesUidPacksGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -996,23 +852,15 @@ export const clusterProfilesUidPacksAdd = async (
   params?: ClusterProfilesUidPacksAddParams,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksAddResponse> => {
-  const res = await fetch(getClusterProfilesUidPacksAddUrl(uid, params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(packInputEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksAddResponse;
+  return customInstance<clusterProfilesUidPacksAddResponse>(
+    getClusterProfilesUidPacksAddUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(packInputEntity),
+    },
+  );
 };
 
 /**
@@ -1051,24 +899,13 @@ export const clusterProfilesUidPacksManifestsGet = async (
   params?: ClusterProfilesUidPacksManifestsGetParams,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksManifestsGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksManifestsGetResponse>(
     getClusterProfilesUidPacksManifestsGetUrl(uid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksManifestsGetResponse;
 };
 
 /**
@@ -1095,21 +932,13 @@ export const clusterProfilesUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(getClusterProfilesUidPacksResolvedValuesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksResolvedValuesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksResolvedValuesGetResponse;
+  return customInstance<clusterProfilesUidPacksResolvedValuesGetResponse>(
+    getClusterProfilesUidPacksResolvedValuesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1140,24 +969,13 @@ export const clusterProfilesUidPacksNameDelete = async (
   packName: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameDeleteResponse>(
     getClusterProfilesUidPacksNameDeleteUrl(uid, packName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameDeleteResponse;
 };
 
 /**
@@ -1188,24 +1006,13 @@ export const v1ClusterProfilesUidPacksNameGet = async (
   packName: string,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidPacksNameGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1ClusterProfilesUidPacksNameGetResponse>(
     getV1ClusterProfilesUidPacksNameGetUrl(uid, packName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidPacksNameGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidPacksNameGetResponse;
 };
 
 /**
@@ -1237,7 +1044,7 @@ export const clusterProfilesUidPacksNameUpdate = async (
   packUpdateEntity: PackUpdateEntity,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameUpdateResponse>(
     getClusterProfilesUidPacksNameUpdateUrl(uid, packName),
     {
       ...options,
@@ -1246,17 +1053,6 @@ export const clusterProfilesUidPacksNameUpdate = async (
       body: JSON.stringify(packUpdateEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameUpdateResponse;
 };
 
 /**
@@ -1301,24 +1097,13 @@ export const clusterProfilesUidPacksConfigGet = async (
   params: ClusterProfilesUidPacksConfigGetParams,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksConfigGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksConfigGetResponse>(
     getClusterProfilesUidPacksConfigGetUrl(uid, packName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksConfigGetResponse;
 };
 
 /**
@@ -1349,24 +1134,13 @@ export const clusterProfilesUidPacksUidManifests = async (
   packName: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksUidManifestsResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksUidManifestsResponse>(
     getClusterProfilesUidPacksUidManifestsUrl(uid, packName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksUidManifestsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksUidManifestsResponse;
 };
 
 /**
@@ -1398,7 +1172,7 @@ export const clusterProfilesUidPacksNameManifestsAdd = async (
   v1ManifestInputEntityBody: V1ManifestInputEntityBody,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameManifestsAddResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameManifestsAddResponse>(
     getClusterProfilesUidPacksNameManifestsAddUrl(uid, packName),
     {
       ...options,
@@ -1407,17 +1181,6 @@ export const clusterProfilesUidPacksNameManifestsAdd = async (
       body: JSON.stringify(v1ManifestInputEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameManifestsAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameManifestsAddResponse;
 };
 
 /**
@@ -1450,7 +1213,7 @@ export const clusterProfilesUidPacksNameManifestsUidDelete = async (
   manifestUid: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameManifestsUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameManifestsUidDeleteResponse>(
     getClusterProfilesUidPacksNameManifestsUidDeleteUrl(
       uid,
       packName,
@@ -1461,16 +1224,6 @@ export const clusterProfilesUidPacksNameManifestsUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameManifestsUidDeleteResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameManifestsUidDeleteResponse;
 };
 
 /**
@@ -1503,7 +1256,7 @@ export const clusterProfilesUidPacksNameManifestsUidGet = async (
   manifestUid: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameManifestsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameManifestsUidGetResponse>(
     getClusterProfilesUidPacksNameManifestsUidGetUrl(
       uid,
       packName,
@@ -1514,17 +1267,6 @@ export const clusterProfilesUidPacksNameManifestsUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameManifestsUidGetResponse;
 };
 
 /**
@@ -1558,7 +1300,7 @@ export const clusterProfilesUidPacksNameManifestsUidUpdate = async (
   v1ManifestInputEntityBody: V1ManifestInputEntityBody,
   options?: RequestInit,
 ): Promise<clusterProfilesUidPacksNameManifestsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<clusterProfilesUidPacksNameManifestsUidUpdateResponse>(
     getClusterProfilesUidPacksNameManifestsUidUpdateUrl(
       uid,
       packName,
@@ -1571,16 +1313,6 @@ export const clusterProfilesUidPacksNameManifestsUidUpdate = async (
       body: JSON.stringify(v1ManifestInputEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidPacksNameManifestsUidUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidPacksNameManifestsUidUpdateResponse;
 };
 
 /**
@@ -1610,21 +1342,13 @@ export const clusterProfilesPublish = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterProfilesPublishResponse> => {
-  const res = await fetch(getClusterProfilesPublishUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesPublishResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesPublishResponse;
+  return customInstance<clusterProfilesPublishResponse>(
+    getClusterProfilesPublishUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -1651,21 +1375,13 @@ export const clusterProfilesUidSpcDownload = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterProfilesUidSpcDownloadResponse> => {
-  const res = await fetch(getClusterProfilesUidSpcDownloadUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidSpcDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidSpcDownloadResponse;
+  return customInstance<clusterProfilesUidSpcDownloadResponse>(
+    getClusterProfilesUidSpcDownloadUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1693,23 +1409,15 @@ export const clusterProfilesUidValidatePacks = async (
   v1ClusterProfileTemplateDraftBody: V1ClusterProfileTemplateDraftBody,
   options?: RequestInit,
 ): Promise<clusterProfilesUidValidatePacksResponse> => {
-  const res = await fetch(getClusterProfilesUidValidatePacksUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterProfilesUidValidatePacksResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterProfilesUidValidatePacksResponse;
+  return customInstance<clusterProfilesUidValidatePacksResponse>(
+    getClusterProfilesUidValidatePacksUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
+    },
+  );
 };
 
 /**
@@ -1737,23 +1445,15 @@ export const v1ClusterProfilesUidVariablesDelete = async (
   variableNames: VariableNames,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidVariablesDeleteResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidVariablesDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(variableNames),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidVariablesDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidVariablesDeleteResponse;
+  return customInstance<v1ClusterProfilesUidVariablesDeleteResponse>(
+    getV1ClusterProfilesUidVariablesDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(variableNames),
+    },
+  );
 };
 
 /**
@@ -1780,21 +1480,13 @@ export const v1ClusterProfilesUidVariablesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidVariablesGetResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidVariablesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidVariablesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidVariablesGetResponse;
+  return customInstance<v1ClusterProfilesUidVariablesGetResponse>(
+    getV1ClusterProfilesUidVariablesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1822,23 +1514,15 @@ export const v1ClusterProfilesUidVariablesPatch = async (
   v1VariablesBody: V1VariablesBody,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidVariablesPatchResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidVariablesPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VariablesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidVariablesPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidVariablesPatchResponse;
+  return customInstance<v1ClusterProfilesUidVariablesPatchResponse>(
+    getV1ClusterProfilesUidVariablesPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VariablesBody),
+    },
+  );
 };
 
 /**
@@ -1866,21 +1550,13 @@ export const v1ClusterProfilesUidVariablesPut = async (
   v1VariablesBody: V1VariablesBody,
   options?: RequestInit,
 ): Promise<v1ClusterProfilesUidVariablesPutResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidVariablesPutUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VariablesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1ClusterProfilesUidVariablesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1ClusterProfilesUidVariablesPutResponse;
+  return customInstance<v1ClusterProfilesUidVariablesPutResponse>(
+    getV1ClusterProfilesUidVariablesPutUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VariablesBody),
+    },
+  );
 };

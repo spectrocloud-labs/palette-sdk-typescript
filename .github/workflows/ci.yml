@@ -18,9 +18,10 @@ jobs:
         uses: actions/setup-node@v4.4.0
         with:
           node-version: "22"
+          cache: "npm"
 
       - name: Install dependencies
-        run: make install
+        run: make install-dependencies
 
       - name: Configure git for private modules
         env:

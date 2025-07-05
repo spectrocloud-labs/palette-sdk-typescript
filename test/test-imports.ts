@@ -15,6 +15,9 @@ import {
   apiKeysList,
 } from "../generated/index";
 
+// Test importing the client wrapper
+import { setupConfig } from "../generated";
+
 // Test importing types from local generated files
 import type { SpectroCluster, AwsAccount, AuthLogin } from "../generated/index";
 
@@ -26,6 +29,7 @@ console.log("spectroClustersGet type:", typeof spectroClustersGet);
 console.log("spectroClustersAwsCreate type:", typeof spectroClustersAwsCreate);
 console.log("cloudAccountsAwsList type:", typeof cloudAccountsAwsList);
 console.log("apiKeysList type:", typeof apiKeysList);
+console.log("setupConfig type:", typeof setupConfig);
 
 // Test that types are available
 console.log("\n📋 Type imports:");
@@ -34,6 +38,39 @@ console.log("AwsAccount type available:", typeof {} as AwsAccount);
 console.log("AuthLogin type available:", typeof {} as AuthLogin);
 
 console.log("\n🎉 All imports successful! SDK is working correctly.");
+
+// Test the client wrapper
+console.log("\n🔧 Testing client wrapper...");
+try {
+  const palette = setupConfig({
+    baseURL: "https://api.spectrocloud.com",
+    headers: {
+      ApiKey: "test-key",
+      "Content-Type": "application/json",
+    },
+  });
+
+  console.log("  ✅ Client wrapper created successfully");
+
+  // Check that functions are available through the client
+  const clientFunctions = [
+    "spectroClustersGet",
+    "spectroClustersAwsCreate",
+    "cloudAccountsAwsList",
+    "apiKeysList",
+  ];
+
+  clientFunctions.forEach((funcName) => {
+    if (typeof (palette as any)[funcName] === "function") {
+      console.log(`  ✅ ${funcName} is available through client`);
+    } else {
+      console.log(`  ❌ ${funcName} is not available through client`);
+    }
+  });
+} catch (error) {
+  console.log("  ❌ Client wrapper error:", error);
+}
+
 console.log("\n📁 Functions are organized in the following areas:");
 console.log("  • apiKeys - API key management");
 console.log("  • clusters - Cluster operations");
@@ -45,6 +82,7 @@ console.log("  • And 27 more functional areas...");
 console.log("\n✨ Clean function names without v1 prefixes!");
 console.log("✨ CamelCase directory organization!");
 console.log("✨ Tags-split mode enabled!");
+console.log("✨ Client wrapper pattern available!");
 
 // Test that key functions are available
 const keyFunctions = [
@@ -93,8 +131,17 @@ try {
 }
 
 console.log("\n🎯 Integration test completed successfully!");
-console.log("\n📖 Usage example:");
+console.log("\n📖 Usage examples:");
+console.log("\n1. Individual function imports:");
 console.log("```typescript");
 console.log("import { spectroClustersGet } from 'palette-sdk-typescript';");
-console.log("const clusters = await spectroClustersGet(config);");
+console.log(
+  "const clusters = await spectroClustersGet('', undefined, config);"
+);
+console.log("```");
+console.log("\n2. Client wrapper (recommended):");
+console.log("```typescript");
+console.log("import { setupConfig } from 'palette-sdk-typescript';");
+console.log("const palette = setupConfig({ baseURL: '...', headers: {...} });");
+console.log("const clusters = await palette.spectroClustersGet('');");
 console.log("```");

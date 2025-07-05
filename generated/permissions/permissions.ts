@@ -11,6 +11,8 @@
  */
 import type { Permissions, PermissionsListParams } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of permissions
  */
@@ -45,17 +47,11 @@ export const permissionsList = async (
   params?: PermissionsListParams,
   options?: RequestInit,
 ): Promise<permissionsListResponse> => {
-  const res = await fetch(getPermissionsListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: permissionsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as permissionsListResponse;
+  return customInstance<permissionsListResponse>(
+    getPermissionsListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };

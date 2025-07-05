@@ -15,6 +15,8 @@ import type {
   V1PasswordsBlockListBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary get the system config reverse proxy
  */
@@ -38,21 +40,13 @@ export const getV1SystemConfigReverseProxyGetUrl = () => {
 export const v1SystemConfigReverseProxyGet = async (
   options?: RequestInit,
 ): Promise<v1SystemConfigReverseProxyGetResponse> => {
-  const res = await fetch(getV1SystemConfigReverseProxyGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SystemConfigReverseProxyGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SystemConfigReverseProxyGetResponse;
+  return customInstance<v1SystemConfigReverseProxyGetResponse>(
+    getV1SystemConfigReverseProxyGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -79,23 +73,15 @@ export const v1SystemConfigReverseProxyUpdate = async (
   systemReverseProxy: SystemReverseProxy,
   options?: RequestInit,
 ): Promise<v1SystemConfigReverseProxyUpdateResponse> => {
-  const res = await fetch(getV1SystemConfigReverseProxyUpdateUrl(), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(systemReverseProxy),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SystemConfigReverseProxyUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SystemConfigReverseProxyUpdateResponse;
+  return customInstance<v1SystemConfigReverseProxyUpdateResponse>(
+    getV1SystemConfigReverseProxyUpdateUrl(),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(systemReverseProxy),
+    },
+  );
 };
 
 /**
@@ -122,23 +108,15 @@ export const v1PasswordsBlockListDelete = async (
   v1PasswordsBlockListBody: V1PasswordsBlockListBody,
   options?: RequestInit,
 ): Promise<v1PasswordsBlockListDeleteResponse> => {
-  const res = await fetch(getV1PasswordsBlockListDeleteUrl(), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PasswordsBlockListBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1PasswordsBlockListDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1PasswordsBlockListDeleteResponse;
+  return customInstance<v1PasswordsBlockListDeleteResponse>(
+    getV1PasswordsBlockListDeleteUrl(),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PasswordsBlockListBody),
+    },
+  );
 };
 
 /**
@@ -165,21 +143,13 @@ export const v1PasswordsBlockListUpdate = async (
   v1PasswordsBlockListBody: V1PasswordsBlockListBody,
   options?: RequestInit,
 ): Promise<v1PasswordsBlockListUpdateResponse> => {
-  const res = await fetch(getV1PasswordsBlockListUpdateUrl(), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PasswordsBlockListBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1PasswordsBlockListUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1PasswordsBlockListUpdateResponse;
+  return customInstance<v1PasswordsBlockListUpdateResponse>(
+    getV1PasswordsBlockListUpdateUrl(),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PasswordsBlockListBody),
+    },
+  );
 };

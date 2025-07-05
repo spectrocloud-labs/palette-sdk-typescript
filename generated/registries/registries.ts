@@ -49,6 +49,8 @@ import type {
   V1PackRegistryBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of Helm registries
  */
@@ -83,19 +85,13 @@ export const registriesHelmList = async (
   params?: RegistriesHelmListParams,
   options?: RequestInit,
 ): Promise<registriesHelmListResponse> => {
-  const res = await fetch(getRegistriesHelmListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmListResponse;
+  return customInstance<registriesHelmListResponse>(
+    getRegistriesHelmListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -133,23 +129,15 @@ export const registriesHelmCreate = async (
   params?: RegistriesHelmCreateParams,
   options?: RequestInit,
 ): Promise<registriesHelmCreateResponse> => {
-  const res = await fetch(getRegistriesHelmCreateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(helmRegistryEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmCreateResponse;
+  return customInstance<registriesHelmCreateResponse>(
+    getRegistriesHelmCreateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(helmRegistryEntity),
+    },
+  );
 };
 
 /**
@@ -190,21 +178,13 @@ export const registriesHelmSummaryList = async (
   params?: RegistriesHelmSummaryListParams,
   options?: RequestInit,
 ): Promise<registriesHelmSummaryListResponse> => {
-  const res = await fetch(getRegistriesHelmSummaryListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmSummaryListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmSummaryListResponse;
+  return customInstance<registriesHelmSummaryListResponse>(
+    getRegistriesHelmSummaryListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -232,23 +212,15 @@ export const v1RegistriesHelmValidate = async (
   helmRegistrySpec: HelmRegistrySpec,
   options?: RequestInit,
 ): Promise<v1RegistriesHelmValidateResponse> => {
-  const res = await fetch(getV1RegistriesHelmValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(helmRegistrySpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1RegistriesHelmValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1RegistriesHelmValidateResponse;
+  return customInstance<v1RegistriesHelmValidateResponse>(
+    getV1RegistriesHelmValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(helmRegistrySpec),
+    },
+  );
 };
 
 /**
@@ -275,21 +247,13 @@ export const registriesHelmUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesHelmUidDeleteResponse> => {
-  const res = await fetch(getRegistriesHelmUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmUidDeleteResponse;
+  return customInstance<registriesHelmUidDeleteResponse>(
+    getRegistriesHelmUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -316,21 +280,13 @@ export const registriesHelmUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesHelmUidGetResponse> => {
-  const res = await fetch(getRegistriesHelmUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmUidGetResponse;
+  return customInstance<registriesHelmUidGetResponse>(
+    getRegistriesHelmUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -358,23 +314,15 @@ export const registriesHelmUidUpdate = async (
   helmRegistry: HelmRegistry,
   options?: RequestInit,
 ): Promise<registriesHelmUidUpdateResponse> => {
-  const res = await fetch(getRegistriesHelmUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(helmRegistry),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmUidUpdateResponse;
+  return customInstance<registriesHelmUidUpdateResponse>(
+    getRegistriesHelmUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(helmRegistry),
+    },
+  );
 };
 
 /**
@@ -414,21 +362,13 @@ export const registriesHelmUidSync = async (
   params?: RegistriesHelmUidSyncParams,
   options?: RequestInit,
 ): Promise<registriesHelmUidSyncResponse> => {
-  const res = await fetch(getRegistriesHelmUidSyncUrl(uid, params), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmUidSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmUidSyncResponse;
+  return customInstance<registriesHelmUidSyncResponse>(
+    getRegistriesHelmUidSyncUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -456,21 +396,13 @@ export const registriesHelmUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesHelmUidSyncStatusResponse> => {
-  const res = await fetch(getRegistriesHelmUidSyncStatusUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesHelmUidSyncStatusResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesHelmUidSyncStatusResponse;
+  return customInstance<registriesHelmUidSyncStatusResponse>(
+    getRegistriesHelmUidSyncStatusUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -503,19 +435,13 @@ export const registriesMetadata = async (
   params?: RegistriesMetadataParams,
   options?: RequestInit,
 ): Promise<registriesMetadataResponse> => {
-  const res = await fetch(getRegistriesMetadataUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesMetadataResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesMetadataResponse;
+  return customInstance<registriesMetadataResponse>(
+    getRegistriesMetadataUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -557,23 +483,15 @@ export const basicOciRegistriesCreate = async (
   params?: BasicOciRegistriesCreateParams,
   options?: RequestInit,
 ): Promise<basicOciRegistriesCreateResponse> => {
-  const res = await fetch(getBasicOciRegistriesCreateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1BasicOciRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesCreateResponse;
+  return customInstance<basicOciRegistriesCreateResponse>(
+    getBasicOciRegistriesCreateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1BasicOciRegistryBody),
+    },
+  );
 };
 
 /**
@@ -601,23 +519,15 @@ export const basicOciRegistriesValidate = async (
   basicOciRegistrySpec: BasicOciRegistrySpec,
   options?: RequestInit,
 ): Promise<basicOciRegistriesValidateResponse> => {
-  const res = await fetch(getBasicOciRegistriesValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(basicOciRegistrySpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesValidateResponse;
+  return customInstance<basicOciRegistriesValidateResponse>(
+    getBasicOciRegistriesValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(basicOciRegistrySpec),
+    },
+  );
 };
 
 /**
@@ -659,23 +569,15 @@ export const ecrRegistriesCreate = async (
   params?: EcrRegistriesCreateParams,
   options?: RequestInit,
 ): Promise<ecrRegistriesCreateResponse> => {
-  const res = await fetch(getEcrRegistriesCreateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1EcrRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesCreateResponse;
+  return customInstance<ecrRegistriesCreateResponse>(
+    getEcrRegistriesCreateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1EcrRegistryBody),
+    },
+  );
 };
 
 /**
@@ -703,23 +605,15 @@ export const ecrRegistriesValidate = async (
   ecrRegistrySpec: EcrRegistrySpec,
   options?: RequestInit,
 ): Promise<ecrRegistriesValidateResponse> => {
-  const res = await fetch(getEcrRegistriesValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ecrRegistrySpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesValidateResponse;
+  return customInstance<ecrRegistriesValidateResponse>(
+    getEcrRegistriesValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(ecrRegistrySpec),
+    },
+  );
 };
 
 /**
@@ -745,21 +639,13 @@ export const getOciImageRegistryGetUrl = () => {
 export const ociImageRegistryGet = async (
   options?: RequestInit,
 ): Promise<ociImageRegistryGetResponse> => {
-  const res = await fetch(getOciImageRegistryGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ociImageRegistryGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ociImageRegistryGetResponse;
+  return customInstance<ociImageRegistryGetResponse>(
+    getOciImageRegistryGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -785,21 +671,13 @@ export const getOciRegistriesSummaryUrl = () => {
 export const ociRegistriesSummary = async (
   options?: RequestInit,
 ): Promise<ociRegistriesSummaryResponse> => {
-  const res = await fetch(getOciRegistriesSummaryUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ociRegistriesSummaryResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ociRegistriesSummaryResponse;
+  return customInstance<ociRegistriesSummaryResponse>(
+    getOciRegistriesSummaryUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -836,19 +714,13 @@ export const ociRegistriesGet = async (
   params?: OciRegistriesGetParams,
   options?: RequestInit,
 ): Promise<ociRegistriesGetResponse> => {
-  const res = await fetch(getOciRegistriesGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ociRegistriesGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ociRegistriesGetResponse;
+  return customInstance<ociRegistriesGetResponse>(
+    getOciRegistriesGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -875,21 +747,13 @@ export const basicOciRegistriesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<basicOciRegistriesUidDeleteResponse> => {
-  const res = await fetch(getBasicOciRegistriesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesUidDeleteResponse;
+  return customInstance<basicOciRegistriesUidDeleteResponse>(
+    getBasicOciRegistriesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -916,21 +780,13 @@ export const basicOciRegistriesUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<basicOciRegistriesUidGetResponse> => {
-  const res = await fetch(getBasicOciRegistriesUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesUidGetResponse;
+  return customInstance<basicOciRegistriesUidGetResponse>(
+    getBasicOciRegistriesUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -958,23 +814,15 @@ export const basicOciRegistriesUidUpdate = async (
   v1BasicOciRegistryBody: V1BasicOciRegistryBody,
   options?: RequestInit,
 ): Promise<basicOciRegistriesUidUpdateResponse> => {
-  const res = await fetch(getBasicOciRegistriesUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1BasicOciRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesUidUpdateResponse;
+  return customInstance<basicOciRegistriesUidUpdateResponse>(
+    getBasicOciRegistriesUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1BasicOciRegistryBody),
+    },
+  );
 };
 
 /**
@@ -1014,21 +862,13 @@ export const basicOciRegistriesUidSync = async (
   params?: BasicOciRegistriesUidSyncParams,
   options?: RequestInit,
 ): Promise<basicOciRegistriesUidSyncResponse> => {
-  const res = await fetch(getBasicOciRegistriesUidSyncUrl(uid, params), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesUidSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesUidSyncResponse;
+  return customInstance<basicOciRegistriesUidSyncResponse>(
+    getBasicOciRegistriesUidSyncUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -1056,21 +896,13 @@ export const basicOciRegistriesUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
 ): Promise<basicOciRegistriesUidSyncStatusResponse> => {
-  const res = await fetch(getBasicOciRegistriesUidSyncStatusUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: basicOciRegistriesUidSyncStatusResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as basicOciRegistriesUidSyncStatusResponse;
+  return customInstance<basicOciRegistriesUidSyncStatusResponse>(
+    getBasicOciRegistriesUidSyncStatusUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1097,21 +929,13 @@ export const ecrRegistriesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<ecrRegistriesUidDeleteResponse> => {
-  const res = await fetch(getEcrRegistriesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesUidDeleteResponse;
+  return customInstance<ecrRegistriesUidDeleteResponse>(
+    getEcrRegistriesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1138,21 +962,13 @@ export const ecrRegistriesUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<ecrRegistriesUidGetResponse> => {
-  const res = await fetch(getEcrRegistriesUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesUidGetResponse;
+  return customInstance<ecrRegistriesUidGetResponse>(
+    getEcrRegistriesUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1180,23 +996,15 @@ export const ecrRegistriesUidUpdate = async (
   v1EcrRegistryBody: V1EcrRegistryBody,
   options?: RequestInit,
 ): Promise<ecrRegistriesUidUpdateResponse> => {
-  const res = await fetch(getEcrRegistriesUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1EcrRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesUidUpdateResponse;
+  return customInstance<ecrRegistriesUidUpdateResponse>(
+    getEcrRegistriesUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1EcrRegistryBody),
+    },
+  );
 };
 
 /**
@@ -1236,21 +1044,13 @@ export const ecrRegistriesUidSync = async (
   params?: EcrRegistriesUidSyncParams,
   options?: RequestInit,
 ): Promise<ecrRegistriesUidSyncResponse> => {
-  const res = await fetch(getEcrRegistriesUidSyncUrl(uid, params), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesUidSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesUidSyncResponse;
+  return customInstance<ecrRegistriesUidSyncResponse>(
+    getEcrRegistriesUidSyncUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -1278,21 +1078,13 @@ export const ecrRegistriesUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
 ): Promise<ecrRegistriesUidSyncStatusResponse> => {
-  const res = await fetch(getEcrRegistriesUidSyncStatusUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ecrRegistriesUidSyncStatusResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ecrRegistriesUidSyncStatusResponse;
+  return customInstance<ecrRegistriesUidSyncStatusResponse>(
+    getEcrRegistriesUidSyncStatusUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1329,19 +1121,13 @@ export const registriesPackList = async (
   params?: RegistriesPackListParams,
   options?: RequestInit,
 ): Promise<registriesPackListResponse> => {
-  const res = await fetch(getRegistriesPackListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackListResponse;
+  return customInstance<registriesPackListResponse>(
+    getRegistriesPackListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1383,23 +1169,15 @@ export const registriesPackCreate = async (
   params?: RegistriesPackCreateParams,
   options?: RequestInit,
 ): Promise<registriesPackCreateResponse> => {
-  const res = await fetch(getRegistriesPackCreateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PackRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackCreateResponse;
+  return customInstance<registriesPackCreateResponse>(
+    getRegistriesPackCreateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PackRegistryBody),
+    },
+  );
 };
 
 /**
@@ -1440,21 +1218,13 @@ export const registriesPackSummaryList = async (
   params?: RegistriesPackSummaryListParams,
   options?: RequestInit,
 ): Promise<registriesPackSummaryListResponse> => {
-  const res = await fetch(getRegistriesPackSummaryListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackSummaryListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackSummaryListResponse;
+  return customInstance<registriesPackSummaryListResponse>(
+    getRegistriesPackSummaryListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1482,23 +1252,15 @@ export const v1RegistriesPackValidate = async (
   packRegistrySpec: PackRegistrySpec,
   options?: RequestInit,
 ): Promise<v1RegistriesPackValidateResponse> => {
-  const res = await fetch(getV1RegistriesPackValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(packRegistrySpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1RegistriesPackValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1RegistriesPackValidateResponse;
+  return customInstance<v1RegistriesPackValidateResponse>(
+    getV1RegistriesPackValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(packRegistrySpec),
+    },
+  );
 };
 
 /**
@@ -1525,21 +1287,13 @@ export const registriesPackUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesPackUidDeleteResponse> => {
-  const res = await fetch(getRegistriesPackUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackUidDeleteResponse;
+  return customInstance<registriesPackUidDeleteResponse>(
+    getRegistriesPackUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1566,21 +1320,13 @@ export const registriesPackUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesPackUidGetResponse> => {
-  const res = await fetch(getRegistriesPackUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackUidGetResponse;
+  return customInstance<registriesPackUidGetResponse>(
+    getRegistriesPackUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1608,23 +1354,15 @@ export const registriesPackUidUpdate = async (
   v1PackRegistryBody: V1PackRegistryBody,
   options?: RequestInit,
 ): Promise<registriesPackUidUpdateResponse> => {
-  const res = await fetch(getRegistriesPackUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PackRegistryBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackUidUpdateResponse;
+  return customInstance<registriesPackUidUpdateResponse>(
+    getRegistriesPackUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PackRegistryBody),
+    },
+  );
 };
 
 /**
@@ -1664,21 +1402,13 @@ export const registriesPackUidSync = async (
   params?: RegistriesPackUidSyncParams,
   options?: RequestInit,
 ): Promise<registriesPackUidSyncResponse> => {
-  const res = await fetch(getRegistriesPackUidSyncUrl(uid, params), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackUidSyncResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackUidSyncResponse;
+  return customInstance<registriesPackUidSyncResponse>(
+    getRegistriesPackUidSyncUrl(uid, params),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -1706,21 +1436,13 @@ export const registriesPackUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesPackUidSyncStatusResponse> => {
-  const res = await fetch(getRegistriesPackUidSyncStatusUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesPackUidSyncStatusResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesPackUidSyncStatusResponse;
+  return customInstance<registriesPackUidSyncStatusResponse>(
+    getRegistriesPackUidSyncStatusUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1747,21 +1469,13 @@ export const registriesNameConfigGet = async (
   registryName: string,
   options?: RequestInit,
 ): Promise<registriesNameConfigGetResponse> => {
-  const res = await fetch(getRegistriesNameConfigGetUrl(registryName), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesNameConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesNameConfigGetResponse;
+  return customInstance<registriesNameConfigGetResponse>(
+    getRegistriesNameConfigGetUrl(registryName),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1788,19 +1502,11 @@ export const registriesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<registriesUidDeleteResponse> => {
-  const res = await fetch(getRegistriesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: registriesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as registriesUidDeleteResponse;
+  return customInstance<registriesUidDeleteResponse>(
+    getRegistriesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };

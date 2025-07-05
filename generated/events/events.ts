@@ -19,6 +19,8 @@ import type {
   Uids,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Returns a paginated list of component events based on request parameters
  * @summary Returns a paginated list of component events based on request parameters
@@ -58,21 +60,13 @@ export const eventsComponentsList = async (
   params?: EventsComponentsListParams,
   options?: RequestInit,
 ): Promise<eventsComponentsListResponse> => {
-  const res = await fetch(getEventsComponentsListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: eventsComponentsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as eventsComponentsListResponse;
+  return customInstance<eventsComponentsListResponse>(
+    getEventsComponentsListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -100,23 +94,15 @@ export const eventsComponentsCreate = async (
   event: Event,
   options?: RequestInit,
 ): Promise<eventsComponentsCreateResponse> => {
-  const res = await fetch(getEventsComponentsCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(event),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: eventsComponentsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as eventsComponentsCreateResponse;
+  return customInstance<eventsComponentsCreateResponse>(
+    getEventsComponentsCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(event),
+    },
+  );
 };
 
 /**
@@ -144,23 +130,15 @@ export const eventsComponentsCreateBulk = async (
   bulkEvents: BulkEvents,
   options?: RequestInit,
 ): Promise<eventsComponentsCreateBulkResponse> => {
-  const res = await fetch(getEventsComponentsCreateBulkUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(bulkEvents),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: eventsComponentsCreateBulkResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as eventsComponentsCreateBulkResponse;
+  return customInstance<eventsComponentsCreateBulkResponse>(
+    getEventsComponentsCreateBulkUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(bulkEvents),
+    },
+  );
 };
 
 /**
@@ -191,24 +169,13 @@ export const eventsComponentsObjTypeUidDelete = async (
   objectUid: string,
   options?: RequestInit,
 ): Promise<eventsComponentsObjTypeUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<eventsComponentsObjTypeUidDeleteResponse>(
     getEventsComponentsObjTypeUidDeleteUrl(objectKind, objectUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: eventsComponentsObjTypeUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as eventsComponentsObjTypeUidDeleteResponse;
 };
 
 /**
@@ -254,22 +221,11 @@ export const eventsComponentsObjTypeUidList = async (
   params?: EventsComponentsObjTypeUidListParams,
   options?: RequestInit,
 ): Promise<eventsComponentsObjTypeUidListResponse> => {
-  const res = await fetch(
+  return customInstance<eventsComponentsObjTypeUidListResponse>(
     getEventsComponentsObjTypeUidListUrl(objectKind, objectUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: eventsComponentsObjTypeUidListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as eventsComponentsObjTypeUidListResponse;
 };

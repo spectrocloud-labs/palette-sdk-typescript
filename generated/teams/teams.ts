@@ -26,6 +26,8 @@ import type {
   V1TeamBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of teams
  */
@@ -60,19 +62,10 @@ export const teamsList = async (
   params?: TeamsListParams,
   options?: RequestInit,
 ): Promise<teamsListResponse> => {
-  const res = await fetch(getTeamsListUrl(params), {
+  return customInstance<teamsListResponse>(getTeamsListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsListResponse;
 };
 
 /**
@@ -97,21 +90,12 @@ export const teamsCreate = async (
   v1TeamBody: V1TeamBody,
   options?: RequestInit,
 ): Promise<teamsCreateResponse> => {
-  const res = await fetch(getTeamsCreateUrl(), {
+  return customInstance<teamsCreateResponse>(getTeamsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1TeamBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsCreateResponse;
 };
 
 /**
@@ -136,21 +120,12 @@ export const teamsSummaryGet = async (
   teamsSummarySpec: TeamsSummarySpec,
   options?: RequestInit,
 ): Promise<teamsSummaryGetResponse> => {
-  const res = await fetch(getTeamsSummaryGetUrl(), {
+  return customInstance<teamsSummaryGetResponse>(getTeamsSummaryGetUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(teamsSummarySpec),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsSummaryGetResponse;
 };
 
 /**
@@ -175,19 +150,10 @@ export const teamsUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<teamsUidDeleteResponse> => {
-  const res = await fetch(getTeamsUidDeleteUrl(uid), {
+  return customInstance<teamsUidDeleteResponse>(getTeamsUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidDeleteResponse;
 };
 
 /**
@@ -212,19 +178,10 @@ export const teamsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<teamsUidGetResponse> => {
-  const res = await fetch(getTeamsUidGetUrl(uid), {
+  return customInstance<teamsUidGetResponse>(getTeamsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidGetResponse;
 };
 
 /**
@@ -250,21 +207,12 @@ export const teamsUidPatch = async (
   teamPatch: TeamPatch,
   options?: RequestInit,
 ): Promise<teamsUidPatchResponse> => {
-  const res = await fetch(getTeamsUidPatchUrl(uid), {
+  return customInstance<teamsUidPatchResponse>(getTeamsUidPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(teamPatch),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidPatchResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidPatchResponse;
 };
 
 /**
@@ -290,21 +238,12 @@ export const teamsUidUpdate = async (
   v1TeamBody: V1TeamBody,
   options?: RequestInit,
 ): Promise<teamsUidUpdateResponse> => {
-  const res = await fetch(getTeamsUidUpdateUrl(uid), {
+  return customInstance<teamsUidUpdateResponse>(getTeamsUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1TeamBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidUpdateResponse;
 };
 
 /**
@@ -329,19 +268,13 @@ export const teamsProjectRoles = async (
   uid: string,
   options?: RequestInit,
 ): Promise<teamsProjectRolesResponse> => {
-  const res = await fetch(getTeamsProjectRolesUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsProjectRolesResponse;
+  return customInstance<teamsProjectRolesResponse>(
+    getTeamsProjectRolesUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -369,23 +302,15 @@ export const teamsProjectRolesPut = async (
   v1ProjectRolesPatchBody: V1ProjectRolesPatchBody,
   options?: RequestInit,
 ): Promise<teamsProjectRolesPutResponse> => {
-  const res = await fetch(getTeamsProjectRolesPutUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ProjectRolesPatchBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsProjectRolesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsProjectRolesPutResponse;
+  return customInstance<teamsProjectRolesPutResponse>(
+    getTeamsProjectRolesPutUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ProjectRolesPatchBody),
+    },
+  );
 };
 
 /**
@@ -413,21 +338,13 @@ export const teamsUidResourceRoles = async (
   uid: string,
   options?: RequestInit,
 ): Promise<teamsUidResourceRolesResponse> => {
-  const res = await fetch(getTeamsUidResourceRolesUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidResourceRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidResourceRolesResponse;
+  return customInstance<teamsUidResourceRolesResponse>(
+    getTeamsUidResourceRolesUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -456,23 +373,15 @@ export const teamsUidResourceRolesCreate = async (
   v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
 ): Promise<teamsUidResourceRolesCreateResponse> => {
-  const res = await fetch(getTeamsUidResourceRolesCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidResourceRolesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidResourceRolesCreateResponse;
+  return customInstance<teamsUidResourceRolesCreateResponse>(
+    getTeamsUidResourceRolesCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
+    },
+  );
 };
 
 /**
@@ -503,24 +412,13 @@ export const teamsUidResourceRolesUidDelete = async (
   resourceRoleUid: string,
   options?: RequestInit,
 ): Promise<teamsUidResourceRolesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<teamsUidResourceRolesUidDeleteResponse>(
     getTeamsUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsUidResourceRolesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsUidResourceRolesUidDeleteResponse;
 };
 
 /**
@@ -553,7 +451,7 @@ export const teamsResourceRolesUidUpdate = async (
   v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
 ): Promise<teamsResourceRolesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<teamsResourceRolesUidUpdateResponse>(
     getTeamsResourceRolesUidUpdateUrl(uid, resourceRoleUid),
     {
       ...options,
@@ -562,17 +460,6 @@ export const teamsResourceRolesUidUpdate = async (
       body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsResourceRolesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsResourceRolesUidUpdateResponse;
 };
 
 /**
@@ -599,21 +486,13 @@ export const v1TeamsUidTenantRolesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1TeamsUidTenantRolesGetResponse> => {
-  const res = await fetch(getV1TeamsUidTenantRolesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TeamsUidTenantRolesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TeamsUidTenantRolesGetResponse;
+  return customInstance<v1TeamsUidTenantRolesGetResponse>(
+    getV1TeamsUidTenantRolesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -641,21 +520,13 @@ export const v1TeamsUidTenantRolesUpdate = async (
   teamTenantRolesUpdate: TeamTenantRolesUpdate,
   options?: RequestInit,
 ): Promise<v1TeamsUidTenantRolesUpdateResponse> => {
-  const res = await fetch(getV1TeamsUidTenantRolesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(teamTenantRolesUpdate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1TeamsUidTenantRolesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1TeamsUidTenantRolesUpdateResponse;
+  return customInstance<v1TeamsUidTenantRolesUpdateResponse>(
+    getV1TeamsUidTenantRolesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(teamTenantRolesUpdate),
+    },
+  );
 };

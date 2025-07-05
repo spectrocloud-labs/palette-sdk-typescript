@@ -96,6 +96,8 @@ import type {
   VsphereMachines,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Returns the specified AKS cloud config
  */
@@ -118,19 +120,13 @@ export const cloudConfigsAksGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAksGetResponse> => {
-  const res = await fetch(getCloudConfigsAksGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksGetResponse;
+  return customInstance<cloudConfigsAksGetResponse>(
+    getCloudConfigsAksGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -158,23 +154,15 @@ export const cloudConfigsAksUidClusterConfig = async (
   v1AzureCloudClusterConfigEntityBody: V1AzureCloudClusterConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAksUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsAksUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AzureCloudClusterConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksUidClusterConfigResponse;
+  return customInstance<cloudConfigsAksUidClusterConfigResponse>(
+    getCloudConfigsAksUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AzureCloudClusterConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -202,23 +190,15 @@ export const cloudConfigsAksMachinePoolCreate = async (
   v1AzureMachinePoolConfigEntityBody: V1AzureMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAksMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsAksMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksMachinePoolCreateResponse;
+  return customInstance<cloudConfigsAksMachinePoolCreateResponse>(
+    getCloudConfigsAksMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -249,24 +229,13 @@ export const cloudConfigsAksMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAksMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksMachinePoolDeleteResponse>(
     getCloudConfigsAksMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksMachinePoolDeleteResponse;
 };
 
 /**
@@ -298,7 +267,7 @@ export const cloudConfigsAksMachinePoolUpdate = async (
   v1AzureMachinePoolConfigEntityBody: V1AzureMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAksMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksMachinePoolUpdateResponse>(
     getCloudConfigsAksMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -307,17 +276,6 @@ export const cloudConfigsAksMachinePoolUpdate = async (
       body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksMachinePoolUpdateResponse;
 };
 
 /**
@@ -362,24 +320,13 @@ export const cloudConfigsAksPoolMachinesList = async (
   params?: CloudConfigsAksPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsAksPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksPoolMachinesListResponse>(
     getCloudConfigsAksPoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksPoolMachinesListResponse;
 };
 
 /**
@@ -411,7 +358,7 @@ export const cloudConfigsAksPoolMachinesAdd = async (
   v1AzureMachineBody: V1AzureMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAksPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksPoolMachinesAddResponse>(
     getCloudConfigsAksPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -420,17 +367,6 @@ export const cloudConfigsAksPoolMachinesAdd = async (
       body: JSON.stringify(v1AzureMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksPoolMachinesAddResponse;
 };
 
 /**
@@ -463,7 +399,7 @@ export const cloudConfigsAksPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAksPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksPoolMachinesUidDeleteResponse>(
     getCloudConfigsAksPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -474,17 +410,6 @@ export const cloudConfigsAksPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -517,7 +442,7 @@ export const cloudConfigsAksPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAksPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksPoolMachinesUidGetResponse>(
     getCloudConfigsAksPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -528,17 +453,6 @@ export const cloudConfigsAksPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksPoolMachinesUidGetResponse;
 };
 
 /**
@@ -572,7 +486,7 @@ export const cloudConfigsAksPoolMachinesUidUpdate = async (
   v1AzureMachineBody: V1AzureMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAksPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAksPoolMachinesUidUpdateResponse>(
     getCloudConfigsAksPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -585,17 +499,6 @@ export const cloudConfigsAksPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1AzureMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAksPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAksPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -620,19 +523,13 @@ export const cloudConfigsAwsGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsGetResponse> => {
-  const res = await fetch(getCloudConfigsAwsGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsGetResponse;
+  return customInstance<cloudConfigsAwsGetResponse>(
+    getCloudConfigsAwsGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -660,23 +557,15 @@ export const cloudConfigsAwsUidClusterConfig = async (
   awsCloudClusterConfigEntity: AwsCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsAwsUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsCloudClusterConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsUidClusterConfigResponse;
+  return customInstance<cloudConfigsAwsUidClusterConfigResponse>(
+    getCloudConfigsAwsUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsCloudClusterConfigEntity),
+    },
+  );
 };
 
 /**
@@ -704,23 +593,15 @@ export const awsCloudConfigsUidHybridConfig = async (
   awsCloudHybridConfigEntity: AwsCloudHybridConfigEntity,
   options?: RequestInit,
 ): Promise<awsCloudConfigsUidHybridConfigResponse> => {
-  const res = await fetch(getAwsCloudConfigsUidHybridConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsCloudHybridConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: awsCloudConfigsUidHybridConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as awsCloudConfigsUidHybridConfigResponse;
+  return customInstance<awsCloudConfigsUidHybridConfigResponse>(
+    getAwsCloudConfigsUidHybridConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsCloudHybridConfigEntity),
+    },
+  );
 };
 
 /**
@@ -750,7 +631,7 @@ export const v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate = async (
   hybridEdgeNativeMachinePoolConfigEntity: HybridEdgeNativeMachinePoolConfigEntity,
   options?: RequestInit,
 ): Promise<v1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<v1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResponse>(
     getV1AwsCloudConfigsEdgeNativeUidMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -759,16 +640,6 @@ export const v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate = async (
       body: JSON.stringify(hybridEdgeNativeMachinePoolConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsCloudConfigsEdgeNativeUidMachinePoolCreateResponse;
 };
 
 /**
@@ -799,7 +670,7 @@ export const awsCloudConfigsEdgeNativeMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<awsCloudConfigsEdgeNativeMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<awsCloudConfigsEdgeNativeMachinePoolDeleteResponse>(
     getAwsCloudConfigsEdgeNativeMachinePoolDeleteUrl(
       configUid,
       machinePoolName,
@@ -809,17 +680,6 @@ export const awsCloudConfigsEdgeNativeMachinePoolDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: awsCloudConfigsEdgeNativeMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as awsCloudConfigsEdgeNativeMachinePoolDeleteResponse;
 };
 
 /**
@@ -850,24 +710,13 @@ export const awsCloudConfigsEdgeNativeMachinePoolGet = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<awsCloudConfigsEdgeNativeMachinePoolGetResponse> => {
-  const res = await fetch(
+  return customInstance<awsCloudConfigsEdgeNativeMachinePoolGetResponse>(
     getAwsCloudConfigsEdgeNativeMachinePoolGetUrl(configUid, machinePoolName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: awsCloudConfigsEdgeNativeMachinePoolGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as awsCloudConfigsEdgeNativeMachinePoolGetResponse;
 };
 
 /**
@@ -899,7 +748,7 @@ export const awsCloudConfigsEdgeNativeMachinePoolUpdate = async (
   hybridEdgeNativeMachinePoolConfigUpdateEntity: HybridEdgeNativeMachinePoolConfigUpdateEntity,
   options?: RequestInit,
 ): Promise<awsCloudConfigsEdgeNativeMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<awsCloudConfigsEdgeNativeMachinePoolUpdateResponse>(
     getAwsCloudConfigsEdgeNativeMachinePoolUpdateUrl(
       configUid,
       machinePoolName,
@@ -911,17 +760,6 @@ export const awsCloudConfigsEdgeNativeMachinePoolUpdate = async (
       body: JSON.stringify(hybridEdgeNativeMachinePoolConfigUpdateEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: awsCloudConfigsEdgeNativeMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as awsCloudConfigsEdgeNativeMachinePoolUpdateResponse;
 };
 
 /**
@@ -949,23 +787,15 @@ export const cloudConfigsAwsMachinePoolCreate = async (
   v1AwsMachinePoolConfigEntityBody: V1AwsMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsAwsMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AwsMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsMachinePoolCreateResponse;
+  return customInstance<cloudConfigsAwsMachinePoolCreateResponse>(
+    getCloudConfigsAwsMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AwsMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -996,24 +826,13 @@ export const cloudConfigsAwsMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsMachinePoolDeleteResponse>(
     getCloudConfigsAwsMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsMachinePoolDeleteResponse;
 };
 
 /**
@@ -1045,7 +864,7 @@ export const cloudConfigsAwsMachinePoolUpdate = async (
   v1AwsMachinePoolConfigEntityBody: V1AwsMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsMachinePoolUpdateResponse>(
     getCloudConfigsAwsMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -1054,17 +873,6 @@ export const cloudConfigsAwsMachinePoolUpdate = async (
       body: JSON.stringify(v1AwsMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsMachinePoolUpdateResponse;
 };
 
 /**
@@ -1109,24 +917,13 @@ export const cloudConfigsAwsPoolMachinesList = async (
   params?: CloudConfigsAwsPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsPoolMachinesListResponse>(
     getCloudConfigsAwsPoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsPoolMachinesListResponse;
 };
 
 /**
@@ -1158,7 +955,7 @@ export const cloudConfigsAwsPoolMachinesAdd = async (
   v1AwsMachineBody: V1AwsMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsPoolMachinesAddResponse>(
     getCloudConfigsAwsPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -1167,17 +964,6 @@ export const cloudConfigsAwsPoolMachinesAdd = async (
       body: JSON.stringify(v1AwsMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsPoolMachinesAddResponse;
 };
 
 /**
@@ -1210,7 +996,7 @@ export const cloudConfigsAwsPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsPoolMachinesUidDeleteResponse>(
     getCloudConfigsAwsPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -1221,17 +1007,6 @@ export const cloudConfigsAwsPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -1264,7 +1039,7 @@ export const cloudConfigsAwsPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsPoolMachinesUidGetResponse>(
     getCloudConfigsAwsPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -1275,17 +1050,6 @@ export const cloudConfigsAwsPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsPoolMachinesUidGetResponse;
 };
 
 /**
@@ -1319,7 +1083,7 @@ export const cloudConfigsAwsPoolMachinesUidUpdate = async (
   v1AwsMachineBody: V1AwsMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAwsPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAwsPoolMachinesUidUpdateResponse>(
     getCloudConfigsAwsPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -1332,17 +1096,6 @@ export const cloudConfigsAwsPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1AwsMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAwsPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAwsPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -1369,21 +1122,13 @@ export const cloudConfigsAzureGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAzureGetResponse> => {
-  const res = await fetch(getCloudConfigsAzureGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzureGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzureGetResponse;
+  return customInstance<cloudConfigsAzureGetResponse>(
+    getCloudConfigsAzureGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1411,23 +1156,15 @@ export const cloudConfigsAzureUidClusterConfig = async (
   v1AzureCloudClusterConfigEntityBody: V1AzureCloudClusterConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAzureUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsAzureUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AzureCloudClusterConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzureUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzureUidClusterConfigResponse;
+  return customInstance<cloudConfigsAzureUidClusterConfigResponse>(
+    getCloudConfigsAzureUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AzureCloudClusterConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -1455,23 +1192,15 @@ export const cloudConfigsAzureMachinePoolCreate = async (
   v1AzureMachinePoolConfigEntityBody: V1AzureMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAzureMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsAzureMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzureMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzureMachinePoolCreateResponse;
+  return customInstance<cloudConfigsAzureMachinePoolCreateResponse>(
+    getCloudConfigsAzureMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -1502,24 +1231,13 @@ export const cloudConfigsAzureMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAzureMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzureMachinePoolDeleteResponse>(
     getCloudConfigsAzureMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzureMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzureMachinePoolDeleteResponse;
 };
 
 /**
@@ -1551,7 +1269,7 @@ export const cloudConfigsAzureMachinePoolUpdate = async (
   v1AzureMachinePoolConfigEntityBody: V1AzureMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAzureMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzureMachinePoolUpdateResponse>(
     getCloudConfigsAzureMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -1560,17 +1278,6 @@ export const cloudConfigsAzureMachinePoolUpdate = async (
       body: JSON.stringify(v1AzureMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzureMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzureMachinePoolUpdateResponse;
 };
 
 /**
@@ -1616,24 +1323,13 @@ export const cloudConfigsAzurePoolMachinesList = async (
   params?: CloudConfigsAzurePoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsAzurePoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzurePoolMachinesListResponse>(
     getCloudConfigsAzurePoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzurePoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzurePoolMachinesListResponse;
 };
 
 /**
@@ -1665,7 +1361,7 @@ export const cloudConfigsAzurePoolMachinesAdd = async (
   v1AzureMachineBody: V1AzureMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAzurePoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzurePoolMachinesAddResponse>(
     getCloudConfigsAzurePoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -1674,17 +1370,6 @@ export const cloudConfigsAzurePoolMachinesAdd = async (
       body: JSON.stringify(v1AzureMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzurePoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzurePoolMachinesAddResponse;
 };
 
 /**
@@ -1717,7 +1402,7 @@ export const cloudConfigsAzurePoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAzurePoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzurePoolMachinesUidDeleteResponse>(
     getCloudConfigsAzurePoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -1728,17 +1413,6 @@ export const cloudConfigsAzurePoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzurePoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzurePoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -1772,7 +1446,7 @@ export const cloudConfigsAzurePoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsAzurePoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzurePoolMachinesUidGetResponse>(
     getCloudConfigsAzurePoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -1783,17 +1457,6 @@ export const cloudConfigsAzurePoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzurePoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzurePoolMachinesUidGetResponse;
 };
 
 /**
@@ -1827,7 +1490,7 @@ export const cloudConfigsAzurePoolMachinesUidUpdate = async (
   v1AzureMachineBody: V1AzureMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsAzurePoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsAzurePoolMachinesUidUpdateResponse>(
     getCloudConfigsAzurePoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -1840,17 +1503,6 @@ export const cloudConfigsAzurePoolMachinesUidUpdate = async (
       body: JSON.stringify(v1AzureMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsAzurePoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsAzurePoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -1881,21 +1533,13 @@ export const cloudConfigsCustomGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomGetResponse> => {
-  const res = await fetch(getCloudConfigsCustomGetUrl(cloudType, configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomGetResponse;
+  return customInstance<cloudConfigsCustomGetResponse>(
+    getCloudConfigsCustomGetUrl(cloudType, configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1927,7 +1571,7 @@ export const cloudConfigsCustomUidClusterConfig = async (
   customCloudClusterConfigEntity: CustomCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomUidClusterConfigResponse>(
     getCloudConfigsCustomUidClusterConfigUrl(cloudType, configUid),
     {
       ...options,
@@ -1936,17 +1580,6 @@ export const cloudConfigsCustomUidClusterConfig = async (
       body: JSON.stringify(customCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomUidClusterConfigResponse;
 };
 
 /**
@@ -1978,7 +1611,7 @@ export const cloudConfigsCustomMachinePoolCreate = async (
   v1CustomMachinePoolConfigEntityBody: V1CustomMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomMachinePoolCreateResponse>(
     getCloudConfigsCustomMachinePoolCreateUrl(cloudType, configUid),
     {
       ...options,
@@ -1987,17 +1620,6 @@ export const cloudConfigsCustomMachinePoolCreate = async (
       body: JSON.stringify(v1CustomMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomMachinePoolCreateResponse;
 };
 
 /**
@@ -2030,7 +1652,7 @@ export const cloudConfigsCustomMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomMachinePoolDeleteResponse>(
     getCloudConfigsCustomMachinePoolDeleteUrl(
       cloudType,
       configUid,
@@ -2041,17 +1663,6 @@ export const cloudConfigsCustomMachinePoolDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomMachinePoolDeleteResponse;
 };
 
 /**
@@ -2085,7 +1696,7 @@ export const cloudConfigsCustomMachinePoolUpdate = async (
   v1CustomMachinePoolConfigEntityBody: V1CustomMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomMachinePoolUpdateResponse>(
     getCloudConfigsCustomMachinePoolUpdateUrl(
       cloudType,
       configUid,
@@ -2098,17 +1709,6 @@ export const cloudConfigsCustomMachinePoolUpdate = async (
       body: JSON.stringify(v1CustomMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomMachinePoolUpdateResponse;
 };
 
 /**
@@ -2155,7 +1755,7 @@ export const cloudConfigsCustomPoolMachinesList = async (
   params?: CloudConfigsCustomPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomPoolMachinesListResponse>(
     getCloudConfigsCustomPoolMachinesListUrl(
       cloudType,
       configUid,
@@ -2167,17 +1767,6 @@ export const cloudConfigsCustomPoolMachinesList = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomPoolMachinesListResponse;
 };
 
 /**
@@ -2211,7 +1800,7 @@ export const cloudConfigsCustomPoolMachinesAdd = async (
   v1CustomMachineBody: V1CustomMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomPoolMachinesAddResponse>(
     getCloudConfigsCustomPoolMachinesAddUrl(
       cloudType,
       configUid,
@@ -2224,17 +1813,6 @@ export const cloudConfigsCustomPoolMachinesAdd = async (
       body: JSON.stringify(v1CustomMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomPoolMachinesAddResponse;
 };
 
 /**
@@ -2269,7 +1847,7 @@ export const cloudConfigsCustomPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomPoolMachinesUidDeleteResponse>(
     getCloudConfigsCustomPoolMachinesUidDeleteUrl(
       cloudType,
       configUid,
@@ -2281,17 +1859,6 @@ export const cloudConfigsCustomPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -2326,7 +1893,7 @@ export const cloudConfigsCustomPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomPoolMachinesUidGetResponse>(
     getCloudConfigsCustomPoolMachinesUidGetUrl(
       cloudType,
       configUid,
@@ -2338,17 +1905,6 @@ export const cloudConfigsCustomPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomPoolMachinesUidGetResponse;
 };
 
 /**
@@ -2384,7 +1940,7 @@ export const cloudConfigsCustomPoolMachinesUidUpdate = async (
   v1CustomMachineBody: V1CustomMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsCustomPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsCustomPoolMachinesUidUpdateResponse>(
     getCloudConfigsCustomPoolMachinesUidUpdateUrl(
       cloudType,
       configUid,
@@ -2398,17 +1954,6 @@ export const cloudConfigsCustomPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1CustomMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsCustomPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsCustomPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -2435,21 +1980,13 @@ export const cloudConfigsEdgeNativeGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativeGetResponse> => {
-  const res = await fetch(getCloudConfigsEdgeNativeGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativeGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativeGetResponse;
+  return customInstance<cloudConfigsEdgeNativeGetResponse>(
+    getCloudConfigsEdgeNativeGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2479,7 +2016,7 @@ export const cloudConfigsEdgeNativeUidClusterConfig = async (
   edgeNativeCloudClusterConfigEntity: EdgeNativeCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativeUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativeUidClusterConfigResponse>(
     getCloudConfigsEdgeNativeUidClusterConfigUrl(configUid),
     {
       ...options,
@@ -2488,17 +2025,6 @@ export const cloudConfigsEdgeNativeUidClusterConfig = async (
       body: JSON.stringify(edgeNativeCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativeUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativeUidClusterConfigResponse;
 };
 
 /**
@@ -2528,7 +2054,7 @@ export const cloudConfigsEdgeNativeMachinePoolCreate = async (
   v1EdgeNativeMachinePoolConfigEntityBody: V1EdgeNativeMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativeMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativeMachinePoolCreateResponse>(
     getCloudConfigsEdgeNativeMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -2537,17 +2063,6 @@ export const cloudConfigsEdgeNativeMachinePoolCreate = async (
       body: JSON.stringify(v1EdgeNativeMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativeMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativeMachinePoolCreateResponse;
 };
 
 /**
@@ -2578,24 +2093,13 @@ export const cloudConfigsEdgeNativeMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativeMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativeMachinePoolDeleteResponse>(
     getCloudConfigsEdgeNativeMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativeMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativeMachinePoolDeleteResponse;
 };
 
 /**
@@ -2627,7 +2131,7 @@ export const cloudConfigsEdgeNativeMachinePoolUpdate = async (
   v1EdgeNativeMachinePoolConfigEntityBody: V1EdgeNativeMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativeMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativeMachinePoolUpdateResponse>(
     getCloudConfigsEdgeNativeMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -2636,17 +2140,6 @@ export const cloudConfigsEdgeNativeMachinePoolUpdate = async (
       body: JSON.stringify(v1EdgeNativeMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativeMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativeMachinePoolUpdateResponse;
 };
 
 /**
@@ -2677,24 +2170,13 @@ export const cloudConfigsEdgeNativePoolMachinesList = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativePoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativePoolMachinesListResponse>(
     getCloudConfigsEdgeNativePoolMachinesListUrl(configUid, machinePoolName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativePoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativePoolMachinesListResponse;
 };
 
 /**
@@ -2726,7 +2208,7 @@ export const cloudConfigsEdgeNativePoolMachinesAdd = async (
   v1EdgeNativeMachineBody: V1EdgeNativeMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativePoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativePoolMachinesAddResponse>(
     getCloudConfigsEdgeNativePoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -2735,17 +2217,6 @@ export const cloudConfigsEdgeNativePoolMachinesAdd = async (
       body: JSON.stringify(v1EdgeNativeMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativePoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativePoolMachinesAddResponse;
 };
 
 /**
@@ -2778,7 +2249,7 @@ export const cloudConfigsEdgeNativePoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativePoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativePoolMachinesUidDeleteResponse>(
     getCloudConfigsEdgeNativePoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -2789,17 +2260,6 @@ export const cloudConfigsEdgeNativePoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativePoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativePoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -2832,7 +2292,7 @@ export const cloudConfigsEdgeNativePoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativePoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativePoolMachinesUidGetResponse>(
     getCloudConfigsEdgeNativePoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -2843,17 +2303,6 @@ export const cloudConfigsEdgeNativePoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativePoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativePoolMachinesUidGetResponse;
 };
 
 /**
@@ -2887,7 +2336,7 @@ export const cloudConfigsEdgeNativePoolMachinesUidUpdate = async (
   v1EdgeNativeMachineBody: V1EdgeNativeMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEdgeNativePoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEdgeNativePoolMachinesUidUpdateResponse>(
     getCloudConfigsEdgeNativePoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -2900,17 +2349,6 @@ export const cloudConfigsEdgeNativePoolMachinesUidUpdate = async (
       body: JSON.stringify(v1EdgeNativeMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEdgeNativePoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEdgeNativePoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -2935,19 +2373,13 @@ export const cloudConfigsEksGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEksGetResponse> => {
-  const res = await fetch(getCloudConfigsEksGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksGetResponse;
+  return customInstance<cloudConfigsEksGetResponse>(
+    getCloudConfigsEksGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2975,23 +2407,15 @@ export const cloudConfigsEksUidClusterConfig = async (
   eksCloudClusterConfigEntity: EksCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsEksUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsEksUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(eksCloudClusterConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksUidClusterConfigResponse;
+  return customInstance<cloudConfigsEksUidClusterConfigResponse>(
+    getCloudConfigsEksUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(eksCloudClusterConfigEntity),
+    },
+  );
 };
 
 /**
@@ -3021,7 +2445,7 @@ export const cloudConfigsEksUidFargateProfilesUpdate = async (
   eksFargateProfiles: EksFargateProfiles,
   options?: RequestInit,
 ): Promise<cloudConfigsEksUidFargateProfilesUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksUidFargateProfilesUpdateResponse>(
     getCloudConfigsEksUidFargateProfilesUpdateUrl(configUid),
     {
       ...options,
@@ -3030,17 +2454,6 @@ export const cloudConfigsEksUidFargateProfilesUpdate = async (
       body: JSON.stringify(eksFargateProfiles),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksUidFargateProfilesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksUidFargateProfilesUpdateResponse;
 };
 
 /**
@@ -3068,23 +2481,15 @@ export const cloudConfigsEksMachinePoolCreate = async (
   v1EksMachinePoolConfigEntityBody: V1EksMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEksMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsEksMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1EksMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksMachinePoolCreateResponse;
+  return customInstance<cloudConfigsEksMachinePoolCreateResponse>(
+    getCloudConfigsEksMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1EksMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -3115,24 +2520,13 @@ export const cloudConfigsEksMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEksMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksMachinePoolDeleteResponse>(
     getCloudConfigsEksMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksMachinePoolDeleteResponse;
 };
 
 /**
@@ -3164,7 +2558,7 @@ export const cloudConfigsEksMachinePoolUpdate = async (
   v1EksMachinePoolConfigEntityBody: V1EksMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEksMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksMachinePoolUpdateResponse>(
     getCloudConfigsEksMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -3173,17 +2567,6 @@ export const cloudConfigsEksMachinePoolUpdate = async (
       body: JSON.stringify(v1EksMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksMachinePoolUpdateResponse;
 };
 
 /**
@@ -3228,24 +2611,13 @@ export const cloudConfigsEksPoolMachinesList = async (
   params?: CloudConfigsEksPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsEksPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksPoolMachinesListResponse>(
     getCloudConfigsEksPoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksPoolMachinesListResponse;
 };
 
 /**
@@ -3277,7 +2649,7 @@ export const cloudConfigsEksPoolMachinesAdd = async (
   v1AwsMachineBody: V1AwsMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEksPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksPoolMachinesAddResponse>(
     getCloudConfigsEksPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -3286,17 +2658,6 @@ export const cloudConfigsEksPoolMachinesAdd = async (
       body: JSON.stringify(v1AwsMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksPoolMachinesAddResponse;
 };
 
 /**
@@ -3329,7 +2690,7 @@ export const cloudConfigsEksPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEksPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksPoolMachinesUidDeleteResponse>(
     getCloudConfigsEksPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -3340,17 +2701,6 @@ export const cloudConfigsEksPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -3383,7 +2733,7 @@ export const cloudConfigsEksPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsEksPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksPoolMachinesUidGetResponse>(
     getCloudConfigsEksPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -3394,17 +2744,6 @@ export const cloudConfigsEksPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksPoolMachinesUidGetResponse;
 };
 
 /**
@@ -3438,7 +2777,7 @@ export const cloudConfigsEksPoolMachinesUidUpdate = async (
   v1AwsMachineBody: V1AwsMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsEksPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsEksPoolMachinesUidUpdateResponse>(
     getCloudConfigsEksPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -3451,17 +2790,6 @@ export const cloudConfigsEksPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1AwsMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsEksPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsEksPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -3486,19 +2814,13 @@ export const cloudConfigsGcpGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpGetResponse> => {
-  const res = await fetch(getCloudConfigsGcpGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpGetResponse;
+  return customInstance<cloudConfigsGcpGetResponse>(
+    getCloudConfigsGcpGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3526,23 +2848,15 @@ export const cloudConfigsGcpUidClusterConfig = async (
   v1GcpCloudClusterConfigEntityBody: V1GcpCloudClusterConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsGcpUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpCloudClusterConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpUidClusterConfigResponse;
+  return customInstance<cloudConfigsGcpUidClusterConfigResponse>(
+    getCloudConfigsGcpUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpCloudClusterConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -3570,23 +2884,15 @@ export const cloudConfigsGcpMachinePoolCreate = async (
   v1GcpMachinePoolConfigEntityBody: V1GcpMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsGcpMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpMachinePoolCreateResponse;
+  return customInstance<cloudConfigsGcpMachinePoolCreateResponse>(
+    getCloudConfigsGcpMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -3617,24 +2923,13 @@ export const cloudConfigsGcpMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpMachinePoolDeleteResponse>(
     getCloudConfigsGcpMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpMachinePoolDeleteResponse;
 };
 
 /**
@@ -3666,7 +2961,7 @@ export const cloudConfigsGcpMachinePoolUpdate = async (
   v1GcpMachinePoolConfigEntityBody: V1GcpMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpMachinePoolUpdateResponse>(
     getCloudConfigsGcpMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -3675,17 +2970,6 @@ export const cloudConfigsGcpMachinePoolUpdate = async (
       body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpMachinePoolUpdateResponse;
 };
 
 /**
@@ -3730,24 +3014,13 @@ export const cloudConfigsGcpPoolMachinesList = async (
   params?: CloudConfigsGcpPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpPoolMachinesListResponse>(
     getCloudConfigsGcpPoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpPoolMachinesListResponse;
 };
 
 /**
@@ -3779,7 +3052,7 @@ export const cloudConfigsGcpPoolMachinesAdd = async (
   v1GcpMachineBody: V1GcpMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpPoolMachinesAddResponse>(
     getCloudConfigsGcpPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -3788,17 +3061,6 @@ export const cloudConfigsGcpPoolMachinesAdd = async (
       body: JSON.stringify(v1GcpMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpPoolMachinesAddResponse;
 };
 
 /**
@@ -3831,7 +3093,7 @@ export const cloudConfigsGcpPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpPoolMachinesUidDeleteResponse>(
     getCloudConfigsGcpPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -3842,17 +3104,6 @@ export const cloudConfigsGcpPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -3885,7 +3136,7 @@ export const cloudConfigsGcpPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpPoolMachinesUidGetResponse>(
     getCloudConfigsGcpPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -3896,17 +3147,6 @@ export const cloudConfigsGcpPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpPoolMachinesUidGetResponse;
 };
 
 /**
@@ -3940,7 +3180,7 @@ export const cloudConfigsGcpPoolMachinesUidUpdate = async (
   v1GcpMachineBody: V1GcpMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGcpPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGcpPoolMachinesUidUpdateResponse>(
     getCloudConfigsGcpPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -3953,17 +3193,6 @@ export const cloudConfigsGcpPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1GcpMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGcpPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGcpPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -3990,21 +3219,13 @@ export const cloudConfigsGenericGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericGetResponse> => {
-  const res = await fetch(getCloudConfigsGenericGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericGetResponse;
+  return customInstance<cloudConfigsGenericGetResponse>(
+    getCloudConfigsGenericGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4034,7 +3255,7 @@ export const cloudConfigsGenericUidClusterConfig = async (
   genericCloudClusterConfigEntity: GenericCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericUidClusterConfigResponse>(
     getCloudConfigsGenericUidClusterConfigUrl(configUid),
     {
       ...options,
@@ -4043,17 +3264,6 @@ export const cloudConfigsGenericUidClusterConfig = async (
       body: JSON.stringify(genericCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericUidClusterConfigResponse;
 };
 
 /**
@@ -4083,7 +3293,7 @@ export const cloudConfigsGenericMachinePoolCreate = async (
   v1GenericMachinePoolConfigEntityBody: V1GenericMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericMachinePoolCreateResponse>(
     getCloudConfigsGenericMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -4092,17 +3302,6 @@ export const cloudConfigsGenericMachinePoolCreate = async (
       body: JSON.stringify(v1GenericMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericMachinePoolCreateResponse;
 };
 
 /**
@@ -4133,24 +3332,13 @@ export const cloudConfigsGenericMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericMachinePoolDeleteResponse>(
     getCloudConfigsGenericMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericMachinePoolDeleteResponse;
 };
 
 /**
@@ -4182,7 +3370,7 @@ export const cloudConfigsGenericMachinePoolUpdate = async (
   v1GenericMachinePoolConfigEntityBody: V1GenericMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericMachinePoolUpdateResponse>(
     getCloudConfigsGenericMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -4191,17 +3379,6 @@ export const cloudConfigsGenericMachinePoolUpdate = async (
       body: JSON.stringify(v1GenericMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericMachinePoolUpdateResponse;
 };
 
 /**
@@ -4246,7 +3423,7 @@ export const cloudConfigsGenericPoolMachinesList = async (
   params?: CloudConfigsGenericPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericPoolMachinesListResponse>(
     getCloudConfigsGenericPoolMachinesListUrl(
       configUid,
       machinePoolName,
@@ -4257,17 +3434,6 @@ export const cloudConfigsGenericPoolMachinesList = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericPoolMachinesListResponse;
 };
 
 /**
@@ -4299,7 +3465,7 @@ export const cloudConfigsGenericPoolMachinesAdd = async (
   v1GenericMachineBody: V1GenericMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericPoolMachinesAddResponse>(
     getCloudConfigsGenericPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -4308,17 +3474,6 @@ export const cloudConfigsGenericPoolMachinesAdd = async (
       body: JSON.stringify(v1GenericMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericPoolMachinesAddResponse;
 };
 
 /**
@@ -4351,7 +3506,7 @@ export const cloudConfigsGenericPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericPoolMachinesUidDeleteResponse>(
     getCloudConfigsGenericPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -4362,17 +3517,6 @@ export const cloudConfigsGenericPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -4405,7 +3549,7 @@ export const cloudConfigsGenericPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericPoolMachinesUidGetResponse>(
     getCloudConfigsGenericPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -4416,17 +3560,6 @@ export const cloudConfigsGenericPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericPoolMachinesUidGetResponse;
 };
 
 /**
@@ -4460,7 +3593,7 @@ export const cloudConfigsGenericPoolMachinesUidUpdate = async (
   v1GenericMachineBody: V1GenericMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGenericPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGenericPoolMachinesUidUpdateResponse>(
     getCloudConfigsGenericPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -4473,17 +3606,6 @@ export const cloudConfigsGenericPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1GenericMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGenericPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGenericPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -4508,19 +3630,13 @@ export const cloudConfigsGkeGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGkeGetResponse> => {
-  const res = await fetch(getCloudConfigsGkeGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkeGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkeGetResponse;
+  return customInstance<cloudConfigsGkeGetResponse>(
+    getCloudConfigsGkeGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4548,23 +3664,15 @@ export const cloudConfigsGkeUidClusterConfig = async (
   v1GcpCloudClusterConfigEntityBody: V1GcpCloudClusterConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGkeUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsGkeUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpCloudClusterConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkeUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkeUidClusterConfigResponse;
+  return customInstance<cloudConfigsGkeUidClusterConfigResponse>(
+    getCloudConfigsGkeUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpCloudClusterConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -4592,23 +3700,15 @@ export const cloudConfigsGkeMachinePoolCreate = async (
   v1GcpMachinePoolConfigEntityBody: V1GcpMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGkeMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsGkeMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkeMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkeMachinePoolCreateResponse;
+  return customInstance<cloudConfigsGkeMachinePoolCreateResponse>(
+    getCloudConfigsGkeMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -4639,24 +3739,13 @@ export const cloudConfigsGkeMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGkeMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkeMachinePoolDeleteResponse>(
     getCloudConfigsGkeMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkeMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkeMachinePoolDeleteResponse;
 };
 
 /**
@@ -4688,7 +3777,7 @@ export const cloudConfigsGkeMachinePoolUpdate = async (
   v1GcpMachinePoolConfigEntityBody: V1GcpMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGkeMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkeMachinePoolUpdateResponse>(
     getCloudConfigsGkeMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -4697,17 +3786,6 @@ export const cloudConfigsGkeMachinePoolUpdate = async (
       body: JSON.stringify(v1GcpMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkeMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkeMachinePoolUpdateResponse;
 };
 
 /**
@@ -4752,24 +3830,13 @@ export const cloudConfigsGkePoolMachinesList = async (
   params?: CloudConfigsGkePoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsGkePoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkePoolMachinesListResponse>(
     getCloudConfigsGkePoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkePoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkePoolMachinesListResponse;
 };
 
 /**
@@ -4801,7 +3868,7 @@ export const cloudConfigsGkePoolMachinesAdd = async (
   v1GcpMachineBody: V1GcpMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGkePoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkePoolMachinesAddResponse>(
     getCloudConfigsGkePoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -4810,17 +3877,6 @@ export const cloudConfigsGkePoolMachinesAdd = async (
       body: JSON.stringify(v1GcpMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkePoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkePoolMachinesAddResponse;
 };
 
 /**
@@ -4853,7 +3909,7 @@ export const cloudConfigsGkePoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGkePoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkePoolMachinesUidDeleteResponse>(
     getCloudConfigsGkePoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -4864,17 +3920,6 @@ export const cloudConfigsGkePoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkePoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkePoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -4907,7 +3952,7 @@ export const cloudConfigsGkePoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsGkePoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkePoolMachinesUidGetResponse>(
     getCloudConfigsGkePoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -4918,17 +3963,6 @@ export const cloudConfigsGkePoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkePoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkePoolMachinesUidGetResponse;
 };
 
 /**
@@ -4962,7 +3996,7 @@ export const cloudConfigsGkePoolMachinesUidUpdate = async (
   v1GcpMachineBody: V1GcpMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsGkePoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsGkePoolMachinesUidUpdateResponse>(
     getCloudConfigsGkePoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -4975,17 +4009,6 @@ export const cloudConfigsGkePoolMachinesUidUpdate = async (
       body: JSON.stringify(v1GcpMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsGkePoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsGkePoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -5012,21 +4035,13 @@ export const cloudConfigsMaasGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasGetResponse> => {
-  const res = await fetch(getCloudConfigsMaasGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasGetResponse;
+  return customInstance<cloudConfigsMaasGetResponse>(
+    getCloudConfigsMaasGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5054,23 +4069,15 @@ export const cloudConfigsMaasUidClusterConfig = async (
   maasCloudClusterConfigEntity: MaasCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasUidClusterConfigResponse> => {
-  const res = await fetch(getCloudConfigsMaasUidClusterConfigUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(maasCloudClusterConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasUidClusterConfigResponse;
+  return customInstance<cloudConfigsMaasUidClusterConfigResponse>(
+    getCloudConfigsMaasUidClusterConfigUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(maasCloudClusterConfigEntity),
+    },
+  );
 };
 
 /**
@@ -5098,23 +4105,15 @@ export const cloudConfigsMaasMachinePoolCreate = async (
   v1MaasMachinePoolConfigEntityBody: V1MaasMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasMachinePoolCreateResponse> => {
-  const res = await fetch(getCloudConfigsMaasMachinePoolCreateUrl(configUid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MaasMachinePoolConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasMachinePoolCreateResponse;
+  return customInstance<cloudConfigsMaasMachinePoolCreateResponse>(
+    getCloudConfigsMaasMachinePoolCreateUrl(configUid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MaasMachinePoolConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -5145,24 +4144,13 @@ export const cloudConfigsMaasMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasMachinePoolDeleteResponse>(
     getCloudConfigsMaasMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasMachinePoolDeleteResponse;
 };
 
 /**
@@ -5194,7 +4182,7 @@ export const cloudConfigsMaasMachinePoolUpdate = async (
   v1MaasMachinePoolConfigEntityBody: V1MaasMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasMachinePoolUpdateResponse>(
     getCloudConfigsMaasMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -5203,17 +4191,6 @@ export const cloudConfigsMaasMachinePoolUpdate = async (
       body: JSON.stringify(v1MaasMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasMachinePoolUpdateResponse;
 };
 
 /**
@@ -5258,24 +4235,13 @@ export const cloudConfigsMaasPoolMachinesList = async (
   params?: CloudConfigsMaasPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasPoolMachinesListResponse>(
     getCloudConfigsMaasPoolMachinesListUrl(configUid, machinePoolName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasPoolMachinesListResponse;
 };
 
 /**
@@ -5307,7 +4273,7 @@ export const cloudConfigsMaasPoolMachinesAdd = async (
   v1MaasMachineBody: V1MaasMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasPoolMachinesAddResponse>(
     getCloudConfigsMaasPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -5316,17 +4282,6 @@ export const cloudConfigsMaasPoolMachinesAdd = async (
       body: JSON.stringify(v1MaasMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasPoolMachinesAddResponse;
 };
 
 /**
@@ -5359,7 +4314,7 @@ export const cloudConfigsMaasPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasPoolMachinesUidDeleteResponse>(
     getCloudConfigsMaasPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -5370,17 +4325,6 @@ export const cloudConfigsMaasPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -5413,7 +4357,7 @@ export const cloudConfigsMaasPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasPoolMachinesUidGetResponse>(
     getCloudConfigsMaasPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -5424,17 +4368,6 @@ export const cloudConfigsMaasPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasPoolMachinesUidGetResponse;
 };
 
 /**
@@ -5468,7 +4401,7 @@ export const cloudConfigsMaasPoolMachinesUidUpdate = async (
   v1MaasMachineBody: V1MaasMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsMaasPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMaasPoolMachinesUidUpdateResponse>(
     getCloudConfigsMaasPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -5481,17 +4414,6 @@ export const cloudConfigsMaasPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1MaasMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMaasPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMaasPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -5518,21 +4440,13 @@ export const cloudConfigsOpenStackGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackGetResponse> => {
-  const res = await fetch(getCloudConfigsOpenStackGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackGetResponse;
+  return customInstance<cloudConfigsOpenStackGetResponse>(
+    getCloudConfigsOpenStackGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5562,7 +4476,7 @@ export const cloudConfigsOpenStackUidClusterConfig = async (
   openStackCloudClusterConfigEntity: OpenStackCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackUidClusterConfigResponse>(
     getCloudConfigsOpenStackUidClusterConfigUrl(configUid),
     {
       ...options,
@@ -5571,17 +4485,6 @@ export const cloudConfigsOpenStackUidClusterConfig = async (
       body: JSON.stringify(openStackCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackUidClusterConfigResponse;
 };
 
 /**
@@ -5611,7 +4514,7 @@ export const cloudConfigsOpenStackMachinePoolCreate = async (
   v1OpenStackMachinePoolConfigEntityBody: V1OpenStackMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackMachinePoolCreateResponse>(
     getCloudConfigsOpenStackMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -5620,17 +4523,6 @@ export const cloudConfigsOpenStackMachinePoolCreate = async (
       body: JSON.stringify(v1OpenStackMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackMachinePoolCreateResponse;
 };
 
 /**
@@ -5661,24 +4553,13 @@ export const cloudConfigsOpenStackMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackMachinePoolDeleteResponse>(
     getCloudConfigsOpenStackMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackMachinePoolDeleteResponse;
 };
 
 /**
@@ -5710,7 +4591,7 @@ export const cloudConfigsOpenStackMachinePoolUpdate = async (
   v1OpenStackMachinePoolConfigEntityBody: V1OpenStackMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackMachinePoolUpdateResponse>(
     getCloudConfigsOpenStackMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -5719,17 +4600,6 @@ export const cloudConfigsOpenStackMachinePoolUpdate = async (
       body: JSON.stringify(v1OpenStackMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackMachinePoolUpdateResponse;
 };
 
 /**
@@ -5760,24 +4630,13 @@ export const cloudConfigsOpenStackPoolMachinesList = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackPoolMachinesListResponse>(
     getCloudConfigsOpenStackPoolMachinesListUrl(configUid, machinePoolName),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackPoolMachinesListResponse;
 };
 
 /**
@@ -5809,7 +4668,7 @@ export const cloudConfigsOpenStackPoolMachinesAdd = async (
   v1OpenStackMachineBody: V1OpenStackMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackPoolMachinesAddResponse>(
     getCloudConfigsOpenStackPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -5818,17 +4677,6 @@ export const cloudConfigsOpenStackPoolMachinesAdd = async (
       body: JSON.stringify(v1OpenStackMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackPoolMachinesAddResponse;
 };
 
 /**
@@ -5861,7 +4709,7 @@ export const cloudConfigsOpenStackPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackPoolMachinesUidDeleteResponse>(
     getCloudConfigsOpenStackPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -5872,17 +4720,6 @@ export const cloudConfigsOpenStackPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -5915,7 +4752,7 @@ export const cloudConfigsOpenStackPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackPoolMachinesUidGetResponse>(
     getCloudConfigsOpenStackPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -5926,17 +4763,6 @@ export const cloudConfigsOpenStackPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackPoolMachinesUidGetResponse;
 };
 
 /**
@@ -5970,7 +4796,7 @@ export const cloudConfigsOpenStackPoolMachinesUidUpdate = async (
   v1OpenStackMachineBody: V1OpenStackMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsOpenStackPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsOpenStackPoolMachinesUidUpdateResponse>(
     getCloudConfigsOpenStackPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -5983,17 +4809,6 @@ export const cloudConfigsOpenStackPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1OpenStackMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsOpenStackPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsOpenStackPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -6020,21 +4835,13 @@ export const cloudConfigsVirtualGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualGetResponse> => {
-  const res = await fetch(getCloudConfigsVirtualGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualGetResponse;
+  return customInstance<cloudConfigsVirtualGetResponse>(
+    getCloudConfigsVirtualGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6064,7 +4871,7 @@ export const cloudConfigsVirtualUidClusterConfig = async (
   virtualCloudClusterConfigEntity: VirtualCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualUidClusterConfigResponse>(
     getCloudConfigsVirtualUidClusterConfigUrl(configUid),
     {
       ...options,
@@ -6073,17 +4880,6 @@ export const cloudConfigsVirtualUidClusterConfig = async (
       body: JSON.stringify(virtualCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualUidClusterConfigResponse;
 };
 
 /**
@@ -6113,7 +4909,7 @@ export const cloudConfigsVirtualMachinePoolCreate = async (
   v1VirtualMachinePoolConfigEntityBody: V1VirtualMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualMachinePoolCreateResponse>(
     getCloudConfigsVirtualMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -6122,17 +4918,6 @@ export const cloudConfigsVirtualMachinePoolCreate = async (
       body: JSON.stringify(v1VirtualMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualMachinePoolCreateResponse;
 };
 
 /**
@@ -6163,24 +4948,13 @@ export const cloudConfigsVirtualMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualMachinePoolDeleteResponse>(
     getCloudConfigsVirtualMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualMachinePoolDeleteResponse;
 };
 
 /**
@@ -6212,7 +4986,7 @@ export const cloudConfigsVirtualMachinePoolUpdate = async (
   v1VirtualMachinePoolConfigEntityBody: V1VirtualMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualMachinePoolUpdateResponse>(
     getCloudConfigsVirtualMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -6221,17 +4995,6 @@ export const cloudConfigsVirtualMachinePoolUpdate = async (
       body: JSON.stringify(v1VirtualMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualMachinePoolUpdateResponse;
 };
 
 /**
@@ -6276,7 +5039,7 @@ export const cloudConfigsVirtualPoolMachinesList = async (
   params?: CloudConfigsVirtualPoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualPoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualPoolMachinesListResponse>(
     getCloudConfigsVirtualPoolMachinesListUrl(
       configUid,
       machinePoolName,
@@ -6287,17 +5050,6 @@ export const cloudConfigsVirtualPoolMachinesList = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualPoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualPoolMachinesListResponse;
 };
 
 /**
@@ -6329,7 +5081,7 @@ export const cloudConfigsVirtualPoolMachinesAdd = async (
   v1VirtualMachineBody: V1VirtualMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualPoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualPoolMachinesAddResponse>(
     getCloudConfigsVirtualPoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -6338,17 +5090,6 @@ export const cloudConfigsVirtualPoolMachinesAdd = async (
       body: JSON.stringify(v1VirtualMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualPoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualPoolMachinesAddResponse;
 };
 
 /**
@@ -6381,7 +5122,7 @@ export const cloudConfigsVirtualPoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualPoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualPoolMachinesUidDeleteResponse>(
     getCloudConfigsVirtualPoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -6392,17 +5133,6 @@ export const cloudConfigsVirtualPoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualPoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualPoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -6435,7 +5165,7 @@ export const cloudConfigsVirtualPoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualPoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualPoolMachinesUidGetResponse>(
     getCloudConfigsVirtualPoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -6446,17 +5176,6 @@ export const cloudConfigsVirtualPoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualPoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualPoolMachinesUidGetResponse;
 };
 
 /**
@@ -6490,7 +5209,7 @@ export const cloudConfigsVirtualPoolMachinesUidUpdate = async (
   v1VirtualMachineBody: V1VirtualMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualPoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVirtualPoolMachinesUidUpdateResponse>(
     getCloudConfigsVirtualPoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -6503,17 +5222,6 @@ export const cloudConfigsVirtualPoolMachinesUidUpdate = async (
       body: JSON.stringify(v1VirtualMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualPoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualPoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -6541,23 +5249,15 @@ export const cloudConfigsVirtualUidUpdate = async (
   virtualClusterResize: VirtualClusterResize,
   options?: RequestInit,
 ): Promise<cloudConfigsVirtualUidUpdateResponse> => {
-  const res = await fetch(getCloudConfigsVirtualUidUpdateUrl(configUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(virtualClusterResize),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVirtualUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVirtualUidUpdateResponse;
+  return customInstance<cloudConfigsVirtualUidUpdateResponse>(
+    getCloudConfigsVirtualUidUpdateUrl(configUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(virtualClusterResize),
+    },
+  );
 };
 
 /**
@@ -6584,21 +5284,13 @@ export const cloudConfigsVsphereGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVsphereGetResponse> => {
-  const res = await fetch(getCloudConfigsVsphereGetUrl(configUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVsphereGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVsphereGetResponse;
+  return customInstance<cloudConfigsVsphereGetResponse>(
+    getCloudConfigsVsphereGetUrl(configUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -6628,7 +5320,7 @@ export const cloudConfigsVsphereUidClusterConfig = async (
   vsphereCloudClusterConfigEntity: VsphereCloudClusterConfigEntity,
   options?: RequestInit,
 ): Promise<cloudConfigsVsphereUidClusterConfigResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVsphereUidClusterConfigResponse>(
     getCloudConfigsVsphereUidClusterConfigUrl(configUid),
     {
       ...options,
@@ -6637,17 +5329,6 @@ export const cloudConfigsVsphereUidClusterConfig = async (
       body: JSON.stringify(vsphereCloudClusterConfigEntity),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVsphereUidClusterConfigResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVsphereUidClusterConfigResponse;
 };
 
 /**
@@ -6677,7 +5358,7 @@ export const cloudConfigsVsphereMachinePoolCreate = async (
   v1VsphereMachinePoolConfigEntityBody: V1VsphereMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVsphereMachinePoolCreateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVsphereMachinePoolCreateResponse>(
     getCloudConfigsVsphereMachinePoolCreateUrl(configUid),
     {
       ...options,
@@ -6686,17 +5367,6 @@ export const cloudConfigsVsphereMachinePoolCreate = async (
       body: JSON.stringify(v1VsphereMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVsphereMachinePoolCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVsphereMachinePoolCreateResponse;
 };
 
 /**
@@ -6727,24 +5397,13 @@ export const cloudConfigsVsphereMachinePoolDelete = async (
   machinePoolName: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVsphereMachinePoolDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVsphereMachinePoolDeleteResponse>(
     getCloudConfigsVsphereMachinePoolDeleteUrl(configUid, machinePoolName),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVsphereMachinePoolDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVsphereMachinePoolDeleteResponse;
 };
 
 /**
@@ -6776,7 +5435,7 @@ export const cloudConfigsVsphereMachinePoolUpdate = async (
   v1VsphereMachinePoolConfigEntityBody: V1VsphereMachinePoolConfigEntityBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVsphereMachinePoolUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVsphereMachinePoolUpdateResponse>(
     getCloudConfigsVsphereMachinePoolUpdateUrl(configUid, machinePoolName),
     {
       ...options,
@@ -6785,17 +5444,6 @@ export const cloudConfigsVsphereMachinePoolUpdate = async (
       body: JSON.stringify(v1VsphereMachinePoolConfigEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVsphereMachinePoolUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVsphereMachinePoolUpdateResponse;
 };
 
 /**
@@ -6840,7 +5488,7 @@ export const cloudConfigsVspherePoolMachinesList = async (
   params?: CloudConfigsVspherePoolMachinesListParams,
   options?: RequestInit,
 ): Promise<cloudConfigsVspherePoolMachinesListResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVspherePoolMachinesListResponse>(
     getCloudConfigsVspherePoolMachinesListUrl(
       configUid,
       machinePoolName,
@@ -6851,17 +5499,6 @@ export const cloudConfigsVspherePoolMachinesList = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVspherePoolMachinesListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVspherePoolMachinesListResponse;
 };
 
 /**
@@ -6893,7 +5530,7 @@ export const cloudConfigsVspherePoolMachinesAdd = async (
   v1VsphereMachineBody: V1VsphereMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVspherePoolMachinesAddResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVspherePoolMachinesAddResponse>(
     getCloudConfigsVspherePoolMachinesAddUrl(configUid, machinePoolName),
     {
       ...options,
@@ -6902,17 +5539,6 @@ export const cloudConfigsVspherePoolMachinesAdd = async (
       body: JSON.stringify(v1VsphereMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVspherePoolMachinesAddResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVspherePoolMachinesAddResponse;
 };
 
 /**
@@ -6945,7 +5571,7 @@ export const cloudConfigsVspherePoolMachinesUidDelete = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVspherePoolMachinesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVspherePoolMachinesUidDeleteResponse>(
     getCloudConfigsVspherePoolMachinesUidDeleteUrl(
       configUid,
       machinePoolName,
@@ -6956,17 +5582,6 @@ export const cloudConfigsVspherePoolMachinesUidDelete = async (
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVspherePoolMachinesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVspherePoolMachinesUidDeleteResponse;
 };
 
 /**
@@ -6999,7 +5614,7 @@ export const cloudConfigsVspherePoolMachinesUidGet = async (
   machineUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsVspherePoolMachinesUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVspherePoolMachinesUidGetResponse>(
     getCloudConfigsVspherePoolMachinesUidGetUrl(
       configUid,
       machinePoolName,
@@ -7010,17 +5625,6 @@ export const cloudConfigsVspherePoolMachinesUidGet = async (
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVspherePoolMachinesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVspherePoolMachinesUidGetResponse;
 };
 
 /**
@@ -7054,7 +5658,7 @@ export const cloudConfigsVspherePoolMachinesUidUpdate = async (
   v1VsphereMachineBody: V1VsphereMachineBody,
   options?: RequestInit,
 ): Promise<cloudConfigsVspherePoolMachinesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsVspherePoolMachinesUidUpdateResponse>(
     getCloudConfigsVspherePoolMachinesUidUpdateUrl(
       configUid,
       machinePoolName,
@@ -7067,17 +5671,6 @@ export const cloudConfigsVspherePoolMachinesUidUpdate = async (
       body: JSON.stringify(v1VsphereMachineBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsVspherePoolMachinesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsVspherePoolMachinesUidUpdateResponse;
 };
 
 /**
@@ -7113,7 +5706,7 @@ export const cloudConfigsMachinePoolsMachineUidMaintenanceUpdate = async (
   machineMaintenance: MachineMaintenance,
   options?: RequestInit,
 ): Promise<cloudConfigsMachinePoolsMachineUidMaintenanceUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMachinePoolsMachineUidMaintenanceUpdateResponse>(
     getCloudConfigsMachinePoolsMachineUidMaintenanceUpdateUrl(
       cloudType,
       configUid,
@@ -7127,16 +5720,6 @@ export const cloudConfigsMachinePoolsMachineUidMaintenanceUpdate = async (
       body: JSON.stringify(machineMaintenance),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMachinePoolsMachineUidMaintenanceUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMachinePoolsMachineUidMaintenanceUpdateResponse;
 };
 
 /**
@@ -7173,7 +5756,7 @@ export const cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = async (
   machineMaintenanceStatus: MachineMaintenanceStatus,
   options?: RequestInit,
 ): Promise<cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse>(
     getCloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateUrl(
       cloudType,
       configUid,
@@ -7187,16 +5770,6 @@ export const cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = async (
       body: JSON.stringify(machineMaintenanceStatus),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse;
 };
 
 /**
@@ -7225,22 +5798,11 @@ export const cloudConfigsMachinePoolsMachineUidsGet = async (
   configUid: string,
   options?: RequestInit,
 ): Promise<cloudConfigsMachinePoolsMachineUidsGetResponse> => {
-  const res = await fetch(
+  return customInstance<cloudConfigsMachinePoolsMachineUidsGetResponse>(
     getCloudConfigsMachinePoolsMachineUidsGetUrl(configUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudConfigsMachinePoolsMachineUidsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudConfigsMachinePoolsMachineUidsGetResponse;
 };

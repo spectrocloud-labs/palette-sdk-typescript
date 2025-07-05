@@ -16,6 +16,8 @@ import type {
   ServiceVersionGetParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Returns a latest version for a given service name
  */
@@ -82,19 +84,13 @@ export const serviceVersionGet = async (
   params?: ServiceVersionGetParams,
   options?: RequestInit,
 ): Promise<serviceVersionGetResponse> => {
-  const res = await fetch(getServiceVersionGetUrl(serviceName, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: serviceVersionGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as serviceVersionGetResponse;
+  return customInstance<serviceVersionGetResponse>(
+    getServiceVersionGetUrl(serviceName, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -165,20 +161,11 @@ export const serviceManifestGet = async (
   params: ServiceManifestGetParams,
   options?: RequestInit,
 ): Promise<serviceManifestGetResponse> => {
-  const res = await fetch(
+  return customInstance<serviceManifestGetResponse>(
     getServiceManifestGetUrl(serviceName, version, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: serviceManifestGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as serviceManifestGetResponse;
 };

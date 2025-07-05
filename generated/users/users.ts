@@ -56,6 +56,8 @@ import type {
   VsphereMappingGetParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Lists users the given user context
  * @summary Lists users
@@ -91,19 +93,10 @@ export const usersList = async (
   params?: UsersListParams,
   options?: RequestInit,
 ): Promise<usersListResponse> => {
-  const res = await fetch(getUsersListUrl(params), {
+  return customInstance<usersListResponse>(getUsersListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersListResponse;
 };
 
 /**
@@ -129,21 +122,12 @@ export const usersCreate = async (
   userEntity: UserEntity,
   options?: RequestInit,
 ): Promise<usersCreateResponse> => {
-  const res = await fetch(getUsersCreateUrl(), {
+  return customInstance<usersCreateResponse>(getUsersCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(userEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersCreateResponse;
 };
 
 /**
@@ -184,21 +168,13 @@ export const usersAssetsLocationGet = async (
   params?: UsersAssetsLocationGetParams,
   options?: RequestInit,
 ): Promise<usersAssetsLocationGetResponse> => {
-  const res = await fetch(getUsersAssetsLocationGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationGetResponse;
+  return customInstance<usersAssetsLocationGetResponse>(
+    getUsersAssetsLocationGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -225,23 +201,15 @@ export const usersAssetsLocationAzureCreate = async (
   v1UserAssetsLocationAzureBody: V1UserAssetsLocationAzureBody,
   options?: RequestInit,
 ): Promise<usersAssetsLocationAzureCreateResponse> => {
-  const res = await fetch(getUsersAssetsLocationAzureCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationAzureBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationAzureCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationAzureCreateResponse;
+  return customInstance<usersAssetsLocationAzureCreateResponse>(
+    getUsersAssetsLocationAzureCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationAzureBody),
+    },
+  );
 };
 
 /**
@@ -268,21 +236,13 @@ export const usersAssetsLocationAzureGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationAzureGetResponse> => {
-  const res = await fetch(getUsersAssetsLocationAzureGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationAzureGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationAzureGetResponse;
+  return customInstance<usersAssetsLocationAzureGetResponse>(
+    getUsersAssetsLocationAzureGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -310,23 +270,15 @@ export const usersAssetsLocationAzureUpdate = async (
   v1UserAssetsLocationAzureBody: V1UserAssetsLocationAzureBody,
   options?: RequestInit,
 ): Promise<usersAssetsLocationAzureUpdateResponse> => {
-  const res = await fetch(getUsersAssetsLocationAzureUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationAzureBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationAzureUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationAzureUpdateResponse;
+  return customInstance<usersAssetsLocationAzureUpdateResponse>(
+    getUsersAssetsLocationAzureUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationAzureBody),
+    },
+  );
 };
 
 /**
@@ -353,23 +305,15 @@ export const usersAssetsLocationGcpCreate = async (
   v1UserAssetsLocationGcpBody: V1UserAssetsLocationGcpBody,
   options?: RequestInit,
 ): Promise<usersAssetsLocationGcpCreateResponse> => {
-  const res = await fetch(getUsersAssetsLocationGcpCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationGcpBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationGcpCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationGcpCreateResponse;
+  return customInstance<usersAssetsLocationGcpCreateResponse>(
+    getUsersAssetsLocationGcpCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationGcpBody),
+    },
+  );
 };
 
 /**
@@ -396,21 +340,13 @@ export const usersAssetsLocationGcpGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationGcpGetResponse> => {
-  const res = await fetch(getUsersAssetsLocationGcpGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationGcpGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationGcpGetResponse;
+  return customInstance<usersAssetsLocationGcpGetResponse>(
+    getUsersAssetsLocationGcpGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -438,23 +374,15 @@ export const usersAssetsLocationGcpUpdate = async (
   v1UserAssetsLocationGcpBody: V1UserAssetsLocationGcpBody,
   options?: RequestInit,
 ): Promise<usersAssetsLocationGcpUpdateResponse> => {
-  const res = await fetch(getUsersAssetsLocationGcpUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationGcpBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationGcpUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationGcpUpdateResponse;
+  return customInstance<usersAssetsLocationGcpUpdateResponse>(
+    getUsersAssetsLocationGcpUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationGcpBody),
+    },
+  );
 };
 
 /**
@@ -481,23 +409,15 @@ export const usersAssetsLocationMinioCreate = async (
   v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
 ): Promise<usersAssetsLocationMinioCreateResponse> => {
-  const res = await fetch(getUsersAssetsLocationMinioCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationS3Body),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationMinioCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationMinioCreateResponse;
+  return customInstance<usersAssetsLocationMinioCreateResponse>(
+    getUsersAssetsLocationMinioCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationS3Body),
+    },
+  );
 };
 
 /**
@@ -524,21 +444,13 @@ export const usersAssetsLocationMinioGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationMinioGetResponse> => {
-  const res = await fetch(getUsersAssetsLocationMinioGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationMinioGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationMinioGetResponse;
+  return customInstance<usersAssetsLocationMinioGetResponse>(
+    getUsersAssetsLocationMinioGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -566,23 +478,15 @@ export const usersAssetsLocationMinioUpdate = async (
   v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
 ): Promise<usersAssetsLocationMinioUpdateResponse> => {
-  const res = await fetch(getUsersAssetsLocationMinioUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationS3Body),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationMinioUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationMinioUpdateResponse;
+  return customInstance<usersAssetsLocationMinioUpdateResponse>(
+    getUsersAssetsLocationMinioUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationS3Body),
+    },
+  );
 };
 
 /**
@@ -609,23 +513,15 @@ export const usersAssetsLocationS3Create = async (
   v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
 ): Promise<usersAssetsLocationS3CreateResponse> => {
-  const res = await fetch(getUsersAssetsLocationS3CreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationS3Body),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationS3CreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationS3CreateResponse;
+  return customInstance<usersAssetsLocationS3CreateResponse>(
+    getUsersAssetsLocationS3CreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationS3Body),
+    },
+  );
 };
 
 /**
@@ -652,21 +548,13 @@ export const usersAssetsLocationS3Delete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationS3DeleteResponse> => {
-  const res = await fetch(getUsersAssetsLocationS3DeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationS3DeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationS3DeleteResponse;
+  return customInstance<usersAssetsLocationS3DeleteResponse>(
+    getUsersAssetsLocationS3DeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -693,21 +581,13 @@ export const usersAssetsLocationS3Get = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationS3GetResponse> => {
-  const res = await fetch(getUsersAssetsLocationS3GetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationS3GetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationS3GetResponse;
+  return customInstance<usersAssetsLocationS3GetResponse>(
+    getUsersAssetsLocationS3GetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -735,23 +615,15 @@ export const usersAssetsLocationS3Update = async (
   v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
 ): Promise<usersAssetsLocationS3UpdateResponse> => {
-  const res = await fetch(getUsersAssetsLocationS3UpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UserAssetsLocationS3Body),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationS3UpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationS3UpdateResponse;
+  return customInstance<usersAssetsLocationS3UpdateResponse>(
+    getUsersAssetsLocationS3UpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UserAssetsLocationS3Body),
+    },
+  );
 };
 
 /**
@@ -782,21 +654,13 @@ export const usersAssetsLocationDefaultUpdate = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationDefaultUpdateResponse> => {
-  const res = await fetch(getUsersAssetsLocationDefaultUpdateUrl(type, uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationDefaultUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationDefaultUpdateResponse;
+  return customInstance<usersAssetsLocationDefaultUpdateResponse>(
+    getUsersAssetsLocationDefaultUpdateUrl(type, uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -823,21 +687,13 @@ export const usersAssetsLocationDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetsLocationDeleteResponse> => {
-  const res = await fetch(getUsersAssetsLocationDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsLocationDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsLocationDeleteResponse;
+  return customInstance<usersAssetsLocationDeleteResponse>(
+    getUsersAssetsLocationDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -874,19 +730,13 @@ export const usersAssetsSshGet = async (
   params?: UsersAssetsSshGetParams,
   options?: RequestInit,
 ): Promise<usersAssetsSshGetResponse> => {
-  const res = await fetch(getUsersAssetsSshGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetsSshGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetsSshGetResponse;
+  return customInstance<usersAssetsSshGetResponse>(
+    getUsersAssetsSshGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -913,23 +763,15 @@ export const userAssetsSshCreate = async (
   userAssetSshEntity: UserAssetSshEntity,
   options?: RequestInit,
 ): Promise<userAssetsSshCreateResponse> => {
-  const res = await fetch(getUserAssetsSshCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(userAssetSshEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: userAssetsSshCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as userAssetsSshCreateResponse;
+  return customInstance<userAssetsSshCreateResponse>(
+    getUserAssetsSshCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(userAssetSshEntity),
+    },
+  );
 };
 
 /**
@@ -956,21 +798,13 @@ export const usersAssetSshDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetSshDeleteResponse> => {
-  const res = await fetch(getUsersAssetSshDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetSshDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetSshDeleteResponse;
+  return customInstance<usersAssetSshDeleteResponse>(
+    getUsersAssetSshDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -997,21 +831,13 @@ export const usersAssetSshGetUid = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersAssetSshGetUidResponse> => {
-  const res = await fetch(getUsersAssetSshGetUidUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetSshGetUidResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetSshGetUidResponse;
+  return customInstance<usersAssetSshGetUidResponse>(
+    getUsersAssetSshGetUidUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1039,23 +865,15 @@ export const usersAssetSshUpdate = async (
   userAssetSsh: UserAssetSsh,
   options?: RequestInit,
 ): Promise<usersAssetSshUpdateResponse> => {
-  const res = await fetch(getUsersAssetSshUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(userAssetSsh),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAssetSshUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAssetSshUpdateResponse;
+  return customInstance<usersAssetSshUpdateResponse>(
+    getUsersAssetSshUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(userAssetSsh),
+    },
+  );
 };
 
 /**
@@ -1092,19 +910,13 @@ export const vsphereMappingGet = async (
   params: VsphereMappingGetParams,
   options?: RequestInit,
 ): Promise<vsphereMappingGetResponse> => {
-  const res = await fetch(getVsphereMappingGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereMappingGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereMappingGetResponse;
+  return customInstance<vsphereMappingGetResponse>(
+    getVsphereMappingGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1145,21 +957,13 @@ export const vsphereDnsMappingsGet = async (
   params?: VsphereDnsMappingsGetParams,
   options?: RequestInit,
 ): Promise<vsphereDnsMappingsGetResponse> => {
-  const res = await fetch(getVsphereDnsMappingsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereDnsMappingsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereDnsMappingsGetResponse;
+  return customInstance<vsphereDnsMappingsGetResponse>(
+    getVsphereDnsMappingsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1186,23 +990,15 @@ export const vsphereDnsMappingCreate = async (
   v1VsphereDnsMappingBody: V1VsphereDnsMappingBody,
   options?: RequestInit,
 ): Promise<vsphereDnsMappingCreateResponse> => {
-  const res = await fetch(getVsphereDnsMappingCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VsphereDnsMappingBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereDnsMappingCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereDnsMappingCreateResponse;
+  return customInstance<vsphereDnsMappingCreateResponse>(
+    getVsphereDnsMappingCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VsphereDnsMappingBody),
+    },
+  );
 };
 
 /**
@@ -1229,21 +1025,13 @@ export const vsphereDnsMappingDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<vsphereDnsMappingDeleteResponse> => {
-  const res = await fetch(getVsphereDnsMappingDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereDnsMappingDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereDnsMappingDeleteResponse;
+  return customInstance<vsphereDnsMappingDeleteResponse>(
+    getVsphereDnsMappingDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1270,21 +1058,13 @@ export const vsphereDnsMappingGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<vsphereDnsMappingGetResponse> => {
-  const res = await fetch(getVsphereDnsMappingGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereDnsMappingGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereDnsMappingGetResponse;
+  return customInstance<vsphereDnsMappingGetResponse>(
+    getVsphereDnsMappingGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1312,23 +1092,15 @@ export const vsphereDnsMappingUpdate = async (
   v1VsphereDnsMappingBody: V1VsphereDnsMappingBody,
   options?: RequestInit,
 ): Promise<vsphereDnsMappingUpdateResponse> => {
-  const res = await fetch(getVsphereDnsMappingUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VsphereDnsMappingBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereDnsMappingUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereDnsMappingUpdateResponse;
+  return customInstance<vsphereDnsMappingUpdateResponse>(
+    getVsphereDnsMappingUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VsphereDnsMappingBody),
+    },
+  );
 };
 
 /**
@@ -1355,23 +1127,15 @@ export const usersAuthTokensRevoke = async (
   authTokenRevoke: AuthTokenRevoke,
   options?: RequestInit,
 ): Promise<usersAuthTokensRevokeResponse> => {
-  const res = await fetch(getUsersAuthTokensRevokeUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(authTokenRevoke),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersAuthTokensRevokeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersAuthTokensRevokeResponse;
+  return customInstance<usersAuthTokensRevokeResponse>(
+    getUsersAuthTokensRevokeUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(authTokenRevoke),
+    },
+  );
 };
 
 /**
@@ -1397,21 +1161,13 @@ export const getV1UsersConfigScarGetUrl = () => {
 export const v1UsersConfigScarGet = async (
   options?: RequestInit,
 ): Promise<v1UsersConfigScarGetResponse> => {
-  const res = await fetch(getV1UsersConfigScarGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1UsersConfigScarGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1UsersConfigScarGetResponse;
+  return customInstance<v1UsersConfigScarGetResponse>(
+    getV1UsersConfigScarGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1436,19 +1192,10 @@ export const getUsersInfoGetUrl = () => {
 export const usersInfoGet = async (
   options?: RequestInit,
 ): Promise<usersInfoGetResponse> => {
-  const res = await fetch(getUsersInfoGetUrl(), {
+  return customInstance<usersInfoGetResponse>(getUsersInfoGetUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersInfoGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersInfoGetResponse;
 };
 
 /**
@@ -1476,21 +1223,13 @@ export const v1UsersKubectlSessionUid = async (
   sessionUid: string,
   options?: RequestInit,
 ): Promise<v1UsersKubectlSessionUidResponse> => {
-  const res = await fetch(getV1UsersKubectlSessionUidUrl(sessionUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1UsersKubectlSessionUidResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1UsersKubectlSessionUidResponse;
+  return customInstance<v1UsersKubectlSessionUidResponse>(
+    getV1UsersKubectlSessionUidUrl(sessionUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1514,19 +1253,10 @@ export const getUsersMetadataUrl = () => {
 export const usersMetadata = async (
   options?: RequestInit,
 ): Promise<usersMetadataResponse> => {
-  const res = await fetch(getUsersMetadataUrl(), {
+  return customInstance<usersMetadataResponse>(getUsersMetadataUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersMetadataResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersMetadataResponse;
 };
 
 /**
@@ -1554,23 +1284,15 @@ export const v1UsersPasswordChange = async (
   v1UsersPasswordChangeBody: V1UsersPasswordChangeBody,
   options?: RequestInit,
 ): Promise<v1UsersPasswordChangeResponse> => {
-  const res = await fetch(getV1UsersPasswordChangeUrl(), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1UsersPasswordChangeBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1UsersPasswordChangeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1UsersPasswordChangeResponse;
+  return customInstance<v1UsersPasswordChangeResponse>(
+    getV1UsersPasswordChangeUrl(),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1UsersPasswordChangeBody),
+    },
+  );
 };
 
 /**
@@ -1598,23 +1320,15 @@ export const usersEmailPasswordReset = async (
   usersEmailPasswordResetBody: UsersEmailPasswordResetBody,
   options?: RequestInit,
 ): Promise<usersEmailPasswordResetResponse> => {
-  const res = await fetch(getUsersEmailPasswordResetUrl(), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(usersEmailPasswordResetBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersEmailPasswordResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersEmailPasswordResetResponse;
+  return customInstance<usersEmailPasswordResetResponse>(
+    getUsersEmailPasswordResetUrl(),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(usersEmailPasswordResetBody),
+    },
+  );
 };
 
 /**
@@ -1639,21 +1353,12 @@ export const usersSummaryGet = async (
   usersSummarySpec: UsersSummarySpec,
   options?: RequestInit,
 ): Promise<usersSummaryGetResponse> => {
-  const res = await fetch(getUsersSummaryGetUrl(), {
+  return customInstance<usersSummaryGetResponse>(getUsersSummaryGetUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(usersSummarySpec),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSummaryGetResponse;
 };
 
 /**
@@ -1678,19 +1383,13 @@ export const getUsersSystemFeatureUrl = () => {
 export const usersSystemFeature = async (
   options?: RequestInit,
 ): Promise<usersSystemFeatureResponse> => {
-  const res = await fetch(getUsersSystemFeatureUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemFeatureResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemFeatureResponse;
+  return customInstance<usersSystemFeatureResponse>(
+    getUsersSystemFeatureUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1717,23 +1416,15 @@ export const usersSystemMacrosDeleteByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<usersSystemMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(getUsersSystemMacrosDeleteByMacroNameUrl(), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemMacrosDeleteByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemMacrosDeleteByMacroNameResponse;
+  return customInstance<usersSystemMacrosDeleteByMacroNameResponse>(
+    getUsersSystemMacrosDeleteByMacroNameUrl(),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1759,21 +1450,13 @@ export const getUsersSystemMacrosListUrl = () => {
 export const usersSystemMacrosList = async (
   options?: RequestInit,
 ): Promise<usersSystemMacrosListResponse> => {
-  const res = await fetch(getUsersSystemMacrosListUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemMacrosListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemMacrosListResponse;
+  return customInstance<usersSystemMacrosListResponse>(
+    getUsersSystemMacrosListUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1800,23 +1483,15 @@ export const usersSystemMacrosUpdateByMacroName = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<usersSystemMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(getUsersSystemMacrosUpdateByMacroNameUrl(), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemMacrosUpdateByMacroNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemMacrosUpdateByMacroNameResponse;
+  return customInstance<usersSystemMacrosUpdateByMacroNameResponse>(
+    getUsersSystemMacrosUpdateByMacroNameUrl(),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1843,23 +1518,15 @@ export const usersSystemMacrosCreate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<usersSystemMacrosCreateResponse> => {
-  const res = await fetch(getUsersSystemMacrosCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemMacrosCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemMacrosCreateResponse;
+  return customInstance<usersSystemMacrosCreateResponse>(
+    getUsersSystemMacrosCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1886,23 +1553,15 @@ export const usersSystemMacrosUpdate = async (
   v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
 ): Promise<usersSystemMacrosUpdateResponse> => {
-  const res = await fetch(getUsersSystemMacrosUpdateUrl(), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1MacrosBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersSystemMacrosUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersSystemMacrosUpdateResponse;
+  return customInstance<usersSystemMacrosUpdateResponse>(
+    getUsersSystemMacrosUpdateUrl(),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1MacrosBody),
+    },
+  );
 };
 
 /**
@@ -1928,19 +1587,10 @@ export const usersUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersUidDeleteResponse> => {
-  const res = await fetch(getUsersUidDeleteUrl(uid), {
+  return customInstance<usersUidDeleteResponse>(getUsersUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidDeleteResponse;
 };
 
 /**
@@ -1966,19 +1616,10 @@ export const usersUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersUidGetResponse> => {
-  const res = await fetch(getUsersUidGetUrl(uid), {
+  return customInstance<usersUidGetResponse>(getUsersUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidGetResponse;
 };
 
 /**
@@ -2005,21 +1646,12 @@ export const usersUidPatch = async (
   userPatch: UserPatch,
   options?: RequestInit,
 ): Promise<usersUidPatchResponse> => {
-  const res = await fetch(getUsersUidPatchUrl(uid), {
+  return customInstance<usersUidPatchResponse>(getUsersUidPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(userPatch),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidPatchResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidPatchResponse;
 };
 
 /**
@@ -2046,21 +1678,12 @@ export const usersUidUpdate = async (
   userUpdateEntity: UserUpdateEntity,
   options?: RequestInit,
 ): Promise<usersUidUpdateResponse> => {
-  const res = await fetch(getUsersUidUpdateUrl(uid), {
+  return customInstance<usersUidUpdateResponse>(getUsersUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(userUpdateEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidUpdateResponse;
 };
 
 /**
@@ -2089,23 +1712,15 @@ export const usersUidPasswordChange = async (
   usersUidPasswordChangeBody: UsersUidPasswordChangeBody,
   options?: RequestInit,
 ): Promise<usersUidPasswordChangeResponse> => {
-  const res = await fetch(getUsersUidPasswordChangeUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(usersUidPasswordChangeBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidPasswordChangeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidPasswordChangeResponse;
+  return customInstance<usersUidPasswordChangeResponse>(
+    getUsersUidPasswordChangeUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(usersUidPasswordChangeBody),
+    },
+  );
 };
 
 /**
@@ -2133,21 +1748,13 @@ export const usersUidPasswordReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersUidPasswordResetResponse> => {
-  const res = await fetch(getUsersUidPasswordResetUrl(uid), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidPasswordResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidPasswordResetResponse;
+  return customInstance<usersUidPasswordResetResponse>(
+    getUsersUidPasswordResetUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -2173,19 +1780,13 @@ export const usersProjectRoles = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersProjectRolesResponse> => {
-  const res = await fetch(getUsersProjectRolesUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersProjectRolesResponse;
+  return customInstance<usersProjectRolesResponse>(
+    getUsersProjectRolesUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2214,23 +1815,15 @@ export const usersProjectRolesPut = async (
   v1ProjectRolesPatchBody: V1ProjectRolesPatchBody,
   options?: RequestInit,
 ): Promise<usersProjectRolesPutResponse> => {
-  const res = await fetch(getUsersProjectRolesPutUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ProjectRolesPatchBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersProjectRolesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersProjectRolesPutResponse;
+  return customInstance<usersProjectRolesPutResponse>(
+    getUsersProjectRolesPutUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ProjectRolesPatchBody),
+    },
+  );
 };
 
 /**
@@ -2258,21 +1851,13 @@ export const usersUidResourceRoles = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersUidResourceRolesResponse> => {
-  const res = await fetch(getUsersUidResourceRolesUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidResourceRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidResourceRolesResponse;
+  return customInstance<usersUidResourceRolesResponse>(
+    getUsersUidResourceRolesUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2301,23 +1886,15 @@ export const usersUidResourceRolesCreate = async (
   v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
 ): Promise<usersUidResourceRolesCreateResponse> => {
-  const res = await fetch(getUsersUidResourceRolesCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidResourceRolesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidResourceRolesCreateResponse;
+  return customInstance<usersUidResourceRolesCreateResponse>(
+    getUsersUidResourceRolesCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
+    },
+  );
 };
 
 /**
@@ -2348,24 +1925,13 @@ export const usersUidResourceRolesUidDelete = async (
   resourceRoleUid: string,
   options?: RequestInit,
 ): Promise<usersUidResourceRolesUidDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<usersUidResourceRolesUidDeleteResponse>(
     getUsersUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidResourceRolesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidResourceRolesUidDeleteResponse;
 };
 
 /**
@@ -2398,7 +1964,7 @@ export const usersResourceRolesUidUpdate = async (
   v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
 ): Promise<usersResourceRolesUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<usersResourceRolesUidUpdateResponse>(
     getUsersResourceRolesUidUpdateUrl(uid, resourceRoleUid),
     {
       ...options,
@@ -2407,17 +1973,6 @@ export const usersResourceRolesUidUpdate = async (
       body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersResourceRolesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersResourceRolesUidUpdateResponse;
 };
 
 /**
@@ -2443,19 +1998,10 @@ export const usersUidRoles = async (
   uid: string,
   options?: RequestInit,
 ): Promise<usersUidRolesResponse> => {
-  const res = await fetch(getUsersUidRolesUrl(uid), {
+  return customInstance<usersUidRolesResponse>(getUsersUidRolesUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidRolesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidRolesResponse;
 };
 
 /**
@@ -2484,23 +2030,15 @@ export const usersUidRolesUpdate = async (
   userRoleUIDs: UserRoleUIDs,
   options?: RequestInit,
 ): Promise<usersUidRolesUpdateResponse> => {
-  const res = await fetch(getUsersUidRolesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(userRoleUIDs),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersUidRolesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersUidRolesUpdateResponse;
+  return customInstance<usersUidRolesUpdateResponse>(
+    getUsersUidRolesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(userRoleUIDs),
+    },
+  );
 };
 
 /**
@@ -2528,21 +2066,13 @@ export const usersStatusLoginMode = async (
   userStatusLoginMode: UserStatusLoginMode,
   options?: RequestInit,
 ): Promise<usersStatusLoginModeResponse> => {
-  const res = await fetch(getUsersStatusLoginModeUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(userStatusLoginMode),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersStatusLoginModeResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersStatusLoginModeResponse;
+  return customInstance<usersStatusLoginModeResponse>(
+    getUsersStatusLoginModeUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(userStatusLoginMode),
+    },
+  );
 };

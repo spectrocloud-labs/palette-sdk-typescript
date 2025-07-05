@@ -18,6 +18,8 @@ import type {
   V1RoleBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of roles
  */
@@ -52,19 +54,10 @@ export const rolesList = async (
   params?: RolesListParams,
   options?: RequestInit,
 ): Promise<rolesListResponse> => {
-  const res = await fetch(getRolesListUrl(params), {
+  return customInstance<rolesListResponse>(getRolesListUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesListResponse;
 };
 
 /**
@@ -89,21 +82,12 @@ export const rolesCreate = async (
   v1RoleBody: V1RoleBody,
   options?: RequestInit,
 ): Promise<rolesCreateResponse> => {
-  const res = await fetch(getRolesCreateUrl(), {
+  return customInstance<rolesCreateResponse>(getRolesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1RoleBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesCreateResponse;
 };
 
 /**
@@ -128,19 +112,10 @@ export const rolesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<rolesUidDeleteResponse> => {
-  const res = await fetch(getRolesUidDeleteUrl(uid), {
+  return customInstance<rolesUidDeleteResponse>(getRolesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesUidDeleteResponse;
 };
 
 /**
@@ -165,19 +140,10 @@ export const rolesUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<rolesUidGetResponse> => {
-  const res = await fetch(getRolesUidGetUrl(uid), {
+  return customInstance<rolesUidGetResponse>(getRolesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesUidGetResponse;
 };
 
 /**
@@ -203,21 +169,12 @@ export const rolesUidUpdate = async (
   v1RoleBody: V1RoleBody,
   options?: RequestInit,
 ): Promise<rolesUidUpdateResponse> => {
-  const res = await fetch(getRolesUidUpdateUrl(uid), {
+  return customInstance<rolesUidUpdateResponse>(getRolesUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1RoleBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesUidUpdateResponse;
 };
 
 /**
@@ -243,19 +200,10 @@ export const rolesClone = async (
   roleClone: RoleClone,
   options?: RequestInit,
 ): Promise<rolesCloneResponse> => {
-  const res = await fetch(getRolesCloneUrl(uid), {
+  return customInstance<rolesCloneResponse>(getRolesCloneUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(roleClone),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: rolesCloneResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as rolesCloneResponse;
 };

@@ -15,6 +15,7 @@ const testFiles = [
   "test-imports.ts",
   "cluster-profiles-simple.ts",
   "test-cluster-profiles.ts",
+  "test-client-wrapper.ts",
 ];
 
 console.log("🧪 Running all palette-sdk-typescript tests...\n");

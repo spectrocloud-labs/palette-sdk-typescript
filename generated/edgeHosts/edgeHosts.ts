@@ -40,6 +40,8 @@ import type {
   V1SpectroClusterProfilesBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Create the edge host device
  */
@@ -64,23 +66,15 @@ export const edgeHostDevicesCreate = async (
   edgeHostDeviceEntity: EdgeHostDeviceEntity,
   options?: RequestInit,
 ): Promise<edgeHostDevicesCreateResponse> => {
-  const res = await fetch(getEdgeHostDevicesCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostDeviceEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesCreateResponse;
+  return customInstance<edgeHostDevicesCreateResponse>(
+    getEdgeHostDevicesCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostDeviceEntity),
+    },
+  );
 };
 
 /**
@@ -121,21 +115,13 @@ export const edgeHostsMetadataQuickFilterGet = async (
   params?: EdgeHostsMetadataQuickFilterGetParams,
   options?: RequestInit,
 ): Promise<edgeHostsMetadataQuickFilterGetResponse> => {
-  const res = await fetch(getEdgeHostsMetadataQuickFilterGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostsMetadataQuickFilterGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostsMetadataQuickFilterGetResponse;
+  return customInstance<edgeHostsMetadataQuickFilterGetResponse>(
+    getEdgeHostsMetadataQuickFilterGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -162,23 +148,15 @@ export const edgeHostDevicesRegister = async (
   v1EdgeHostDeviceBody: V1EdgeHostDeviceBody,
   options?: RequestInit,
 ): Promise<edgeHostDevicesRegisterResponse> => {
-  const res = await fetch(getEdgeHostDevicesRegisterUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1EdgeHostDeviceBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesRegisterResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesRegisterResponse;
+  return customInstance<edgeHostDevicesRegisterResponse>(
+    getEdgeHostDevicesRegisterUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1EdgeHostDeviceBody),
+    },
+  );
 };
 
 /**
@@ -202,19 +180,10 @@ export const getEdgeHostsTagsGetUrl = () => {
 export const edgeHostsTagsGet = async (
   options?: RequestInit,
 ): Promise<edgeHostsTagsGetResponse> => {
-  const res = await fetch(getEdgeHostsTagsGetUrl(), {
+  return customInstance<edgeHostsTagsGetResponse>(getEdgeHostsTagsGetUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostsTagsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostsTagsGetResponse;
 };
 
 /**
@@ -238,19 +207,10 @@ export const getEdgeTokensListUrl = () => {
 export const edgeTokensList = async (
   options?: RequestInit,
 ): Promise<edgeTokensListResponse> => {
-  const res = await fetch(getEdgeTokensListUrl(), {
+  return customInstance<edgeTokensListResponse>(getEdgeTokensListUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensListResponse;
 };
 
 /**
@@ -275,21 +235,12 @@ export const edgeTokensCreate = async (
   edgeTokenEntity: EdgeTokenEntity,
   options?: RequestInit,
 ): Promise<edgeTokensCreateResponse> => {
-  const res = await fetch(getEdgeTokensCreateUrl(), {
+  return customInstance<edgeTokensCreateResponse>(getEdgeTokensCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(edgeTokenEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensCreateResponse;
 };
 
 /**
@@ -316,21 +267,13 @@ export const edgeTokensUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeTokensUidDeleteResponse> => {
-  const res = await fetch(getEdgeTokensUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensUidDeleteResponse;
+  return customInstance<edgeTokensUidDeleteResponse>(
+    getEdgeTokensUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -355,19 +298,10 @@ export const edgeTokensUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeTokensUidGetResponse> => {
-  const res = await fetch(getEdgeTokensUidGetUrl(uid), {
+  return customInstance<edgeTokensUidGetResponse>(getEdgeTokensUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensUidGetResponse;
 };
 
 /**
@@ -395,23 +329,15 @@ export const edgeTokensUidUpdate = async (
   edgeTokenUpdate: EdgeTokenUpdate,
   options?: RequestInit,
 ): Promise<edgeTokensUidUpdateResponse> => {
-  const res = await fetch(getEdgeTokensUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeTokenUpdate),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensUidUpdateResponse;
+  return customInstance<edgeTokensUidUpdateResponse>(
+    getEdgeTokensUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeTokenUpdate),
+    },
+  );
 };
 
 /**
@@ -437,21 +363,15 @@ export const edgeTokensUidState = async (
   edgeTokenActiveState: EdgeTokenActiveState,
   options?: RequestInit,
 ): Promise<edgeTokensUidStateResponse> => {
-  const res = await fetch(getEdgeTokensUidStateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeTokenActiveState),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeTokensUidStateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeTokensUidStateResponse;
+  return customInstance<edgeTokensUidStateResponse>(
+    getEdgeTokensUidStateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeTokenActiveState),
+    },
+  );
 };
 
 /**
@@ -478,21 +398,13 @@ export const edgeHostDevicesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidDeleteResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidDeleteResponse;
+  return customInstance<edgeHostDevicesUidDeleteResponse>(
+    getEdgeHostDevicesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -535,21 +447,13 @@ export const edgeHostDevicesUidGet = async (
   params?: EdgeHostDevicesUidGetParams,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidGetResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidGetResponse;
+  return customInstance<edgeHostDevicesUidGetResponse>(
+    getEdgeHostDevicesUidGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -577,23 +481,15 @@ export const edgeHostDevicesUidUpdate = async (
   v1EdgeHostDeviceBody: V1EdgeHostDeviceBody,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1EdgeHostDeviceBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidUpdateResponse;
+  return customInstance<edgeHostDevicesUidUpdateResponse>(
+    getEdgeHostDevicesUidUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1EdgeHostDeviceBody),
+    },
+  );
 };
 
 /**
@@ -620,21 +516,13 @@ export const edgeHostDevicesUidClusterDeassociate = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidClusterDeassociateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidClusterDeassociateUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidClusterDeassociateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidClusterDeassociateResponse;
+  return customInstance<edgeHostDevicesUidClusterDeassociateResponse>(
+    getEdgeHostDevicesUidClusterDeassociateUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -662,23 +550,15 @@ export const edgeHostDevicesUidClusterAssociate = async (
   edgeHostClusterEntity: EdgeHostClusterEntity,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidClusterAssociateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidClusterAssociateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostClusterEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidClusterAssociateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidClusterAssociateResponse;
+  return customInstance<edgeHostDevicesUidClusterAssociateResponse>(
+    getEdgeHostDevicesUidClusterAssociateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostClusterEntity),
+    },
+  );
 };
 
 /**
@@ -705,21 +585,13 @@ export const edgeHostDevicesUidConfigGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidConfigGetResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidConfigGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidConfigGetResponse;
+  return customInstance<edgeHostDevicesUidConfigGetResponse>(
+    getEdgeHostDevicesUidConfigGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -747,23 +619,15 @@ export const edgeHostDevicesHealthUpdate = async (
   edgeHostHealth: EdgeHostHealth,
   options?: RequestInit,
 ): Promise<edgeHostDevicesHealthUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesHealthUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostHealth),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesHealthUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesHealthUpdateResponse;
+  return customInstance<edgeHostDevicesHealthUpdateResponse>(
+    getEdgeHostDevicesHealthUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostHealth),
+    },
+  );
 };
 
 /**
@@ -791,23 +655,15 @@ export const edgeHostDeviceHostCheckSumUpdate = async (
   edgeHostDeviceHostCheckSum: EdgeHostDeviceHostCheckSum,
   options?: RequestInit,
 ): Promise<edgeHostDeviceHostCheckSumUpdateResponse> => {
-  const res = await fetch(getEdgeHostDeviceHostCheckSumUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostDeviceHostCheckSum),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDeviceHostCheckSumUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDeviceHostCheckSumUpdateResponse;
+  return customInstance<edgeHostDeviceHostCheckSumUpdateResponse>(
+    getEdgeHostDeviceHostCheckSumUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostDeviceHostCheckSum),
+    },
+  );
 };
 
 /**
@@ -835,23 +691,15 @@ export const edgeHostDeviceHostPairingKeyUpdate = async (
   edgeHostDeviceHostPairingKey: EdgeHostDeviceHostPairingKey,
   options?: RequestInit,
 ): Promise<edgeHostDeviceHostPairingKeyUpdateResponse> => {
-  const res = await fetch(getEdgeHostDeviceHostPairingKeyUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostDeviceHostPairingKey),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDeviceHostPairingKeyUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDeviceHostPairingKeyUpdateResponse;
+  return customInstance<edgeHostDeviceHostPairingKeyUpdateResponse>(
+    getEdgeHostDeviceHostPairingKeyUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostDeviceHostPairingKey),
+    },
+  );
 };
 
 /**
@@ -879,23 +727,15 @@ export const edgeHostDevicesUidMetaUpdate = async (
   edgeHostDeviceMetaUpdateEntity: EdgeHostDeviceMetaUpdateEntity,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidMetaUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidMetaUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(edgeHostDeviceMetaUpdateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidMetaUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidMetaUpdateResponse;
+  return customInstance<edgeHostDevicesUidMetaUpdateResponse>(
+    getEdgeHostDevicesUidMetaUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(edgeHostDeviceMetaUpdateEntity),
+    },
+  );
 };
 
 /**
@@ -940,24 +780,13 @@ export const edgeHostDevicesUidPackManifestsUidGet = async (
   params?: EdgeHostDevicesUidPackManifestsUidGetParams,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidPackManifestsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<edgeHostDevicesUidPackManifestsUidGetResponse>(
     getEdgeHostDevicesUidPackManifestsUidGetUrl(uid, manifestUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidPackManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidPackManifestsUidGetResponse;
 };
 
 /**
@@ -985,23 +814,15 @@ export const edgeHostDevicesUidPacksStatusPatch = async (
   v1SpectroClusterPacksStatusEntityBody: V1SpectroClusterPacksStatusEntityBody,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidPacksStatusPatchResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidPacksStatusPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidPacksStatusPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidPacksStatusPatchResponse;
+  return customInstance<edgeHostDevicesUidPacksStatusPatchResponse>(
+    getEdgeHostDevicesUidPacksStatusPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
+    },
+  );
 };
 
 /**
@@ -1044,21 +865,13 @@ export const edgeHostDevicesUidProfilesGet = async (
   params?: EdgeHostDevicesUidProfilesGetParams,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidProfilesGetResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidProfilesGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidProfilesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidProfilesGetResponse;
+  return customInstance<edgeHostDevicesUidProfilesGetResponse>(
+    getEdgeHostDevicesUidProfilesGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1086,23 +899,15 @@ export const edgeHostDevicesUidProfilesUpdate = async (
   v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidProfilesUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidProfilesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterProfilesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidProfilesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidProfilesUpdateResponse;
+  return customInstance<edgeHostDevicesUidProfilesUpdateResponse>(
+    getEdgeHostDevicesUidProfilesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterProfilesBody),
+    },
+  );
 };
 
 /**
@@ -1129,21 +934,13 @@ export const v1EdgeHostsUidReset = async (
   uid: string,
   options?: RequestInit,
 ): Promise<v1EdgeHostsUidResetResponse> => {
-  const res = await fetch(getV1EdgeHostsUidResetUrl(uid), {
-    ...options,
-    method: "PUT",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1EdgeHostsUidResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1EdgeHostsUidResetResponse;
+  return customInstance<v1EdgeHostsUidResetResponse>(
+    getV1EdgeHostsUidResetUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+    },
+  );
 };
 
 /**
@@ -1170,21 +967,13 @@ export const edgeHostDevicesUidSpcDownload = async (
   uid: string,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidSpcDownloadResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidSpcDownloadUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidSpcDownloadResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidSpcDownloadResponse;
+  return customInstance<edgeHostDevicesUidSpcDownloadResponse>(
+    getEdgeHostDevicesUidSpcDownloadUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1212,23 +1001,15 @@ export const edgeHostDevicesUidTunnelConfigUpdate = async (
   spectroTunnelConfig: SpectroTunnelConfig,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidTunnelConfigUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidTunnelConfigUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroTunnelConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidTunnelConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidTunnelConfigUpdateResponse;
+  return customInstance<edgeHostDevicesUidTunnelConfigUpdateResponse>(
+    getEdgeHostDevicesUidTunnelConfigUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroTunnelConfig),
+    },
+  );
 };
 
 /**
@@ -1256,23 +1037,15 @@ export const edgeHostDevicesUidTunnelStatusUpdate = async (
   spectroTunnelStatus: SpectroTunnelStatus,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidTunnelStatusUpdateResponse> => {
-  const res = await fetch(getEdgeHostDevicesUidTunnelStatusUpdateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(spectroTunnelStatus),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidTunnelStatusUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidTunnelStatusUpdateResponse;
+  return customInstance<edgeHostDevicesUidTunnelStatusUpdateResponse>(
+    getEdgeHostDevicesUidTunnelStatusUpdateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(spectroTunnelStatus),
+    },
+  );
 };
 
 /**
@@ -1302,7 +1075,7 @@ export const edgeHostDevicesUidVspherePropertiesUpdate = async (
   edgeHostVsphereCloudProperties: EdgeHostVsphereCloudProperties,
   options?: RequestInit,
 ): Promise<edgeHostDevicesUidVspherePropertiesUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<edgeHostDevicesUidVspherePropertiesUpdateResponse>(
     getEdgeHostDevicesUidVspherePropertiesUpdateUrl(uid),
     {
       ...options,
@@ -1311,15 +1084,4 @@ export const edgeHostDevicesUidVspherePropertiesUpdate = async (
       body: JSON.stringify(edgeHostVsphereCloudProperties),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: edgeHostDevicesUidVspherePropertiesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as edgeHostDevicesUidVspherePropertiesUpdateResponse;
 };

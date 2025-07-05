@@ -215,7 +215,7 @@ function runEslint() {
 
 
 /**
- * Create main index file that exports all functions from directories
+ * Create main index file with exports from all directories
  */
 function createMainIndexFile() {
   const generatedDir = path.join(__dirname, "../generated");
@@ -226,12 +226,12 @@ function createMainIndexFile() {
     return false;
   }
 
-  // Get all directories in the generated folder (excluding schemas)
+  // Get all directories in the generated folder (excluding schemas and httpClient)
   const directories = fs
     .readdirSync(generatedDir)
     .filter((item) => {
       const itemPath = path.join(generatedDir, item);
-      return fs.statSync(itemPath).isDirectory() && item !== "schemas";
+      return fs.statSync(itemPath).isDirectory() && item !== "schemas" && item !== "httpClient";
     })
     .sort();
 
@@ -250,6 +250,12 @@ function createMainIndexFile() {
   // Add schemas export
   exports.push('export * from "./schemas";');
 
+  // Add client wrapper exports from httpClient directory
+  exports.push('');
+  exports.push('// Export the client wrapper');
+  exports.push('export { setupConfig, PaletteClient } from "./httpClient/paletteClient";');
+  exports.push('export type { PaletteClientConfig, PaletteConfig } from "./httpClient/paletteClient";');
+
   const content = `/**
  * Copyright (c) Spectro Cloud
  * SPDX-License-Identifier: Apache-2.0
@@ -260,7 +266,7 @@ ${exports.join('\n')}
 `;
 
   fs.writeFileSync(mainIndexPath, content, "utf8");
-  console.log(`✅ Created main index file with exports from ${directories.length} directories`);
+  console.log(`✅ Created main index file with exports from ${directories.length} directories + client wrapper`);
   console.log(`   Directories: ${directories.join(', ')}`);
   
   return true;

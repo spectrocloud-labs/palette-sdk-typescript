@@ -4,17 +4,11 @@
  */
 
 /**
- * Test to retrieve all cluster profiles using the Palette SDK
+ * Test to verify cluster profile functions using the Palette SDK client wrapper
  */
 
-import {
-  clusterProfilesFilterSummary,
-  clusterProfilesMetadata,
-  clusterProfilesCreate,
-  clusterProfilesBulkDelete,
-} from "../generated/index";
-
 import dotenvx from "@dotenvx/dotenvx";
+import { setupConfig } from "../generated";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -34,9 +28,9 @@ if (result.error) {
   );
 }
 
-// Configuration
+// Environment variables
 const API_KEY = process.env.PALETTE_API_KEY;
-const BASE_URL = "https://api.spectrocloud.com";
+const BASE_URL = process.env.PALETTE_BASE_URL || "https://api.spectrocloud.com";
 
 if (!API_KEY) {
   console.error("❌ PALETTE_API_KEY environment variable is required");
@@ -50,39 +44,45 @@ async function testClusterProfiles() {
   console.log("");
 
   try {
-    console.log("✅ API functions imported successfully");
-
-    // Test that functions are available
-    console.log(
-      `✅ clusterProfilesFilterSummary type: ${typeof clusterProfilesFilterSummary}`
-    );
-    console.log(
-      `✅ clusterProfilesMetadata type: ${typeof clusterProfilesMetadata}`
-    );
-    console.log(
-      `✅ clusterProfilesCreate type: ${typeof clusterProfilesCreate}`
-    );
-    console.log(
-      `✅ clusterProfilesBulkDelete type: ${typeof clusterProfilesBulkDelete}`
-    );
-
-    // Verify all functions are available
-    const functions = [
-      {
-        name: "clusterProfilesFilterSummary",
-        func: clusterProfilesFilterSummary,
+    // Create a pre-configured client
+    const palette = setupConfig({
+      baseURL: BASE_URL,
+      headers: {
+        ApiKey: API_KEY,
+        "Content-Type": "application/json",
       },
-      { name: "clusterProfilesMetadata", func: clusterProfilesMetadata },
-      { name: "clusterProfilesCreate", func: clusterProfilesCreate },
-      { name: "clusterProfilesBulkDelete", func: clusterProfilesBulkDelete },
+    });
+
+    console.log("✅ Client created successfully");
+
+    // Test that cluster profile functions are available through the client
+    const functions = [
+      "clusterProfilesFilterSummary",
+      "clusterProfilesMetadata",
+      "clusterProfilesCreate",
+      "clusterProfilesBulkDelete",
     ];
 
-    for (const { name, func } of functions) {
-      if (typeof func === "function") {
-        console.log(`✅ ${name} is available as a function`);
+    for (const funcName of functions) {
+      if (typeof (palette as any)[funcName] === "function") {
+        console.log(`✅ ${funcName} is available through client`);
       } else {
-        throw new Error(`${name} is not available as a function`);
+        throw new Error(`${funcName} is not available through client`);
       }
+    }
+
+    // Test a simple API call to verify the client works
+    console.log("");
+    console.log("🔍 Testing API call through client...");
+
+    const metadataResponse = await (palette as any).clusterProfilesMetadata();
+    if (metadataResponse && metadataResponse.data) {
+      console.log("✅ clusterProfilesMetadata call successful");
+      console.log(
+        `   Response contains: ${Object.keys(metadataResponse.data).join(", ")}`
+      );
+    } else {
+      throw new Error("clusterProfilesMetadata call failed");
     }
 
     console.log("");

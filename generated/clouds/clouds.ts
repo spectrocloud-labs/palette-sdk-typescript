@@ -140,6 +140,8 @@ import type {
   VsphereEnv,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves the Aws secret credentials
  */
@@ -164,23 +166,15 @@ export const v1AwsAccountSecretCredentials = async (
   awsSecretSpecInputEntity: AwsSecretSpecInputEntity,
   options?: RequestInit,
 ): Promise<v1AwsAccountSecretCredentialsResponse> => {
-  const res = await fetch(getV1AwsAccountSecretCredentialsUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsSecretSpecInputEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsAccountSecretCredentialsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsAccountSecretCredentialsResponse;
+  return customInstance<v1AwsAccountSecretCredentialsResponse>(
+    getV1AwsAccountSecretCredentialsUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsSecretSpecInputEntity),
+    },
+  );
 };
 
 /**
@@ -217,19 +211,13 @@ export const v1AwsAccountStsGet = async (
   params?: V1AwsAccountStsGetParams,
   options?: RequestInit,
 ): Promise<v1AwsAccountStsGetResponse> => {
-  const res = await fetch(getV1AwsAccountStsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsAccountStsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsAccountStsGetResponse;
+  return customInstance<v1AwsAccountStsGetResponse>(
+    getV1AwsAccountStsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -256,23 +244,15 @@ export const v1AwsAccountValidate = async (
   awsCloudAccount: AwsCloudAccount,
   options?: RequestInit,
 ): Promise<v1AwsAccountValidateResponse> => {
-  const res = await fetch(getV1AwsAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsAccountValidateResponse;
+  return customInstance<v1AwsAccountValidateResponse>(
+    getV1AwsAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsCloudAccount),
+    },
+  );
 };
 
 /**
@@ -296,19 +276,10 @@ export const getV1AwsAmiTypesUrl = () => {
 export const v1AwsAmiTypes = async (
   options?: RequestInit,
 ): Promise<v1AwsAmiTypesResponse> => {
-  const res = await fetch(getV1AwsAmiTypesUrl(), {
+  return customInstance<v1AwsAmiTypesResponse>(getV1AwsAmiTypesUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsAmiTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsAmiTypesResponse;
 };
 
 /**
@@ -336,23 +307,15 @@ export const v1CloudsAwsCloudWatchValidate = async (
   v1CloudWatchConfig: V1CloudWatchConfig,
   options?: RequestInit,
 ): Promise<v1CloudsAwsCloudWatchValidateResponse> => {
-  const res = await fetch(getV1CloudsAwsCloudWatchValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1CloudWatchConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CloudsAwsCloudWatchValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CloudsAwsCloudWatchValidateResponse;
+  return customInstance<v1CloudsAwsCloudWatchValidateResponse>(
+    getV1CloudsAwsCloudWatchValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1CloudWatchConfig),
+    },
+  );
 };
 
 /**
@@ -377,21 +340,12 @@ export const awsCloudCost = async (
   awsCloudCostSpec: AwsCloudCostSpec,
   options?: RequestInit,
 ): Promise<awsCloudCostResponse> => {
-  const res = await fetch(getAwsCloudCostUrl(), {
+  return customInstance<awsCloudCostResponse>(getAwsCloudCostUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(awsCloudCostSpec),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: awsCloudCostResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as awsCloudCostResponse;
 };
 
 /**
@@ -433,19 +387,13 @@ export const v1AwsVolumeSizeGet = async (
   params: V1AwsVolumeSizeGetParams,
   options?: RequestInit,
 ): Promise<v1AwsVolumeSizeGetResponse> => {
-  const res = await fetch(getV1AwsVolumeSizeGetUrl(imageId, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsVolumeSizeGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsVolumeSizeGetResponse;
+  return customInstance<v1AwsVolumeSizeGetResponse>(
+    getV1AwsVolumeSizeGetUrl(imageId, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -483,21 +431,15 @@ export const v1AwsIamPolicies = async (
   params?: V1AwsIamPoliciesParams,
   options?: RequestInit,
 ): Promise<v1AwsIamPoliciesResponse> => {
-  const res = await fetch(getV1AwsIamPoliciesUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsIamPoliciesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsIamPoliciesResponse;
+  return customInstance<v1AwsIamPoliciesResponse>(
+    getV1AwsIamPoliciesUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsCloudAccount),
+    },
+  );
 };
 
 /**
@@ -539,23 +481,15 @@ export const v1AwsPolicyArnsValidate = async (
   params?: V1AwsPolicyArnsValidateParams,
   options?: RequestInit,
 ): Promise<v1AwsPolicyArnsValidateResponse> => {
-  const res = await fetch(getV1AwsPolicyArnsValidateUrl(params), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsPolicyArnsSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsPolicyArnsValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsPolicyArnsValidateResponse;
+  return customInstance<v1AwsPolicyArnsValidateResponse>(
+    getV1AwsPolicyArnsValidateUrl(params),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsPolicyArnsSpec),
+    },
+  );
 };
 
 /**
@@ -582,23 +516,15 @@ export const v1AwsPropertiesValidate = async (
   awsPropertiesValidateSpec: AwsPropertiesValidateSpec,
   options?: RequestInit,
 ): Promise<v1AwsPropertiesValidateResponse> => {
-  const res = await fetch(getV1AwsPropertiesValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsPropertiesValidateSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsPropertiesValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsPropertiesValidateResponse;
+  return customInstance<v1AwsPropertiesValidateResponse>(
+    getV1AwsPropertiesValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsPropertiesValidateSpec),
+    },
+  );
 };
 
 /**
@@ -635,19 +561,10 @@ export const v1AwsRegions = async (
   params: V1AwsRegionsParams,
   options?: RequestInit,
 ): Promise<v1AwsRegionsResponse> => {
-  const res = await fetch(getV1AwsRegionsUrl(params), {
+  return customInstance<v1AwsRegionsResponse>(getV1AwsRegionsUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsRegionsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsRegionsResponse;
 };
 
 /**
@@ -685,19 +602,10 @@ export const v1AwsZones = async (
   params: V1AwsZonesParams,
   options?: RequestInit,
 ): Promise<v1AwsZonesResponse> => {
-  const res = await fetch(getV1AwsZonesUrl(region, params), {
+  return customInstance<v1AwsZonesResponse>(getV1AwsZonesUrl(region, params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsZonesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsZonesResponse;
 };
 
 /**
@@ -725,23 +633,15 @@ export const v1AwsCopyImageFromDefaultRegion = async (
   awsFindImageRequest: AwsFindImageRequest,
   options?: RequestInit,
 ): Promise<v1AwsCopyImageFromDefaultRegionResponse> => {
-  const res = await fetch(getV1AwsCopyImageFromDefaultRegionUrl(region), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsFindImageRequest),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsCopyImageFromDefaultRegionResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsCopyImageFromDefaultRegionResponse;
+  return customInstance<v1AwsCopyImageFromDefaultRegionResponse>(
+    getV1AwsCopyImageFromDefaultRegionUrl(region),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsFindImageRequest),
+    },
+  );
 };
 
 /**
@@ -785,21 +685,13 @@ export const v1AwsClusterNameValidate = async (
   params: V1AwsClusterNameValidateParams,
   options?: RequestInit,
 ): Promise<v1AwsClusterNameValidateResponse> => {
-  const res = await fetch(getV1AwsClusterNameValidateUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsClusterNameValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsClusterNameValidateResponse;
+  return customInstance<v1AwsClusterNameValidateResponse>(
+    getV1AwsClusterNameValidateUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -825,21 +717,12 @@ export const v1AwsFindImage = async (
   awsFindImageRequest: AwsFindImageRequest,
   options?: RequestInit,
 ): Promise<v1AwsFindImageResponse> => {
-  const res = await fetch(getV1AwsFindImageUrl(region), {
+  return customInstance<v1AwsFindImageResponse>(getV1AwsFindImageUrl(region), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(awsFindImageRequest),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsFindImageResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsFindImageResponse;
 };
 
 /**
@@ -880,19 +763,13 @@ export const v1AwsInstanceTypes = async (
   params?: V1AwsInstanceTypesParams,
   options?: RequestInit,
 ): Promise<v1AwsInstanceTypesResponse> => {
-  const res = await fetch(getV1AwsInstanceTypesUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsInstanceTypesResponse;
+  return customInstance<v1AwsInstanceTypesResponse>(
+    getV1AwsInstanceTypesUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -933,19 +810,13 @@ export const v1AwsKeyPairs = async (
   params: V1AwsKeyPairsParams,
   options?: RequestInit,
 ): Promise<v1AwsKeyPairsResponse> => {
-  const res = await fetch(getV1AwsKeyPairsUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsKeyPairsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsKeyPairsResponse;
+  return customInstance<v1AwsKeyPairsResponse>(
+    getV1AwsKeyPairsUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -990,21 +861,13 @@ export const v1AwsKeyPairValidate = async (
   params: V1AwsKeyPairValidateParams,
   options?: RequestInit,
 ): Promise<v1AwsKeyPairValidateResponse> => {
-  const res = await fetch(getV1AwsKeyPairValidateUrl(region, keypair, params), {
-    ...options,
-    method: "POST",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsKeyPairValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsKeyPairValidateResponse;
+  return customInstance<v1AwsKeyPairValidateResponse>(
+    getV1AwsKeyPairValidateUrl(region, keypair, params),
+    {
+      ...options,
+      method: "POST",
+    },
+  );
 };
 
 /**
@@ -1047,19 +910,13 @@ export const v1AwsKmsKeyGet = async (
   params: V1AwsKmsKeyGetParams,
   options?: RequestInit,
 ): Promise<v1AwsKmsKeyGetResponse> => {
-  const res = await fetch(getV1AwsKmsKeyGetUrl(region, keyId, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsKmsKeyGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsKmsKeyGetResponse;
+  return customInstance<v1AwsKmsKeyGetResponse>(
+    getV1AwsKmsKeyGetUrl(region, keyId, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1100,19 +957,13 @@ export const v1AwsKmsKeys = async (
   params: V1AwsKmsKeysParams,
   options?: RequestInit,
 ): Promise<v1AwsKmsKeysResponse> => {
-  const res = await fetch(getV1AwsKmsKeysUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsKmsKeysResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsKmsKeysResponse;
+  return customInstance<v1AwsKmsKeysResponse>(
+    getV1AwsKmsKeysUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1155,21 +1006,13 @@ export const v1AwsKmsKeyValidate = async (
   params: V1AwsKmsKeyValidateParams,
   options?: RequestInit,
 ): Promise<v1AwsKmsKeyValidateResponse> => {
-  const res = await fetch(getV1AwsKmsKeyValidateUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsKmsKeyValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsKmsKeyValidateResponse;
+  return customInstance<v1AwsKmsKeyValidateResponse>(
+    getV1AwsKmsKeyValidateUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1194,19 +1037,13 @@ export const v1AwsStorageTypes = async (
   region: string,
   options?: RequestInit,
 ): Promise<v1AwsStorageTypesResponse> => {
-  const res = await fetch(getV1AwsStorageTypesUrl(region), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsStorageTypesResponse;
+  return customInstance<v1AwsStorageTypesResponse>(
+    getV1AwsStorageTypesUrl(region),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1244,19 +1081,10 @@ export const v1AwsVpcs = async (
   params: V1AwsVpcsParams,
   options?: RequestInit,
 ): Promise<v1AwsVpcsResponse> => {
-  const res = await fetch(getV1AwsVpcsUrl(region, params), {
+  return customInstance<v1AwsVpcsResponse>(getV1AwsVpcsUrl(region, params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsVpcsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsVpcsResponse;
 };
 
 /**
@@ -1281,21 +1109,12 @@ export const v1AwsS3Validate = async (
   awsS3BucketCredentials: AwsS3BucketCredentials,
   options?: RequestInit,
 ): Promise<v1AwsS3ValidateResponse> => {
-  const res = await fetch(getV1AwsS3ValidateUrl(), {
+  return customInstance<v1AwsS3ValidateResponse>(getV1AwsS3ValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(awsS3BucketCredentials),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsS3ValidateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsS3ValidateResponse;
 };
 
 /**
@@ -1336,21 +1155,13 @@ export const v1AwsSecurityGroups = async (
   params: V1AwsSecurityGroupsParams,
   options?: RequestInit,
 ): Promise<v1AwsSecurityGroupsResponse> => {
-  const res = await fetch(getV1AwsSecurityGroupsUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsSecurityGroupsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsSecurityGroupsResponse;
+  return customInstance<v1AwsSecurityGroupsResponse>(
+    getV1AwsSecurityGroupsUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1392,21 +1203,13 @@ export const v1AwsVolumeTypesGet = async (
   params: V1AwsVolumeTypesGetParams,
   options?: RequestInit,
 ): Promise<v1AwsVolumeTypesGetResponse> => {
-  const res = await fetch(getV1AwsVolumeTypesGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AwsVolumeTypesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AwsVolumeTypesGetResponse;
+  return customInstance<v1AwsVolumeTypesGetResponse>(
+    getV1AwsVolumeTypesGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1434,23 +1237,15 @@ export const v1AzureAccountValidate = async (
   azureCloudAccount: AzureCloudAccount,
   options?: RequestInit,
 ): Promise<v1AzureAccountValidateResponse> => {
-  const res = await fetch(getV1AzureAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(azureCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureAccountValidateResponse;
+  return customInstance<v1AzureAccountValidateResponse>(
+    getV1AzureAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(azureCloudAccount),
+    },
+  );
 };
 
 /**
@@ -1487,19 +1282,10 @@ export const v1AzureGroups = async (
   params?: V1AzureGroupsParams,
   options?: RequestInit,
 ): Promise<v1AzureGroupsResponse> => {
-  const res = await fetch(getV1AzureGroupsUrl(params), {
+  return customInstance<v1AzureGroupsResponse>(getV1AzureGroupsUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureGroupsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureGroupsResponse;
 };
 
 /**
@@ -1536,19 +1322,10 @@ export const v1AzureRegions = async (
   params?: V1AzureRegionsParams,
   options?: RequestInit,
 ): Promise<v1AzureRegionsResponse> => {
-  const res = await fetch(getV1AzureRegionsUrl(params), {
+  return customInstance<v1AzureRegionsResponse>(getV1AzureRegionsUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureRegionsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureRegionsResponse;
 };
 
 /**
@@ -1591,21 +1368,13 @@ export const v1AzureInstanceTypes = async (
   params?: V1AzureInstanceTypesParams,
   options?: RequestInit,
 ): Promise<v1AzureInstanceTypesResponse> => {
-  const res = await fetch(getV1AzureInstanceTypesUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureInstanceTypesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureInstanceTypesResponse;
+  return customInstance<v1AzureInstanceTypesResponse>(
+    getV1AzureInstanceTypesUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1632,21 +1401,13 @@ export const v1AzureStorageTypes = async (
   region: string,
   options?: RequestInit,
 ): Promise<v1AzureStorageTypesResponse> => {
-  const res = await fetch(getV1AzureStorageTypesUrl(region), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureStorageTypesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureStorageTypesResponse;
+  return customInstance<v1AzureStorageTypesResponse>(
+    getV1AzureStorageTypesUrl(region),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1692,24 +1453,13 @@ export const v1AzureClusterNameValidate = async (
   params: V1AzureClusterNameValidateParams,
   options?: RequestInit,
 ): Promise<v1AzureClusterNameValidateResponse> => {
-  const res = await fetch(
+  return customInstance<v1AzureClusterNameValidateResponse>(
     getV1AzureClusterNameValidateUrl(region, subscriptionId, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureClusterNameValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureClusterNameValidateResponse;
 };
 
 /**
@@ -1754,24 +1504,13 @@ export const v1AzureVirtualNetworkList = async (
   params: V1AzureVirtualNetworkListParams,
   options?: RequestInit,
 ): Promise<v1AzureVirtualNetworkListResponse> => {
-  const res = await fetch(
+  return customInstance<v1AzureVirtualNetworkListResponse>(
     getV1AzureVirtualNetworkListUrl(region, subscriptionId, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureVirtualNetworkListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureVirtualNetworkListResponse;
 };
 
 /**
@@ -1816,24 +1555,13 @@ export const v1AzureResourceGroupList = async (
   params: V1AzureResourceGroupListParams,
   options?: RequestInit,
 ): Promise<v1AzureResourceGroupListResponse> => {
-  const res = await fetch(
+  return customInstance<v1AzureResourceGroupListResponse>(
     getV1AzureResourceGroupListUrl(region, subscriptionId, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureResourceGroupListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureResourceGroupListResponse;
 };
 
 /**
@@ -1874,19 +1602,13 @@ export const v1AzureZones = async (
   params?: V1AzureZonesParams,
   options?: RequestInit,
 ): Promise<v1AzureZonesResponse> => {
-  const res = await fetch(getV1AzureZonesUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureZonesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureZonesResponse;
+  return customInstance<v1AzureZonesResponse>(
+    getV1AzureZonesUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1930,21 +1652,13 @@ export const v1AzurePrivateDnsZones = async (
   params: V1AzurePrivateDnsZonesParams,
   options?: RequestInit,
 ): Promise<v1AzurePrivateDnsZonesResponse> => {
-  const res = await fetch(getV1AzurePrivateDnsZonesUrl(resourceGroup, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzurePrivateDnsZonesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzurePrivateDnsZonesResponse;
+  return customInstance<v1AzurePrivateDnsZonesResponse>(
+    getV1AzurePrivateDnsZonesUrl(resourceGroup, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1988,21 +1702,13 @@ export const v1AzureStorageAccounts = async (
   params: V1AzureStorageAccountsParams,
   options?: RequestInit,
 ): Promise<v1AzureStorageAccountsResponse> => {
-  const res = await fetch(getV1AzureStorageAccountsUrl(resourceGroup, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureStorageAccountsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureStorageAccountsResponse;
+  return customInstance<v1AzureStorageAccountsResponse>(
+    getV1AzureStorageAccountsUrl(resourceGroup, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2048,24 +1754,13 @@ export const v1AzureStorageContainers = async (
   params: V1AzureStorageContainersParams,
   options?: RequestInit,
 ): Promise<v1AzureStorageContainersResponse> => {
-  const res = await fetch(
+  return customInstance<v1AzureStorageContainersResponse>(
     getV1AzureStorageContainersUrl(resourceGroup, storageAccountName, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureStorageContainersResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureStorageContainersResponse;
 };
 
 /**
@@ -2107,21 +1802,13 @@ export const v1AzureStorageAccountTypes = async (
   params?: V1AzureStorageAccountTypesParams,
   options?: RequestInit,
 ): Promise<v1AzureStorageAccountTypesResponse> => {
-  const res = await fetch(getV1AzureStorageAccountTypesUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureStorageAccountTypesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureStorageAccountTypesResponse;
+  return customInstance<v1AzureStorageAccountTypesResponse>(
+    getV1AzureStorageAccountTypesUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2163,21 +1850,13 @@ export const v1AzureSubscriptionList = async (
   params: V1AzureSubscriptionListParams,
   options?: RequestInit,
 ): Promise<v1AzureSubscriptionListResponse> => {
-  const res = await fetch(getV1AzureSubscriptionListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureSubscriptionListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureSubscriptionListResponse;
+  return customInstance<v1AzureSubscriptionListResponse>(
+    getV1AzureSubscriptionListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2202,19 +1881,10 @@ export const v1AzureVhdUrl = async (
   vhd: string,
   options?: RequestInit,
 ): Promise<v1AzureVhdUrlResponse> => {
-  const res = await fetch(getV1AzureVhdUrlUrl(vhd), {
+  return customInstance<v1AzureVhdUrlResponse>(getV1AzureVhdUrlUrl(vhd), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AzureVhdUrlResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AzureVhdUrlResponse;
 };
 
 /**
@@ -2240,21 +1910,13 @@ export const getV1CustomCloudTypesGetUrl = () => {
 export const v1CustomCloudTypesGet = async (
   options?: RequestInit,
 ): Promise<v1CustomCloudTypesGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypesGetUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypesGetResponse;
+  return customInstance<v1CustomCloudTypesGetResponse>(
+    getV1CustomCloudTypesGetUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2281,23 +1943,15 @@ export const v1CustomCloudTypeRegister = async (
   customCloudRequestEntity: CustomCloudRequestEntity,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeRegisterResponse> => {
-  const res = await fetch(getV1CustomCloudTypeRegisterUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(customCloudRequestEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeRegisterResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeRegisterResponse;
+  return customInstance<v1CustomCloudTypeRegisterResponse>(
+    getV1CustomCloudTypeRegisterUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(customCloudRequestEntity),
+    },
+  );
 };
 
 /**
@@ -2324,21 +1978,13 @@ export const v1CustomCloudTypesDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypesDeleteResponse> => {
-  const res = await fetch(getV1CustomCloudTypesDeleteUrl(cloudType), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypesDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypesDeleteResponse;
+  return customInstance<v1CustomCloudTypesDeleteResponse>(
+    getV1CustomCloudTypesDeleteUrl(cloudType),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -2367,24 +2013,13 @@ export const v1CustomCloudTypeCloudAccountKeysGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCloudAccountKeysGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeCloudAccountKeysGetResponse>(
     getV1CustomCloudTypeCloudAccountKeysGetUrl(cloudType),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCloudAccountKeysGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCloudAccountKeysGetResponse;
 };
 
 /**
@@ -2414,7 +2049,7 @@ export const v1CustomCloudTypeCloudAccountKeysUpdate = async (
   customCloudTypeCloudAccountKeys: CustomCloudTypeCloudAccountKeys,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCloudAccountKeysUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeCloudAccountKeysUpdateResponse>(
     getV1CustomCloudTypeCloudAccountKeysUpdateUrl(cloudType),
     {
       ...options,
@@ -2423,17 +2058,6 @@ export const v1CustomCloudTypeCloudAccountKeysUpdate = async (
       body: JSON.stringify(customCloudTypeCloudAccountKeys),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCloudAccountKeysUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCloudAccountKeysUpdateResponse;
 };
 
 /**
@@ -2460,21 +2084,13 @@ export const v1CustomCloudTypeBootstrapDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeBootstrapDeleteResponse> => {
-  const res = await fetch(getV1CustomCloudTypeBootstrapDeleteUrl(cloudType), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeBootstrapDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeBootstrapDeleteResponse;
+  return customInstance<v1CustomCloudTypeBootstrapDeleteResponse>(
+    getV1CustomCloudTypeBootstrapDeleteUrl(cloudType),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -2501,21 +2117,13 @@ export const v1CustomCloudTypeBootstrapGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeBootstrapGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeBootstrapGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeBootstrapGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeBootstrapGetResponse;
+  return customInstance<v1CustomCloudTypeBootstrapGetResponse>(
+    getV1CustomCloudTypeBootstrapGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2548,22 +2156,14 @@ export const v1CustomCloudTypeBootstrapUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(getV1CustomCloudTypeBootstrapUpdateUrl(cloudType), {
-    ...options,
-    method: "PUT",
-    body: formData,
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeBootstrapUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeBootstrapUpdateResponse;
+  return customInstance<v1CustomCloudTypeBootstrapUpdateResponse>(
+    getV1CustomCloudTypeBootstrapUpdateUrl(cloudType),
+    {
+      ...options,
+      method: "PUT",
+      body: formData,
+    },
+  );
 };
 
 /**
@@ -2592,24 +2192,13 @@ export const v1CustomCloudTypeCloudProviderDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCloudProviderDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeCloudProviderDeleteResponse>(
     getV1CustomCloudTypeCloudProviderDeleteUrl(cloudType),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCloudProviderDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCloudProviderDeleteResponse;
 };
 
 /**
@@ -2636,21 +2225,13 @@ export const v1CustomCloudTypeCloudProviderGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCloudProviderGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeCloudProviderGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCloudProviderGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCloudProviderGetResponse;
+  return customInstance<v1CustomCloudTypeCloudProviderGetResponse>(
+    getV1CustomCloudTypeCloudProviderGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2685,7 +2266,7 @@ export const v1CustomCloudTypeCloudProviderUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeCloudProviderUpdateResponse>(
     getV1CustomCloudTypeCloudProviderUpdateUrl(cloudType),
     {
       ...options,
@@ -2693,17 +2274,6 @@ export const v1CustomCloudTypeCloudProviderUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCloudProviderUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCloudProviderUpdateResponse;
 };
 
 /**
@@ -2732,24 +2302,13 @@ export const v1CustomCloudTypeControlPlaneDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeControlPlaneDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeControlPlaneDeleteResponse>(
     getV1CustomCloudTypeControlPlaneDeleteUrl(cloudType),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlaneDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlaneDeleteResponse;
 };
 
 /**
@@ -2776,21 +2335,13 @@ export const v1CustomCloudTypeControlPlaneGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeControlPlaneGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeControlPlaneGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlaneGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlaneGetResponse;
+  return customInstance<v1CustomCloudTypeControlPlaneGetResponse>(
+    getV1CustomCloudTypeControlPlaneGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2825,7 +2376,7 @@ export const v1CustomCloudTypeControlPlaneUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeControlPlaneUpdateResponse>(
     getV1CustomCloudTypeControlPlaneUpdateUrl(cloudType),
     {
       ...options,
@@ -2833,17 +2384,6 @@ export const v1CustomCloudTypeControlPlaneUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlaneUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlaneUpdateResponse;
 };
 
 /**
@@ -2870,21 +2410,13 @@ export const v1CustomCloudTypeCoreDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCoreDeleteResponse> => {
-  const res = await fetch(getV1CustomCloudTypeCoreDeleteUrl(cloudType), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCoreDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCoreDeleteResponse;
+  return customInstance<v1CustomCloudTypeCoreDeleteResponse>(
+    getV1CustomCloudTypeCoreDeleteUrl(cloudType),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -2911,21 +2443,13 @@ export const v1CustomCloudTypeCoreGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeCoreGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeCoreGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCoreGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCoreGetResponse;
+  return customInstance<v1CustomCloudTypeCoreGetResponse>(
+    getV1CustomCloudTypeCoreGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2958,22 +2482,14 @@ export const v1CustomCloudTypeCoreUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(getV1CustomCloudTypeCoreUpdateUrl(cloudType), {
-    ...options,
-    method: "PUT",
-    body: formData,
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeCoreUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeCoreUpdateResponse;
+  return customInstance<v1CustomCloudTypeCoreUpdateResponse>(
+    getV1CustomCloudTypeCoreUpdateUrl(cloudType),
+    {
+      ...options,
+      method: "PUT",
+      body: formData,
+    },
+  );
 };
 
 /**
@@ -3002,24 +2518,13 @@ export const v1CustomCloudTypeClusterTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeClusterTemplateDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeClusterTemplateDeleteResponse>(
     getV1CustomCloudTypeClusterTemplateDeleteUrl(cloudType),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeClusterTemplateDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeClusterTemplateDeleteResponse;
 };
 
 /**
@@ -3048,24 +2553,13 @@ export const v1CustomCloudTypeClusterTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeClusterTemplateGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeClusterTemplateGetResponse>(
     getV1CustomCloudTypeClusterTemplateGetUrl(cloudType),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeClusterTemplateGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeClusterTemplateGetResponse;
 };
 
 /**
@@ -3100,7 +2594,7 @@ export const v1CustomCloudTypeClusterTemplateUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeClusterTemplateUpdateResponse>(
     getV1CustomCloudTypeClusterTemplateUpdateUrl(cloudType),
     {
       ...options,
@@ -3108,17 +2602,6 @@ export const v1CustomCloudTypeClusterTemplateUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeClusterTemplateUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeClusterTemplateUpdateResponse;
 };
 
 /**
@@ -3147,23 +2630,13 @@ export const v1CustomCloudTypeControlPlanePoolTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse>(
     getV1CustomCloudTypeControlPlanePoolTemplateDeleteUrl(cloudType),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse;
 };
 
 /**
@@ -3192,23 +2665,13 @@ export const v1CustomCloudTypeControlPlanePoolTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeControlPlanePoolTemplateGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeControlPlanePoolTemplateGetResponse>(
     getV1CustomCloudTypeControlPlanePoolTemplateGetUrl(cloudType),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlanePoolTemplateGetResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlanePoolTemplateGetResponse;
 };
 
 /**
@@ -3243,7 +2706,7 @@ export const v1CustomCloudTypeControlPlanePoolTemplateUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse>(
     getV1CustomCloudTypeControlPlanePoolTemplateUpdateUrl(cloudType),
     {
       ...options,
@@ -3251,16 +2714,6 @@ export const v1CustomCloudTypeControlPlanePoolTemplateUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse;
 };
 
 /**
@@ -3289,24 +2742,13 @@ export const v1CustomCloudTypeWorkerPoolTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeWorkerPoolTemplateDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeWorkerPoolTemplateDeleteResponse>(
     getV1CustomCloudTypeWorkerPoolTemplateDeleteUrl(cloudType),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeWorkerPoolTemplateDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeWorkerPoolTemplateDeleteResponse;
 };
 
 /**
@@ -3335,24 +2777,13 @@ export const v1CustomCloudTypeWorkerPoolTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeWorkerPoolTemplateGetResponse> => {
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeWorkerPoolTemplateGetResponse>(
     getV1CustomCloudTypeWorkerPoolTemplateGetUrl(cloudType),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeWorkerPoolTemplateGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeWorkerPoolTemplateGetResponse;
 };
 
 /**
@@ -3387,7 +2818,7 @@ export const v1CustomCloudTypeWorkerPoolTemplateUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(
+  return customInstance<v1CustomCloudTypeWorkerPoolTemplateUpdateResponse>(
     getV1CustomCloudTypeWorkerPoolTemplateUpdateUrl(cloudType),
     {
       ...options,
@@ -3395,17 +2826,6 @@ export const v1CustomCloudTypeWorkerPoolTemplateUpdate = async (
       body: formData,
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeWorkerPoolTemplateUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeWorkerPoolTemplateUpdateResponse;
 };
 
 /**
@@ -3432,21 +2852,13 @@ export const v1CustomCloudTypeLogoGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeLogoGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeLogoGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeLogoGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeLogoGetResponse;
+  return customInstance<v1CustomCloudTypeLogoGetResponse>(
+    getV1CustomCloudTypeLogoGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3479,22 +2891,14 @@ export const v1CustomCloudTypeLogoUpdate = async (
     formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
-  const res = await fetch(getV1CustomCloudTypeLogoUpdateUrl(cloudType), {
-    ...options,
-    method: "PUT",
-    body: formData,
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeLogoUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeLogoUpdateResponse;
+  return customInstance<v1CustomCloudTypeLogoUpdateResponse>(
+    getV1CustomCloudTypeLogoUpdateUrl(cloudType),
+    {
+      ...options,
+      method: "PUT",
+      body: formData,
+    },
+  );
 };
 
 /**
@@ -3521,21 +2925,13 @@ export const v1CustomCloudTypeMetaGet = async (
   cloudType: string,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeMetaGetResponse> => {
-  const res = await fetch(getV1CustomCloudTypeMetaGetUrl(cloudType), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeMetaGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeMetaGetResponse;
+  return customInstance<v1CustomCloudTypeMetaGetResponse>(
+    getV1CustomCloudTypeMetaGetUrl(cloudType),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3563,23 +2959,15 @@ export const v1CustomCloudTypeMetaUpdate = async (
   customCloudRequestEntity: CustomCloudRequestEntity,
   options?: RequestInit,
 ): Promise<v1CustomCloudTypeMetaUpdateResponse> => {
-  const res = await fetch(getV1CustomCloudTypeMetaUpdateUrl(cloudType), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(customCloudRequestEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CustomCloudTypeMetaUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CustomCloudTypeMetaUpdateResponse;
+  return customInstance<v1CustomCloudTypeMetaUpdateResponse>(
+    getV1CustomCloudTypeMetaUpdateUrl(cloudType),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(customCloudRequestEntity),
+    },
+  );
 };
 
 /**
@@ -3606,23 +2994,15 @@ export const v1EksPropertiesValidate = async (
   eksPropertiesValidateSpec: EksPropertiesValidateSpec,
   options?: RequestInit,
 ): Promise<v1EksPropertiesValidateResponse> => {
-  const res = await fetch(getV1EksPropertiesValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(eksPropertiesValidateSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1EksPropertiesValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1EksPropertiesValidateResponse;
+  return customInstance<v1EksPropertiesValidateResponse>(
+    getV1EksPropertiesValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(eksPropertiesValidateSpec),
+    },
+  );
 };
 
 /**
@@ -3649,23 +3029,15 @@ export const v1GcpAccountValidate = async (
   gcpCloudAccountValidateEntity: GcpCloudAccountValidateEntity,
   options?: RequestInit,
 ): Promise<v1GcpAccountValidateResponse> => {
-  const res = await fetch(getV1GcpAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(gcpCloudAccountValidateEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpAccountValidateResponse;
+  return customInstance<v1GcpAccountValidateResponse>(
+    getV1GcpAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(gcpCloudAccountValidateEntity),
+    },
+  );
 };
 
 /**
@@ -3690,21 +3062,12 @@ export const v1GcpAzValidate = async (
   azValidateEntity: AzValidateEntity,
   options?: RequestInit,
 ): Promise<v1GcpAzValidateResponse> => {
-  const res = await fetch(getV1GcpAzValidateUrl(), {
+  return customInstance<v1GcpAzValidateResponse>(getV1GcpAzValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(azValidateEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpAzValidateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpAzValidateResponse;
 };
 
 /**
@@ -3731,23 +3094,15 @@ export const v1GcpBucketNameValidate = async (
   gcpAccountNameValidateSpec: GcpAccountNameValidateSpec,
   options?: RequestInit,
 ): Promise<v1GcpBucketNameValidateResponse> => {
-  const res = await fetch(getV1GcpBucketNameValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(gcpAccountNameValidateSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpBucketNameValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpBucketNameValidateResponse;
+  return customInstance<v1GcpBucketNameValidateResponse>(
+    getV1GcpBucketNameValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(gcpAccountNameValidateSpec),
+    },
+  );
 };
 
 /**
@@ -3788,21 +3143,13 @@ export const v1GcpContainerImageValidate = async (
   params: V1GcpContainerImageValidateParams,
   options?: RequestInit,
 ): Promise<v1GcpContainerImageValidateResponse> => {
-  const res = await fetch(getV1GcpContainerImageValidateUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpContainerImageValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpContainerImageValidateResponse;
+  return customInstance<v1GcpContainerImageValidateResponse>(
+    getV1GcpContainerImageValidateUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3827,19 +3174,10 @@ export const v1GcpImageUrl = async (
   imageName: string,
   options?: RequestInit,
 ): Promise<v1GcpImageUrlResponse> => {
-  const res = await fetch(getV1GcpImageUrlUrl(imageName), {
+  return customInstance<v1GcpImageUrlResponse>(getV1GcpImageUrlUrl(imageName), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpImageUrlResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpImageUrlResponse;
 };
 
 /**
@@ -3876,19 +3214,10 @@ export const v1GcpProjects = async (
   params: V1GcpProjectsParams,
   options?: RequestInit,
 ): Promise<v1GcpProjectsResponse> => {
-  const res = await fetch(getV1GcpProjectsUrl(params), {
+  return customInstance<v1GcpProjectsResponse>(getV1GcpProjectsUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpProjectsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpProjectsResponse;
 };
 
 /**
@@ -3929,19 +3258,13 @@ export const v1GcpRegions = async (
   params: V1GcpRegionsParams,
   options?: RequestInit,
 ): Promise<v1GcpRegionsResponse> => {
-  const res = await fetch(getV1GcpRegionsUrl(project, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpRegionsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpRegionsResponse;
+  return customInstance<v1GcpRegionsResponse>(
+    getV1GcpRegionsUrl(project, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -3984,19 +3307,13 @@ export const v1GcpNetworks = async (
   params: V1GcpNetworksParams,
   options?: RequestInit,
 ): Promise<v1GcpNetworksResponse> => {
-  const res = await fetch(getV1GcpNetworksUrl(project, region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpNetworksResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpNetworksResponse;
+  return customInstance<v1GcpNetworksResponse>(
+    getV1GcpNetworksUrl(project, region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4039,19 +3356,13 @@ export const v1GcpZones = async (
   params: V1GcpZonesParams,
   options?: RequestInit,
 ): Promise<v1GcpZonesResponse> => {
-  const res = await fetch(getV1GcpZonesUrl(project, region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpZonesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpZonesResponse;
+  return customInstance<v1GcpZonesResponse>(
+    getV1GcpZonesUrl(project, region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4079,23 +3390,15 @@ export const v1GcpProjectValidate = async (
   cloudAccountUidEntity: CloudAccountUidEntity,
   options?: RequestInit,
 ): Promise<v1GcpProjectValidateResponse> => {
-  const res = await fetch(getV1GcpProjectValidateUrl(project), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(cloudAccountUidEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpProjectValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpProjectValidateResponse;
+  return customInstance<v1GcpProjectValidateResponse>(
+    getV1GcpProjectValidateUrl(project),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(cloudAccountUidEntity),
+    },
+  );
 };
 
 /**
@@ -4138,21 +3441,13 @@ export const v1GcpAvailabilityZones = async (
   params: V1GcpAvailabilityZonesParams,
   options?: RequestInit,
 ): Promise<v1GcpAvailabilityZonesResponse> => {
-  const res = await fetch(getV1GcpAvailabilityZonesUrl(project, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpAvailabilityZonesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpAvailabilityZonesResponse;
+  return customInstance<v1GcpAvailabilityZonesResponse>(
+    getV1GcpAvailabilityZonesUrl(project, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4179,23 +3474,15 @@ export const v1GcpPropertiesValidate = async (
   gcpPropertiesValidateSpec: GcpPropertiesValidateSpec,
   options?: RequestInit,
 ): Promise<v1GcpPropertiesValidateResponse> => {
-  const res = await fetch(getV1GcpPropertiesValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(gcpPropertiesValidateSpec),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpPropertiesValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpPropertiesValidateResponse;
+  return customInstance<v1GcpPropertiesValidateResponse>(
+    getV1GcpPropertiesValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(gcpPropertiesValidateSpec),
+    },
+  );
 };
 
 /**
@@ -4236,19 +3523,13 @@ export const v1GcpInstanceTypes = async (
   params?: V1GcpInstanceTypesParams,
   options?: RequestInit,
 ): Promise<v1GcpInstanceTypesResponse> => {
-  const res = await fetch(getV1GcpInstanceTypesUrl(region, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpInstanceTypesResponse;
+  return customInstance<v1GcpInstanceTypesResponse>(
+    getV1GcpInstanceTypesUrl(region, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4273,19 +3554,13 @@ export const v1GcpStorageTypes = async (
   region: string,
   options?: RequestInit,
 ): Promise<v1GcpStorageTypesResponse> => {
-  const res = await fetch(getV1GcpStorageTypesUrl(region), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1GcpStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1GcpStorageTypesResponse;
+  return customInstance<v1GcpStorageTypesResponse>(
+    getV1GcpStorageTypesUrl(region),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4313,23 +3588,15 @@ export const v1MaasAccountValidate = async (
   maasCloudAccount: MaasCloudAccount,
   options?: RequestInit,
 ): Promise<v1MaasAccountValidateResponse> => {
-  const res = await fetch(getV1MaasAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(maasCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasAccountValidateResponse;
+  return customInstance<v1MaasAccountValidateResponse>(
+    getV1MaasAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(maasCloudAccount),
+    },
+  );
 };
 
 /**
@@ -4366,19 +3633,10 @@ export const v1MaasZonesGet = async (
   params?: V1MaasZonesGetParams,
   options?: RequestInit,
 ): Promise<v1MaasZonesGetResponse> => {
-  const res = await fetch(getV1MaasZonesGetUrl(params), {
+  return customInstance<v1MaasZonesGetResponse>(getV1MaasZonesGetUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasZonesGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasZonesGetResponse;
 };
 
 /**
@@ -4415,19 +3673,13 @@ export const v1MaasDomainsGet = async (
   params?: V1MaasDomainsGetParams,
   options?: RequestInit,
 ): Promise<v1MaasDomainsGetResponse> => {
-  const res = await fetch(getV1MaasDomainsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasDomainsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasDomainsGetResponse;
+  return customInstance<v1MaasDomainsGetResponse>(
+    getV1MaasDomainsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4464,19 +3716,10 @@ export const v1MaasPoolsGet = async (
   params?: V1MaasPoolsGetParams,
   options?: RequestInit,
 ): Promise<v1MaasPoolsGetResponse> => {
-  const res = await fetch(getV1MaasPoolsGetUrl(params), {
+  return customInstance<v1MaasPoolsGetResponse>(getV1MaasPoolsGetUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasPoolsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasPoolsGetResponse;
 };
 
 /**
@@ -4513,19 +3756,13 @@ export const v1MaasSubnetsGet = async (
   params?: V1MaasSubnetsGetParams,
   options?: RequestInit,
 ): Promise<v1MaasSubnetsGetResponse> => {
-  const res = await fetch(getV1MaasSubnetsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasSubnetsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasSubnetsGetResponse;
+  return customInstance<v1MaasSubnetsGetResponse>(
+    getV1MaasSubnetsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4562,19 +3799,10 @@ export const v1MaasTagsGet = async (
   params?: V1MaasTagsGetParams,
   options?: RequestInit,
 ): Promise<v1MaasTagsGetResponse> => {
-  const res = await fetch(getV1MaasTagsGetUrl(params), {
+  return customInstance<v1MaasTagsGetResponse>(getV1MaasTagsGetUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1MaasTagsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1MaasTagsGetResponse;
 };
 
 /**
@@ -4602,23 +3830,15 @@ export const v1OpenStackAccountValidate = async (
   openStackCloudAccount: OpenStackCloudAccount,
   options?: RequestInit,
 ): Promise<v1OpenStackAccountValidateResponse> => {
-  const res = await fetch(getV1OpenStackAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(openStackCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackAccountValidateResponse;
+  return customInstance<v1OpenStackAccountValidateResponse>(
+    getV1OpenStackAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(openStackCloudAccount),
+    },
+  );
 };
 
 /**
@@ -4655,19 +3875,13 @@ export const v1OpenStackAzsGet = async (
   params?: V1OpenStackAzsGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackAzsGetResponse> => {
-  const res = await fetch(getV1OpenStackAzsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackAzsGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackAzsGetResponse;
+  return customInstance<v1OpenStackAzsGetResponse>(
+    getV1OpenStackAzsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4708,21 +3922,13 @@ export const v1OpenStackFlavorsGet = async (
   params?: V1OpenStackFlavorsGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackFlavorsGetResponse> => {
-  const res = await fetch(getV1OpenStackFlavorsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackFlavorsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackFlavorsGetResponse;
+  return customInstance<v1OpenStackFlavorsGetResponse>(
+    getV1OpenStackFlavorsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4763,21 +3969,13 @@ export const v1OpenStackKeypairsGet = async (
   params?: V1OpenStackKeypairsGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackKeypairsGetResponse> => {
-  const res = await fetch(getV1OpenStackKeypairsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackKeypairsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackKeypairsGetResponse;
+  return customInstance<v1OpenStackKeypairsGetResponse>(
+    getV1OpenStackKeypairsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4818,21 +4016,13 @@ export const v1OpenStackNetworksGet = async (
   params?: V1OpenStackNetworksGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackNetworksGetResponse> => {
-  const res = await fetch(getV1OpenStackNetworksGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackNetworksGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackNetworksGetResponse;
+  return customInstance<v1OpenStackNetworksGetResponse>(
+    getV1OpenStackNetworksGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4873,21 +4063,13 @@ export const v1OpenStackProjectsGet = async (
   params?: V1OpenStackProjectsGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackProjectsGetResponse> => {
-  const res = await fetch(getV1OpenStackProjectsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackProjectsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackProjectsGetResponse;
+  return customInstance<v1OpenStackProjectsGetResponse>(
+    getV1OpenStackProjectsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4928,21 +4110,13 @@ export const v1OpenStackRegionsGet = async (
   params?: V1OpenStackRegionsGetParams,
   options?: RequestInit,
 ): Promise<v1OpenStackRegionsGetResponse> => {
-  const res = await fetch(getV1OpenStackRegionsGetUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OpenStackRegionsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OpenStackRegionsGetResponse;
+  return customInstance<v1OpenStackRegionsGetResponse>(
+    getV1OpenStackRegionsGetUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -4970,23 +4144,15 @@ export const v1VsphereAccountValidate = async (
   v1VsphereCloudAccountBody: V1VsphereCloudAccountBody,
   options?: RequestInit,
 ): Promise<v1VsphereAccountValidateResponse> => {
-  const res = await fetch(getV1VsphereAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VsphereCloudAccountBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1VsphereAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1VsphereAccountValidateResponse;
+  return customInstance<v1VsphereAccountValidateResponse>(
+    getV1VsphereAccountValidateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VsphereCloudAccountBody),
+    },
+  );
 };
 
 /**
@@ -5027,21 +4193,13 @@ export const v1VsphereDatacenters = async (
   params?: V1VsphereDatacentersParams,
   options?: RequestInit,
 ): Promise<v1VsphereDatacentersResponse> => {
-  const res = await fetch(getV1VsphereDatacentersUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1VsphereDatacentersResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1VsphereDatacentersResponse;
+  return customInstance<v1VsphereDatacentersResponse>(
+    getV1VsphereDatacentersUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5086,24 +4244,13 @@ export const v1VsphereComputeClusterResources = async (
   params: V1VsphereComputeClusterResourcesParams,
   options?: RequestInit,
 ): Promise<v1VsphereComputeClusterResourcesResponse> => {
-  const res = await fetch(
+  return customInstance<v1VsphereComputeClusterResourcesResponse>(
     getV1VsphereComputeClusterResourcesUrl(uid, computecluster, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1VsphereComputeClusterResourcesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1VsphereComputeClusterResourcesResponse;
 };
 
 /**
@@ -5128,21 +4275,12 @@ export const v1VsphereEnv = async (
   v1VsphereCloudAccountBody: V1VsphereCloudAccountBody,
   options?: RequestInit,
 ): Promise<v1VsphereEnvResponse> => {
-  const res = await fetch(getV1VsphereEnvUrl(), {
+  return customInstance<v1VsphereEnvResponse>(getV1VsphereEnvUrl(), {
     ...options,
     method: "GET",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1VsphereCloudAccountBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1VsphereEnvResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1VsphereEnvResponse;
 };
 
 /**
@@ -5185,19 +4323,13 @@ export const v1CloudComputeRate = async (
   params: V1CloudComputeRateParams,
   options?: RequestInit,
 ): Promise<v1CloudComputeRateResponse> => {
-  const res = await fetch(getV1CloudComputeRateUrl(cloud, type, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CloudComputeRateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CloudComputeRateResponse;
+  return customInstance<v1CloudComputeRateResponse>(
+    getV1CloudComputeRateUrl(cloud, type, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -5240,17 +4372,11 @@ export const v1CloudStorageRate = async (
   params: V1CloudStorageRateParams,
   options?: RequestInit,
 ): Promise<v1CloudStorageRateResponse> => {
-  const res = await fetch(getV1CloudStorageRateUrl(cloud, type, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1CloudStorageRateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1CloudStorageRateResponse;
+  return customInstance<v1CloudStorageRateResponse>(
+    getV1CloudStorageRateUrl(cloud, type, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };

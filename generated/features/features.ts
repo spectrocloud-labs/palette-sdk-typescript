@@ -11,6 +11,8 @@
  */
 import type { FeatureUpdate, Features } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves the list of features
  */
@@ -32,19 +34,10 @@ export const getFeaturesListUrl = () => {
 export const featuresList = async (
   options?: RequestInit,
 ): Promise<featuresListResponse> => {
-  const res = await fetch(getFeaturesListUrl(), {
+  return customInstance<featuresListResponse>(getFeaturesListUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: featuresListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as featuresListResponse;
 };
 
 /**
@@ -70,19 +63,10 @@ export const featuresUpdate = async (
   featureUpdate: FeatureUpdate,
   options?: RequestInit,
 ): Promise<featuresUpdateResponse> => {
-  const res = await fetch(getFeaturesUpdateUrl(uid), {
+  return customInstance<featuresUpdateResponse>(getFeaturesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(featureUpdate),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: featuresUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as featuresUpdateResponse;
 };

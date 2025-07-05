@@ -25,6 +25,8 @@ import type {
   V1SpectroClusterProfilesBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Create cluster groups
  */
@@ -49,23 +51,15 @@ export const clusterGroupsCreate = async (
   clusterGroupEntity: ClusterGroupEntity,
   options?: RequestInit,
 ): Promise<clusterGroupsCreateResponse> => {
-  const res = await fetch(getClusterGroupsCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterGroupEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsCreateResponse;
+  return customInstance<clusterGroupsCreateResponse>(
+    getClusterGroupsCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterGroupEntity),
+    },
+  );
 };
 
 /**
@@ -94,21 +88,13 @@ export const clusterGroupsDeveloperCreditUsageGet = async (
   scope: "system" | "tenant",
   options?: RequestInit,
 ): Promise<clusterGroupsDeveloperCreditUsageGetResponse> => {
-  const res = await fetch(getClusterGroupsDeveloperCreditUsageGetUrl(scope), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsDeveloperCreditUsageGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsDeveloperCreditUsageGetResponse;
+  return customInstance<clusterGroupsDeveloperCreditUsageGetResponse>(
+    getClusterGroupsDeveloperCreditUsageGetUrl(scope),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -134,21 +120,13 @@ export const getClusterGroupsHostClusterSummaryUrl = () => {
 export const clusterGroupsHostClusterSummary = async (
   options?: RequestInit,
 ): Promise<clusterGroupsHostClusterSummaryResponse> => {
-  const res = await fetch(getClusterGroupsHostClusterSummaryUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsHostClusterSummaryResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsHostClusterSummaryResponse;
+  return customInstance<clusterGroupsHostClusterSummaryResponse>(
+    getClusterGroupsHostClusterSummaryUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -174,21 +152,13 @@ export const getClusterGroupsHostClusterMetadataUrl = () => {
 export const clusterGroupsHostClusterMetadata = async (
   options?: RequestInit,
 ): Promise<clusterGroupsHostClusterMetadataResponse> => {
-  const res = await fetch(getClusterGroupsHostClusterMetadataUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsHostClusterMetadataResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsHostClusterMetadataResponse;
+  return customInstance<clusterGroupsHostClusterMetadataResponse>(
+    getClusterGroupsHostClusterMetadataUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -229,21 +199,13 @@ export const clusterGroupsValidateName = async (
   params: ClusterGroupsValidateNameParams,
   options?: RequestInit,
 ): Promise<clusterGroupsValidateNameResponse> => {
-  const res = await fetch(getClusterGroupsValidateNameUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsValidateNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsValidateNameResponse;
+  return customInstance<clusterGroupsValidateNameResponse>(
+    getClusterGroupsValidateNameUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -270,21 +232,13 @@ export const clusterGroupsUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterGroupsUidDeleteResponse> => {
-  const res = await fetch(getClusterGroupsUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidDeleteResponse;
+  return customInstance<clusterGroupsUidDeleteResponse>(
+    getClusterGroupsUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -311,21 +265,13 @@ export const clusterGroupsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterGroupsUidGetResponse> => {
-  const res = await fetch(getClusterGroupsUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidGetResponse;
+  return customInstance<clusterGroupsUidGetResponse>(
+    getClusterGroupsUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -353,23 +299,15 @@ export const clusterGroupsUidHostClusterUpdate = async (
   clusterGroupHostClusterEntity: ClusterGroupHostClusterEntity,
   options?: RequestInit,
 ): Promise<clusterGroupsUidHostClusterUpdateResponse> => {
-  const res = await fetch(getClusterGroupsUidHostClusterUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(clusterGroupHostClusterEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidHostClusterUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidHostClusterUpdateResponse;
+  return customInstance<clusterGroupsUidHostClusterUpdateResponse>(
+    getClusterGroupsUidHostClusterUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(clusterGroupHostClusterEntity),
+    },
+  );
 };
 
 /**
@@ -397,23 +335,15 @@ export const clusterGroupsUidMetaUpdate = async (
   v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
 ): Promise<clusterGroupsUidMetaUpdateResponse> => {
-  const res = await fetch(getClusterGroupsUidMetaUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ObjectMetaBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidMetaUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidMetaUpdateResponse;
+  return customInstance<clusterGroupsUidMetaUpdateResponse>(
+    getClusterGroupsUidMetaUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ObjectMetaBody),
+    },
+  );
 };
 
 /**
@@ -440,21 +370,13 @@ export const clusterGroupsUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<clusterGroupsUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(getClusterGroupsUidPacksResolvedValuesGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidPacksResolvedValuesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidPacksResolvedValuesGetResponse;
+  return customInstance<clusterGroupsUidPacksResolvedValuesGetResponse>(
+    getClusterGroupsUidPacksResolvedValuesGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -497,21 +419,13 @@ export const clusterGroupsUidProfilesGet = async (
   params?: ClusterGroupsUidProfilesGetParams,
   options?: RequestInit,
 ): Promise<clusterGroupsUidProfilesGetResponse> => {
-  const res = await fetch(getClusterGroupsUidProfilesGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidProfilesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidProfilesGetResponse;
+  return customInstance<clusterGroupsUidProfilesGetResponse>(
+    getClusterGroupsUidProfilesGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -539,21 +453,13 @@ export const clusterGroupsUidProfilesUpdate = async (
   v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   options?: RequestInit,
 ): Promise<clusterGroupsUidProfilesUpdateResponse> => {
-  const res = await fetch(getClusterGroupsUidProfilesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1SpectroClusterProfilesBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: clusterGroupsUidProfilesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as clusterGroupsUidProfilesUpdateResponse;
+  return customInstance<clusterGroupsUidProfilesUpdateResponse>(
+    getClusterGroupsUidProfilesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1SpectroClusterProfilesBody),
+    },
+  );
 };

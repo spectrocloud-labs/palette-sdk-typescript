@@ -20,6 +20,8 @@ import type {
   PacksSummaryListParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of packs
  */
@@ -54,19 +56,13 @@ export const packsSummaryList = async (
   params?: PacksSummaryListParams,
   options?: RequestInit,
 ): Promise<packsSummaryListResponse> => {
-  const res = await fetch(getPacksSummaryListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsSummaryListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as packsSummaryListResponse;
+  return customInstance<packsSummaryListResponse>(
+    getPacksSummaryListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -104,21 +100,12 @@ export const packsSearch = async (
   params?: PacksSearchParams,
   options?: RequestInit,
 ): Promise<packsSearchResponse> => {
-  const res = await fetch(getPacksSearchUrl(params), {
+  return customInstance<packsSearchResponse>(getPacksSearchUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(packsFilterSpec),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsSearchResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as packsSearchResponse;
 };
 
 /**
@@ -159,24 +146,13 @@ export const packsNameRegistryUidList = async (
   params?: PacksNameRegistryUidListParams,
   options?: RequestInit,
 ): Promise<packsNameRegistryUidListResponse> => {
-  const res = await fetch(
+  return customInstance<packsNameRegistryUidListResponse>(
     getPacksNameRegistryUidListUrl(packName, registryUid, params),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsNameRegistryUidListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as packsNameRegistryUidListResponse;
 };
 
 /**
@@ -201,19 +177,13 @@ export const packsPackUidLogo = async (
   packUid: string,
   options?: RequestInit,
 ): Promise<packsPackUidLogoResponse> => {
-  const res = await fetch(getPacksPackUidLogoUrl(packUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsPackUidLogoResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as packsPackUidLogoResponse;
+  return customInstance<packsPackUidLogoResponse>(
+    getPacksPackUidLogoUrl(packUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -238,15 +208,10 @@ export const packsUid = async (
   uid: string,
   options?: RequestInit,
 ): Promise<packsUidResponse> => {
-  const res = await fetch(getPacksUidUrl(uid), {
+  return customInstance<packsUidResponse>(getPacksUidUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsUidResponse["data"] = body ? JSON.parse(body) : {};
-
-  return { data, status: res.status, headers: res.headers } as packsUidResponse;
 };
 
 /**
@@ -271,17 +236,8 @@ export const packsUidReadme = async (
   uid: string,
   options?: RequestInit,
 ): Promise<packsUidReadmeResponse> => {
-  const res = await fetch(getPacksUidReadmeUrl(uid), {
+  return customInstance<packsUidReadmeResponse>(getPacksUidReadmeUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: packsUidReadmeResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as packsUidReadmeResponse;
 };

@@ -32,6 +32,8 @@ import type {
   V1SsoLoginsParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * Creates a authentication request with the specified credentials
  * @summary Authenticates the user for the specified crendentials
@@ -68,21 +70,12 @@ export const authenticate = async (
   params?: AuthenticateParams,
   options?: RequestInit,
 ): Promise<authenticateResponse> => {
-  const res = await fetch(getAuthenticateUrl(params), {
+  return customInstance<authenticateResponse>(getAuthenticateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(authLogin),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: authenticateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as authenticateResponse;
 };
 
 /**
@@ -120,15 +113,10 @@ export const authOrg = async (
   params?: AuthOrgParams,
   options?: RequestInit,
 ): Promise<authOrgResponse> => {
-  const res = await fetch(getAuthOrgUrl(params), {
+  return customInstance<authOrgResponse>(getAuthOrgUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: authOrgResponse["data"] = body ? JSON.parse(body) : {};
-
-  return { data, status: res.status, headers: res.headers } as authOrgResponse;
 };
 
 /**
@@ -166,19 +154,13 @@ export const v1OidcCallback = async (
   params?: V1OidcCallbackParams,
   options?: RequestInit,
 ): Promise<v1OidcCallbackResponse> => {
-  const res = await fetch(getV1OidcCallbackUrl(org, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OidcCallbackResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OidcCallbackResponse;
+  return customInstance<v1OidcCallbackResponse>(
+    getV1OidcCallbackUrl(org, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -216,19 +198,10 @@ export const v1OidcLogout = async (
   params?: V1OidcLogoutParams,
   options?: RequestInit,
 ): Promise<v1OidcLogoutResponse> => {
-  const res = await fetch(getV1OidcLogoutUrl(org, params), {
+  return customInstance<v1OidcLogoutResponse>(getV1OidcLogoutUrl(org, params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1OidcLogoutResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1OidcLogoutResponse;
 };
 
 /**
@@ -275,24 +248,18 @@ export const v1SamlCallback = async (
     formUrlEncoded.append(`RelayState`, v1SamlCallbackBody.RelayState);
   }
 
-  const res = await fetch(getV1SamlCallbackUrl(org, params), {
-    ...options,
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      ...options?.headers,
+  return customInstance<v1SamlCallbackResponse>(
+    getV1SamlCallbackUrl(org, params),
+    {
+      ...options,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        ...options?.headers,
+      },
+      body: formUrlEncoded,
     },
-    body: formUrlEncoded,
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SamlCallbackResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SamlCallbackResponse;
+  );
 };
 
 /**
@@ -336,7 +303,7 @@ export const v1SamlLogout = async (
     formUrlEncoded.append(`SAMLResponse`, v1SamlLogoutBody.SAMLResponse);
   }
 
-  const res = await fetch(getV1SamlLogoutUrl(org, params), {
+  return customInstance<v1SamlLogoutResponse>(getV1SamlLogoutUrl(org, params), {
     ...options,
     method: "POST",
     headers: {
@@ -345,15 +312,6 @@ export const v1SamlLogout = async (
     },
     body: formUrlEncoded,
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SamlLogoutResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SamlLogoutResponse;
 };
 
 /**
@@ -378,19 +336,10 @@ export const getV1AuthOrgsUrl = () => {
 export const v1AuthOrgs = async (
   options?: RequestInit,
 ): Promise<v1AuthOrgsResponse> => {
-  const res = await fetch(getV1AuthOrgsUrl(), {
+  return customInstance<v1AuthOrgsResponse>(getV1AuthOrgsUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AuthOrgsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AuthOrgsResponse;
 };
 
 /**
@@ -417,21 +366,15 @@ export const passwordActivate = async (
   v1PasswordActivateBodyBody: V1PasswordActivateBodyBody,
   options?: RequestInit,
 ): Promise<passwordActivateResponse> => {
-  const res = await fetch(getPasswordActivateUrl(passwordToken), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PasswordActivateBodyBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: passwordActivateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as passwordActivateResponse;
+  return customInstance<passwordActivateResponse>(
+    getPasswordActivateUrl(passwordToken),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PasswordActivateBodyBody),
+    },
+  );
 };
 
 /**
@@ -458,21 +401,15 @@ export const passwordReset = async (
   v1PasswordActivateBodyBody: V1PasswordActivateBodyBody,
   options?: RequestInit,
 ): Promise<passwordResetResponse> => {
-  const res = await fetch(getPasswordResetUrl(passwordToken), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1PasswordActivateBodyBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: passwordResetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as passwordResetResponse;
+  return customInstance<passwordResetResponse>(
+    getPasswordResetUrl(passwordToken),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1PasswordActivateBodyBody),
+    },
+  );
 };
 
 /**
@@ -510,19 +447,10 @@ export const authRefresh = async (
   params?: AuthRefreshParams,
   options?: RequestInit,
 ): Promise<authRefreshResponse> => {
-  const res = await fetch(getAuthRefreshUrl(token, params), {
+  return customInstance<authRefreshResponse>(getAuthRefreshUrl(token, params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: authRefreshResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as authRefreshResponse;
 };
 
 /**
@@ -547,19 +475,10 @@ export const getV1SsoIdpsUrl = () => {
 export const v1SsoIdps = async (
   options?: RequestInit,
 ): Promise<v1SsoIdpsResponse> => {
-  const res = await fetch(getV1SsoIdpsUrl(), {
+  return customInstance<v1SsoIdpsResponse>(getV1SsoIdpsUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SsoIdpsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SsoIdpsResponse;
 };
 
 /**
@@ -597,19 +516,10 @@ export const v1SsoLogins = async (
   params?: V1SsoLoginsParams,
   options?: RequestInit,
 ): Promise<v1SsoLoginsResponse> => {
-  const res = await fetch(getV1SsoLoginsUrl(params), {
+  return customInstance<v1SsoLoginsResponse>(getV1SsoLoginsUrl(params), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SsoLoginsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SsoLoginsResponse;
 };
 
 /**
@@ -634,19 +544,13 @@ export const getV1AuthSsoProvidersUrl = () => {
 export const v1AuthSsoProviders = async (
   options?: RequestInit,
 ): Promise<v1AuthSsoProvidersResponse> => {
-  const res = await fetch(getV1AuthSsoProvidersUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AuthSsoProvidersResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AuthSsoProvidersResponse;
+  return customInstance<v1AuthSsoProvidersResponse>(
+    getV1AuthSsoProvidersUrl(),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -684,19 +588,13 @@ export const v1SsoCallback = async (
   params?: V1SsoCallbackParams,
   options?: RequestInit,
 ): Promise<v1SsoCallbackResponse> => {
-  const res = await fetch(getV1SsoCallbackUrl(ssoApp, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1SsoCallbackResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1SsoCallbackResponse;
+  return customInstance<v1SsoCallbackResponse>(
+    getV1SsoCallbackUrl(ssoApp, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -738,21 +636,13 @@ export const v1AuthUserOrgForgot = async (
   params: V1AuthUserOrgForgotParams,
   options?: RequestInit,
 ): Promise<v1AuthUserOrgForgotResponse> => {
-  const res = await fetch(getV1AuthUserOrgForgotUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: v1AuthUserOrgForgotResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as v1AuthUserOrgForgotResponse;
+  return customInstance<v1AuthUserOrgForgotResponse>(
+    getV1AuthUserOrgForgotUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -780,21 +670,13 @@ export const passwordResetRequest = async (
   passwordResetRequestBody: PasswordResetRequestBody,
   options?: RequestInit,
 ): Promise<passwordResetRequestResponse> => {
-  const res = await fetch(getPasswordResetRequestUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(passwordResetRequestBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: passwordResetRequestResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as passwordResetRequestResponse;
+  return customInstance<passwordResetRequestResponse>(
+    getPasswordResetRequestUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(passwordResetRequestBody),
+    },
+  );
 };

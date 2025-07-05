@@ -27,11 +27,42 @@ npm install palette-sdk-typescript
 
 ### Basic Usage
 
+You can use the SDK in two ways:
+
+#### Option 1: Pre-configured Client (Recommended)
+
+```typescript
+import { setupConfig } from "palette-sdk-typescript";
+
+// Create a pre-configured client
+const palette = setupConfig({
+  baseURL: "https://api.spectrocloud.com",
+  headers: {
+    ApiKey: process.env.PALETTE_API_KEY,
+    "Content-Type": "application/json",
+  },
+});
+
+// Now you can call any API method directly without passing config each time
+const clusters = await palette.spectroClustersGet("");
+const cluster = await palette.spectroClustersGet("cluster-uid");
+const newCluster = await palette.spectroClustersAwsCreate({
+  metadata: {
+    name: "my-cluster",
+    // ... other metadata
+  },
+  spec: {
+    // ... cluster specification
+  },
+});
+```
+
+#### Option 2: Individual Function Imports
+
 ```typescript
 import {
-  v1SpectroClustersGet,
-  v1SpectroClustersUidGet,
-  v1SpectroClustersAwsCreate,
+  spectroClustersGet,
+  spectroClustersAwsCreate,
 } from "palette-sdk-typescript";
 
 // Set up authentication config
@@ -40,28 +71,14 @@ const config = {
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
+    ProjectUID: process.env.PROJECT_UID,
   },
 };
 
-// Get all clusters
-const clusters = await v1SpectroClustersGet(config);
-
-// Get cluster details
-const cluster = await v1SpectroClustersUidGet("cluster-uid", config);
-
-// Create a new AWS cluster
-const newCluster = await v1SpectroClustersAwsCreate(
-  {
-    metadata: {
-      name: "my-cluster",
-      // ... other metadata
-    },
-    spec: {
-      // ... cluster specification
-    },
-  },
-  config
-);
+// Pass config to each function call
+const clusters = await spectroClustersGet("", undefined, config);
+const cluster = await spectroClustersGet("cluster-uid", undefined, config);
+const newCluster = await spectroClustersAwsCreate(clusterSpec, config);
 ```
 
 ### Authentication
@@ -82,71 +99,66 @@ export PALETTE_API_KEY="your-api-key-here"
 ### Cluster Management
 
 ```typescript
-import {
-  v1SpectroClustersGet,
-  v1SpectroClustersUidGet,
-  v1SpectroClustersAwsCreate,
-  v1SpectroClustersAzureCreate,
-  v1SpectroClustersDelete,
-} from "palette-sdk-typescript";
+import { setupConfig } from "palette-sdk-typescript";
 
 // Configuration with authentication
 // Add ProjectUID to the headers to specify the project to use. Otherwise API calls will default to the tenant scope and could result in bad request or no results.
-const config = {
+const palette = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
     ProjectUID: process.env.PROJECT_UID,
   },
-};
+});
 
-// List all clusters
-const clusters = await v1SpectroClustersGet(config);
+// List all clusters (empty string for listing all)
+const clusters = await palette.spectroClustersGet("");
 
 // Get cluster by UID
-const cluster = await v1SpectroClustersUidGet("cluster-uid", config);
+const cluster = await palette.spectroClustersGet("cluster-uid");
 
 // Create AWS cluster
-const awsCluster = await v1SpectroClustersAwsCreate(clusterSpec, config);
+const awsCluster = await palette.spectroClustersAwsCreate(clusterSpec);
 
 // Create Azure cluster
-const azureCluster = await v1SpectroClustersAzureCreate(clusterSpec, config);
+const azureCluster = await palette.spectroClustersAzureCreate(clusterSpec);
 
 // Delete cluster
-await v1SpectroClustersDelete("cluster-uid", config);
+await palette.spectroClustersDelete("cluster-uid");
+
+// Get cluster status
+const status = await palette.spectroClustersUidStatus("cluster-uid");
+
+// Get admin kubeconfig
+const kubeconfig =
+  await palette.spectroClustersUidAdminKubeConfig("cluster-uid");
 ```
 
 ### Advanced Configuration
 
-You can customize the HTTP client behavior by passing additional Fetch configuration options:
+You can customize the HTTP client behavior when creating the client:
 
 ```typescript
-import { v1SpectroClustersGet } from "palette-sdk-typescript";
+import { setupConfig } from "palette-sdk-typescript";
 
-const clusters = await v1SpectroClustersGet({
+const palette = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   timeout: 30000,
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
     "Content-Type": "application/json",
   },
-  // Any other RequestInit options
-  signal: AbortSignal.timeout(30000),
+});
+
+// All API calls will use the configured timeout and headers
+const clusters = await palette.spectroClustersGet("");
+
+// You can also pass additional RequestInit options to individual calls
+const cluster = await palette.spectroClustersGet("cluster-uid", undefined, {
+  signal: AbortSignal.timeout(10000), // Override timeout for this specific call
 });
 ```
-
-## API Reference
-
-The SDK provides access to all Palette API endpoints. You can import individual functions as needed:
-
-- **Clusters**: `v1SpectroClustersGet`, `v1SpectroClustersAwsCreate`, `v1SpectroClustersAzureCreate`, etc.
-- **Cloud Accounts**: `v1CloudAccountsAwsList`, `v1CloudAccountsAzureList`, etc.
-- **App Profiles**: `v1AppProfilesGet`, `v1AppProfilesCreate`, etc.
-- **Cluster Profiles**: `v1ClusterProfilesGet`, `v1ClusterProfilesCreate`, etc.
-- **Users & Teams**: `v1UsersGet`, `v1TeamsGet`, etc.
-- **Projects**: `v1ProjectsGet`, `v1ProjectsCreate`, etc.
-- **And many more...**
 
 ### Import Examples
 

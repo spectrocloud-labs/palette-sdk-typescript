@@ -25,6 +25,8 @@ import type {
   V1ManifestRefUpdateEntityBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Creates a application deployment in the virtual cluster
  */
@@ -49,23 +51,15 @@ export const appDeploymentsVirtualClusterCreate = async (
   appDeploymentVirtualClusterEntity: AppDeploymentVirtualClusterEntity,
   options?: RequestInit,
 ): Promise<appDeploymentsVirtualClusterCreateResponse> => {
-  const res = await fetch(getAppDeploymentsVirtualClusterCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appDeploymentVirtualClusterEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsVirtualClusterCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsVirtualClusterCreateResponse;
+  return customInstance<appDeploymentsVirtualClusterCreateResponse>(
+    getAppDeploymentsVirtualClusterCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appDeploymentVirtualClusterEntity),
+    },
+  );
 };
 
 /**
@@ -92,23 +86,15 @@ export const appDeploymentsClusterGroupCreate = async (
   appDeploymentClusterGroupEntity: AppDeploymentClusterGroupEntity,
   options?: RequestInit,
 ): Promise<appDeploymentsClusterGroupCreateResponse> => {
-  const res = await fetch(getAppDeploymentsClusterGroupCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appDeploymentClusterGroupEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsClusterGroupCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsClusterGroupCreateResponse;
+  return customInstance<appDeploymentsClusterGroupCreateResponse>(
+    getAppDeploymentsClusterGroupCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appDeploymentClusterGroupEntity),
+    },
+  );
 };
 
 /**
@@ -135,21 +121,13 @@ export const appDeploymentsUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsUidDeleteResponse> => {
-  const res = await fetch(getAppDeploymentsUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidDeleteResponse;
+  return customInstance<appDeploymentsUidDeleteResponse>(
+    getAppDeploymentsUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -176,21 +154,13 @@ export const appDeploymentsUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsUidGetResponse> => {
-  const res = await fetch(getAppDeploymentsUidGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidGetResponse;
+  return customInstance<appDeploymentsUidGetResponse>(
+    getAppDeploymentsUidGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -217,21 +187,13 @@ export const appDeploymentsUidProfileGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsUidProfileGetResponse> => {
-  const res = await fetch(getAppDeploymentsUidProfileGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidProfileGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidProfileGetResponse;
+  return customInstance<appDeploymentsUidProfileGetResponse>(
+    getAppDeploymentsUidProfileGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -259,23 +221,15 @@ export const appDeploymentsUidProfileUpdate = async (
   appDeploymentProfileEntity: AppDeploymentProfileEntity,
   options?: RequestInit,
 ): Promise<appDeploymentsUidProfileUpdateResponse> => {
-  const res = await fetch(getAppDeploymentsUidProfileUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(appDeploymentProfileEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidProfileUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidProfileUpdateResponse;
+  return customInstance<appDeploymentsUidProfileUpdateResponse>(
+    getAppDeploymentsUidProfileUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(appDeploymentProfileEntity),
+    },
+  );
 };
 
 /**
@@ -314,21 +268,13 @@ export const appDeploymentsUidProfileApply = async (
   params?: AppDeploymentsUidProfileApplyParams,
   options?: RequestInit,
 ): Promise<appDeploymentsUidProfileApplyResponse> => {
-  const res = await fetch(getAppDeploymentsUidProfileApplyUrl(uid, params), {
-    ...options,
-    method: "PATCH",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidProfileApplyResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidProfileApplyResponse;
+  return customInstance<appDeploymentsUidProfileApplyResponse>(
+    getAppDeploymentsUidProfileApplyUrl(uid, params),
+    {
+      ...options,
+      method: "PATCH",
+    },
+  );
 };
 
 /**
@@ -359,24 +305,13 @@ export const appDeploymentsProfileTiersUidGet = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsProfileTiersUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<appDeploymentsProfileTiersUidGetResponse>(
     getAppDeploymentsProfileTiersUidGetUrl(uid, tierUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsProfileTiersUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsProfileTiersUidGetResponse;
 };
 
 /**
@@ -408,7 +343,7 @@ export const appDeploymentsProfileTiersUidUpdate = async (
   v1AppTierUpdateEntityBody: V1AppTierUpdateEntityBody,
   options?: RequestInit,
 ): Promise<appDeploymentsProfileTiersUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<appDeploymentsProfileTiersUidUpdateResponse>(
     getAppDeploymentsProfileTiersUidUpdateUrl(uid, tierUid),
     {
       ...options,
@@ -417,17 +352,6 @@ export const appDeploymentsProfileTiersUidUpdate = async (
       body: JSON.stringify(v1AppTierUpdateEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsProfileTiersUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsProfileTiersUidUpdateResponse;
 };
 
 /**
@@ -458,24 +382,13 @@ export const appDeploymentsProfileTiersUidManifestsGet = async (
   tierUid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsProfileTiersUidManifestsGetResponse> => {
-  const res = await fetch(
+  return customInstance<appDeploymentsProfileTiersUidManifestsGetResponse>(
     getAppDeploymentsProfileTiersUidManifestsGetUrl(uid, tierUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsProfileTiersUidManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsProfileTiersUidManifestsGetResponse;
 };
 
 /**
@@ -508,24 +421,13 @@ export const appDeploymentsProfileTiersManifestsUidGet = async (
   manifestUid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsProfileTiersManifestsUidGetResponse> => {
-  const res = await fetch(
+  return customInstance<appDeploymentsProfileTiersManifestsUidGetResponse>(
     getAppDeploymentsProfileTiersManifestsUidGetUrl(uid, tierUid, manifestUid),
     {
       ...options,
       method: "GET",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsProfileTiersManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsProfileTiersManifestsUidGetResponse;
 };
 
 /**
@@ -559,7 +461,7 @@ export const appDeploymentsProfileTiersManifestsUidUpdate = async (
   v1ManifestRefUpdateEntityBody: V1ManifestRefUpdateEntityBody,
   options?: RequestInit,
 ): Promise<appDeploymentsProfileTiersManifestsUidUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<appDeploymentsProfileTiersManifestsUidUpdateResponse>(
     getAppDeploymentsProfileTiersManifestsUidUpdateUrl(
       uid,
       tierUid,
@@ -572,16 +474,6 @@ export const appDeploymentsProfileTiersManifestsUidUpdate = async (
       body: JSON.stringify(v1ManifestRefUpdateEntityBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsProfileTiersManifestsUidUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsProfileTiersManifestsUidUpdateResponse;
 };
 
 /**
@@ -608,19 +500,11 @@ export const appDeploymentsUidProfileVersionsGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<appDeploymentsUidProfileVersionsGetResponse> => {
-  const res = await fetch(getAppDeploymentsUidProfileVersionsGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: appDeploymentsUidProfileVersionsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as appDeploymentsUidProfileVersionsGetResponse;
+  return customInstance<appDeploymentsUidProfileVersionsGetResponse>(
+    getAppDeploymentsUidProfileVersionsGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };

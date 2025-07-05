@@ -28,6 +28,8 @@ import type {
   WorkspacesValidateNameParams,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Create workspace
  */
@@ -50,21 +52,12 @@ export const workspacesCreate = async (
   workspaceEntity: WorkspaceEntity,
   options?: RequestInit,
 ): Promise<workspacesCreateResponse> => {
-  const res = await fetch(getWorkspacesCreateUrl(), {
+  return customInstance<workspacesCreateResponse>(getWorkspacesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(workspaceEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesCreateResponse;
 };
 
 /**
@@ -91,21 +84,13 @@ export const teamsWorkspaceGetRoles = async (
   teamUid: string,
   options?: RequestInit,
 ): Promise<teamsWorkspaceGetRolesResponse> => {
-  const res = await fetch(getTeamsWorkspaceGetRolesUrl(teamUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsWorkspaceGetRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsWorkspaceGetRolesResponse;
+  return customInstance<teamsWorkspaceGetRolesResponse>(
+    getTeamsWorkspaceGetRolesUrl(teamUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -133,23 +118,15 @@ export const teamsWorkspaceRolesPut = async (
   v1WorkspacesRolesPatchBody: V1WorkspacesRolesPatchBody,
   options?: RequestInit,
 ): Promise<teamsWorkspaceRolesPutResponse> => {
-  const res = await fetch(getTeamsWorkspaceRolesPutUrl(teamUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1WorkspacesRolesPatchBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: teamsWorkspaceRolesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as teamsWorkspaceRolesPutResponse;
+  return customInstance<teamsWorkspaceRolesPutResponse>(
+    getTeamsWorkspaceRolesPutUrl(teamUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1WorkspacesRolesPatchBody),
+    },
+  );
 };
 
 /**
@@ -177,21 +154,13 @@ export const usersWorkspaceGetRoles = async (
   userUid: string,
   options?: RequestInit,
 ): Promise<usersWorkspaceGetRolesResponse> => {
-  const res = await fetch(getUsersWorkspaceGetRolesUrl(userUid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersWorkspaceGetRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersWorkspaceGetRolesResponse;
+  return customInstance<usersWorkspaceGetRolesResponse>(
+    getUsersWorkspaceGetRolesUrl(userUid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -220,23 +189,15 @@ export const usersWorkspaceRolesPut = async (
   v1WorkspacesRolesPatchBody: V1WorkspacesRolesPatchBody,
   options?: RequestInit,
 ): Promise<usersWorkspaceRolesPutResponse> => {
-  const res = await fetch(getUsersWorkspaceRolesPutUrl(userUid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1WorkspacesRolesPatchBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: usersWorkspaceRolesPutResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as usersWorkspaceRolesPutResponse;
+  return customInstance<usersWorkspaceRolesPutResponse>(
+    getUsersWorkspaceRolesPutUrl(userUid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1WorkspacesRolesPatchBody),
+    },
+  );
 };
 
 /**
@@ -277,21 +238,13 @@ export const workspacesValidateName = async (
   params: WorkspacesValidateNameParams,
   options?: RequestInit,
 ): Promise<workspacesValidateNameResponse> => {
-  const res = await fetch(getWorkspacesValidateNameUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesValidateNameResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesValidateNameResponse;
+  return customInstance<workspacesValidateNameResponse>(
+    getWorkspacesValidateNameUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -318,21 +271,13 @@ export const workspacesUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<workspacesUidDeleteResponse> => {
-  const res = await fetch(getWorkspacesUidDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidDeleteResponse;
+  return customInstance<workspacesUidDeleteResponse>(
+    getWorkspacesUidDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -357,19 +302,10 @@ export const workspacesUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<workspacesUidGetResponse> => {
-  const res = await fetch(getWorkspacesUidGetUrl(uid), {
+  return customInstance<workspacesUidGetResponse>(getWorkspacesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidGetResponse;
 };
 
 /**
@@ -397,23 +333,15 @@ export const workspaceOpsBackupDelete = async (
   workspaceBackupDeleteEntity: WorkspaceBackupDeleteEntity,
   options?: RequestInit,
 ): Promise<workspaceOpsBackupDeleteResponse> => {
-  const res = await fetch(getWorkspaceOpsBackupDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(workspaceBackupDeleteEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsBackupDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsBackupDeleteResponse;
+  return customInstance<workspaceOpsBackupDeleteResponse>(
+    getWorkspaceOpsBackupDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(workspaceBackupDeleteEntity),
+    },
+  );
 };
 
 /**
@@ -456,21 +384,13 @@ export const workspaceOpsBackupGet = async (
   params?: WorkspaceOpsBackupGetParams,
   options?: RequestInit,
 ): Promise<workspaceOpsBackupGetResponse> => {
-  const res = await fetch(getWorkspaceOpsBackupGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsBackupGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsBackupGetResponse;
+  return customInstance<workspaceOpsBackupGetResponse>(
+    getWorkspaceOpsBackupGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -498,23 +418,15 @@ export const workspaceOpsBackupCreate = async (
   v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
 ): Promise<workspaceOpsBackupCreateResponse> => {
-  const res = await fetch(getWorkspaceOpsBackupCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsBackupCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsBackupCreateResponse;
+  return customInstance<workspaceOpsBackupCreateResponse>(
+    getWorkspaceOpsBackupCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -542,23 +454,15 @@ export const workspaceOpsBackupUpdate = async (
   v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
 ): Promise<workspaceOpsBackupUpdateResponse> => {
-  const res = await fetch(getWorkspaceOpsBackupUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsBackupUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsBackupUpdateResponse;
+  return customInstance<workspaceOpsBackupUpdateResponse>(
+    getWorkspaceOpsBackupUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -586,23 +490,15 @@ export const workspaceOpsBackupOnDemandCreate = async (
   v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
 ): Promise<workspaceOpsBackupOnDemandCreateResponse> => {
-  const res = await fetch(getWorkspaceOpsBackupOnDemandCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsBackupOnDemandCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsBackupOnDemandCreateResponse;
+  return customInstance<workspaceOpsBackupOnDemandCreateResponse>(
+    getWorkspaceOpsBackupOnDemandCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
+    },
+  );
 };
 
 /**
@@ -630,23 +526,15 @@ export const workspacesUidClusterNamespacesUpdate = async (
   workspaceClusterNamespacesEntity: WorkspaceClusterNamespacesEntity,
   options?: RequestInit,
 ): Promise<workspacesUidClusterNamespacesUpdateResponse> => {
-  const res = await fetch(getWorkspacesUidClusterNamespacesUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(workspaceClusterNamespacesEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidClusterNamespacesUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidClusterNamespacesUpdateResponse;
+  return customInstance<workspacesUidClusterNamespacesUpdateResponse>(
+    getWorkspacesUidClusterNamespacesUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(workspaceClusterNamespacesEntity),
+    },
+  );
 };
 
 /**
@@ -674,23 +562,15 @@ export const workspacesClusterRbacCreate = async (
   v1ClusterRbacBody: V1ClusterRbacBody,
   options?: RequestInit,
 ): Promise<workspacesClusterRbacCreateResponse> => {
-  const res = await fetch(getWorkspacesClusterRbacCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ClusterRbacBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesClusterRbacCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesClusterRbacCreateResponse;
+  return customInstance<workspacesClusterRbacCreateResponse>(
+    getWorkspacesClusterRbacCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ClusterRbacBody),
+    },
+  );
 };
 
 /**
@@ -721,24 +601,13 @@ export const workspacesUidClusterRbacDelete = async (
   clusterRbacUid: string,
   options?: RequestInit,
 ): Promise<workspacesUidClusterRbacDeleteResponse> => {
-  const res = await fetch(
+  return customInstance<workspacesUidClusterRbacDeleteResponse>(
     getWorkspacesUidClusterRbacDeleteUrl(uid, clusterRbacUid),
     {
       ...options,
       method: "DELETE",
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidClusterRbacDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidClusterRbacDeleteResponse;
 };
 
 /**
@@ -770,7 +639,7 @@ export const workspacesUidClusterRbacUpdate = async (
   v1ClusterRbacBody: V1ClusterRbacBody,
   options?: RequestInit,
 ): Promise<workspacesUidClusterRbacUpdateResponse> => {
-  const res = await fetch(
+  return customInstance<workspacesUidClusterRbacUpdateResponse>(
     getWorkspacesUidClusterRbacUpdateUrl(uid, clusterRbacUid),
     {
       ...options,
@@ -779,17 +648,6 @@ export const workspacesUidClusterRbacUpdate = async (
       body: JSON.stringify(v1ClusterRbacBody),
     },
   );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidClusterRbacUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidClusterRbacUpdateResponse;
 };
 
 /**
@@ -817,23 +675,15 @@ export const workspacesUidMetaUpdate = async (
   v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
 ): Promise<workspacesUidMetaUpdateResponse> => {
-  const res = await fetch(getWorkspacesUidMetaUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ObjectMetaBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspacesUidMetaUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspacesUidMetaUpdateResponse;
+  return customInstance<workspacesUidMetaUpdateResponse>(
+    getWorkspacesUidMetaUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ObjectMetaBody),
+    },
+  );
 };
 
 /**
@@ -876,21 +726,13 @@ export const workspaceOpsRestoreGet = async (
   params?: WorkspaceOpsRestoreGetParams,
   options?: RequestInit,
 ): Promise<workspaceOpsRestoreGetResponse> => {
-  const res = await fetch(getWorkspaceOpsRestoreGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsRestoreGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsRestoreGetResponse;
+  return customInstance<workspaceOpsRestoreGetResponse>(
+    getWorkspaceOpsRestoreGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -918,21 +760,13 @@ export const workspaceOpsRestoreOnDemandCreate = async (
   workspaceRestoreConfigEntity: WorkspaceRestoreConfigEntity,
   options?: RequestInit,
 ): Promise<workspaceOpsRestoreOnDemandCreateResponse> => {
-  const res = await fetch(getWorkspaceOpsRestoreOnDemandCreateUrl(uid), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(workspaceRestoreConfigEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: workspaceOpsRestoreOnDemandCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as workspaceOpsRestoreOnDemandCreateResponse;
+  return customInstance<workspaceOpsRestoreOnDemandCreateResponse>(
+    getWorkspaceOpsRestoreOnDemandCreateUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(workspaceRestoreConfigEntity),
+    },
+  );
 };

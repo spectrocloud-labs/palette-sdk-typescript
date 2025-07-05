@@ -18,6 +18,8 @@ import type {
   V1ApiKeyActiveStateBody,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of API keys
  */
@@ -39,19 +41,10 @@ export const getApiKeysListUrl = () => {
 export const apiKeysList = async (
   options?: RequestInit,
 ): Promise<apiKeysListResponse> => {
-  const res = await fetch(getApiKeysListUrl(), {
+  return customInstance<apiKeysListResponse>(getApiKeysListUrl(), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysListResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysListResponse;
 };
 
 /**
@@ -76,21 +69,12 @@ export const apiKeysCreate = async (
   apiKeyEntity: ApiKeyEntity,
   options?: RequestInit,
 ): Promise<apiKeysCreateResponse> => {
-  const res = await fetch(getApiKeysCreateUrl(), {
+  return customInstance<apiKeysCreateResponse>(getApiKeysCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(apiKeyEntity),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysCreateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysCreateResponse;
 };
 
 /**
@@ -115,19 +99,10 @@ export const apiKeysUidDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<apiKeysUidDeleteResponse> => {
-  const res = await fetch(getApiKeysUidDeleteUrl(uid), {
+  return customInstance<apiKeysUidDeleteResponse>(getApiKeysUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysUidDeleteResponse;
 };
 
 /**
@@ -152,19 +127,10 @@ export const apiKeysUidGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<apiKeysUidGetResponse> => {
-  const res = await fetch(getApiKeysUidGetUrl(uid), {
+  return customInstance<apiKeysUidGetResponse>(getApiKeysUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysUidGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysUidGetResponse;
 };
 
 /**
@@ -192,23 +158,15 @@ export const apiKeysUidActiveState = async (
   v1ApiKeyActiveStateBody: V1ApiKeyActiveStateBody,
   options?: RequestInit,
 ): Promise<apiKeysUidActiveStateResponse> => {
-  const res = await fetch(getApiKeysUidActiveStateUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1ApiKeyActiveStateBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysUidActiveStateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysUidActiveStateResponse;
+  return customInstance<apiKeysUidActiveStateResponse>(
+    getApiKeysUidActiveStateUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1ApiKeyActiveStateBody),
+    },
+  );
 };
 
 /**
@@ -234,21 +192,12 @@ export const apiKeysUidUpdate = async (
   apiKeyUpdate: ApiKeyUpdate,
   options?: RequestInit,
 ): Promise<apiKeysUidUpdateResponse> => {
-  const res = await fetch(getApiKeysUidUpdateUrl(uid), {
+  return customInstance<apiKeysUidUpdateResponse>(getApiKeysUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(apiKeyUpdate),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysUidUpdateResponse;
 };
 
 /**
@@ -274,19 +223,10 @@ export const apiKeysUidState = async (
   v1ApiKeyActiveStateBody: V1ApiKeyActiveStateBody,
   options?: RequestInit,
 ): Promise<apiKeysUidStateResponse> => {
-  const res = await fetch(getApiKeysUidStateUrl(uid), {
+  return customInstance<apiKeysUidStateResponse>(getApiKeysUidStateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(v1ApiKeyActiveStateBody),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: apiKeysUidStateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as apiKeysUidStateResponse;
 };

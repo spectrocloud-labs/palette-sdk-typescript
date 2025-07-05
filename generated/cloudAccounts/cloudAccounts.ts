@@ -60,6 +60,8 @@ import type {
   VsphereDatacenters,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Retrieves a list of AWS cloud accounts
  */
@@ -98,21 +100,13 @@ export const cloudAccountsAwsList = async (
   params?: CloudAccountsAwsListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsAwsListResponse> => {
-  const res = await fetch(getCloudAccountsAwsListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAwsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAwsListResponse;
+  return customInstance<cloudAccountsAwsListResponse>(
+    getCloudAccountsAwsListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -139,23 +133,15 @@ export const cloudAccountsAwsCreate = async (
   awsAccount: AwsAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsAwsCreateResponse> => {
-  const res = await fetch(getCloudAccountsAwsCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAwsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAwsCreateResponse;
+  return customInstance<cloudAccountsAwsCreateResponse>(
+    getCloudAccountsAwsCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsAccount),
+    },
+  );
 };
 
 /**
@@ -182,21 +168,13 @@ export const cloudAccountsAwsDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsAwsDeleteResponse> => {
-  const res = await fetch(getCloudAccountsAwsDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAwsDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAwsDeleteResponse;
+  return customInstance<cloudAccountsAwsDeleteResponse>(
+    getCloudAccountsAwsDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -239,21 +217,13 @@ export const cloudAccountsAwsGet = async (
   params?: CloudAccountsAwsGetParams,
   options?: RequestInit,
 ): Promise<cloudAccountsAwsGetResponse> => {
-  const res = await fetch(getCloudAccountsAwsGetUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAwsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAwsGetResponse;
+  return customInstance<cloudAccountsAwsGetResponse>(
+    getCloudAccountsAwsGetUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -281,23 +251,15 @@ export const cloudAccountsAwsUpdate = async (
   awsAccount: AwsAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsAwsUpdateResponse> => {
-  const res = await fetch(getCloudAccountsAwsUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(awsAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAwsUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAwsUpdateResponse;
+  return customInstance<cloudAccountsAwsUpdateResponse>(
+    getCloudAccountsAwsUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(awsAccount),
+    },
+  );
 };
 
 /**
@@ -338,21 +300,13 @@ export const cloudAccountsAzureList = async (
   params?: CloudAccountsAzureListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsAzureListResponse> => {
-  const res = await fetch(getCloudAccountsAzureListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAzureListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAzureListResponse;
+  return customInstance<cloudAccountsAzureListResponse>(
+    getCloudAccountsAzureListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -379,23 +333,15 @@ export const cloudAccountsAzureCreate = async (
   azureAccount: AzureAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsAzureCreateResponse> => {
-  const res = await fetch(getCloudAccountsAzureCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(azureAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAzureCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAzureCreateResponse;
+  return customInstance<cloudAccountsAzureCreateResponse>(
+    getCloudAccountsAzureCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(azureAccount),
+    },
+  );
 };
 
 /**
@@ -422,21 +368,13 @@ export const cloudAccountsAzureDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsAzureDeleteResponse> => {
-  const res = await fetch(getCloudAccountsAzureDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAzureDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAzureDeleteResponse;
+  return customInstance<cloudAccountsAzureDeleteResponse>(
+    getCloudAccountsAzureDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -463,21 +401,13 @@ export const cloudAccountsAzureGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsAzureGetResponse> => {
-  const res = await fetch(getCloudAccountsAzureGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAzureGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAzureGetResponse;
+  return customInstance<cloudAccountsAzureGetResponse>(
+    getCloudAccountsAzureGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -505,23 +435,15 @@ export const cloudAccountsAzureUpdate = async (
   azureAccount: AzureAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsAzureUpdateResponse> => {
-  const res = await fetch(getCloudAccountsAzureUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(azureAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsAzureUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsAzureUpdateResponse;
+  return customInstance<cloudAccountsAzureUpdateResponse>(
+    getCloudAccountsAzureUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(azureAccount),
+    },
+  );
 };
 
 /**
@@ -564,21 +486,13 @@ export const cloudAccountsCustomList = async (
   params?: CloudAccountsCustomListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsCustomListResponse> => {
-  const res = await fetch(getCloudAccountsCustomListUrl(cloudType, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsCustomListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsCustomListResponse;
+  return customInstance<cloudAccountsCustomListResponse>(
+    getCloudAccountsCustomListUrl(cloudType, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -606,23 +520,15 @@ export const cloudAccountsCustomCreate = async (
   customAccountEntity: CustomAccountEntity,
   options?: RequestInit,
 ): Promise<cloudAccountsCustomCreateResponse> => {
-  const res = await fetch(getCloudAccountsCustomCreateUrl(cloudType), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(customAccountEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsCustomCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsCustomCreateResponse;
+  return customInstance<cloudAccountsCustomCreateResponse>(
+    getCloudAccountsCustomCreateUrl(cloudType),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(customAccountEntity),
+    },
+  );
 };
 
 /**
@@ -653,21 +559,13 @@ export const cloudAccountsCustomDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsCustomDeleteResponse> => {
-  const res = await fetch(getCloudAccountsCustomDeleteUrl(cloudType, uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsCustomDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsCustomDeleteResponse;
+  return customInstance<cloudAccountsCustomDeleteResponse>(
+    getCloudAccountsCustomDeleteUrl(cloudType, uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -698,21 +596,13 @@ export const cloudAccountsCustomGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsCustomGetResponse> => {
-  const res = await fetch(getCloudAccountsCustomGetUrl(cloudType, uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsCustomGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsCustomGetResponse;
+  return customInstance<cloudAccountsCustomGetResponse>(
+    getCloudAccountsCustomGetUrl(cloudType, uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -744,23 +634,15 @@ export const cloudAccountsCustomUpdate = async (
   customAccountEntity: CustomAccountEntity,
   options?: RequestInit,
 ): Promise<cloudAccountsCustomUpdateResponse> => {
-  const res = await fetch(getCloudAccountsCustomUpdateUrl(cloudType, uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(customAccountEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsCustomUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsCustomUpdateResponse;
+  return customInstance<cloudAccountsCustomUpdateResponse>(
+    getCloudAccountsCustomUpdateUrl(cloudType, uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(customAccountEntity),
+    },
+  );
 };
 
 /**
@@ -801,21 +683,13 @@ export const cloudAccountsGcpList = async (
   params?: CloudAccountsGcpListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsGcpListResponse> => {
-  const res = await fetch(getCloudAccountsGcpListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsGcpListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsGcpListResponse;
+  return customInstance<cloudAccountsGcpListResponse>(
+    getCloudAccountsGcpListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -842,23 +716,15 @@ export const cloudAccountsGcpCreate = async (
   v1GcpAccountEntityBody: V1GcpAccountEntityBody,
   options?: RequestInit,
 ): Promise<cloudAccountsGcpCreateResponse> => {
-  const res = await fetch(getCloudAccountsGcpCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpAccountEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsGcpCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsGcpCreateResponse;
+  return customInstance<cloudAccountsGcpCreateResponse>(
+    getCloudAccountsGcpCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpAccountEntityBody),
+    },
+  );
 };
 
 /**
@@ -885,21 +751,13 @@ export const cloudAccountsGcpDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsGcpDeleteResponse> => {
-  const res = await fetch(getCloudAccountsGcpDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsGcpDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsGcpDeleteResponse;
+  return customInstance<cloudAccountsGcpDeleteResponse>(
+    getCloudAccountsGcpDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -926,21 +784,13 @@ export const cloudAccountsGcpGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsGcpGetResponse> => {
-  const res = await fetch(getCloudAccountsGcpGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsGcpGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsGcpGetResponse;
+  return customInstance<cloudAccountsGcpGetResponse>(
+    getCloudAccountsGcpGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -968,23 +818,15 @@ export const cloudAccountsGcpUpdate = async (
   v1GcpAccountEntityBody: V1GcpAccountEntityBody,
   options?: RequestInit,
 ): Promise<cloudAccountsGcpUpdateResponse> => {
-  const res = await fetch(getCloudAccountsGcpUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1GcpAccountEntityBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsGcpUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsGcpUpdateResponse;
+  return customInstance<cloudAccountsGcpUpdateResponse>(
+    getCloudAccountsGcpUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1GcpAccountEntityBody),
+    },
+  );
 };
 
 /**
@@ -1025,21 +867,13 @@ export const cloudAccountsMaasList = async (
   params?: CloudAccountsMaasListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasListResponse> => {
-  const res = await fetch(getCloudAccountsMaasListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasListResponse;
+  return customInstance<cloudAccountsMaasListResponse>(
+    getCloudAccountsMaasListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1066,23 +900,15 @@ export const cloudAccountsMaasCreate = async (
   maasAccount: MaasAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasCreateResponse> => {
-  const res = await fetch(getCloudAccountsMaasCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(maasAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasCreateResponse;
+  return customInstance<cloudAccountsMaasCreateResponse>(
+    getCloudAccountsMaasCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(maasAccount),
+    },
+  );
 };
 
 /**
@@ -1109,21 +935,13 @@ export const cloudAccountsMaasDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasDeleteResponse> => {
-  const res = await fetch(getCloudAccountsMaasDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasDeleteResponse;
+  return customInstance<cloudAccountsMaasDeleteResponse>(
+    getCloudAccountsMaasDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1150,21 +968,13 @@ export const cloudAccountsMaasGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasGetResponse> => {
-  const res = await fetch(getCloudAccountsMaasGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasGetResponse;
+  return customInstance<cloudAccountsMaasGetResponse>(
+    getCloudAccountsMaasGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1192,23 +1002,15 @@ export const cloudAccountsMaasPatch = async (
   cloudAccountsPatch: CloudAccountsPatch,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasPatchResponse> => {
-  const res = await fetch(getCloudAccountsMaasPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(cloudAccountsPatch),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasPatchResponse;
+  return customInstance<cloudAccountsMaasPatchResponse>(
+    getCloudAccountsMaasPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(cloudAccountsPatch),
+    },
+  );
 };
 
 /**
@@ -1236,23 +1038,15 @@ export const cloudAccountsMaasUpdate = async (
   maasAccount: MaasAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsMaasUpdateResponse> => {
-  const res = await fetch(getCloudAccountsMaasUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(maasAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsMaasUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsMaasUpdateResponse;
+  return customInstance<cloudAccountsMaasUpdateResponse>(
+    getCloudAccountsMaasUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(maasAccount),
+    },
+  );
 };
 
 /**
@@ -1277,19 +1071,13 @@ export const maasAccountsUidAzs = async (
   uid: string,
   options?: RequestInit,
 ): Promise<maasAccountsUidAzsResponse> => {
-  const res = await fetch(getMaasAccountsUidAzsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: maasAccountsUidAzsResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as maasAccountsUidAzsResponse;
+  return customInstance<maasAccountsUidAzsResponse>(
+    getMaasAccountsUidAzsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1316,21 +1104,13 @@ export const maasAccountsUidDomains = async (
   uid: string,
   options?: RequestInit,
 ): Promise<maasAccountsUidDomainsResponse> => {
-  const res = await fetch(getMaasAccountsUidDomainsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: maasAccountsUidDomainsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as maasAccountsUidDomainsResponse;
+  return customInstance<maasAccountsUidDomainsResponse>(
+    getMaasAccountsUidDomainsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1357,21 +1137,13 @@ export const maasAccountsUidPools = async (
   uid: string,
   options?: RequestInit,
 ): Promise<maasAccountsUidPoolsResponse> => {
-  const res = await fetch(getMaasAccountsUidPoolsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: maasAccountsUidPoolsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as maasAccountsUidPoolsResponse;
+  return customInstance<maasAccountsUidPoolsResponse>(
+    getMaasAccountsUidPoolsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1398,21 +1170,13 @@ export const maasAccountsUidSubnets = async (
   uid: string,
   options?: RequestInit,
 ): Promise<maasAccountsUidSubnetsResponse> => {
-  const res = await fetch(getMaasAccountsUidSubnetsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: maasAccountsUidSubnetsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as maasAccountsUidSubnetsResponse;
+  return customInstance<maasAccountsUidSubnetsResponse>(
+    getMaasAccountsUidSubnetsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1439,21 +1203,13 @@ export const maasAccountsUidTags = async (
   uid: string,
   options?: RequestInit,
 ): Promise<maasAccountsUidTagsResponse> => {
-  const res = await fetch(getMaasAccountsUidTagsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: maasAccountsUidTagsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as maasAccountsUidTagsResponse;
+  return customInstance<maasAccountsUidTagsResponse>(
+    getMaasAccountsUidTagsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1494,21 +1250,13 @@ export const cloudAccountsOpenStackList = async (
   params?: CloudAccountsOpenStackListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsOpenStackListResponse> => {
-  const res = await fetch(getCloudAccountsOpenStackListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsOpenStackListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsOpenStackListResponse;
+  return customInstance<cloudAccountsOpenStackListResponse>(
+    getCloudAccountsOpenStackListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1535,23 +1283,15 @@ export const cloudAccountsOpenStackCreate = async (
   openStackAccount: OpenStackAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsOpenStackCreateResponse> => {
-  const res = await fetch(getCloudAccountsOpenStackCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(openStackAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsOpenStackCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsOpenStackCreateResponse;
+  return customInstance<cloudAccountsOpenStackCreateResponse>(
+    getCloudAccountsOpenStackCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(openStackAccount),
+    },
+  );
 };
 
 /**
@@ -1578,21 +1318,13 @@ export const cloudAccountsOpenStackDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsOpenStackDeleteResponse> => {
-  const res = await fetch(getCloudAccountsOpenStackDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsOpenStackDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsOpenStackDeleteResponse;
+  return customInstance<cloudAccountsOpenStackDeleteResponse>(
+    getCloudAccountsOpenStackDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -1619,21 +1351,13 @@ export const cloudAccountsOpenStackGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsOpenStackGetResponse> => {
-  const res = await fetch(getCloudAccountsOpenStackGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsOpenStackGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsOpenStackGetResponse;
+  return customInstance<cloudAccountsOpenStackGetResponse>(
+    getCloudAccountsOpenStackGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1661,23 +1385,15 @@ export const cloudAccountsOpenStackUpdate = async (
   openStackAccount: OpenStackAccount,
   options?: RequestInit,
 ): Promise<cloudAccountsOpenStackUpdateResponse> => {
-  const res = await fetch(getCloudAccountsOpenStackUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(openStackAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsOpenStackUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsOpenStackUpdateResponse;
+  return customInstance<cloudAccountsOpenStackUpdateResponse>(
+    getCloudAccountsOpenStackUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(openStackAccount),
+    },
+  );
 };
 
 /**
@@ -1720,21 +1436,13 @@ export const openstackAccountsUidAzs = async (
   params?: OpenstackAccountsUidAzsParams,
   options?: RequestInit,
 ): Promise<openstackAccountsUidAzsResponse> => {
-  const res = await fetch(getOpenstackAccountsUidAzsUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidAzsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidAzsResponse;
+  return customInstance<openstackAccountsUidAzsResponse>(
+    getOpenstackAccountsUidAzsUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1777,21 +1485,13 @@ export const openstackAccountsUidFlavors = async (
   params?: OpenstackAccountsUidFlavorsParams,
   options?: RequestInit,
 ): Promise<openstackAccountsUidFlavorsResponse> => {
-  const res = await fetch(getOpenstackAccountsUidFlavorsUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidFlavorsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidFlavorsResponse;
+  return customInstance<openstackAccountsUidFlavorsResponse>(
+    getOpenstackAccountsUidFlavorsUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1834,21 +1534,13 @@ export const openstackAccountsUidKeypairs = async (
   params?: OpenstackAccountsUidKeypairsParams,
   options?: RequestInit,
 ): Promise<openstackAccountsUidKeypairsResponse> => {
-  const res = await fetch(getOpenstackAccountsUidKeypairsUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidKeypairsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidKeypairsResponse;
+  return customInstance<openstackAccountsUidKeypairsResponse>(
+    getOpenstackAccountsUidKeypairsUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1891,21 +1583,13 @@ export const openstackAccountsUidNetworks = async (
   params?: OpenstackAccountsUidNetworksParams,
   options?: RequestInit,
 ): Promise<openstackAccountsUidNetworksResponse> => {
-  const res = await fetch(getOpenstackAccountsUidNetworksUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidNetworksResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidNetworksResponse;
+  return customInstance<openstackAccountsUidNetworksResponse>(
+    getOpenstackAccountsUidNetworksUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1932,21 +1616,13 @@ export const openstackAccountsUidProjects = async (
   uid: string,
   options?: RequestInit,
 ): Promise<openstackAccountsUidProjectsResponse> => {
-  const res = await fetch(getOpenstackAccountsUidProjectsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidProjectsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidProjectsResponse;
+  return customInstance<openstackAccountsUidProjectsResponse>(
+    getOpenstackAccountsUidProjectsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -1973,21 +1649,13 @@ export const openstackAccountsUidRegions = async (
   uid: string,
   options?: RequestInit,
 ): Promise<openstackAccountsUidRegionsResponse> => {
-  const res = await fetch(getOpenstackAccountsUidRegionsUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: openstackAccountsUidRegionsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as openstackAccountsUidRegionsResponse;
+  return customInstance<openstackAccountsUidRegionsResponse>(
+    getOpenstackAccountsUidRegionsUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2028,21 +1696,13 @@ export const cloudAccountsListSummary = async (
   params?: CloudAccountsListSummaryParams,
   options?: RequestInit,
 ): Promise<cloudAccountsListSummaryResponse> => {
-  const res = await fetch(getCloudAccountsListSummaryUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsListSummaryResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsListSummaryResponse;
+  return customInstance<cloudAccountsListSummaryResponse>(
+    getCloudAccountsListSummaryUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2083,21 +1743,13 @@ export const cloudAccountsVsphereList = async (
   params?: CloudAccountsVsphereListParams,
   options?: RequestInit,
 ): Promise<cloudAccountsVsphereListResponse> => {
-  const res = await fetch(getCloudAccountsVsphereListUrl(params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsVsphereListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsVsphereListResponse;
+  return customInstance<cloudAccountsVsphereListResponse>(
+    getCloudAccountsVsphereListUrl(params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2124,23 +1776,15 @@ export const cloudAccountsVsphereCreate = async (
   v1VsphereAccountBody: V1VsphereAccountBody,
   options?: RequestInit,
 ): Promise<cloudAccountsVsphereCreateResponse> => {
-  const res = await fetch(getCloudAccountsVsphereCreateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VsphereAccountBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsVsphereCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsVsphereCreateResponse;
+  return customInstance<cloudAccountsVsphereCreateResponse>(
+    getCloudAccountsVsphereCreateUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VsphereAccountBody),
+    },
+  );
 };
 
 /**
@@ -2167,21 +1811,13 @@ export const cloudAccountsVsphereDelete = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsVsphereDeleteResponse> => {
-  const res = await fetch(getCloudAccountsVsphereDeleteUrl(uid), {
-    ...options,
-    method: "DELETE",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsVsphereDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsVsphereDeleteResponse;
+  return customInstance<cloudAccountsVsphereDeleteResponse>(
+    getCloudAccountsVsphereDeleteUrl(uid),
+    {
+      ...options,
+      method: "DELETE",
+    },
+  );
 };
 
 /**
@@ -2208,21 +1844,13 @@ export const cloudAccountsVsphereGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<cloudAccountsVsphereGetResponse> => {
-  const res = await fetch(getCloudAccountsVsphereGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsVsphereGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsVsphereGetResponse;
+  return customInstance<cloudAccountsVsphereGetResponse>(
+    getCloudAccountsVsphereGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2250,23 +1878,15 @@ export const cloudAccountsVsphereUpdate = async (
   v1VsphereAccountBody: V1VsphereAccountBody,
   options?: RequestInit,
 ): Promise<cloudAccountsVsphereUpdateResponse> => {
-  const res = await fetch(getCloudAccountsVsphereUpdateUrl(uid), {
-    ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(v1VsphereAccountBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: cloudAccountsVsphereUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as cloudAccountsVsphereUpdateResponse;
+  return customInstance<cloudAccountsVsphereUpdateResponse>(
+    getCloudAccountsVsphereUpdateUrl(uid),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(v1VsphereAccountBody),
+    },
+  );
 };
 
 /**
@@ -2305,21 +1925,13 @@ export const vsphereAccountsUidClusterRes = async (
   params: VsphereAccountsUidClusterResParams,
   options?: RequestInit,
 ): Promise<vsphereAccountsUidClusterResResponse> => {
-  const res = await fetch(getVsphereAccountsUidClusterResUrl(uid, params), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereAccountsUidClusterResResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereAccountsUidClusterResResponse;
+  return customInstance<vsphereAccountsUidClusterResResponse>(
+    getVsphereAccountsUidClusterResUrl(uid, params),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2346,21 +1958,13 @@ export const vsphereAccountsUidDatacenters = async (
   uid: string,
   options?: RequestInit,
 ): Promise<vsphereAccountsUidDatacentersResponse> => {
-  const res = await fetch(getVsphereAccountsUidDatacentersUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: vsphereAccountsUidDatacentersResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as vsphereAccountsUidDatacentersResponse;
+  return customInstance<vsphereAccountsUidDatacentersResponse>(
+    getVsphereAccountsUidDatacentersUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -2388,21 +1992,13 @@ export const accountsGeolocationPatch = async (
   geolocationLatlong: GeolocationLatlong,
   options?: RequestInit,
 ): Promise<accountsGeolocationPatchResponse> => {
-  const res = await fetch(getAccountsGeolocationPatchUrl(uid), {
-    ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(geolocationLatlong),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: accountsGeolocationPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as accountsGeolocationPatchResponse;
+  return customInstance<accountsGeolocationPatchResponse>(
+    getAccountsGeolocationPatchUrl(uid),
+    {
+      ...options,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(geolocationLatlong),
+    },
+  );
 };

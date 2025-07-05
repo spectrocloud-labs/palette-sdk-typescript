@@ -20,6 +20,12 @@ export default defineConfig({
       schemas: "./generated/schemas",
       mode: "tags-split",
       prettier: true,
+      override: {
+        mutator: {
+          path: "./generated/httpClient/customClient.ts",
+          name: "customInstance",
+        },
+      },
     },
   },
 });

@@ -15,6 +15,8 @@ import type {
   PcgServiceKubectlCommands,
 } from ".././schemas";
 
+import { customInstance } from ".././httpClient/customClient";
+
 /**
  * @summary Returns the private gateway manifest link
  */
@@ -37,21 +39,12 @@ export const pcgSelfHosted = async (
   pcgSelfHostedParams: PcgSelfHostedParams,
   options?: RequestInit,
 ): Promise<pcgSelfHostedResponse> => {
-  const res = await fetch(getPcgSelfHostedUrl(), {
+  return customInstance<pcgSelfHostedResponse>(getPcgSelfHostedUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(pcgSelfHostedParams),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: pcgSelfHostedResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as pcgSelfHostedResponse;
 };
 
 /**
@@ -77,21 +70,12 @@ export const pcgUidRegister = async (
   pairingCode: PairingCode,
   options?: RequestInit,
 ): Promise<pcgUidRegisterResponse> => {
-  const res = await fetch(getPcgUidRegisterUrl(uid), {
+  return customInstance<pcgUidRegisterResponse>(getPcgUidRegisterUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
     body: JSON.stringify(pairingCode),
   });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: pcgUidRegisterResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as pcgUidRegisterResponse;
 };
 
 /**
@@ -118,21 +102,13 @@ export const pcgUidAllyManifestGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<pcgUidAllyManifestGetResponse> => {
-  const res = await fetch(getPcgUidAllyManifestGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: pcgUidAllyManifestGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as pcgUidAllyManifestGetResponse;
+  return customInstance<pcgUidAllyManifestGetResponse>(
+    getPcgUidAllyManifestGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
 
 /**
@@ -159,19 +135,11 @@ export const pcgUidJetManifestGet = async (
   uid: string,
   options?: RequestInit,
 ): Promise<pcgUidJetManifestGetResponse> => {
-  const res = await fetch(getPcgUidJetManifestGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: pcgUidJetManifestGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as pcgUidJetManifestGetResponse;
+  return customInstance<pcgUidJetManifestGetResponse>(
+    getPcgUidJetManifestGetUrl(uid),
+    {
+      ...options,
+      method: "GET",
+    },
+  );
 };
