@@ -8,7 +8,7 @@
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { setupConfig } from "../palette";
+import { setupConfig, type PaletteAPIFunctions } from "../palette";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -45,7 +45,7 @@ async function testClusterProfiles() {
 
   try {
     // Create a pre-configured client
-    const palette = setupConfig({
+    const palette: PaletteAPIFunctions = setupConfig({
       baseURL: BASE_URL,
       headers: {
         ApiKey: API_KEY,
@@ -64,7 +64,9 @@ async function testClusterProfiles() {
     ];
 
     for (const funcName of functions) {
-      if (typeof (palette as any)[funcName] === "function") {
+      if (
+        typeof palette[funcName as keyof PaletteAPIFunctions] === "function"
+      ) {
         console.log(`✅ ${funcName} is available through client`);
       } else {
         throw new Error(`${funcName} is not available through client`);
@@ -75,7 +77,7 @@ async function testClusterProfiles() {
     console.log("");
     console.log("🔍 Testing API call through client...");
 
-    const metadataResponse = await (palette as any).clusterProfilesMetadata();
+    const metadataResponse = await palette.clusterProfilesMetadata();
     if (metadataResponse && metadataResponse.data) {
       console.log("✅ clusterProfilesMetadata call successful");
       console.log(

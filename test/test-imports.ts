@@ -16,7 +16,7 @@ import {
 } from "../palette/index";
 
 // Test importing the client wrapper
-import { setupConfig } from "../palette";
+import { setupConfig, type PaletteAPIFunctions } from "../palette";
 
 // Test importing types from local palette files
 import type { SpectroCluster, AwsAccount, AuthLogin } from "../palette/index";
@@ -42,7 +42,7 @@ console.log("\n🎉 All imports successful! SDK is working correctly.");
 // Test the client wrapper
 console.log("\n🔧 Testing client wrapper...");
 try {
-  const palette = setupConfig({
+  const palette: PaletteAPIFunctions = setupConfig({
     baseURL: "https://api.spectrocloud.com",
     headers: {
       ApiKey: "test-key",
@@ -61,7 +61,7 @@ try {
   ];
 
   clientFunctions.forEach((funcName) => {
-    if (typeof (palette as any)[funcName] === "function") {
+    if (typeof palette[funcName as keyof PaletteAPIFunctions] === "function") {
       console.log(`  ✅ ${funcName} is available through client`);
     } else {
       console.log(`  ❌ ${funcName} is not available through client`);

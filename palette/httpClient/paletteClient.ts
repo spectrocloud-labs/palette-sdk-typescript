@@ -13,7 +13,16 @@ export interface PaletteClientConfig {
   timeout?: number;
 }
 
-export class PaletteClient {
+// Create a type that includes only the actual API functions (exclude types, classes, etc.)
+export type PaletteAPIFunctions = {
+  [K in keyof typeof PaletteAPI as (typeof PaletteAPI)[K] extends (
+    ...args: any[]
+  ) => any
+    ? K
+    : never]: (typeof PaletteAPI)[K];
+};
+
+class PaletteClientInternal {
   private config: PaletteConfig;
 
   constructor(config: PaletteClientConfig) {
@@ -22,10 +31,12 @@ export class PaletteClient {
       headers: config.headers || {},
       timeout: config.timeout,
     };
+  }
 
+  private createProxy(): PaletteAPIFunctions {
     // Create a proxy that intercepts all method calls
-    return new Proxy(this, {
-      get(target, prop: string | symbol) {
+    const proxy = new Proxy({} as any, {
+      get: (target, prop: string | symbol) => {
         // If it's a string property and exists in the generated API
         if (typeof prop === "string" && prop in PaletteAPI) {
           const originalFunction = (PaletteAPI as any)[prop];
@@ -40,7 +51,7 @@ export class PaletteClient {
               // Add the options parameter with paletteConfig
               // The options parameter is always the last parameter
               newArgs.push({
-                paletteConfig: target.config,
+                paletteConfig: this.config,
               });
 
               return originalFunction(...newArgs);
@@ -48,10 +59,16 @@ export class PaletteClient {
           }
         }
 
-        // For non-function properties, return the original property
-        return (target as any)[prop];
+        // Return undefined for non-existent properties
+        return undefined;
       },
     });
+
+    return proxy as PaletteAPIFunctions;
+  }
+
+  public getClient(): PaletteAPIFunctions {
+    return this.createProxy();
   }
 }
 
@@ -76,8 +93,9 @@ export class PaletteClient {
  * const clusters = await palette.spectroClustersGet("");
  * ```
  */
-export function setupConfig(config: PaletteClientConfig): PaletteClient {
-  return new PaletteClient(config);
+export function setupConfig(config: PaletteClientConfig): PaletteAPIFunctions {
+  const client = new PaletteClientInternal(config);
+  return client.getClient();
 }
 
 // Re-export the PaletteConfig type for convenience

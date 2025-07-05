@@ -8,7 +8,8 @@ A TypeScript SDK for the Spectro Cloud Palette API. This package provides a comp
 ## Features
 
 - **Complete API Coverage**: All Palette API endpoints are supported
-- **TypeScript Support**: Full type definitions for all API requests and responses
+- **Comprehensive TypeScript Support**: Full type definitions for all API requests and responses.
+- **No Type Casting Required**: Clean, typed API calls without `any` casting
 - **Fetch-based**: Built on the modern Fetch API
 - **Tree-shakable**: Import only the functions you need
 - **Client Pattern**: Pre-configured client for simplified usage
@@ -44,10 +45,10 @@ export PROJECT_UID="your-project-uid-here"
 The recommended way to use the SDK is with the pre-configured client pattern:
 
 ```typescript
-import { setupConfig } from "palette-sdk-typescript";
+import { setupConfig, type PaletteAPIFunctions } from "palette-sdk-typescript";
 
-// Create a pre-configured client
-const palette = setupConfig({
+// Create a pre-configured client with full typing support
+const palette: PaletteAPIFunctions = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
@@ -68,9 +69,9 @@ If a project UID is not specified, then the Palette API will use the tenant scop
 You can customize the HTTP client behavior when creating the client:
 
 ```typescript
-import { setupConfig } from "palette-sdk-typescript";
+import { setupConfig, type PaletteAPIFunctions } from "palette-sdk-typescript";
 
-const palette = setupConfig({
+const palette: PaletteAPIFunctions = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   timeout: 30000,
   headers: {
@@ -118,8 +119,8 @@ const awsAccounts = await cloudAccountsAwsList(config);
 ### Import Examples
 
 ```typescript
-// Primary: Import the client setup function
-import { setupConfig } from "palette-sdk-typescript";
+// Primary: Import the client setup function and types
+import { setupConfig, type PaletteAPIFunctions } from "palette-sdk-typescript";
 
 // Alternative: Import specific functions you need
 import {
@@ -130,6 +131,7 @@ import {
 
 // Import types
 import type {
+  PaletteAPIFunctions,
   SpectroCluster,
   AwsAccount,
   ClusterProfile,
@@ -146,12 +148,13 @@ The SDK includes TypeScript definitions:
 ```typescript
 import {
   setupConfig,
-  SpectroCluster,
-  AwsCloudAccount,
+  type PaletteAPIFunctions,
+  type SpectroCluster,
+  type AwsCloudAccount,
 } from "palette-sdk-typescript";
 
-// Create typed client
-const palette = setupConfig({
+// Create typed client with full API method typing
+const palette: PaletteAPIFunctions = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,
@@ -183,9 +186,9 @@ const newAccount = await palette.cloudAccountsAwsCreate(cloudAccount);
 The SDK uses the Fetch API for HTTP requests, so you can handle errors using standard JavaScript error handling:
 
 ```typescript
-import { setupConfig } from "palette-sdk-typescript";
+import { setupConfig, type PaletteAPIFunctions } from "palette-sdk-typescript";
 
-const palette = setupConfig({
+const palette: PaletteAPIFunctions = setupConfig({
   baseURL: "https://api.spectrocloud.com",
   headers: {
     ApiKey: process.env.PALETTE_API_KEY,

@@ -39,5 +39,9 @@ export * from "./workspaces/workspaces";
 export * from "./schemas";
 
 // Export the client wrapper
-export { setupConfig, PaletteClient } from "./httpClient/paletteClient";
-export type { PaletteClientConfig, PaletteConfig } from "./httpClient/paletteClient";
+export { setupConfig } from "./httpClient/paletteClient";
+export type {
+  PaletteClientConfig,
+  PaletteConfig,
+  PaletteAPIFunctions,
+} from "./httpClient/paletteClient";

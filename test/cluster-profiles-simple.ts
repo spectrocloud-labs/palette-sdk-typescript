@@ -8,7 +8,13 @@
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { setupConfig } from "../palette";
+import {
+  setupConfig,
+  type PaletteAPIFunctions,
+  type ClusterProfilesFilterSpec,
+  type ClusterProfilesFilterSummaryParams,
+  type clusterProfilesFilterSummaryResponse,
+} from "../palette";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -40,8 +46,8 @@ if (!API_KEY) {
 async function testClusterProfiles() {
   console.log("🔍 Testing cluster profiles function availability...");
 
-  // Create a pre-configured client
-  const palette = setupConfig({
+  // Create a pre-configured client with full typing support
+  const palette: PaletteAPIFunctions = setupConfig({
     baseURL: BASE_URL,
     headers: {
       ApiKey: API_KEY,
@@ -51,7 +57,7 @@ async function testClusterProfiles() {
   });
 
   // Test that the function is available
-  if (typeof (palette as any).clusterProfilesFilterSummary === "function") {
+  if (typeof palette.clusterProfilesFilterSummary === "function") {
     console.log("✅ clusterProfilesFilterSummary is available as a function");
   } else {
     console.error(
@@ -63,19 +69,24 @@ async function testClusterProfiles() {
   console.log("🔍 Retrieving cluster profiles from Palette API...");
 
   try {
-    // Call the API using the client wrapper
-    const response = await (palette as any).clusterProfilesFilterSummary(
-      {
-        // Filter criteria (empty object means get all)
-        metadata: {
-          annotations: {},
-          labels: {},
-        },
+    // Define the filter spec with proper typing
+    const filterSpec: ClusterProfilesFilterSpec = {
+      // Filter criteria (empty filter means get all)
+      filter: {
+        // Optional filter properties can be added here
       },
-      {
-        // Query parameters (empty object means use defaults)
-      }
-    );
+      // Optional sort criteria
+      sort: [],
+    };
+
+    // Define query parameters with proper typing
+    const queryParams: ClusterProfilesFilterSummaryParams = {
+      // Query parameters (empty object means use defaults)
+    };
+
+    // Call the API using the client wrapper with full type safety - no casting needed!
+    const response: clusterProfilesFilterSummaryResponse =
+      await palette.clusterProfilesFilterSummary(filterSpec, queryParams);
 
     if (response && response.data && Array.isArray(response.data.items)) {
       console.log(
@@ -83,11 +94,13 @@ async function testClusterProfiles() {
       );
 
       // Display the cluster profiles
-      response.data.items.forEach((profile: any, index: number) => {
-        console.log(`${index + 1}. ${profile.metadata.name}`);
-        console.log(`   UID: ${profile.metadata.uid}`);
+      response.data.items.forEach((profile, index) => {
+        console.log(`${index + 1}. ${profile.metadata?.name || "Unknown"}`);
+        console.log(`   UID: ${profile.metadata?.uid || "Unknown"}`);
         console.log(`   Version: ${profile.specSummary?.version || "N/A"}`);
-        console.log(`   Created: ${profile.metadata.creationTimestamp}`);
+        console.log(
+          `   Created: ${profile.metadata?.creationTimestamp || "Unknown"}`
+        );
         console.log("");
       });
 
