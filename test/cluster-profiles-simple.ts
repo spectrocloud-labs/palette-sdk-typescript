@@ -7,8 +7,8 @@
  * Simple test script to retrieve cluster profiles from Palette API
  */
 
-import { v1ClusterProfilesFilterSummary } from "../generated/index";
 import dotenvx from "@dotenvx/dotenvx";
+import { ClusterProfilesFilterSummary } from "../generated/index";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -32,28 +32,44 @@ if (result.error) {
 const API_KEY = process.env.PALETTE_API_KEY;
 const BASE_URL = "https://api.spectrocloud.com";
 
-if (!API_KEY) {
-  console.error("❌ PALETTE_API_KEY environment variable is required");
-  process.exit(1);
-}
-
-async function main() {
-  console.log("🔍 Retrieving cluster profiles from Palette API...\n");
-
+async function testClusterProfilesSimple() {
   try {
+    console.log("🔍 Testing cluster profiles function availability...");
+
+    // Test that the function is importable and callable
+    console.log(
+      `✅ ClusterProfilesFilterSummary type: ${typeof ClusterProfilesFilterSummary}`
+    );
+
+    if (typeof ClusterProfilesFilterSummary === "function") {
+      console.log("✅ ClusterProfilesFilterSummary is available as a function");
+    } else {
+      throw new Error(
+        "ClusterProfilesFilterSummary is not available as a function"
+      );
+    }
+
+    if (!API_KEY) {
+      console.log("⚠️  PALETTE_API_KEY not found - skipping API call test");
+      console.log("✅ Function availability test passed");
+      return;
+    }
+
+    console.log("🔍 Retrieving cluster profiles from Palette API...\n");
+
     // Configure the request
     const config = {
       baseURL: BASE_URL,
       headers: {
         ApiKey: API_KEY,
         "Content-Type": "application/json",
-        ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
+        // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
       },
       timeout: 10000,
     };
 
     // Get cluster profiles using the filter summary endpoint
-    const response = await v1ClusterProfilesFilterSummary({}, {}, config);
+    const response = await ClusterProfilesFilterSummary({}, {}, config);
 
     const profiles = response.data.items || [];
 
@@ -72,6 +88,8 @@ async function main() {
     if (profiles.length === 0) {
       console.log("No cluster profiles found in the default project.");
     }
+
+    console.log("✅ Cluster profiles test completed successfully");
   } catch (error: any) {
     console.error("❌ Error retrieving cluster profiles:");
     console.error(error.message);
@@ -82,9 +100,21 @@ async function main() {
         `Response: ${JSON.stringify(error.response.data, null, 2)}`
       );
     }
-
-    process.exit(1);
+    throw error;
   }
 }
 
-main();
+// Run the test if this file is executed directly
+if (require.main === module) {
+  testClusterProfilesSimple()
+    .then(() => {
+      console.log("✅ Test completed successfully");
+      process.exit(0);
+    })
+    .catch((error) => {
+      console.error("❌ Test failed:", error);
+      process.exit(1);
+    });
+}
+
+export { testClusterProfilesSimple };

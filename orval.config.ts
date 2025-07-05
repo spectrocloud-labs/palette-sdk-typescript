@@ -5,16 +5,17 @@
 
 module.exports = {
   palette: {
-    input: "./openapi/openapi.yaml",
+    input: {
+      target: "./api/palette-apis-spec-tagged.json",
+    },
     output: {
       target: "./generated/client.ts",
       client: "fetch",
       baseUrl: "https://api.spectrocloud.com",
       schemas: "./generated/schemas",
+      mode: "tags-split",
+      namingConvention: "camelCase",
       prettier: true,
-    },
-    hooks: {
-      afterAllFilesWrite: "node api/post-processing-dup.js",
     },
   },
 };

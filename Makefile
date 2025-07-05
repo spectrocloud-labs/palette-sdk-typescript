@@ -19,18 +19,20 @@ help:  ## Display this help
 
 ##@ Build Targets
 
-generate: install-dependencies ## Generate models
+generate: install-dependencies ## Generate models with tags-split organization
 	(cd api && ./generate.sh)
 	python3 api/fix-duplicates.py api/palette-apis-spec.json api/palette-apis-spec-fixed.json
+	node api/tag-transformer.js api/palette-apis-spec-fixed.json api/palette-apis-spec-tagged.json
 	npx @openapitools/openapi-generator-cli generate \
 		-g openapi-yaml \
-		-i /local/api/palette-apis-spec-fixed.json \
+		-i /local/api/palette-apis-spec-tagged.json \
 		-o /local
 	npx orval
-	@$(OK) "Code generation complete"
+	node api/post-processing-dup.js
+	@$(OK) "Code generation complete with tags-split organization"
 
 install-dependencies:
-	npm install --save-dev openapitools/openapi-generator-cli orval
+	npm install --save-dev @openapitools/openapi-generator-cli orval
 	@$(OK) "Dependencies installed"
 
 ##@ Test Targets
@@ -77,4 +79,5 @@ license:
 
 clean: ## Clean generated files
 	rm -rf generated/
+	rm -f api/palette-apis-spec-tagged.json
 	@$(OK) "Clean complete"

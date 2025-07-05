@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1Certificate } from "./v1Certificate";
+import type { Certificate } from "./Certificate";
+import type { Time } from "./Time";
 
 /**
  * K8 Certificate Authority
  */
 export interface V1k8CertificateAuthority {
-  certificates?: V1Certificate[];
-  /** Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers. */
-  expiry?: string;
+  certificates?: Certificate[];
+  expiry?: Time;
   name?: string;
 }
