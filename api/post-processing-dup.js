@@ -152,23 +152,9 @@ function fixFunctionName() {
     return false;
   }
 
-  let content = fs.readFileSync(clientFile, "utf8");
-  let originalContent = content;
-
-  // Replace the auto-generated function name with a more professional one
-  content = content.replace(
-    /export const getPaletteAPIs\d+/g,
-    "export const init"
-  );
-
-  if (content !== originalContent) {
-    fs.writeFileSync(clientFile, content, "utf8");
-    console.log("✅ Fixed function name from getPaletteAPIs46 to init");
-    return true;
-  } else {
-    console.log("✅ No function name issues found in client file");
-    return true;
-  }
+  // With fetch client, we don't need to fix function names since individual functions are exported
+  console.log("✅ Using fetch client - individual functions are exported directly");
+  return true;
 }
 
 /**
@@ -178,6 +164,11 @@ function createIndexFile() {
   const indexFile = path.join(__dirname, "../generated/index.ts");
 
   const indexContent = `/**
+ * Copyright (c) Spectro Cloud
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
  * Palette SDK TypeScript
  *
  * A TypeScript SDK for the Spectro Cloud Palette API
@@ -190,13 +181,10 @@ export * from "./client";
 
 // Export all schemas/types
 export * from "./schemas";
-
-// Re-export the main client function with a clear name
-export { init } from "./client";
 `;
 
   fs.writeFileSync(indexFile, indexContent, "utf8");
-  console.log("✅ Created main index.ts file with init function export");
+  console.log("✅ Created main index.ts file with individual function exports");
   return true;
 }
 
@@ -224,29 +212,6 @@ function addLicenseHeaders() {
 }
 
 /**
- * Run Prettier to format all generated files
- */
-function runPrettier() {
-  const { execSync } = require('child_process');
-  
-  try {
-    console.log("🎨 Running Prettier to format generated files...");
-    
-    // Run prettier on the generated directory
-    execSync('npx prettier --write generated/', { 
-      stdio: 'inherit',
-      cwd: path.join(__dirname, '..')
-    });
-    
-    console.log("✅ Prettier formatting completed");
-    return true;
-  } catch (error) {
-    console.error("❌ Prettier formatting failed:", error.message);
-    return false;
-  }
-}
-
-/**
  * Main execution
  */
 function main() {
@@ -256,18 +221,16 @@ function main() {
     const success3 = fixFunctionName();
     const success4 = createIndexFile();
     const success5 = addLicenseHeaders();
-    const success6 = runPrettier();
 
-    if (success1 && success2 && success3 && success4 && success5 && success6) {
+    if (success1 && success2 && success3 && success4 && success5) {
       console.log("\n🎉 Post-processing completed successfully!");
       console.log(
         "The generated TypeScript code should now compile without duplicate export errors."
       );
       console.log(
-        "Main function is now available as 'init' for initializing the API client."
+        "Individual functions are now available for direct import."
       );
       console.log("License headers have been added to all files.");
-      console.log("Code has been formatted with Prettier.");
       process.exit(0);
     } else {
       console.log("\n❌ Post-processing encountered errors");

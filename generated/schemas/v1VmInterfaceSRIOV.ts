@@ -13,6 +13,4 @@
 /**
  * InterfaceSRIOV connects to a given network by passing-through an SR-IOV PCI device via vfio.
  */
-export interface V1VmInterfaceSRIOV {
-  [key: string]: unknown;
-}
+export type V1VmInterfaceSriov = { [key: string]: unknown };

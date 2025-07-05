@@ -13,7 +13,7 @@
   "scripts": {
     "generate": "make generate",
     "post-process": "node api/post-processing-dup.js",
-    "test": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts",
+    "test": "npx ts-node --transpile-only --project test/tsconfig.json test/run-all-tests.ts",
     "test:integration": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts"
   },
   "keywords": [

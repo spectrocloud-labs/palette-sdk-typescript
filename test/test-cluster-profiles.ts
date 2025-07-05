@@ -7,7 +7,10 @@
  * Test to retrieve all cluster profiles using the Palette SDK
  */
 
-import { init } from "../generated/index";
+import {
+  v1ClusterProfilesFilterSummary,
+  v1ClusterProfilesMetadata,
+} from "../generated/index";
 import type { V1ClusterProfilesSummary } from "../generated/index";
 import dotenvx from "@dotenvx/dotenvx";
 
@@ -42,9 +45,7 @@ async function testGetClusterProfiles() {
   console.log("🚀 Starting cluster profiles test...\n");
 
   try {
-    // Initialize the API client
-    const api = init();
-    console.log("✅ API client initialized successfully");
+    console.log("✅ API functions imported successfully");
 
     // Configure the request
     const config = {
@@ -60,7 +61,7 @@ async function testGetClusterProfiles() {
 
     // Call the API to get all cluster profiles
     // Using an empty filter to get all profiles
-    const response = await api.v1ClusterProfilesFilterSummary(
+    const response = await v1ClusterProfilesFilterSummary(
       {}, // empty filter spec to get all profiles
       {}, // no additional parameters
       config
@@ -124,9 +125,6 @@ async function testGetClusterProfilesMetadata() {
   console.log("\n🔍 Testing cluster profiles metadata endpoint...\n");
 
   try {
-    // Initialize the API client
-    const api = init();
-
     // Configure the request
     const config = {
       baseURL: BASE_URL,
@@ -140,7 +138,7 @@ async function testGetClusterProfilesMetadata() {
     console.log("📡 Retrieving cluster profiles metadata...");
 
     // Call the metadata API
-    const response = await api.v1ClusterProfilesMetadata(config);
+    const response = await v1ClusterProfilesMetadata(config);
 
     console.log("✅ Metadata API call successful!");
     console.log(`Status: ${response.status}`);

@@ -7,8 +7,13 @@
  * Integration test to verify that the palette-sdk-typescript package works correctly
  */
 
-// Test importing the main client function from local generated files
-import { init } from "../generated/index";
+// Test importing individual functions from local generated files
+import {
+  v1SpectroClustersGet,
+  v1SpectroClustersAwsCreate,
+  v1CloudAccountsAwsList,
+  v1ApiKeysList,
+} from "../generated/index";
 
 // Test importing types from local generated files
 import type {
@@ -19,29 +24,30 @@ import type {
 
 console.log("🚀 Running palette-sdk-typescript integration tests...\n");
 
-// Test that the main function is available and working
+// Test that the main functions are available and working
 console.log("✅ Import successful!");
-console.log("init type:", typeof init);
-
-// Create API client instance
-const api = init();
-console.log("✅ API client initialized successfully");
-console.log(`API client contains ${Object.keys(api).length} functions`);
+console.log("v1SpectroClustersGet type:", typeof v1SpectroClustersGet);
+console.log(
+  "v1SpectroClustersAwsCreate type:",
+  typeof v1SpectroClustersAwsCreate
+);
+console.log("v1CloudAccountsAwsList type:", typeof v1CloudAccountsAwsList);
+console.log("v1ApiKeysList type:", typeof v1ApiKeysList);
 
 // Test that key functions are available
 const keyFunctions = [
-  "v1SpectroClustersGet",
-  "v1SpectroClustersAwsCreate",
-  "v1CloudAccountsAwsList",
-  "v1ApiKeysList",
+  { name: "v1SpectroClustersGet", func: v1SpectroClustersGet },
+  { name: "v1SpectroClustersAwsCreate", func: v1SpectroClustersAwsCreate },
+  { name: "v1CloudAccountsAwsList", func: v1CloudAccountsAwsList },
+  { name: "v1ApiKeysList", func: v1ApiKeysList },
 ];
 
 console.log("\n🔍 Checking key API functions:");
-keyFunctions.forEach((funcName) => {
-  if (typeof (api as any)[funcName] === "function") {
-    console.log(`✅ ${funcName}: available`);
+keyFunctions.forEach(({ name, func }) => {
+  if (typeof func === "function") {
+    console.log(`✅ ${name}: available`);
   } else {
-    console.log(`❌ ${funcName}: missing`);
+    console.log(`❌ ${name}: missing`);
     process.exit(1);
   }
 });
@@ -98,9 +104,10 @@ async function runTests() {
     console.log("The palette-sdk-typescript package is ready for use.");
     console.log("\nUsage example:");
     console.log("```typescript");
-    console.log("import { init } from 'palette-sdk-typescript';");
-    console.log("const api = init();");
-    console.log("const clusters = await api.v1SpectroClustersGet(config);");
+    console.log(
+      "import { v1SpectroClustersGet } from 'palette-sdk-typescript';"
+    );
+    console.log("const clusters = await v1SpectroClustersGet(config);");
     console.log("```");
   } catch (error) {
     console.error("❌ Integration test failed:", error);

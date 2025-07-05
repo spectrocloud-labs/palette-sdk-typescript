@@ -7,7 +7,7 @@
  * Simple test script to retrieve cluster profiles from Palette API
  */
 
-import { init } from "../generated/index";
+import { v1ClusterProfilesFilterSummary } from "../generated/index";
 import dotenvx from "@dotenvx/dotenvx";
 
 // Load environment variables with expanded path handling
@@ -41,9 +41,6 @@ async function main() {
   console.log("🔍 Retrieving cluster profiles from Palette API...\n");
 
   try {
-    // Initialize the API client
-    const api = init();
-
     // Configure the request
     const config = {
       baseURL: BASE_URL,
@@ -56,7 +53,7 @@ async function main() {
     };
 
     // Get cluster profiles using the filter summary endpoint
-    const response = await api.v1ClusterProfilesFilterSummary({}, {}, config);
+    const response = await v1ClusterProfilesFilterSummary({}, {}, config);
 
     const profiles = response.data.items || [];
 

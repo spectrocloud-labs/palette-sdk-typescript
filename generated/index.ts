@@ -16,6 +16,3 @@ export * from "./client";
 
 // Export all schemas/types
 export * from "./schemas";
-
-// Re-export the main client function with a clear name
-export { init } from "./client";
