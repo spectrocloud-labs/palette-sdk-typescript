@@ -246,11 +246,7 @@ export const PacksUid = async (
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
   const data: PacksUidResponse["data"] = body ? JSON.parse(body) : {};
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as PacksUidResponse;
+  return { data, status: res.status, headers: res.headers } as PacksUidResponse;
 };
 
 /**

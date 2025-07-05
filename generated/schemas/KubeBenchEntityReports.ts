@@ -11,6 +11,4 @@
  */
 import type { KubeBenchReportEntity } from "./KubeBenchReportEntity";
 
-export type KubeBenchEntityReports = {
-  [key: string]: KubeBenchReportEntity;
-};
+export type KubeBenchEntityReports = { [key: string]: KubeBenchReportEntity };

@@ -11,5 +11,4 @@
  */
 import type { AzureCloudClusterConfigEntity } from "./AzureCloudClusterConfigEntity";
 
-export type AzureCloudClusterConfigEntityBody =
-  AzureCloudClusterConfigEntity;
+export type AzureCloudClusterConfigEntityBody = AzureCloudClusterConfigEntity;

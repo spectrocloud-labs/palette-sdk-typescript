@@ -11,5 +11,4 @@
  */
 import type { GenericMachinePoolConfigEntity } from "./GenericMachinePoolConfigEntity";
 
-export type GenericMachinePoolConfigEntityBody =
-  GenericMachinePoolConfigEntity;
+export type GenericMachinePoolConfigEntityBody = GenericMachinePoolConfigEntity;

@@ -240,13 +240,11 @@ export type AwsAccountValidateResponse204 = {
   status: 204;
 };
 
-export type AwsAccountValidateResponseComposite =
-  AwsAccountValidateResponse204;
+export type AwsAccountValidateResponseComposite = AwsAccountValidateResponse204;
 
-export type AwsAccountValidateResponse =
-  AwsAccountValidateResponseComposite & {
-    headers: Headers;
-  };
+export type AwsAccountValidateResponse = AwsAccountValidateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AwsAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/aws/account/validate`;
@@ -264,9 +262,7 @@ export const AwsAccountValidate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AwsAccountValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -693,11 +689,7 @@ export const AwsZones = async (
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
   const data: AwsZonesResponse["data"] = body ? JSON.parse(body) : {};
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AwsZonesResponse;
+  return { data, status: res.status, headers: res.headers } as AwsZonesResponse;
 };
 
 /**
@@ -956,13 +948,11 @@ export type AwsKeyPairValidateResponse204 = {
   status: 204;
 };
 
-export type AwsKeyPairValidateResponseComposite =
-  AwsKeyPairValidateResponse204;
+export type AwsKeyPairValidateResponseComposite = AwsKeyPairValidateResponse204;
 
-export type AwsKeyPairValidateResponse =
-  AwsKeyPairValidateResponseComposite & {
-    headers: Headers;
-  };
+export type AwsKeyPairValidateResponse = AwsKeyPairValidateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AwsKeyPairValidateUrl = (
   region: string,
@@ -996,9 +986,7 @@ export const AwsKeyPairValidate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKeyPairValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AwsKeyPairValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1123,13 +1111,11 @@ export type AwsKmsKeyValidateResponse204 = {
   status: 204;
 };
 
-export type AwsKmsKeyValidateResponseComposite =
-  AwsKmsKeyValidateResponse204;
+export type AwsKmsKeyValidateResponseComposite = AwsKmsKeyValidateResponse204;
 
-export type AwsKmsKeyValidateResponse =
-  AwsKmsKeyValidateResponseComposite & {
-    headers: Headers;
-  };
+export type AwsKmsKeyValidateResponse = AwsKmsKeyValidateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AwsKmsKeyValidateUrl = (
   region: string,
@@ -1161,9 +1147,7 @@ export const AwsKmsKeyValidate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKmsKeyValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AwsKmsKeyValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1252,11 +1236,7 @@ export const AwsVpcs = async (
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
   const data: AwsVpcsResponse["data"] = body ? JSON.parse(body) : {};
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AwsVpcsResponse;
+  return { data, status: res.status, headers: res.headers } as AwsVpcsResponse;
 };
 
 /**
@@ -1306,17 +1286,13 @@ export type AwsSecurityGroupsResponse200 = {
   status: 200;
 };
 
-export type AwsSecurityGroupsResponseComposite =
-  AwsSecurityGroupsResponse200;
+export type AwsSecurityGroupsResponseComposite = AwsSecurityGroupsResponse200;
 
-export type AwsSecurityGroupsResponse =
-  AwsSecurityGroupsResponseComposite & {
-    headers: Headers;
-  };
+export type AwsSecurityGroupsResponse = AwsSecurityGroupsResponseComposite & {
+  headers: Headers;
+};
 
-export const getV1AwsSecurityGroupsUrl = (
-  params: AwsSecurityGroupsParams,
-) => {
+export const getV1AwsSecurityGroupsUrl = (params: AwsSecurityGroupsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1342,9 +1318,7 @@ export const AwsSecurityGroups = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsSecurityGroupsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AwsSecurityGroupsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1362,17 +1336,13 @@ export type AwsVolumeTypesGetResponse200 = {
   status: 200;
 };
 
-export type AwsVolumeTypesGetResponseComposite =
-  AwsVolumeTypesGetResponse200;
+export type AwsVolumeTypesGetResponseComposite = AwsVolumeTypesGetResponse200;
 
-export type AwsVolumeTypesGetResponse =
-  AwsVolumeTypesGetResponseComposite & {
-    headers: Headers;
-  };
+export type AwsVolumeTypesGetResponse = AwsVolumeTypesGetResponseComposite & {
+  headers: Headers;
+};
 
-export const getV1AwsVolumeTypesGetUrl = (
-  params: AwsVolumeTypesGetParams,
-) => {
+export const getV1AwsVolumeTypesGetUrl = (params: AwsVolumeTypesGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1398,9 +1368,7 @@ export const AwsVolumeTypesGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsVolumeTypesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AwsVolumeTypesGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1559,13 +1527,11 @@ export type AzureInstanceTypesResponse200 = {
   status: 200;
 };
 
-export type AzureInstanceTypesResponseComposite =
-  AzureInstanceTypesResponse200;
+export type AzureInstanceTypesResponseComposite = AzureInstanceTypesResponse200;
 
-export type AzureInstanceTypesResponse =
-  AzureInstanceTypesResponseComposite & {
-    headers: Headers;
-  };
+export type AzureInstanceTypesResponse = AzureInstanceTypesResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AzureInstanceTypesUrl = (
   region: string,
@@ -1597,9 +1563,7 @@ export const AzureInstanceTypes = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureInstanceTypesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AzureInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1616,13 +1580,11 @@ export type AzureStorageTypesResponse200 = {
   status: 200;
 };
 
-export type AzureStorageTypesResponseComposite =
-  AzureStorageTypesResponse200;
+export type AzureStorageTypesResponseComposite = AzureStorageTypesResponse200;
 
-export type AzureStorageTypesResponse =
-  AzureStorageTypesResponseComposite & {
-    headers: Headers;
-  };
+export type AzureStorageTypesResponse = AzureStorageTypesResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AzureStorageTypesUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/storagetypes`;
@@ -1638,9 +1600,7 @@ export const AzureStorageTypes = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureStorageTypesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AzureStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -3201,8 +3161,9 @@ export const CustomCloudTypeControlPlanePoolTemplateGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlanePoolTemplateGetResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: CustomCloudTypeControlPlanePoolTemplateGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -3633,13 +3594,11 @@ export type GcpAccountValidateResponse204 = {
   status: 204;
 };
 
-export type GcpAccountValidateResponseComposite =
-  GcpAccountValidateResponse204;
+export type GcpAccountValidateResponseComposite = GcpAccountValidateResponse204;
 
-export type GcpAccountValidateResponse =
-  GcpAccountValidateResponseComposite & {
-    headers: Headers;
-  };
+export type GcpAccountValidateResponse = GcpAccountValidateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1GcpAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/account/validate`;
@@ -3657,9 +3616,7 @@ export const GcpAccountValidate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpAccountValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: GcpAccountValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -4047,11 +4004,7 @@ export const GcpZones = async (
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
   const data: GcpZonesResponse["data"] = body ? JSON.parse(body) : {};
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as GcpZonesResponse;
+  return { data, status: res.status, headers: res.headers } as GcpZonesResponse;
 };
 
 /**
@@ -4062,13 +4015,11 @@ export type GcpProjectValidateResponse204 = {
   status: 204;
 };
 
-export type GcpProjectValidateResponseComposite =
-  GcpProjectValidateResponse204;
+export type GcpProjectValidateResponseComposite = GcpProjectValidateResponse204;
 
-export type GcpProjectValidateResponse =
-  GcpProjectValidateResponseComposite & {
-    headers: Headers;
-  };
+export type GcpProjectValidateResponse = GcpProjectValidateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1GcpProjectValidateUrl = (project: string) => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/validate`;
@@ -4087,9 +4038,7 @@ export const GcpProjectValidate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpProjectValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: GcpProjectValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -4997,13 +4946,11 @@ export type VsphereDatacentersResponse200 = {
   status: 200;
 };
 
-export type VsphereDatacentersResponseComposite =
-  VsphereDatacentersResponse200;
+export type VsphereDatacentersResponseComposite = VsphereDatacentersResponse200;
 
-export type VsphereDatacentersResponse =
-  VsphereDatacentersResponseComposite & {
-    headers: Headers;
-  };
+export type VsphereDatacentersResponse = VsphereDatacentersResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1VsphereDatacentersUrl = (
   params?: VsphereDatacentersParams,
@@ -5033,9 +4980,7 @@ export const VsphereDatacenters = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDatacentersResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: VsphereDatacentersResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

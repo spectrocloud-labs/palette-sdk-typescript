@@ -636,6 +636,8 @@ function renameDirectoriesToCamelCase() {
   return true;
 }
 
+
+
 /**
  * Fix imports in main index file
  */
@@ -679,6 +681,8 @@ function main() {
     const success9 = createMainIndexFile();
     const success10 = renameDirectoriesToCamelCase();
     const success11 = fixMainIndexImports();
+    // URLEncodedBase64 inconsistency now handled by Orval input transformer
+    // const success12 = fixUrlEncodedBase64Inconsistency();
 
     if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8 && success9 && success10 && success11) {
       console.log("\n🎉 Post-processing completed successfully!");

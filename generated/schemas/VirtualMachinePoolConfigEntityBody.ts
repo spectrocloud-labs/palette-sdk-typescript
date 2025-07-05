@@ -11,5 +11,4 @@
  */
 import type { VirtualMachinePoolConfigEntity } from "./VirtualMachinePoolConfigEntity";
 
-export type VirtualMachinePoolConfigEntityBody =
-  VirtualMachinePoolConfigEntity;
+export type VirtualMachinePoolConfigEntityBody = VirtualMachinePoolConfigEntity;

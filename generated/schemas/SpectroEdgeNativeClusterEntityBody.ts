@@ -11,5 +11,4 @@
  */
 import type { SpectroEdgeNativeClusterEntity } from "./SpectroEdgeNativeClusterEntity";
 
-export type SpectroEdgeNativeClusterEntityBody =
-  SpectroEdgeNativeClusterEntity;
+export type SpectroEdgeNativeClusterEntityBody = SpectroEdgeNativeClusterEntity;

@@ -57,13 +57,11 @@ export type RegistriesHelmListResponse200 = {
   status: 200;
 };
 
-export type RegistriesHelmListResponseComposite =
-  RegistriesHelmListResponse200;
+export type RegistriesHelmListResponseComposite = RegistriesHelmListResponse200;
 
-export type RegistriesHelmListResponse =
-  RegistriesHelmListResponseComposite & {
-    headers: Headers;
-  };
+export type RegistriesHelmListResponse = RegistriesHelmListResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1RegistriesHelmListUrl = (
   params?: RegistriesHelmListParams,
@@ -93,9 +91,7 @@ export const RegistriesHelmList = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: RegistriesHelmListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -487,13 +483,11 @@ export type RegistriesMetadataResponse200 = {
   status: 200;
 };
 
-export type RegistriesMetadataResponseComposite =
-  RegistriesMetadataResponse200;
+export type RegistriesMetadataResponseComposite = RegistriesMetadataResponse200;
 
-export type RegistriesMetadataResponse =
-  RegistriesMetadataResponseComposite & {
-    headers: Headers;
-  };
+export type RegistriesMetadataResponse = RegistriesMetadataResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1RegistriesMetadataUrl = (
   params?: RegistriesMetadataParams,
@@ -519,9 +513,7 @@ export const RegistriesMetadata = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesMetadataResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: RegistriesMetadataResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1315,13 +1307,11 @@ export type RegistriesPackListResponse200 = {
   status: 200;
 };
 
-export type RegistriesPackListResponseComposite =
-  RegistriesPackListResponse200;
+export type RegistriesPackListResponseComposite = RegistriesPackListResponse200;
 
-export type RegistriesPackListResponse =
-  RegistriesPackListResponseComposite & {
-    headers: Headers;
-  };
+export type RegistriesPackListResponse = RegistriesPackListResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1RegistriesPackListUrl = (
   params?: RegistriesPackListParams,
@@ -1351,9 +1341,7 @@ export const RegistriesPackList = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: RegistriesPackListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

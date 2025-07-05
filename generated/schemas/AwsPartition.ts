@@ -13,8 +13,7 @@
 /**
  * AWS accounts are scoped to a single partition. Allowed values [aws, aws-us-gov], Default values
  */
-export type AwsPartition =
-  (typeof AwsPartition)[keyof typeof AwsPartition];
+export type AwsPartition = (typeof AwsPartition)[keyof typeof AwsPartition];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AwsPartition = {

@@ -249,13 +249,11 @@ export type EdgeHostsMetadataResponse200 = {
   status: 200;
 };
 
-export type EdgeHostsMetadataResponseComposite =
-  EdgeHostsMetadataResponse200;
+export type EdgeHostsMetadataResponseComposite = EdgeHostsMetadataResponse200;
 
-export type EdgeHostsMetadataResponse =
-  EdgeHostsMetadataResponseComposite & {
-    headers: Headers;
-  };
+export type EdgeHostsMetadataResponse = EdgeHostsMetadataResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1EdgeHostsMetadataUrl = () => {
   return `https://api.spectrocloud.com/v1/dashboard/appliances/metadata`;
@@ -273,9 +271,7 @@ export const EdgeHostsMetadata = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostsMetadataResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: EdgeHostsMetadataResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -2019,8 +2015,9 @@ export const DashboardSpectroClustersUidWorkloadsCronJob = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: DashboardSpectroClustersUidWorkloadsCronJobResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: DashboardSpectroClustersUidWorkloadsCronJobResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -2461,11 +2458,10 @@ export const DashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding =
 /**
  * @summary Retrieves specified workspace clusters workload cronjobs
  */
-export type DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResponse200 =
-  {
-    data: WorkspaceClustersWorkloadCronJobs;
-    status: 200;
-  };
+export type DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResponse200 = {
+  data: WorkspaceClustersWorkloadCronJobs;
+  status: 200;
+};
 
 export type DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResponseComposite =
   DashboardWorkspacesUidSpectroClustersWorkloadsCronJobResponse200;
@@ -2578,32 +2574,31 @@ export const getV1DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentUrl =
     return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/deployment`;
   };
 
-export const DashboardWorkspacesUidSpectroClustersWorkloadsDeployment =
-  async (
-    uid: string,
-    WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
-    options?: RequestInit,
-  ): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse> => {
-    const res = await fetch(
-      getV1DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentUrl(uid),
-      {
-        ...options,
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...options?.headers },
-        body: JSON.stringify(WorkspaceWorkloadsSpecBody),
-      },
-    );
+export const DashboardWorkspacesUidSpectroClustersWorkloadsDeployment = async (
+  uid: string,
+  WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
+  options?: RequestInit,
+): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse> => {
+  const res = await fetch(
+    getV1DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(WorkspaceWorkloadsSpecBody),
+    },
+  );
 
-    const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-    const data: DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse["data"] =
-      body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse["data"] =
+    body ? JSON.parse(body) : {};
 
-    return {
-      data,
-      status: res.status,
-      headers: res.headers,
-    } as DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse;
-  };
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as DashboardWorkspacesUidSpectroClustersWorkloadsDeploymentResponse;
+};
 
 /**
  * @summary Retrieves specified workspace clusters workload jobs
@@ -2772,32 +2767,31 @@ export const getV1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingUrl =
     return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/rolebinding`;
   };
 
-export const DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding =
-  async (
-    uid: string,
-    WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
-    options?: RequestInit,
-  ): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse> => {
-    const res = await fetch(
-      getV1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingUrl(uid),
-      {
-        ...options,
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...options?.headers },
-        body: JSON.stringify(WorkspaceWorkloadsSpecBody),
-      },
-    );
+export const DashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding = async (
+  uid: string,
+  WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
+  options?: RequestInit,
+): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse> => {
+  const res = await fetch(
+    getV1DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(WorkspaceWorkloadsSpecBody),
+    },
+  );
 
-    const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-    const data: DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse["data"] =
-      body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse["data"] =
+    body ? JSON.parse(body) : {};
 
-    return {
-      data,
-      status: res.status,
-      headers: res.headers,
-    } as DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse;
-  };
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as DashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingResponse;
+};
 
 /**
  * @summary Retrieves specified workspace clusters workload statefulsets
@@ -2821,29 +2815,28 @@ export const getV1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetUrl =
     return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/statefulset`;
   };
 
-export const DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet =
-  async (
-    uid: string,
-    WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
-    options?: RequestInit,
-  ): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse> => {
-    const res = await fetch(
-      getV1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetUrl(uid),
-      {
-        ...options,
-        method: "POST",
-        headers: { "Content-Type": "application/json", ...options?.headers },
-        body: JSON.stringify(WorkspaceWorkloadsSpecBody),
-      },
-    );
+export const DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet = async (
+  uid: string,
+  WorkspaceWorkloadsSpecBody: WorkspaceWorkloadsSpecBody,
+  options?: RequestInit,
+): Promise<DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse> => {
+  const res = await fetch(
+    getV1DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetUrl(uid),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(WorkspaceWorkloadsSpecBody),
+    },
+  );
 
-    const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-    const data: DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse["data"] =
-      body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse["data"] =
+    body ? JSON.parse(body) : {};
 
-    return {
-      data,
-      status: res.status,
-      headers: res.headers,
-    } as DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse;
-  };
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as DashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetResponse;
+};

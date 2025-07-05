@@ -11,5 +11,4 @@
  */
 import type { SpectroAzureClusterRateEntity } from "./SpectroAzureClusterRateEntity";
 
-export type SpectroAzureClusterRateEntityBody =
-  SpectroAzureClusterRateEntity;
+export type SpectroAzureClusterRateEntityBody = SpectroAzureClusterRateEntity;

@@ -10,8 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export type EdgeHostState =
-  (typeof EdgeHostState)[keyof typeof EdgeHostState];
+export type EdgeHostState = (typeof EdgeHostState)[keyof typeof EdgeHostState];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EdgeHostState = {

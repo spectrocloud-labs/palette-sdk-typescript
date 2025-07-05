@@ -1356,10 +1356,7 @@ export const ClusterFeatureLogFetcherLogUpdate = async (
 ): Promise<ClusterFeatureLogFetcherLogUpdateResponse> => {
   const formData = new FormData();
   if (ClusterFeatureLogFetcherLogUpdateBody.fileName !== undefined) {
-    formData.append(
-      `fileName`,
-      ClusterFeatureLogFetcherLogUpdateBody.fileName,
-    );
+    formData.append(`fileName`, ClusterFeatureLogFetcherLogUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -2847,13 +2844,11 @@ export type SpectroClustersGetResponse200 = {
   status: 200;
 };
 
-export type SpectroClustersGetResponseComposite =
-  SpectroClustersGetResponse200;
+export type SpectroClustersGetResponseComposite = SpectroClustersGetResponse200;
 
-export type SpectroClustersGetResponse =
-  SpectroClustersGetResponseComposite & {
-    headers: Headers;
-  };
+export type SpectroClustersGetResponse = SpectroClustersGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1SpectroClustersGetUrl = (
   uid: string,
@@ -2885,9 +2880,7 @@ export const SpectroClustersGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: SpectroClustersGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -4013,8 +4006,9 @@ export const SpectroClustersUidConfigNamespacesUidUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigNamespacesUidUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: SpectroClustersUidConfigNamespacesUidUpdateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -5379,8 +5373,9 @@ export const ClusterFeatureComplianceScanOnDemandCreate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanOnDemandCreateResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: ClusterFeatureComplianceScanOnDemandCreateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -6907,8 +6902,9 @@ export const SpectroClustersUidProfilesUidPacksConfigGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidProfilesUidPacksConfigGetResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: SpectroClustersUidProfilesUidPacksConfigGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -6960,8 +6956,9 @@ export const SpectroClustersProfilesUidPackManifestsGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersProfilesUidPackManifestsGetResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: SpectroClustersProfilesUidPackManifestsGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,

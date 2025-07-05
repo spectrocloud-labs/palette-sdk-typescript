@@ -11,5 +11,4 @@
  */
 import type { CustomMachinePoolConfigEntity } from "./CustomMachinePoolConfigEntity";
 
-export type CustomMachinePoolConfigEntityBody =
-  CustomMachinePoolConfigEntity;
+export type CustomMachinePoolConfigEntityBody = CustomMachinePoolConfigEntity;

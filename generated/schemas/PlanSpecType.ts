@@ -10,8 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export type PlanSpecType =
-  (typeof PlanSpecType)[keyof typeof PlanSpecType];
+export type PlanSpecType = (typeof PlanSpecType)[keyof typeof PlanSpecType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PlanSpecType = {

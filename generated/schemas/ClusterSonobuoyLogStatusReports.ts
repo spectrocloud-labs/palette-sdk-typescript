@@ -11,6 +11,4 @@
  */
 import type { SonobuoyReport } from "./SonobuoyReport";
 
-export type ClusterSonobuoyLogStatusReports = {
-  [key: string]: SonobuoyReport;
-};
+export type ClusterSonobuoyLogStatusReports = { [key: string]: SonobuoyReport };

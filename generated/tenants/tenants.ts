@@ -51,13 +51,11 @@ export type PatchTenantAddressResponse204 = {
   status: 204;
 };
 
-export type PatchTenantAddressResponseComposite =
-  PatchTenantAddressResponse204;
+export type PatchTenantAddressResponseComposite = PatchTenantAddressResponse204;
 
-export type PatchTenantAddressResponse =
-  PatchTenantAddressResponseComposite & {
-    headers: Headers;
-  };
+export type PatchTenantAddressResponse = PatchTenantAddressResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1PatchTenantAddressUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/address`;
@@ -76,9 +74,7 @@ export const PatchTenantAddress = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PatchTenantAddressResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: PatchTenantAddressResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -809,13 +805,11 @@ export type PatchTenantEmailIdResponse204 = {
   status: 204;
 };
 
-export type PatchTenantEmailIdResponseComposite =
-  PatchTenantEmailIdResponse204;
+export type PatchTenantEmailIdResponseComposite = PatchTenantEmailIdResponse204;
 
-export type PatchTenantEmailIdResponse =
-  PatchTenantEmailIdResponseComposite & {
-    headers: Headers;
-  };
+export type PatchTenantEmailIdResponse = PatchTenantEmailIdResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1PatchTenantEmailIdUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/emailId`;
@@ -834,9 +828,7 @@ export const PatchTenantEmailId = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PatchTenantEmailIdResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: PatchTenantEmailIdResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -853,13 +845,11 @@ export type TenantFreemiumGetResponse200 = {
   status: 200;
 };
 
-export type TenantFreemiumGetResponseComposite =
-  TenantFreemiumGetResponse200;
+export type TenantFreemiumGetResponseComposite = TenantFreemiumGetResponse200;
 
-export type TenantFreemiumGetResponse =
-  TenantFreemiumGetResponseComposite & {
-    headers: Headers;
-  };
+export type TenantFreemiumGetResponse = TenantFreemiumGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1TenantFreemiumGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemium`;
@@ -875,9 +865,7 @@ export const TenantFreemiumGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFreemiumGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: TenantFreemiumGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

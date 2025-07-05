@@ -9,6 +9,9 @@ export default defineConfig({
   palette: {
     input: {
       target: "./api/palette-apis-spec-tagged.json",
+      override: {
+        transformer: "./api/remove-duplicate-schema.js",
+      },
     },
     output: {
       target: "./generated/client.ts",

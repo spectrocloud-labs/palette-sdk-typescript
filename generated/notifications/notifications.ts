@@ -26,17 +26,13 @@ export type NotificationsListResponse200 = {
   status: 200;
 };
 
-export type NotificationsListResponseComposite =
-  NotificationsListResponse200;
+export type NotificationsListResponseComposite = NotificationsListResponse200;
 
-export type NotificationsListResponse =
-  NotificationsListResponseComposite & {
-    headers: Headers;
-  };
+export type NotificationsListResponse = NotificationsListResponseComposite & {
+  headers: Headers;
+};
 
-export const getV1NotificationsListUrl = (
-  params?: NotificationsListParams,
-) => {
+export const getV1NotificationsListUrl = (params?: NotificationsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -62,9 +58,7 @@ export const NotificationsList = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: NotificationsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

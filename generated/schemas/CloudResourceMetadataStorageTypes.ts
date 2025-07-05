@@ -11,6 +11,4 @@
  */
 import type { StorageType } from "./StorageType";
 
-export type CloudResourceMetadataStorageTypes = {
-  [key: string]: StorageType;
-};
+export type CloudResourceMetadataStorageTypes = { [key: string]: StorageType };

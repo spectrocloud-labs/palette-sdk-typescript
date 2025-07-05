@@ -422,13 +422,11 @@ export type EdgeTokensUidStateResponse204 = {
   status: 204;
 };
 
-export type EdgeTokensUidStateResponseComposite =
-  EdgeTokensUidStateResponse204;
+export type EdgeTokensUidStateResponseComposite = EdgeTokensUidStateResponse204;
 
-export type EdgeTokensUidStateResponse =
-  EdgeTokensUidStateResponseComposite & {
-    headers: Headers;
-  };
+export type EdgeTokensUidStateResponse = EdgeTokensUidStateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1EdgeTokensUidStateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}/state`;
@@ -447,9 +445,7 @@ export const EdgeTokensUidState = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensUidStateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: EdgeTokensUidStateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1117,13 +1113,11 @@ export type EdgeHostsUidResetResponse204 = {
   status: 204;
 };
 
-export type EdgeHostsUidResetResponseComposite =
-  EdgeHostsUidResetResponse204;
+export type EdgeHostsUidResetResponseComposite = EdgeHostsUidResetResponse204;
 
-export type EdgeHostsUidResetResponse =
-  EdgeHostsUidResetResponseComposite & {
-    headers: Headers;
-  };
+export type EdgeHostsUidResetResponse = EdgeHostsUidResetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1EdgeHostsUidResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/reset`;
@@ -1139,9 +1133,7 @@ export const EdgeHostsUidReset = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostsUidResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: EdgeHostsUidResetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

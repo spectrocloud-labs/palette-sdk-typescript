@@ -104,13 +104,11 @@ export type CloudConfigsAksGetResponse200 = {
   status: 200;
 };
 
-export type CloudConfigsAksGetResponseComposite =
-  CloudConfigsAksGetResponse200;
+export type CloudConfigsAksGetResponseComposite = CloudConfigsAksGetResponse200;
 
-export type CloudConfigsAksGetResponse =
-  CloudConfigsAksGetResponseComposite & {
-    headers: Headers;
-  };
+export type CloudConfigsAksGetResponse = CloudConfigsAksGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1CloudConfigsAksGetUrl = (configUid: string) => {
   return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}`;
@@ -126,9 +124,7 @@ export const CloudConfigsAksGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsAksGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: CloudConfigsAksGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -610,13 +606,11 @@ export type CloudConfigsAwsGetResponse200 = {
   status: 200;
 };
 
-export type CloudConfigsAwsGetResponseComposite =
-  CloudConfigsAwsGetResponse200;
+export type CloudConfigsAwsGetResponseComposite = CloudConfigsAwsGetResponse200;
 
-export type CloudConfigsAwsGetResponse =
-  CloudConfigsAwsGetResponseComposite & {
-    headers: Headers;
-  };
+export type CloudConfigsAwsGetResponse = CloudConfigsAwsGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1CloudConfigsAwsGetUrl = (configUid: string) => {
   return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}`;
@@ -632,9 +626,7 @@ export const CloudConfigsAwsGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsAwsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: CloudConfigsAwsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -819,8 +811,9 @@ export const AwsCloudConfigsEdgeNativeMachinePoolDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsCloudConfigsEdgeNativeMachinePoolDeleteResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: AwsCloudConfigsEdgeNativeMachinePoolDeleteResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -920,8 +913,9 @@ export const AwsCloudConfigsEdgeNativeMachinePoolUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsCloudConfigsEdgeNativeMachinePoolUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: AwsCloudConfigsEdgeNativeMachinePoolUpdateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -2811,8 +2805,9 @@ export const CloudConfigsEdgeNativePoolMachinesUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsEdgeNativePoolMachinesUidDeleteResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: CloudConfigsEdgeNativePoolMachinesUidDeleteResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -2921,8 +2916,9 @@ export const CloudConfigsEdgeNativePoolMachinesUidUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsEdgeNativePoolMachinesUidUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: CloudConfigsEdgeNativePoolMachinesUidUpdateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -2939,13 +2935,11 @@ export type CloudConfigsEksGetResponse200 = {
   status: 200;
 };
 
-export type CloudConfigsEksGetResponseComposite =
-  CloudConfigsEksGetResponse200;
+export type CloudConfigsEksGetResponseComposite = CloudConfigsEksGetResponse200;
 
-export type CloudConfigsEksGetResponse =
-  CloudConfigsEksGetResponseComposite & {
-    headers: Headers;
-  };
+export type CloudConfigsEksGetResponse = CloudConfigsEksGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1CloudConfigsEksGetUrl = (configUid: string) => {
   return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}`;
@@ -2961,9 +2955,7 @@ export const CloudConfigsEksGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsEksGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: CloudConfigsEksGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -3494,13 +3486,11 @@ export type CloudConfigsGcpGetResponse200 = {
   status: 200;
 };
 
-export type CloudConfigsGcpGetResponseComposite =
-  CloudConfigsGcpGetResponse200;
+export type CloudConfigsGcpGetResponseComposite = CloudConfigsGcpGetResponse200;
 
-export type CloudConfigsGcpGetResponse =
-  CloudConfigsGcpGetResponseComposite & {
-    headers: Headers;
-  };
+export type CloudConfigsGcpGetResponse = CloudConfigsGcpGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1CloudConfigsGcpGetUrl = (configUid: string) => {
   return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}`;
@@ -3516,9 +3506,7 @@ export const CloudConfigsGcpGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsGcpGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: CloudConfigsGcpGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -4520,13 +4508,11 @@ export type CloudConfigsGkeGetResponse200 = {
   status: 200;
 };
 
-export type CloudConfigsGkeGetResponseComposite =
-  CloudConfigsGkeGetResponse200;
+export type CloudConfigsGkeGetResponseComposite = CloudConfigsGkeGetResponse200;
 
-export type CloudConfigsGkeGetResponse =
-  CloudConfigsGkeGetResponseComposite & {
-    headers: Headers;
-  };
+export type CloudConfigsGkeGetResponse = CloudConfigsGkeGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1CloudConfigsGkeGetUrl = (configUid: string) => {
   return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}`;
@@ -4542,9 +4528,7 @@ export const CloudConfigsGkeGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsGkeGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: CloudConfigsGkeGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -5913,8 +5897,9 @@ export const CloudConfigsOpenStackPoolMachinesUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsOpenStackPoolMachinesUidDeleteResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: CloudConfigsOpenStackPoolMachinesUidDeleteResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -6023,8 +6008,9 @@ export const CloudConfigsOpenStackPoolMachinesUidUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudConfigsOpenStackPoolMachinesUidUpdateResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: CloudConfigsOpenStackPoolMachinesUidUpdateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
@@ -7203,40 +7189,39 @@ export const getV1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateUrl =
     return `https://api.spectrocloud.com/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance/status`;
   };
 
-export const CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate =
-  async (
-    cloudType: string,
-    configUid: string,
-    machinePoolName: string,
-    machineUid: string,
-    MachineMaintenanceStatus: MachineMaintenanceStatus,
-    options?: RequestInit,
-  ): Promise<CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse> => {
-    const res = await fetch(
-      getV1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateUrl(
-        cloudType,
-        configUid,
-        machinePoolName,
-        machineUid,
-      ),
-      {
-        ...options,
-        method: "PUT",
-        headers: { "Content-Type": "application/json", ...options?.headers },
-        body: JSON.stringify(MachineMaintenanceStatus),
-      },
-    );
+export const CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = async (
+  cloudType: string,
+  configUid: string,
+  machinePoolName: string,
+  machineUid: string,
+  MachineMaintenanceStatus: MachineMaintenanceStatus,
+  options?: RequestInit,
+): Promise<CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse> => {
+  const res = await fetch(
+    getV1CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateUrl(
+      cloudType,
+      configUid,
+      machinePoolName,
+      machineUid,
+    ),
+    {
+      ...options,
+      method: "PUT",
+      headers: { "Content-Type": "application/json", ...options?.headers },
+      body: JSON.stringify(MachineMaintenanceStatus),
+    },
+  );
 
-    const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-    const data: CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse["data"] =
-      body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse["data"] =
+    body ? JSON.parse(body) : {};
 
-    return {
-      data,
-      status: res.status,
-      headers: res.headers,
-    } as CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse;
-  };
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as CloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateResponse;
+};
 
 /**
  * @summary Returns the specified cloud config's machine pools and machine uid

@@ -15,278 +15,294 @@ import type {
   ApiKeyCreateResponse,
   ApiKeyEntity,
   ApiKeyUpdate,
-  ApiKeys,
-} from ".././schemas";
+  ApiKeys
+} from '.././schemas';
+
 
 /**
  * @summary Retrieves a list of API keys
  */
 export type ApiKeysListResponse200 = {
-  data: ApiKeys;
-  status: 200;
-};
-
+  data: ApiKeys
+  status: 200
+}
+    
 export type ApiKeysListResponseComposite = ApiKeysListResponse200;
-
+    
 export type ApiKeysListResponse = ApiKeysListResponseComposite & {
   headers: Headers;
-};
+}
 
 export const getV1ApiKeysListUrl = () => {
-  return `https://api.spectrocloud.com/v1/apiKeys`;
-};
 
-export const ApiKeysList = async (
-  options?: RequestInit,
-): Promise<ApiKeysListResponse> => {
-  const res = await fetch(getV1ApiKeysListUrl(), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys`
+}
+
+export const ApiKeysList = async ( options?: RequestInit): Promise<ApiKeysListResponse> => {
+  
+  const res = await fetch(getV1ApiKeysListUrl(),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysListResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysListResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysListResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysListResponse
+}
+
 
 /**
  * @summary Create an API key
  */
 export type ApiKeysCreateResponse201 = {
-  data: ApiKeyCreateResponse;
-  status: 201;
-};
-
+  data: ApiKeyCreateResponse
+  status: 201
+}
+    
 export type ApiKeysCreateResponseComposite = ApiKeysCreateResponse201;
-
+    
 export type ApiKeysCreateResponse = ApiKeysCreateResponseComposite & {
   headers: Headers;
-};
+}
 
 export const getV1ApiKeysCreateUrl = () => {
-  return `https://api.spectrocloud.com/v1/apiKeys`;
-};
 
-export const ApiKeysCreate = async (
-  ApiKeyEntity: ApiKeyEntity,
-  options?: RequestInit,
-): Promise<ApiKeysCreateResponse> => {
-  const res = await fetch(getV1ApiKeysCreateUrl(), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys`
+}
+
+export const ApiKeysCreate = async (ApiKeyEntity: ApiKeyEntity, options?: RequestInit): Promise<ApiKeysCreateResponse> => {
+  
+  const res = await fetch(getV1ApiKeysCreateUrl(),
+  {      
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ApiKeyEntity),
-  });
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ApiKeyEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysCreateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysCreateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysCreateResponse
+}
+
 
 /**
  * @summary Deletes the specified API key
  */
 export type ApiKeysUidDeleteResponse204 = {
-  data: void;
-  status: 204;
-};
-
+  data: void
+  status: 204
+}
+    
 export type ApiKeysUidDeleteResponseComposite = ApiKeysUidDeleteResponse204;
-
+    
 export type ApiKeysUidDeleteResponse = ApiKeysUidDeleteResponseComposite & {
   headers: Headers;
-};
+}
 
-export const getV1ApiKeysUidDeleteUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`;
-};
+export const getV1ApiKeysUidDeleteUrl = (uid: string,) => {
 
-export const ApiKeysUidDelete = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<ApiKeysUidDeleteResponse> => {
-  const res = await fetch(getV1ApiKeysUidDeleteUrl(uid), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+}
+
+export const ApiKeysUidDelete = async (uid: string, options?: RequestInit): Promise<ApiKeysUidDeleteResponse> => {
+  
+  const res = await fetch(getV1ApiKeysUidDeleteUrl(uid),
+  {      
     ...options,
-    method: "DELETE",
-  });
+    method: 'DELETE'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysUidDeleteResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysUidDeleteResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysUidDeleteResponse
+}
+
 
 /**
  * @summary Returns the specified API key
  */
 export type ApiKeysUidGetResponse200 = {
-  data: ApiKey;
-  status: 200;
-};
-
+  data: ApiKey
+  status: 200
+}
+    
 export type ApiKeysUidGetResponseComposite = ApiKeysUidGetResponse200;
-
+    
 export type ApiKeysUidGetResponse = ApiKeysUidGetResponseComposite & {
   headers: Headers;
-};
+}
 
-export const getV1ApiKeysUidGetUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`;
-};
+export const getV1ApiKeysUidGetUrl = (uid: string,) => {
 
-export const ApiKeysUidGet = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<ApiKeysUidGetResponse> => {
-  const res = await fetch(getV1ApiKeysUidGetUrl(uid), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+}
+
+export const ApiKeysUidGet = async (uid: string, options?: RequestInit): Promise<ApiKeysUidGetResponse> => {
+  
+  const res = await fetch(getV1ApiKeysUidGetUrl(uid),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysUidGetResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysUidGetResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysUidGetResponse
+}
+
 
 /**
  * @summary Activate or de-active the specified API key
  */
 export type ApiKeysUidActiveStateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type ApiKeysUidActiveStateResponseComposite = ApiKeysUidActiveStateResponse204;
+    
+export type ApiKeysUidActiveStateResponse = ApiKeysUidActiveStateResponseComposite & {
+  headers: Headers;
+}
 
-export type ApiKeysUidActiveStateResponseComposite =
-  ApiKeysUidActiveStateResponse204;
+export const getV1ApiKeysUidActiveStateUrl = (uid: string,) => {
 
-export type ApiKeysUidActiveStateResponse =
-  ApiKeysUidActiveStateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1ApiKeysUidActiveStateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`;
-};
+  
 
-export const ApiKeysUidActiveState = async (
-  uid: string,
-  ApiKeyActiveStateBody: ApiKeyActiveStateBody,
-  options?: RequestInit,
-): Promise<ApiKeysUidActiveStateResponse> => {
-  const res = await fetch(getV1ApiKeysUidActiveStateUrl(uid), {
+  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+}
+
+export const ApiKeysUidActiveState = async (uid: string,
+    ApiKeyActiveStateBody: ApiKeyActiveStateBody, options?: RequestInit): Promise<ApiKeysUidActiveStateResponse> => {
+  
+  const res = await fetch(getV1ApiKeysUidActiveStateUrl(uid),
+  {      
     ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ApiKeyActiveStateBody),
-  });
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ApiKeyActiveStateBody,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysUidActiveStateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysUidActiveStateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysUidActiveStateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysUidActiveStateResponse
+}
+
 
 /**
  * @summary Update the specified API key
  */
 export type ApiKeysUidUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
-
+  data: void
+  status: 204
+}
+    
 export type ApiKeysUidUpdateResponseComposite = ApiKeysUidUpdateResponse204;
-
+    
 export type ApiKeysUidUpdateResponse = ApiKeysUidUpdateResponseComposite & {
   headers: Headers;
-};
+}
 
-export const getV1ApiKeysUidUpdateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`;
-};
+export const getV1ApiKeysUidUpdateUrl = (uid: string,) => {
 
-export const ApiKeysUidUpdate = async (
-  uid: string,
-  ApiKeyUpdate: ApiKeyUpdate,
-  options?: RequestInit,
-): Promise<ApiKeysUidUpdateResponse> => {
-  const res = await fetch(getV1ApiKeysUidUpdateUrl(uid), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+}
+
+export const ApiKeysUidUpdate = async (uid: string,
+    ApiKeyUpdate: ApiKeyUpdate, options?: RequestInit): Promise<ApiKeysUidUpdateResponse> => {
+  
+  const res = await fetch(getV1ApiKeysUidUpdateUrl(uid),
+  {      
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ApiKeyUpdate),
-  });
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ApiKeyUpdate,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysUidUpdateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysUidUpdateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysUidUpdateResponse
+}
+
 
 /**
  * @summary Revoke or re-activate the API key access
  */
 export type ApiKeysUidStateResponse204 = {
-  data: void;
-  status: 204;
-};
-
+  data: void
+  status: 204
+}
+    
 export type ApiKeysUidStateResponseComposite = ApiKeysUidStateResponse204;
-
+    
 export type ApiKeysUidStateResponse = ApiKeysUidStateResponseComposite & {
   headers: Headers;
-};
+}
 
-export const getV1ApiKeysUidStateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}/state`;
-};
+export const getV1ApiKeysUidStateUrl = (uid: string,) => {
 
-export const ApiKeysUidState = async (
-  uid: string,
-  ApiKeyActiveStateBody: ApiKeyActiveStateBody,
-  options?: RequestInit,
-): Promise<ApiKeysUidStateResponse> => {
-  const res = await fetch(getV1ApiKeysUidStateUrl(uid), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/apiKeys/${uid}/state`
+}
+
+export const ApiKeysUidState = async (uid: string,
+    ApiKeyActiveStateBody: ApiKeyActiveStateBody, options?: RequestInit): Promise<ApiKeysUidStateResponse> => {
+  
+  const res = await fetch(getV1ApiKeysUidStateUrl(uid),
+  {      
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ApiKeyActiveStateBody),
-  });
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ApiKeyActiveStateBody,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ApiKeysUidStateResponse["data"] = body ? JSON.parse(body) : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: ApiKeysUidStateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as ApiKeysUidStateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as ApiKeysUidStateResponse
+}
+
+

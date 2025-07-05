@@ -11,5 +11,4 @@
  */
 import type { VsphereMachinePoolConfigEntity } from "./VsphereMachinePoolConfigEntity";
 
-export type VsphereMachinePoolConfigEntityBody =
-  VsphereMachinePoolConfigEntity;
+export type VsphereMachinePoolConfigEntityBody = VsphereMachinePoolConfigEntity;

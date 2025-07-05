@@ -1447,13 +1447,11 @@ export type OverlordsUidDeleteResponse200 = {
   status: 200;
 };
 
-export type OverlordsUidDeleteResponseComposite =
-  OverlordsUidDeleteResponse200;
+export type OverlordsUidDeleteResponseComposite = OverlordsUidDeleteResponse200;
 
-export type OverlordsUidDeleteResponse =
-  OverlordsUidDeleteResponseComposite & {
-    headers: Headers;
-  };
+export type OverlordsUidDeleteResponse = OverlordsUidDeleteResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1OverlordsUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}`;
@@ -1469,9 +1467,7 @@ export const OverlordsUidDelete = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: OverlordsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1569,13 +1565,11 @@ export type OverlordsUidResetResponse200 = {
   status: 200;
 };
 
-export type OverlordsUidResetResponseComposite =
-  OverlordsUidResetResponse200;
+export type OverlordsUidResetResponseComposite = OverlordsUidResetResponse200;
 
-export type OverlordsUidResetResponse =
-  OverlordsUidResetResponseComposite & {
-    headers: Headers;
-  };
+export type OverlordsUidResetResponse = OverlordsUidResetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1OverlordsUidResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}/reset`;
@@ -1591,9 +1585,7 @@ export const OverlordsUidReset = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidResetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: OverlordsUidResetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

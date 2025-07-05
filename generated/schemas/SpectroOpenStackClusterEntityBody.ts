@@ -11,5 +11,4 @@
  */
 import type { SpectroOpenStackClusterEntity } from "./SpectroOpenStackClusterEntity";
 
-export type SpectroOpenStackClusterEntityBody =
-  SpectroOpenStackClusterEntity;
+export type SpectroOpenStackClusterEntityBody = SpectroOpenStackClusterEntity;

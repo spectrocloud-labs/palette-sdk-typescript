@@ -112,13 +112,11 @@ export type ProjectsUidDeleteResponse204 = {
   status: 204;
 };
 
-export type ProjectsUidDeleteResponseComposite =
-  ProjectsUidDeleteResponse204;
+export type ProjectsUidDeleteResponseComposite = ProjectsUidDeleteResponse204;
 
-export type ProjectsUidDeleteResponse =
-  ProjectsUidDeleteResponseComposite & {
-    headers: Headers;
-  };
+export type ProjectsUidDeleteResponse = ProjectsUidDeleteResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1ProjectsUidDeleteUrl = (
   uid: string,
@@ -153,9 +151,7 @@ export const ProjectsUidDelete = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: ProjectsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -209,13 +205,11 @@ export type ProjectsUidUpdateResponse204 = {
   status: 204;
 };
 
-export type ProjectsUidUpdateResponseComposite =
-  ProjectsUidUpdateResponse204;
+export type ProjectsUidUpdateResponseComposite = ProjectsUidUpdateResponse204;
 
-export type ProjectsUidUpdateResponse =
-  ProjectsUidUpdateResponseComposite & {
-    headers: Headers;
-  };
+export type ProjectsUidUpdateResponse = ProjectsUidUpdateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1ProjectsUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}`;
@@ -234,9 +228,7 @@ export const ProjectsUidUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: ProjectsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

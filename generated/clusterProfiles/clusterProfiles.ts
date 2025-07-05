@@ -514,13 +514,11 @@ export type ClusterProfilesGetResponse200 = {
   status: 200;
 };
 
-export type ClusterProfilesGetResponseComposite =
-  ClusterProfilesGetResponse200;
+export type ClusterProfilesGetResponseComposite = ClusterProfilesGetResponse200;
 
-export type ClusterProfilesGetResponse =
-  ClusterProfilesGetResponseComposite & {
-    headers: Headers;
-  };
+export type ClusterProfilesGetResponse = ClusterProfilesGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1ClusterProfilesGetUrl = (
   uid: string,
@@ -548,9 +546,7 @@ export const ClusterProfilesGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: ClusterProfilesGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1525,8 +1521,9 @@ export const ClusterProfilesUidPacksNameManifestsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameManifestsUidGetResponse["data"] =
-    body ? JSON.parse(body) : {};
+  const data: ClusterProfilesUidPacksNameManifestsUidGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,

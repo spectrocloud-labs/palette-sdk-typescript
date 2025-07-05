@@ -24,13 +24,11 @@ export type ServiceVersionGetResponse200 = {
   status: 200;
 };
 
-export type ServiceVersionGetResponseComposite =
-  ServiceVersionGetResponse200;
+export type ServiceVersionGetResponseComposite = ServiceVersionGetResponse200;
 
-export type ServiceVersionGetResponse =
-  ServiceVersionGetResponseComposite & {
-    headers: Headers;
-  };
+export type ServiceVersionGetResponse = ServiceVersionGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1ServiceVersionGetUrl = (
   serviceName:
@@ -90,9 +88,7 @@ export const ServiceVersionGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ServiceVersionGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: ServiceVersionGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -109,13 +105,11 @@ export type ServiceManifestGetResponse200 = {
   status: 200;
 };
 
-export type ServiceManifestGetResponseComposite =
-  ServiceManifestGetResponse200;
+export type ServiceManifestGetResponseComposite = ServiceManifestGetResponse200;
 
-export type ServiceManifestGetResponse =
-  ServiceManifestGetResponseComposite & {
-    headers: Headers;
-  };
+export type ServiceManifestGetResponse = ServiceManifestGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1ServiceManifestGetUrl = (
   serviceName:
@@ -180,9 +174,7 @@ export const ServiceManifestGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ServiceManifestGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: ServiceManifestGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

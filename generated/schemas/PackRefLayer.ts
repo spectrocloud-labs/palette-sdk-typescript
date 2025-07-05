@@ -10,8 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export type PackRefLayer =
-  (typeof PackRefLayer)[keyof typeof PackRefLayer];
+export type PackRefLayer = (typeof PackRefLayer)[keyof typeof PackRefLayer];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PackRefLayer = {

@@ -315,13 +315,11 @@ export type TeamsProjectRolesResponse200 = {
   status: 200;
 };
 
-export type TeamsProjectRolesResponseComposite =
-  TeamsProjectRolesResponse200;
+export type TeamsProjectRolesResponseComposite = TeamsProjectRolesResponse200;
 
-export type TeamsProjectRolesResponse =
-  TeamsProjectRolesResponseComposite & {
-    headers: Headers;
-  };
+export type TeamsProjectRolesResponse = TeamsProjectRolesResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1TeamsProjectRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/projects`;
@@ -337,9 +335,7 @@ export const TeamsProjectRoles = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsProjectRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: TeamsProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

@@ -26,913 +26,850 @@ import type {
   Manifest,
   ManifestInputEntityBody,
   ManifestRefUpdateEntityBody,
-  Uid,
-} from ".././schemas";
+  Uid
+} from '.././schemas';
+
 
 /**
  * @summary Creates a application profile
  */
 export type AppProfilesCreateResponse201 = {
-  data: Uid;
-  status: 201;
-};
-
-export type AppProfilesCreateResponseComposite =
-  AppProfilesCreateResponse201;
-
-export type AppProfilesCreateResponse =
-  AppProfilesCreateResponseComposite & {
-    headers: Headers;
-  };
+  data: Uid
+  status: 201
+}
+    
+export type AppProfilesCreateResponseComposite = AppProfilesCreateResponse201;
+    
+export type AppProfilesCreateResponse = AppProfilesCreateResponseComposite & {
+  headers: Headers;
+}
 
 export const getV1AppProfilesCreateUrl = () => {
-  return `https://api.spectrocloud.com/v1/appProfiles`;
-};
 
-export const AppProfilesCreate = async (
-  AppProfileEntityBody: AppProfileEntityBody,
-  options?: RequestInit,
-): Promise<AppProfilesCreateResponse> => {
-  const res = await fetch(getV1AppProfilesCreateUrl(), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/appProfiles`
+}
+
+export const AppProfilesCreate = async (AppProfileEntityBody: AppProfileEntityBody, options?: RequestInit): Promise<AppProfilesCreateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesCreateUrl(),
+  {      
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppProfileEntityBody),
-  });
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppProfileEntityBody,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesCreateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesCreateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesCreateResponse
+}
+
 
 /**
  * @summary Retrieves a list of application profile macros
  */
 export type AppProfilesMacrosListResponse200 = {
-  data: Macros;
-  status: 200;
-};
-
-export type AppProfilesMacrosListResponseComposite =
-  AppProfilesMacrosListResponse200;
-
-export type AppProfilesMacrosListResponse =
-  AppProfilesMacrosListResponseComposite & {
-    headers: Headers;
-  };
+  data: Macros
+  status: 200
+}
+    
+export type AppProfilesMacrosListResponseComposite = AppProfilesMacrosListResponse200;
+    
+export type AppProfilesMacrosListResponse = AppProfilesMacrosListResponseComposite & {
+  headers: Headers;
+}
 
 export const getV1AppProfilesMacrosListUrl = () => {
-  return `https://api.spectrocloud.com/v1/appProfiles/macros`;
-};
 
-export const AppProfilesMacrosList = async (
-  options?: RequestInit,
-): Promise<AppProfilesMacrosListResponse> => {
-  const res = await fetch(getV1AppProfilesMacrosListUrl(), {
+
+  
+
+  return `https://api.spectrocloud.com/v1/appProfiles/macros`
+}
+
+export const AppProfilesMacrosList = async ( options?: RequestInit): Promise<AppProfilesMacrosListResponse> => {
+  
+  const res = await fetch(getV1AppProfilesMacrosListUrl(),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesMacrosListResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesMacrosListResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesMacrosListResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesMacrosListResponse
+}
+
 
 /**
  * @summary Deletes the specified application profile
  */
 export type AppProfilesUidDeleteResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidDeleteResponseComposite = AppProfilesUidDeleteResponse204;
+    
+export type AppProfilesUidDeleteResponse = AppProfilesUidDeleteResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidDeleteResponseComposite =
-  AppProfilesUidDeleteResponse204;
+export const getV1AppProfilesUidDeleteUrl = (uid: string,) => {
 
-export type AppProfilesUidDeleteResponse =
-  AppProfilesUidDeleteResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidDeleteUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`;
-};
+  
 
-export const AppProfilesUidDelete = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidDeleteResponse> => {
-  const res = await fetch(getV1AppProfilesUidDeleteUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+}
+
+export const AppProfilesUidDelete = async (uid: string, options?: RequestInit): Promise<AppProfilesUidDeleteResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidDeleteUrl(uid),
+  {      
     ...options,
-    method: "DELETE",
-  });
+    method: 'DELETE'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidDeleteResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidDeleteResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidDeleteResponse
+}
+
 
 /**
  * @summary Returns the specified application profile
  */
 export type AppProfilesUidGetResponse200 = {
-  data: AppProfile;
-  status: 200;
-};
+  data: AppProfile
+  status: 200
+}
+    
+export type AppProfilesUidGetResponseComposite = AppProfilesUidGetResponse200;
+    
+export type AppProfilesUidGetResponse = AppProfilesUidGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidGetResponseComposite =
-  AppProfilesUidGetResponse200;
+export const getV1AppProfilesUidGetUrl = (uid: string,) => {
 
-export type AppProfilesUidGetResponse =
-  AppProfilesUidGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidGetUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`;
-};
+  
 
-export const AppProfilesUidGet = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidGetResponse> => {
-  const res = await fetch(getV1AppProfilesUidGetUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+}
+
+export const AppProfilesUidGet = async (uid: string, options?: RequestInit): Promise<AppProfilesUidGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidGetUrl(uid),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidGetResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidGetResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidGetResponse
+}
+
 
 /**
  * @summary Updates the specified application profile
  */
 export type AppProfilesUidUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidUpdateResponseComposite = AppProfilesUidUpdateResponse204;
+    
+export type AppProfilesUidUpdateResponse = AppProfilesUidUpdateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidUpdateResponseComposite =
-  AppProfilesUidUpdateResponse204;
+export const getV1AppProfilesUidUpdateUrl = (uid: string,) => {
 
-export type AppProfilesUidUpdateResponse =
-  AppProfilesUidUpdateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidUpdateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`;
-};
+  
 
-export const AppProfilesUidUpdate = async (
-  uid: string,
-  AppProfileEntityBody: AppProfileEntityBody,
-  options?: RequestInit,
-): Promise<AppProfilesUidUpdateResponse> => {
-  const res = await fetch(getV1AppProfilesUidUpdateUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+}
+
+export const AppProfilesUidUpdate = async (uid: string,
+    AppProfileEntityBody: AppProfileEntityBody, options?: RequestInit): Promise<AppProfilesUidUpdateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidUpdateUrl(uid),
+  {      
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppProfileEntityBody),
-  });
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppProfileEntityBody,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidUpdateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidUpdateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidUpdateResponse
+}
+
 
 /**
  * @summary Clones the specified application profile
  */
 export type AppProfilesUidCloneResponse201 = {
-  data: Uid;
-  status: 201;
-};
+  data: Uid
+  status: 201
+}
+    
+export type AppProfilesUidCloneResponseComposite = AppProfilesUidCloneResponse201;
+    
+export type AppProfilesUidCloneResponse = AppProfilesUidCloneResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidCloneResponseComposite =
-  AppProfilesUidCloneResponse201;
+export const getV1AppProfilesUidCloneUrl = (uid: string,) => {
 
-export type AppProfilesUidCloneResponse =
-  AppProfilesUidCloneResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidCloneUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone`;
-};
+  
 
-export const AppProfilesUidClone = async (
-  uid: string,
-  AppProfileCloneEntity: AppProfileCloneEntity,
-  options?: RequestInit,
-): Promise<AppProfilesUidCloneResponse> => {
-  const res = await fetch(getV1AppProfilesUidCloneUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone`
+}
+
+export const AppProfilesUidClone = async (uid: string,
+    AppProfileCloneEntity: AppProfileCloneEntity, options?: RequestInit): Promise<AppProfilesUidCloneResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidCloneUrl(uid),
+  {      
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppProfileCloneEntity),
-  });
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppProfileCloneEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidCloneResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidCloneResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidCloneResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidCloneResponse
+}
+
 
 /**
  * @summary Validates the specified application profile clone
  */
 export type AppProfilesUidCloneValidateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidCloneValidateResponseComposite = AppProfilesUidCloneValidateResponse204;
+    
+export type AppProfilesUidCloneValidateResponse = AppProfilesUidCloneValidateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidCloneValidateResponseComposite =
-  AppProfilesUidCloneValidateResponse204;
+export const getV1AppProfilesUidCloneValidateUrl = (uid: string,) => {
 
-export type AppProfilesUidCloneValidateResponse =
-  AppProfilesUidCloneValidateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidCloneValidateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone/validate`;
-};
+  
 
-export const AppProfilesUidCloneValidate = async (
-  uid: string,
-  AppProfileCloneMetaInputEntity: AppProfileCloneMetaInputEntity,
-  options?: RequestInit,
-): Promise<AppProfilesUidCloneValidateResponse> => {
-  const res = await fetch(getV1AppProfilesUidCloneValidateUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone/validate`
+}
+
+export const AppProfilesUidCloneValidate = async (uid: string,
+    AppProfileCloneMetaInputEntity: AppProfileCloneMetaInputEntity, options?: RequestInit): Promise<AppProfilesUidCloneValidateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidCloneValidateUrl(uid),
+  {      
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppProfileCloneMetaInputEntity),
-  });
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppProfileCloneMetaInputEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidCloneValidateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidCloneValidateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidCloneValidateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidCloneValidateResponse
+}
+
 
 /**
  * @summary Updates the specified application profile metadata
  */
 export type AppProfilesUidMetadataUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidMetadataUpdateResponseComposite = AppProfilesUidMetadataUpdateResponse204;
+    
+export type AppProfilesUidMetadataUpdateResponse = AppProfilesUidMetadataUpdateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidMetadataUpdateResponseComposite =
-  AppProfilesUidMetadataUpdateResponse204;
+export const getV1AppProfilesUidMetadataUpdateUrl = (uid: string,) => {
 
-export type AppProfilesUidMetadataUpdateResponse =
-  AppProfilesUidMetadataUpdateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidMetadataUpdateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/metadata`;
-};
+  
 
-export const AppProfilesUidMetadataUpdate = async (
-  uid: string,
-  AppProfileMetaEntity: AppProfileMetaEntity,
-  options?: RequestInit,
-): Promise<AppProfilesUidMetadataUpdateResponse> => {
-  const res = await fetch(getV1AppProfilesUidMetadataUpdateUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/metadata`
+}
+
+export const AppProfilesUidMetadataUpdate = async (uid: string,
+    AppProfileMetaEntity: AppProfileMetaEntity, options?: RequestInit): Promise<AppProfilesUidMetadataUpdateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidMetadataUpdateUrl(uid),
+  {      
     ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppProfileMetaEntity),
-  });
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppProfileMetaEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidMetadataUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidMetadataUpdateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidMetadataUpdateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidMetadataUpdateResponse
+}
+
 
 /**
  * @summary Retrieves a list of tiers of the specified application profile
  */
 export type AppProfilesUidTiersGetResponse200 = {
-  data: AppProfileTiers;
-  status: 200;
-};
+  data: AppProfileTiers
+  status: 200
+}
+    
+export type AppProfilesUidTiersGetResponseComposite = AppProfilesUidTiersGetResponse200;
+    
+export type AppProfilesUidTiersGetResponse = AppProfilesUidTiersGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersGetResponseComposite =
-  AppProfilesUidTiersGetResponse200;
+export const getV1AppProfilesUidTiersGetUrl = (uid: string,) => {
 
-export type AppProfilesUidTiersGetResponse =
-  AppProfilesUidTiersGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersGetUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`;
-};
+  
 
-export const AppProfilesUidTiersGet = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersGetResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersGetUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+}
+
+export const AppProfilesUidTiersGet = async (uid: string, options?: RequestInit): Promise<AppProfilesUidTiersGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersGetUrl(uid),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersGetResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersGetResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersGetResponse
+}
+
 
 /**
  * @summary Updates app tier of the specified application profile
  */
 export type AppProfilesUidTiersPatchResponse201 = {
-  data: Uid;
-  status: 201;
-};
+  data: Uid
+  status: 201
+}
+    
+export type AppProfilesUidTiersPatchResponseComposite = AppProfilesUidTiersPatchResponse201;
+    
+export type AppProfilesUidTiersPatchResponse = AppProfilesUidTiersPatchResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersPatchResponseComposite =
-  AppProfilesUidTiersPatchResponse201;
+export const getV1AppProfilesUidTiersPatchUrl = (uid: string,) => {
 
-export type AppProfilesUidTiersPatchResponse =
-  AppProfilesUidTiersPatchResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersPatchUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`;
-};
+  
 
-export const AppProfilesUidTiersPatch = async (
-  uid: string,
-  AppTierPatchEntity: AppTierPatchEntity,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersPatchResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersPatchUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+}
+
+export const AppProfilesUidTiersPatch = async (uid: string,
+    AppTierPatchEntity: AppTierPatchEntity, options?: RequestInit): Promise<AppProfilesUidTiersPatchResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersPatchUrl(uid),
+  {      
     ...options,
-    method: "PATCH",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppTierPatchEntity),
-  });
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppTierPatchEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersPatchResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersPatchResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersPatchResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersPatchResponse
+}
+
 
 /**
  * @summary Adds tier to the specified application profile
  */
 export type AppProfilesUidTiersCreateResponse201 = {
-  data: Uid;
-  status: 201;
-};
+  data: Uid
+  status: 201
+}
+    
+export type AppProfilesUidTiersCreateResponseComposite = AppProfilesUidTiersCreateResponse201;
+    
+export type AppProfilesUidTiersCreateResponse = AppProfilesUidTiersCreateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersCreateResponseComposite =
-  AppProfilesUidTiersCreateResponse201;
+export const getV1AppProfilesUidTiersCreateUrl = (uid: string,) => {
 
-export type AppProfilesUidTiersCreateResponse =
-  AppProfilesUidTiersCreateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersCreateUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`;
-};
+  
 
-export const AppProfilesUidTiersCreate = async (
-  uid: string,
-  AppTierEntity: AppTierEntity,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersCreateResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersCreateUrl(uid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+}
+
+export const AppProfilesUidTiersCreate = async (uid: string,
+    AppTierEntity: AppTierEntity, options?: RequestInit): Promise<AppProfilesUidTiersCreateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersCreateUrl(uid),
+  {      
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppTierEntity),
-  });
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppTierEntity,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersCreateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersCreateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersCreateResponse
+}
+
 
 /**
  * @summary Deletes the specified application profile tier
  */
 export type AppProfilesUidTiersUidDeleteResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidTiersUidDeleteResponseComposite = AppProfilesUidTiersUidDeleteResponse204;
+    
+export type AppProfilesUidTiersUidDeleteResponse = AppProfilesUidTiersUidDeleteResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidDeleteResponseComposite =
-  AppProfilesUidTiersUidDeleteResponse204;
+export const getV1AppProfilesUidTiersUidDeleteUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidDeleteResponse =
-  AppProfilesUidTiersUidDeleteResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidDeleteUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidDelete = async (
-  uid: string,
-  tierUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidDeleteResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersUidDeleteUrl(uid, tierUid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+}
+
+export const AppProfilesUidTiersUidDelete = async (uid: string,
+    tierUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidDeleteResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidDeleteUrl(uid,tierUid),
+  {      
     ...options,
-    method: "DELETE",
-  });
+    method: 'DELETE'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidDeleteResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidDeleteResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidDeleteResponse
+}
+
 
 /**
  * @summary Returns the specified application profile tier information
  */
 export type AppProfilesUidTiersUidGetResponse200 = {
-  data: AppTier;
-  status: 200;
-};
+  data: AppTier
+  status: 200
+}
+    
+export type AppProfilesUidTiersUidGetResponseComposite = AppProfilesUidTiersUidGetResponse200;
+    
+export type AppProfilesUidTiersUidGetResponse = AppProfilesUidTiersUidGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidGetResponseComposite =
-  AppProfilesUidTiersUidGetResponse200;
+export const getV1AppProfilesUidTiersUidGetUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidGetResponse =
-  AppProfilesUidTiersUidGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidGetUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidGet = async (
-  uid: string,
-  tierUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidGetResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersUidGetUrl(uid, tierUid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+}
+
+export const AppProfilesUidTiersUidGet = async (uid: string,
+    tierUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidGetUrl(uid,tierUid),
+  {      
     ...options,
-    method: "GET",
-  });
+    method: 'GET'
+    
+    
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidGetResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidGetResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidGetResponse
+}
+
 
 /**
  * @summary Updates the specified application profile tier
  */
 export type AppProfilesUidTiersUidUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidTiersUidUpdateResponseComposite = AppProfilesUidTiersUidUpdateResponse204;
+    
+export type AppProfilesUidTiersUidUpdateResponse = AppProfilesUidTiersUidUpdateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidUpdateResponseComposite =
-  AppProfilesUidTiersUidUpdateResponse204;
+export const getV1AppProfilesUidTiersUidUpdateUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidUpdateResponse =
-  AppProfilesUidTiersUidUpdateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidUpdateUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidUpdate = async (
-  uid: string,
-  tierUid: string,
-  AppTierUpdateEntityBody: AppTierUpdateEntityBody,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidUpdateResponse> => {
-  const res = await fetch(getV1AppProfilesUidTiersUidUpdateUrl(uid, tierUid), {
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+}
+
+export const AppProfilesUidTiersUidUpdate = async (uid: string,
+    tierUid: string,
+    AppTierUpdateEntityBody: AppTierUpdateEntityBody, options?: RequestInit): Promise<AppProfilesUidTiersUidUpdateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidUpdateUrl(uid,tierUid),
+  {      
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AppTierUpdateEntityBody),
-  });
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      AppTierUpdateEntityBody,)
+  }
+)
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidUpdateResponse['data'] = body ? JSON.parse(body) : {}
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidUpdateResponse;
-};
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidUpdateResponse
+}
+
 
 /**
  * @summary Retrieves a list of manifests of the specified application profile tier
  */
 export type AppProfilesUidTiersUidManifestsGetResponse200 = {
-  data: AppTierManifests;
-  status: 200;
-};
+  data: AppTierManifests
+  status: 200
+}
+    
+export type AppProfilesUidTiersUidManifestsGetResponseComposite = AppProfilesUidTiersUidManifestsGetResponse200;
+    
+export type AppProfilesUidTiersUidManifestsGetResponse = AppProfilesUidTiersUidManifestsGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidManifestsGetResponseComposite =
-  AppProfilesUidTiersUidManifestsGetResponse200;
+export const getV1AppProfilesUidTiersUidManifestsGetUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidManifestsGetResponse =
-  AppProfilesUidTiersUidManifestsGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidManifestsGetUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`;
-};
+  
 
-export const AppProfilesUidTiersUidManifestsGet = async (
-  uid: string,
-  tierUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidManifestsGetResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidManifestsGetUrl(uid, tierUid),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidManifestsGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidManifestsGet = async (uid: string,
+    tierUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidManifestsGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidManifestsGetUrl(uid,tierUid),
+  {      
+    ...options,
+    method: 'GET'
+    
+    
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidManifestsGetResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidManifestsGetResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidManifestsGetResponse
+}
+
 
 /**
  * @summary Adds manifest to the specified application profile tier
  */
 export type AppProfilesUidTiersUidManifestsCreateResponse201 = {
-  data: Uid;
-  status: 201;
-};
+  data: Uid
+  status: 201
+}
+    
+export type AppProfilesUidTiersUidManifestsCreateResponseComposite = AppProfilesUidTiersUidManifestsCreateResponse201;
+    
+export type AppProfilesUidTiersUidManifestsCreateResponse = AppProfilesUidTiersUidManifestsCreateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidManifestsCreateResponseComposite =
-  AppProfilesUidTiersUidManifestsCreateResponse201;
+export const getV1AppProfilesUidTiersUidManifestsCreateUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidManifestsCreateResponse =
-  AppProfilesUidTiersUidManifestsCreateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidManifestsCreateUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`;
-};
+  
 
-export const AppProfilesUidTiersUidManifestsCreate = async (
-  uid: string,
-  tierUid: string,
-  ManifestInputEntityBody: ManifestInputEntityBody,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidManifestsCreateResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidManifestsCreateUrl(uid, tierUid),
-    {
-      ...options,
-      method: "POST",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ManifestInputEntityBody),
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidManifestsCreateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidManifestsCreate = async (uid: string,
+    tierUid: string,
+    ManifestInputEntityBody: ManifestInputEntityBody, options?: RequestInit): Promise<AppProfilesUidTiersUidManifestsCreateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidManifestsCreateUrl(uid,tierUid),
+  {      
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ManifestInputEntityBody,)
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidManifestsCreateResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidManifestsCreateResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidManifestsCreateResponse
+}
+
 
 /**
  * @summary Deletes the specified application profile tier manifest
  */
 export type AppProfilesUidTiersUidManifestsUidDeleteResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidTiersUidManifestsUidDeleteResponseComposite = AppProfilesUidTiersUidManifestsUidDeleteResponse204;
+    
+export type AppProfilesUidTiersUidManifestsUidDeleteResponse = AppProfilesUidTiersUidManifestsUidDeleteResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidManifestsUidDeleteResponseComposite =
-  AppProfilesUidTiersUidManifestsUidDeleteResponse204;
+export const getV1AppProfilesUidTiersUidManifestsUidDeleteUrl = (uid: string,
+    tierUid: string,
+    manifestUid: string,) => {
 
-export type AppProfilesUidTiersUidManifestsUidDeleteResponse =
-  AppProfilesUidTiersUidManifestsUidDeleteResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidManifestsUidDeleteUrl = (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidManifestsUidDelete = async (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidManifestsUidDeleteResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidManifestsUidDeleteUrl(uid, tierUid, manifestUid),
-    {
-      ...options,
-      method: "DELETE",
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidManifestsUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidManifestsUidDelete = async (uid: string,
+    tierUid: string,
+    manifestUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidManifestsUidDeleteResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidManifestsUidDeleteUrl(uid,tierUid,manifestUid),
+  {      
+    ...options,
+    method: 'DELETE'
+    
+    
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidManifestsUidDeleteResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidManifestsUidDeleteResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidManifestsUidDeleteResponse
+}
+
 
 /**
  * @summary Returns the specified application profile tier manifest information
  */
 export type AppProfilesUidTiersUidManifestsUidGetResponse200 = {
-  data: Manifest;
-  status: 200;
-};
+  data: Manifest
+  status: 200
+}
+    
+export type AppProfilesUidTiersUidManifestsUidGetResponseComposite = AppProfilesUidTiersUidManifestsUidGetResponse200;
+    
+export type AppProfilesUidTiersUidManifestsUidGetResponse = AppProfilesUidTiersUidManifestsUidGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidManifestsUidGetResponseComposite =
-  AppProfilesUidTiersUidManifestsUidGetResponse200;
+export const getV1AppProfilesUidTiersUidManifestsUidGetUrl = (uid: string,
+    tierUid: string,
+    manifestUid: string,) => {
 
-export type AppProfilesUidTiersUidManifestsUidGetResponse =
-  AppProfilesUidTiersUidManifestsUidGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidManifestsUidGetUrl = (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidManifestsUidGet = async (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidManifestsUidGetResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidManifestsUidGetUrl(uid, tierUid, manifestUid),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidManifestsUidGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidManifestsUidGet = async (uid: string,
+    tierUid: string,
+    manifestUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidManifestsUidGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidManifestsUidGetUrl(uid,tierUid,manifestUid),
+  {      
+    ...options,
+    method: 'GET'
+    
+    
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidManifestsUidGetResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidManifestsUidGetResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidManifestsUidGetResponse
+}
+
 
 /**
  * @summary Updates the specified application profile tier manifest information
  */
 export type AppProfilesUidTiersUidManifestsUidUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
+  data: void
+  status: 204
+}
+    
+export type AppProfilesUidTiersUidManifestsUidUpdateResponseComposite = AppProfilesUidTiersUidManifestsUidUpdateResponse204;
+    
+export type AppProfilesUidTiersUidManifestsUidUpdateResponse = AppProfilesUidTiersUidManifestsUidUpdateResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidManifestsUidUpdateResponseComposite =
-  AppProfilesUidTiersUidManifestsUidUpdateResponse204;
+export const getV1AppProfilesUidTiersUidManifestsUidUpdateUrl = (uid: string,
+    tierUid: string,
+    manifestUid: string,) => {
 
-export type AppProfilesUidTiersUidManifestsUidUpdateResponse =
-  AppProfilesUidTiersUidManifestsUidUpdateResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidManifestsUidUpdateUrl = (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`;
-};
+  
 
-export const AppProfilesUidTiersUidManifestsUidUpdate = async (
-  uid: string,
-  tierUid: string,
-  manifestUid: string,
-  ManifestRefUpdateEntityBody: ManifestRefUpdateEntityBody,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidManifestsUidUpdateResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidManifestsUidUpdateUrl(uid, tierUid, manifestUid),
-    {
-      ...options,
-      method: "PUT",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ManifestRefUpdateEntityBody),
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidManifestsUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidManifestsUidUpdate = async (uid: string,
+    tierUid: string,
+    manifestUid: string,
+    ManifestRefUpdateEntityBody: ManifestRefUpdateEntityBody, options?: RequestInit): Promise<AppProfilesUidTiersUidManifestsUidUpdateResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidManifestsUidUpdateUrl(uid,tierUid,manifestUid),
+  {      
+    ...options,
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(
+      ManifestRefUpdateEntityBody,)
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidManifestsUidUpdateResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidManifestsUidUpdateResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidManifestsUidUpdateResponse
+}
+
 
 /**
  * @summary Returns the specified application profile tier resolved values
  */
 export type AppProfilesUidTiersUidResolvedValuesGetResponse200 = {
-  data: AppTierResolvedValues;
-  status: 200;
-};
+  data: AppTierResolvedValues
+  status: 200
+}
+    
+export type AppProfilesUidTiersUidResolvedValuesGetResponseComposite = AppProfilesUidTiersUidResolvedValuesGetResponse200;
+    
+export type AppProfilesUidTiersUidResolvedValuesGetResponse = AppProfilesUidTiersUidResolvedValuesGetResponseComposite & {
+  headers: Headers;
+}
 
-export type AppProfilesUidTiersUidResolvedValuesGetResponseComposite =
-  AppProfilesUidTiersUidResolvedValuesGetResponse200;
+export const getV1AppProfilesUidTiersUidResolvedValuesGetUrl = (uid: string,
+    tierUid: string,) => {
 
-export type AppProfilesUidTiersUidResolvedValuesGetResponse =
-  AppProfilesUidTiersUidResolvedValuesGetResponseComposite & {
-    headers: Headers;
-  };
 
-export const getV1AppProfilesUidTiersUidResolvedValuesGetUrl = (
-  uid: string,
-  tierUid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`;
-};
+  
 
-export const AppProfilesUidTiersUidResolvedValuesGet = async (
-  uid: string,
-  tierUid: string,
-  options?: RequestInit,
-): Promise<AppProfilesUidTiersUidResolvedValuesGetResponse> => {
-  const res = await fetch(
-    getV1AppProfilesUidTiersUidResolvedValuesGetUrl(uid, tierUid),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`
+}
 
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AppProfilesUidTiersUidResolvedValuesGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+export const AppProfilesUidTiersUidResolvedValuesGet = async (uid: string,
+    tierUid: string, options?: RequestInit): Promise<AppProfilesUidTiersUidResolvedValuesGetResponse> => {
+  
+  const res = await fetch(getV1AppProfilesUidTiersUidResolvedValuesGetUrl(uid,tierUid),
+  {      
+    ...options,
+    method: 'GET'
+    
+    
+  }
+)
 
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AppProfilesUidTiersUidResolvedValuesGetResponse;
-};
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text()
+  const data: AppProfilesUidTiersUidResolvedValuesGetResponse['data'] = body ? JSON.parse(body) : {}
+
+  return { data, status: res.status, headers: res.headers } as AppProfilesUidTiersUidResolvedValuesGetResponse
+}
+
+

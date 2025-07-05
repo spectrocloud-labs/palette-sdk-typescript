@@ -848,17 +848,13 @@ export type UsersAssetsSshGetResponse200 = {
   status: 200;
 };
 
-export type UsersAssetsSshGetResponseComposite =
-  UsersAssetsSshGetResponse200;
+export type UsersAssetsSshGetResponseComposite = UsersAssetsSshGetResponse200;
 
-export type UsersAssetsSshGetResponse =
-  UsersAssetsSshGetResponseComposite & {
-    headers: Headers;
-  };
+export type UsersAssetsSshGetResponse = UsersAssetsSshGetResponseComposite & {
+  headers: Headers;
+};
 
-export const getV1UsersAssetsSshGetUrl = (
-  params?: UsersAssetsSshGetParams,
-) => {
+export const getV1UsersAssetsSshGetUrl = (params?: UsersAssetsSshGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -884,9 +880,7 @@ export const UsersAssetsSshGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsSshGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: UsersAssetsSshGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1072,17 +1066,13 @@ export type VsphereMappingGetResponse200 = {
   status: 200;
 };
 
-export type VsphereMappingGetResponseComposite =
-  VsphereMappingGetResponse200;
+export type VsphereMappingGetResponseComposite = VsphereMappingGetResponse200;
 
-export type VsphereMappingGetResponse =
-  VsphereMappingGetResponseComposite & {
-    headers: Headers;
-  };
+export type VsphereMappingGetResponse = VsphereMappingGetResponseComposite & {
+  headers: Headers;
+};
 
-export const getV1VsphereMappingGetUrl = (
-  params: VsphereMappingGetParams,
-) => {
+export const getV1VsphereMappingGetUrl = (params: VsphereMappingGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1108,9 +1098,7 @@ export const VsphereMappingGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereMappingGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: VsphereMappingGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1394,13 +1382,11 @@ export type UsersConfigScarGetResponse200 = {
   status: 200;
 };
 
-export type UsersConfigScarGetResponseComposite =
-  UsersConfigScarGetResponse200;
+export type UsersConfigScarGetResponseComposite = UsersConfigScarGetResponse200;
 
-export type UsersConfigScarGetResponse =
-  UsersConfigScarGetResponseComposite & {
-    headers: Headers;
-  };
+export type UsersConfigScarGetResponse = UsersConfigScarGetResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1UsersConfigScarGetUrl = () => {
   return `https://api.spectrocloud.com/v1/users/config/scar`;
@@ -1415,9 +1401,7 @@ export const UsersConfigScarGet = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersConfigScarGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: UsersConfigScarGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -1677,13 +1661,11 @@ export type UsersSystemFeatureResponse200 = {
   status: 200;
 };
 
-export type UsersSystemFeatureResponseComposite =
-  UsersSystemFeatureResponse200;
+export type UsersSystemFeatureResponseComposite = UsersSystemFeatureResponse200;
 
-export type UsersSystemFeatureResponse =
-  UsersSystemFeatureResponseComposite & {
-    headers: Headers;
-  };
+export type UsersSystemFeatureResponse = UsersSystemFeatureResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1UsersSystemFeatureUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/features`;
@@ -1698,9 +1680,7 @@ export const UsersSystemFeature = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemFeatureResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: UsersSystemFeatureResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -2175,13 +2155,11 @@ export type UsersProjectRolesResponse200 = {
   status: 200;
 };
 
-export type UsersProjectRolesResponseComposite =
-  UsersProjectRolesResponse200;
+export type UsersProjectRolesResponseComposite = UsersProjectRolesResponse200;
 
-export type UsersProjectRolesResponse =
-  UsersProjectRolesResponseComposite & {
-    headers: Headers;
-  };
+export type UsersProjectRolesResponse = UsersProjectRolesResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1UsersProjectRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/projects`;
@@ -2197,9 +2175,7 @@ export const UsersProjectRoles = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersProjectRolesResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: UsersProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

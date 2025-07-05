@@ -164,13 +164,11 @@ export type TagFilterUidDeleteResponse204 = {
   status: 204;
 };
 
-export type TagFilterUidDeleteResponseComposite =
-  TagFilterUidDeleteResponse204;
+export type TagFilterUidDeleteResponseComposite = TagFilterUidDeleteResponse204;
 
-export type TagFilterUidDeleteResponse =
-  TagFilterUidDeleteResponseComposite & {
-    headers: Headers;
-  };
+export type TagFilterUidDeleteResponse = TagFilterUidDeleteResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1TagFilterUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/filters/tag/${uid}`;
@@ -186,9 +184,7 @@ export const TagFilterUidDelete = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFilterUidDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: TagFilterUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -242,13 +238,11 @@ export type TagFilterUidUpdateResponse204 = {
   status: 204;
 };
 
-export type TagFilterUidUpdateResponseComposite =
-  TagFilterUidUpdateResponse204;
+export type TagFilterUidUpdateResponseComposite = TagFilterUidUpdateResponse204;
 
-export type TagFilterUidUpdateResponse =
-  TagFilterUidUpdateResponseComposite & {
-    headers: Headers;
-  };
+export type TagFilterUidUpdateResponse = TagFilterUidUpdateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1TagFilterUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/filters/tag/${uid}`;
@@ -267,9 +261,7 @@ export const TagFilterUidUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFilterUidUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: TagFilterUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

@@ -111,13 +111,11 @@ export type AuditsUidGetSysMsgResponse200 = {
   status: 200;
 };
 
-export type AuditsUidGetSysMsgResponseComposite =
-  AuditsUidGetSysMsgResponse200;
+export type AuditsUidGetSysMsgResponseComposite = AuditsUidGetSysMsgResponse200;
 
-export type AuditsUidGetSysMsgResponse =
-  AuditsUidGetSysMsgResponseComposite & {
-    headers: Headers;
-  };
+export type AuditsUidGetSysMsgResponse = AuditsUidGetSysMsgResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AuditsUidGetSysMsgUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/audits/${uid}/sysMsg`;
@@ -133,9 +131,7 @@ export const AuditsUidGetSysMsg = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsUidGetSysMsgResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AuditsUidGetSysMsgResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
@@ -152,13 +148,11 @@ export type AuditsUidMsgUpdateResponse204 = {
   status: 204;
 };
 
-export type AuditsUidMsgUpdateResponseComposite =
-  AuditsUidMsgUpdateResponse204;
+export type AuditsUidMsgUpdateResponseComposite = AuditsUidMsgUpdateResponse204;
 
-export type AuditsUidMsgUpdateResponse =
-  AuditsUidMsgUpdateResponseComposite & {
-    headers: Headers;
-  };
+export type AuditsUidMsgUpdateResponse = AuditsUidMsgUpdateResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1AuditsUidMsgUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/audits/${uid}/userMsg`;
@@ -177,9 +171,7 @@ export const AuditsUidMsgUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsUidMsgUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: AuditsUidMsgUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

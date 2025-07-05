@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ResourceEntityData = {
-  [key: string]: { [key: string]: unknown };
-};
+export type ResourceEntityData = { [key: string]: { [key: string]: unknown } };

@@ -1263,13 +1263,11 @@ export type MaasAccountsUidAzsResponse200 = {
   status: 200;
 };
 
-export type MaasAccountsUidAzsResponseComposite =
-  MaasAccountsUidAzsResponse200;
+export type MaasAccountsUidAzsResponseComposite = MaasAccountsUidAzsResponse200;
 
-export type MaasAccountsUidAzsResponse =
-  MaasAccountsUidAzsResponseComposite & {
-    headers: Headers;
-  };
+export type MaasAccountsUidAzsResponse = MaasAccountsUidAzsResponseComposite & {
+  headers: Headers;
+};
 
 export const getV1MaasAccountsUidAzsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/azs`;
@@ -1285,9 +1283,7 @@ export const MaasAccountsUidAzs = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidAzsResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: MaasAccountsUidAzsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,

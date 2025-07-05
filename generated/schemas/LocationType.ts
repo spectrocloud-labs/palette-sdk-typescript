@@ -13,8 +13,7 @@
 /**
  * Location type
  */
-export type LocationType =
-  (typeof LocationType)[keyof typeof LocationType];
+export type LocationType = (typeof LocationType)[keyof typeof LocationType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LocationType = {
