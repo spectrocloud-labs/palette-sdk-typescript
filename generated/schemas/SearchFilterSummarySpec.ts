@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterSpec } from "./SearchFilterSpec";
-import type { SearchFilterSortSpec } from "./SearchFilterSortSpec";
+import type { SearchFilterSpec } from "./searchFilterSpec";
+import type { SearchFilterSortSpec } from "./searchFilterSortSpec";
 
 /**
  * Spectro cluster search filter summary spec

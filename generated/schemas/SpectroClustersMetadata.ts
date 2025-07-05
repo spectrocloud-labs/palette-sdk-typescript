@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
+import type { ObjectMeta } from "./objectMeta";
 
 export interface SpectroClustersMetadata {
   items: ObjectMeta[];

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { MgmtAppObjectStatusPods } from "./MgmtAppObjectStatusPods";
+import type { Time } from "./time";
+import type { MgmtAppObjectStatusPods } from "./mgmtAppObjectStatusPods";
 
 export interface MgmtAppObjectStatus {
   availableReplicas?: number;

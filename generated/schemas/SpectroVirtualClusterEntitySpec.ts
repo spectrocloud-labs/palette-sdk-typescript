@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualClusterConfig } from "./VirtualClusterConfig";
-import type { ClusterConfigEntity } from "./ClusterConfigEntity";
-import type { VirtualMachinePoolConfigEntity } from "./VirtualMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./SpectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./SpectroClusterProfileEntity";
+import type { VirtualClusterConfig } from "./virtualClusterConfig";
+import type { ClusterConfigEntity } from "./clusterConfigEntity";
+import type { VirtualMachinePoolConfigEntity } from "./virtualMachinePoolConfigEntity";
+import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
+import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
 
 export type SpectroVirtualClusterEntitySpec = {
   cloudConfig?: VirtualClusterConfig;

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { ClusterConfig } from "./ClusterConfig";
-import type { ClusterProfileTemplate } from "./ClusterProfileTemplate";
-import type { SpectroClusterSpecClusterType } from "./SpectroClusterSpecClusterType";
+import type { ObjectReference } from "./objectReference";
+import type { ClusterConfig } from "./clusterConfig";
+import type { ClusterProfileTemplate } from "./clusterProfileTemplate";
+import type { SpectroClusterSpecClusterType } from "./spectroClusterSpecClusterType";
 
 /**
  * SpectroClusterSpec defines the desired state of SpectroCluster

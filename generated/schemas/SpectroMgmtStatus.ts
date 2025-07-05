@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppVersion } from "./AppVersion";
-import type { Time } from "./Time";
-import type { SpectroMgmtUpgrade } from "./SpectroMgmtUpgrade";
+import type { AppVersion } from "./appVersion";
+import type { Time } from "./time";
+import type { SpectroMgmtUpgrade } from "./spectroMgmtUpgrade";
 
 /**
  * spectro management status information

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeMachinePoolCloudConfigEntity } from "./EdgeNativeMachinePoolCloudConfigEntity";
-import type { MachinePoolConfigEntity } from "./MachinePoolConfigEntity";
+import type { EdgeNativeMachinePoolCloudConfigEntity } from "./edgeNativeMachinePoolCloudConfigEntity";
+import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
 export interface EdgeNativeMachinePoolConfigEntity {
   cloudConfig?: EdgeNativeMachinePoolCloudConfigEntity;

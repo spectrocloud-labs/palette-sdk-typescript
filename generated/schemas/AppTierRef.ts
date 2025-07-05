@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierType } from "./AppTierType";
+import type { AppTierType } from "./appTierType";
 
 /**
  * Application tier reference

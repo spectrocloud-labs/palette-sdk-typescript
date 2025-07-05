@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomCloudType } from "./CustomCloudType";
+import type { CustomCloudType } from "./customCloudType";
 
 /**
  * Custom cloudType content response

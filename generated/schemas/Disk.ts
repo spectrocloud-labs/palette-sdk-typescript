@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Partition } from "./Partition";
+import type { Partition } from "./partition";
 
 export interface Disk {
   controller?: string;

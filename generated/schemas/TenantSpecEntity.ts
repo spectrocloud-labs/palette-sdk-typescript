@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Address } from "./Address";
-import type { TenantSpecEntityLoginMode } from "./TenantSpecEntityLoginMode";
+import type { Address } from "./address";
+import type { TenantSpecEntityLoginMode } from "./tenantSpecEntityLoginMode";
 
 /**
  * Tenant Entity input

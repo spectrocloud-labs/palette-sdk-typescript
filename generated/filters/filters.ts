@@ -14,26 +14,26 @@ import type {
   FiltersMetadata,
   FiltersMetadataParams,
   FiltersSummary,
-  TagFilterBody,
   TagFilterSummary,
   Uid,
+  V1TagFilterBody,
 } from ".././schemas";
 
 /**
  * @summary Returns a list of Filters
  */
-export type FiltersListResponse200 = {
+export type filtersListResponse200 = {
   data: FiltersSummary;
   status: 200;
 };
 
-export type FiltersListResponseComposite = FiltersListResponse200;
+export type filtersListResponseComposite = filtersListResponse200;
 
-export type FiltersListResponse = FiltersListResponseComposite & {
+export type filtersListResponse = filtersListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1FiltersListUrl = (params?: FiltersListParams) => {
+export const getFiltersListUrl = (params?: FiltersListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -49,40 +49,40 @@ export const getV1FiltersListUrl = (params?: FiltersListParams) => {
     : `https://api.spectrocloud.com/v1/filters`;
 };
 
-export const FiltersList = async (
+export const filtersList = async (
   params?: FiltersListParams,
   options?: RequestInit,
-): Promise<FiltersListResponse> => {
-  const res = await fetch(getV1FiltersListUrl(params), {
+): Promise<filtersListResponse> => {
+  const res = await fetch(getFiltersListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: FiltersListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: filtersListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as FiltersListResponse;
+  } as filtersListResponse;
 };
 
 /**
  * @summary Returns a list of Filters metadata
  */
-export type FiltersMetadataResponse200 = {
+export type filtersMetadataResponse200 = {
   data: FiltersMetadata;
   status: 200;
 };
 
-export type FiltersMetadataResponseComposite = FiltersMetadataResponse200;
+export type filtersMetadataResponseComposite = filtersMetadataResponse200;
 
-export type FiltersMetadataResponse = FiltersMetadataResponseComposite & {
+export type filtersMetadataResponse = filtersMetadataResponseComposite & {
   headers: Headers;
 };
 
-export const getV1FiltersMetadataUrl = (params?: FiltersMetadataParams) => {
+export const getFiltersMetadataUrl = (params?: FiltersMetadataParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -98,174 +98,174 @@ export const getV1FiltersMetadataUrl = (params?: FiltersMetadataParams) => {
     : `https://api.spectrocloud.com/v1/filters/metadata`;
 };
 
-export const FiltersMetadata = async (
+export const filtersMetadata = async (
   params?: FiltersMetadataParams,
   options?: RequestInit,
-): Promise<FiltersMetadataResponse> => {
-  const res = await fetch(getV1FiltersMetadataUrl(params), {
+): Promise<filtersMetadataResponse> => {
+  const res = await fetch(getFiltersMetadataUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: FiltersMetadataResponse["data"] = body ? JSON.parse(body) : {};
+  const data: filtersMetadataResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as FiltersMetadataResponse;
+  } as filtersMetadataResponse;
 };
 
 /**
  * @summary Creates a Tag filter
  */
-export type TagFiltersCreateResponse201 = {
+export type tagFiltersCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type TagFiltersCreateResponseComposite = TagFiltersCreateResponse201;
+export type tagFiltersCreateResponseComposite = tagFiltersCreateResponse201;
 
-export type TagFiltersCreateResponse = TagFiltersCreateResponseComposite & {
+export type tagFiltersCreateResponse = tagFiltersCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TagFiltersCreateUrl = () => {
+export const getTagFiltersCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/filters/tag`;
 };
 
-export const TagFiltersCreate = async (
-  TagFilterBody: TagFilterBody,
+export const tagFiltersCreate = async (
+  v1TagFilterBody: V1TagFilterBody,
   options?: RequestInit,
-): Promise<TagFiltersCreateResponse> => {
-  const res = await fetch(getV1TagFiltersCreateUrl(), {
+): Promise<tagFiltersCreateResponse> => {
+  const res = await fetch(getTagFiltersCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TagFilterBody),
+    body: JSON.stringify(v1TagFilterBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFiltersCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: tagFiltersCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TagFiltersCreateResponse;
+  } as tagFiltersCreateResponse;
 };
 
 /**
  * @summary Delete the specified Filter object
  */
-export type TagFilterUidDeleteResponse204 = {
+export type tagFilterUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TagFilterUidDeleteResponseComposite = TagFilterUidDeleteResponse204;
+export type tagFilterUidDeleteResponseComposite = tagFilterUidDeleteResponse204;
 
-export type TagFilterUidDeleteResponse = TagFilterUidDeleteResponseComposite & {
+export type tagFilterUidDeleteResponse = tagFilterUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TagFilterUidDeleteUrl = (uid: string) => {
+export const getTagFilterUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/filters/tag/${uid}`;
 };
 
-export const TagFilterUidDelete = async (
+export const tagFilterUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<TagFilterUidDeleteResponse> => {
-  const res = await fetch(getV1TagFilterUidDeleteUrl(uid), {
+): Promise<tagFilterUidDeleteResponse> => {
+  const res = await fetch(getTagFilterUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFilterUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: tagFilterUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TagFilterUidDeleteResponse;
+  } as tagFilterUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified Filter object
  */
-export type TagFilterUidGetResponse200 = {
+export type tagFilterUidGetResponse200 = {
   data: TagFilterSummary;
   status: 200;
 };
 
-export type TagFilterUidGetResponseComposite = TagFilterUidGetResponse200;
+export type tagFilterUidGetResponseComposite = tagFilterUidGetResponse200;
 
-export type TagFilterUidGetResponse = TagFilterUidGetResponseComposite & {
+export type tagFilterUidGetResponse = tagFilterUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TagFilterUidGetUrl = (uid: string) => {
+export const getTagFilterUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/filters/tag/${uid}`;
 };
 
-export const TagFilterUidGet = async (
+export const tagFilterUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<TagFilterUidGetResponse> => {
-  const res = await fetch(getV1TagFilterUidGetUrl(uid), {
+): Promise<tagFilterUidGetResponse> => {
+  const res = await fetch(getTagFilterUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFilterUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: tagFilterUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TagFilterUidGetResponse;
+  } as tagFilterUidGetResponse;
 };
 
 /**
  * @summary Updates a Tag filter
  */
-export type TagFilterUidUpdateResponse204 = {
+export type tagFilterUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TagFilterUidUpdateResponseComposite = TagFilterUidUpdateResponse204;
+export type tagFilterUidUpdateResponseComposite = tagFilterUidUpdateResponse204;
 
-export type TagFilterUidUpdateResponse = TagFilterUidUpdateResponseComposite & {
+export type tagFilterUidUpdateResponse = tagFilterUidUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TagFilterUidUpdateUrl = (uid: string) => {
+export const getTagFilterUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/filters/tag/${uid}`;
 };
 
-export const TagFilterUidUpdate = async (
+export const tagFilterUidUpdate = async (
   uid: string,
-  TagFilterBody: TagFilterBody,
+  v1TagFilterBody: V1TagFilterBody,
   options?: RequestInit,
-): Promise<TagFilterUidUpdateResponse> => {
-  const res = await fetch(getV1TagFilterUidUpdateUrl(uid), {
+): Promise<tagFilterUidUpdateResponse> => {
+  const res = await fetch(getTagFilterUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TagFilterBody),
+    body: JSON.stringify(v1TagFilterBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TagFilterUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: tagFilterUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TagFilterUidUpdateResponse;
+  } as tagFilterUidUpdateResponse;
 };

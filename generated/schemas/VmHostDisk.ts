@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./VmQuantity";
+import type { VmQuantity } from "./vmQuantity";
 
 /**
  * Represents a disk created on the cluster level

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomAccount } from "./CustomAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { CustomAccount } from "./customAccount";
+import type { ListMetaData } from "./listMetaData";
 
 export interface CustomAccounts {
   items: CustomAccount[];

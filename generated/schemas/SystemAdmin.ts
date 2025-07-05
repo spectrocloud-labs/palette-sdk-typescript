@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SystemAdministratorSpec } from "./SystemAdministratorSpec";
-import type { SystemAdministratorStatus } from "./SystemAdministratorStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { SystemAdministratorSpec } from "./systemAdministratorSpec";
+import type { SystemAdministratorStatus } from "./systemAdministratorStatus";
 
 /**
  * System Admin information

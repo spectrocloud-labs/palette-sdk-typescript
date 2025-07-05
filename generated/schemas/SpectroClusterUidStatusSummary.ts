@@ -9,24 +9,24 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { SpectroClusterAddOnServiceSummary } from "./SpectroClusterAddOnServiceSummary";
-import type { APIEndpoint } from "./APIEndpoint";
-import type { ClusterImport } from "./ClusterImport";
-import type { ClusterCondition } from "./ClusterCondition";
-import type { ResourceCost } from "./ResourceCost";
-import type { ClusterFips } from "./ClusterFips";
-import type { SpectroClusterHealthStatus } from "./SpectroClusterHealthStatus";
-import type { KubeMeta } from "./KubeMeta";
-import type { ClusterMetaSpecLocation } from "./ClusterMetaSpecLocation";
-import type { SpectroClusterMetrics } from "./SpectroClusterMetrics";
-import type { ClusterNotificationStatus } from "./ClusterNotificationStatus";
-import type { ClusterPackStatus } from "./ClusterPackStatus";
-import type { LoadBalancerService } from "./LoadBalancerService";
-import type { SpcApply } from "./SpcApply";
-import type { Upgrades } from "./Upgrades";
-import type { Virtual } from "./Virtual";
-import type { ResourceReference } from "./ResourceReference";
+import type { Time } from "./time";
+import type { SpectroClusterAddOnServiceSummary } from "./spectroClusterAddOnServiceSummary";
+import type { APIEndpoint } from "./aPIEndpoint";
+import type { ClusterImport } from "./clusterImport";
+import type { ClusterCondition } from "./clusterCondition";
+import type { ResourceCost } from "./resourceCost";
+import type { ClusterFips } from "./clusterFips";
+import type { SpectroClusterHealthStatus } from "./spectroClusterHealthStatus";
+import type { KubeMeta } from "./kubeMeta";
+import type { ClusterMetaSpecLocation } from "./clusterMetaSpecLocation";
+import type { SpectroClusterMetrics } from "./spectroClusterMetrics";
+import type { ClusterNotificationStatus } from "./clusterNotificationStatus";
+import type { ClusterPackStatus } from "./clusterPackStatus";
+import type { LoadBalancerService } from "./loadBalancerService";
+import type { SpcApply } from "./spcApply";
+import type { Upgrades } from "./upgrades";
+import type { Virtual } from "./virtual";
+import type { ResourceReference } from "./resourceReference";
 
 /**
  * Spectro cluster status summary

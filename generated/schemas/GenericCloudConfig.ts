@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { GenericCloudConfigSpec } from "./GenericCloudConfigSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { GenericCloudConfigSpec } from "./genericCloudConfigSpec";
 
 /**
  * Generic CloudConfig for all cloud types

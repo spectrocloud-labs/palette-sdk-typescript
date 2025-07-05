@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserStatusLoginModeLoginMode } from "./UserStatusLoginModeLoginMode";
+import type { UserStatusLoginModeLoginMode } from "./userStatusLoginModeLoginMode";
 
 export interface UserStatusLoginMode {
   loginMode?: UserStatusLoginModeLoginMode;

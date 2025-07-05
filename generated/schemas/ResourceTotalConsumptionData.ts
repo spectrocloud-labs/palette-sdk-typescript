@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceConsumptionData } from "./ResourceConsumptionData";
+import type { ResourceConsumptionData } from "./resourceConsumptionData";
 
 /**
  * Resource total cosumption data

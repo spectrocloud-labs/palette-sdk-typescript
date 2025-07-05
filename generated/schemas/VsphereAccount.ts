@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { VsphereCloudAccount } from "./VsphereCloudAccount";
-import type { CloudAccountStatus } from "./CloudAccountStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { VsphereCloudAccount } from "./vsphereCloudAccount";
+import type { CloudAccountStatus } from "./cloudAccountStatus";
 
 /**
  * VSphere account information

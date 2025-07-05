@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { BulkDeleteFailure } from "./BulkDeleteFailure";
+import type { BulkDeleteFailure } from "./bulkDeleteFailure";
 
 export interface BulkDeleteResponse {
   deletedCount?: number;

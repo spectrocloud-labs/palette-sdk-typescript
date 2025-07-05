@@ -14,18 +14,18 @@ import type { Permissions, PermissionsListParams } from ".././schemas";
 /**
  * @summary Retrieves a list of permissions
  */
-export type PermissionsListResponse200 = {
+export type permissionsListResponse200 = {
   data: Permissions;
   status: 200;
 };
 
-export type PermissionsListResponseComposite = PermissionsListResponse200;
+export type permissionsListResponseComposite = permissionsListResponse200;
 
-export type PermissionsListResponse = PermissionsListResponseComposite & {
+export type permissionsListResponse = permissionsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PermissionsListUrl = (params?: PermissionsListParams) => {
+export const getPermissionsListUrl = (params?: PermissionsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -41,21 +41,21 @@ export const getV1PermissionsListUrl = (params?: PermissionsListParams) => {
     : `https://api.spectrocloud.com/v1/permissions`;
 };
 
-export const PermissionsList = async (
+export const permissionsList = async (
   params?: PermissionsListParams,
   options?: RequestInit,
-): Promise<PermissionsListResponse> => {
-  const res = await fetch(getV1PermissionsListUrl(params), {
+): Promise<permissionsListResponse> => {
+  const res = await fetch(getPermissionsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PermissionsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: permissionsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PermissionsListResponse;
+  } as permissionsListResponse;
 };

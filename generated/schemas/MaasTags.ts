@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasTag } from "./MaasTag";
+import type { MaasTag } from "./maasTag";
 
 /**
  * List of Maas tags

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceResourceAllocation } from "./WorkspaceResourceAllocation";
+import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation";
 
 /**
  * Workspace resource allocation

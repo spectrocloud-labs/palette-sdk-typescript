@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { OpenStackCloudAccount } from "./OpenStackCloudAccount";
-import type { CloudAccountStatus } from "./CloudAccountStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { OpenStackCloudAccount } from "./openStackCloudAccount";
+import type { CloudAccountStatus } from "./cloudAccountStatus";
 
 /**
  * OpenStack account information

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DataSinkableSpec } from "./DataSinkableSpec";
+import type { DataSinkableSpec } from "./dataSinkableSpec";
 
 export interface DataSinkSpec {
   auditDataSinks?: DataSinkableSpec[];

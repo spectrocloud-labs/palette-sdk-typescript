@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterPackCondition } from "./SpectroClusterPackCondition";
-import type { Time } from "./Time";
-import type { PackType } from "./PackType";
+import type { SpectroClusterPackCondition } from "./spectroClusterPackCondition";
+import type { Time } from "./time";
+import type { PackType } from "./packType";
 
 export interface SpectroClusterPackStatusEntity {
   condition?: SpectroClusterPackCondition;

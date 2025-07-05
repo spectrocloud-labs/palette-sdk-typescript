@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./ClusterCondition";
-import type { AzureImage } from "./AzureImage";
-import type { AzureCloudConfigStatusRoleDigest } from "./AzureCloudConfigStatusRoleDigest";
-import type { AzureVHDImage } from "./AzureVHDImage";
+import type { ClusterCondition } from "./clusterCondition";
+import type { AzureImage } from "./azureImage";
+import type { AzureCloudConfigStatusRoleDigest } from "./azureCloudConfigStatusRoleDigest";
+import type { AzureVHDImage } from "./azureVHDImage";
 
 /**
  * AzureCloudConfigStatus defines the observed state of AzureCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool

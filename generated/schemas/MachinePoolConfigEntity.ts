@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachinePoolConfigEntityAdditionalLabels } from "./MachinePoolConfigEntityAdditionalLabels";
-import type { MachinePoolConfigEntityAdditionalTags } from "./MachinePoolConfigEntityAdditionalTags";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { MachinePoolConfigEntityAdditionalLabels } from "./machinePoolConfigEntityAdditionalLabels";
+import type { MachinePoolConfigEntityAdditionalTags } from "./machinePoolConfigEntityAdditionalTags";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 /**
  * Machine pool configuration for the cluster

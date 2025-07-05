@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsVolumeType } from "./AwsVolumeType";
+import type { AwsVolumeType } from "./awsVolumeType";
 
 /**
  * AWS Volume Types

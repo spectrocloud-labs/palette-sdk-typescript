@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfilesImportFileFormat } from "./ClusterProfilesImportFileFormat";
+import type { ClusterProfilesImportFileFormat } from "./clusterProfilesImportFileFormat";
 
 export type ClusterProfilesImportFileParams = {
   /**

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostHealth } from "./EdgeHostHealth";
-import type { ObjectEntity } from "./ObjectEntity";
-import type { EdgeClusterObjectEntity } from "./EdgeClusterObjectEntity";
-import type { ClusterPackStatus } from "./ClusterPackStatus";
-import type { ProfileStatus } from "./ProfileStatus";
-import type { EdgeHostDeviceStatusState } from "./EdgeHostDeviceStatusState";
-import type { SpectroTunnelStatus } from "./SpectroTunnelStatus";
+import type { EdgeHostHealth } from "./edgeHostHealth";
+import type { ObjectEntity } from "./objectEntity";
+import type { EdgeClusterObjectEntity } from "./edgeClusterObjectEntity";
+import type { ClusterPackStatus } from "./clusterPackStatus";
+import type { ProfileStatus } from "./profileStatus";
+import type { EdgeHostDeviceStatusState } from "./edgeHostDeviceStatusState";
+import type { SpectroTunnelStatus } from "./spectroTunnelStatus";
 
 /**
  * EdgeHostDeviceStatus defines the observed state of EdgeHostDevice

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterMeta } from "./SpectroClusterMeta";
+import type { SpectroClusterMeta } from "./spectroClusterMeta";
 
 export type SpectroClustersMeta = SpectroClusterMeta[];

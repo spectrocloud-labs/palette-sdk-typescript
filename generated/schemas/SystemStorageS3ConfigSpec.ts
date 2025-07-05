@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemRetentionPolicy } from "./SystemRetentionPolicy";
-import type { SystemS3Spec } from "./SystemS3Spec";
+import type { SystemRetentionPolicy } from "./systemRetentionPolicy";
+import type { SystemS3Spec } from "./systemS3Spec";
 
 /**
  * system storage s3 config spec

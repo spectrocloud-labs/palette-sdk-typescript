@@ -12,12 +12,10 @@
 import type {
   ApiEndpoint,
   ClusterBackup,
-  ClusterBackupConfigBody,
   ClusterBackupLocationType,
   ClusterComplianceOnDemandConfig,
   ClusterComplianceScan,
   ClusterComplianceScanLogs,
-  ClusterComplianceScheduleConfigBody,
   ClusterCondition,
   ClusterDefinitionEntity,
   ClusterEdgeInstallerConfig,
@@ -56,10 +54,8 @@ import type {
   ClusterScanLogSonobuoy,
   ClusterScanLogSyft,
   ClusterUpgradeSettingsEntity,
-  ClusterUpgradeSettingsEntityBody,
   ClusterVMSnapshotsListParams,
   ClusterVirtualMachine,
-  ClusterVirtualMachineBody,
   ClusterVirtualMachineList,
   ClusterVirtualPacksValues,
   ControlPlaneHealthCheckTimeoutEntity,
@@ -72,19 +68,15 @@ import type {
   MachineCertificates,
   Manifest,
   ManifestRefInputEntities,
-  ObjectMetaInputEntitySchemaBody,
   OsPatchEntity,
   PackManifests,
   SectroClusterK8sDashboardUrl,
   SonobuoyEntity,
   SpcApply,
   SpcPatchTimeEntity,
-  SpectroAwsClusterEntityBody,
   SpectroAwsClusterImportEntity,
   SpectroAwsClusterRateEntity,
-  SpectroAzureClusterEntityBody,
   SpectroAzureClusterImportEntity,
-  SpectroAzureClusterRateEntityBody,
   SpectroCluster,
   SpectroClusterAssetEntity,
   SpectroClusterAssetFrpKubeConfig,
@@ -100,11 +92,8 @@ import type {
   SpectroClusterOidcSpec,
   SpectroClusterPackConfigList,
   SpectroClusterPackProperties,
-  SpectroClusterPacksEntityBody,
-  SpectroClusterPacksStatusEntityBody,
   SpectroClusterProfileList,
   SpectroClusterProfileUpdates,
-  SpectroClusterProfilesBody,
   SpectroClusterProfilesDeleteEntity,
   SpectroClusterProfilesPacksManifests,
   SpectroClusterProfilesResolvedValues,
@@ -155,30 +144,42 @@ import type {
   SpectroClustersVMUpdateParams,
   SpectroClustersValidateNameParams,
   SpectroClustersVsphereRateParams,
-  SpectroCustomClusterEntityBody,
-  SpectroEdgeNativeClusterEntityBody,
   SpectroEdgeNativeClusterImportEntity,
   SpectroEdgeNativeClusterRateEntity,
-  SpectroEksClusterEntityBody,
   SpectroEksClusterRateEntity,
-  SpectroGcpClusterEntityBody,
   SpectroGcpClusterImportEntity,
-  SpectroGcpClusterRateEntityBody,
   SpectroGenericClusterImportEntity,
   SpectroGenericClusterRateEntity,
-  SpectroMaasClusterEntityBody,
   SpectroMaasClusterImportEntity,
   SpectroMaasClusterRateEntity,
-  SpectroOpenStackClusterEntityBody,
   SpectroOpenStackClusterImportEntity,
   SpectroOpenStackClusterRateEntity,
-  SpectroVirtualClusterEntityBody,
-  SpectroVsphereClusterEntityBody,
   SpectroVsphereClusterImportEntity,
   SpectroVsphereClusterRateEntity,
   SyftEntity,
   SyftScanLogImageSBOMGetParams,
   Uid,
+  V1ClusterBackupConfigBody,
+  V1ClusterComplianceScheduleConfigBody,
+  V1ClusterUpgradeSettingsEntityBody,
+  V1ClusterVirtualMachineBody,
+  V1ObjectMetaInputEntitySchemaBody,
+  V1SpectroAwsClusterEntityBody,
+  V1SpectroAzureClusterEntityBody,
+  V1SpectroAzureClusterRateEntityBody,
+  V1SpectroClusterPacksEntityBody,
+  V1SpectroClusterPacksStatusEntityBody,
+  V1SpectroClusterProfilesBody,
+  V1SpectroCustomClusterEntityBody,
+  V1SpectroEdgeNativeClusterEntityBody,
+  V1SpectroEksClusterEntityBody,
+  V1SpectroGcpClusterEntityBody,
+  V1SpectroGcpClusterRateEntityBody,
+  V1SpectroMaasClusterEntityBody,
+  V1SpectroOpenStackClusterEntityBody,
+  V1SpectroVirtualClusterEntityBody,
+  V1SpectroVsphereClusterEntityBody,
+  V1VirtualMachineSnapshotBody,
   VMAddVolumeEntity,
   VMRemoveVolumeEntity,
   VMSnapshotCreateParams,
@@ -187,43 +188,42 @@ import type {
   VMSnapshotUpdateParams,
   VirtualClustersPacksValuesParams,
   VirtualMachineSnapshot,
-  VirtualMachineSnapshotBody,
   VirtualMachineSnapshotList,
 } from ".././schemas";
 
 /**
  * @summary Creates an AKS cluster
  */
-export type SpectroClustersAksCreateResponse201 = {
+export type spectroClustersAksCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersAksCreateResponseComposite =
-  SpectroClustersAksCreateResponse201;
+export type spectroClustersAksCreateResponseComposite =
+  spectroClustersAksCreateResponse201;
 
-export type SpectroClustersAksCreateResponse =
-  SpectroClustersAksCreateResponseComposite & {
+export type spectroClustersAksCreateResponse =
+  spectroClustersAksCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAksCreateUrl = () => {
+export const getSpectroClustersAksCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/aks`;
 };
 
-export const SpectroClustersAksCreate = async (
-  SpectroAzureClusterEntityBody: SpectroAzureClusterEntityBody,
+export const spectroClustersAksCreate = async (
+  v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAksCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersAksCreateUrl(), {
+): Promise<spectroClustersAksCreateResponse> => {
+  const res = await fetch(getSpectroClustersAksCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAksCreateResponse["data"] = body
+  const data: spectroClustersAksCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -231,26 +231,26 @@ export const SpectroClustersAksCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAksCreateResponse;
+  } as spectroClustersAksCreateResponse;
 };
 
 /**
  * @summary Get AKS cluster estimated rate information
  */
-export type SpectroClustersAksRateResponse200 = {
+export type spectroClustersAksRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersAksRateResponseComposite =
-  SpectroClustersAksRateResponse200;
+export type spectroClustersAksRateResponseComposite =
+  spectroClustersAksRateResponse200;
 
-export type SpectroClustersAksRateResponse =
-  SpectroClustersAksRateResponseComposite & {
+export type spectroClustersAksRateResponse =
+  spectroClustersAksRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAksRateUrl = (
+export const getSpectroClustersAksRateUrl = (
   params?: SpectroClustersAksRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -268,20 +268,20 @@ export const getV1SpectroClustersAksRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/aks/rate`;
 };
 
-export const SpectroClustersAksRate = async (
-  SpectroAzureClusterRateEntityBody: SpectroAzureClusterRateEntityBody,
+export const spectroClustersAksRate = async (
+  v1SpectroAzureClusterRateEntityBody: V1SpectroAzureClusterRateEntityBody,
   params?: SpectroClustersAksRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersAksRateResponse> => {
-  const res = await fetch(getV1SpectroClustersAksRateUrl(params), {
+): Promise<spectroClustersAksRateResponse> => {
+  const res = await fetch(getSpectroClustersAksRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterRateEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAksRateResponse["data"] = body
+  const data: spectroClustersAksRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -289,42 +289,42 @@ export const SpectroClustersAksRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAksRateResponse;
+  } as spectroClustersAksRateResponse;
 };
 
 /**
  * @summary Validates AKS cluster create operation
  */
-export type SpectroClustersAksValidateResponse200 = {
+export type spectroClustersAksValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersAksValidateResponseComposite =
-  SpectroClustersAksValidateResponse200;
+export type spectroClustersAksValidateResponseComposite =
+  spectroClustersAksValidateResponse200;
 
-export type SpectroClustersAksValidateResponse =
-  SpectroClustersAksValidateResponseComposite & {
+export type spectroClustersAksValidateResponse =
+  spectroClustersAksValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAksValidateUrl = () => {
+export const getSpectroClustersAksValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/aks/validate`;
 };
 
-export const SpectroClustersAksValidate = async (
-  SpectroAzureClusterEntityBody: SpectroAzureClusterEntityBody,
+export const spectroClustersAksValidate = async (
+  v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAksValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersAksValidateUrl(), {
+): Promise<spectroClustersAksValidateResponse> => {
+  const res = await fetch(getSpectroClustersAksValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAksValidateResponse["data"] = body
+  const data: spectroClustersAksValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -332,42 +332,42 @@ export const SpectroClustersAksValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAksValidateResponse;
+  } as spectroClustersAksValidateResponse;
 };
 
 /**
  * @summary Creates an AWS cluster
  */
-export type SpectroClustersAwsCreateResponse201 = {
+export type spectroClustersAwsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersAwsCreateResponseComposite =
-  SpectroClustersAwsCreateResponse201;
+export type spectroClustersAwsCreateResponseComposite =
+  spectroClustersAwsCreateResponse201;
 
-export type SpectroClustersAwsCreateResponse =
-  SpectroClustersAwsCreateResponseComposite & {
+export type spectroClustersAwsCreateResponse =
+  spectroClustersAwsCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAwsCreateUrl = () => {
+export const getSpectroClustersAwsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/aws`;
 };
 
-export const SpectroClustersAwsCreate = async (
-  SpectroAwsClusterEntityBody: SpectroAwsClusterEntityBody,
+export const spectroClustersAwsCreate = async (
+  v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAwsCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersAwsCreateUrl(), {
+): Promise<spectroClustersAwsCreateResponse> => {
+  const res = await fetch(getSpectroClustersAwsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAwsClusterEntityBody),
+    body: JSON.stringify(v1SpectroAwsClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAwsCreateResponse["data"] = body
+  const data: spectroClustersAwsCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -375,42 +375,42 @@ export const SpectroClustersAwsCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAwsCreateResponse;
+  } as spectroClustersAwsCreateResponse;
 };
 
 /**
  * @summary Imports an AWS cluster
  */
-export type SpectroClustersAwsImportResponse201 = {
+export type spectroClustersAwsImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersAwsImportResponseComposite =
-  SpectroClustersAwsImportResponse201;
+export type spectroClustersAwsImportResponseComposite =
+  spectroClustersAwsImportResponse201;
 
-export type SpectroClustersAwsImportResponse =
-  SpectroClustersAwsImportResponseComposite & {
+export type spectroClustersAwsImportResponse =
+  spectroClustersAwsImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAwsImportUrl = () => {
+export const getSpectroClustersAwsImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/aws/import`;
 };
 
-export const SpectroClustersAwsImport = async (
-  SpectroAwsClusterImportEntity: SpectroAwsClusterImportEntity,
+export const spectroClustersAwsImport = async (
+  spectroAwsClusterImportEntity: SpectroAwsClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersAwsImportResponse> => {
-  const res = await fetch(getV1SpectroClustersAwsImportUrl(), {
+): Promise<spectroClustersAwsImportResponse> => {
+  const res = await fetch(getSpectroClustersAwsImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAwsClusterImportEntity),
+    body: JSON.stringify(spectroAwsClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAwsImportResponse["data"] = body
+  const data: spectroClustersAwsImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -418,26 +418,26 @@ export const SpectroClustersAwsImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAwsImportResponse;
+  } as spectroClustersAwsImportResponse;
 };
 
 /**
  * @summary Get AWS cluster estimated rate information
  */
-export type SpectroClustersAwsRateResponse200 = {
+export type spectroClustersAwsRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersAwsRateResponseComposite =
-  SpectroClustersAwsRateResponse200;
+export type spectroClustersAwsRateResponseComposite =
+  spectroClustersAwsRateResponse200;
 
-export type SpectroClustersAwsRateResponse =
-  SpectroClustersAwsRateResponseComposite & {
+export type spectroClustersAwsRateResponse =
+  spectroClustersAwsRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAwsRateUrl = (
+export const getSpectroClustersAwsRateUrl = (
   params?: SpectroClustersAwsRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -455,20 +455,20 @@ export const getV1SpectroClustersAwsRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/aws/rate`;
 };
 
-export const SpectroClustersAwsRate = async (
-  SpectroAwsClusterRateEntity: SpectroAwsClusterRateEntity,
+export const spectroClustersAwsRate = async (
+  spectroAwsClusterRateEntity: SpectroAwsClusterRateEntity,
   params?: SpectroClustersAwsRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersAwsRateResponse> => {
-  const res = await fetch(getV1SpectroClustersAwsRateUrl(params), {
+): Promise<spectroClustersAwsRateResponse> => {
+  const res = await fetch(getSpectroClustersAwsRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAwsClusterRateEntity),
+    body: JSON.stringify(spectroAwsClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAwsRateResponse["data"] = body
+  const data: spectroClustersAwsRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -476,42 +476,42 @@ export const SpectroClustersAwsRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAwsRateResponse;
+  } as spectroClustersAwsRateResponse;
 };
 
 /**
  * @summary Validates AWS cluster create operation
  */
-export type SpectroClustersAwsValidateResponse200 = {
+export type spectroClustersAwsValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersAwsValidateResponseComposite =
-  SpectroClustersAwsValidateResponse200;
+export type spectroClustersAwsValidateResponseComposite =
+  spectroClustersAwsValidateResponse200;
 
-export type SpectroClustersAwsValidateResponse =
-  SpectroClustersAwsValidateResponseComposite & {
+export type spectroClustersAwsValidateResponse =
+  spectroClustersAwsValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAwsValidateUrl = () => {
+export const getSpectroClustersAwsValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/aws/validate`;
 };
 
-export const SpectroClustersAwsValidate = async (
-  SpectroAwsClusterEntityBody: SpectroAwsClusterEntityBody,
+export const spectroClustersAwsValidate = async (
+  v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAwsValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersAwsValidateUrl(), {
+): Promise<spectroClustersAwsValidateResponse> => {
+  const res = await fetch(getSpectroClustersAwsValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAwsClusterEntityBody),
+    body: JSON.stringify(v1SpectroAwsClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAwsValidateResponse["data"] = body
+  const data: spectroClustersAwsValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -519,42 +519,42 @@ export const SpectroClustersAwsValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAwsValidateResponse;
+  } as spectroClustersAwsValidateResponse;
 };
 
 /**
  * @summary Creates an Azure cluster
  */
-export type SpectroClustersAzureCreateResponse201 = {
+export type spectroClustersAzureCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersAzureCreateResponseComposite =
-  SpectroClustersAzureCreateResponse201;
+export type spectroClustersAzureCreateResponseComposite =
+  spectroClustersAzureCreateResponse201;
 
-export type SpectroClustersAzureCreateResponse =
-  SpectroClustersAzureCreateResponseComposite & {
+export type spectroClustersAzureCreateResponse =
+  spectroClustersAzureCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAzureCreateUrl = () => {
+export const getSpectroClustersAzureCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/azure`;
 };
 
-export const SpectroClustersAzureCreate = async (
-  SpectroAzureClusterEntityBody: SpectroAzureClusterEntityBody,
+export const spectroClustersAzureCreate = async (
+  v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAzureCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersAzureCreateUrl(), {
+): Promise<spectroClustersAzureCreateResponse> => {
+  const res = await fetch(getSpectroClustersAzureCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAzureCreateResponse["data"] = body
+  const data: spectroClustersAzureCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -562,42 +562,42 @@ export const SpectroClustersAzureCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAzureCreateResponse;
+  } as spectroClustersAzureCreateResponse;
 };
 
 /**
  * @summary Imports an Azure cluster
  */
-export type SpectroClustersAzureImportResponse201 = {
+export type spectroClustersAzureImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersAzureImportResponseComposite =
-  SpectroClustersAzureImportResponse201;
+export type spectroClustersAzureImportResponseComposite =
+  spectroClustersAzureImportResponse201;
 
-export type SpectroClustersAzureImportResponse =
-  SpectroClustersAzureImportResponseComposite & {
+export type spectroClustersAzureImportResponse =
+  spectroClustersAzureImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAzureImportUrl = () => {
+export const getSpectroClustersAzureImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/azure/import`;
 };
 
-export const SpectroClustersAzureImport = async (
-  SpectroAzureClusterImportEntity: SpectroAzureClusterImportEntity,
+export const spectroClustersAzureImport = async (
+  spectroAzureClusterImportEntity: SpectroAzureClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersAzureImportResponse> => {
-  const res = await fetch(getV1SpectroClustersAzureImportUrl(), {
+): Promise<spectroClustersAzureImportResponse> => {
+  const res = await fetch(getSpectroClustersAzureImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterImportEntity),
+    body: JSON.stringify(spectroAzureClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAzureImportResponse["data"] = body
+  const data: spectroClustersAzureImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -605,26 +605,26 @@ export const SpectroClustersAzureImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAzureImportResponse;
+  } as spectroClustersAzureImportResponse;
 };
 
 /**
  * @summary Get Azure cluster estimated rate information
  */
-export type SpectroClustersAzureRateResponse200 = {
+export type spectroClustersAzureRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersAzureRateResponseComposite =
-  SpectroClustersAzureRateResponse200;
+export type spectroClustersAzureRateResponseComposite =
+  spectroClustersAzureRateResponse200;
 
-export type SpectroClustersAzureRateResponse =
-  SpectroClustersAzureRateResponseComposite & {
+export type spectroClustersAzureRateResponse =
+  spectroClustersAzureRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAzureRateUrl = (
+export const getSpectroClustersAzureRateUrl = (
   params?: SpectroClustersAzureRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -642,20 +642,20 @@ export const getV1SpectroClustersAzureRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/azure/rate`;
 };
 
-export const SpectroClustersAzureRate = async (
-  SpectroAzureClusterRateEntityBody: SpectroAzureClusterRateEntityBody,
+export const spectroClustersAzureRate = async (
+  v1SpectroAzureClusterRateEntityBody: V1SpectroAzureClusterRateEntityBody,
   params?: SpectroClustersAzureRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersAzureRateResponse> => {
-  const res = await fetch(getV1SpectroClustersAzureRateUrl(params), {
+): Promise<spectroClustersAzureRateResponse> => {
+  const res = await fetch(getSpectroClustersAzureRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterRateEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterRateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAzureRateResponse["data"] = body
+  const data: spectroClustersAzureRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -663,42 +663,42 @@ export const SpectroClustersAzureRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAzureRateResponse;
+  } as spectroClustersAzureRateResponse;
 };
 
 /**
  * @summary Validates Azure cluster create operation
  */
-export type SpectroClustersAzureValidateResponse200 = {
+export type spectroClustersAzureValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersAzureValidateResponseComposite =
-  SpectroClustersAzureValidateResponse200;
+export type spectroClustersAzureValidateResponseComposite =
+  spectroClustersAzureValidateResponse200;
 
-export type SpectroClustersAzureValidateResponse =
-  SpectroClustersAzureValidateResponseComposite & {
+export type spectroClustersAzureValidateResponse =
+  spectroClustersAzureValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersAzureValidateUrl = () => {
+export const getSpectroClustersAzureValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/azure/validate`;
 };
 
-export const SpectroClustersAzureValidate = async (
-  SpectroAzureClusterEntityBody: SpectroAzureClusterEntityBody,
+export const spectroClustersAzureValidate = async (
+  v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersAzureValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersAzureValidateUrl(), {
+): Promise<spectroClustersAzureValidateResponse> => {
+  const res = await fetch(getSpectroClustersAzureValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroAzureClusterEntityBody),
+    body: JSON.stringify(v1SpectroAzureClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersAzureValidateResponse["data"] = body
+  const data: spectroClustersAzureValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -706,43 +706,43 @@ export const SpectroClustersAzureValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersAzureValidateResponse;
+  } as spectroClustersAzureValidateResponse;
 };
 
 /**
  * @summary Creates a Custom cluster
  */
-export type SpectroClustersCustomCreateResponse201 = {
+export type spectroClustersCustomCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersCustomCreateResponseComposite =
-  SpectroClustersCustomCreateResponse201;
+export type spectroClustersCustomCreateResponseComposite =
+  spectroClustersCustomCreateResponse201;
 
-export type SpectroClustersCustomCreateResponse =
-  SpectroClustersCustomCreateResponseComposite & {
+export type spectroClustersCustomCreateResponse =
+  spectroClustersCustomCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersCustomCreateUrl = (cloudType: string) => {
+export const getSpectroClustersCustomCreateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/cloudTypes/${cloudType}`;
 };
 
-export const SpectroClustersCustomCreate = async (
+export const spectroClustersCustomCreate = async (
   cloudType: string,
-  SpectroCustomClusterEntityBody: SpectroCustomClusterEntityBody,
+  v1SpectroCustomClusterEntityBody: V1SpectroCustomClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersCustomCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersCustomCreateUrl(cloudType), {
+): Promise<spectroClustersCustomCreateResponse> => {
+  const res = await fetch(getSpectroClustersCustomCreateUrl(cloudType), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroCustomClusterEntityBody),
+    body: JSON.stringify(v1SpectroCustomClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersCustomCreateResponse["data"] = body
+  const data: spectroClustersCustomCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -750,43 +750,43 @@ export const SpectroClustersCustomCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersCustomCreateResponse;
+  } as spectroClustersCustomCreateResponse;
 };
 
 /**
  * @summary Validates Custom cluster create operation
  */
-export type SpectroClustersCustomValidateResponse200 = {
+export type spectroClustersCustomValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersCustomValidateResponseComposite =
-  SpectroClustersCustomValidateResponse200;
+export type spectroClustersCustomValidateResponseComposite =
+  spectroClustersCustomValidateResponse200;
 
-export type SpectroClustersCustomValidateResponse =
-  SpectroClustersCustomValidateResponseComposite & {
+export type spectroClustersCustomValidateResponse =
+  spectroClustersCustomValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersCustomValidateUrl = (cloudType: string) => {
+export const getSpectroClustersCustomValidateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/cloudTypes/${cloudType}/validate`;
 };
 
-export const SpectroClustersCustomValidate = async (
+export const spectroClustersCustomValidate = async (
   cloudType: string,
-  SpectroCustomClusterEntityBody: SpectroCustomClusterEntityBody,
+  v1SpectroCustomClusterEntityBody: V1SpectroCustomClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersCustomValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersCustomValidateUrl(cloudType), {
+): Promise<spectroClustersCustomValidateResponse> => {
+  const res = await fetch(getSpectroClustersCustomValidateUrl(cloudType), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroCustomClusterEntityBody),
+    body: JSON.stringify(v1SpectroCustomClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersCustomValidateResponse["data"] = body
+  const data: spectroClustersCustomValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -794,39 +794,39 @@ export const SpectroClustersCustomValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersCustomValidateResponse;
+  } as spectroClustersCustomValidateResponse;
 };
 
 /**
  * @summary Cluster configuration for the edge installer
  */
-export type SpectroClustersConfigEdgeInstallerResponse200 = {
+export type spectroClustersConfigEdgeInstallerResponse200 = {
   data: ClusterEdgeInstallerConfig;
   status: 200;
 };
 
-export type SpectroClustersConfigEdgeInstallerResponseComposite =
-  SpectroClustersConfigEdgeInstallerResponse200;
+export type spectroClustersConfigEdgeInstallerResponseComposite =
+  spectroClustersConfigEdgeInstallerResponse200;
 
-export type SpectroClustersConfigEdgeInstallerResponse =
-  SpectroClustersConfigEdgeInstallerResponseComposite & {
+export type spectroClustersConfigEdgeInstallerResponse =
+  spectroClustersConfigEdgeInstallerResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersConfigEdgeInstallerUrl = () => {
+export const getSpectroClustersConfigEdgeInstallerUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/config/edgeInstaller`;
 };
 
-export const SpectroClustersConfigEdgeInstaller = async (
+export const spectroClustersConfigEdgeInstaller = async (
   options?: RequestInit,
-): Promise<SpectroClustersConfigEdgeInstallerResponse> => {
-  const res = await fetch(getV1SpectroClustersConfigEdgeInstallerUrl(), {
+): Promise<spectroClustersConfigEdgeInstallerResponse> => {
+  const res = await fetch(getSpectroClustersConfigEdgeInstallerUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersConfigEdgeInstallerResponse["data"] = body
+  const data: spectroClustersConfigEdgeInstallerResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -834,42 +834,42 @@ export const SpectroClustersConfigEdgeInstaller = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersConfigEdgeInstallerResponse;
+  } as spectroClustersConfigEdgeInstallerResponse;
 };
 
 /**
  * @summary Creates an EdgeNative cluster
  */
-export type SpectroClustersEdgeNativeCreateResponse201 = {
+export type spectroClustersEdgeNativeCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersEdgeNativeCreateResponseComposite =
-  SpectroClustersEdgeNativeCreateResponse201;
+export type spectroClustersEdgeNativeCreateResponseComposite =
+  spectroClustersEdgeNativeCreateResponse201;
 
-export type SpectroClustersEdgeNativeCreateResponse =
-  SpectroClustersEdgeNativeCreateResponseComposite & {
+export type spectroClustersEdgeNativeCreateResponse =
+  spectroClustersEdgeNativeCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEdgeNativeCreateUrl = () => {
+export const getSpectroClustersEdgeNativeCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/edge-native`;
 };
 
-export const SpectroClustersEdgeNativeCreate = async (
-  SpectroEdgeNativeClusterEntityBody: SpectroEdgeNativeClusterEntityBody,
+export const spectroClustersEdgeNativeCreate = async (
+  v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersEdgeNativeCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersEdgeNativeCreateUrl(), {
+): Promise<spectroClustersEdgeNativeCreateResponse> => {
+  const res = await fetch(getSpectroClustersEdgeNativeCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEdgeNativeClusterEntityBody),
+    body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEdgeNativeCreateResponse["data"] = body
+  const data: spectroClustersEdgeNativeCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -877,42 +877,42 @@ export const SpectroClustersEdgeNativeCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEdgeNativeCreateResponse;
+  } as spectroClustersEdgeNativeCreateResponse;
 };
 
 /**
  * @summary Imports an EdgeNative cluster
  */
-export type SpectroClustersEdgeNativeImportResponse201 = {
+export type spectroClustersEdgeNativeImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersEdgeNativeImportResponseComposite =
-  SpectroClustersEdgeNativeImportResponse201;
+export type spectroClustersEdgeNativeImportResponseComposite =
+  spectroClustersEdgeNativeImportResponse201;
 
-export type SpectroClustersEdgeNativeImportResponse =
-  SpectroClustersEdgeNativeImportResponseComposite & {
+export type spectroClustersEdgeNativeImportResponse =
+  spectroClustersEdgeNativeImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEdgeNativeImportUrl = () => {
+export const getSpectroClustersEdgeNativeImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/edge-native/import`;
 };
 
-export const SpectroClustersEdgeNativeImport = async (
-  SpectroEdgeNativeClusterImportEntity: SpectroEdgeNativeClusterImportEntity,
+export const spectroClustersEdgeNativeImport = async (
+  spectroEdgeNativeClusterImportEntity: SpectroEdgeNativeClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersEdgeNativeImportResponse> => {
-  const res = await fetch(getV1SpectroClustersEdgeNativeImportUrl(), {
+): Promise<spectroClustersEdgeNativeImportResponse> => {
+  const res = await fetch(getSpectroClustersEdgeNativeImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEdgeNativeClusterImportEntity),
+    body: JSON.stringify(spectroEdgeNativeClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEdgeNativeImportResponse["data"] = body
+  const data: spectroClustersEdgeNativeImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -920,26 +920,26 @@ export const SpectroClustersEdgeNativeImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEdgeNativeImportResponse;
+  } as spectroClustersEdgeNativeImportResponse;
 };
 
 /**
  * @summary Get edge-native cluster estimated rate information
  */
-export type SpectroClustersEdgeNativeRateResponse200 = {
+export type spectroClustersEdgeNativeRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersEdgeNativeRateResponseComposite =
-  SpectroClustersEdgeNativeRateResponse200;
+export type spectroClustersEdgeNativeRateResponseComposite =
+  spectroClustersEdgeNativeRateResponse200;
 
-export type SpectroClustersEdgeNativeRateResponse =
-  SpectroClustersEdgeNativeRateResponseComposite & {
+export type spectroClustersEdgeNativeRateResponse =
+  spectroClustersEdgeNativeRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEdgeNativeRateUrl = (
+export const getSpectroClustersEdgeNativeRateUrl = (
   params?: SpectroClustersEdgeNativeRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -957,20 +957,20 @@ export const getV1SpectroClustersEdgeNativeRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/edge-native/rate`;
 };
 
-export const SpectroClustersEdgeNativeRate = async (
-  SpectroEdgeNativeClusterRateEntity: SpectroEdgeNativeClusterRateEntity,
+export const spectroClustersEdgeNativeRate = async (
+  spectroEdgeNativeClusterRateEntity: SpectroEdgeNativeClusterRateEntity,
   params?: SpectroClustersEdgeNativeRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersEdgeNativeRateResponse> => {
-  const res = await fetch(getV1SpectroClustersEdgeNativeRateUrl(params), {
+): Promise<spectroClustersEdgeNativeRateResponse> => {
+  const res = await fetch(getSpectroClustersEdgeNativeRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEdgeNativeClusterRateEntity),
+    body: JSON.stringify(spectroEdgeNativeClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEdgeNativeRateResponse["data"] = body
+  const data: spectroClustersEdgeNativeRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -978,42 +978,42 @@ export const SpectroClustersEdgeNativeRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEdgeNativeRateResponse;
+  } as spectroClustersEdgeNativeRateResponse;
 };
 
 /**
  * @summary Validates edge-native cluster create operation
  */
-export type SpectroClustersEdgeNativeValidateResponse200 = {
+export type spectroClustersEdgeNativeValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersEdgeNativeValidateResponseComposite =
-  SpectroClustersEdgeNativeValidateResponse200;
+export type spectroClustersEdgeNativeValidateResponseComposite =
+  spectroClustersEdgeNativeValidateResponse200;
 
-export type SpectroClustersEdgeNativeValidateResponse =
-  SpectroClustersEdgeNativeValidateResponseComposite & {
+export type spectroClustersEdgeNativeValidateResponse =
+  spectroClustersEdgeNativeValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEdgeNativeValidateUrl = () => {
+export const getSpectroClustersEdgeNativeValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/edge-native/validate`;
 };
 
-export const SpectroClustersEdgeNativeValidate = async (
-  SpectroEdgeNativeClusterEntityBody: SpectroEdgeNativeClusterEntityBody,
+export const spectroClustersEdgeNativeValidate = async (
+  v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersEdgeNativeValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersEdgeNativeValidateUrl(), {
+): Promise<spectroClustersEdgeNativeValidateResponse> => {
+  const res = await fetch(getSpectroClustersEdgeNativeValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEdgeNativeClusterEntityBody),
+    body: JSON.stringify(v1SpectroEdgeNativeClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEdgeNativeValidateResponse["data"] = body
+  const data: spectroClustersEdgeNativeValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1021,42 +1021,42 @@ export const SpectroClustersEdgeNativeValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEdgeNativeValidateResponse;
+  } as spectroClustersEdgeNativeValidateResponse;
 };
 
 /**
  * @summary Creates an EKS cluster
  */
-export type SpectroClustersEksCreateResponse201 = {
+export type spectroClustersEksCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersEksCreateResponseComposite =
-  SpectroClustersEksCreateResponse201;
+export type spectroClustersEksCreateResponseComposite =
+  spectroClustersEksCreateResponse201;
 
-export type SpectroClustersEksCreateResponse =
-  SpectroClustersEksCreateResponseComposite & {
+export type spectroClustersEksCreateResponse =
+  spectroClustersEksCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEksCreateUrl = () => {
+export const getSpectroClustersEksCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/eks`;
 };
 
-export const SpectroClustersEksCreate = async (
-  SpectroEksClusterEntityBody: SpectroEksClusterEntityBody,
+export const spectroClustersEksCreate = async (
+  v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersEksCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersEksCreateUrl(), {
+): Promise<spectroClustersEksCreateResponse> => {
+  const res = await fetch(getSpectroClustersEksCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEksClusterEntityBody),
+    body: JSON.stringify(v1SpectroEksClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEksCreateResponse["data"] = body
+  const data: spectroClustersEksCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1064,26 +1064,26 @@ export const SpectroClustersEksCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEksCreateResponse;
+  } as spectroClustersEksCreateResponse;
 };
 
 /**
  * @summary Get EKS cluster estimated rate information
  */
-export type SpectroClustersEksRateResponse200 = {
+export type spectroClustersEksRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersEksRateResponseComposite =
-  SpectroClustersEksRateResponse200;
+export type spectroClustersEksRateResponseComposite =
+  spectroClustersEksRateResponse200;
 
-export type SpectroClustersEksRateResponse =
-  SpectroClustersEksRateResponseComposite & {
+export type spectroClustersEksRateResponse =
+  spectroClustersEksRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEksRateUrl = (
+export const getSpectroClustersEksRateUrl = (
   params?: SpectroClustersEksRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1101,20 +1101,20 @@ export const getV1SpectroClustersEksRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/eks/rate`;
 };
 
-export const SpectroClustersEksRate = async (
-  SpectroEksClusterRateEntity: SpectroEksClusterRateEntity,
+export const spectroClustersEksRate = async (
+  spectroEksClusterRateEntity: SpectroEksClusterRateEntity,
   params?: SpectroClustersEksRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersEksRateResponse> => {
-  const res = await fetch(getV1SpectroClustersEksRateUrl(params), {
+): Promise<spectroClustersEksRateResponse> => {
+  const res = await fetch(getSpectroClustersEksRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEksClusterRateEntity),
+    body: JSON.stringify(spectroEksClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEksRateResponse["data"] = body
+  const data: spectroClustersEksRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1122,42 +1122,42 @@ export const SpectroClustersEksRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEksRateResponse;
+  } as spectroClustersEksRateResponse;
 };
 
 /**
  * @summary Validates EKS cluster create operation
  */
-export type SpectroClustersEksValidateResponse200 = {
+export type spectroClustersEksValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersEksValidateResponseComposite =
-  SpectroClustersEksValidateResponse200;
+export type spectroClustersEksValidateResponseComposite =
+  spectroClustersEksValidateResponse200;
 
-export type SpectroClustersEksValidateResponse =
-  SpectroClustersEksValidateResponseComposite & {
+export type spectroClustersEksValidateResponse =
+  spectroClustersEksValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersEksValidateUrl = () => {
+export const getSpectroClustersEksValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/eks/validate`;
 };
 
-export const SpectroClustersEksValidate = async (
-  SpectroEksClusterEntityBody: SpectroEksClusterEntityBody,
+export const spectroClustersEksValidate = async (
+  v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersEksValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersEksValidateUrl(), {
+): Promise<spectroClustersEksValidateResponse> => {
+  const res = await fetch(getSpectroClustersEksValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroEksClusterEntityBody),
+    body: JSON.stringify(v1SpectroEksClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersEksValidateResponse["data"] = body
+  const data: spectroClustersEksValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1165,22 +1165,22 @@ export const SpectroClustersEksValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersEksValidateResponse;
+  } as spectroClustersEksValidateResponse;
 };
 
 /**
  * @summary Returns the cluster object references based on locationUid
  */
-export type ClusterFeatureBackupLocationUidGetResponse200 = {
+export type v1ClusterFeatureBackupLocationUidGetResponse200 = {
   data: ClusterRefs;
   status: 200;
 };
 
-export type ClusterFeatureBackupLocationUidGetResponseComposite =
-  ClusterFeatureBackupLocationUidGetResponse200;
+export type v1ClusterFeatureBackupLocationUidGetResponseComposite =
+  v1ClusterFeatureBackupLocationUidGetResponse200;
 
-export type ClusterFeatureBackupLocationUidGetResponse =
-  ClusterFeatureBackupLocationUidGetResponseComposite & {
+export type v1ClusterFeatureBackupLocationUidGetResponse =
+  v1ClusterFeatureBackupLocationUidGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1188,17 +1188,17 @@ export const getV1ClusterFeatureBackupLocationUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/features/backup/locations/${uid}`;
 };
 
-export const ClusterFeatureBackupLocationUidGet = async (
+export const v1ClusterFeatureBackupLocationUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupLocationUidGetResponse> => {
+): Promise<v1ClusterFeatureBackupLocationUidGetResponse> => {
   const res = await fetch(getV1ClusterFeatureBackupLocationUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupLocationUidGetResponse["data"] = body
+  const data: v1ClusterFeatureBackupLocationUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1206,22 +1206,22 @@ export const ClusterFeatureBackupLocationUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupLocationUidGetResponse;
+  } as v1ClusterFeatureBackupLocationUidGetResponse;
 };
 
 /**
  * @summary Change cluster backup location
  */
-export type ClusterFeatureBackupLocationUidChangeResponse204 = {
+export type v1ClusterFeatureBackupLocationUidChangeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureBackupLocationUidChangeResponseComposite =
-  ClusterFeatureBackupLocationUidChangeResponse204;
+export type v1ClusterFeatureBackupLocationUidChangeResponseComposite =
+  v1ClusterFeatureBackupLocationUidChangeResponse204;
 
-export type ClusterFeatureBackupLocationUidChangeResponse =
-  ClusterFeatureBackupLocationUidChangeResponseComposite & {
+export type v1ClusterFeatureBackupLocationUidChangeResponse =
+  v1ClusterFeatureBackupLocationUidChangeResponseComposite & {
     headers: Headers;
   };
 
@@ -1229,20 +1229,20 @@ export const getV1ClusterFeatureBackupLocationUidChangeUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/features/backup/locations/${uid}`;
 };
 
-export const ClusterFeatureBackupLocationUidChange = async (
+export const v1ClusterFeatureBackupLocationUidChange = async (
   uid: string,
-  ClusterBackupLocationType: ClusterBackupLocationType,
+  clusterBackupLocationType: ClusterBackupLocationType,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupLocationUidChangeResponse> => {
+): Promise<v1ClusterFeatureBackupLocationUidChangeResponse> => {
   const res = await fetch(getV1ClusterFeatureBackupLocationUidChangeUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterBackupLocationType),
+    body: JSON.stringify(clusterBackupLocationType),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupLocationUidChangeResponse["data"] = body
+  const data: v1ClusterFeatureBackupLocationUidChangeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1250,26 +1250,26 @@ export const ClusterFeatureBackupLocationUidChange = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupLocationUidChangeResponse;
+  } as v1ClusterFeatureBackupLocationUidChangeResponse;
 };
 
 /**
  * @summary Download log fetcher logs for cluster by log fetcher uid
  */
-export type ClusterFeatureLogFetcherLogDownloadResponse200 = {
+export type clusterFeatureLogFetcherLogDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type ClusterFeatureLogFetcherLogDownloadResponseComposite =
-  ClusterFeatureLogFetcherLogDownloadResponse200;
+export type clusterFeatureLogFetcherLogDownloadResponseComposite =
+  clusterFeatureLogFetcherLogDownloadResponse200;
 
-export type ClusterFeatureLogFetcherLogDownloadResponse =
-  ClusterFeatureLogFetcherLogDownloadResponseComposite & {
+export type clusterFeatureLogFetcherLogDownloadResponse =
+  clusterFeatureLogFetcherLogDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureLogFetcherLogDownloadUrl = (
+export const getClusterFeatureLogFetcherLogDownloadUrl = (
   uid: string,
   params?: ClusterFeatureLogFetcherLogDownloadParams,
 ) => {
@@ -1288,13 +1288,13 @@ export const getV1ClusterFeatureLogFetcherLogDownloadUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/download`;
 };
 
-export const ClusterFeatureLogFetcherLogDownload = async (
+export const clusterFeatureLogFetcherLogDownload = async (
   uid: string,
   params?: ClusterFeatureLogFetcherLogDownloadParams,
   options?: RequestInit,
-): Promise<ClusterFeatureLogFetcherLogDownloadResponse> => {
+): Promise<clusterFeatureLogFetcherLogDownloadResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureLogFetcherLogDownloadUrl(uid, params),
+    getClusterFeatureLogFetcherLogDownloadUrl(uid, params),
     {
       ...options,
       method: "GET",
@@ -1302,7 +1302,7 @@ export const ClusterFeatureLogFetcherLogDownload = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureLogFetcherLogDownloadResponse["data"] = body
+  const data: clusterFeatureLogFetcherLogDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1310,26 +1310,26 @@ export const ClusterFeatureLogFetcherLogDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureLogFetcherLogDownloadResponse;
+  } as clusterFeatureLogFetcherLogDownloadResponse;
 };
 
 /**
  * @summary Update log fetcher logs by log fetcher uid
  */
-export type ClusterFeatureLogFetcherLogUpdateResponse204 = {
+export type clusterFeatureLogFetcherLogUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureLogFetcherLogUpdateResponseComposite =
-  ClusterFeatureLogFetcherLogUpdateResponse204;
+export type clusterFeatureLogFetcherLogUpdateResponseComposite =
+  clusterFeatureLogFetcherLogUpdateResponse204;
 
-export type ClusterFeatureLogFetcherLogUpdateResponse =
-  ClusterFeatureLogFetcherLogUpdateResponseComposite & {
+export type clusterFeatureLogFetcherLogUpdateResponse =
+  clusterFeatureLogFetcherLogUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureLogFetcherLogUpdateUrl = (
+export const getClusterFeatureLogFetcherLogUpdateUrl = (
   uid: string,
   params?: ClusterFeatureLogFetcherLogUpdateParams,
 ) => {
@@ -1348,19 +1348,19 @@ export const getV1ClusterFeatureLogFetcherLogUpdateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/log`;
 };
 
-export const ClusterFeatureLogFetcherLogUpdate = async (
+export const clusterFeatureLogFetcherLogUpdate = async (
   uid: string,
-  ClusterFeatureLogFetcherLogUpdateBody: ClusterFeatureLogFetcherLogUpdateBody,
+  clusterFeatureLogFetcherLogUpdateBody: ClusterFeatureLogFetcherLogUpdateBody,
   params?: ClusterFeatureLogFetcherLogUpdateParams,
   options?: RequestInit,
-): Promise<ClusterFeatureLogFetcherLogUpdateResponse> => {
+): Promise<clusterFeatureLogFetcherLogUpdateResponse> => {
   const formData = new FormData();
-  if (ClusterFeatureLogFetcherLogUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, ClusterFeatureLogFetcherLogUpdateBody.fileName);
+  if (clusterFeatureLogFetcherLogUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, clusterFeatureLogFetcherLogUpdateBody.fileName);
   }
 
   const res = await fetch(
-    getV1ClusterFeatureLogFetcherLogUpdateUrl(uid, params),
+    getClusterFeatureLogFetcherLogUpdateUrl(uid, params),
     {
       ...options,
       method: "POST",
@@ -1369,7 +1369,7 @@ export const ClusterFeatureLogFetcherLogUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureLogFetcherLogUpdateResponse["data"] = body
+  const data: clusterFeatureLogFetcherLogUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1377,42 +1377,42 @@ export const ClusterFeatureLogFetcherLogUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureLogFetcherLogUpdateResponse;
+  } as clusterFeatureLogFetcherLogUpdateResponse;
 };
 
 /**
  * @summary Creates a GCP cluster
  */
-export type SpectroClustersGcpCreateResponse201 = {
+export type spectroClustersGcpCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersGcpCreateResponseComposite =
-  SpectroClustersGcpCreateResponse201;
+export type spectroClustersGcpCreateResponseComposite =
+  spectroClustersGcpCreateResponse201;
 
-export type SpectroClustersGcpCreateResponse =
-  SpectroClustersGcpCreateResponseComposite & {
+export type spectroClustersGcpCreateResponse =
+  spectroClustersGcpCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGcpCreateUrl = () => {
+export const getSpectroClustersGcpCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/gcp`;
 };
 
-export const SpectroClustersGcpCreate = async (
-  SpectroGcpClusterEntityBody: SpectroGcpClusterEntityBody,
+export const spectroClustersGcpCreate = async (
+  v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersGcpCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersGcpCreateUrl(), {
+): Promise<spectroClustersGcpCreateResponse> => {
+  const res = await fetch(getSpectroClustersGcpCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGcpCreateResponse["data"] = body
+  const data: spectroClustersGcpCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1420,42 +1420,42 @@ export const SpectroClustersGcpCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGcpCreateResponse;
+  } as spectroClustersGcpCreateResponse;
 };
 
 /**
  * @summary Imports a GCP cluster
  */
-export type SpectroClustersGcpImportResponse201 = {
+export type spectroClustersGcpImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersGcpImportResponseComposite =
-  SpectroClustersGcpImportResponse201;
+export type spectroClustersGcpImportResponseComposite =
+  spectroClustersGcpImportResponse201;
 
-export type SpectroClustersGcpImportResponse =
-  SpectroClustersGcpImportResponseComposite & {
+export type spectroClustersGcpImportResponse =
+  spectroClustersGcpImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGcpImportUrl = () => {
+export const getSpectroClustersGcpImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/gcp/import`;
 };
 
-export const SpectroClustersGcpImport = async (
-  SpectroGcpClusterImportEntity: SpectroGcpClusterImportEntity,
+export const spectroClustersGcpImport = async (
+  spectroGcpClusterImportEntity: SpectroGcpClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersGcpImportResponse> => {
-  const res = await fetch(getV1SpectroClustersGcpImportUrl(), {
+): Promise<spectroClustersGcpImportResponse> => {
+  const res = await fetch(getSpectroClustersGcpImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterImportEntity),
+    body: JSON.stringify(spectroGcpClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGcpImportResponse["data"] = body
+  const data: spectroClustersGcpImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1463,26 +1463,26 @@ export const SpectroClustersGcpImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGcpImportResponse;
+  } as spectroClustersGcpImportResponse;
 };
 
 /**
  * @summary Get GCP cluster estimated rate information
  */
-export type SpectroClustersGcpRateResponse200 = {
+export type spectroClustersGcpRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersGcpRateResponseComposite =
-  SpectroClustersGcpRateResponse200;
+export type spectroClustersGcpRateResponseComposite =
+  spectroClustersGcpRateResponse200;
 
-export type SpectroClustersGcpRateResponse =
-  SpectroClustersGcpRateResponseComposite & {
+export type spectroClustersGcpRateResponse =
+  spectroClustersGcpRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGcpRateUrl = (
+export const getSpectroClustersGcpRateUrl = (
   params?: SpectroClustersGcpRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1500,20 +1500,20 @@ export const getV1SpectroClustersGcpRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/gcp/rate`;
 };
 
-export const SpectroClustersGcpRate = async (
-  SpectroGcpClusterRateEntityBody: SpectroGcpClusterRateEntityBody,
+export const spectroClustersGcpRate = async (
+  v1SpectroGcpClusterRateEntityBody: V1SpectroGcpClusterRateEntityBody,
   params?: SpectroClustersGcpRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersGcpRateResponse> => {
-  const res = await fetch(getV1SpectroClustersGcpRateUrl(params), {
+): Promise<spectroClustersGcpRateResponse> => {
+  const res = await fetch(getSpectroClustersGcpRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterRateEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGcpRateResponse["data"] = body
+  const data: spectroClustersGcpRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1521,42 +1521,42 @@ export const SpectroClustersGcpRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGcpRateResponse;
+  } as spectroClustersGcpRateResponse;
 };
 
 /**
  * @summary Validates GCP cluster create operation
  */
-export type SpectroClustersGcpValidateResponse200 = {
+export type spectroClustersGcpValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersGcpValidateResponseComposite =
-  SpectroClustersGcpValidateResponse200;
+export type spectroClustersGcpValidateResponseComposite =
+  spectroClustersGcpValidateResponse200;
 
-export type SpectroClustersGcpValidateResponse =
-  SpectroClustersGcpValidateResponseComposite & {
+export type spectroClustersGcpValidateResponse =
+  spectroClustersGcpValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGcpValidateUrl = () => {
+export const getSpectroClustersGcpValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/gcp/validate`;
 };
 
-export const SpectroClustersGcpValidate = async (
-  SpectroGcpClusterEntityBody: SpectroGcpClusterEntityBody,
+export const spectroClustersGcpValidate = async (
+  v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersGcpValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersGcpValidateUrl(), {
+): Promise<spectroClustersGcpValidateResponse> => {
+  const res = await fetch(getSpectroClustersGcpValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGcpValidateResponse["data"] = body
+  const data: spectroClustersGcpValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1564,43 +1564,43 @@ export const SpectroClustersGcpValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGcpValidateResponse;
+  } as spectroClustersGcpValidateResponse;
 };
 
 /**
  * The machines information will be captured, whereas the cloud specific configuration info will not be retrieved
  * @summary Imports a cluster of any cloud type in generic way
  */
-export type SpectroClustersGenericImportResponse201 = {
+export type spectroClustersGenericImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersGenericImportResponseComposite =
-  SpectroClustersGenericImportResponse201;
+export type spectroClustersGenericImportResponseComposite =
+  spectroClustersGenericImportResponse201;
 
-export type SpectroClustersGenericImportResponse =
-  SpectroClustersGenericImportResponseComposite & {
+export type spectroClustersGenericImportResponse =
+  spectroClustersGenericImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGenericImportUrl = () => {
+export const getSpectroClustersGenericImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/generic/import`;
 };
 
-export const SpectroClustersGenericImport = async (
-  SpectroGenericClusterImportEntity: SpectroGenericClusterImportEntity,
+export const spectroClustersGenericImport = async (
+  spectroGenericClusterImportEntity: SpectroGenericClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersGenericImportResponse> => {
-  const res = await fetch(getV1SpectroClustersGenericImportUrl(), {
+): Promise<spectroClustersGenericImportResponse> => {
+  const res = await fetch(getSpectroClustersGenericImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGenericClusterImportEntity),
+    body: JSON.stringify(spectroGenericClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGenericImportResponse["data"] = body
+  const data: spectroClustersGenericImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1608,26 +1608,26 @@ export const SpectroClustersGenericImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGenericImportResponse;
+  } as spectroClustersGenericImportResponse;
 };
 
 /**
  * @summary Get generic cluster estimated rate information
  */
-export type SpectroClustersGenericRateResponse200 = {
+export type spectroClustersGenericRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersGenericRateResponseComposite =
-  SpectroClustersGenericRateResponse200;
+export type spectroClustersGenericRateResponseComposite =
+  spectroClustersGenericRateResponse200;
 
-export type SpectroClustersGenericRateResponse =
-  SpectroClustersGenericRateResponseComposite & {
+export type spectroClustersGenericRateResponse =
+  spectroClustersGenericRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGenericRateUrl = (
+export const getSpectroClustersGenericRateUrl = (
   params?: SpectroClustersGenericRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1645,20 +1645,20 @@ export const getV1SpectroClustersGenericRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/generic/rate`;
 };
 
-export const SpectroClustersGenericRate = async (
-  SpectroGenericClusterRateEntity: SpectroGenericClusterRateEntity,
+export const spectroClustersGenericRate = async (
+  spectroGenericClusterRateEntity: SpectroGenericClusterRateEntity,
   params?: SpectroClustersGenericRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersGenericRateResponse> => {
-  const res = await fetch(getV1SpectroClustersGenericRateUrl(params), {
+): Promise<spectroClustersGenericRateResponse> => {
+  const res = await fetch(getSpectroClustersGenericRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGenericClusterRateEntity),
+    body: JSON.stringify(spectroGenericClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGenericRateResponse["data"] = body
+  const data: spectroClustersGenericRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1666,42 +1666,42 @@ export const SpectroClustersGenericRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGenericRateResponse;
+  } as spectroClustersGenericRateResponse;
 };
 
 /**
  * @summary Creates an GKE cluster
  */
-export type SpectroClustersGkeCreateResponse201 = {
+export type spectroClustersGkeCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersGkeCreateResponseComposite =
-  SpectroClustersGkeCreateResponse201;
+export type spectroClustersGkeCreateResponseComposite =
+  spectroClustersGkeCreateResponse201;
 
-export type SpectroClustersGkeCreateResponse =
-  SpectroClustersGkeCreateResponseComposite & {
+export type spectroClustersGkeCreateResponse =
+  spectroClustersGkeCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGkeCreateUrl = () => {
+export const getSpectroClustersGkeCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/gke`;
 };
 
-export const SpectroClustersGkeCreate = async (
-  SpectroGcpClusterEntityBody: SpectroGcpClusterEntityBody,
+export const spectroClustersGkeCreate = async (
+  v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersGkeCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersGkeCreateUrl(), {
+): Promise<spectroClustersGkeCreateResponse> => {
+  const res = await fetch(getSpectroClustersGkeCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGkeCreateResponse["data"] = body
+  const data: spectroClustersGkeCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1709,26 +1709,26 @@ export const SpectroClustersGkeCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGkeCreateResponse;
+  } as spectroClustersGkeCreateResponse;
 };
 
 /**
  * @summary Get GKE cluster estimated rate information
  */
-export type SpectroClustersGkeRateResponse200 = {
+export type spectroClustersGkeRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersGkeRateResponseComposite =
-  SpectroClustersGkeRateResponse200;
+export type spectroClustersGkeRateResponseComposite =
+  spectroClustersGkeRateResponse200;
 
-export type SpectroClustersGkeRateResponse =
-  SpectroClustersGkeRateResponseComposite & {
+export type spectroClustersGkeRateResponse =
+  spectroClustersGkeRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGkeRateUrl = (
+export const getSpectroClustersGkeRateUrl = (
   params?: SpectroClustersGkeRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1746,20 +1746,20 @@ export const getV1SpectroClustersGkeRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/gke/rate`;
 };
 
-export const SpectroClustersGkeRate = async (
-  SpectroGcpClusterRateEntityBody: SpectroGcpClusterRateEntityBody,
+export const spectroClustersGkeRate = async (
+  v1SpectroGcpClusterRateEntityBody: V1SpectroGcpClusterRateEntityBody,
   params?: SpectroClustersGkeRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersGkeRateResponse> => {
-  const res = await fetch(getV1SpectroClustersGkeRateUrl(params), {
+): Promise<spectroClustersGkeRateResponse> => {
+  const res = await fetch(getSpectroClustersGkeRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterRateEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterRateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGkeRateResponse["data"] = body
+  const data: spectroClustersGkeRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1767,42 +1767,42 @@ export const SpectroClustersGkeRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGkeRateResponse;
+  } as spectroClustersGkeRateResponse;
 };
 
 /**
  * @summary Validates GKE cluster create operation
  */
-export type SpectroClustersGkeValidateResponse200 = {
+export type spectroClustersGkeValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersGkeValidateResponseComposite =
-  SpectroClustersGkeValidateResponse200;
+export type spectroClustersGkeValidateResponseComposite =
+  spectroClustersGkeValidateResponse200;
 
-export type SpectroClustersGkeValidateResponse =
-  SpectroClustersGkeValidateResponseComposite & {
+export type spectroClustersGkeValidateResponse =
+  spectroClustersGkeValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGkeValidateUrl = () => {
+export const getSpectroClustersGkeValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/gke/validate`;
 };
 
-export const SpectroClustersGkeValidate = async (
-  SpectroGcpClusterEntityBody: SpectroGcpClusterEntityBody,
+export const spectroClustersGkeValidate = async (
+  v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersGkeValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersGkeValidateUrl(), {
+): Promise<spectroClustersGkeValidateResponse> => {
+  const res = await fetch(getSpectroClustersGkeValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroGcpClusterEntityBody),
+    body: JSON.stringify(v1SpectroGcpClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGkeValidateResponse["data"] = body
+  const data: spectroClustersGkeValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1810,42 +1810,42 @@ export const SpectroClustersGkeValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGkeValidateResponse;
+  } as spectroClustersGkeValidateResponse;
 };
 
 /**
  * @summary Creates a MAAS cluster
  */
-export type SpectroClustersMaasCreateResponse201 = {
+export type spectroClustersMaasCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersMaasCreateResponseComposite =
-  SpectroClustersMaasCreateResponse201;
+export type spectroClustersMaasCreateResponseComposite =
+  spectroClustersMaasCreateResponse201;
 
-export type SpectroClustersMaasCreateResponse =
-  SpectroClustersMaasCreateResponseComposite & {
+export type spectroClustersMaasCreateResponse =
+  spectroClustersMaasCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersMaasCreateUrl = () => {
+export const getSpectroClustersMaasCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/maas`;
 };
 
-export const SpectroClustersMaasCreate = async (
-  SpectroMaasClusterEntityBody: SpectroMaasClusterEntityBody,
+export const spectroClustersMaasCreate = async (
+  v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersMaasCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersMaasCreateUrl(), {
+): Promise<spectroClustersMaasCreateResponse> => {
+  const res = await fetch(getSpectroClustersMaasCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroMaasClusterEntityBody),
+    body: JSON.stringify(v1SpectroMaasClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersMaasCreateResponse["data"] = body
+  const data: spectroClustersMaasCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1853,42 +1853,42 @@ export const SpectroClustersMaasCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersMaasCreateResponse;
+  } as spectroClustersMaasCreateResponse;
 };
 
 /**
  * @summary Imports a Maas cluster
  */
-export type SpectroClustersMaasImportResponse201 = {
+export type spectroClustersMaasImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersMaasImportResponseComposite =
-  SpectroClustersMaasImportResponse201;
+export type spectroClustersMaasImportResponseComposite =
+  spectroClustersMaasImportResponse201;
 
-export type SpectroClustersMaasImportResponse =
-  SpectroClustersMaasImportResponseComposite & {
+export type spectroClustersMaasImportResponse =
+  spectroClustersMaasImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersMaasImportUrl = () => {
+export const getSpectroClustersMaasImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/maas/import`;
 };
 
-export const SpectroClustersMaasImport = async (
-  SpectroMaasClusterImportEntity: SpectroMaasClusterImportEntity,
+export const spectroClustersMaasImport = async (
+  spectroMaasClusterImportEntity: SpectroMaasClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersMaasImportResponse> => {
-  const res = await fetch(getV1SpectroClustersMaasImportUrl(), {
+): Promise<spectroClustersMaasImportResponse> => {
+  const res = await fetch(getSpectroClustersMaasImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroMaasClusterImportEntity),
+    body: JSON.stringify(spectroMaasClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersMaasImportResponse["data"] = body
+  const data: spectroClustersMaasImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1896,26 +1896,26 @@ export const SpectroClustersMaasImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersMaasImportResponse;
+  } as spectroClustersMaasImportResponse;
 };
 
 /**
  * @summary Get maas cluster estimated rate information
  */
-export type SpectroClustersMaasRateResponse200 = {
+export type spectroClustersMaasRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersMaasRateResponseComposite =
-  SpectroClustersMaasRateResponse200;
+export type spectroClustersMaasRateResponseComposite =
+  spectroClustersMaasRateResponse200;
 
-export type SpectroClustersMaasRateResponse =
-  SpectroClustersMaasRateResponseComposite & {
+export type spectroClustersMaasRateResponse =
+  spectroClustersMaasRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersMaasRateUrl = (
+export const getSpectroClustersMaasRateUrl = (
   params?: SpectroClustersMaasRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1933,20 +1933,20 @@ export const getV1SpectroClustersMaasRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/maas/rate`;
 };
 
-export const SpectroClustersMaasRate = async (
-  SpectroMaasClusterRateEntity: SpectroMaasClusterRateEntity,
+export const spectroClustersMaasRate = async (
+  spectroMaasClusterRateEntity: SpectroMaasClusterRateEntity,
   params?: SpectroClustersMaasRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersMaasRateResponse> => {
-  const res = await fetch(getV1SpectroClustersMaasRateUrl(params), {
+): Promise<spectroClustersMaasRateResponse> => {
+  const res = await fetch(getSpectroClustersMaasRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroMaasClusterRateEntity),
+    body: JSON.stringify(spectroMaasClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersMaasRateResponse["data"] = body
+  const data: spectroClustersMaasRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1954,42 +1954,42 @@ export const SpectroClustersMaasRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersMaasRateResponse;
+  } as spectroClustersMaasRateResponse;
 };
 
 /**
  * @summary Validates MAAS cluster create operation
  */
-export type SpectroClustersMaasValidateResponse200 = {
+export type spectroClustersMaasValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersMaasValidateResponseComposite =
-  SpectroClustersMaasValidateResponse200;
+export type spectroClustersMaasValidateResponseComposite =
+  spectroClustersMaasValidateResponse200;
 
-export type SpectroClustersMaasValidateResponse =
-  SpectroClustersMaasValidateResponseComposite & {
+export type spectroClustersMaasValidateResponse =
+  spectroClustersMaasValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersMaasValidateUrl = () => {
+export const getSpectroClustersMaasValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/maas/validate`;
 };
 
-export const SpectroClustersMaasValidate = async (
-  SpectroMaasClusterEntityBody: SpectroMaasClusterEntityBody,
+export const spectroClustersMaasValidate = async (
+  v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersMaasValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersMaasValidateUrl(), {
+): Promise<spectroClustersMaasValidateResponse> => {
+  const res = await fetch(getSpectroClustersMaasValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroMaasClusterEntityBody),
+    body: JSON.stringify(v1SpectroMaasClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersMaasValidateResponse["data"] = body
+  const data: spectroClustersMaasValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1997,42 +1997,42 @@ export const SpectroClustersMaasValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersMaasValidateResponse;
+  } as spectroClustersMaasValidateResponse;
 };
 
 /**
  * @summary Creates a OpenStack cluster
  */
-export type SpectroClustersOpenStackCreateResponse201 = {
+export type spectroClustersOpenStackCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersOpenStackCreateResponseComposite =
-  SpectroClustersOpenStackCreateResponse201;
+export type spectroClustersOpenStackCreateResponseComposite =
+  spectroClustersOpenStackCreateResponse201;
 
-export type SpectroClustersOpenStackCreateResponse =
-  SpectroClustersOpenStackCreateResponseComposite & {
+export type spectroClustersOpenStackCreateResponse =
+  spectroClustersOpenStackCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersOpenStackCreateUrl = () => {
+export const getSpectroClustersOpenStackCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/openstack`;
 };
 
-export const SpectroClustersOpenStackCreate = async (
-  SpectroOpenStackClusterEntityBody: SpectroOpenStackClusterEntityBody,
+export const spectroClustersOpenStackCreate = async (
+  v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersOpenStackCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersOpenStackCreateUrl(), {
+): Promise<spectroClustersOpenStackCreateResponse> => {
+  const res = await fetch(getSpectroClustersOpenStackCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroOpenStackClusterEntityBody),
+    body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersOpenStackCreateResponse["data"] = body
+  const data: spectroClustersOpenStackCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2040,42 +2040,42 @@ export const SpectroClustersOpenStackCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersOpenStackCreateResponse;
+  } as spectroClustersOpenStackCreateResponse;
 };
 
 /**
  * @summary Imports an OpenStack cluster
  */
-export type SpectroClustersOpenStackImportResponse201 = {
+export type spectroClustersOpenStackImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersOpenStackImportResponseComposite =
-  SpectroClustersOpenStackImportResponse201;
+export type spectroClustersOpenStackImportResponseComposite =
+  spectroClustersOpenStackImportResponse201;
 
-export type SpectroClustersOpenStackImportResponse =
-  SpectroClustersOpenStackImportResponseComposite & {
+export type spectroClustersOpenStackImportResponse =
+  spectroClustersOpenStackImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersOpenStackImportUrl = () => {
+export const getSpectroClustersOpenStackImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/openstack/import`;
 };
 
-export const SpectroClustersOpenStackImport = async (
-  SpectroOpenStackClusterImportEntity: SpectroOpenStackClusterImportEntity,
+export const spectroClustersOpenStackImport = async (
+  spectroOpenStackClusterImportEntity: SpectroOpenStackClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersOpenStackImportResponse> => {
-  const res = await fetch(getV1SpectroClustersOpenStackImportUrl(), {
+): Promise<spectroClustersOpenStackImportResponse> => {
+  const res = await fetch(getSpectroClustersOpenStackImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroOpenStackClusterImportEntity),
+    body: JSON.stringify(spectroOpenStackClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersOpenStackImportResponse["data"] = body
+  const data: spectroClustersOpenStackImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2083,26 +2083,26 @@ export const SpectroClustersOpenStackImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersOpenStackImportResponse;
+  } as spectroClustersOpenStackImportResponse;
 };
 
 /**
  * @summary Get openstack cluster estimated rate information
  */
-export type SpectroClustersOpenStackRateResponse200 = {
+export type spectroClustersOpenStackRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersOpenStackRateResponseComposite =
-  SpectroClustersOpenStackRateResponse200;
+export type spectroClustersOpenStackRateResponseComposite =
+  spectroClustersOpenStackRateResponse200;
 
-export type SpectroClustersOpenStackRateResponse =
-  SpectroClustersOpenStackRateResponseComposite & {
+export type spectroClustersOpenStackRateResponse =
+  spectroClustersOpenStackRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersOpenStackRateUrl = (
+export const getSpectroClustersOpenStackRateUrl = (
   params?: SpectroClustersOpenStackRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2120,20 +2120,20 @@ export const getV1SpectroClustersOpenStackRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/openstack/rate`;
 };
 
-export const SpectroClustersOpenStackRate = async (
-  SpectroOpenStackClusterRateEntity: SpectroOpenStackClusterRateEntity,
+export const spectroClustersOpenStackRate = async (
+  spectroOpenStackClusterRateEntity: SpectroOpenStackClusterRateEntity,
   params?: SpectroClustersOpenStackRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersOpenStackRateResponse> => {
-  const res = await fetch(getV1SpectroClustersOpenStackRateUrl(params), {
+): Promise<spectroClustersOpenStackRateResponse> => {
+  const res = await fetch(getSpectroClustersOpenStackRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroOpenStackClusterRateEntity),
+    body: JSON.stringify(spectroOpenStackClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersOpenStackRateResponse["data"] = body
+  const data: spectroClustersOpenStackRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2141,42 +2141,42 @@ export const SpectroClustersOpenStackRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersOpenStackRateResponse;
+  } as spectroClustersOpenStackRateResponse;
 };
 
 /**
  * @summary Validates OpenStack cluster create operation
  */
-export type SpectroClustersOpenStackValidateResponse200 = {
+export type spectroClustersOpenStackValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersOpenStackValidateResponseComposite =
-  SpectroClustersOpenStackValidateResponse200;
+export type spectroClustersOpenStackValidateResponseComposite =
+  spectroClustersOpenStackValidateResponse200;
 
-export type SpectroClustersOpenStackValidateResponse =
-  SpectroClustersOpenStackValidateResponseComposite & {
+export type spectroClustersOpenStackValidateResponse =
+  spectroClustersOpenStackValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersOpenStackValidateUrl = () => {
+export const getSpectroClustersOpenStackValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/openstack/validate`;
 };
 
-export const SpectroClustersOpenStackValidate = async (
-  SpectroOpenStackClusterEntityBody: SpectroOpenStackClusterEntityBody,
+export const spectroClustersOpenStackValidate = async (
+  v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersOpenStackValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersOpenStackValidateUrl(), {
+): Promise<spectroClustersOpenStackValidateResponse> => {
+  const res = await fetch(getSpectroClustersOpenStackValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroOpenStackClusterEntityBody),
+    body: JSON.stringify(v1SpectroOpenStackClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersOpenStackValidateResponse["data"] = body
+  const data: spectroClustersOpenStackValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2184,42 +2184,42 @@ export const SpectroClustersOpenStackValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersOpenStackValidateResponse;
+  } as spectroClustersOpenStackValidateResponse;
 };
 
 /**
  * @summary Downloads the cluster definition archive file
  */
-export type SpectroClustersSpcDownloadResponse200 = {
+export type spectroClustersSpcDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersSpcDownloadResponseComposite =
-  SpectroClustersSpcDownloadResponse200;
+export type spectroClustersSpcDownloadResponseComposite =
+  spectroClustersSpcDownloadResponse200;
 
-export type SpectroClustersSpcDownloadResponse =
-  SpectroClustersSpcDownloadResponseComposite & {
+export type spectroClustersSpcDownloadResponse =
+  spectroClustersSpcDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersSpcDownloadUrl = () => {
+export const getSpectroClustersSpcDownloadUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/spc/download`;
 };
 
-export const SpectroClustersSpcDownload = async (
-  ClusterDefinitionEntity: ClusterDefinitionEntity,
+export const spectroClustersSpcDownload = async (
+  clusterDefinitionEntity: ClusterDefinitionEntity,
   options?: RequestInit,
-): Promise<SpectroClustersSpcDownloadResponse> => {
-  const res = await fetch(getV1SpectroClustersSpcDownloadUrl(), {
+): Promise<spectroClustersSpcDownloadResponse> => {
+  const res = await fetch(getSpectroClustersSpcDownloadUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterDefinitionEntity),
+    body: JSON.stringify(clusterDefinitionEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersSpcDownloadResponse["data"] = body
+  const data: spectroClustersSpcDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2227,39 +2227,39 @@ export const SpectroClustersSpcDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersSpcDownloadResponse;
+  } as spectroClustersSpcDownloadResponse;
 };
 
 /**
  * @summary Retrieves a list of spectrocluster tags
  */
-export type SpectroClustersTagsGetResponse200 = {
+export type spectroClustersTagsGetResponse200 = {
   data: SpectroClusterTags;
   status: 200;
 };
 
-export type SpectroClustersTagsGetResponseComposite =
-  SpectroClustersTagsGetResponse200;
+export type spectroClustersTagsGetResponseComposite =
+  spectroClustersTagsGetResponse200;
 
-export type SpectroClustersTagsGetResponse =
-  SpectroClustersTagsGetResponseComposite & {
+export type spectroClustersTagsGetResponse =
+  spectroClustersTagsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersTagsGetUrl = () => {
+export const getSpectroClustersTagsGetUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/tags`;
 };
 
-export const SpectroClustersTagsGet = async (
+export const spectroClustersTagsGet = async (
   options?: RequestInit,
-): Promise<SpectroClustersTagsGetResponse> => {
-  const res = await fetch(getV1SpectroClustersTagsGetUrl(), {
+): Promise<spectroClustersTagsGetResponse> => {
+  const res = await fetch(getSpectroClustersTagsGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersTagsGetResponse["data"] = body
+  const data: spectroClustersTagsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2267,39 +2267,39 @@ export const SpectroClustersTagsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersTagsGetResponse;
+  } as spectroClustersTagsGetResponse;
 };
 
 /**
  * @summary Get cluster settings by context
  */
-export type SpectroClustersUpgradeSettingsGetResponse200 = {
+export type spectroClustersUpgradeSettingsGetResponse200 = {
   data: ClusterUpgradeSettingsEntity;
   status: 200;
 };
 
-export type SpectroClustersUpgradeSettingsGetResponseComposite =
-  SpectroClustersUpgradeSettingsGetResponse200;
+export type spectroClustersUpgradeSettingsGetResponseComposite =
+  spectroClustersUpgradeSettingsGetResponse200;
 
-export type SpectroClustersUpgradeSettingsGetResponse =
-  SpectroClustersUpgradeSettingsGetResponseComposite & {
+export type spectroClustersUpgradeSettingsGetResponse =
+  spectroClustersUpgradeSettingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpgradeSettingsGetUrl = () => {
+export const getSpectroClustersUpgradeSettingsGetUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/upgrade/settings`;
 };
 
-export const SpectroClustersUpgradeSettingsGet = async (
+export const spectroClustersUpgradeSettingsGet = async (
   options?: RequestInit,
-): Promise<SpectroClustersUpgradeSettingsGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUpgradeSettingsGetUrl(), {
+): Promise<spectroClustersUpgradeSettingsGetResponse> => {
+  const res = await fetch(getSpectroClustersUpgradeSettingsGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpgradeSettingsGetResponse["data"] = body
+  const data: spectroClustersUpgradeSettingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2307,42 +2307,42 @@ export const SpectroClustersUpgradeSettingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpgradeSettingsGetResponse;
+  } as spectroClustersUpgradeSettingsGetResponse;
 };
 
 /**
  * @summary Update all clusters upgrade settings
  */
-export type SpectroClustersUpgradeSettingsResponse204 = {
+export type spectroClustersUpgradeSettingsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpgradeSettingsResponseComposite =
-  SpectroClustersUpgradeSettingsResponse204;
+export type spectroClustersUpgradeSettingsResponseComposite =
+  spectroClustersUpgradeSettingsResponse204;
 
-export type SpectroClustersUpgradeSettingsResponse =
-  SpectroClustersUpgradeSettingsResponseComposite & {
+export type spectroClustersUpgradeSettingsResponse =
+  spectroClustersUpgradeSettingsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpgradeSettingsUrl = () => {
+export const getSpectroClustersUpgradeSettingsUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/upgrade/settings`;
 };
 
-export const SpectroClustersUpgradeSettings = async (
-  ClusterUpgradeSettingsEntityBody: ClusterUpgradeSettingsEntityBody,
+export const spectroClustersUpgradeSettings = async (
+  v1ClusterUpgradeSettingsEntityBody: V1ClusterUpgradeSettingsEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersUpgradeSettingsResponse> => {
-  const res = await fetch(getV1SpectroClustersUpgradeSettingsUrl(), {
+): Promise<spectroClustersUpgradeSettingsResponse> => {
+  const res = await fetch(getSpectroClustersUpgradeSettingsUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterUpgradeSettingsEntityBody),
+    body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpgradeSettingsResponse["data"] = body
+  const data: spectroClustersUpgradeSettingsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2350,26 +2350,26 @@ export const SpectroClustersUpgradeSettings = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpgradeSettingsResponse;
+  } as spectroClustersUpgradeSettingsResponse;
 };
 
 /**
  * @summary Validates the cluster name
  */
-export type SpectroClustersValidateNameResponse204 = {
+export type spectroClustersValidateNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersValidateNameResponseComposite =
-  SpectroClustersValidateNameResponse204;
+export type spectroClustersValidateNameResponseComposite =
+  spectroClustersValidateNameResponse204;
 
-export type SpectroClustersValidateNameResponse =
-  SpectroClustersValidateNameResponseComposite & {
+export type spectroClustersValidateNameResponse =
+  spectroClustersValidateNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersValidateNameUrl = (
+export const getSpectroClustersValidateNameUrl = (
   params?: SpectroClustersValidateNameParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2387,17 +2387,17 @@ export const getV1SpectroClustersValidateNameUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/validate/name`;
 };
 
-export const SpectroClustersValidateName = async (
+export const spectroClustersValidateName = async (
   params?: SpectroClustersValidateNameParams,
   options?: RequestInit,
-): Promise<SpectroClustersValidateNameResponse> => {
-  const res = await fetch(getV1SpectroClustersValidateNameUrl(params), {
+): Promise<spectroClustersValidateNameResponse> => {
+  const res = await fetch(getSpectroClustersValidateNameUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersValidateNameResponse["data"] = body
+  const data: spectroClustersValidateNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2405,42 +2405,42 @@ export const SpectroClustersValidateName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersValidateNameResponse;
+  } as spectroClustersValidateNameResponse;
 };
 
 /**
  * @summary Validates spectro cluster packs
  */
-export type SpectroClustersValidatePacksResponse200 = {
+export type spectroClustersValidatePacksResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersValidatePacksResponseComposite =
-  SpectroClustersValidatePacksResponse200;
+export type spectroClustersValidatePacksResponseComposite =
+  spectroClustersValidatePacksResponse200;
 
-export type SpectroClustersValidatePacksResponse =
-  SpectroClustersValidatePacksResponseComposite & {
+export type spectroClustersValidatePacksResponse =
+  spectroClustersValidatePacksResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersValidatePacksUrl = () => {
+export const getSpectroClustersValidatePacksUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/validate/packs`;
 };
 
-export const SpectroClustersValidatePacks = async (
-  SpectroClusterPacksEntityBody: SpectroClusterPacksEntityBody,
+export const spectroClustersValidatePacks = async (
+  v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersValidatePacksResponse> => {
-  const res = await fetch(getV1SpectroClustersValidatePacksUrl(), {
+): Promise<spectroClustersValidatePacksResponse> => {
+  const res = await fetch(getSpectroClustersValidatePacksUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterPacksEntityBody),
+    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersValidatePacksResponse["data"] = body
+  const data: spectroClustersValidatePacksResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2448,42 +2448,42 @@ export const SpectroClustersValidatePacks = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersValidatePacksResponse;
+  } as spectroClustersValidatePacksResponse;
 };
 
 /**
  * @summary Creates a virtual cluster
  */
-export type SpectroClustersVirtualCreateResponse201 = {
+export type spectroClustersVirtualCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersVirtualCreateResponseComposite =
-  SpectroClustersVirtualCreateResponse201;
+export type spectroClustersVirtualCreateResponseComposite =
+  spectroClustersVirtualCreateResponse201;
 
-export type SpectroClustersVirtualCreateResponse =
-  SpectroClustersVirtualCreateResponseComposite & {
+export type spectroClustersVirtualCreateResponse =
+  spectroClustersVirtualCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVirtualCreateUrl = () => {
+export const getSpectroClustersVirtualCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/virtual`;
 };
 
-export const SpectroClustersVirtualCreate = async (
-  SpectroVirtualClusterEntityBody: SpectroVirtualClusterEntityBody,
+export const spectroClustersVirtualCreate = async (
+  v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersVirtualCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersVirtualCreateUrl(), {
+): Promise<spectroClustersVirtualCreateResponse> => {
+  const res = await fetch(getSpectroClustersVirtualCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVirtualClusterEntityBody),
+    body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVirtualCreateResponse["data"] = body
+  const data: spectroClustersVirtualCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2491,26 +2491,26 @@ export const SpectroClustersVirtualCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVirtualCreateResponse;
+  } as spectroClustersVirtualCreateResponse;
 };
 
 /**
  * @summary Get the cluster pack values yaml
  */
-export type VirtualClustersPacksValuesResponse200 = {
+export type virtualClustersPacksValuesResponse200 = {
   data: ClusterVirtualPacksValues;
   status: 200;
 };
 
-export type VirtualClustersPacksValuesResponseComposite =
-  VirtualClustersPacksValuesResponse200;
+export type virtualClustersPacksValuesResponseComposite =
+  virtualClustersPacksValuesResponse200;
 
-export type VirtualClustersPacksValuesResponse =
-  VirtualClustersPacksValuesResponseComposite & {
+export type virtualClustersPacksValuesResponse =
+  virtualClustersPacksValuesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VirtualClustersPacksValuesUrl = (
+export const getVirtualClustersPacksValuesUrl = (
   params?: VirtualClustersPacksValuesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2528,17 +2528,17 @@ export const getV1VirtualClustersPacksValuesUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/virtual/packs/values`;
 };
 
-export const VirtualClustersPacksValues = async (
+export const virtualClustersPacksValues = async (
   params?: VirtualClustersPacksValuesParams,
   options?: RequestInit,
-): Promise<VirtualClustersPacksValuesResponse> => {
-  const res = await fetch(getV1VirtualClustersPacksValuesUrl(params), {
+): Promise<virtualClustersPacksValuesResponse> => {
+  const res = await fetch(getVirtualClustersPacksValuesUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VirtualClustersPacksValuesResponse["data"] = body
+  const data: virtualClustersPacksValuesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2546,42 +2546,42 @@ export const VirtualClustersPacksValues = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VirtualClustersPacksValuesResponse;
+  } as virtualClustersPacksValuesResponse;
 };
 
 /**
  * @summary Validates virtual cluster create operation
  */
-export type SpectroClustersVirtualValidateResponse200 = {
+export type spectroClustersVirtualValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersVirtualValidateResponseComposite =
-  SpectroClustersVirtualValidateResponse200;
+export type spectroClustersVirtualValidateResponseComposite =
+  spectroClustersVirtualValidateResponse200;
 
-export type SpectroClustersVirtualValidateResponse =
-  SpectroClustersVirtualValidateResponseComposite & {
+export type spectroClustersVirtualValidateResponse =
+  spectroClustersVirtualValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVirtualValidateUrl = () => {
+export const getSpectroClustersVirtualValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/virtual/validate`;
 };
 
-export const SpectroClustersVirtualValidate = async (
-  SpectroVirtualClusterEntityBody: SpectroVirtualClusterEntityBody,
+export const spectroClustersVirtualValidate = async (
+  v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersVirtualValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersVirtualValidateUrl(), {
+): Promise<spectroClustersVirtualValidateResponse> => {
+  const res = await fetch(getSpectroClustersVirtualValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVirtualClusterEntityBody),
+    body: JSON.stringify(v1SpectroVirtualClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVirtualValidateResponse["data"] = body
+  const data: spectroClustersVirtualValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2589,42 +2589,42 @@ export const SpectroClustersVirtualValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVirtualValidateResponse;
+  } as spectroClustersVirtualValidateResponse;
 };
 
 /**
  * @summary Creates a vSphere cluster
  */
-export type SpectroClustersVsphereCreateResponse201 = {
+export type spectroClustersVsphereCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersVsphereCreateResponseComposite =
-  SpectroClustersVsphereCreateResponse201;
+export type spectroClustersVsphereCreateResponseComposite =
+  spectroClustersVsphereCreateResponse201;
 
-export type SpectroClustersVsphereCreateResponse =
-  SpectroClustersVsphereCreateResponseComposite & {
+export type spectroClustersVsphereCreateResponse =
+  spectroClustersVsphereCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVsphereCreateUrl = () => {
+export const getSpectroClustersVsphereCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/vsphere`;
 };
 
-export const SpectroClustersVsphereCreate = async (
-  SpectroVsphereClusterEntityBody: SpectroVsphereClusterEntityBody,
+export const spectroClustersVsphereCreate = async (
+  v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersVsphereCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersVsphereCreateUrl(), {
+): Promise<spectroClustersVsphereCreateResponse> => {
+  const res = await fetch(getSpectroClustersVsphereCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVsphereClusterEntityBody),
+    body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVsphereCreateResponse["data"] = body
+  const data: spectroClustersVsphereCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2632,42 +2632,42 @@ export const SpectroClustersVsphereCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVsphereCreateResponse;
+  } as spectroClustersVsphereCreateResponse;
 };
 
 /**
  * @summary Imports a vSphere cluster
  */
-export type SpectroClustersVsphereImportResponse201 = {
+export type spectroClustersVsphereImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type SpectroClustersVsphereImportResponseComposite =
-  SpectroClustersVsphereImportResponse201;
+export type spectroClustersVsphereImportResponseComposite =
+  spectroClustersVsphereImportResponse201;
 
-export type SpectroClustersVsphereImportResponse =
-  SpectroClustersVsphereImportResponseComposite & {
+export type spectroClustersVsphereImportResponse =
+  spectroClustersVsphereImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVsphereImportUrl = () => {
+export const getSpectroClustersVsphereImportUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/vsphere/import`;
 };
 
-export const SpectroClustersVsphereImport = async (
-  SpectroVsphereClusterImportEntity: SpectroVsphereClusterImportEntity,
+export const spectroClustersVsphereImport = async (
+  spectroVsphereClusterImportEntity: SpectroVsphereClusterImportEntity,
   options?: RequestInit,
-): Promise<SpectroClustersVsphereImportResponse> => {
-  const res = await fetch(getV1SpectroClustersVsphereImportUrl(), {
+): Promise<spectroClustersVsphereImportResponse> => {
+  const res = await fetch(getSpectroClustersVsphereImportUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVsphereClusterImportEntity),
+    body: JSON.stringify(spectroVsphereClusterImportEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVsphereImportResponse["data"] = body
+  const data: spectroClustersVsphereImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2675,26 +2675,26 @@ export const SpectroClustersVsphereImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVsphereImportResponse;
+  } as spectroClustersVsphereImportResponse;
 };
 
 /**
  * @summary Get vSphere cluster estimated rate information
  */
-export type SpectroClustersVsphereRateResponse200 = {
+export type spectroClustersVsphereRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersVsphereRateResponseComposite =
-  SpectroClustersVsphereRateResponse200;
+export type spectroClustersVsphereRateResponseComposite =
+  spectroClustersVsphereRateResponse200;
 
-export type SpectroClustersVsphereRateResponse =
-  SpectroClustersVsphereRateResponseComposite & {
+export type spectroClustersVsphereRateResponse =
+  spectroClustersVsphereRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVsphereRateUrl = (
+export const getSpectroClustersVsphereRateUrl = (
   params?: SpectroClustersVsphereRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2712,20 +2712,20 @@ export const getV1SpectroClustersVsphereRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/vsphere/rate`;
 };
 
-export const SpectroClustersVsphereRate = async (
-  SpectroVsphereClusterRateEntity: SpectroVsphereClusterRateEntity,
+export const spectroClustersVsphereRate = async (
+  spectroVsphereClusterRateEntity: SpectroVsphereClusterRateEntity,
   params?: SpectroClustersVsphereRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersVsphereRateResponse> => {
-  const res = await fetch(getV1SpectroClustersVsphereRateUrl(params), {
+): Promise<spectroClustersVsphereRateResponse> => {
+  const res = await fetch(getSpectroClustersVsphereRateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVsphereClusterRateEntity),
+    body: JSON.stringify(spectroVsphereClusterRateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVsphereRateResponse["data"] = body
+  const data: spectroClustersVsphereRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2733,42 +2733,42 @@ export const SpectroClustersVsphereRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVsphereRateResponse;
+  } as spectroClustersVsphereRateResponse;
 };
 
 /**
  * @summary Validates vSphere cluster create operation
  */
-export type SpectroClustersVsphereValidateResponse200 = {
+export type spectroClustersVsphereValidateResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersVsphereValidateResponseComposite =
-  SpectroClustersVsphereValidateResponse200;
+export type spectroClustersVsphereValidateResponseComposite =
+  spectroClustersVsphereValidateResponse200;
 
-export type SpectroClustersVsphereValidateResponse =
-  SpectroClustersVsphereValidateResponseComposite & {
+export type spectroClustersVsphereValidateResponse =
+  spectroClustersVsphereValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVsphereValidateUrl = () => {
+export const getSpectroClustersVsphereValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/spectroclusters/vsphere/validate`;
 };
 
-export const SpectroClustersVsphereValidate = async (
-  SpectroVsphereClusterEntityBody: SpectroVsphereClusterEntityBody,
+export const spectroClustersVsphereValidate = async (
+  v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersVsphereValidateResponse> => {
-  const res = await fetch(getV1SpectroClustersVsphereValidateUrl(), {
+): Promise<spectroClustersVsphereValidateResponse> => {
+  const res = await fetch(getSpectroClustersVsphereValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroVsphereClusterEntityBody),
+    body: JSON.stringify(v1SpectroVsphereClusterEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVsphereValidateResponse["data"] = body
+  const data: spectroClustersVsphereValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2776,26 +2776,26 @@ export const SpectroClustersVsphereValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVsphereValidateResponse;
+  } as spectroClustersVsphereValidateResponse;
 };
 
 /**
  * @summary Deletes the specified cluster
  */
-export type SpectroClustersDeleteResponse204 = {
+export type spectroClustersDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersDeleteResponseComposite =
-  SpectroClustersDeleteResponse204;
+export type spectroClustersDeleteResponseComposite =
+  spectroClustersDeleteResponse204;
 
-export type SpectroClustersDeleteResponse =
-  SpectroClustersDeleteResponseComposite & {
+export type spectroClustersDeleteResponse =
+  spectroClustersDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersDeleteUrl = (
+export const getSpectroClustersDeleteUrl = (
   uid: string,
   params?: SpectroClustersDeleteParams,
 ) => {
@@ -2814,18 +2814,18 @@ export const getV1SpectroClustersDeleteUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}`;
 };
 
-export const SpectroClustersDelete = async (
+export const spectroClustersDelete = async (
   uid: string,
   params?: SpectroClustersDeleteParams,
   options?: RequestInit,
-): Promise<SpectroClustersDeleteResponse> => {
-  const res = await fetch(getV1SpectroClustersDeleteUrl(uid, params), {
+): Promise<spectroClustersDeleteResponse> => {
+  const res = await fetch(getSpectroClustersDeleteUrl(uid, params), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersDeleteResponse["data"] = body
+  const data: spectroClustersDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2833,24 +2833,24 @@ export const SpectroClustersDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersDeleteResponse;
+  } as spectroClustersDeleteResponse;
 };
 
 /**
  * @summary Returns the specified cluster
  */
-export type SpectroClustersGetResponse200 = {
+export type spectroClustersGetResponse200 = {
   data: SpectroCluster;
   status: 200;
 };
 
-export type SpectroClustersGetResponseComposite = SpectroClustersGetResponse200;
+export type spectroClustersGetResponseComposite = spectroClustersGetResponse200;
 
-export type SpectroClustersGetResponse = SpectroClustersGetResponseComposite & {
+export type spectroClustersGetResponse = spectroClustersGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1SpectroClustersGetUrl = (
+export const getSpectroClustersGetUrl = (
   uid: string,
   params?: SpectroClustersGetParams,
 ) => {
@@ -2869,57 +2869,57 @@ export const getV1SpectroClustersGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}`;
 };
 
-export const SpectroClustersGet = async (
+export const spectroClustersGet = async (
   uid: string,
   params?: SpectroClustersGetParams,
   options?: RequestInit,
-): Promise<SpectroClustersGetResponse> => {
-  const res = await fetch(getV1SpectroClustersGetUrl(uid, params), {
+): Promise<spectroClustersGetResponse> => {
+  const res = await fetch(getSpectroClustersGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: spectroClustersGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGetResponse;
+  } as spectroClustersGetResponse;
 };
 
 /**
  * @summary Get the cluster asset doc
  */
-export type SpectroClustersUidAssetsGetResponse200 = {
+export type spectroClustersUidAssetsGetResponse200 = {
   data: SpectroClusterAssetEntity;
   status: 200;
 };
 
-export type SpectroClustersUidAssetsGetResponseComposite =
-  SpectroClustersUidAssetsGetResponse200;
+export type spectroClustersUidAssetsGetResponseComposite =
+  spectroClustersUidAssetsGetResponse200;
 
-export type SpectroClustersUidAssetsGetResponse =
-  SpectroClustersUidAssetsGetResponseComposite & {
+export type spectroClustersUidAssetsGetResponse =
+  spectroClustersUidAssetsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidAssetsGetUrl = (uid: string) => {
+export const getSpectroClustersUidAssetsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets`;
 };
 
-export const SpectroClustersUidAssetsGet = async (
+export const spectroClustersUidAssetsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidAssetsGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidAssetsGetUrl(uid), {
+): Promise<spectroClustersUidAssetsGetResponse> => {
+  const res = await fetch(getSpectroClustersUidAssetsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidAssetsGetResponse["data"] = body
+  const data: spectroClustersUidAssetsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2927,43 +2927,43 @@ export const SpectroClustersUidAssetsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidAssetsGetResponse;
+  } as spectroClustersUidAssetsGetResponse;
 };
 
 /**
  * @summary Associate the assets for the cluster
  */
-export type SpectroClustersUidAssetsResponse204 = {
+export type spectroClustersUidAssetsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidAssetsResponseComposite =
-  SpectroClustersUidAssetsResponse204;
+export type spectroClustersUidAssetsResponseComposite =
+  spectroClustersUidAssetsResponse204;
 
-export type SpectroClustersUidAssetsResponse =
-  SpectroClustersUidAssetsResponseComposite & {
+export type spectroClustersUidAssetsResponse =
+  spectroClustersUidAssetsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidAssetsUrl = (uid: string) => {
+export const getSpectroClustersUidAssetsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets`;
 };
 
-export const SpectroClustersUidAssets = async (
+export const spectroClustersUidAssets = async (
   uid: string,
-  SpectroClusterAssetEntity: SpectroClusterAssetEntity,
+  spectroClusterAssetEntity: SpectroClusterAssetEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidAssetsResponse> => {
-  const res = await fetch(getV1SpectroClustersUidAssetsUrl(uid), {
+): Promise<spectroClustersUidAssetsResponse> => {
+  const res = await fetch(getSpectroClustersUidAssetsUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterAssetEntity),
+    body: JSON.stringify(spectroClusterAssetEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidAssetsResponse["data"] = body
+  const data: spectroClustersUidAssetsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2971,40 +2971,40 @@ export const SpectroClustersUidAssets = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidAssetsResponse;
+  } as spectroClustersUidAssetsResponse;
 };
 
 /**
  * @summary Returns the specified cluster's kube config file
  */
-export type SpectroClustersUidAdminKubeConfigResponse200 = {
+export type spectroClustersUidAdminKubeConfigResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidAdminKubeConfigResponseComposite =
-  SpectroClustersUidAdminKubeConfigResponse200;
+export type spectroClustersUidAdminKubeConfigResponseComposite =
+  spectroClustersUidAdminKubeConfigResponse200;
 
-export type SpectroClustersUidAdminKubeConfigResponse =
-  SpectroClustersUidAdminKubeConfigResponseComposite & {
+export type spectroClustersUidAdminKubeConfigResponse =
+  spectroClustersUidAdminKubeConfigResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidAdminKubeConfigUrl = (uid: string) => {
+export const getSpectroClustersUidAdminKubeConfigUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminKubeconfig`;
 };
 
-export const SpectroClustersUidAdminKubeConfig = async (
+export const spectroClustersUidAdminKubeConfig = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidAdminKubeConfigResponse> => {
-  const res = await fetch(getV1SpectroClustersUidAdminKubeConfigUrl(uid), {
+): Promise<spectroClustersUidAdminKubeConfigResponse> => {
+  const res = await fetch(getSpectroClustersUidAdminKubeConfigUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidAdminKubeConfigResponse["data"] = body
+  const data: spectroClustersUidAdminKubeConfigResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3012,176 +3012,40 @@ export const SpectroClustersUidAdminKubeConfig = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidAdminKubeConfigResponse;
+  } as spectroClustersUidAdminKubeConfigResponse;
 };
 
 /**
  * @summary Deletes the cluster's token kube config data
  */
-export type SpectroClustersUidTokenKubeConfigDeleteResponse204 = {
+export type spectroClustersUidTokenKubeConfigDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidTokenKubeConfigDeleteResponseComposite =
-  SpectroClustersUidTokenKubeConfigDeleteResponse204;
+export type spectroClustersUidTokenKubeConfigDeleteResponseComposite =
+  spectroClustersUidTokenKubeConfigDeleteResponse204;
 
-export type SpectroClustersUidTokenKubeConfigDeleteResponse =
-  SpectroClustersUidTokenKubeConfigDeleteResponseComposite & {
+export type spectroClustersUidTokenKubeConfigDeleteResponse =
+  spectroClustersUidTokenKubeConfigDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidTokenKubeConfigDeleteUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidTokenKubeConfigDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`;
 };
 
-export const SpectroClustersUidTokenKubeConfigDelete = async (
+export const spectroClustersUidTokenKubeConfigDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidTokenKubeConfigDeleteResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidTokenKubeConfigDeleteUrl(uid),
-    {
-      ...options,
-      method: "DELETE",
-    },
-  );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidTokenKubeConfigDeleteResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as SpectroClustersUidTokenKubeConfigDeleteResponse;
-};
-
-/**
- * @summary Returns the specified cluster's token kube config file
- */
-export type SpectroClustersUidTokenKubeConfigGetResponse200 = {
-  data: Blob;
-  status: 200;
-};
-
-export type SpectroClustersUidTokenKubeConfigGetResponseComposite =
-  SpectroClustersUidTokenKubeConfigGetResponse200;
-
-export type SpectroClustersUidTokenKubeConfigGetResponse =
-  SpectroClustersUidTokenKubeConfigGetResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1SpectroClustersUidTokenKubeConfigGetUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`;
-};
-
-export const SpectroClustersUidTokenKubeConfigGet = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<SpectroClustersUidTokenKubeConfigGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidTokenKubeConfigGetUrl(uid), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidTokenKubeConfigGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as SpectroClustersUidTokenKubeConfigGetResponse;
-};
-
-/**
- * @summary Updates the cluster's token kube config data
- */
-export type SpectroClustersUidTokenKubeConfigUpdateResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type SpectroClustersUidTokenKubeConfigUpdateResponseComposite =
-  SpectroClustersUidTokenKubeConfigUpdateResponse204;
-
-export type SpectroClustersUidTokenKubeConfigUpdateResponse =
-  SpectroClustersUidTokenKubeConfigUpdateResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1SpectroClustersUidTokenKubeConfigUpdateUrl = (
-  uid: string,
-) => {
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`;
-};
-
-export const SpectroClustersUidTokenKubeConfigUpdate = async (
-  uid: string,
-  SpectroClusterAssetTokenKubeConfig: SpectroClusterAssetTokenKubeConfig,
-  options?: RequestInit,
-): Promise<SpectroClustersUidTokenKubeConfigUpdateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidTokenKubeConfigUpdateUrl(uid),
-    {
-      ...options,
-      method: "PUT",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(SpectroClusterAssetTokenKubeConfig),
-    },
-  );
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidTokenKubeConfigUpdateResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as SpectroClustersUidTokenKubeConfigUpdateResponse;
-};
-
-/**
- * @summary Deletes the cluster's frp kube config client data
- */
-export type SpectroClustersUidFrpKubeConfigDeleteResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type SpectroClustersUidFrpKubeConfigDeleteResponseComposite =
-  SpectroClustersUidFrpKubeConfigDeleteResponse204;
-
-export type SpectroClustersUidFrpKubeConfigDeleteResponse =
-  SpectroClustersUidFrpKubeConfigDeleteResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1SpectroClustersUidFrpKubeConfigDeleteUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`;
-};
-
-export const SpectroClustersUidFrpKubeConfigDelete = async (
-  uid: string,
-  options?: RequestInit,
-): Promise<SpectroClustersUidFrpKubeConfigDeleteResponse> => {
-  const res = await fetch(getV1SpectroClustersUidFrpKubeConfigDeleteUrl(uid), {
+): Promise<spectroClustersUidTokenKubeConfigDeleteResponse> => {
+  const res = await fetch(getSpectroClustersUidTokenKubeConfigDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidFrpKubeConfigDeleteResponse["data"] = body
+  const data: spectroClustersUidTokenKubeConfigDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3189,40 +3053,40 @@ export const SpectroClustersUidFrpKubeConfigDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidFrpKubeConfigDeleteResponse;
+  } as spectroClustersUidTokenKubeConfigDeleteResponse;
 };
 
 /**
- * @summary Returns the specified cluster's frp kube config file
+ * @summary Returns the specified cluster's token kube config file
  */
-export type SpectroClustersUidFrpKubeConfigGetResponse200 = {
+export type spectroClustersUidTokenKubeConfigGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidFrpKubeConfigGetResponseComposite =
-  SpectroClustersUidFrpKubeConfigGetResponse200;
+export type spectroClustersUidTokenKubeConfigGetResponseComposite =
+  spectroClustersUidTokenKubeConfigGetResponse200;
 
-export type SpectroClustersUidFrpKubeConfigGetResponse =
-  SpectroClustersUidFrpKubeConfigGetResponseComposite & {
+export type spectroClustersUidTokenKubeConfigGetResponse =
+  spectroClustersUidTokenKubeConfigGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidFrpKubeConfigGetUrl = (uid: string) => {
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`;
+export const getSpectroClustersUidTokenKubeConfigGetUrl = (uid: string) => {
+  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`;
 };
 
-export const SpectroClustersUidFrpKubeConfigGet = async (
+export const spectroClustersUidTokenKubeConfigGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidFrpKubeConfigGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidFrpKubeConfigGetUrl(uid), {
+): Promise<spectroClustersUidTokenKubeConfigGetResponse> => {
+  const res = await fetch(getSpectroClustersUidTokenKubeConfigGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidFrpKubeConfigGetResponse["data"] = body
+  const data: spectroClustersUidTokenKubeConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3230,43 +3094,169 @@ export const SpectroClustersUidFrpKubeConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidFrpKubeConfigGetResponse;
+  } as spectroClustersUidTokenKubeConfigGetResponse;
+};
+
+/**
+ * @summary Updates the cluster's token kube config data
+ */
+export type spectroClustersUidTokenKubeConfigUpdateResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type spectroClustersUidTokenKubeConfigUpdateResponseComposite =
+  spectroClustersUidTokenKubeConfigUpdateResponse204;
+
+export type spectroClustersUidTokenKubeConfigUpdateResponse =
+  spectroClustersUidTokenKubeConfigUpdateResponseComposite & {
+    headers: Headers;
+  };
+
+export const getSpectroClustersUidTokenKubeConfigUpdateUrl = (uid: string) => {
+  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`;
+};
+
+export const spectroClustersUidTokenKubeConfigUpdate = async (
+  uid: string,
+  spectroClusterAssetTokenKubeConfig: SpectroClusterAssetTokenKubeConfig,
+  options?: RequestInit,
+): Promise<spectroClustersUidTokenKubeConfigUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidTokenKubeConfigUpdateUrl(uid), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(spectroClusterAssetTokenKubeConfig),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: spectroClustersUidTokenKubeConfigUpdateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as spectroClustersUidTokenKubeConfigUpdateResponse;
+};
+
+/**
+ * @summary Deletes the cluster's frp kube config client data
+ */
+export type spectroClustersUidFrpKubeConfigDeleteResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type spectroClustersUidFrpKubeConfigDeleteResponseComposite =
+  spectroClustersUidFrpKubeConfigDeleteResponse204;
+
+export type spectroClustersUidFrpKubeConfigDeleteResponse =
+  spectroClustersUidFrpKubeConfigDeleteResponseComposite & {
+    headers: Headers;
+  };
+
+export const getSpectroClustersUidFrpKubeConfigDeleteUrl = (uid: string) => {
+  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`;
+};
+
+export const spectroClustersUidFrpKubeConfigDelete = async (
+  uid: string,
+  options?: RequestInit,
+): Promise<spectroClustersUidFrpKubeConfigDeleteResponse> => {
+  const res = await fetch(getSpectroClustersUidFrpKubeConfigDeleteUrl(uid), {
+    ...options,
+    method: "DELETE",
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: spectroClustersUidFrpKubeConfigDeleteResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as spectroClustersUidFrpKubeConfigDeleteResponse;
+};
+
+/**
+ * @summary Returns the specified cluster's frp kube config file
+ */
+export type spectroClustersUidFrpKubeConfigGetResponse200 = {
+  data: Blob;
+  status: 200;
+};
+
+export type spectroClustersUidFrpKubeConfigGetResponseComposite =
+  spectroClustersUidFrpKubeConfigGetResponse200;
+
+export type spectroClustersUidFrpKubeConfigGetResponse =
+  spectroClustersUidFrpKubeConfigGetResponseComposite & {
+    headers: Headers;
+  };
+
+export const getSpectroClustersUidFrpKubeConfigGetUrl = (uid: string) => {
+  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`;
+};
+
+export const spectroClustersUidFrpKubeConfigGet = async (
+  uid: string,
+  options?: RequestInit,
+): Promise<spectroClustersUidFrpKubeConfigGetResponse> => {
+  const res = await fetch(getSpectroClustersUidFrpKubeConfigGetUrl(uid), {
+    ...options,
+    method: "GET",
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: spectroClustersUidFrpKubeConfigGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as spectroClustersUidFrpKubeConfigGetResponse;
 };
 
 /**
  * @summary Updates the cluster's frp kube config data
  */
-export type SpectroClustersUidFrpKubeConfigUpdateResponse204 = {
+export type spectroClustersUidFrpKubeConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidFrpKubeConfigUpdateResponseComposite =
-  SpectroClustersUidFrpKubeConfigUpdateResponse204;
+export type spectroClustersUidFrpKubeConfigUpdateResponseComposite =
+  spectroClustersUidFrpKubeConfigUpdateResponse204;
 
-export type SpectroClustersUidFrpKubeConfigUpdateResponse =
-  SpectroClustersUidFrpKubeConfigUpdateResponseComposite & {
+export type spectroClustersUidFrpKubeConfigUpdateResponse =
+  spectroClustersUidFrpKubeConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidFrpKubeConfigUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidFrpKubeConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`;
 };
 
-export const SpectroClustersUidFrpKubeConfigUpdate = async (
+export const spectroClustersUidFrpKubeConfigUpdate = async (
   uid: string,
-  SpectroClusterAssetFrpKubeConfig: SpectroClusterAssetFrpKubeConfig,
+  spectroClusterAssetFrpKubeConfig: SpectroClusterAssetFrpKubeConfig,
   options?: RequestInit,
-): Promise<SpectroClustersUidFrpKubeConfigUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidFrpKubeConfigUpdateUrl(uid), {
+): Promise<spectroClustersUidFrpKubeConfigUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidFrpKubeConfigUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterAssetFrpKubeConfig),
+    body: JSON.stringify(spectroClusterAssetFrpKubeConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidFrpKubeConfigUpdateResponse["data"] = body
+  const data: spectroClustersUidFrpKubeConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3274,26 +3264,26 @@ export const SpectroClustersUidFrpKubeConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidFrpKubeConfigUpdateResponse;
+  } as spectroClustersUidFrpKubeConfigUpdateResponse;
 };
 
 /**
  * @summary Returns the specified cluster's kube config file
  */
-export type SpectroClustersUidKubeConfigResponse200 = {
+export type spectroClustersUidKubeConfigResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidKubeConfigResponseComposite =
-  SpectroClustersUidKubeConfigResponse200;
+export type spectroClustersUidKubeConfigResponseComposite =
+  spectroClustersUidKubeConfigResponse200;
 
-export type SpectroClustersUidKubeConfigResponse =
-  SpectroClustersUidKubeConfigResponseComposite & {
+export type spectroClustersUidKubeConfigResponse =
+  spectroClustersUidKubeConfigResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidKubeConfigUrl = (
+export const getSpectroClustersUidKubeConfigUrl = (
   uid: string,
   params?: SpectroClustersUidKubeConfigParams,
 ) => {
@@ -3312,18 +3302,18 @@ export const getV1SpectroClustersUidKubeConfigUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfig`;
 };
 
-export const SpectroClustersUidKubeConfig = async (
+export const spectroClustersUidKubeConfig = async (
   uid: string,
   params?: SpectroClustersUidKubeConfigParams,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeConfigResponse> => {
-  const res = await fetch(getV1SpectroClustersUidKubeConfigUrl(uid, params), {
+): Promise<spectroClustersUidKubeConfigResponse> => {
+  const res = await fetch(getSpectroClustersUidKubeConfigUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeConfigResponse["data"] = body
+  const data: spectroClustersUidKubeConfigResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3331,43 +3321,43 @@ export const SpectroClustersUidKubeConfig = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeConfigResponse;
+  } as spectroClustersUidKubeConfigResponse;
 };
 
 /**
  * @summary Updates the cluster's manifest data
  */
-export type SpectroClustersUidKubeConfigUpdateResponse204 = {
+export type spectroClustersUidKubeConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidKubeConfigUpdateResponseComposite =
-  SpectroClustersUidKubeConfigUpdateResponse204;
+export type spectroClustersUidKubeConfigUpdateResponseComposite =
+  spectroClustersUidKubeConfigUpdateResponse204;
 
-export type SpectroClustersUidKubeConfigUpdateResponse =
-  SpectroClustersUidKubeConfigUpdateResponseComposite & {
+export type spectroClustersUidKubeConfigUpdateResponse =
+  spectroClustersUidKubeConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidKubeConfigUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidKubeConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfig`;
 };
 
-export const SpectroClustersUidKubeConfigUpdate = async (
+export const spectroClustersUidKubeConfigUpdate = async (
   uid: string,
-  SpectroClusterAssetKubeConfig: SpectroClusterAssetKubeConfig,
+  spectroClusterAssetKubeConfig: SpectroClusterAssetKubeConfig,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeConfigUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidKubeConfigUpdateUrl(uid), {
+): Promise<spectroClustersUidKubeConfigUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidKubeConfigUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterAssetKubeConfig),
+    body: JSON.stringify(spectroClusterAssetKubeConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeConfigUpdateResponse["data"] = body
+  const data: spectroClustersUidKubeConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3375,45 +3365,40 @@ export const SpectroClustersUidKubeConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeConfigUpdateResponse;
+  } as spectroClustersUidKubeConfigUpdateResponse;
 };
 
 /**
  * @summary Deletes the cluster's kube config client data
  */
-export type SpectroClustersUidKubeConfigClientDeleteResponse204 = {
+export type spectroClustersUidKubeConfigClientDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidKubeConfigClientDeleteResponseComposite =
-  SpectroClustersUidKubeConfigClientDeleteResponse204;
+export type spectroClustersUidKubeConfigClientDeleteResponseComposite =
+  spectroClustersUidKubeConfigClientDeleteResponse204;
 
-export type SpectroClustersUidKubeConfigClientDeleteResponse =
-  SpectroClustersUidKubeConfigClientDeleteResponseComposite & {
+export type spectroClustersUidKubeConfigClientDeleteResponse =
+  spectroClustersUidKubeConfigClientDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidKubeConfigClientDeleteUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidKubeConfigClientDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`;
 };
 
-export const SpectroClustersUidKubeConfigClientDelete = async (
+export const spectroClustersUidKubeConfigClientDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeConfigClientDeleteResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidKubeConfigClientDeleteUrl(uid),
-    {
-      ...options,
-      method: "DELETE",
-    },
-  );
+): Promise<spectroClustersUidKubeConfigClientDeleteResponse> => {
+  const res = await fetch(getSpectroClustersUidKubeConfigClientDeleteUrl(uid), {
+    ...options,
+    method: "DELETE",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeConfigClientDeleteResponse["data"] = body
+  const data: spectroClustersUidKubeConfigClientDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3421,40 +3406,40 @@ export const SpectroClustersUidKubeConfigClientDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeConfigClientDeleteResponse;
+  } as spectroClustersUidKubeConfigClientDeleteResponse;
 };
 
 /**
  * @summary Returns the specified cluster's kube config client file
  */
-export type SpectroClustersUidKubeConfigClientGetResponse200 = {
+export type spectroClustersUidKubeConfigClientGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidKubeConfigClientGetResponseComposite =
-  SpectroClustersUidKubeConfigClientGetResponse200;
+export type spectroClustersUidKubeConfigClientGetResponseComposite =
+  spectroClustersUidKubeConfigClientGetResponse200;
 
-export type SpectroClustersUidKubeConfigClientGetResponse =
-  SpectroClustersUidKubeConfigClientGetResponseComposite & {
+export type spectroClustersUidKubeConfigClientGetResponse =
+  spectroClustersUidKubeConfigClientGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidKubeConfigClientGetUrl = (uid: string) => {
+export const getSpectroClustersUidKubeConfigClientGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`;
 };
 
-export const SpectroClustersUidKubeConfigClientGet = async (
+export const spectroClustersUidKubeConfigClientGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeConfigClientGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidKubeConfigClientGetUrl(uid), {
+): Promise<spectroClustersUidKubeConfigClientGetResponse> => {
+  const res = await fetch(getSpectroClustersUidKubeConfigClientGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeConfigClientGetResponse["data"] = body
+  const data: spectroClustersUidKubeConfigClientGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3462,48 +3447,43 @@ export const SpectroClustersUidKubeConfigClientGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeConfigClientGetResponse;
+  } as spectroClustersUidKubeConfigClientGetResponse;
 };
 
 /**
  * @summary Updates the cluster's kube config client data
  */
-export type SpectroClustersUidKubeConfigClientUpdateResponse204 = {
+export type spectroClustersUidKubeConfigClientUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidKubeConfigClientUpdateResponseComposite =
-  SpectroClustersUidKubeConfigClientUpdateResponse204;
+export type spectroClustersUidKubeConfigClientUpdateResponseComposite =
+  spectroClustersUidKubeConfigClientUpdateResponse204;
 
-export type SpectroClustersUidKubeConfigClientUpdateResponse =
-  SpectroClustersUidKubeConfigClientUpdateResponseComposite & {
+export type spectroClustersUidKubeConfigClientUpdateResponse =
+  spectroClustersUidKubeConfigClientUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidKubeConfigClientUpdateUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidKubeConfigClientUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`;
 };
 
-export const SpectroClustersUidKubeConfigClientUpdate = async (
+export const spectroClustersUidKubeConfigClientUpdate = async (
   uid: string,
-  SpectroClusterAssetKubeConfigClient: SpectroClusterAssetKubeConfigClient,
+  spectroClusterAssetKubeConfigClient: SpectroClusterAssetKubeConfigClient,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeConfigClientUpdateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidKubeConfigClientUpdateUrl(uid),
-    {
-      ...options,
-      method: "PUT",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(SpectroClusterAssetKubeConfigClient),
-    },
-  );
+): Promise<spectroClustersUidKubeConfigClientUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidKubeConfigClientUpdateUrl(uid), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(spectroClusterAssetKubeConfigClient),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeConfigClientUpdateResponse["data"] = body
+  const data: spectroClustersUidKubeConfigClientUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3511,40 +3491,40 @@ export const SpectroClustersUidKubeConfigClientUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeConfigClientUpdateResponse;
+  } as spectroClustersUidKubeConfigClientUpdateResponse;
 };
 
 /**
  * @summary Returns the specified cluster's manifest data
  */
-export type SpectroClustersUidManifestGetResponse200 = {
+export type spectroClustersUidManifestGetResponse200 = {
   data: string;
   status: 200;
 };
 
-export type SpectroClustersUidManifestGetResponseComposite =
-  SpectroClustersUidManifestGetResponse200;
+export type spectroClustersUidManifestGetResponseComposite =
+  spectroClustersUidManifestGetResponse200;
 
-export type SpectroClustersUidManifestGetResponse =
-  SpectroClustersUidManifestGetResponseComposite & {
+export type spectroClustersUidManifestGetResponse =
+  spectroClustersUidManifestGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidManifestGetUrl = (uid: string) => {
+export const getSpectroClustersUidManifestGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/manifest`;
 };
 
-export const SpectroClustersUidManifestGet = async (
+export const spectroClustersUidManifestGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidManifestGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidManifestGetUrl(uid), {
+): Promise<spectroClustersUidManifestGetResponse> => {
+  const res = await fetch(getSpectroClustersUidManifestGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidManifestGetResponse["data"] = body
+  const data: spectroClustersUidManifestGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3552,43 +3532,43 @@ export const SpectroClustersUidManifestGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidManifestGetResponse;
+  } as spectroClustersUidManifestGetResponse;
 };
 
 /**
  * @summary Updates the specified cluster's manifest data
  */
-export type SpectroClustersUidManifestUpdateResponse204 = {
+export type spectroClustersUidManifestUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidManifestUpdateResponseComposite =
-  SpectroClustersUidManifestUpdateResponse204;
+export type spectroClustersUidManifestUpdateResponseComposite =
+  spectroClustersUidManifestUpdateResponse204;
 
-export type SpectroClustersUidManifestUpdateResponse =
-  SpectroClustersUidManifestUpdateResponseComposite & {
+export type spectroClustersUidManifestUpdateResponse =
+  spectroClustersUidManifestUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidManifestUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidManifestUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/manifest`;
 };
 
-export const SpectroClustersUidManifestUpdate = async (
+export const spectroClustersUidManifestUpdate = async (
   uid: string,
-  SpectroClusterAssetManifest: SpectroClusterAssetManifest,
+  spectroClusterAssetManifest: SpectroClusterAssetManifest,
   options?: RequestInit,
-): Promise<SpectroClustersUidManifestUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidManifestUpdateUrl(uid), {
+): Promise<spectroClustersUidManifestUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidManifestUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterAssetManifest),
+    body: JSON.stringify(spectroClusterAssetManifest),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidManifestUpdateResponse["data"] = body
+  const data: spectroClustersUidManifestUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3596,70 +3576,70 @@ export const SpectroClustersUidManifestUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidManifestUpdateResponse;
+  } as spectroClustersUidManifestUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster meta attribute
  */
-export type SpectroClustersUidClusterMetaAttributeUpdateResponse204 = {
+export type spectroClustersUidClusterMetaAttributeUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidClusterMetaAttributeUpdateResponseComposite =
-  SpectroClustersUidClusterMetaAttributeUpdateResponse204;
+export type spectroClustersUidClusterMetaAttributeUpdateResponseComposite =
+  spectroClustersUidClusterMetaAttributeUpdateResponse204;
 
-export type SpectroClustersUidClusterMetaAttributeUpdateResponse =
-  SpectroClustersUidClusterMetaAttributeUpdateResponseComposite & {
+export type spectroClustersUidClusterMetaAttributeUpdateResponse =
+  spectroClustersUidClusterMetaAttributeUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidClusterMetaAttributeUpdateUrl = (
+export const getSpectroClustersUidClusterMetaAttributeUpdateUrl = (
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/clusterMetaAttribute`;
 };
 
-export const SpectroClustersUidClusterMetaAttributeUpdate = async (
+export const spectroClustersUidClusterMetaAttributeUpdate = async (
   uid: string,
-  ClusterMetaAttributeEntity: ClusterMetaAttributeEntity,
+  clusterMetaAttributeEntity: ClusterMetaAttributeEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidClusterMetaAttributeUpdateResponse> => {
+): Promise<spectroClustersUidClusterMetaAttributeUpdateResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidClusterMetaAttributeUpdateUrl(uid),
+    getSpectroClustersUidClusterMetaAttributeUpdateUrl(uid),
     {
       ...options,
       method: "PATCH",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterMetaAttributeEntity),
+      body: JSON.stringify(clusterMetaAttributeEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidClusterMetaAttributeUpdateResponse["data"] =
+  const data: spectroClustersUidClusterMetaAttributeUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidClusterMetaAttributeUpdateResponse;
+  } as spectroClustersUidClusterMetaAttributeUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster controlPlane health check timeout
  */
-export type ControlPlaneHealthCheckTimeoutUpdateResponse204 = {
+export type v1ControlPlaneHealthCheckTimeoutUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ControlPlaneHealthCheckTimeoutUpdateResponseComposite =
-  ControlPlaneHealthCheckTimeoutUpdateResponse204;
+export type v1ControlPlaneHealthCheckTimeoutUpdateResponseComposite =
+  v1ControlPlaneHealthCheckTimeoutUpdateResponse204;
 
-export type ControlPlaneHealthCheckTimeoutUpdateResponse =
-  ControlPlaneHealthCheckTimeoutUpdateResponseComposite & {
+export type v1ControlPlaneHealthCheckTimeoutUpdateResponse =
+  v1ControlPlaneHealthCheckTimeoutUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3667,20 +3647,20 @@ export const getV1ControlPlaneHealthCheckTimeoutUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/controlPlaneHealthCheckTimeout`;
 };
 
-export const ControlPlaneHealthCheckTimeoutUpdate = async (
+export const v1ControlPlaneHealthCheckTimeoutUpdate = async (
   uid: string,
-  ControlPlaneHealthCheckTimeoutEntity: ControlPlaneHealthCheckTimeoutEntity,
+  controlPlaneHealthCheckTimeoutEntity: ControlPlaneHealthCheckTimeoutEntity,
   options?: RequestInit,
-): Promise<ControlPlaneHealthCheckTimeoutUpdateResponse> => {
+): Promise<v1ControlPlaneHealthCheckTimeoutUpdateResponse> => {
   const res = await fetch(getV1ControlPlaneHealthCheckTimeoutUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ControlPlaneHealthCheckTimeoutEntity),
+    body: JSON.stringify(controlPlaneHealthCheckTimeoutEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ControlPlaneHealthCheckTimeoutUpdateResponse["data"] = body
+  const data: v1ControlPlaneHealthCheckTimeoutUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3688,22 +3668,22 @@ export const ControlPlaneHealthCheckTimeoutUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ControlPlaneHealthCheckTimeoutUpdateResponse;
+  } as v1ControlPlaneHealthCheckTimeoutUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster host config
  */
-export type HostClusterConfigUpdateResponse204 = {
+export type v1HostClusterConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type HostClusterConfigUpdateResponseComposite =
-  HostClusterConfigUpdateResponse204;
+export type v1HostClusterConfigUpdateResponseComposite =
+  v1HostClusterConfigUpdateResponse204;
 
-export type HostClusterConfigUpdateResponse =
-  HostClusterConfigUpdateResponseComposite & {
+export type v1HostClusterConfigUpdateResponse =
+  v1HostClusterConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3711,20 +3691,20 @@ export const getV1HostClusterConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/hostCluster`;
 };
 
-export const HostClusterConfigUpdate = async (
+export const v1HostClusterConfigUpdate = async (
   uid: string,
-  HostClusterConfigEntity: HostClusterConfigEntity,
+  hostClusterConfigEntity: HostClusterConfigEntity,
   options?: RequestInit,
-): Promise<HostClusterConfigUpdateResponse> => {
+): Promise<v1HostClusterConfigUpdateResponse> => {
   const res = await fetch(getV1HostClusterConfigUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(HostClusterConfigEntity),
+    body: JSON.stringify(hostClusterConfigEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: HostClusterConfigUpdateResponse["data"] = body
+  const data: v1HostClusterConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3732,48 +3712,43 @@ export const HostClusterConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as HostClusterConfigUpdateResponse;
+  } as v1HostClusterConfigUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster Life cycle configuration
  */
-export type SpectroClustersUidLifecycleConfigUpdateResponse204 = {
+export type spectroClustersUidLifecycleConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidLifecycleConfigUpdateResponseComposite =
-  SpectroClustersUidLifecycleConfigUpdateResponse204;
+export type spectroClustersUidLifecycleConfigUpdateResponseComposite =
+  spectroClustersUidLifecycleConfigUpdateResponse204;
 
-export type SpectroClustersUidLifecycleConfigUpdateResponse =
-  SpectroClustersUidLifecycleConfigUpdateResponseComposite & {
+export type spectroClustersUidLifecycleConfigUpdateResponse =
+  spectroClustersUidLifecycleConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidLifecycleConfigUpdateUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidLifecycleConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/lifecycleConfig`;
 };
 
-export const SpectroClustersUidLifecycleConfigUpdate = async (
+export const spectroClustersUidLifecycleConfigUpdate = async (
   uid: string,
-  LifecycleConfigEntity: LifecycleConfigEntity,
+  lifecycleConfigEntity: LifecycleConfigEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidLifecycleConfigUpdateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidLifecycleConfigUpdateUrl(uid),
-    {
-      ...options,
-      method: "PATCH",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(LifecycleConfigEntity),
-    },
-  );
+): Promise<spectroClustersUidLifecycleConfigUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidLifecycleConfigUpdateUrl(uid), {
+    ...options,
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(lifecycleConfigEntity),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidLifecycleConfigUpdateResponse["data"] = body
+  const data: spectroClustersUidLifecycleConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3781,43 +3756,43 @@ export const SpectroClustersUidLifecycleConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidLifecycleConfigUpdateResponse;
+  } as spectroClustersUidLifecycleConfigUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster OS patch configuration
  */
-export type SpectroClustersUidOsPatchUpdateResponse204 = {
+export type spectroClustersUidOsPatchUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidOsPatchUpdateResponseComposite =
-  SpectroClustersUidOsPatchUpdateResponse204;
+export type spectroClustersUidOsPatchUpdateResponseComposite =
+  spectroClustersUidOsPatchUpdateResponse204;
 
-export type SpectroClustersUidOsPatchUpdateResponse =
-  SpectroClustersUidOsPatchUpdateResponseComposite & {
+export type spectroClustersUidOsPatchUpdateResponse =
+  spectroClustersUidOsPatchUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidOsPatchUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidOsPatchUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/osPatch`;
 };
 
-export const SpectroClustersUidOsPatchUpdate = async (
+export const spectroClustersUidOsPatchUpdate = async (
   uid: string,
-  OsPatchEntity: OsPatchEntity,
+  osPatchEntity: OsPatchEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidOsPatchUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidOsPatchUpdateUrl(uid), {
+): Promise<spectroClustersUidOsPatchUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidOsPatchUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OsPatchEntity),
+    body: JSON.stringify(osPatchEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidOsPatchUpdateResponse["data"] = body
+  const data: spectroClustersUidOsPatchUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3825,40 +3800,40 @@ export const SpectroClustersUidOsPatchUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidOsPatchUpdateResponse;
+  } as spectroClustersUidOsPatchUpdateResponse;
 };
 
 /**
  * @summary Retrieves namespaces for the specified cluster
  */
-export type SpectroClustersUidConfigNamespacesGetResponse200 = {
+export type spectroClustersUidConfigNamespacesGetResponse200 = {
   data: ClusterNamespaceResources;
   status: 200;
 };
 
-export type SpectroClustersUidConfigNamespacesGetResponseComposite =
-  SpectroClustersUidConfigNamespacesGetResponse200;
+export type spectroClustersUidConfigNamespacesGetResponseComposite =
+  spectroClustersUidConfigNamespacesGetResponse200;
 
-export type SpectroClustersUidConfigNamespacesGetResponse =
-  SpectroClustersUidConfigNamespacesGetResponseComposite & {
+export type spectroClustersUidConfigNamespacesGetResponse =
+  spectroClustersUidConfigNamespacesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigNamespacesGetUrl = (uid: string) => {
+export const getSpectroClustersUidConfigNamespacesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces`;
 };
 
-export const SpectroClustersUidConfigNamespacesGet = async (
+export const spectroClustersUidConfigNamespacesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigNamespacesGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidConfigNamespacesGetUrl(uid), {
+): Promise<spectroClustersUidConfigNamespacesGetResponse> => {
+  const res = await fetch(getSpectroClustersUidConfigNamespacesGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigNamespacesGetResponse["data"] = body
+  const data: spectroClustersUidConfigNamespacesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3866,48 +3841,43 @@ export const SpectroClustersUidConfigNamespacesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigNamespacesGetResponse;
+  } as spectroClustersUidConfigNamespacesGetResponse;
 };
 
 /**
  * @summary Updates namespaces for the specified cluster
  */
-export type SpectroClustersUidConfigNamespacesUpdateResponse204 = {
+export type spectroClustersUidConfigNamespacesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidConfigNamespacesUpdateResponseComposite =
-  SpectroClustersUidConfigNamespacesUpdateResponse204;
+export type spectroClustersUidConfigNamespacesUpdateResponseComposite =
+  spectroClustersUidConfigNamespacesUpdateResponse204;
 
-export type SpectroClustersUidConfigNamespacesUpdateResponse =
-  SpectroClustersUidConfigNamespacesUpdateResponseComposite & {
+export type spectroClustersUidConfigNamespacesUpdateResponse =
+  spectroClustersUidConfigNamespacesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigNamespacesUpdateUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidConfigNamespacesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces`;
 };
 
-export const SpectroClustersUidConfigNamespacesUpdate = async (
+export const spectroClustersUidConfigNamespacesUpdate = async (
   uid: string,
-  ClusterNamespaceResourcesUpdateEntity: ClusterNamespaceResourcesUpdateEntity,
+  clusterNamespaceResourcesUpdateEntity: ClusterNamespaceResourcesUpdateEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigNamespacesUpdateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidConfigNamespacesUpdateUrl(uid),
-    {
-      ...options,
-      method: "PUT",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterNamespaceResourcesUpdateEntity),
-    },
-  );
+): Promise<spectroClustersUidConfigNamespacesUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidConfigNamespacesUpdateUrl(uid), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(clusterNamespaceResourcesUpdateEntity),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigNamespacesUpdateResponse["data"] = body
+  const data: spectroClustersUidConfigNamespacesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3915,39 +3885,39 @@ export const SpectroClustersUidConfigNamespacesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigNamespacesUpdateResponse;
+  } as spectroClustersUidConfigNamespacesUpdateResponse;
 };
 
 /**
  * @summary Retrieves the specified namespace of the cluster
  */
-export type SpectroClustersUidConfigNamespacesUidGetResponse200 = {
+export type spectroClustersUidConfigNamespacesUidGetResponse200 = {
   data: ClusterNamespaceResource;
   status: 200;
 };
 
-export type SpectroClustersUidConfigNamespacesUidGetResponseComposite =
-  SpectroClustersUidConfigNamespacesUidGetResponse200;
+export type spectroClustersUidConfigNamespacesUidGetResponseComposite =
+  spectroClustersUidConfigNamespacesUidGetResponse200;
 
-export type SpectroClustersUidConfigNamespacesUidGetResponse =
-  SpectroClustersUidConfigNamespacesUidGetResponseComposite & {
+export type spectroClustersUidConfigNamespacesUidGetResponse =
+  spectroClustersUidConfigNamespacesUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigNamespacesUidGetUrl = (
+export const getSpectroClustersUidConfigNamespacesUidGetUrl = (
   uid: string,
   namespaceUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`;
 };
 
-export const SpectroClustersUidConfigNamespacesUidGet = async (
+export const spectroClustersUidConfigNamespacesUidGet = async (
   uid: string,
   namespaceUid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigNamespacesUidGetResponse> => {
+): Promise<spectroClustersUidConfigNamespacesUidGetResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidConfigNamespacesUidGetUrl(uid, namespaceUid),
+    getSpectroClustersUidConfigNamespacesUidGetUrl(uid, namespaceUid),
     {
       ...options,
       method: "GET",
@@ -3955,7 +3925,7 @@ export const SpectroClustersUidConfigNamespacesUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigNamespacesUidGetResponse["data"] = body
+  const data: spectroClustersUidConfigNamespacesUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3963,50 +3933,50 @@ export const SpectroClustersUidConfigNamespacesUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigNamespacesUidGetResponse;
+  } as spectroClustersUidConfigNamespacesUidGetResponse;
 };
 
 /**
  * @summary Updates the specified namespace of the cluster
  */
-export type SpectroClustersUidConfigNamespacesUidUpdateResponse204 = {
+export type spectroClustersUidConfigNamespacesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidConfigNamespacesUidUpdateResponseComposite =
-  SpectroClustersUidConfigNamespacesUidUpdateResponse204;
+export type spectroClustersUidConfigNamespacesUidUpdateResponseComposite =
+  spectroClustersUidConfigNamespacesUidUpdateResponse204;
 
-export type SpectroClustersUidConfigNamespacesUidUpdateResponse =
-  SpectroClustersUidConfigNamespacesUidUpdateResponseComposite & {
+export type spectroClustersUidConfigNamespacesUidUpdateResponse =
+  spectroClustersUidConfigNamespacesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigNamespacesUidUpdateUrl = (
+export const getSpectroClustersUidConfigNamespacesUidUpdateUrl = (
   uid: string,
   namespaceUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`;
 };
 
-export const SpectroClustersUidConfigNamespacesUidUpdate = async (
+export const spectroClustersUidConfigNamespacesUidUpdate = async (
   uid: string,
   namespaceUid: string,
-  ClusterNamespaceResourceInputEntity: ClusterNamespaceResourceInputEntity,
+  clusterNamespaceResourceInputEntity: ClusterNamespaceResourceInputEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigNamespacesUidUpdateResponse> => {
+): Promise<spectroClustersUidConfigNamespacesUidUpdateResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidConfigNamespacesUidUpdateUrl(uid, namespaceUid),
+    getSpectroClustersUidConfigNamespacesUidUpdateUrl(uid, namespaceUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterNamespaceResourceInputEntity),
+      body: JSON.stringify(clusterNamespaceResourceInputEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigNamespacesUidUpdateResponse["data"] = body
+  const data: spectroClustersUidConfigNamespacesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4014,40 +3984,40 @@ export const SpectroClustersUidConfigNamespacesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigNamespacesUidUpdateResponse;
+  } as spectroClustersUidConfigNamespacesUidUpdateResponse;
 };
 
 /**
  * @summary Retrieves RBAC information for the specified cluster
  */
-export type SpectroClustersUidConfigRbacsGetResponse200 = {
+export type spectroClustersUidConfigRbacsGetResponse200 = {
   data: ClusterRbacs;
   status: 200;
 };
 
-export type SpectroClustersUidConfigRbacsGetResponseComposite =
-  SpectroClustersUidConfigRbacsGetResponse200;
+export type spectroClustersUidConfigRbacsGetResponseComposite =
+  spectroClustersUidConfigRbacsGetResponse200;
 
-export type SpectroClustersUidConfigRbacsGetResponse =
-  SpectroClustersUidConfigRbacsGetResponseComposite & {
+export type spectroClustersUidConfigRbacsGetResponse =
+  spectroClustersUidConfigRbacsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigRbacsGetUrl = (uid: string) => {
+export const getSpectroClustersUidConfigRbacsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs`;
 };
 
-export const SpectroClustersUidConfigRbacsGet = async (
+export const spectroClustersUidConfigRbacsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigRbacsGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidConfigRbacsGetUrl(uid), {
+): Promise<spectroClustersUidConfigRbacsGetResponse> => {
+  const res = await fetch(getSpectroClustersUidConfigRbacsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigRbacsGetResponse["data"] = body
+  const data: spectroClustersUidConfigRbacsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4055,43 +4025,43 @@ export const SpectroClustersUidConfigRbacsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigRbacsGetResponse;
+  } as spectroClustersUidConfigRbacsGetResponse;
 };
 
 /**
  * @summary Updates RBAC information for the specified cluster
  */
-export type SpectroClustersUidConfigRbacsUpdateResponse204 = {
+export type spectroClustersUidConfigRbacsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidConfigRbacsUpdateResponseComposite =
-  SpectroClustersUidConfigRbacsUpdateResponse204;
+export type spectroClustersUidConfigRbacsUpdateResponseComposite =
+  spectroClustersUidConfigRbacsUpdateResponse204;
 
-export type SpectroClustersUidConfigRbacsUpdateResponse =
-  SpectroClustersUidConfigRbacsUpdateResponseComposite & {
+export type spectroClustersUidConfigRbacsUpdateResponse =
+  spectroClustersUidConfigRbacsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigRbacsUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidConfigRbacsUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs`;
 };
 
-export const SpectroClustersUidConfigRbacsUpdate = async (
+export const spectroClustersUidConfigRbacsUpdate = async (
   uid: string,
-  ClusterRbacResourcesUpdateEntity: ClusterRbacResourcesUpdateEntity,
+  clusterRbacResourcesUpdateEntity: ClusterRbacResourcesUpdateEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigRbacsUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidConfigRbacsUpdateUrl(uid), {
+): Promise<spectroClustersUidConfigRbacsUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidConfigRbacsUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterRbacResourcesUpdateEntity),
+    body: JSON.stringify(clusterRbacResourcesUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigRbacsUpdateResponse["data"] = body
+  const data: spectroClustersUidConfigRbacsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4099,39 +4069,39 @@ export const SpectroClustersUidConfigRbacsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigRbacsUpdateResponse;
+  } as spectroClustersUidConfigRbacsUpdateResponse;
 };
 
 /**
  * @summary Retrieves the specified RBAC of the cluster
  */
-export type SpectroClustersUidConfigRbacsUidGetResponse200 = {
+export type spectroClustersUidConfigRbacsUidGetResponse200 = {
   data: ClusterRbac;
   status: 200;
 };
 
-export type SpectroClustersUidConfigRbacsUidGetResponseComposite =
-  SpectroClustersUidConfigRbacsUidGetResponse200;
+export type spectroClustersUidConfigRbacsUidGetResponseComposite =
+  spectroClustersUidConfigRbacsUidGetResponse200;
 
-export type SpectroClustersUidConfigRbacsUidGetResponse =
-  SpectroClustersUidConfigRbacsUidGetResponseComposite & {
+export type spectroClustersUidConfigRbacsUidGetResponse =
+  spectroClustersUidConfigRbacsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigRbacsUidGetUrl = (
+export const getSpectroClustersUidConfigRbacsUidGetUrl = (
   uid: string,
   rbacUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`;
 };
 
-export const SpectroClustersUidConfigRbacsUidGet = async (
+export const spectroClustersUidConfigRbacsUidGet = async (
   uid: string,
   rbacUid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigRbacsUidGetResponse> => {
+): Promise<spectroClustersUidConfigRbacsUidGetResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidConfigRbacsUidGetUrl(uid, rbacUid),
+    getSpectroClustersUidConfigRbacsUidGetUrl(uid, rbacUid),
     {
       ...options,
       method: "GET",
@@ -4139,7 +4109,7 @@ export const SpectroClustersUidConfigRbacsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigRbacsUidGetResponse["data"] = body
+  const data: spectroClustersUidConfigRbacsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4147,50 +4117,50 @@ export const SpectroClustersUidConfigRbacsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigRbacsUidGetResponse;
+  } as spectroClustersUidConfigRbacsUidGetResponse;
 };
 
 /**
  * @summary Updates the specified RBAC of the cluster
  */
-export type SpectroClustersUidConfigRbacsUidUpdateResponse204 = {
+export type spectroClustersUidConfigRbacsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidConfigRbacsUidUpdateResponseComposite =
-  SpectroClustersUidConfigRbacsUidUpdateResponse204;
+export type spectroClustersUidConfigRbacsUidUpdateResponseComposite =
+  spectroClustersUidConfigRbacsUidUpdateResponse204;
 
-export type SpectroClustersUidConfigRbacsUidUpdateResponse =
-  SpectroClustersUidConfigRbacsUidUpdateResponseComposite & {
+export type spectroClustersUidConfigRbacsUidUpdateResponse =
+  spectroClustersUidConfigRbacsUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidConfigRbacsUidUpdateUrl = (
+export const getSpectroClustersUidConfigRbacsUidUpdateUrl = (
   uid: string,
   rbacUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`;
 };
 
-export const SpectroClustersUidConfigRbacsUidUpdate = async (
+export const spectroClustersUidConfigRbacsUidUpdate = async (
   uid: string,
   rbacUid: string,
-  ClusterRbacInputEntity: ClusterRbacInputEntity,
+  clusterRbacInputEntity: ClusterRbacInputEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidConfigRbacsUidUpdateResponse> => {
+): Promise<spectroClustersUidConfigRbacsUidUpdateResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidConfigRbacsUidUpdateUrl(uid, rbacUid),
+    getSpectroClustersUidConfigRbacsUidUpdateUrl(uid, rbacUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterRbacInputEntity),
+      body: JSON.stringify(clusterRbacInputEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidConfigRbacsUidUpdateResponse["data"] = body
+  const data: spectroClustersUidConfigRbacsUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4198,40 +4168,40 @@ export const SpectroClustersUidConfigRbacsUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidConfigRbacsUidUpdateResponse;
+  } as spectroClustersUidConfigRbacsUidUpdateResponse;
 };
 
 /**
  * @summary Download the specified cluster
  */
-export type SpectroClustersUidDownloadResponse200 = {
+export type spectroClustersUidDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidDownloadResponseComposite =
-  SpectroClustersUidDownloadResponse200;
+export type spectroClustersUidDownloadResponseComposite =
+  spectroClustersUidDownloadResponse200;
 
-export type SpectroClustersUidDownloadResponse =
-  SpectroClustersUidDownloadResponseComposite & {
+export type spectroClustersUidDownloadResponse =
+  spectroClustersUidDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidDownloadUrl = (uid: string) => {
+export const getSpectroClustersUidDownloadUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/download`;
 };
 
-export const SpectroClustersUidDownload = async (
+export const spectroClustersUidDownload = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidDownloadResponse> => {
-  const res = await fetch(getV1SpectroClustersUidDownloadUrl(uid), {
+): Promise<spectroClustersUidDownloadResponse> => {
+  const res = await fetch(getSpectroClustersUidDownloadUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidDownloadResponse["data"] = body
+  const data: spectroClustersUidDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4239,40 +4209,40 @@ export const SpectroClustersUidDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidDownloadResponse;
+  } as spectroClustersUidDownloadResponse;
 };
 
 /**
  * @summary Retrieves a list of edge host of edge-native cluster
  */
-export type EdgeNativeClustersHostsListResponse200 = {
+export type edgeNativeClustersHostsListResponse200 = {
   data: EdgeHostDevices;
   status: 200;
 };
 
-export type EdgeNativeClustersHostsListResponseComposite =
-  EdgeNativeClustersHostsListResponse200;
+export type edgeNativeClustersHostsListResponseComposite =
+  edgeNativeClustersHostsListResponse200;
 
-export type EdgeNativeClustersHostsListResponse =
-  EdgeNativeClustersHostsListResponseComposite & {
+export type edgeNativeClustersHostsListResponse =
+  edgeNativeClustersHostsListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeNativeClustersHostsListUrl = (uid: string) => {
+export const getEdgeNativeClustersHostsListUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/edge-native/edgeHosts`;
 };
 
-export const EdgeNativeClustersHostsList = async (
+export const edgeNativeClustersHostsList = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeNativeClustersHostsListResponse> => {
-  const res = await fetch(getV1EdgeNativeClustersHostsListUrl(uid), {
+): Promise<edgeNativeClustersHostsListResponse> => {
+  const res = await fetch(getEdgeNativeClustersHostsListUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeNativeClustersHostsListResponse["data"] = body
+  const data: edgeNativeClustersHostsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4280,22 +4250,22 @@ export const EdgeNativeClustersHostsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeNativeClustersHostsListResponse;
+  } as edgeNativeClustersHostsListResponse;
 };
 
 /**
  * @summary reset the edge clusters by deleting machine pools and conditions
  */
-export type SpectroClustersUidEdgeResetResponse204 = {
+export type v1SpectroClustersUidEdgeResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidEdgeResetResponseComposite =
-  SpectroClustersUidEdgeResetResponse204;
+export type v1SpectroClustersUidEdgeResetResponseComposite =
+  v1SpectroClustersUidEdgeResetResponse204;
 
-export type SpectroClustersUidEdgeResetResponse =
-  SpectroClustersUidEdgeResetResponseComposite & {
+export type v1SpectroClustersUidEdgeResetResponse =
+  v1SpectroClustersUidEdgeResetResponseComposite & {
     headers: Headers;
   };
 
@@ -4303,17 +4273,17 @@ export const getV1SpectroClustersUidEdgeResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/edge/reset`;
 };
 
-export const SpectroClustersUidEdgeReset = async (
+export const v1SpectroClustersUidEdgeReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidEdgeResetResponse> => {
+): Promise<v1SpectroClustersUidEdgeResetResponse> => {
   const res = await fetch(getV1SpectroClustersUidEdgeResetUrl(uid), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidEdgeResetResponse["data"] = body
+  const data: v1SpectroClustersUidEdgeResetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4321,40 +4291,40 @@ export const SpectroClustersUidEdgeReset = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidEdgeResetResponse;
+  } as v1SpectroClustersUidEdgeResetResponse;
 };
 
 /**
  * @summary Reset cluster backup schedule settings
  */
-export type ClusterFeatureBackupScheduleResetResponse204 = {
+export type clusterFeatureBackupScheduleResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureBackupScheduleResetResponseComposite =
-  ClusterFeatureBackupScheduleResetResponse204;
+export type clusterFeatureBackupScheduleResetResponseComposite =
+  clusterFeatureBackupScheduleResetResponse204;
 
-export type ClusterFeatureBackupScheduleResetResponse =
-  ClusterFeatureBackupScheduleResetResponseComposite & {
+export type clusterFeatureBackupScheduleResetResponse =
+  clusterFeatureBackupScheduleResetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupScheduleResetUrl = (uid: string) => {
+export const getClusterFeatureBackupScheduleResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`;
 };
 
-export const ClusterFeatureBackupScheduleReset = async (
+export const clusterFeatureBackupScheduleReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupScheduleResetResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupScheduleResetUrl(uid), {
+): Promise<clusterFeatureBackupScheduleResetResponse> => {
+  const res = await fetch(getClusterFeatureBackupScheduleResetUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupScheduleResetResponse["data"] = body
+  const data: clusterFeatureBackupScheduleResetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4362,26 +4332,26 @@ export const ClusterFeatureBackupScheduleReset = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupScheduleResetResponse;
+  } as clusterFeatureBackupScheduleResetResponse;
 };
 
 /**
  * @summary Returns the cluster backup result
  */
-export type ClusterFeatureBackupGetResponse200 = {
+export type clusterFeatureBackupGetResponse200 = {
   data: ClusterBackup;
   status: 200;
 };
 
-export type ClusterFeatureBackupGetResponseComposite =
-  ClusterFeatureBackupGetResponse200;
+export type clusterFeatureBackupGetResponseComposite =
+  clusterFeatureBackupGetResponse200;
 
-export type ClusterFeatureBackupGetResponse =
-  ClusterFeatureBackupGetResponseComposite & {
+export type clusterFeatureBackupGetResponse =
+  clusterFeatureBackupGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupGetUrl = (
+export const getClusterFeatureBackupGetUrl = (
   uid: string,
   params?: ClusterFeatureBackupGetParams,
 ) => {
@@ -4400,18 +4370,18 @@ export const getV1ClusterFeatureBackupGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`;
 };
 
-export const ClusterFeatureBackupGet = async (
+export const clusterFeatureBackupGet = async (
   uid: string,
   params?: ClusterFeatureBackupGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupGetUrl(uid, params), {
+): Promise<clusterFeatureBackupGetResponse> => {
+  const res = await fetch(getClusterFeatureBackupGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupGetResponse["data"] = body
+  const data: clusterFeatureBackupGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4419,43 +4389,43 @@ export const ClusterFeatureBackupGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupGetResponse;
+  } as clusterFeatureBackupGetResponse;
 };
 
 /**
  * @summary Create cluster backup settings
  */
-export type ClusterFeatureBackupCreateResponse201 = {
+export type clusterFeatureBackupCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureBackupCreateResponseComposite =
-  ClusterFeatureBackupCreateResponse201;
+export type clusterFeatureBackupCreateResponseComposite =
+  clusterFeatureBackupCreateResponse201;
 
-export type ClusterFeatureBackupCreateResponse =
-  ClusterFeatureBackupCreateResponseComposite & {
+export type clusterFeatureBackupCreateResponse =
+  clusterFeatureBackupCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupCreateUrl = (uid: string) => {
+export const getClusterFeatureBackupCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`;
 };
 
-export const ClusterFeatureBackupCreate = async (
+export const clusterFeatureBackupCreate = async (
   uid: string,
-  ClusterBackupConfigBody: ClusterBackupConfigBody,
+  v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupCreateResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupCreateUrl(uid), {
+): Promise<clusterFeatureBackupCreateResponse> => {
+  const res = await fetch(getClusterFeatureBackupCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterBackupConfigBody),
+    body: JSON.stringify(v1ClusterBackupConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupCreateResponse["data"] = body
+  const data: clusterFeatureBackupCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4463,43 +4433,43 @@ export const ClusterFeatureBackupCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupCreateResponse;
+  } as clusterFeatureBackupCreateResponse;
 };
 
 /**
  * @summary Update cluster backup settings
  */
-export type ClusterFeatureBackupUpdateResponse204 = {
+export type clusterFeatureBackupUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureBackupUpdateResponseComposite =
-  ClusterFeatureBackupUpdateResponse204;
+export type clusterFeatureBackupUpdateResponseComposite =
+  clusterFeatureBackupUpdateResponse204;
 
-export type ClusterFeatureBackupUpdateResponse =
-  ClusterFeatureBackupUpdateResponseComposite & {
+export type clusterFeatureBackupUpdateResponse =
+  clusterFeatureBackupUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupUpdateUrl = (uid: string) => {
+export const getClusterFeatureBackupUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`;
 };
 
-export const ClusterFeatureBackupUpdate = async (
+export const clusterFeatureBackupUpdate = async (
   uid: string,
-  ClusterBackupConfigBody: ClusterBackupConfigBody,
+  v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupUpdateUrl(uid), {
+): Promise<clusterFeatureBackupUpdateResponse> => {
+  const res = await fetch(getClusterFeatureBackupUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterBackupConfigBody),
+    body: JSON.stringify(v1ClusterBackupConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupUpdateResponse["data"] = body
+  const data: clusterFeatureBackupUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4507,43 +4477,43 @@ export const ClusterFeatureBackupUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupUpdateResponse;
+  } as clusterFeatureBackupUpdateResponse;
 };
 
 /**
  * @summary Create on demand cluster backup
  */
-export type ClusterFeatureBackupOnDemandCreateResponse201 = {
+export type clusterFeatureBackupOnDemandCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureBackupOnDemandCreateResponseComposite =
-  ClusterFeatureBackupOnDemandCreateResponse201;
+export type clusterFeatureBackupOnDemandCreateResponseComposite =
+  clusterFeatureBackupOnDemandCreateResponse201;
 
-export type ClusterFeatureBackupOnDemandCreateResponse =
-  ClusterFeatureBackupOnDemandCreateResponseComposite & {
+export type clusterFeatureBackupOnDemandCreateResponse =
+  clusterFeatureBackupOnDemandCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupOnDemandCreateUrl = (uid: string) => {
+export const getClusterFeatureBackupOnDemandCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup/onDemand`;
 };
 
-export const ClusterFeatureBackupOnDemandCreate = async (
+export const clusterFeatureBackupOnDemandCreate = async (
   uid: string,
-  ClusterBackupConfigBody: ClusterBackupConfigBody,
+  v1ClusterBackupConfigBody: V1ClusterBackupConfigBody,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupOnDemandCreateResponse> => {
-  const res = await fetch(getV1ClusterFeatureBackupOnDemandCreateUrl(uid), {
+): Promise<clusterFeatureBackupOnDemandCreateResponse> => {
+  const res = await fetch(getClusterFeatureBackupOnDemandCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterBackupConfigBody),
+    body: JSON.stringify(v1ClusterBackupConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupOnDemandCreateResponse["data"] = body
+  const data: clusterFeatureBackupOnDemandCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4551,26 +4521,26 @@ export const ClusterFeatureBackupOnDemandCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupOnDemandCreateResponse;
+  } as clusterFeatureBackupOnDemandCreateResponse;
 };
 
 /**
  * @summary Delete cluster backup
  */
-export type ClusterFeatureBackupDeleteResponse204 = {
+export type clusterFeatureBackupDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureBackupDeleteResponseComposite =
-  ClusterFeatureBackupDeleteResponse204;
+export type clusterFeatureBackupDeleteResponseComposite =
+  clusterFeatureBackupDeleteResponse204;
 
-export type ClusterFeatureBackupDeleteResponse =
-  ClusterFeatureBackupDeleteResponseComposite & {
+export type clusterFeatureBackupDeleteResponse =
+  clusterFeatureBackupDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureBackupDeleteUrl = (
+export const getClusterFeatureBackupDeleteUrl = (
   uid: string,
   backupName: string,
   requestUid: string,
@@ -4578,14 +4548,14 @@ export const getV1ClusterFeatureBackupDeleteUrl = (
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup/${backupName}/request/${requestUid}`;
 };
 
-export const ClusterFeatureBackupDelete = async (
+export const clusterFeatureBackupDelete = async (
   uid: string,
   backupName: string,
   requestUid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureBackupDeleteResponse> => {
+): Promise<clusterFeatureBackupDeleteResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureBackupDeleteUrl(uid, backupName, requestUid),
+    getClusterFeatureBackupDeleteUrl(uid, backupName, requestUid),
     {
       ...options,
       method: "DELETE",
@@ -4593,7 +4563,7 @@ export const ClusterFeatureBackupDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureBackupDeleteResponse["data"] = body
+  const data: clusterFeatureBackupDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4601,40 +4571,40 @@ export const ClusterFeatureBackupDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureBackupDeleteResponse;
+  } as clusterFeatureBackupDeleteResponse;
 };
 
 /**
  * @summary Returns the compliance scan of cluster, if driverType is provided then specific status of driverType will be returned
  */
-export type ClusterFeatureComplianceScanGetResponse200 = {
+export type clusterFeatureComplianceScanGetResponse200 = {
   data: ClusterComplianceScan;
   status: 200;
 };
 
-export type ClusterFeatureComplianceScanGetResponseComposite =
-  ClusterFeatureComplianceScanGetResponse200;
+export type clusterFeatureComplianceScanGetResponseComposite =
+  clusterFeatureComplianceScanGetResponse200;
 
-export type ClusterFeatureComplianceScanGetResponse =
-  ClusterFeatureComplianceScanGetResponseComposite & {
+export type clusterFeatureComplianceScanGetResponse =
+  clusterFeatureComplianceScanGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanGetUrl = (uid: string) => {
+export const getClusterFeatureComplianceScanGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`;
 };
 
-export const ClusterFeatureComplianceScanGet = async (
+export const clusterFeatureComplianceScanGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureComplianceScanGetUrl(uid), {
+): Promise<clusterFeatureComplianceScanGetResponse> => {
+  const res = await fetch(getClusterFeatureComplianceScanGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanGetResponse["data"] = body
+  const data: clusterFeatureComplianceScanGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4642,43 +4612,43 @@ export const ClusterFeatureComplianceScanGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanGetResponse;
+  } as clusterFeatureComplianceScanGetResponse;
 };
 
 /**
  * @summary Create cluster compliance scan
  */
-export type ClusterFeatureComplianceScanCreateResponse201 = {
+export type clusterFeatureComplianceScanCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureComplianceScanCreateResponseComposite =
-  ClusterFeatureComplianceScanCreateResponse201;
+export type clusterFeatureComplianceScanCreateResponseComposite =
+  clusterFeatureComplianceScanCreateResponse201;
 
-export type ClusterFeatureComplianceScanCreateResponse =
-  ClusterFeatureComplianceScanCreateResponseComposite & {
+export type clusterFeatureComplianceScanCreateResponse =
+  clusterFeatureComplianceScanCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanCreateUrl = (uid: string) => {
+export const getClusterFeatureComplianceScanCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`;
 };
 
-export const ClusterFeatureComplianceScanCreate = async (
+export const clusterFeatureComplianceScanCreate = async (
   uid: string,
-  ClusterComplianceScheduleConfigBody: ClusterComplianceScheduleConfigBody,
+  v1ClusterComplianceScheduleConfigBody: V1ClusterComplianceScheduleConfigBody,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanCreateResponse> => {
-  const res = await fetch(getV1ClusterFeatureComplianceScanCreateUrl(uid), {
+): Promise<clusterFeatureComplianceScanCreateResponse> => {
+  const res = await fetch(getClusterFeatureComplianceScanCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterComplianceScheduleConfigBody),
+    body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanCreateResponse["data"] = body
+  const data: clusterFeatureComplianceScanCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4686,43 +4656,43 @@ export const ClusterFeatureComplianceScanCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanCreateResponse;
+  } as clusterFeatureComplianceScanCreateResponse;
 };
 
 /**
  * @summary Update cluster compliance scan settings
  */
-export type ClusterFeatureComplianceScanUpdateResponse204 = {
+export type clusterFeatureComplianceScanUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureComplianceScanUpdateResponseComposite =
-  ClusterFeatureComplianceScanUpdateResponse204;
+export type clusterFeatureComplianceScanUpdateResponseComposite =
+  clusterFeatureComplianceScanUpdateResponse204;
 
-export type ClusterFeatureComplianceScanUpdateResponse =
-  ClusterFeatureComplianceScanUpdateResponseComposite & {
+export type clusterFeatureComplianceScanUpdateResponse =
+  clusterFeatureComplianceScanUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanUpdateUrl = (uid: string) => {
+export const getClusterFeatureComplianceScanUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`;
 };
 
-export const ClusterFeatureComplianceScanUpdate = async (
+export const clusterFeatureComplianceScanUpdate = async (
   uid: string,
-  ClusterComplianceScheduleConfigBody: ClusterComplianceScheduleConfigBody,
+  v1ClusterComplianceScheduleConfigBody: V1ClusterComplianceScheduleConfigBody,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureComplianceScanUpdateUrl(uid), {
+): Promise<clusterFeatureComplianceScanUpdateResponse> => {
+  const res = await fetch(getClusterFeatureComplianceScanUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterComplianceScheduleConfigBody),
+    body: JSON.stringify(v1ClusterComplianceScheduleConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanUpdateResponse["data"] = body
+  const data: clusterFeatureComplianceScanUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4730,40 +4700,40 @@ export const ClusterFeatureComplianceScanUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanUpdateResponse;
+  } as clusterFeatureComplianceScanUpdateResponse;
 };
 
 /**
  * @summary Returns the compliance scan log by cluster uid and driver type
  */
-export type ClusterFeatureComplianceScanLogsGetResponse200 = {
+export type clusterFeatureComplianceScanLogsGetResponse200 = {
   data: ClusterComplianceScanLogs;
   status: 200;
 };
 
-export type ClusterFeatureComplianceScanLogsGetResponseComposite =
-  ClusterFeatureComplianceScanLogsGetResponse200;
+export type clusterFeatureComplianceScanLogsGetResponseComposite =
+  clusterFeatureComplianceScanLogsGetResponse200;
 
-export type ClusterFeatureComplianceScanLogsGetResponse =
-  ClusterFeatureComplianceScanLogsGetResponseComposite & {
+export type clusterFeatureComplianceScanLogsGetResponse =
+  clusterFeatureComplianceScanLogsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanLogsGetUrl = (uid: string) => {
+export const getClusterFeatureComplianceScanLogsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers`;
 };
 
-export const ClusterFeatureComplianceScanLogsGet = async (
+export const clusterFeatureComplianceScanLogsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanLogsGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureComplianceScanLogsGetUrl(uid), {
+): Promise<clusterFeatureComplianceScanLogsGetResponse> => {
+  const res = await fetch(getClusterFeatureComplianceScanLogsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanLogsGetResponse["data"] = body
+  const data: clusterFeatureComplianceScanLogsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4771,43 +4741,43 @@ export const ClusterFeatureComplianceScanLogsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanLogsGetResponse;
+  } as clusterFeatureComplianceScanLogsGetResponse;
 };
 
 /**
  * @summary Update the KubeBench compliance scan log by uid
  */
-export type ClusterFeatureScanKubeBenchLogUpdateResponse204 = {
+export type clusterFeatureScanKubeBenchLogUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureScanKubeBenchLogUpdateResponseComposite =
-  ClusterFeatureScanKubeBenchLogUpdateResponse204;
+export type clusterFeatureScanKubeBenchLogUpdateResponseComposite =
+  clusterFeatureScanKubeBenchLogUpdateResponse204;
 
-export type ClusterFeatureScanKubeBenchLogUpdateResponse =
-  ClusterFeatureScanKubeBenchLogUpdateResponseComposite & {
+export type clusterFeatureScanKubeBenchLogUpdateResponse =
+  clusterFeatureScanKubeBenchLogUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureScanKubeBenchLogUpdateUrl = (uid: string) => {
+export const getClusterFeatureScanKubeBenchLogUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeBench`;
 };
 
-export const ClusterFeatureScanKubeBenchLogUpdate = async (
+export const clusterFeatureScanKubeBenchLogUpdate = async (
   uid: string,
-  KubeBenchEntity: KubeBenchEntity,
+  kubeBenchEntity: KubeBenchEntity,
   options?: RequestInit,
-): Promise<ClusterFeatureScanKubeBenchLogUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureScanKubeBenchLogUpdateUrl(uid), {
+): Promise<clusterFeatureScanKubeBenchLogUpdateResponse> => {
+  const res = await fetch(getClusterFeatureScanKubeBenchLogUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(KubeBenchEntity),
+    body: JSON.stringify(kubeBenchEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureScanKubeBenchLogUpdateResponse["data"] = body
+  const data: clusterFeatureScanKubeBenchLogUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4815,43 +4785,43 @@ export const ClusterFeatureScanKubeBenchLogUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureScanKubeBenchLogUpdateResponse;
+  } as clusterFeatureScanKubeBenchLogUpdateResponse;
 };
 
 /**
  * @summary Update the KubeHunter compliance scan log by uid
  */
-export type ClusterFeatureScanKubeHunterLogUpdateResponse204 = {
+export type clusterFeatureScanKubeHunterLogUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureScanKubeHunterLogUpdateResponseComposite =
-  ClusterFeatureScanKubeHunterLogUpdateResponse204;
+export type clusterFeatureScanKubeHunterLogUpdateResponseComposite =
+  clusterFeatureScanKubeHunterLogUpdateResponse204;
 
-export type ClusterFeatureScanKubeHunterLogUpdateResponse =
-  ClusterFeatureScanKubeHunterLogUpdateResponseComposite & {
+export type clusterFeatureScanKubeHunterLogUpdateResponse =
+  clusterFeatureScanKubeHunterLogUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureScanKubeHunterLogUpdateUrl = (uid: string) => {
+export const getClusterFeatureScanKubeHunterLogUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeHunter`;
 };
 
-export const ClusterFeatureScanKubeHunterLogUpdate = async (
+export const clusterFeatureScanKubeHunterLogUpdate = async (
   uid: string,
-  KubeHunterEntity: KubeHunterEntity,
+  kubeHunterEntity: KubeHunterEntity,
   options?: RequestInit,
-): Promise<ClusterFeatureScanKubeHunterLogUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureScanKubeHunterLogUpdateUrl(uid), {
+): Promise<clusterFeatureScanKubeHunterLogUpdateResponse> => {
+  const res = await fetch(getClusterFeatureScanKubeHunterLogUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(KubeHunterEntity),
+    body: JSON.stringify(kubeHunterEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureScanKubeHunterLogUpdateResponse["data"] = body
+  const data: clusterFeatureScanKubeHunterLogUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4859,43 +4829,43 @@ export const ClusterFeatureScanKubeHunterLogUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureScanKubeHunterLogUpdateResponse;
+  } as clusterFeatureScanKubeHunterLogUpdateResponse;
 };
 
 /**
  * @summary Update the Sonobuoy compliance scan log by uid
  */
-export type ClusterFeatureScanSonobuoyLogUpdateResponse204 = {
+export type clusterFeatureScanSonobuoyLogUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureScanSonobuoyLogUpdateResponseComposite =
-  ClusterFeatureScanSonobuoyLogUpdateResponse204;
+export type clusterFeatureScanSonobuoyLogUpdateResponseComposite =
+  clusterFeatureScanSonobuoyLogUpdateResponse204;
 
-export type ClusterFeatureScanSonobuoyLogUpdateResponse =
-  ClusterFeatureScanSonobuoyLogUpdateResponseComposite & {
+export type clusterFeatureScanSonobuoyLogUpdateResponse =
+  clusterFeatureScanSonobuoyLogUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureScanSonobuoyLogUpdateUrl = (uid: string) => {
+export const getClusterFeatureScanSonobuoyLogUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/sonobuoy`;
 };
 
-export const ClusterFeatureScanSonobuoyLogUpdate = async (
+export const clusterFeatureScanSonobuoyLogUpdate = async (
   uid: string,
-  SonobuoyEntity: SonobuoyEntity,
+  sonobuoyEntity: SonobuoyEntity,
   options?: RequestInit,
-): Promise<ClusterFeatureScanSonobuoyLogUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureScanSonobuoyLogUpdateUrl(uid), {
+): Promise<clusterFeatureScanSonobuoyLogUpdateResponse> => {
+  const res = await fetch(getClusterFeatureScanSonobuoyLogUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SonobuoyEntity),
+    body: JSON.stringify(sonobuoyEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureScanSonobuoyLogUpdateResponse["data"] = body
+  const data: clusterFeatureScanSonobuoyLogUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4903,43 +4873,43 @@ export const ClusterFeatureScanSonobuoyLogUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureScanSonobuoyLogUpdateResponse;
+  } as clusterFeatureScanSonobuoyLogUpdateResponse;
 };
 
 /**
  * @summary Update the Syft compliance scan log by uid
  */
-export type ClusterFeatureScanSyftLogUpdateResponse204 = {
+export type clusterFeatureScanSyftLogUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureScanSyftLogUpdateResponseComposite =
-  ClusterFeatureScanSyftLogUpdateResponse204;
+export type clusterFeatureScanSyftLogUpdateResponseComposite =
+  clusterFeatureScanSyftLogUpdateResponse204;
 
-export type ClusterFeatureScanSyftLogUpdateResponse =
-  ClusterFeatureScanSyftLogUpdateResponseComposite & {
+export type clusterFeatureScanSyftLogUpdateResponse =
+  clusterFeatureScanSyftLogUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureScanSyftLogUpdateUrl = (uid: string) => {
+export const getClusterFeatureScanSyftLogUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/syft`;
 };
 
-export const ClusterFeatureScanSyftLogUpdate = async (
+export const clusterFeatureScanSyftLogUpdate = async (
   uid: string,
-  SyftEntity: SyftEntity,
+  syftEntity: SyftEntity,
   options?: RequestInit,
-): Promise<ClusterFeatureScanSyftLogUpdateResponse> => {
-  const res = await fetch(getV1ClusterFeatureScanSyftLogUpdateUrl(uid), {
+): Promise<clusterFeatureScanSyftLogUpdateResponse> => {
+  const res = await fetch(getClusterFeatureScanSyftLogUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SyftEntity),
+    body: JSON.stringify(syftEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureScanSyftLogUpdateResponse["data"] = body
+  const data: clusterFeatureScanSyftLogUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4947,39 +4917,39 @@ export const ClusterFeatureScanSyftLogUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureScanSyftLogUpdateResponse;
+  } as clusterFeatureScanSyftLogUpdateResponse;
 };
 
 /**
  * @summary Delete the compliance scan log by uid
  */
-export type ClusterFeatureComplianceScanLogDeleteResponse204 = {
+export type clusterFeatureComplianceScanLogDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterFeatureComplianceScanLogDeleteResponseComposite =
-  ClusterFeatureComplianceScanLogDeleteResponse204;
+export type clusterFeatureComplianceScanLogDeleteResponseComposite =
+  clusterFeatureComplianceScanLogDeleteResponse204;
 
-export type ClusterFeatureComplianceScanLogDeleteResponse =
-  ClusterFeatureComplianceScanLogDeleteResponseComposite & {
+export type clusterFeatureComplianceScanLogDeleteResponse =
+  clusterFeatureComplianceScanLogDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanLogDeleteUrl = (
+export const getClusterFeatureComplianceScanLogDeleteUrl = (
   uid: string,
   logUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}`;
 };
 
-export const ClusterFeatureComplianceScanLogDelete = async (
+export const clusterFeatureComplianceScanLogDelete = async (
   uid: string,
   logUid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanLogDeleteResponse> => {
+): Promise<clusterFeatureComplianceScanLogDeleteResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureComplianceScanLogDeleteUrl(uid, logUid),
+    getClusterFeatureComplianceScanLogDeleteUrl(uid, logUid),
     {
       ...options,
       method: "DELETE",
@@ -4987,7 +4957,7 @@ export const ClusterFeatureComplianceScanLogDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanLogDeleteResponse["data"] = body
+  const data: clusterFeatureComplianceScanLogDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4995,26 +4965,26 @@ export const ClusterFeatureComplianceScanLogDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanLogDeleteResponse;
+  } as clusterFeatureComplianceScanLogDeleteResponse;
 };
 
 /**
  * @summary Returns the KubeBench compliance scan log by uid
  */
-export type ClusterFeatureKubeBenchLogGetResponse200 = {
+export type clusterFeatureKubeBenchLogGetResponse200 = {
   data: ClusterScanLogKubeBench;
   status: 200;
 };
 
-export type ClusterFeatureKubeBenchLogGetResponseComposite =
-  ClusterFeatureKubeBenchLogGetResponse200;
+export type clusterFeatureKubeBenchLogGetResponseComposite =
+  clusterFeatureKubeBenchLogGetResponse200;
 
-export type ClusterFeatureKubeBenchLogGetResponse =
-  ClusterFeatureKubeBenchLogGetResponseComposite & {
+export type clusterFeatureKubeBenchLogGetResponse =
+  clusterFeatureKubeBenchLogGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureKubeBenchLogGetUrl = (
+export const getClusterFeatureKubeBenchLogGetUrl = (
   uid: string,
   logUid: string,
   params?: ClusterFeatureKubeBenchLogGetParams,
@@ -5030,14 +5000,14 @@ export const getV1ClusterFeatureKubeBenchLogGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench`;
 };
 
-export const ClusterFeatureKubeBenchLogGet = async (
+export const clusterFeatureKubeBenchLogGet = async (
   uid: string,
   logUid: string,
   params?: ClusterFeatureKubeBenchLogGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureKubeBenchLogGetResponse> => {
+): Promise<clusterFeatureKubeBenchLogGetResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureKubeBenchLogGetUrl(uid, logUid, params),
+    getClusterFeatureKubeBenchLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
@@ -5045,7 +5015,7 @@ export const ClusterFeatureKubeBenchLogGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureKubeBenchLogGetResponse["data"] = body
+  const data: clusterFeatureKubeBenchLogGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5053,26 +5023,26 @@ export const ClusterFeatureKubeBenchLogGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureKubeBenchLogGetResponse;
+  } as clusterFeatureKubeBenchLogGetResponse;
 };
 
 /**
  * @summary Returns the KubeHunter compliance scan log by uid
  */
-export type ClusterFeatureKubeHunterLogGetResponse200 = {
+export type clusterFeatureKubeHunterLogGetResponse200 = {
   data: ClusterScanLogKubeHunter;
   status: 200;
 };
 
-export type ClusterFeatureKubeHunterLogGetResponseComposite =
-  ClusterFeatureKubeHunterLogGetResponse200;
+export type clusterFeatureKubeHunterLogGetResponseComposite =
+  clusterFeatureKubeHunterLogGetResponse200;
 
-export type ClusterFeatureKubeHunterLogGetResponse =
-  ClusterFeatureKubeHunterLogGetResponseComposite & {
+export type clusterFeatureKubeHunterLogGetResponse =
+  clusterFeatureKubeHunterLogGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureKubeHunterLogGetUrl = (
+export const getClusterFeatureKubeHunterLogGetUrl = (
   uid: string,
   logUid: string,
   params?: ClusterFeatureKubeHunterLogGetParams,
@@ -5088,14 +5058,14 @@ export const getV1ClusterFeatureKubeHunterLogGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter`;
 };
 
-export const ClusterFeatureKubeHunterLogGet = async (
+export const clusterFeatureKubeHunterLogGet = async (
   uid: string,
   logUid: string,
   params?: ClusterFeatureKubeHunterLogGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureKubeHunterLogGetResponse> => {
+): Promise<clusterFeatureKubeHunterLogGetResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureKubeHunterLogGetUrl(uid, logUid, params),
+    getClusterFeatureKubeHunterLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
@@ -5103,7 +5073,7 @@ export const ClusterFeatureKubeHunterLogGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureKubeHunterLogGetResponse["data"] = body
+  const data: clusterFeatureKubeHunterLogGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5111,26 +5081,26 @@ export const ClusterFeatureKubeHunterLogGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureKubeHunterLogGetResponse;
+  } as clusterFeatureKubeHunterLogGetResponse;
 };
 
 /**
  * @summary Returns the Sonobuoy compliance scan log by uid
  */
-export type ClusterFeatureSonobuoyLogGetResponse200 = {
+export type clusterFeatureSonobuoyLogGetResponse200 = {
   data: ClusterScanLogSonobuoy;
   status: 200;
 };
 
-export type ClusterFeatureSonobuoyLogGetResponseComposite =
-  ClusterFeatureSonobuoyLogGetResponse200;
+export type clusterFeatureSonobuoyLogGetResponseComposite =
+  clusterFeatureSonobuoyLogGetResponse200;
 
-export type ClusterFeatureSonobuoyLogGetResponse =
-  ClusterFeatureSonobuoyLogGetResponseComposite & {
+export type clusterFeatureSonobuoyLogGetResponse =
+  clusterFeatureSonobuoyLogGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureSonobuoyLogGetUrl = (
+export const getClusterFeatureSonobuoyLogGetUrl = (
   uid: string,
   logUid: string,
   params?: ClusterFeatureSonobuoyLogGetParams,
@@ -5146,14 +5116,14 @@ export const getV1ClusterFeatureSonobuoyLogGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy`;
 };
 
-export const ClusterFeatureSonobuoyLogGet = async (
+export const clusterFeatureSonobuoyLogGet = async (
   uid: string,
   logUid: string,
   params?: ClusterFeatureSonobuoyLogGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureSonobuoyLogGetResponse> => {
+): Promise<clusterFeatureSonobuoyLogGetResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureSonobuoyLogGetUrl(uid, logUid, params),
+    getClusterFeatureSonobuoyLogGetUrl(uid, logUid, params),
     {
       ...options,
       method: "GET",
@@ -5161,7 +5131,7 @@ export const ClusterFeatureSonobuoyLogGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureSonobuoyLogGetResponse["data"] = body
+  const data: clusterFeatureSonobuoyLogGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5169,44 +5139,41 @@ export const ClusterFeatureSonobuoyLogGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureSonobuoyLogGetResponse;
+  } as clusterFeatureSonobuoyLogGetResponse;
 };
 
 /**
  * @summary Returns the Syft compliance scan log by uid
  */
-export type ClusterFeatureSyftLogGetResponse200 = {
+export type clusterFeatureSyftLogGetResponse200 = {
   data: ClusterScanLogSyft;
   status: 200;
 };
 
-export type ClusterFeatureSyftLogGetResponseComposite =
-  ClusterFeatureSyftLogGetResponse200;
+export type clusterFeatureSyftLogGetResponseComposite =
+  clusterFeatureSyftLogGetResponse200;
 
-export type ClusterFeatureSyftLogGetResponse =
-  ClusterFeatureSyftLogGetResponseComposite & {
+export type clusterFeatureSyftLogGetResponse =
+  clusterFeatureSyftLogGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureSyftLogGetUrl = (
-  uid: string,
-  logUid: string,
-) => {
+export const getClusterFeatureSyftLogGetUrl = (uid: string, logUid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft`;
 };
 
-export const ClusterFeatureSyftLogGet = async (
+export const clusterFeatureSyftLogGet = async (
   uid: string,
   logUid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureSyftLogGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureSyftLogGetUrl(uid, logUid), {
+): Promise<clusterFeatureSyftLogGetResponse> => {
+  const res = await fetch(getClusterFeatureSyftLogGetUrl(uid, logUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureSyftLogGetResponse["data"] = body
+  const data: clusterFeatureSyftLogGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5214,26 +5181,26 @@ export const ClusterFeatureSyftLogGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureSyftLogGetResponse;
+  } as clusterFeatureSyftLogGetResponse;
 };
 
 /**
  * @summary Returns the image sbom of syft scan log of cluster
  */
-export type SyftScanLogImageSBOMGetResponse200 = {
+export type syftScanLogImageSBOMGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SyftScanLogImageSBOMGetResponseComposite =
-  SyftScanLogImageSBOMGetResponse200;
+export type syftScanLogImageSBOMGetResponseComposite =
+  syftScanLogImageSBOMGetResponse200;
 
-export type SyftScanLogImageSBOMGetResponse =
-  SyftScanLogImageSBOMGetResponseComposite & {
+export type syftScanLogImageSBOMGetResponse =
+  syftScanLogImageSBOMGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SyftScanLogImageSBOMGetUrl = (
+export const getSyftScanLogImageSBOMGetUrl = (
   uid: string,
   logUid: string,
   params: SyftScanLogImageSBOMGetParams,
@@ -5249,22 +5216,19 @@ export const getV1SyftScanLogImageSBOMGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom`;
 };
 
-export const SyftScanLogImageSBOMGet = async (
+export const syftScanLogImageSBOMGet = async (
   uid: string,
   logUid: string,
   params: SyftScanLogImageSBOMGetParams,
   options?: RequestInit,
-): Promise<SyftScanLogImageSBOMGetResponse> => {
-  const res = await fetch(
-    getV1SyftScanLogImageSBOMGetUrl(uid, logUid, params),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+): Promise<syftScanLogImageSBOMGetResponse> => {
+  const res = await fetch(getSyftScanLogImageSBOMGetUrl(uid, logUid, params), {
+    ...options,
+    method: "GET",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SyftScanLogImageSBOMGetResponse["data"] = body
+  const data: syftScanLogImageSBOMGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5272,26 +5236,26 @@ export const SyftScanLogImageSBOMGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SyftScanLogImageSBOMGetResponse;
+  } as syftScanLogImageSBOMGetResponse;
 };
 
 /**
  * @summary Downloads the driver cluster logs
  */
-export type ClusterFeatureDriverLogDownloadResponse200 = {
+export type clusterFeatureDriverLogDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type ClusterFeatureDriverLogDownloadResponseComposite =
-  ClusterFeatureDriverLogDownloadResponse200;
+export type clusterFeatureDriverLogDownloadResponseComposite =
+  clusterFeatureDriverLogDownloadResponse200;
 
-export type ClusterFeatureDriverLogDownloadResponse =
-  ClusterFeatureDriverLogDownloadResponseComposite & {
+export type clusterFeatureDriverLogDownloadResponse =
+  clusterFeatureDriverLogDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureDriverLogDownloadUrl = (
+export const getClusterFeatureDriverLogDownloadUrl = (
   uid: string,
   logUid: string,
   driver: "kubeBench" | "kubeHunter" | "sonobuoy" | "syft",
@@ -5308,15 +5272,15 @@ export const getV1ClusterFeatureDriverLogDownloadUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download`;
 };
 
-export const ClusterFeatureDriverLogDownload = async (
+export const clusterFeatureDriverLogDownload = async (
   uid: string,
   logUid: string,
   driver: "kubeBench" | "kubeHunter" | "sonobuoy" | "syft",
   params?: ClusterFeatureDriverLogDownloadParams,
   options?: RequestInit,
-): Promise<ClusterFeatureDriverLogDownloadResponse> => {
+): Promise<clusterFeatureDriverLogDownloadResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureDriverLogDownloadUrl(uid, logUid, driver, params),
+    getClusterFeatureDriverLogDownloadUrl(uid, logUid, driver, params),
     {
       ...options,
       method: "GET",
@@ -5324,7 +5288,7 @@ export const ClusterFeatureDriverLogDownload = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureDriverLogDownloadResponse["data"] = body
+  const data: clusterFeatureDriverLogDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5332,48 +5296,48 @@ export const ClusterFeatureDriverLogDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureDriverLogDownloadResponse;
+  } as clusterFeatureDriverLogDownloadResponse;
 };
 
 /**
  * @summary Create on demand cluster compliance scan
  */
-export type ClusterFeatureComplianceScanOnDemandCreateResponse201 = {
+export type clusterFeatureComplianceScanOnDemandCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureComplianceScanOnDemandCreateResponseComposite =
-  ClusterFeatureComplianceScanOnDemandCreateResponse201;
+export type clusterFeatureComplianceScanOnDemandCreateResponseComposite =
+  clusterFeatureComplianceScanOnDemandCreateResponse201;
 
-export type ClusterFeatureComplianceScanOnDemandCreateResponse =
-  ClusterFeatureComplianceScanOnDemandCreateResponseComposite & {
+export type clusterFeatureComplianceScanOnDemandCreateResponse =
+  clusterFeatureComplianceScanOnDemandCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureComplianceScanOnDemandCreateUrl = (
+export const getClusterFeatureComplianceScanOnDemandCreateUrl = (
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/onDemand`;
 };
 
-export const ClusterFeatureComplianceScanOnDemandCreate = async (
+export const clusterFeatureComplianceScanOnDemandCreate = async (
   uid: string,
-  ClusterComplianceOnDemandConfig: ClusterComplianceOnDemandConfig,
+  clusterComplianceOnDemandConfig: ClusterComplianceOnDemandConfig,
   options?: RequestInit,
-): Promise<ClusterFeatureComplianceScanOnDemandCreateResponse> => {
+): Promise<clusterFeatureComplianceScanOnDemandCreateResponse> => {
   const res = await fetch(
-    getV1ClusterFeatureComplianceScanOnDemandCreateUrl(uid),
+    getClusterFeatureComplianceScanOnDemandCreateUrl(uid),
     {
       ...options,
       method: "POST",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterComplianceOnDemandConfig),
+      body: JSON.stringify(clusterComplianceOnDemandConfig),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureComplianceScanOnDemandCreateResponse["data"] = body
+  const data: clusterFeatureComplianceScanOnDemandCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5381,40 +5345,40 @@ export const ClusterFeatureComplianceScanOnDemandCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureComplianceScanOnDemandCreateResponse;
+  } as clusterFeatureComplianceScanOnDemandCreateResponse;
 };
 
 /**
  * @summary Get the installed helm charts of a specified cluster
  */
-export type ClusterFeatureHelmChartsGetResponse200 = {
+export type clusterFeatureHelmChartsGetResponse200 = {
   data: ClusterHelmCharts;
   status: 200;
 };
 
-export type ClusterFeatureHelmChartsGetResponseComposite =
-  ClusterFeatureHelmChartsGetResponse200;
+export type clusterFeatureHelmChartsGetResponseComposite =
+  clusterFeatureHelmChartsGetResponse200;
 
-export type ClusterFeatureHelmChartsGetResponse =
-  ClusterFeatureHelmChartsGetResponseComposite & {
+export type clusterFeatureHelmChartsGetResponse =
+  clusterFeatureHelmChartsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureHelmChartsGetUrl = (uid: string) => {
+export const getClusterFeatureHelmChartsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/helmCharts`;
 };
 
-export const ClusterFeatureHelmChartsGet = async (
+export const clusterFeatureHelmChartsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureHelmChartsGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureHelmChartsGetUrl(uid), {
+): Promise<clusterFeatureHelmChartsGetResponse> => {
+  const res = await fetch(getClusterFeatureHelmChartsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureHelmChartsGetResponse["data"] = body
+  const data: clusterFeatureHelmChartsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5422,26 +5386,26 @@ export const ClusterFeatureHelmChartsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureHelmChartsGetResponse;
+  } as clusterFeatureHelmChartsGetResponse;
 };
 
 /**
  * @summary Get the log fetcher for cluster
  */
-export type ClusterFeatureLogFetcherGetResponse200 = {
+export type clusterFeatureLogFetcherGetResponse200 = {
   data: ClusterLogFetcher;
   status: 200;
 };
 
-export type ClusterFeatureLogFetcherGetResponseComposite =
-  ClusterFeatureLogFetcherGetResponse200;
+export type clusterFeatureLogFetcherGetResponseComposite =
+  clusterFeatureLogFetcherGetResponse200;
 
-export type ClusterFeatureLogFetcherGetResponse =
-  ClusterFeatureLogFetcherGetResponseComposite & {
+export type clusterFeatureLogFetcherGetResponse =
+  clusterFeatureLogFetcherGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureLogFetcherGetUrl = (
+export const getClusterFeatureLogFetcherGetUrl = (
   uid: string,
   params?: ClusterFeatureLogFetcherGetParams,
 ) => {
@@ -5460,18 +5424,18 @@ export const getV1ClusterFeatureLogFetcherGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/logFetcher`;
 };
 
-export const ClusterFeatureLogFetcherGet = async (
+export const clusterFeatureLogFetcherGet = async (
   uid: string,
   params?: ClusterFeatureLogFetcherGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureLogFetcherGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureLogFetcherGetUrl(uid, params), {
+): Promise<clusterFeatureLogFetcherGetResponse> => {
+  const res = await fetch(getClusterFeatureLogFetcherGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureLogFetcherGetResponse["data"] = body
+  const data: clusterFeatureLogFetcherGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5479,43 +5443,43 @@ export const ClusterFeatureLogFetcherGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureLogFetcherGetResponse;
+  } as clusterFeatureLogFetcherGetResponse;
 };
 
 /**
  * @summary Create the log fetcher for cluster
  */
-export type ClusterFeatureLogFetcherCreateResponse201 = {
+export type clusterFeatureLogFetcherCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureLogFetcherCreateResponseComposite =
-  ClusterFeatureLogFetcherCreateResponse201;
+export type clusterFeatureLogFetcherCreateResponseComposite =
+  clusterFeatureLogFetcherCreateResponse201;
 
-export type ClusterFeatureLogFetcherCreateResponse =
-  ClusterFeatureLogFetcherCreateResponseComposite & {
+export type clusterFeatureLogFetcherCreateResponse =
+  clusterFeatureLogFetcherCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureLogFetcherCreateUrl = (uid: string) => {
+export const getClusterFeatureLogFetcherCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/logFetcher`;
 };
 
-export const ClusterFeatureLogFetcherCreate = async (
+export const clusterFeatureLogFetcherCreate = async (
   uid: string,
-  ClusterLogFetcherRequest: ClusterLogFetcherRequest,
+  clusterLogFetcherRequest: ClusterLogFetcherRequest,
   options?: RequestInit,
-): Promise<ClusterFeatureLogFetcherCreateResponse> => {
-  const res = await fetch(getV1ClusterFeatureLogFetcherCreateUrl(uid), {
+): Promise<clusterFeatureLogFetcherCreateResponse> => {
+  const res = await fetch(getClusterFeatureLogFetcherCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterLogFetcherRequest),
+    body: JSON.stringify(clusterLogFetcherRequest),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureLogFetcherCreateResponse["data"] = body
+  const data: clusterFeatureLogFetcherCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5523,40 +5487,40 @@ export const ClusterFeatureLogFetcherCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureLogFetcherCreateResponse;
+  } as clusterFeatureLogFetcherCreateResponse;
 };
 
 /**
  * @summary Get the installed manifests of a specified cluster
  */
-export type ClusterFeatureManifestsGetResponse200 = {
+export type clusterFeatureManifestsGetResponse200 = {
   data: ClusterManifests;
   status: 200;
 };
 
-export type ClusterFeatureManifestsGetResponseComposite =
-  ClusterFeatureManifestsGetResponse200;
+export type clusterFeatureManifestsGetResponseComposite =
+  clusterFeatureManifestsGetResponse200;
 
-export type ClusterFeatureManifestsGetResponse =
-  ClusterFeatureManifestsGetResponseComposite & {
+export type clusterFeatureManifestsGetResponse =
+  clusterFeatureManifestsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureManifestsGetUrl = (uid: string) => {
+export const getClusterFeatureManifestsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/manifests`;
 };
 
-export const ClusterFeatureManifestsGet = async (
+export const clusterFeatureManifestsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterFeatureManifestsGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureManifestsGetUrl(uid), {
+): Promise<clusterFeatureManifestsGetResponse> => {
+  const res = await fetch(getClusterFeatureManifestsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureManifestsGetResponse["data"] = body
+  const data: clusterFeatureManifestsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5564,26 +5528,26 @@ export const ClusterFeatureManifestsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureManifestsGetResponse;
+  } as clusterFeatureManifestsGetResponse;
 };
 
 /**
  * @summary Returns the cluster restore of cluster
  */
-export type ClusterFeatureRestoreGetResponse200 = {
+export type clusterFeatureRestoreGetResponse200 = {
   data: ClusterRestore;
   status: 200;
 };
 
-export type ClusterFeatureRestoreGetResponseComposite =
-  ClusterFeatureRestoreGetResponse200;
+export type clusterFeatureRestoreGetResponseComposite =
+  clusterFeatureRestoreGetResponse200;
 
-export type ClusterFeatureRestoreGetResponse =
-  ClusterFeatureRestoreGetResponseComposite & {
+export type clusterFeatureRestoreGetResponse =
+  clusterFeatureRestoreGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureRestoreGetUrl = (
+export const getClusterFeatureRestoreGetUrl = (
   uid: string,
   params?: ClusterFeatureRestoreGetParams,
 ) => {
@@ -5602,18 +5566,18 @@ export const getV1ClusterFeatureRestoreGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/restore`;
 };
 
-export const ClusterFeatureRestoreGet = async (
+export const clusterFeatureRestoreGet = async (
   uid: string,
   params?: ClusterFeatureRestoreGetParams,
   options?: RequestInit,
-): Promise<ClusterFeatureRestoreGetResponse> => {
-  const res = await fetch(getV1ClusterFeatureRestoreGetUrl(uid, params), {
+): Promise<clusterFeatureRestoreGetResponse> => {
+  const res = await fetch(getClusterFeatureRestoreGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureRestoreGetResponse["data"] = body
+  const data: clusterFeatureRestoreGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5621,43 +5585,43 @@ export const ClusterFeatureRestoreGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureRestoreGetResponse;
+  } as clusterFeatureRestoreGetResponse;
 };
 
 /**
  * @summary Create on demand cluster restore
  */
-export type ClusterFeatureRestoreOnDemandCreateResponse201 = {
+export type clusterFeatureRestoreOnDemandCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterFeatureRestoreOnDemandCreateResponseComposite =
-  ClusterFeatureRestoreOnDemandCreateResponse201;
+export type clusterFeatureRestoreOnDemandCreateResponseComposite =
+  clusterFeatureRestoreOnDemandCreateResponse201;
 
-export type ClusterFeatureRestoreOnDemandCreateResponse =
-  ClusterFeatureRestoreOnDemandCreateResponseComposite & {
+export type clusterFeatureRestoreOnDemandCreateResponse =
+  clusterFeatureRestoreOnDemandCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterFeatureRestoreOnDemandCreateUrl = (uid: string) => {
+export const getClusterFeatureRestoreOnDemandCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/restore/onDemand`;
 };
 
-export const ClusterFeatureRestoreOnDemandCreate = async (
+export const clusterFeatureRestoreOnDemandCreate = async (
   uid: string,
-  ClusterRestoreConfig: ClusterRestoreConfig,
+  clusterRestoreConfig: ClusterRestoreConfig,
   options?: RequestInit,
-): Promise<ClusterFeatureRestoreOnDemandCreateResponse> => {
-  const res = await fetch(getV1ClusterFeatureRestoreOnDemandCreateUrl(uid), {
+): Promise<clusterFeatureRestoreOnDemandCreateResponse> => {
+  const res = await fetch(getClusterFeatureRestoreOnDemandCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterRestoreConfig),
+    body: JSON.stringify(clusterRestoreConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterFeatureRestoreOnDemandCreateResponse["data"] = body
+  const data: clusterFeatureRestoreOnDemandCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5665,43 +5629,43 @@ export const ClusterFeatureRestoreOnDemandCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterFeatureRestoreOnDemandCreateResponse;
+  } as clusterFeatureRestoreOnDemandCreateResponse;
 };
 
 /**
  * @summary Update specific cluster heartbeat
  */
-export type SpectroClustersUidHeartbeatUpdateResponse204 = {
+export type spectroClustersUidHeartbeatUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidHeartbeatUpdateResponseComposite =
-  SpectroClustersUidHeartbeatUpdateResponse204;
+export type spectroClustersUidHeartbeatUpdateResponseComposite =
+  spectroClustersUidHeartbeatUpdateResponse204;
 
-export type SpectroClustersUidHeartbeatUpdateResponse =
-  SpectroClustersUidHeartbeatUpdateResponseComposite & {
+export type spectroClustersUidHeartbeatUpdateResponse =
+  spectroClustersUidHeartbeatUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidHeartbeatUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidHeartbeatUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/heartbeat`;
 };
 
-export const SpectroClustersUidHeartbeatUpdate = async (
+export const spectroClustersUidHeartbeatUpdate = async (
   uid: string,
-  SpectroClusterHeartbeat: SpectroClusterHeartbeat,
+  spectroClusterHeartbeat: SpectroClusterHeartbeat,
   options?: RequestInit,
-): Promise<SpectroClustersUidHeartbeatUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidHeartbeatUpdateUrl(uid), {
+): Promise<spectroClustersUidHeartbeatUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidHeartbeatUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterHeartbeat),
+    body: JSON.stringify(spectroClusterHeartbeat),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidHeartbeatUpdateResponse["data"] = body
+  const data: spectroClustersUidHeartbeatUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5709,40 +5673,40 @@ export const SpectroClustersUidHeartbeatUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidHeartbeatUpdateResponse;
+  } as spectroClustersUidHeartbeatUpdateResponse;
 };
 
 /**
  * @summary Returns the metadata of all hybrid pools associated with the specified cluster
  */
-export type SpectroClustersGetHybridPoolsMetadataResponse200 = {
+export type spectroClustersGetHybridPoolsMetadataResponse200 = {
   data: SpectroClusterHybridPoolsMetadata;
   status: 200;
 };
 
-export type SpectroClustersGetHybridPoolsMetadataResponseComposite =
-  SpectroClustersGetHybridPoolsMetadataResponse200;
+export type spectroClustersGetHybridPoolsMetadataResponseComposite =
+  spectroClustersGetHybridPoolsMetadataResponse200;
 
-export type SpectroClustersGetHybridPoolsMetadataResponse =
-  SpectroClustersGetHybridPoolsMetadataResponseComposite & {
+export type spectroClustersGetHybridPoolsMetadataResponse =
+  spectroClustersGetHybridPoolsMetadataResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGetHybridPoolsMetadataUrl = (uid: string) => {
+export const getSpectroClustersGetHybridPoolsMetadataUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/hybridPools/metadata`;
 };
 
-export const SpectroClustersGetHybridPoolsMetadata = async (
+export const spectroClustersGetHybridPoolsMetadata = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersGetHybridPoolsMetadataResponse> => {
-  const res = await fetch(getV1SpectroClustersGetHybridPoolsMetadataUrl(uid), {
+): Promise<spectroClustersGetHybridPoolsMetadataResponse> => {
+  const res = await fetch(getSpectroClustersGetHybridPoolsMetadataUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetHybridPoolsMetadataResponse["data"] = body
+  const data: spectroClustersGetHybridPoolsMetadataResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5750,43 +5714,43 @@ export const SpectroClustersGetHybridPoolsMetadata = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGetHybridPoolsMetadataResponse;
+  } as spectroClustersGetHybridPoolsMetadataResponse;
 };
 
 /**
  * @summary Update specific cluster hybrid settings
  */
-export type SpectroClustersUidHybridSettingsResponse204 = {
+export type spectroClustersUidHybridSettingsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidHybridSettingsResponseComposite =
-  SpectroClustersUidHybridSettingsResponse204;
+export type spectroClustersUidHybridSettingsResponseComposite =
+  spectroClustersUidHybridSettingsResponse204;
 
-export type SpectroClustersUidHybridSettingsResponse =
-  SpectroClustersUidHybridSettingsResponseComposite & {
+export type spectroClustersUidHybridSettingsResponse =
+  spectroClustersUidHybridSettingsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidHybridSettingsUrl = (uid: string) => {
+export const getSpectroClustersUidHybridSettingsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/hybridSettings`;
 };
 
-export const SpectroClustersUidHybridSettings = async (
+export const spectroClustersUidHybridSettings = async (
   uid: string,
-  ClusterHybridSettingsEntity: ClusterHybridSettingsEntity,
+  clusterHybridSettingsEntity: ClusterHybridSettingsEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidHybridSettingsResponse> => {
-  const res = await fetch(getV1SpectroClustersUidHybridSettingsUrl(uid), {
+): Promise<spectroClustersUidHybridSettingsResponse> => {
+  const res = await fetch(getSpectroClustersUidHybridSettingsUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterHybridSettingsEntity),
+    body: JSON.stringify(clusterHybridSettingsEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidHybridSettingsResponse["data"] = body
+  const data: spectroClustersUidHybridSettingsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5794,40 +5758,40 @@ export const SpectroClustersUidHybridSettings = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidHybridSettingsResponse;
+  } as spectroClustersUidHybridSettingsResponse;
 };
 
 /**
  * @summary Returns the specified cluster's import manifest file
  */
-export type SpectroClustersUidImportManifestResponse200 = {
+export type spectroClustersUidImportManifestResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type SpectroClustersUidImportManifestResponseComposite =
-  SpectroClustersUidImportManifestResponse200;
+export type spectroClustersUidImportManifestResponseComposite =
+  spectroClustersUidImportManifestResponse200;
 
-export type SpectroClustersUidImportManifestResponse =
-  SpectroClustersUidImportManifestResponseComposite & {
+export type spectroClustersUidImportManifestResponse =
+  spectroClustersUidImportManifestResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidImportManifestUrl = (uid: string) => {
+export const getSpectroClustersUidImportManifestUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/import/manifest`;
 };
 
-export const SpectroClustersUidImportManifest = async (
+export const spectroClustersUidImportManifest = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidImportManifestResponse> => {
-  const res = await fetch(getV1SpectroClustersUidImportManifestUrl(uid), {
+): Promise<spectroClustersUidImportManifestResponse> => {
+  const res = await fetch(getSpectroClustersUidImportManifestUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidImportManifestResponse["data"] = body
+  const data: spectroClustersUidImportManifestResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5835,40 +5799,40 @@ export const SpectroClustersUidImportManifest = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidImportManifestResponse;
+  } as spectroClustersUidImportManifestResponse;
 };
 
 /**
  * @summary Upgrade the specified imported read only cluster with full permissions
  */
-export type SpectroClustersUidImportUpgradePatchResponse204 = {
+export type spectroClustersUidImportUpgradePatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidImportUpgradePatchResponseComposite =
-  SpectroClustersUidImportUpgradePatchResponse204;
+export type spectroClustersUidImportUpgradePatchResponseComposite =
+  spectroClustersUidImportUpgradePatchResponse204;
 
-export type SpectroClustersUidImportUpgradePatchResponse =
-  SpectroClustersUidImportUpgradePatchResponseComposite & {
+export type spectroClustersUidImportUpgradePatchResponse =
+  spectroClustersUidImportUpgradePatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidImportUpgradePatchUrl = (uid: string) => {
+export const getSpectroClustersUidImportUpgradePatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/import/upgrade`;
 };
 
-export const SpectroClustersUidImportUpgradePatch = async (
+export const spectroClustersUidImportUpgradePatch = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidImportUpgradePatchResponse> => {
-  const res = await fetch(getV1SpectroClustersUidImportUpgradePatchUrl(uid), {
+): Promise<spectroClustersUidImportUpgradePatchResponse> => {
+  const res = await fetch(getSpectroClustersUidImportUpgradePatchUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidImportUpgradePatchResponse["data"] = body
+  const data: spectroClustersUidImportUpgradePatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5876,40 +5840,40 @@ export const SpectroClustersUidImportUpgradePatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidImportUpgradePatchResponse;
+  } as spectroClustersUidImportUpgradePatchResponse;
 };
 
 /**
  * @summary Get K8Certificate for spectro cluster
  */
-export type SpectroClustersK8CertificateResponse200 = {
+export type spectroClustersK8CertificateResponse200 = {
   data: MachineCertificates;
   status: 200;
 };
 
-export type SpectroClustersK8CertificateResponseComposite =
-  SpectroClustersK8CertificateResponse200;
+export type spectroClustersK8CertificateResponseComposite =
+  spectroClustersK8CertificateResponse200;
 
-export type SpectroClustersK8CertificateResponse =
-  SpectroClustersK8CertificateResponseComposite & {
+export type spectroClustersK8CertificateResponse =
+  spectroClustersK8CertificateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersK8CertificateUrl = (uid: string) => {
+export const getSpectroClustersK8CertificateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates`;
 };
 
-export const SpectroClustersK8Certificate = async (
+export const spectroClustersK8Certificate = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersK8CertificateResponse> => {
-  const res = await fetch(getV1SpectroClustersK8CertificateUrl(uid), {
+): Promise<spectroClustersK8CertificateResponse> => {
+  const res = await fetch(getSpectroClustersK8CertificateUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersK8CertificateResponse["data"] = body
+  const data: spectroClustersK8CertificateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5917,43 +5881,43 @@ export const SpectroClustersK8Certificate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersK8CertificateResponse;
+  } as spectroClustersK8CertificateResponse;
 };
 
 /**
  * @summary Update K8Certificate for spectro cluster
  */
-export type SpectroClustersK8CertificateUpdateResponse204 = {
+export type spectroClustersK8CertificateUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersK8CertificateUpdateResponseComposite =
-  SpectroClustersK8CertificateUpdateResponse204;
+export type spectroClustersK8CertificateUpdateResponseComposite =
+  spectroClustersK8CertificateUpdateResponse204;
 
-export type SpectroClustersK8CertificateUpdateResponse =
-  SpectroClustersK8CertificateUpdateResponseComposite & {
+export type spectroClustersK8CertificateUpdateResponse =
+  spectroClustersK8CertificateUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersK8CertificateUpdateUrl = (uid: string) => {
+export const getSpectroClustersK8CertificateUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates`;
 };
 
-export const SpectroClustersK8CertificateUpdate = async (
+export const spectroClustersK8CertificateUpdate = async (
   uid: string,
-  SpectroClusterK8sCertificate: SpectroClusterK8sCertificate,
+  spectroClusterK8sCertificate: SpectroClusterK8sCertificate,
   options?: RequestInit,
-): Promise<SpectroClustersK8CertificateUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersK8CertificateUpdateUrl(uid), {
+): Promise<spectroClustersK8CertificateUpdateResponse> => {
+  const res = await fetch(getSpectroClustersK8CertificateUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterK8sCertificate),
+    body: JSON.stringify(spectroClusterK8sCertificate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersK8CertificateUpdateResponse["data"] = body
+  const data: spectroClustersK8CertificateUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5961,40 +5925,40 @@ export const SpectroClustersK8CertificateUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersK8CertificateUpdateResponse;
+  } as spectroClustersK8CertificateUpdateResponse;
 };
 
 /**
  * @summary Sets the cluster control plane nodes Kubernetes certificates for renewal
  */
-export type SpectroClustersCertificatesRenewResponse204 = {
+export type spectroClustersCertificatesRenewResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersCertificatesRenewResponseComposite =
-  SpectroClustersCertificatesRenewResponse204;
+export type spectroClustersCertificatesRenewResponseComposite =
+  spectroClustersCertificatesRenewResponse204;
 
-export type SpectroClustersCertificatesRenewResponse =
-  SpectroClustersCertificatesRenewResponseComposite & {
+export type spectroClustersCertificatesRenewResponse =
+  spectroClustersCertificatesRenewResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersCertificatesRenewUrl = (uid: string) => {
+export const getSpectroClustersCertificatesRenewUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates/renew`;
 };
 
-export const SpectroClustersCertificatesRenew = async (
+export const spectroClustersCertificatesRenew = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersCertificatesRenewResponse> => {
-  const res = await fetch(getV1SpectroClustersCertificatesRenewUrl(uid), {
+): Promise<spectroClustersCertificatesRenewResponse> => {
+  const res = await fetch(getSpectroClustersCertificatesRenewUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersCertificatesRenewResponse["data"] = body
+  const data: spectroClustersCertificatesRenewResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6002,22 +5966,22 @@ export const SpectroClustersCertificatesRenew = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersCertificatesRenewResponse;
+  } as spectroClustersCertificatesRenewResponse;
 };
 
 /**
  * @summary Returns the specified cluster's kube config file
  */
-export type SpectroClustersUidKubeCtlRedirectResponse200 = {
+export type v1SpectroClustersUidKubeCtlRedirectResponse200 = {
   data: SpectroClusterKubeCtlRedirect;
   status: 200;
 };
 
-export type SpectroClustersUidKubeCtlRedirectResponseComposite =
-  SpectroClustersUidKubeCtlRedirectResponse200;
+export type v1SpectroClustersUidKubeCtlRedirectResponseComposite =
+  v1SpectroClustersUidKubeCtlRedirectResponse200;
 
-export type SpectroClustersUidKubeCtlRedirectResponse =
-  SpectroClustersUidKubeCtlRedirectResponseComposite & {
+export type v1SpectroClustersUidKubeCtlRedirectResponse =
+  v1SpectroClustersUidKubeCtlRedirectResponseComposite & {
     headers: Headers;
   };
 
@@ -6025,17 +5989,17 @@ export const getV1SpectroClustersUidKubeCtlRedirectUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/kubectl/redirect`;
 };
 
-export const SpectroClustersUidKubeCtlRedirect = async (
+export const v1SpectroClustersUidKubeCtlRedirect = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidKubeCtlRedirectResponse> => {
+): Promise<v1SpectroClustersUidKubeCtlRedirectResponse> => {
   const res = await fetch(getV1SpectroClustersUidKubeCtlRedirectUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidKubeCtlRedirectResponse["data"] = body
+  const data: v1SpectroClustersUidKubeCtlRedirectResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6043,43 +6007,43 @@ export const SpectroClustersUidKubeCtlRedirect = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidKubeCtlRedirectResponse;
+  } as v1SpectroClustersUidKubeCtlRedirectResponse;
 };
 
 /**
  * @summary Associate the assets for the cluster
  */
-export type SpectroClustersUidLocationPutResponse204 = {
+export type spectroClustersUidLocationPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidLocationPutResponseComposite =
-  SpectroClustersUidLocationPutResponse204;
+export type spectroClustersUidLocationPutResponseComposite =
+  spectroClustersUidLocationPutResponse204;
 
-export type SpectroClustersUidLocationPutResponse =
-  SpectroClustersUidLocationPutResponseComposite & {
+export type spectroClustersUidLocationPutResponse =
+  spectroClustersUidLocationPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidLocationPutUrl = (uid: string) => {
+export const getSpectroClustersUidLocationPutUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/location`;
 };
 
-export const SpectroClustersUidLocationPut = async (
+export const spectroClustersUidLocationPut = async (
   uid: string,
-  SpectroClusterLocationInputEntity: SpectroClusterLocationInputEntity,
+  spectroClusterLocationInputEntity: SpectroClusterLocationInputEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidLocationPutResponse> => {
-  const res = await fetch(getV1SpectroClustersUidLocationPutUrl(uid), {
+): Promise<spectroClustersUidLocationPutResponse> => {
+  const res = await fetch(getSpectroClustersUidLocationPutUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterLocationInputEntity),
+    body: JSON.stringify(spectroClusterLocationInputEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidLocationPutResponse["data"] = body
+  const data: spectroClustersUidLocationPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6087,43 +6051,43 @@ export const SpectroClustersUidLocationPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidLocationPutResponse;
+  } as spectroClustersUidLocationPutResponse;
 };
 
 /**
  * @summary Update the specified spectro cluster metadata
  */
-export type SpectroClustersUidMetadataUpdateResponse204 = {
+export type spectroClustersUidMetadataUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidMetadataUpdateResponseComposite =
-  SpectroClustersUidMetadataUpdateResponse204;
+export type spectroClustersUidMetadataUpdateResponseComposite =
+  spectroClustersUidMetadataUpdateResponse204;
 
-export type SpectroClustersUidMetadataUpdateResponse =
-  SpectroClustersUidMetadataUpdateResponseComposite & {
+export type spectroClustersUidMetadataUpdateResponse =
+  spectroClustersUidMetadataUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidMetadataUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidMetadataUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/metadata`;
 };
 
-export const SpectroClustersUidMetadataUpdate = async (
+export const spectroClustersUidMetadataUpdate = async (
   uid: string,
-  ObjectMetaInputEntitySchemaBody: ObjectMetaInputEntitySchemaBody,
+  v1ObjectMetaInputEntitySchemaBody: V1ObjectMetaInputEntitySchemaBody,
   options?: RequestInit,
-): Promise<SpectroClustersUidMetadataUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidMetadataUpdateUrl(uid), {
+): Promise<spectroClustersUidMetadataUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidMetadataUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ObjectMetaInputEntitySchemaBody),
+    body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidMetadataUpdateResponse["data"] = body
+  const data: spectroClustersUidMetadataUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6131,26 +6095,26 @@ export const SpectroClustersUidMetadataUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidMetadataUpdateResponse;
+  } as spectroClustersUidMetadataUpdateResponse;
 };
 
 /**
  * @summary Returns available namespaces for the cluster
  */
-export type ClusterNamespacesGetResponse200 = {
+export type clusterNamespacesGetResponse200 = {
   data: ClusterNamespaces;
   status: 200;
 };
 
-export type ClusterNamespacesGetResponseComposite =
-  ClusterNamespacesGetResponse200;
+export type clusterNamespacesGetResponseComposite =
+  clusterNamespacesGetResponse200;
 
-export type ClusterNamespacesGetResponse =
-  ClusterNamespacesGetResponseComposite & {
+export type clusterNamespacesGetResponse =
+  clusterNamespacesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterNamespacesGetUrl = (
+export const getClusterNamespacesGetUrl = (
   uid: string,
   params?: ClusterNamespacesGetParams,
 ) => {
@@ -6165,18 +6129,18 @@ export const getV1ClusterNamespacesGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/namespaces`;
 };
 
-export const ClusterNamespacesGet = async (
+export const clusterNamespacesGet = async (
   uid: string,
   params?: ClusterNamespacesGetParams,
   options?: RequestInit,
-): Promise<ClusterNamespacesGetResponse> => {
-  const res = await fetch(getV1ClusterNamespacesGetUrl(uid, params), {
+): Promise<clusterNamespacesGetResponse> => {
+  const res = await fetch(getClusterNamespacesGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterNamespacesGetResponse["data"] = body
+  const data: clusterNamespacesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6184,22 +6148,22 @@ export const ClusterNamespacesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterNamespacesGetResponse;
+  } as clusterNamespacesGetResponse;
 };
 
 /**
  * @summary Returns k8s spectrocluster oidc
  */
-export type SpectroClustersUidOIDCResponse200 = {
+export type v1SpectroClustersUidOIDCResponse200 = {
   data: SpectroClusterOidcSpec;
   status: 200;
 };
 
-export type SpectroClustersUidOIDCResponseComposite =
-  SpectroClustersUidOIDCResponse200;
+export type v1SpectroClustersUidOIDCResponseComposite =
+  v1SpectroClustersUidOIDCResponse200;
 
-export type SpectroClustersUidOIDCResponse =
-  SpectroClustersUidOIDCResponseComposite & {
+export type v1SpectroClustersUidOIDCResponse =
+  v1SpectroClustersUidOIDCResponseComposite & {
     headers: Headers;
   };
 
@@ -6207,17 +6171,17 @@ export const getV1SpectroClustersUidOIDCUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/oidc`;
 };
 
-export const SpectroClustersUidOIDC = async (
+export const v1SpectroClustersUidOIDC = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidOIDCResponse> => {
+): Promise<v1SpectroClustersUidOIDCResponse> => {
   const res = await fetch(getV1SpectroClustersUidOIDCUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidOIDCResponse["data"] = body
+  const data: v1SpectroClustersUidOIDCResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6225,22 +6189,22 @@ export const SpectroClustersUidOIDC = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidOIDCResponse;
+  } as v1SpectroClustersUidOIDCResponse;
 };
 
 /**
  * @summary Returns k8s dashboard url
  */
-export type SpectroClustersUidOIDCDashboardUrlResponse200 = {
+export type v1SpectroClustersUidOIDCDashboardUrlResponse200 = {
   data: SectroClusterK8sDashboardUrl;
   status: 200;
 };
 
-export type SpectroClustersUidOIDCDashboardUrlResponseComposite =
-  SpectroClustersUidOIDCDashboardUrlResponse200;
+export type v1SpectroClustersUidOIDCDashboardUrlResponseComposite =
+  v1SpectroClustersUidOIDCDashboardUrlResponse200;
 
-export type SpectroClustersUidOIDCDashboardUrlResponse =
-  SpectroClustersUidOIDCDashboardUrlResponseComposite & {
+export type v1SpectroClustersUidOIDCDashboardUrlResponse =
+  v1SpectroClustersUidOIDCDashboardUrlResponseComposite & {
     headers: Headers;
   };
 
@@ -6248,17 +6212,17 @@ export const getV1SpectroClustersUidOIDCDashboardUrlUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/oidc/dashboard/url`;
 };
 
-export const SpectroClustersUidOIDCDashboardUrl = async (
+export const v1SpectroClustersUidOIDCDashboardUrl = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidOIDCDashboardUrlResponse> => {
+): Promise<v1SpectroClustersUidOIDCDashboardUrlResponse> => {
   const res = await fetch(getV1SpectroClustersUidOIDCDashboardUrlUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidOIDCDashboardUrlResponse["data"] = body
+  const data: v1SpectroClustersUidOIDCDashboardUrlResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6266,26 +6230,26 @@ export const SpectroClustersUidOIDCDashboardUrl = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidOIDCDashboardUrlResponse;
+  } as v1SpectroClustersUidOIDCDashboardUrlResponse;
 };
 
 /**
  * @summary Returns the specified cluster's manifest
  */
-export type SpectroClustersUidPackManifestsUidGetResponse200 = {
+export type spectroClustersUidPackManifestsUidGetResponse200 = {
   data: Manifest;
   status: 200;
 };
 
-export type SpectroClustersUidPackManifestsUidGetResponseComposite =
-  SpectroClustersUidPackManifestsUidGetResponse200;
+export type spectroClustersUidPackManifestsUidGetResponseComposite =
+  spectroClustersUidPackManifestsUidGetResponse200;
 
-export type SpectroClustersUidPackManifestsUidGetResponse =
-  SpectroClustersUidPackManifestsUidGetResponseComposite & {
+export type spectroClustersUidPackManifestsUidGetResponse =
+  spectroClustersUidPackManifestsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidPackManifestsUidGetUrl = (
+export const getSpectroClustersUidPackManifestsUidGetUrl = (
   uid: string,
   manifestUid: string,
   params?: SpectroClustersUidPackManifestsUidGetParams,
@@ -6305,14 +6269,14 @@ export const getV1SpectroClustersUidPackManifestsUidGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}`;
 };
 
-export const SpectroClustersUidPackManifestsUidGet = async (
+export const spectroClustersUidPackManifestsUidGet = async (
   uid: string,
   manifestUid: string,
   params?: SpectroClustersUidPackManifestsUidGetParams,
   options?: RequestInit,
-): Promise<SpectroClustersUidPackManifestsUidGetResponse> => {
+): Promise<spectroClustersUidPackManifestsUidGetResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidPackManifestsUidGetUrl(uid, manifestUid, params),
+    getSpectroClustersUidPackManifestsUidGetUrl(uid, manifestUid, params),
     {
       ...options,
       method: "GET",
@@ -6320,7 +6284,7 @@ export const SpectroClustersUidPackManifestsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidPackManifestsUidGetResponse["data"] = body
+  const data: spectroClustersUidPackManifestsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6328,26 +6292,26 @@ export const SpectroClustersUidPackManifestsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidPackManifestsUidGetResponse;
+  } as spectroClustersUidPackManifestsUidGetResponse;
 };
 
 /**
  * @summary Get specified cluster pack properties
  */
-export type SpectroClustersUidPackPropertiesResponse200 = {
+export type spectroClustersUidPackPropertiesResponse200 = {
   data: SpectroClusterPackProperties;
   status: 200;
 };
 
-export type SpectroClustersUidPackPropertiesResponseComposite =
-  SpectroClustersUidPackPropertiesResponse200;
+export type spectroClustersUidPackPropertiesResponseComposite =
+  spectroClustersUidPackPropertiesResponse200;
 
-export type SpectroClustersUidPackPropertiesResponse =
-  SpectroClustersUidPackPropertiesResponseComposite & {
+export type spectroClustersUidPackPropertiesResponse =
+  spectroClustersUidPackPropertiesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidPackPropertiesUrl = (
+export const getSpectroClustersUidPackPropertiesUrl = (
   uid: string,
   params: SpectroClustersUidPackPropertiesParams,
 ) => {
@@ -6366,21 +6330,18 @@ export const getV1SpectroClustersUidPackPropertiesUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/properties`;
 };
 
-export const SpectroClustersUidPackProperties = async (
+export const spectroClustersUidPackProperties = async (
   uid: string,
   params: SpectroClustersUidPackPropertiesParams,
   options?: RequestInit,
-): Promise<SpectroClustersUidPackPropertiesResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidPackPropertiesUrl(uid, params),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+): Promise<spectroClustersUidPackPropertiesResponse> => {
+  const res = await fetch(getSpectroClustersUidPackPropertiesUrl(uid, params), {
+    ...options,
+    method: "GET",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidPackPropertiesResponse["data"] = body
+  const data: spectroClustersUidPackPropertiesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6388,26 +6349,26 @@ export const SpectroClustersUidPackProperties = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidPackPropertiesResponse;
+  } as spectroClustersUidPackPropertiesResponse;
 };
 
 /**
  * @summary Updates the cluster's pack references
  */
-export type SpectroClustersPacksRefUpdateResponse204 = {
+export type spectroClustersPacksRefUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersPacksRefUpdateResponseComposite =
-  SpectroClustersPacksRefUpdateResponse204;
+export type spectroClustersPacksRefUpdateResponseComposite =
+  spectroClustersPacksRefUpdateResponse204;
 
-export type SpectroClustersPacksRefUpdateResponse =
-  SpectroClustersPacksRefUpdateResponseComposite & {
+export type spectroClustersPacksRefUpdateResponse =
+  spectroClustersPacksRefUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersPacksRefUpdateUrl = (
+export const getSpectroClustersPacksRefUpdateUrl = (
   uid: string,
   params?: SpectroClustersPacksRefUpdateParams,
 ) => {
@@ -6422,21 +6383,21 @@ export const getV1SpectroClustersPacksRefUpdateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packRefs`;
 };
 
-export const SpectroClustersPacksRefUpdate = async (
+export const spectroClustersPacksRefUpdate = async (
   uid: string,
-  ClusterNotificationUpdateEntity: ClusterNotificationUpdateEntity,
+  clusterNotificationUpdateEntity: ClusterNotificationUpdateEntity,
   params?: SpectroClustersPacksRefUpdateParams,
   options?: RequestInit,
-): Promise<SpectroClustersPacksRefUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersPacksRefUpdateUrl(uid, params), {
+): Promise<spectroClustersPacksRefUpdateResponse> => {
+  const res = await fetch(getSpectroClustersPacksRefUpdateUrl(uid, params), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterNotificationUpdateEntity),
+    body: JSON.stringify(clusterNotificationUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersPacksRefUpdateResponse["data"] = body
+  const data: spectroClustersPacksRefUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6444,45 +6405,40 @@ export const SpectroClustersPacksRefUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersPacksRefUpdateResponse;
+  } as spectroClustersPacksRefUpdateResponse;
 };
 
 /**
  * @summary Returns the specified cluster's packs resolved values
  */
-export type SpectroClustersUidPacksResolvedValuesGetResponse200 = {
+export type spectroClustersUidPacksResolvedValuesGetResponse200 = {
   data: SpectroClusterProfilesResolvedValues;
   status: 200;
 };
 
-export type SpectroClustersUidPacksResolvedValuesGetResponseComposite =
-  SpectroClustersUidPacksResolvedValuesGetResponse200;
+export type spectroClustersUidPacksResolvedValuesGetResponseComposite =
+  spectroClustersUidPacksResolvedValuesGetResponse200;
 
-export type SpectroClustersUidPacksResolvedValuesGetResponse =
-  SpectroClustersUidPacksResolvedValuesGetResponseComposite & {
+export type spectroClustersUidPacksResolvedValuesGetResponse =
+  spectroClustersUidPacksResolvedValuesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidPacksResolvedValuesGetUrl = (
-  uid: string,
-) => {
+export const getSpectroClustersUidPacksResolvedValuesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packs/resolvedValues`;
 };
 
-export const SpectroClustersUidPacksResolvedValuesGet = async (
+export const spectroClustersUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersUidPacksResolvedValuesGetUrl(uid),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+): Promise<spectroClustersUidPacksResolvedValuesGetResponse> => {
+  const res = await fetch(getSpectroClustersUidPacksResolvedValuesGetUrl(uid), {
+    ...options,
+    method: "GET",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidPacksResolvedValuesGetResponse["data"] = body
+  const data: spectroClustersUidPacksResolvedValuesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6490,43 +6446,43 @@ export const SpectroClustersUidPacksResolvedValuesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidPacksResolvedValuesGetResponse;
+  } as spectroClustersUidPacksResolvedValuesGetResponse;
 };
 
 /**
  * @summary Patch update specified cluster's packs status
  */
-export type SpectroClustersUidPacksStatusPatchResponse204 = {
+export type spectroClustersUidPacksStatusPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidPacksStatusPatchResponseComposite =
-  SpectroClustersUidPacksStatusPatchResponse204;
+export type spectroClustersUidPacksStatusPatchResponseComposite =
+  spectroClustersUidPacksStatusPatchResponse204;
 
-export type SpectroClustersUidPacksStatusPatchResponse =
-  SpectroClustersUidPacksStatusPatchResponseComposite & {
+export type spectroClustersUidPacksStatusPatchResponse =
+  spectroClustersUidPacksStatusPatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidPacksStatusPatchUrl = (uid: string) => {
+export const getSpectroClustersUidPacksStatusPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packs/status`;
 };
 
-export const SpectroClustersUidPacksStatusPatch = async (
+export const spectroClustersUidPacksStatusPatch = async (
   uid: string,
-  SpectroClusterPacksStatusEntityBody: SpectroClusterPacksStatusEntityBody,
+  v1SpectroClusterPacksStatusEntityBody: V1SpectroClusterPacksStatusEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersUidPacksStatusPatchResponse> => {
-  const res = await fetch(getV1SpectroClustersUidPacksStatusPatchUrl(uid), {
+): Promise<spectroClustersUidPacksStatusPatchResponse> => {
+  const res = await fetch(getSpectroClustersUidPacksStatusPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterPacksStatusEntityBody),
+    body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidPacksStatusPatchResponse["data"] = body
+  const data: spectroClustersUidPacksStatusPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6534,40 +6490,40 @@ export const SpectroClustersUidPacksStatusPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidPacksStatusPatchResponse;
+  } as spectroClustersUidPacksStatusPatchResponse;
 };
 
 /**
  * @summary Returns the profile updates of a specified cluster
  */
-export type SpectroClustersGetProfileUpdatesResponse200 = {
+export type spectroClustersGetProfileUpdatesResponse200 = {
   data: SpectroClusterProfileUpdates;
   status: 200;
 };
 
-export type SpectroClustersGetProfileUpdatesResponseComposite =
-  SpectroClustersGetProfileUpdatesResponse200;
+export type spectroClustersGetProfileUpdatesResponseComposite =
+  spectroClustersGetProfileUpdatesResponse200;
 
-export type SpectroClustersGetProfileUpdatesResponse =
-  SpectroClustersGetProfileUpdatesResponseComposite & {
+export type spectroClustersGetProfileUpdatesResponse =
+  spectroClustersGetProfileUpdatesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGetProfileUpdatesUrl = (uid: string) => {
+export const getSpectroClustersGetProfileUpdatesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profileUpdates`;
 };
 
-export const SpectroClustersGetProfileUpdates = async (
+export const spectroClustersGetProfileUpdates = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersGetProfileUpdatesResponse> => {
-  const res = await fetch(getV1SpectroClustersGetProfileUpdatesUrl(uid), {
+): Promise<spectroClustersGetProfileUpdatesResponse> => {
+  const res = await fetch(getSpectroClustersGetProfileUpdatesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetProfileUpdatesResponse["data"] = body
+  const data: spectroClustersGetProfileUpdatesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6575,43 +6531,43 @@ export const SpectroClustersGetProfileUpdates = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGetProfileUpdatesResponse;
+  } as spectroClustersGetProfileUpdatesResponse;
 };
 
 /**
  * @summary Remove cluster profiles from the specified cluster
  */
-export type SpectroClustersDeleteProfilesResponse204 = {
+export type spectroClustersDeleteProfilesResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersDeleteProfilesResponseComposite =
-  SpectroClustersDeleteProfilesResponse204;
+export type spectroClustersDeleteProfilesResponseComposite =
+  spectroClustersDeleteProfilesResponse204;
 
-export type SpectroClustersDeleteProfilesResponse =
-  SpectroClustersDeleteProfilesResponseComposite & {
+export type spectroClustersDeleteProfilesResponse =
+  spectroClustersDeleteProfilesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersDeleteProfilesUrl = (uid: string) => {
+export const getSpectroClustersDeleteProfilesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`;
 };
 
-export const SpectroClustersDeleteProfiles = async (
+export const spectroClustersDeleteProfiles = async (
   uid: string,
-  SpectroClusterProfilesDeleteEntity: SpectroClusterProfilesDeleteEntity,
+  spectroClusterProfilesDeleteEntity: SpectroClusterProfilesDeleteEntity,
   options?: RequestInit,
-): Promise<SpectroClustersDeleteProfilesResponse> => {
-  const res = await fetch(getV1SpectroClustersDeleteProfilesUrl(uid), {
+): Promise<spectroClustersDeleteProfilesResponse> => {
+  const res = await fetch(getSpectroClustersDeleteProfilesUrl(uid), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterProfilesDeleteEntity),
+    body: JSON.stringify(spectroClusterProfilesDeleteEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersDeleteProfilesResponse["data"] = body
+  const data: spectroClustersDeleteProfilesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6619,26 +6575,26 @@ export const SpectroClustersDeleteProfiles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersDeleteProfilesResponse;
+  } as spectroClustersDeleteProfilesResponse;
 };
 
 /**
  * @summary Returns the associated profiles of a specified cluster
  */
-export type SpectroClustersGetProfilesResponse200 = {
+export type spectroClustersGetProfilesResponse200 = {
   data: SpectroClusterProfileList;
   status: 200;
 };
 
-export type SpectroClustersGetProfilesResponseComposite =
-  SpectroClustersGetProfilesResponse200;
+export type spectroClustersGetProfilesResponseComposite =
+  spectroClustersGetProfilesResponse200;
 
-export type SpectroClustersGetProfilesResponse =
-  SpectroClustersGetProfilesResponseComposite & {
+export type spectroClustersGetProfilesResponse =
+  spectroClustersGetProfilesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGetProfilesUrl = (
+export const getSpectroClustersGetProfilesUrl = (
   uid: string,
   params?: SpectroClustersGetProfilesParams,
 ) => {
@@ -6657,18 +6613,18 @@ export const getV1SpectroClustersGetProfilesUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`;
 };
 
-export const SpectroClustersGetProfiles = async (
+export const spectroClustersGetProfiles = async (
   uid: string,
   params?: SpectroClustersGetProfilesParams,
   options?: RequestInit,
-): Promise<SpectroClustersGetProfilesResponse> => {
-  const res = await fetch(getV1SpectroClustersGetProfilesUrl(uid, params), {
+): Promise<spectroClustersGetProfilesResponse> => {
+  const res = await fetch(getSpectroClustersGetProfilesUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetProfilesResponse["data"] = body
+  const data: spectroClustersGetProfilesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6676,26 +6632,26 @@ export const SpectroClustersGetProfiles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGetProfilesResponse;
+  } as spectroClustersGetProfilesResponse;
 };
 
 /**
  * @summary Patch cluster profiles to the specified cluster
  */
-export type SpectroClustersPatchProfilesResponse204 = {
+export type spectroClustersPatchProfilesResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersPatchProfilesResponseComposite =
-  SpectroClustersPatchProfilesResponse204;
+export type spectroClustersPatchProfilesResponseComposite =
+  spectroClustersPatchProfilesResponse204;
 
-export type SpectroClustersPatchProfilesResponse =
-  SpectroClustersPatchProfilesResponseComposite & {
+export type spectroClustersPatchProfilesResponse =
+  spectroClustersPatchProfilesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersPatchProfilesUrl = (
+export const getSpectroClustersPatchProfilesUrl = (
   uid: string,
   params?: SpectroClustersPatchProfilesParams,
 ) => {
@@ -6714,21 +6670,21 @@ export const getV1SpectroClustersPatchProfilesUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`;
 };
 
-export const SpectroClustersPatchProfiles = async (
+export const spectroClustersPatchProfiles = async (
   uid: string,
-  SpectroClusterProfilesBody: SpectroClusterProfilesBody,
+  v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   params?: SpectroClustersPatchProfilesParams,
   options?: RequestInit,
-): Promise<SpectroClustersPatchProfilesResponse> => {
-  const res = await fetch(getV1SpectroClustersPatchProfilesUrl(uid, params), {
+): Promise<spectroClustersPatchProfilesResponse> => {
+  const res = await fetch(getSpectroClustersPatchProfilesUrl(uid, params), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterProfilesBody),
+    body: JSON.stringify(v1SpectroClusterProfilesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersPatchProfilesResponse["data"] = body
+  const data: spectroClustersPatchProfilesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6736,26 +6692,26 @@ export const SpectroClustersPatchProfiles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersPatchProfilesResponse;
+  } as spectroClustersPatchProfilesResponse;
 };
 
 /**
  * @summary Associate cluster profiles to the specified cluster
  */
-export type SpectroClustersUpdateProfilesResponse204 = {
+export type spectroClustersUpdateProfilesResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateProfilesResponseComposite =
-  SpectroClustersUpdateProfilesResponse204;
+export type spectroClustersUpdateProfilesResponseComposite =
+  spectroClustersUpdateProfilesResponse204;
 
-export type SpectroClustersUpdateProfilesResponse =
-  SpectroClustersUpdateProfilesResponseComposite & {
+export type spectroClustersUpdateProfilesResponse =
+  spectroClustersUpdateProfilesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateProfilesUrl = (
+export const getSpectroClustersUpdateProfilesUrl = (
   uid: string,
   params?: SpectroClustersUpdateProfilesParams,
 ) => {
@@ -6774,21 +6730,21 @@ export const getV1SpectroClustersUpdateProfilesUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`;
 };
 
-export const SpectroClustersUpdateProfiles = async (
+export const spectroClustersUpdateProfiles = async (
   uid: string,
-  SpectroClusterProfilesBody: SpectroClusterProfilesBody,
+  v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   params?: SpectroClustersUpdateProfilesParams,
   options?: RequestInit,
-): Promise<SpectroClustersUpdateProfilesResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateProfilesUrl(uid, params), {
+): Promise<spectroClustersUpdateProfilesResponse> => {
+  const res = await fetch(getSpectroClustersUpdateProfilesUrl(uid, params), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterProfilesBody),
+    body: JSON.stringify(v1SpectroClusterProfilesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateProfilesResponse["data"] = body
+  const data: spectroClustersUpdateProfilesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6796,26 +6752,26 @@ export const SpectroClustersUpdateProfiles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateProfilesResponse;
+  } as spectroClustersUpdateProfilesResponse;
 };
 
 /**
  * @summary Returns the associated profile's pack manifests of a specified cluster
  */
-export type SpectroClustersGetProfilesPacksManifestsResponse200 = {
+export type spectroClustersGetProfilesPacksManifestsResponse200 = {
   data: SpectroClusterProfilesPacksManifests;
   status: 200;
 };
 
-export type SpectroClustersGetProfilesPacksManifestsResponseComposite =
-  SpectroClustersGetProfilesPacksManifestsResponse200;
+export type spectroClustersGetProfilesPacksManifestsResponseComposite =
+  spectroClustersGetProfilesPacksManifestsResponse200;
 
-export type SpectroClustersGetProfilesPacksManifestsResponse =
-  SpectroClustersGetProfilesPacksManifestsResponseComposite & {
+export type spectroClustersGetProfilesPacksManifestsResponse =
+  spectroClustersGetProfilesPacksManifestsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersGetProfilesPacksManifestsUrl = (
+export const getSpectroClustersGetProfilesPacksManifestsUrl = (
   uid: string,
   params?: SpectroClustersGetProfilesPacksManifestsParams,
 ) => {
@@ -6834,13 +6790,13 @@ export const getV1SpectroClustersGetProfilesPacksManifestsUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/packs/manifests`;
 };
 
-export const SpectroClustersGetProfilesPacksManifests = async (
+export const spectroClustersGetProfilesPacksManifests = async (
   uid: string,
   params?: SpectroClustersGetProfilesPacksManifestsParams,
   options?: RequestInit,
-): Promise<SpectroClustersGetProfilesPacksManifestsResponse> => {
+): Promise<spectroClustersGetProfilesPacksManifestsResponse> => {
   const res = await fetch(
-    getV1SpectroClustersGetProfilesPacksManifestsUrl(uid, params),
+    getSpectroClustersGetProfilesPacksManifestsUrl(uid, params),
     {
       ...options,
       method: "GET",
@@ -6848,7 +6804,7 @@ export const SpectroClustersGetProfilesPacksManifests = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersGetProfilesPacksManifestsResponse["data"] = body
+  const data: spectroClustersGetProfilesPacksManifestsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6856,26 +6812,26 @@ export const SpectroClustersGetProfilesPacksManifests = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersGetProfilesPacksManifestsResponse;
+  } as spectroClustersGetProfilesPacksManifestsResponse;
 };
 
 /**
  * @summary Returns the specified cluster's profile pack configuration
  */
-export type SpectroClustersUidProfilesUidPacksConfigGetResponse200 = {
+export type spectroClustersUidProfilesUidPacksConfigGetResponse200 = {
   data: SpectroClusterPackConfigList;
   status: 200;
 };
 
-export type SpectroClustersUidProfilesUidPacksConfigGetResponseComposite =
-  SpectroClustersUidProfilesUidPacksConfigGetResponse200;
+export type spectroClustersUidProfilesUidPacksConfigGetResponseComposite =
+  spectroClustersUidProfilesUidPacksConfigGetResponse200;
 
-export type SpectroClustersUidProfilesUidPacksConfigGetResponse =
-  SpectroClustersUidProfilesUidPacksConfigGetResponseComposite & {
+export type spectroClustersUidProfilesUidPacksConfigGetResponse =
+  spectroClustersUidProfilesUidPacksConfigGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidProfilesUidPacksConfigGetUrl = (
+export const getSpectroClustersUidProfilesUidPacksConfigGetUrl = (
   uid: string,
   profileUid: string,
   packName: string,
@@ -6883,14 +6839,14 @@ export const getV1SpectroClustersUidProfilesUidPacksConfigGetUrl = (
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/config`;
 };
 
-export const SpectroClustersUidProfilesUidPacksConfigGet = async (
+export const spectroClustersUidProfilesUidPacksConfigGet = async (
   uid: string,
   profileUid: string,
   packName: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidProfilesUidPacksConfigGetResponse> => {
+): Promise<spectroClustersUidProfilesUidPacksConfigGetResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidProfilesUidPacksConfigGetUrl(
+    getSpectroClustersUidProfilesUidPacksConfigGetUrl(
       uid,
       profileUid,
       packName,
@@ -6902,7 +6858,7 @@ export const SpectroClustersUidProfilesUidPacksConfigGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidProfilesUidPacksConfigGetResponse["data"] = body
+  const data: spectroClustersUidProfilesUidPacksConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6910,26 +6866,26 @@ export const SpectroClustersUidProfilesUidPacksConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidProfilesUidPacksConfigGetResponse;
+  } as spectroClustersUidProfilesUidPacksConfigGetResponse;
 };
 
 /**
  * @summary Returns the associated profiles pack manifests of the specified cluster
  */
-export type SpectroClustersProfilesUidPackManifestsGetResponse200 = {
+export type spectroClustersProfilesUidPackManifestsGetResponse200 = {
   data: PackManifests;
   status: 200;
 };
 
-export type SpectroClustersProfilesUidPackManifestsGetResponseComposite =
-  SpectroClustersProfilesUidPackManifestsGetResponse200;
+export type spectroClustersProfilesUidPackManifestsGetResponseComposite =
+  spectroClustersProfilesUidPackManifestsGetResponse200;
 
-export type SpectroClustersProfilesUidPackManifestsGetResponse =
-  SpectroClustersProfilesUidPackManifestsGetResponseComposite & {
+export type spectroClustersProfilesUidPackManifestsGetResponse =
+  spectroClustersProfilesUidPackManifestsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersProfilesUidPackManifestsGetUrl = (
+export const getSpectroClustersProfilesUidPackManifestsGetUrl = (
   uid: string,
   profileUid: string,
   packName: string,
@@ -6937,18 +6893,14 @@ export const getV1SpectroClustersProfilesUidPackManifestsGetUrl = (
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`;
 };
 
-export const SpectroClustersProfilesUidPackManifestsGet = async (
+export const spectroClustersProfilesUidPackManifestsGet = async (
   uid: string,
   profileUid: string,
   packName: string,
   options?: RequestInit,
-): Promise<SpectroClustersProfilesUidPackManifestsGetResponse> => {
+): Promise<spectroClustersProfilesUidPackManifestsGetResponse> => {
   const res = await fetch(
-    getV1SpectroClustersProfilesUidPackManifestsGetUrl(
-      uid,
-      profileUid,
-      packName,
-    ),
+    getSpectroClustersProfilesUidPackManifestsGetUrl(uid, profileUid, packName),
     {
       ...options,
       method: "GET",
@@ -6956,7 +6908,7 @@ export const SpectroClustersProfilesUidPackManifestsGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersProfilesUidPackManifestsGetResponse["data"] = body
+  const data: spectroClustersProfilesUidPackManifestsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -6964,26 +6916,26 @@ export const SpectroClustersProfilesUidPackManifestsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersProfilesUidPackManifestsGetResponse;
+  } as spectroClustersProfilesUidPackManifestsGetResponse;
 };
 
 /**
  * @summary Updates cluster profiles pack manifests to the specified cluster
  */
-export type SpectroClustersProfilesUidPackManifestsUpdateResponse204 = {
+export type spectroClustersProfilesUidPackManifestsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersProfilesUidPackManifestsUpdateResponseComposite =
-  SpectroClustersProfilesUidPackManifestsUpdateResponse204;
+export type spectroClustersProfilesUidPackManifestsUpdateResponseComposite =
+  spectroClustersProfilesUidPackManifestsUpdateResponse204;
 
-export type SpectroClustersProfilesUidPackManifestsUpdateResponse =
-  SpectroClustersProfilesUidPackManifestsUpdateResponseComposite & {
+export type spectroClustersProfilesUidPackManifestsUpdateResponse =
+  spectroClustersProfilesUidPackManifestsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersProfilesUidPackManifestsUpdateUrl = (
+export const getSpectroClustersProfilesUidPackManifestsUpdateUrl = (
   uid: string,
   profileUid: string,
   packName: string,
@@ -6991,15 +6943,15 @@ export const getV1SpectroClustersProfilesUidPackManifestsUpdateUrl = (
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`;
 };
 
-export const SpectroClustersProfilesUidPackManifestsUpdate = async (
+export const spectroClustersProfilesUidPackManifestsUpdate = async (
   uid: string,
   profileUid: string,
   packName: string,
-  ManifestRefInputEntities: ManifestRefInputEntities,
+  manifestRefInputEntities: ManifestRefInputEntities,
   options?: RequestInit,
-): Promise<SpectroClustersProfilesUidPackManifestsUpdateResponse> => {
+): Promise<spectroClustersProfilesUidPackManifestsUpdateResponse> => {
   const res = await fetch(
-    getV1SpectroClustersProfilesUidPackManifestsUpdateUrl(
+    getSpectroClustersProfilesUidPackManifestsUpdateUrl(
       uid,
       profileUid,
       packName,
@@ -7008,38 +6960,38 @@ export const SpectroClustersProfilesUidPackManifestsUpdate = async (
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ManifestRefInputEntities),
+      body: JSON.stringify(manifestRefInputEntities),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersProfilesUidPackManifestsUpdateResponse["data"] =
+  const data: spectroClustersProfilesUidPackManifestsUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersProfilesUidPackManifestsUpdateResponse;
+  } as spectroClustersProfilesUidPackManifestsUpdateResponse;
 };
 
 /**
  * @summary Returns the estimated rate of the specified cluster
  */
-export type SpectroClustersUidRateResponse200 = {
+export type spectroClustersUidRateResponse200 = {
   data: SpectroClusterRate;
   status: 200;
 };
 
-export type SpectroClustersUidRateResponseComposite =
-  SpectroClustersUidRateResponse200;
+export type spectroClustersUidRateResponseComposite =
+  spectroClustersUidRateResponse200;
 
-export type SpectroClustersUidRateResponse =
-  SpectroClustersUidRateResponseComposite & {
+export type spectroClustersUidRateResponse =
+  spectroClustersUidRateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidRateUrl = (
+export const getSpectroClustersUidRateUrl = (
   uid: string,
   params?: SpectroClustersUidRateParams,
 ) => {
@@ -7054,18 +7006,18 @@ export const getV1SpectroClustersUidRateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/rate`;
 };
 
-export const SpectroClustersUidRate = async (
+export const spectroClustersUidRate = async (
   uid: string,
   params?: SpectroClustersUidRateParams,
   options?: RequestInit,
-): Promise<SpectroClustersUidRateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidRateUrl(uid, params), {
+): Promise<spectroClustersUidRateResponse> => {
+  const res = await fetch(getSpectroClustersUidRateUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidRateResponse["data"] = body
+  const data: spectroClustersUidRateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7073,40 +7025,40 @@ export const SpectroClustersUidRate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidRateResponse;
+  } as spectroClustersUidRateResponse;
 };
 
 /**
  * @summary Returns the spectrocluster repave approve update
  */
-export type SpectroClustersUidRepaveApproveUpdateResponse204 = {
+export type spectroClustersUidRepaveApproveUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidRepaveApproveUpdateResponseComposite =
-  SpectroClustersUidRepaveApproveUpdateResponse204;
+export type spectroClustersUidRepaveApproveUpdateResponseComposite =
+  spectroClustersUidRepaveApproveUpdateResponse204;
 
-export type SpectroClustersUidRepaveApproveUpdateResponse =
-  SpectroClustersUidRepaveApproveUpdateResponseComposite & {
+export type spectroClustersUidRepaveApproveUpdateResponse =
+  spectroClustersUidRepaveApproveUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidRepaveApproveUpdateUrl = (uid: string) => {
+export const getSpectroClustersUidRepaveApproveUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/repave/approve`;
 };
 
-export const SpectroClustersUidRepaveApproveUpdate = async (
+export const spectroClustersUidRepaveApproveUpdate = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidRepaveApproveUpdateResponse> => {
-  const res = await fetch(getV1SpectroClustersUidRepaveApproveUpdateUrl(uid), {
+): Promise<spectroClustersUidRepaveApproveUpdateResponse> => {
+  const res = await fetch(getSpectroClustersUidRepaveApproveUpdateUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidRepaveApproveUpdateResponse["data"] = body
+  const data: spectroClustersUidRepaveApproveUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7114,40 +7066,40 @@ export const SpectroClustersUidRepaveApproveUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidRepaveApproveUpdateResponse;
+  } as spectroClustersUidRepaveApproveUpdateResponse;
 };
 
 /**
  * @summary Returns the spectrocluster repave
  */
-export type SpectroClustersUidRepaveGetResponse200 = {
+export type spectroClustersUidRepaveGetResponse200 = {
   data: SpectroClusterRepave;
   status: 200;
 };
 
-export type SpectroClustersUidRepaveGetResponseComposite =
-  SpectroClustersUidRepaveGetResponse200;
+export type spectroClustersUidRepaveGetResponseComposite =
+  spectroClustersUidRepaveGetResponse200;
 
-export type SpectroClustersUidRepaveGetResponse =
-  SpectroClustersUidRepaveGetResponseComposite & {
+export type spectroClustersUidRepaveGetResponse =
+  spectroClustersUidRepaveGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidRepaveGetUrl = (uid: string) => {
+export const getSpectroClustersUidRepaveGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/repave/status`;
 };
 
-export const SpectroClustersUidRepaveGet = async (
+export const spectroClustersUidRepaveGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidRepaveGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidRepaveGetUrl(uid), {
+): Promise<spectroClustersUidRepaveGetResponse> => {
+  const res = await fetch(getSpectroClustersUidRepaveGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidRepaveGetResponse["data"] = body
+  const data: spectroClustersUidRepaveGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7155,22 +7107,22 @@ export const SpectroClustersUidRepaveGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidRepaveGetResponse;
+  } as spectroClustersUidRepaveGetResponse;
 };
 
 /**
  * @summary reset the cluster s by deleting machine pools and condtions
  */
-export type SpectroClustersUidResetResponse204 = {
+export type v1SpectroClustersUidResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidResetResponseComposite =
-  SpectroClustersUidResetResponse204;
+export type v1SpectroClustersUidResetResponseComposite =
+  v1SpectroClustersUidResetResponse204;
 
-export type SpectroClustersUidResetResponse =
-  SpectroClustersUidResetResponseComposite & {
+export type v1SpectroClustersUidResetResponse =
+  v1SpectroClustersUidResetResponseComposite & {
     headers: Headers;
   };
 
@@ -7178,17 +7130,17 @@ export const getV1SpectroClustersUidResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/reset`;
 };
 
-export const SpectroClustersUidReset = async (
+export const v1SpectroClustersUidReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidResetResponse> => {
+): Promise<v1SpectroClustersUidResetResponse> => {
   const res = await fetch(getV1SpectroClustersUidResetUrl(uid), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidResetResponse["data"] = body
+  const data: v1SpectroClustersUidResetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7196,40 +7148,40 @@ export const SpectroClustersUidReset = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidResetResponse;
+  } as v1SpectroClustersUidResetResponse;
 };
 
 /**
  * @summary Get the cluster's status
  */
-export type SpectroClustersUidStatusResponse200 = {
+export type spectroClustersUidStatusResponse200 = {
   data: SpectroClusterStatusEntity;
   status: 200;
 };
 
-export type SpectroClustersUidStatusResponseComposite =
-  SpectroClustersUidStatusResponse200;
+export type spectroClustersUidStatusResponseComposite =
+  spectroClustersUidStatusResponse200;
 
-export type SpectroClustersUidStatusResponse =
-  SpectroClustersUidStatusResponseComposite & {
+export type spectroClustersUidStatusResponse =
+  spectroClustersUidStatusResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidStatusUrl = (uid: string) => {
+export const getSpectroClustersUidStatusUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status`;
 };
 
-export const SpectroClustersUidStatus = async (
+export const spectroClustersUidStatus = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidStatusResponse> => {
-  const res = await fetch(getV1SpectroClustersUidStatusUrl(uid), {
+): Promise<spectroClustersUidStatusResponse> => {
+  const res = await fetch(getSpectroClustersUidStatusUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidStatusResponse["data"] = body
+  const data: spectroClustersUidStatusResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7237,43 +7189,43 @@ export const SpectroClustersUidStatus = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidStatusResponse;
+  } as spectroClustersUidStatusResponse;
 };
 
 /**
  * @summary Updates the specified cluster status condition
  */
-export type SpectroClustersUpdateStatusConditionResponse204 = {
+export type spectroClustersUpdateStatusConditionResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateStatusConditionResponseComposite =
-  SpectroClustersUpdateStatusConditionResponse204;
+export type spectroClustersUpdateStatusConditionResponseComposite =
+  spectroClustersUpdateStatusConditionResponse204;
 
-export type SpectroClustersUpdateStatusConditionResponse =
-  SpectroClustersUpdateStatusConditionResponseComposite & {
+export type spectroClustersUpdateStatusConditionResponse =
+  spectroClustersUpdateStatusConditionResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateStatusConditionUrl = (uid: string) => {
+export const getSpectroClustersUpdateStatusConditionUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/condition`;
 };
 
-export const SpectroClustersUpdateStatusCondition = async (
+export const spectroClustersUpdateStatusCondition = async (
   uid: string,
-  ClusterCondition: ClusterCondition,
+  clusterCondition: ClusterCondition,
   options?: RequestInit,
-): Promise<SpectroClustersUpdateStatusConditionResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateStatusConditionUrl(uid), {
+): Promise<spectroClustersUpdateStatusConditionResponse> => {
+  const res = await fetch(getSpectroClustersUpdateStatusConditionUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterCondition),
+    body: JSON.stringify(clusterCondition),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateStatusConditionResponse["data"] = body
+  const data: spectroClustersUpdateStatusConditionResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7281,43 +7233,43 @@ export const SpectroClustersUpdateStatusCondition = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateStatusConditionResponse;
+  } as spectroClustersUpdateStatusConditionResponse;
 };
 
 /**
  * @summary Updates the specified cluster status conditions
  */
-export type SpectroClustersUpdateStatusConditionsResponse204 = {
+export type spectroClustersUpdateStatusConditionsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateStatusConditionsResponseComposite =
-  SpectroClustersUpdateStatusConditionsResponse204;
+export type spectroClustersUpdateStatusConditionsResponseComposite =
+  spectroClustersUpdateStatusConditionsResponse204;
 
-export type SpectroClustersUpdateStatusConditionsResponse =
-  SpectroClustersUpdateStatusConditionsResponseComposite & {
+export type spectroClustersUpdateStatusConditionsResponse =
+  spectroClustersUpdateStatusConditionsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateStatusConditionsUrl = (uid: string) => {
+export const getSpectroClustersUpdateStatusConditionsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/conditions`;
 };
 
-export const SpectroClustersUpdateStatusConditions = async (
+export const spectroClustersUpdateStatusConditions = async (
   uid: string,
-  ClusterCondition: ClusterCondition[],
+  clusterCondition: ClusterCondition[],
   options?: RequestInit,
-): Promise<SpectroClustersUpdateStatusConditionsResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateStatusConditionsUrl(uid), {
+): Promise<spectroClustersUpdateStatusConditionsResponse> => {
+  const res = await fetch(getSpectroClustersUpdateStatusConditionsUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterCondition),
+    body: JSON.stringify(clusterCondition),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateStatusConditionsResponse["data"] = body
+  const data: spectroClustersUpdateStatusConditionsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7325,43 +7277,43 @@ export const SpectroClustersUpdateStatusConditions = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateStatusConditionsResponse;
+  } as spectroClustersUpdateStatusConditionsResponse;
 };
 
 /**
  * @summary Updates the specified cluster's service endpoints information
  */
-export type SpectroClustersUpdateStatusEndpointsResponse204 = {
+export type spectroClustersUpdateStatusEndpointsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateStatusEndpointsResponseComposite =
-  SpectroClustersUpdateStatusEndpointsResponse204;
+export type spectroClustersUpdateStatusEndpointsResponseComposite =
+  spectroClustersUpdateStatusEndpointsResponse204;
 
-export type SpectroClustersUpdateStatusEndpointsResponse =
-  SpectroClustersUpdateStatusEndpointsResponseComposite & {
+export type spectroClustersUpdateStatusEndpointsResponse =
+  spectroClustersUpdateStatusEndpointsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateStatusEndpointsUrl = (uid: string) => {
+export const getSpectroClustersUpdateStatusEndpointsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/endpoints`;
 };
 
-export const SpectroClustersUpdateStatusEndpoints = async (
+export const spectroClustersUpdateStatusEndpoints = async (
   uid: string,
-  ApiEndpoint: ApiEndpoint[],
+  apiEndpoint: ApiEndpoint[],
   options?: RequestInit,
-): Promise<SpectroClustersUpdateStatusEndpointsResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateStatusEndpointsUrl(uid), {
+): Promise<spectroClustersUpdateStatusEndpointsResponse> => {
+  const res = await fetch(getSpectroClustersUpdateStatusEndpointsUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ApiEndpoint),
+    body: JSON.stringify(apiEndpoint),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateStatusEndpointsResponse["data"] = body
+  const data: spectroClustersUpdateStatusEndpointsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7369,40 +7321,40 @@ export const SpectroClustersUpdateStatusEndpoints = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateStatusEndpointsResponse;
+  } as spectroClustersUpdateStatusEndpointsResponse;
 };
 
 /**
  * @summary Updates the specified cluster status as imported
  */
-export type SpectroClustersUpdateStatusImportedResponse204 = {
+export type spectroClustersUpdateStatusImportedResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateStatusImportedResponseComposite =
-  SpectroClustersUpdateStatusImportedResponse204;
+export type spectroClustersUpdateStatusImportedResponseComposite =
+  spectroClustersUpdateStatusImportedResponse204;
 
-export type SpectroClustersUpdateStatusImportedResponse =
-  SpectroClustersUpdateStatusImportedResponseComposite & {
+export type spectroClustersUpdateStatusImportedResponse =
+  spectroClustersUpdateStatusImportedResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateStatusImportedUrl = (uid: string) => {
+export const getSpectroClustersUpdateStatusImportedUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/imported`;
 };
 
-export const SpectroClustersUpdateStatusImported = async (
+export const spectroClustersUpdateStatusImported = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUpdateStatusImportedResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateStatusImportedUrl(uid), {
+): Promise<spectroClustersUpdateStatusImportedResponse> => {
+  const res = await fetch(getSpectroClustersUpdateStatusImportedUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateStatusImportedResponse["data"] = body
+  const data: spectroClustersUpdateStatusImportedResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7410,43 +7362,43 @@ export const SpectroClustersUpdateStatusImported = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateStatusImportedResponse;
+  } as spectroClustersUpdateStatusImportedResponse;
 };
 
 /**
  * @summary Updates the specified cluster's services information
  */
-export type SpectroClustersUpdateStatusServicesResponse204 = {
+export type spectroClustersUpdateStatusServicesResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUpdateStatusServicesResponseComposite =
-  SpectroClustersUpdateStatusServicesResponse204;
+export type spectroClustersUpdateStatusServicesResponseComposite =
+  spectroClustersUpdateStatusServicesResponse204;
 
-export type SpectroClustersUpdateStatusServicesResponse =
-  SpectroClustersUpdateStatusServicesResponseComposite & {
+export type spectroClustersUpdateStatusServicesResponse =
+  spectroClustersUpdateStatusServicesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUpdateStatusServicesUrl = (uid: string) => {
+export const getSpectroClustersUpdateStatusServicesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/services`;
 };
 
-export const SpectroClustersUpdateStatusServices = async (
+export const spectroClustersUpdateStatusServices = async (
   uid: string,
-  LoadBalancerService: LoadBalancerService[],
+  loadBalancerService: LoadBalancerService[],
   options?: RequestInit,
-): Promise<SpectroClustersUpdateStatusServicesResponse> => {
-  const res = await fetch(getV1SpectroClustersUpdateStatusServicesUrl(uid), {
+): Promise<spectroClustersUpdateStatusServicesResponse> => {
+  const res = await fetch(getSpectroClustersUpdateStatusServicesUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(LoadBalancerService),
+    body: JSON.stringify(loadBalancerService),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUpdateStatusServicesResponse["data"] = body
+  const data: spectroClustersUpdateStatusServicesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7454,40 +7406,40 @@ export const SpectroClustersUpdateStatusServices = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUpdateStatusServicesResponse;
+  } as spectroClustersUpdateStatusServicesResponse;
 };
 
 /**
  * @summary Returns the SPC apply information for the agent
  */
-export type SpectroClustersUidStatusSpcApplyGetResponse200 = {
+export type spectroClustersUidStatusSpcApplyGetResponse200 = {
   data: SpcApply;
   status: 200;
 };
 
-export type SpectroClustersUidStatusSpcApplyGetResponseComposite =
-  SpectroClustersUidStatusSpcApplyGetResponse200;
+export type spectroClustersUidStatusSpcApplyGetResponseComposite =
+  spectroClustersUidStatusSpcApplyGetResponse200;
 
-export type SpectroClustersUidStatusSpcApplyGetResponse =
-  SpectroClustersUidStatusSpcApplyGetResponseComposite & {
+export type spectroClustersUidStatusSpcApplyGetResponse =
+  spectroClustersUidStatusSpcApplyGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidStatusSpcApplyGetUrl = (uid: string) => {
+export const getSpectroClustersUidStatusSpcApplyGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply`;
 };
 
-export const SpectroClustersUidStatusSpcApplyGet = async (
+export const spectroClustersUidStatusSpcApplyGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidStatusSpcApplyGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidStatusSpcApplyGetUrl(uid), {
+): Promise<spectroClustersUidStatusSpcApplyGetResponse> => {
+  const res = await fetch(getSpectroClustersUidStatusSpcApplyGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidStatusSpcApplyGetResponse["data"] = body
+  const data: spectroClustersUidStatusSpcApplyGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7495,40 +7447,40 @@ export const SpectroClustersUidStatusSpcApplyGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidStatusSpcApplyGetResponse;
+  } as spectroClustersUidStatusSpcApplyGetResponse;
 };
 
 /**
  * @summary Set the CanBeApplied to true on the spcApply status. CanBeApplied indicates the agent to orchestrate the spc changes
  */
-export type SpectroClustersUidStatusSpcApplyResponse202 = {
+export type spectroClustersUidStatusSpcApplyResponse202 = {
   data: void;
   status: 202;
 };
 
-export type SpectroClustersUidStatusSpcApplyResponseComposite =
-  SpectroClustersUidStatusSpcApplyResponse202;
+export type spectroClustersUidStatusSpcApplyResponseComposite =
+  spectroClustersUidStatusSpcApplyResponse202;
 
-export type SpectroClustersUidStatusSpcApplyResponse =
-  SpectroClustersUidStatusSpcApplyResponseComposite & {
+export type spectroClustersUidStatusSpcApplyResponse =
+  spectroClustersUidStatusSpcApplyResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidStatusSpcApplyUrl = (uid: string) => {
+export const getSpectroClustersUidStatusSpcApplyUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply`;
 };
 
-export const SpectroClustersUidStatusSpcApply = async (
+export const spectroClustersUidStatusSpcApply = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidStatusSpcApplyResponse> => {
-  const res = await fetch(getV1SpectroClustersUidStatusSpcApplyUrl(uid), {
+): Promise<spectroClustersUidStatusSpcApplyResponse> => {
+  const res = await fetch(getSpectroClustersUidStatusSpcApplyUrl(uid), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidStatusSpcApplyResponse["data"] = body
+  const data: spectroClustersUidStatusSpcApplyResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7536,43 +7488,43 @@ export const SpectroClustersUidStatusSpcApply = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidStatusSpcApplyResponse;
+  } as spectroClustersUidStatusSpcApplyResponse;
 };
 
 /**
  * @summary Updates the agent patch time for the SPC changes
  */
-export type SpectroClustersUidStatusSpcPatchTimeResponse204 = {
+export type spectroClustersUidStatusSpcPatchTimeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidStatusSpcPatchTimeResponseComposite =
-  SpectroClustersUidStatusSpcPatchTimeResponse204;
+export type spectroClustersUidStatusSpcPatchTimeResponseComposite =
+  spectroClustersUidStatusSpcPatchTimeResponse204;
 
-export type SpectroClustersUidStatusSpcPatchTimeResponse =
-  SpectroClustersUidStatusSpcPatchTimeResponseComposite & {
+export type spectroClustersUidStatusSpcPatchTimeResponse =
+  spectroClustersUidStatusSpcPatchTimeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidStatusSpcPatchTimeUrl = (uid: string) => {
+export const getSpectroClustersUidStatusSpcPatchTimeUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply/patchTime`;
 };
 
-export const SpectroClustersUidStatusSpcPatchTime = async (
+export const spectroClustersUidStatusSpcPatchTime = async (
   uid: string,
-  SpcPatchTimeEntity: SpcPatchTimeEntity,
+  spcPatchTimeEntity: SpcPatchTimeEntity,
   options?: RequestInit,
-): Promise<SpectroClustersUidStatusSpcPatchTimeResponse> => {
-  const res = await fetch(getV1SpectroClustersUidStatusSpcPatchTimeUrl(uid), {
+): Promise<spectroClustersUidStatusSpcPatchTimeResponse> => {
+  const res = await fetch(getSpectroClustersUidStatusSpcPatchTimeUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpcPatchTimeEntity),
+    body: JSON.stringify(spcPatchTimeEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidStatusSpcPatchTimeResponse["data"] = body
+  const data: spectroClustersUidStatusSpcPatchTimeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7580,43 +7532,43 @@ export const SpectroClustersUidStatusSpcPatchTime = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidStatusSpcPatchTimeResponse;
+  } as spectroClustersUidStatusSpcPatchTimeResponse;
 };
 
 /**
  * @summary Updates the cluster's upgrade status
  */
-export type SpectroClustersUidUpgradesPutResponse204 = {
+export type spectroClustersUidUpgradesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidUpgradesPutResponseComposite =
-  SpectroClustersUidUpgradesPutResponse204;
+export type spectroClustersUidUpgradesPutResponseComposite =
+  spectroClustersUidUpgradesPutResponse204;
 
-export type SpectroClustersUidUpgradesPutResponse =
-  SpectroClustersUidUpgradesPutResponseComposite & {
+export type spectroClustersUidUpgradesPutResponse =
+  spectroClustersUidUpgradesPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidUpgradesPutUrl = (uid: string) => {
+export const getSpectroClustersUidUpgradesPutUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/upgrades`;
 };
 
-export const SpectroClustersUidUpgradesPut = async (
+export const spectroClustersUidUpgradesPut = async (
   uid: string,
-  SpectroClusterUidUpgrades: SpectroClusterUidUpgrades,
+  spectroClusterUidUpgrades: SpectroClusterUidUpgrades,
   options?: RequestInit,
-): Promise<SpectroClustersUidUpgradesPutResponse> => {
-  const res = await fetch(getV1SpectroClustersUidUpgradesPutUrl(uid), {
+): Promise<spectroClustersUidUpgradesPutResponse> => {
+  const res = await fetch(getSpectroClustersUidUpgradesPutUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterUidUpgrades),
+    body: JSON.stringify(spectroClusterUidUpgrades),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidUpgradesPutResponse["data"] = body
+  const data: spectroClustersUidUpgradesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7624,43 +7576,43 @@ export const SpectroClustersUidUpgradesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidUpgradesPutResponse;
+  } as spectroClustersUidUpgradesPutResponse;
 };
 
 /**
  * @summary Update specific cluster upgrade settings
  */
-export type SpectroClustersUidUpgradeSettingsResponse204 = {
+export type spectroClustersUidUpgradeSettingsResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidUpgradeSettingsResponseComposite =
-  SpectroClustersUidUpgradeSettingsResponse204;
+export type spectroClustersUidUpgradeSettingsResponseComposite =
+  spectroClustersUidUpgradeSettingsResponse204;
 
-export type SpectroClustersUidUpgradeSettingsResponse =
-  SpectroClustersUidUpgradeSettingsResponseComposite & {
+export type spectroClustersUidUpgradeSettingsResponse =
+  spectroClustersUidUpgradeSettingsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidUpgradeSettingsUrl = (uid: string) => {
+export const getSpectroClustersUidUpgradeSettingsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/upgrade/settings`;
 };
 
-export const SpectroClustersUidUpgradeSettings = async (
+export const spectroClustersUidUpgradeSettings = async (
   uid: string,
-  ClusterUpgradeSettingsEntityBody: ClusterUpgradeSettingsEntityBody,
+  v1ClusterUpgradeSettingsEntityBody: V1ClusterUpgradeSettingsEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersUidUpgradeSettingsResponse> => {
-  const res = await fetch(getV1SpectroClustersUidUpgradeSettingsUrl(uid), {
+): Promise<spectroClustersUidUpgradeSettingsResponse> => {
+  const res = await fetch(getSpectroClustersUidUpgradeSettingsUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterUpgradeSettingsEntityBody),
+    body: JSON.stringify(v1ClusterUpgradeSettingsEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidUpgradeSettingsResponse["data"] = body
+  const data: spectroClustersUidUpgradeSettingsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7668,43 +7620,43 @@ export const SpectroClustersUidUpgradeSettings = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidUpgradeSettingsResponse;
+  } as spectroClustersUidUpgradeSettingsResponse;
 };
 
 /**
  * @summary Validates cluster packs
  */
-export type SpectroClustersUidValidatePacksResponse200 = {
+export type spectroClustersUidValidatePacksResponse200 = {
   data: SpectroClusterValidatorResponse;
   status: 200;
 };
 
-export type SpectroClustersUidValidatePacksResponseComposite =
-  SpectroClustersUidValidatePacksResponse200;
+export type spectroClustersUidValidatePacksResponseComposite =
+  spectroClustersUidValidatePacksResponse200;
 
-export type SpectroClustersUidValidatePacksResponse =
-  SpectroClustersUidValidatePacksResponseComposite & {
+export type spectroClustersUidValidatePacksResponse =
+  spectroClustersUidValidatePacksResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidValidatePacksUrl = (uid: string) => {
+export const getSpectroClustersUidValidatePacksUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/validate/packs`;
 };
 
-export const SpectroClustersUidValidatePacks = async (
+export const spectroClustersUidValidatePacks = async (
   uid: string,
-  SpectroClusterPacksEntityBody: SpectroClusterPacksEntityBody,
+  v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersUidValidatePacksResponse> => {
-  const res = await fetch(getV1SpectroClustersUidValidatePacksUrl(uid), {
+): Promise<spectroClustersUidValidatePacksResponse> => {
+  const res = await fetch(getSpectroClustersUidValidatePacksUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterPacksEntityBody),
+    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidValidatePacksResponse["data"] = body
+  const data: spectroClustersUidValidatePacksResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7712,43 +7664,43 @@ export const SpectroClustersUidValidatePacks = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidValidatePacksResponse;
+  } as spectroClustersUidValidatePacksResponse;
 };
 
 /**
  * @summary Validates if cluster gets repaved for the specified packs
  */
-export type SpectroClustersUidValidateRepaveResponse200 = {
+export type spectroClustersUidValidateRepaveResponse200 = {
   data: SpectroClusterRepaveValidationResponse;
   status: 200;
 };
 
-export type SpectroClustersUidValidateRepaveResponseComposite =
-  SpectroClustersUidValidateRepaveResponse200;
+export type spectroClustersUidValidateRepaveResponseComposite =
+  spectroClustersUidValidateRepaveResponse200;
 
-export type SpectroClustersUidValidateRepaveResponse =
-  SpectroClustersUidValidateRepaveResponseComposite & {
+export type spectroClustersUidValidateRepaveResponse =
+  spectroClustersUidValidateRepaveResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidValidateRepaveUrl = (uid: string) => {
+export const getSpectroClustersUidValidateRepaveUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/validate/repave`;
 };
 
-export const SpectroClustersUidValidateRepave = async (
+export const spectroClustersUidValidateRepave = async (
   uid: string,
-  SpectroClusterPacksEntityBody: SpectroClusterPacksEntityBody,
+  v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody,
   options?: RequestInit,
-): Promise<SpectroClustersUidValidateRepaveResponse> => {
-  const res = await fetch(getV1SpectroClustersUidValidateRepaveUrl(uid), {
+): Promise<spectroClustersUidValidateRepaveResponse> => {
+  const res = await fetch(getSpectroClustersUidValidateRepaveUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterPacksEntityBody),
+    body: JSON.stringify(v1SpectroClusterPacksEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidValidateRepaveResponse["data"] = body
+  const data: spectroClustersUidValidateRepaveResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7756,40 +7708,40 @@ export const SpectroClustersUidValidateRepave = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidValidateRepaveResponse;
+  } as spectroClustersUidValidateRepaveResponse;
 };
 
 /**
  * @summary Retrieve a list of variables associated with the cluster
  */
-export type SpectroClustersUidVariablesGetResponse200 = {
+export type spectroClustersUidVariablesGetResponse200 = {
   data: SpectroClusterVariables[];
   status: 200;
 };
 
-export type SpectroClustersUidVariablesGetResponseComposite =
-  SpectroClustersUidVariablesGetResponse200;
+export type spectroClustersUidVariablesGetResponseComposite =
+  spectroClustersUidVariablesGetResponse200;
 
-export type SpectroClustersUidVariablesGetResponse =
-  SpectroClustersUidVariablesGetResponseComposite & {
+export type spectroClustersUidVariablesGetResponse =
+  spectroClustersUidVariablesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidVariablesGetUrl = (uid: string) => {
+export const getSpectroClustersUidVariablesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/variables`;
 };
 
-export const SpectroClustersUidVariablesGet = async (
+export const spectroClustersUidVariablesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidVariablesGetResponse> => {
-  const res = await fetch(getV1SpectroClustersUidVariablesGetUrl(uid), {
+): Promise<spectroClustersUidVariablesGetResponse> => {
+  const res = await fetch(getSpectroClustersUidVariablesGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidVariablesGetResponse["data"] = body
+  const data: spectroClustersUidVariablesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7797,43 +7749,43 @@ export const SpectroClustersUidVariablesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidVariablesGetResponse;
+  } as spectroClustersUidVariablesGetResponse;
 };
 
 /**
  * @summary Update cluster variable values for specified cluster
  */
-export type SpectroClustersUidVariablesPatchResponse204 = {
+export type spectroClustersUidVariablesPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersUidVariablesPatchResponseComposite =
-  SpectroClustersUidVariablesPatchResponse204;
+export type spectroClustersUidVariablesPatchResponseComposite =
+  spectroClustersUidVariablesPatchResponse204;
 
-export type SpectroClustersUidVariablesPatchResponse =
-  SpectroClustersUidVariablesPatchResponseComposite & {
+export type spectroClustersUidVariablesPatchResponse =
+  spectroClustersUidVariablesPatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidVariablesPatchUrl = (uid: string) => {
+export const getSpectroClustersUidVariablesPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/variables`;
 };
 
-export const SpectroClustersUidVariablesPatch = async (
+export const spectroClustersUidVariablesPatch = async (
   uid: string,
-  SpectroClusterVariableUpdateEntity: SpectroClusterVariableUpdateEntity[],
+  spectroClusterVariableUpdateEntity: SpectroClusterVariableUpdateEntity[],
   options?: RequestInit,
-): Promise<SpectroClustersUidVariablesPatchResponse> => {
-  const res = await fetch(getV1SpectroClustersUidVariablesPatchUrl(uid), {
+): Promise<spectroClustersUidVariablesPatchResponse> => {
+  const res = await fetch(getSpectroClustersUidVariablesPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterVariableUpdateEntity),
+    body: JSON.stringify(spectroClusterVariableUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidVariablesPatchResponse["data"] = body
+  const data: spectroClustersUidVariablesPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7841,26 +7793,26 @@ export const SpectroClustersUidVariablesPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidVariablesPatchResponse;
+  } as spectroClustersUidVariablesPatchResponse;
 };
 
 /**
  * @summary Returns the list of virtual machines
  */
-export type SpectroClustersVMListResponse200 = {
+export type spectroClustersVMListResponse200 = {
   data: ClusterVirtualMachineList;
   status: 200;
 };
 
-export type SpectroClustersVMListResponseComposite =
-  SpectroClustersVMListResponse200;
+export type spectroClustersVMListResponseComposite =
+  spectroClustersVMListResponse200;
 
-export type SpectroClustersVMListResponse =
-  SpectroClustersVMListResponseComposite & {
+export type spectroClustersVMListResponse =
+  spectroClustersVMListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMListUrl = (
+export const getSpectroClustersVMListUrl = (
   uid: string,
   params?: SpectroClustersVMListParams,
 ) => {
@@ -7879,18 +7831,18 @@ export const getV1SpectroClustersVMListUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms`;
 };
 
-export const SpectroClustersVMList = async (
+export const spectroClustersVMList = async (
   uid: string,
   params?: SpectroClustersVMListParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMListResponse> => {
-  const res = await fetch(getV1SpectroClustersVMListUrl(uid, params), {
+): Promise<spectroClustersVMListResponse> => {
+  const res = await fetch(getSpectroClustersVMListUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMListResponse["data"] = body
+  const data: spectroClustersVMListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7898,26 +7850,26 @@ export const SpectroClustersVMList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMListResponse;
+  } as spectroClustersVMListResponse;
 };
 
 /**
  * @summary Create virtual machine
  */
-export type SpectroClustersVMCreateResponse200 = {
+export type spectroClustersVMCreateResponse200 = {
   data: ClusterVirtualMachine;
   status: 200;
 };
 
-export type SpectroClustersVMCreateResponseComposite =
-  SpectroClustersVMCreateResponse200;
+export type spectroClustersVMCreateResponseComposite =
+  spectroClustersVMCreateResponse200;
 
-export type SpectroClustersVMCreateResponse =
-  SpectroClustersVMCreateResponseComposite & {
+export type spectroClustersVMCreateResponse =
+  spectroClustersVMCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMCreateUrl = (
+export const getSpectroClustersVMCreateUrl = (
   uid: string,
   params: SpectroClustersVMCreateParams,
 ) => {
@@ -7936,21 +7888,21 @@ export const getV1SpectroClustersVMCreateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms`;
 };
 
-export const SpectroClustersVMCreate = async (
+export const spectroClustersVMCreate = async (
   uid: string,
-  ClusterVirtualMachineBody: ClusterVirtualMachineBody,
+  v1ClusterVirtualMachineBody: V1ClusterVirtualMachineBody,
   params: SpectroClustersVMCreateParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMCreateResponse> => {
-  const res = await fetch(getV1SpectroClustersVMCreateUrl(uid, params), {
+): Promise<spectroClustersVMCreateResponse> => {
+  const res = await fetch(getSpectroClustersVMCreateUrl(uid, params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterVirtualMachineBody),
+    body: JSON.stringify(v1ClusterVirtualMachineBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMCreateResponse["data"] = body
+  const data: spectroClustersVMCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -7958,26 +7910,26 @@ export const SpectroClustersVMCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMCreateResponse;
+  } as spectroClustersVMCreateResponse;
 };
 
 /**
  * @summary Returns the list of snapshots of given namespaces
  */
-export type ClusterVMSnapshotsListResponse200 = {
+export type clusterVMSnapshotsListResponse200 = {
   data: VirtualMachineSnapshotList;
   status: 200;
 };
 
-export type ClusterVMSnapshotsListResponseComposite =
-  ClusterVMSnapshotsListResponse200;
+export type clusterVMSnapshotsListResponseComposite =
+  clusterVMSnapshotsListResponse200;
 
-export type ClusterVMSnapshotsListResponse =
-  ClusterVMSnapshotsListResponseComposite & {
+export type clusterVMSnapshotsListResponse =
+  clusterVMSnapshotsListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterVMSnapshotsListUrl = (
+export const getClusterVMSnapshotsListUrl = (
   uid: string,
   params?: ClusterVMSnapshotsListParams,
 ) => {
@@ -7996,18 +7948,18 @@ export const getV1ClusterVMSnapshotsListUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/snapshot`;
 };
 
-export const ClusterVMSnapshotsList = async (
+export const clusterVMSnapshotsList = async (
   uid: string,
   params?: ClusterVMSnapshotsListParams,
   options?: RequestInit,
-): Promise<ClusterVMSnapshotsListResponse> => {
-  const res = await fetch(getV1ClusterVMSnapshotsListUrl(uid, params), {
+): Promise<clusterVMSnapshotsListResponse> => {
+  const res = await fetch(getClusterVMSnapshotsListUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterVMSnapshotsListResponse["data"] = body
+  const data: clusterVMSnapshotsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8015,26 +7967,26 @@ export const ClusterVMSnapshotsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterVMSnapshotsListResponse;
+  } as clusterVMSnapshotsListResponse;
 };
 
 /**
  * @summary Deletes the virtual machine
  */
-export type SpectroClustersVMDeleteResponse204 = {
+export type spectroClustersVMDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMDeleteResponseComposite =
-  SpectroClustersVMDeleteResponse204;
+export type spectroClustersVMDeleteResponseComposite =
+  spectroClustersVMDeleteResponse204;
 
-export type SpectroClustersVMDeleteResponse =
-  SpectroClustersVMDeleteResponseComposite & {
+export type spectroClustersVMDeleteResponse =
+  spectroClustersVMDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMDeleteUrl = (
+export const getSpectroClustersVMDeleteUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMDeleteParams,
@@ -8050,22 +8002,19 @@ export const getV1SpectroClustersVMDeleteUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`;
 };
 
-export const SpectroClustersVMDelete = async (
+export const spectroClustersVMDelete = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMDeleteParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMDeleteResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersVMDeleteUrl(uid, vmName, params),
-    {
-      ...options,
-      method: "DELETE",
-    },
-  );
+): Promise<spectroClustersVMDeleteResponse> => {
+  const res = await fetch(getSpectroClustersVMDeleteUrl(uid, vmName, params), {
+    ...options,
+    method: "DELETE",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMDeleteResponse["data"] = body
+  const data: spectroClustersVMDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8073,26 +8022,26 @@ export const SpectroClustersVMDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMDeleteResponse;
+  } as spectroClustersVMDeleteResponse;
 };
 
 /**
  * @summary Get virtual machine
  */
-export type SpectroClustersVMGetResponse200 = {
+export type spectroClustersVMGetResponse200 = {
   data: ClusterVirtualMachine;
   status: 200;
 };
 
-export type SpectroClustersVMGetResponseComposite =
-  SpectroClustersVMGetResponse200;
+export type spectroClustersVMGetResponseComposite =
+  spectroClustersVMGetResponse200;
 
-export type SpectroClustersVMGetResponse =
-  SpectroClustersVMGetResponseComposite & {
+export type spectroClustersVMGetResponse =
+  spectroClustersVMGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMGetUrl = (
+export const getSpectroClustersVMGetUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMGetParams,
@@ -8108,19 +8057,19 @@ export const getV1SpectroClustersVMGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`;
 };
 
-export const SpectroClustersVMGet = async (
+export const spectroClustersVMGet = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMGetParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMGetResponse> => {
-  const res = await fetch(getV1SpectroClustersVMGetUrl(uid, vmName, params), {
+): Promise<spectroClustersVMGetResponse> => {
+  const res = await fetch(getSpectroClustersVMGetUrl(uid, vmName, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMGetResponse["data"] = body
+  const data: spectroClustersVMGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8128,26 +8077,26 @@ export const SpectroClustersVMGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMGetResponse;
+  } as spectroClustersVMGetResponse;
 };
 
 /**
  * @summary Updates the specified virtual machine of the cluster
  */
-export type SpectroClustersVMUpdateResponse200 = {
+export type spectroClustersVMUpdateResponse200 = {
   data: ClusterVirtualMachine;
   status: 200;
 };
 
-export type SpectroClustersVMUpdateResponseComposite =
-  SpectroClustersVMUpdateResponse200;
+export type spectroClustersVMUpdateResponseComposite =
+  spectroClustersVMUpdateResponse200;
 
-export type SpectroClustersVMUpdateResponse =
-  SpectroClustersVMUpdateResponseComposite & {
+export type spectroClustersVMUpdateResponse =
+  spectroClustersVMUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMUpdateUrl = (
+export const getSpectroClustersVMUpdateUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMUpdateParams,
@@ -8163,25 +8112,22 @@ export const getV1SpectroClustersVMUpdateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`;
 };
 
-export const SpectroClustersVMUpdate = async (
+export const spectroClustersVMUpdate = async (
   uid: string,
   vmName: string,
-  ClusterVirtualMachineBody: ClusterVirtualMachineBody,
+  v1ClusterVirtualMachineBody: V1ClusterVirtualMachineBody,
   params: SpectroClustersVMUpdateParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMUpdateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersVMUpdateUrl(uid, vmName, params),
-    {
-      ...options,
-      method: "PUT",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterVirtualMachineBody),
-    },
-  );
+): Promise<spectroClustersVMUpdateResponse> => {
+  const res = await fetch(getSpectroClustersVMUpdateUrl(uid, vmName, params), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(v1ClusterVirtualMachineBody),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMUpdateResponse["data"] = body
+  const data: spectroClustersVMUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8189,26 +8135,26 @@ export const SpectroClustersVMUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMUpdateResponse;
+  } as spectroClustersVMUpdateResponse;
 };
 
 /**
  * @summary Add volume to the virtual machine instance
  */
-export type SpectroClustersVMAddVolumeResponse204 = {
+export type spectroClustersVMAddVolumeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMAddVolumeResponseComposite =
-  SpectroClustersVMAddVolumeResponse204;
+export type spectroClustersVMAddVolumeResponseComposite =
+  spectroClustersVMAddVolumeResponse204;
 
-export type SpectroClustersVMAddVolumeResponse =
-  SpectroClustersVMAddVolumeResponseComposite & {
+export type spectroClustersVMAddVolumeResponse =
+  spectroClustersVMAddVolumeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMAddVolumeUrl = (
+export const getSpectroClustersVMAddVolumeUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMAddVolumeParams,
@@ -8224,25 +8170,25 @@ export const getV1SpectroClustersVMAddVolumeUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/addVolume`;
 };
 
-export const SpectroClustersVMAddVolume = async (
+export const spectroClustersVMAddVolume = async (
   uid: string,
   vmName: string,
-  VMAddVolumeEntity: VMAddVolumeEntity,
+  vMAddVolumeEntity: VMAddVolumeEntity,
   params: SpectroClustersVMAddVolumeParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMAddVolumeResponse> => {
+): Promise<spectroClustersVMAddVolumeResponse> => {
   const res = await fetch(
-    getV1SpectroClustersVMAddVolumeUrl(uid, vmName, params),
+    getSpectroClustersVMAddVolumeUrl(uid, vmName, params),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(VMAddVolumeEntity),
+      body: JSON.stringify(vMAddVolumeEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMAddVolumeResponse["data"] = body
+  const data: spectroClustersVMAddVolumeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8250,26 +8196,26 @@ export const SpectroClustersVMAddVolume = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMAddVolumeResponse;
+  } as spectroClustersVMAddVolumeResponse;
 };
 
 /**
  * @summary Clone virtual machine
  */
-export type SpectroClustersVMCloneResponse200 = {
+export type spectroClustersVMCloneResponse200 = {
   data: ClusterVirtualMachine;
   status: 200;
 };
 
-export type SpectroClustersVMCloneResponseComposite =
-  SpectroClustersVMCloneResponse200;
+export type spectroClustersVMCloneResponseComposite =
+  spectroClustersVMCloneResponse200;
 
-export type SpectroClustersVMCloneResponse =
-  SpectroClustersVMCloneResponseComposite & {
+export type spectroClustersVMCloneResponse =
+  spectroClustersVMCloneResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMCloneUrl = (
+export const getSpectroClustersVMCloneUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMCloneParams,
@@ -8285,22 +8231,22 @@ export const getV1SpectroClustersVMCloneUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/clone`;
 };
 
-export const SpectroClustersVMClone = async (
+export const spectroClustersVMClone = async (
   uid: string,
   vmName: string,
-  SpectroClusterVMCloneEntity: SpectroClusterVMCloneEntity,
+  spectroClusterVMCloneEntity: SpectroClusterVMCloneEntity,
   params: SpectroClustersVMCloneParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMCloneResponse> => {
-  const res = await fetch(getV1SpectroClustersVMCloneUrl(uid, vmName, params), {
+): Promise<spectroClustersVMCloneResponse> => {
+  const res = await fetch(getSpectroClustersVMCloneUrl(uid, vmName, params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterVMCloneEntity),
+    body: JSON.stringify(spectroClusterVMCloneEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMCloneResponse["data"] = body
+  const data: spectroClustersVMCloneResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8308,26 +8254,26 @@ export const SpectroClustersVMClone = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMCloneResponse;
+  } as spectroClustersVMCloneResponse;
 };
 
 /**
  * @summary Migrate the virtual machine
  */
-export type SpectroClustersVMMigrateResponse204 = {
+export type spectroClustersVMMigrateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMMigrateResponseComposite =
-  SpectroClustersVMMigrateResponse204;
+export type spectroClustersVMMigrateResponseComposite =
+  spectroClustersVMMigrateResponse204;
 
-export type SpectroClustersVMMigrateResponse =
-  SpectroClustersVMMigrateResponseComposite & {
+export type spectroClustersVMMigrateResponse =
+  spectroClustersVMMigrateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMMigrateUrl = (
+export const getSpectroClustersVMMigrateUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMMigrateParams,
@@ -8343,22 +8289,19 @@ export const getV1SpectroClustersVMMigrateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/migrate`;
 };
 
-export const SpectroClustersVMMigrate = async (
+export const spectroClustersVMMigrate = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMMigrateParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMMigrateResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersVMMigrateUrl(uid, vmName, params),
-    {
-      ...options,
-      method: "PUT",
-    },
-  );
+): Promise<spectroClustersVMMigrateResponse> => {
+  const res = await fetch(getSpectroClustersVMMigrateUrl(uid, vmName, params), {
+    ...options,
+    method: "PUT",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMMigrateResponse["data"] = body
+  const data: spectroClustersVMMigrateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8366,26 +8309,26 @@ export const SpectroClustersVMMigrate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMMigrateResponse;
+  } as spectroClustersVMMigrateResponse;
 };
 
 /**
  * @summary Pause the virtual machine instance
  */
-export type SpectroClustersVMPauseResponse204 = {
+export type spectroClustersVMPauseResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMPauseResponseComposite =
-  SpectroClustersVMPauseResponse204;
+export type spectroClustersVMPauseResponseComposite =
+  spectroClustersVMPauseResponse204;
 
-export type SpectroClustersVMPauseResponse =
-  SpectroClustersVMPauseResponseComposite & {
+export type spectroClustersVMPauseResponse =
+  spectroClustersVMPauseResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMPauseUrl = (
+export const getSpectroClustersVMPauseUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMPauseParams,
@@ -8401,19 +8344,19 @@ export const getV1SpectroClustersVMPauseUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/pause`;
 };
 
-export const SpectroClustersVMPause = async (
+export const spectroClustersVMPause = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMPauseParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMPauseResponse> => {
-  const res = await fetch(getV1SpectroClustersVMPauseUrl(uid, vmName, params), {
+): Promise<spectroClustersVMPauseResponse> => {
+  const res = await fetch(getSpectroClustersVMPauseUrl(uid, vmName, params), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMPauseResponse["data"] = body
+  const data: spectroClustersVMPauseResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8421,26 +8364,26 @@ export const SpectroClustersVMPause = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMPauseResponse;
+  } as spectroClustersVMPauseResponse;
 };
 
 /**
  * @summary Remove volume from the virtual machine instance
  */
-export type SpectroClustersVMRemoveVolumeResponse204 = {
+export type spectroClustersVMRemoveVolumeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMRemoveVolumeResponseComposite =
-  SpectroClustersVMRemoveVolumeResponse204;
+export type spectroClustersVMRemoveVolumeResponseComposite =
+  spectroClustersVMRemoveVolumeResponse204;
 
-export type SpectroClustersVMRemoveVolumeResponse =
-  SpectroClustersVMRemoveVolumeResponseComposite & {
+export type spectroClustersVMRemoveVolumeResponse =
+  spectroClustersVMRemoveVolumeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMRemoveVolumeUrl = (
+export const getSpectroClustersVMRemoveVolumeUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMRemoveVolumeParams,
@@ -8456,25 +8399,25 @@ export const getV1SpectroClustersVMRemoveVolumeUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume`;
 };
 
-export const SpectroClustersVMRemoveVolume = async (
+export const spectroClustersVMRemoveVolume = async (
   uid: string,
   vmName: string,
-  VMRemoveVolumeEntity: VMRemoveVolumeEntity,
+  vMRemoveVolumeEntity: VMRemoveVolumeEntity,
   params: SpectroClustersVMRemoveVolumeParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMRemoveVolumeResponse> => {
+): Promise<spectroClustersVMRemoveVolumeResponse> => {
   const res = await fetch(
-    getV1SpectroClustersVMRemoveVolumeUrl(uid, vmName, params),
+    getSpectroClustersVMRemoveVolumeUrl(uid, vmName, params),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(VMRemoveVolumeEntity),
+      body: JSON.stringify(vMRemoveVolumeEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMRemoveVolumeResponse["data"] = body
+  const data: spectroClustersVMRemoveVolumeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8482,26 +8425,26 @@ export const SpectroClustersVMRemoveVolume = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMRemoveVolumeResponse;
+  } as spectroClustersVMRemoveVolumeResponse;
 };
 
 /**
  * @summary Restart the virtual machine
  */
-export type SpectroClustersVMRestartResponse204 = {
+export type spectroClustersVMRestartResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMRestartResponseComposite =
-  SpectroClustersVMRestartResponse204;
+export type spectroClustersVMRestartResponseComposite =
+  spectroClustersVMRestartResponse204;
 
-export type SpectroClustersVMRestartResponse =
-  SpectroClustersVMRestartResponseComposite & {
+export type spectroClustersVMRestartResponse =
+  spectroClustersVMRestartResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMRestartUrl = (
+export const getSpectroClustersVMRestartUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMRestartParams,
@@ -8517,22 +8460,19 @@ export const getV1SpectroClustersVMRestartUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/restart`;
 };
 
-export const SpectroClustersVMRestart = async (
+export const spectroClustersVMRestart = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMRestartParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMRestartResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersVMRestartUrl(uid, vmName, params),
-    {
-      ...options,
-      method: "PUT",
-    },
-  );
+): Promise<spectroClustersVMRestartResponse> => {
+  const res = await fetch(getSpectroClustersVMRestartUrl(uid, vmName, params), {
+    ...options,
+    method: "PUT",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMRestartResponse["data"] = body
+  const data: spectroClustersVMRestartResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8540,26 +8480,26 @@ export const SpectroClustersVMRestart = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMRestartResponse;
+  } as spectroClustersVMRestartResponse;
 };
 
 /**
  * @summary Resume the virtual machine instance
  */
-export type SpectroClustersVMResumeResponse204 = {
+export type spectroClustersVMResumeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMResumeResponseComposite =
-  SpectroClustersVMResumeResponse204;
+export type spectroClustersVMResumeResponseComposite =
+  spectroClustersVMResumeResponse204;
 
-export type SpectroClustersVMResumeResponse =
-  SpectroClustersVMResumeResponseComposite & {
+export type spectroClustersVMResumeResponse =
+  spectroClustersVMResumeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMResumeUrl = (
+export const getSpectroClustersVMResumeUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMResumeParams,
@@ -8575,22 +8515,19 @@ export const getV1SpectroClustersVMResumeUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/resume`;
 };
 
-export const SpectroClustersVMResume = async (
+export const spectroClustersVMResume = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMResumeParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMResumeResponse> => {
-  const res = await fetch(
-    getV1SpectroClustersVMResumeUrl(uid, vmName, params),
-    {
-      ...options,
-      method: "PUT",
-    },
-  );
+): Promise<spectroClustersVMResumeResponse> => {
+  const res = await fetch(getSpectroClustersVMResumeUrl(uid, vmName, params), {
+    ...options,
+    method: "PUT",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMResumeResponse["data"] = body
+  const data: spectroClustersVMResumeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8598,24 +8535,24 @@ export const SpectroClustersVMResume = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMResumeResponse;
+  } as spectroClustersVMResumeResponse;
 };
 
 /**
  * @summary Create snapshot of virtual machine
  */
-export type VMSnapshotCreateResponse200 = {
+export type vMSnapshotCreateResponse200 = {
   data: VirtualMachineSnapshot;
   status: 200;
 };
 
-export type VMSnapshotCreateResponseComposite = VMSnapshotCreateResponse200;
+export type vMSnapshotCreateResponseComposite = vMSnapshotCreateResponse200;
 
-export type VMSnapshotCreateResponse = VMSnapshotCreateResponseComposite & {
+export type vMSnapshotCreateResponse = vMSnapshotCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1VMSnapshotCreateUrl = (
+export const getVMSnapshotCreateUrl = (
   uid: string,
   vmName: string,
   params: VMSnapshotCreateParams,
@@ -8631,45 +8568,45 @@ export const getV1VMSnapshotCreateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot`;
 };
 
-export const VMSnapshotCreate = async (
+export const vMSnapshotCreate = async (
   uid: string,
   vmName: string,
-  VirtualMachineSnapshotBody: VirtualMachineSnapshotBody,
+  v1VirtualMachineSnapshotBody: V1VirtualMachineSnapshotBody,
   params: VMSnapshotCreateParams,
   options?: RequestInit,
-): Promise<VMSnapshotCreateResponse> => {
-  const res = await fetch(getV1VMSnapshotCreateUrl(uid, vmName, params), {
+): Promise<vMSnapshotCreateResponse> => {
+  const res = await fetch(getVMSnapshotCreateUrl(uid, vmName, params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VirtualMachineSnapshotBody),
+    body: JSON.stringify(v1VirtualMachineSnapshotBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VMSnapshotCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: vMSnapshotCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VMSnapshotCreateResponse;
+  } as vMSnapshotCreateResponse;
 };
 
 /**
  * @summary Delete the snapshot of virtual machine
  */
-export type VMSnapshotDeleteResponse204 = {
+export type vMSnapshotDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type VMSnapshotDeleteResponseComposite = VMSnapshotDeleteResponse204;
+export type vMSnapshotDeleteResponseComposite = vMSnapshotDeleteResponse204;
 
-export type VMSnapshotDeleteResponse = VMSnapshotDeleteResponseComposite & {
+export type vMSnapshotDeleteResponse = vMSnapshotDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1VMSnapshotDeleteUrl = (
+export const getVMSnapshotDeleteUrl = (
   uid: string,
   vmName: string,
   snapshotName: string,
@@ -8686,15 +8623,15 @@ export const getV1VMSnapshotDeleteUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`;
 };
 
-export const VMSnapshotDelete = async (
+export const vMSnapshotDelete = async (
   uid: string,
   vmName: string,
   snapshotName: string,
   params: VMSnapshotDeleteParams,
   options?: RequestInit,
-): Promise<VMSnapshotDeleteResponse> => {
+): Promise<vMSnapshotDeleteResponse> => {
   const res = await fetch(
-    getV1VMSnapshotDeleteUrl(uid, vmName, snapshotName, params),
+    getVMSnapshotDeleteUrl(uid, vmName, snapshotName, params),
     {
       ...options,
       method: "DELETE",
@@ -8702,30 +8639,30 @@ export const VMSnapshotDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VMSnapshotDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: vMSnapshotDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VMSnapshotDeleteResponse;
+  } as vMSnapshotDeleteResponse;
 };
 
 /**
  * @summary Get virtual machine snapshot
  */
-export type VMSnapshotGetResponse200 = {
+export type vMSnapshotGetResponse200 = {
   data: VirtualMachineSnapshot;
   status: 200;
 };
 
-export type VMSnapshotGetResponseComposite = VMSnapshotGetResponse200;
+export type vMSnapshotGetResponseComposite = vMSnapshotGetResponse200;
 
-export type VMSnapshotGetResponse = VMSnapshotGetResponseComposite & {
+export type vMSnapshotGetResponse = vMSnapshotGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1VMSnapshotGetUrl = (
+export const getVMSnapshotGetUrl = (
   uid: string,
   vmName: string,
   snapshotName: string,
@@ -8742,15 +8679,15 @@ export const getV1VMSnapshotGetUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`;
 };
 
-export const VMSnapshotGet = async (
+export const vMSnapshotGet = async (
   uid: string,
   vmName: string,
   snapshotName: string,
   params: VMSnapshotGetParams,
   options?: RequestInit,
-): Promise<VMSnapshotGetResponse> => {
+): Promise<vMSnapshotGetResponse> => {
   const res = await fetch(
-    getV1VMSnapshotGetUrl(uid, vmName, snapshotName, params),
+    getVMSnapshotGetUrl(uid, vmName, snapshotName, params),
     {
       ...options,
       method: "GET",
@@ -8758,30 +8695,30 @@ export const VMSnapshotGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VMSnapshotGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: vMSnapshotGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VMSnapshotGetResponse;
+  } as vMSnapshotGetResponse;
 };
 
 /**
  * @summary Updates the specified snapshot of a virtual machine
  */
-export type VMSnapshotUpdateResponse200 = {
+export type vMSnapshotUpdateResponse200 = {
   data: VirtualMachineSnapshot;
   status: 200;
 };
 
-export type VMSnapshotUpdateResponseComposite = VMSnapshotUpdateResponse200;
+export type vMSnapshotUpdateResponseComposite = vMSnapshotUpdateResponse200;
 
-export type VMSnapshotUpdateResponse = VMSnapshotUpdateResponseComposite & {
+export type vMSnapshotUpdateResponse = vMSnapshotUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1VMSnapshotUpdateUrl = (
+export const getVMSnapshotUpdateUrl = (
   uid: string,
   vmName: string,
   snapshotName: string,
@@ -8798,51 +8735,51 @@ export const getV1VMSnapshotUpdateUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`;
 };
 
-export const VMSnapshotUpdate = async (
+export const vMSnapshotUpdate = async (
   uid: string,
   vmName: string,
   snapshotName: string,
-  VirtualMachineSnapshotBody: VirtualMachineSnapshotBody,
+  v1VirtualMachineSnapshotBody: V1VirtualMachineSnapshotBody,
   params: VMSnapshotUpdateParams,
   options?: RequestInit,
-): Promise<VMSnapshotUpdateResponse> => {
+): Promise<vMSnapshotUpdateResponse> => {
   const res = await fetch(
-    getV1VMSnapshotUpdateUrl(uid, vmName, snapshotName, params),
+    getVMSnapshotUpdateUrl(uid, vmName, snapshotName, params),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(VirtualMachineSnapshotBody),
+      body: JSON.stringify(v1VirtualMachineSnapshotBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VMSnapshotUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: vMSnapshotUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VMSnapshotUpdateResponse;
+  } as vMSnapshotUpdateResponse;
 };
 
 /**
  * @summary Start the virtual machine
  */
-export type SpectroClustersVMStartResponse204 = {
+export type spectroClustersVMStartResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMStartResponseComposite =
-  SpectroClustersVMStartResponse204;
+export type spectroClustersVMStartResponseComposite =
+  spectroClustersVMStartResponse204;
 
-export type SpectroClustersVMStartResponse =
-  SpectroClustersVMStartResponseComposite & {
+export type spectroClustersVMStartResponse =
+  spectroClustersVMStartResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMStartUrl = (
+export const getSpectroClustersVMStartUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMStartParams,
@@ -8858,19 +8795,19 @@ export const getV1SpectroClustersVMStartUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/start`;
 };
 
-export const SpectroClustersVMStart = async (
+export const spectroClustersVMStart = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMStartParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMStartResponse> => {
-  const res = await fetch(getV1SpectroClustersVMStartUrl(uid, vmName, params), {
+): Promise<spectroClustersVMStartResponse> => {
+  const res = await fetch(getSpectroClustersVMStartUrl(uid, vmName, params), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMStartResponse["data"] = body
+  const data: spectroClustersVMStartResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8878,26 +8815,26 @@ export const SpectroClustersVMStart = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMStartResponse;
+  } as spectroClustersVMStartResponse;
 };
 
 /**
  * @summary Stop the virtual machine
  */
-export type SpectroClustersVMStopResponse204 = {
+export type spectroClustersVMStopResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SpectroClustersVMStopResponseComposite =
-  SpectroClustersVMStopResponse204;
+export type spectroClustersVMStopResponseComposite =
+  spectroClustersVMStopResponse204;
 
-export type SpectroClustersVMStopResponse =
-  SpectroClustersVMStopResponseComposite & {
+export type spectroClustersVMStopResponse =
+  spectroClustersVMStopResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersVMStopUrl = (
+export const getSpectroClustersVMStopUrl = (
   uid: string,
   vmName: string,
   params: SpectroClustersVMStopParams,
@@ -8913,19 +8850,19 @@ export const getV1SpectroClustersVMStopUrl = (
     : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/stop`;
 };
 
-export const SpectroClustersVMStop = async (
+export const spectroClustersVMStop = async (
   uid: string,
   vmName: string,
   params: SpectroClustersVMStopParams,
   options?: RequestInit,
-): Promise<SpectroClustersVMStopResponse> => {
-  const res = await fetch(getV1SpectroClustersVMStopUrl(uid, vmName, params), {
+): Promise<spectroClustersVMStopResponse> => {
+  const res = await fetch(getSpectroClustersVMStopUrl(uid, vmName, params), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersVMStopResponse["data"] = body
+  const data: spectroClustersVMStopResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8933,41 +8870,41 @@ export const SpectroClustersVMStop = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersVMStopResponse;
+  } as spectroClustersVMStopResponse;
 };
 
 /**
  * Sync specified cluster workload
  * @summary Sync specified cluster workload
  */
-export type SpectroClustersUidWorkloadsSyncResponse202 = {
+export type spectroClustersUidWorkloadsSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type SpectroClustersUidWorkloadsSyncResponseComposite =
-  SpectroClustersUidWorkloadsSyncResponse202;
+export type spectroClustersUidWorkloadsSyncResponseComposite =
+  spectroClustersUidWorkloadsSyncResponse202;
 
-export type SpectroClustersUidWorkloadsSyncResponse =
-  SpectroClustersUidWorkloadsSyncResponseComposite & {
+export type spectroClustersUidWorkloadsSyncResponse =
+  spectroClustersUidWorkloadsSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidWorkloadsSyncUrl = (uid: string) => {
+export const getSpectroClustersUidWorkloadsSyncUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/workloads/sync`;
 };
 
-export const SpectroClustersUidWorkloadsSync = async (
+export const spectroClustersUidWorkloadsSync = async (
   uid: string,
   options?: RequestInit,
-): Promise<SpectroClustersUidWorkloadsSyncResponse> => {
-  const res = await fetch(getV1SpectroClustersUidWorkloadsSyncUrl(uid), {
+): Promise<spectroClustersUidWorkloadsSyncResponse> => {
+  const res = await fetch(getSpectroClustersUidWorkloadsSyncUrl(uid), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidWorkloadsSyncResponse["data"] = body
+  const data: spectroClustersUidWorkloadsSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -8975,26 +8912,26 @@ export const SpectroClustersUidWorkloadsSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidWorkloadsSyncResponse;
+  } as spectroClustersUidWorkloadsSyncResponse;
 };
 
 /**
  * @summary Sync specified cluster workload
  */
-export type SpectroClustersUidWorkloadsKindSyncResponse202 = {
+export type spectroClustersUidWorkloadsKindSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type SpectroClustersUidWorkloadsKindSyncResponseComposite =
-  SpectroClustersUidWorkloadsKindSyncResponse202;
+export type spectroClustersUidWorkloadsKindSyncResponseComposite =
+  spectroClustersUidWorkloadsKindSyncResponse202;
 
-export type SpectroClustersUidWorkloadsKindSyncResponse =
-  SpectroClustersUidWorkloadsKindSyncResponseComposite & {
+export type spectroClustersUidWorkloadsKindSyncResponse =
+  spectroClustersUidWorkloadsKindSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1SpectroClustersUidWorkloadsKindSyncUrl = (
+export const getSpectroClustersUidWorkloadsKindSyncUrl = (
   uid: string,
   workloadKind:
     | "namespace"
@@ -9010,7 +8947,7 @@ export const getV1SpectroClustersUidWorkloadsKindSyncUrl = (
   return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/workloads/${workloadKind}/sync`;
 };
 
-export const SpectroClustersUidWorkloadsKindSync = async (
+export const spectroClustersUidWorkloadsKindSync = async (
   uid: string,
   workloadKind:
     | "namespace"
@@ -9023,9 +8960,9 @@ export const SpectroClustersUidWorkloadsKindSync = async (
     | "rolebinding"
     | "clusterrolebinding",
   options?: RequestInit,
-): Promise<SpectroClustersUidWorkloadsKindSyncResponse> => {
+): Promise<spectroClustersUidWorkloadsKindSyncResponse> => {
   const res = await fetch(
-    getV1SpectroClustersUidWorkloadsKindSyncUrl(uid, workloadKind),
+    getSpectroClustersUidWorkloadsKindSyncUrl(uid, workloadKind),
     {
       ...options,
       method: "POST",
@@ -9033,7 +8970,7 @@ export const SpectroClustersUidWorkloadsKindSync = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SpectroClustersUidWorkloadsKindSyncResponse["data"] = body
+  const data: spectroClustersUidWorkloadsKindSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -9041,5 +8978,5 @@ export const SpectroClustersUidWorkloadsKindSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SpectroClustersUidWorkloadsKindSyncResponse;
+  } as spectroClustersUidWorkloadsKindSyncResponse;
 };

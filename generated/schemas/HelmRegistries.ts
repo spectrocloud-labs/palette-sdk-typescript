@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HelmRegistry } from "./HelmRegistry";
-import type { ListMetaData } from "./ListMetaData";
+import type { HelmRegistry } from "./helmRegistry";
+import type { ListMetaData } from "./listMetaData";
 
 export interface HelmRegistries {
   items: HelmRegistry[];

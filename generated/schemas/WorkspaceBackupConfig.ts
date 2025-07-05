@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterBackupConfig } from "./ClusterBackupConfig";
+import type { ClusterBackupConfig } from "./clusterBackupConfig";
 
 /**
  * Workspace backup config

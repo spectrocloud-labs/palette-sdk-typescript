@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudAccountMetadata } from "./CloudAccountMetadata";
+import type { CloudAccountMetadata } from "./cloudAccountMetadata";
 
 export interface CloudAccountsMetadata {
   items: CloudAccountMetadata[];

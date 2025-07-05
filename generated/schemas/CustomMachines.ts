@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachine } from "./CustomMachine";
-import type { ListMetaData } from "./ListMetaData";
+import type { CustomMachine } from "./customMachine";
+import type { ListMetaData } from "./listMetaData";
 
 /**
  * List of Custom machines

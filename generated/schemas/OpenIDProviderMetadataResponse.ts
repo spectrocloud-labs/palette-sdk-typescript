@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported } from "./OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported";
+import type { OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported } from "./openIDProviderMetadataResponseIdTokenSigningAlgValuesSupported";
 
 export interface OpenIDProviderMetadataResponse {
   /** REQUIRED. URL of the OP's OAuth 2.0 Authorization Endpoint */

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspaceQuotaResourceAllocation } from "./DashboardWorkspaceQuotaResourceAllocation";
+import type { DashboardWorkspaceQuotaResourceAllocation } from "./dashboardWorkspaceQuotaResourceAllocation";
 
 /**
  * Workspace resource quota

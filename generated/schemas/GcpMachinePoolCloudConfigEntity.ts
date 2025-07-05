@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpSubnetEntity } from "./GcpSubnetEntity";
+import type { GcpSubnetEntity } from "./gcpSubnetEntity";
 
 export interface GcpMachinePoolCloudConfigEntity {
   azs?: string[];

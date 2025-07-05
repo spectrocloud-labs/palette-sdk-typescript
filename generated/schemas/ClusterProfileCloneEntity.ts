@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileCloneMetaInputEntity } from "./ClusterProfileCloneMetaInputEntity";
+import type { ClusterProfileCloneMetaInputEntity } from "./clusterProfileCloneMetaInputEntity";
 
 /**
  * Cluster profile clone request payload

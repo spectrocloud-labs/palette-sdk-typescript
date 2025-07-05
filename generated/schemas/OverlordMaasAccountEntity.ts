@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasCloudAccount } from "./MaasCloudAccount";
+import type { MaasCloudAccount } from "./maasCloudAccount";
 
 export interface OverlordMaasAccountEntity {
   account?: MaasCloudAccount;

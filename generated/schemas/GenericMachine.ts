@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { GenericMachineSpec } from "./GenericMachineSpec";
-import type { CloudMachineStatus } from "./CloudMachineStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { GenericMachineSpec } from "./genericMachineSpec";
+import type { CloudMachineStatus } from "./cloudMachineStatus";
 
 /**
  * Generic cloud VM definition

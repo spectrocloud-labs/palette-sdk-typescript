@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DeviceSpecArchType } from "./DeviceSpecArchType";
-import type { CPU } from "./v1cpu";
-import type { Disk } from "./Disk";
-import type { GPUDeviceSpec } from "./GPUDeviceSpec";
-import type { DeviceSpecHostState } from "./DeviceSpecHostState";
-import type { DeviceSpecHostType } from "./DeviceSpecHostType";
-import type { Memory } from "./Memory";
-import type { Nic } from "./Nic";
-import type { OS } from "./v1os";
+import type { DeviceSpecArchType } from "./deviceSpecArchType";
+import type { Cpu } from "./cpu";
+import type { Disk } from "./disk";
+import type { GPUDeviceSpec } from "./gPUDeviceSpec";
+import type { DeviceSpecHostState } from "./deviceSpecHostState";
+import type { DeviceSpecHostType } from "./deviceSpecHostType";
+import type { Memory } from "./memory";
+import type { Nic } from "./nic";
+import type { Os } from "./os";
 
 /**
  * DeviceSpec defines the desired state of Device
@@ -25,7 +25,7 @@ import type { OS } from "./v1os";
 export interface DeviceSpec {
   /** Architecture type of the edge host */
   archType?: DeviceSpecArchType;
-  cpu?: CPU;
+  cpu?: Cpu;
   disks?: Disk[];
   gpus?: GPUDeviceSpec[];
   /** State of edge host device */
@@ -34,7 +34,7 @@ export interface DeviceSpec {
   hostType?: DeviceSpecHostType;
   memory?: Memory;
   nics?: Nic[];
-  os?: OS;
+  os?: Os;
   /** Secure boot configuration */
   secureBoot?: boolean;
 }

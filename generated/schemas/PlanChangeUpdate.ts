@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { PlanLimit } from "./PlanLimit";
-import type { TierPrice } from "./TierPrice";
-import type { PlanChangeUpdateType } from "./PlanChangeUpdateType";
+import type { Time } from "./time";
+import type { PlanLimit } from "./planLimit";
+import type { TierPrice } from "./tierPrice";
+import type { PlanChangeUpdateType } from "./planChangeUpdateType";
 
 /**
  * Plan change update entity

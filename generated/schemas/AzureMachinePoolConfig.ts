@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureMachinePoolConfigAdditionalLabels } from "./AzureMachinePoolConfigAdditionalLabels";
-import type { AzureMachinePoolConfigAdditionalTags } from "./AzureMachinePoolConfigAdditionalTags";
-import type { InstanceConfig } from "./InstanceConfig";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { AzureOSDisk } from "./AzureOSDisk";
-import type { OsType } from "./OsType";
-import type { SpotVMOptions } from "./SpotVMOptions";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { AzureMachinePoolConfigAdditionalLabels } from "./azureMachinePoolConfigAdditionalLabels";
+import type { AzureMachinePoolConfigAdditionalTags } from "./azureMachinePoolConfigAdditionalTags";
+import type { InstanceConfig } from "./instanceConfig";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { AzureOSDisk } from "./azureOSDisk";
+import type { OsType } from "./osType";
+import type { SpotVMOptions } from "./spotVMOptions";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 export interface AzureMachinePoolConfig {
   /** additionalLabels */

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { SystemSysplanSpecType } from "./SystemSysplanSpecType";
+import type { Time } from "./time";
+import type { SystemSysplanSpecType } from "./systemSysplanSpecType";
 
 export type SystemSysplanSpec = {
   expiresAt?: Time;

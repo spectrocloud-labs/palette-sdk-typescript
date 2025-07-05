@@ -21,18 +21,18 @@ import type {
  * Returns a paginated list of notifications based on request parameters
  * @summary Returns a paginated list of notifications based on request parameters
  */
-export type NotificationsListResponse200 = {
+export type notificationsListResponse200 = {
   data: Notifications;
   status: 200;
 };
 
-export type NotificationsListResponseComposite = NotificationsListResponse200;
+export type notificationsListResponseComposite = notificationsListResponse200;
 
-export type NotificationsListResponse = NotificationsListResponseComposite & {
+export type notificationsListResponse = notificationsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1NotificationsListUrl = (params?: NotificationsListParams) => {
+export const getNotificationsListUrl = (params?: NotificationsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -48,59 +48,59 @@ export const getV1NotificationsListUrl = (params?: NotificationsListParams) => {
     : `https://api.spectrocloud.com/v1/notifications/`;
 };
 
-export const NotificationsList = async (
+export const notificationsList = async (
   params?: NotificationsListParams,
   options?: RequestInit,
-): Promise<NotificationsListResponse> => {
-  const res = await fetch(getV1NotificationsListUrl(params), {
+): Promise<notificationsListResponse> => {
+  const res = await fetch(getNotificationsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: notificationsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as NotificationsListResponse;
+  } as notificationsListResponse;
 };
 
 /**
  * Creates a notification event
  * @summary Creates a notification event
  */
-export type NotificationsEventCreateResponse201 = {
+export type notificationsEventCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type NotificationsEventCreateResponseComposite =
-  NotificationsEventCreateResponse201;
+export type notificationsEventCreateResponseComposite =
+  notificationsEventCreateResponse201;
 
-export type NotificationsEventCreateResponse =
-  NotificationsEventCreateResponseComposite & {
+export type notificationsEventCreateResponse =
+  notificationsEventCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1NotificationsEventCreateUrl = () => {
+export const getNotificationsEventCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/notifications/events`;
 };
 
-export const NotificationsEventCreate = async (
-  NotificationEvent: NotificationEvent,
+export const notificationsEventCreate = async (
+  notificationEvent: NotificationEvent,
   options?: RequestInit,
-): Promise<NotificationsEventCreateResponse> => {
-  const res = await fetch(getV1NotificationsEventCreateUrl(), {
+): Promise<notificationsEventCreateResponse> => {
+  const res = await fetch(getNotificationsEventCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(NotificationEvent),
+    body: JSON.stringify(notificationEvent),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsEventCreateResponse["data"] = body
+  const data: notificationsEventCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -108,27 +108,27 @@ export const NotificationsEventCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as NotificationsEventCreateResponse;
+  } as notificationsEventCreateResponse;
 };
 
 /**
  * Returns a list of notifications for the specified related object
  * @summary Returns a list of notifications for the specified related object
  */
-export type NotificationsObjTypeUidListResponse200 = {
+export type notificationsObjTypeUidListResponse200 = {
   data: Notifications;
   status: 200;
 };
 
-export type NotificationsObjTypeUidListResponseComposite =
-  NotificationsObjTypeUidListResponse200;
+export type notificationsObjTypeUidListResponseComposite =
+  notificationsObjTypeUidListResponse200;
 
-export type NotificationsObjTypeUidListResponse =
-  NotificationsObjTypeUidListResponseComposite & {
+export type notificationsObjTypeUidListResponse =
+  notificationsObjTypeUidListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1NotificationsObjTypeUidListUrl = (
+export const getNotificationsObjTypeUidListUrl = (
   objectKind: "spectrocluster" | "clusterprofile" | "appdeployment",
   objectUid: string,
   params?: NotificationsObjTypeUidListParams,
@@ -148,14 +148,14 @@ export const getV1NotificationsObjTypeUidListUrl = (
     : `https://api.spectrocloud.com/v1/notifications/${objectKind}/${objectUid}`;
 };
 
-export const NotificationsObjTypeUidList = async (
+export const notificationsObjTypeUidList = async (
   objectKind: "spectrocluster" | "clusterprofile" | "appdeployment",
   objectUid: string,
   params?: NotificationsObjTypeUidListParams,
   options?: RequestInit,
-): Promise<NotificationsObjTypeUidListResponse> => {
+): Promise<notificationsObjTypeUidListResponse> => {
   const res = await fetch(
-    getV1NotificationsObjTypeUidListUrl(objectKind, objectUid, params),
+    getNotificationsObjTypeUidListUrl(objectKind, objectUid, params),
     {
       ...options,
       method: "GET",
@@ -163,7 +163,7 @@ export const NotificationsObjTypeUidList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsObjTypeUidListResponse["data"] = body
+  const data: notificationsObjTypeUidListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -171,41 +171,41 @@ export const NotificationsObjTypeUidList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as NotificationsObjTypeUidListResponse;
+  } as notificationsObjTypeUidListResponse;
 };
 
 /**
  * Updates the specified notification for the acknowledgment
  * @summary Updates the specified notification for the acknowledgment
  */
-export type NotificationsUidAckResponse204 = {
+export type notificationsUidAckResponse204 = {
   data: void;
   status: 204;
 };
 
-export type NotificationsUidAckResponseComposite =
-  NotificationsUidAckResponse204;
+export type notificationsUidAckResponseComposite =
+  notificationsUidAckResponse204;
 
-export type NotificationsUidAckResponse =
-  NotificationsUidAckResponseComposite & {
+export type notificationsUidAckResponse =
+  notificationsUidAckResponseComposite & {
     headers: Headers;
   };
 
-export const getV1NotificationsUidAckUrl = (uid: string) => {
+export const getNotificationsUidAckUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/notifications/${uid}/ack`;
 };
 
-export const NotificationsUidAck = async (
+export const notificationsUidAck = async (
   uid: string,
   options?: RequestInit,
-): Promise<NotificationsUidAckResponse> => {
-  const res = await fetch(getV1NotificationsUidAckUrl(uid), {
+): Promise<notificationsUidAckResponse> => {
+  const res = await fetch(getNotificationsUidAckUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsUidAckResponse["data"] = body
+  const data: notificationsUidAckResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -213,41 +213,41 @@ export const NotificationsUidAck = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as NotificationsUidAckResponse;
+  } as notificationsUidAckResponse;
 };
 
 /**
  * Updates the specified notification action as done
  * @summary Updates the specified notification action as done
  */
-export type NotificationsUidDoneResponse204 = {
+export type notificationsUidDoneResponse204 = {
   data: void;
   status: 204;
 };
 
-export type NotificationsUidDoneResponseComposite =
-  NotificationsUidDoneResponse204;
+export type notificationsUidDoneResponseComposite =
+  notificationsUidDoneResponse204;
 
-export type NotificationsUidDoneResponse =
-  NotificationsUidDoneResponseComposite & {
+export type notificationsUidDoneResponse =
+  notificationsUidDoneResponseComposite & {
     headers: Headers;
   };
 
-export const getV1NotificationsUidDoneUrl = (uid: string) => {
+export const getNotificationsUidDoneUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/notifications/${uid}/done`;
 };
 
-export const NotificationsUidDone = async (
+export const notificationsUidDone = async (
   uid: string,
   options?: RequestInit,
-): Promise<NotificationsUidDoneResponse> => {
-  const res = await fetch(getV1NotificationsUidDoneUrl(uid), {
+): Promise<notificationsUidDoneResponse> => {
+  const res = await fetch(getNotificationsUidDoneUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: NotificationsUidDoneResponse["data"] = body
+  const data: notificationsUidDoneResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -255,5 +255,5 @@ export const NotificationsUidDone = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as NotificationsUidDoneResponse;
+  } as notificationsUidDoneResponse;
 };

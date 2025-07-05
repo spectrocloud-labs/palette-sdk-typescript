@@ -9,10 +9,10 @@
 
 // Test importing individual functions from local generated files
 import {
-  SpectroClustersGet,
-  SpectroClustersAwsCreate,
-  CloudAccountsAwsList,
-  ApiKeysList,
+  spectroClustersGet,
+  spectroClustersAwsCreate,
+  cloudAccountsAwsList,
+  apiKeysList,
 } from "../generated/index";
 
 // Test importing types from local generated files
@@ -22,10 +22,10 @@ console.log("🚀 Running palette-sdk-typescript integration tests...\n");
 
 // Test that the main functions are available and working
 console.log("✅ Import successful!");
-console.log("SpectroClustersGet type:", typeof SpectroClustersGet);
-console.log("SpectroClustersAwsCreate type:", typeof SpectroClustersAwsCreate);
-console.log("CloudAccountsAwsList type:", typeof CloudAccountsAwsList);
-console.log("ApiKeysList type:", typeof ApiKeysList);
+console.log("spectroClustersGet type:", typeof spectroClustersGet);
+console.log("spectroClustersAwsCreate type:", typeof spectroClustersAwsCreate);
+console.log("cloudAccountsAwsList type:", typeof cloudAccountsAwsList);
+console.log("apiKeysList type:", typeof apiKeysList);
 
 // Test that types are available
 console.log("\n📋 Type imports:");
@@ -48,10 +48,10 @@ console.log("✨ Tags-split mode enabled!");
 
 // Test that key functions are available
 const keyFunctions = [
-  { name: "SpectroClustersGet", func: SpectroClustersGet },
-  { name: "SpectroClustersAwsCreate", func: SpectroClustersAwsCreate },
-  { name: "CloudAccountsAwsList", func: CloudAccountsAwsList },
-  { name: "ApiKeysList", func: ApiKeysList },
+  { name: "spectroClustersGet", func: spectroClustersGet },
+  { name: "spectroClustersAwsCreate", func: spectroClustersAwsCreate },
+  { name: "cloudAccountsAwsList", func: cloudAccountsAwsList },
+  { name: "apiKeysList", func: apiKeysList },
 ];
 
 console.log("\n🔧 Testing key functions...");
@@ -95,6 +95,6 @@ try {
 console.log("\n🎯 Integration test completed successfully!");
 console.log("\n📖 Usage example:");
 console.log("```typescript");
-console.log("import { SpectroClustersGet } from 'palette-sdk-typescript';");
-console.log("const clusters = await SpectroClustersGet(config);");
+console.log("import { spectroClustersGet } from 'palette-sdk-typescript';");
+console.log("const clusters = await spectroClustersGet(config);");
 console.log("```");

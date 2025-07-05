@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaAnnotations } from "./ObjectMetaAnnotations";
-import type { Time } from "./Time";
-import type { ObjectMetaLabels } from "./ObjectMetaLabels";
+import type { ObjectMetaAnnotations } from "./objectMetaAnnotations";
+import type { Time } from "./time";
+import type { ObjectMetaLabels } from "./objectMetaLabels";
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

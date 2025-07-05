@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachinePoolConfigAdditionalLabels } from "./CustomMachinePoolConfigAdditionalLabels";
-import type { Taint } from "./Taint";
+import type { CustomMachinePoolConfigAdditionalLabels } from "./customMachinePoolConfigAdditionalLabels";
+import type { Taint } from "./taint";
 
 export interface CustomMachinePoolConfig {
   /** additionalLabels */

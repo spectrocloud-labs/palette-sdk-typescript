@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InvoiceProduct } from "./InvoiceProduct";
-import type { InvoiceProject } from "./InvoiceProject";
-import type { InvoiceState } from "./InvoiceState";
+import type { InvoiceProduct } from "./invoiceProduct";
+import type { InvoiceProject } from "./invoiceProject";
+import type { InvoiceState } from "./invoiceState";
 
 /**
  * Invoice Status

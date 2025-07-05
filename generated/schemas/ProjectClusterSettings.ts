@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { NodesAutoRemediationSettings } from "./NodesAutoRemediationSettings";
-import type { TenantClusterSettings } from "./TenantClusterSettings";
+import type { NodesAutoRemediationSettings } from "./nodesAutoRemediationSettings";
+import type { TenantClusterSettings } from "./tenantClusterSettings";
 
 export interface ProjectClusterSettings {
   nodesAutoRemediationSetting?: NodesAutoRemediationSettings;

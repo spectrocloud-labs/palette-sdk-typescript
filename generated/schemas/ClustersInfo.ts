@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterMeta } from "./ClusterMeta";
+import type { ClusterMeta } from "./clusterMeta";
 
 /**
  * Active clusters information

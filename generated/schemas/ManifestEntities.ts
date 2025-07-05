@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestEntity } from "./ManifestEntity";
+import type { ManifestEntity } from "./manifestEntity";
 
 export interface ManifestEntities {
   /** Manifests array */

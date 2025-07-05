@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpMachinePoolConfigAdditionalLabels } from "./GcpMachinePoolConfigAdditionalLabels";
-import type { GcpMachinePoolConfigAdditionalTags } from "./GcpMachinePoolConfigAdditionalTags";
-import type { InstanceConfig } from "./InstanceConfig";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { GcpMachinePoolConfigSubnetIds } from "./GcpMachinePoolConfigSubnetIds";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { GcpMachinePoolConfigAdditionalLabels } from "./gcpMachinePoolConfigAdditionalLabels";
+import type { GcpMachinePoolConfigAdditionalTags } from "./gcpMachinePoolConfigAdditionalTags";
+import type { InstanceConfig } from "./instanceConfig";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { GcpMachinePoolConfigSubnetIds } from "./gcpMachinePoolConfigSubnetIds";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 export interface GcpMachinePoolConfig {
   /** additionalLabels */

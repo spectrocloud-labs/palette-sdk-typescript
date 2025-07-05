@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierSourceSummary } from "./AppTierSourceSummary";
+import type { AppTierSourceSummary } from "./appTierSourceSummary";
 
 /**
  * Application profile's tier summary

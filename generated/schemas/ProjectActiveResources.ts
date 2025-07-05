@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectActiveAppDeployments } from "./ProjectActiveAppDeployments";
-import type { ProjectActiveClusters } from "./ProjectActiveClusters";
+import type { ProjectActiveAppDeployments } from "./projectActiveAppDeployments";
+import type { ProjectActiveClusters } from "./projectActiveClusters";
 
 /**
  * Active project resources

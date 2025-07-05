@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudResourceMetadataInstanceTypes } from "./CloudResourceMetadataInstanceTypes";
-import type { CloudResourceMetadataStorageTypes } from "./CloudResourceMetadataStorageTypes";
+import type { CloudResourceMetadataInstanceTypes } from "./cloudResourceMetadataInstanceTypes";
+import type { CloudResourceMetadataStorageTypes } from "./cloudResourceMetadataStorageTypes";
 
 /**
  * Cloud resource metadata

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Permission } from "./Permission";
+import type { Permission } from "./permission";
 
 /**
  * Array of permissions

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./ObjectMetaInputEntity";
-import type { ClusterProfileSpecEntity } from "./ClusterProfileSpecEntity";
+import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { ClusterProfileSpecEntity } from "./clusterProfileSpecEntity";
 
 /**
  * Cluster profile metadata request payload

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectTagsEntityLabels } from "./ObjectTagsEntityLabels";
+import type { ObjectTagsEntityLabels } from "./objectTagsEntityLabels";
 
 /**
  * Object identity meta with tags

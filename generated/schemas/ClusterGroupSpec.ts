@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplate } from "./ClusterProfileTemplate";
-import type { ClusterGroupClusterRef } from "./ClusterGroupClusterRef";
-import type { ClusterGroupClustersConfig } from "./ClusterGroupClustersConfig";
-import type { ClusterGroupSpecType } from "./ClusterGroupSpecType";
+import type { ClusterProfileTemplate } from "./clusterProfileTemplate";
+import type { ClusterGroupClusterRef } from "./clusterGroupClusterRef";
+import type { ClusterGroupClustersConfig } from "./clusterGroupClustersConfig";
+import type { ClusterGroupSpecType } from "./clusterGroupSpecType";
 
 /**
  * Cluster group specifications

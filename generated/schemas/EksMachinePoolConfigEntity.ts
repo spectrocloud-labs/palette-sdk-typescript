@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksMachineCloudConfigEntity } from "./EksMachineCloudConfigEntity";
-import type { MachinePoolConfigEntity } from "./MachinePoolConfigEntity";
+import type { EksMachineCloudConfigEntity } from "./eksMachineCloudConfigEntity";
+import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
 export interface EksMachinePoolConfigEntity {
   cloudConfig?: EksMachineCloudConfigEntity;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./RelatedObject";
-import type { ClusterWorkloadStatefulSet } from "./ClusterWorkloadStatefulSet";
+import type { RelatedObject } from "./relatedObject";
+import type { ClusterWorkloadStatefulSet } from "./clusterWorkloadStatefulSet";
 
 /**
  * Workspace cluster workload statefulsets summary

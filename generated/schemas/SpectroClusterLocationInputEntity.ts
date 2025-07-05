@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterLocation } from "./ClusterLocation";
+import type { ClusterLocation } from "./clusterLocation";
 
 /**
  * Cluster location

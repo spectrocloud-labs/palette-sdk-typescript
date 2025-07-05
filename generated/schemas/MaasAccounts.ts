@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasAccount } from "./MaasAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { MaasAccount } from "./maasAccount";
+import type { ListMetaData } from "./listMetaData";
 
 export interface MaasAccounts {
   items: MaasAccount[];

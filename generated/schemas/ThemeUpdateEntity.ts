@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaUpdateEntity } from "./ObjectMetaUpdateEntity";
-import type { ThemeSpec } from "./ThemeSpec";
+import type { ObjectMetaUpdateEntity } from "./objectMetaUpdateEntity";
+import type { ThemeSpec } from "./themeSpec";
 
 /**
  * Theme data update entity

@@ -10,12 +10,13 @@
  * OpenAPI spec version: v1
  */
 import type {
-  ClusterRbacBody,
-  ObjectMetaBody,
   Uid,
+  V1ClusterRbacBody,
+  V1ObjectMetaBody,
+  V1WorkspaceBackupConfigEntityBody,
+  V1WorkspacesRolesPatchBody,
   Workspace,
   WorkspaceBackup,
-  WorkspaceBackupConfigEntityBody,
   WorkspaceBackupDeleteEntity,
   WorkspaceClusterNamespacesEntity,
   WorkspaceEntity,
@@ -24,80 +25,79 @@ import type {
   WorkspaceRestore,
   WorkspaceRestoreConfigEntity,
   WorkspaceScopeRoles,
-  WorkspacesRolesPatchBody,
   WorkspacesValidateNameParams,
 } from ".././schemas";
 
 /**
  * @summary Create workspace
  */
-export type WorkspacesCreateResponse201 = {
+export type workspacesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type WorkspacesCreateResponseComposite = WorkspacesCreateResponse201;
+export type workspacesCreateResponseComposite = workspacesCreateResponse201;
 
-export type WorkspacesCreateResponse = WorkspacesCreateResponseComposite & {
+export type workspacesCreateResponse = workspacesCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1WorkspacesCreateUrl = () => {
+export const getWorkspacesCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/workspaces`;
 };
 
-export const WorkspacesCreate = async (
-  WorkspaceEntity: WorkspaceEntity,
+export const workspacesCreate = async (
+  workspaceEntity: WorkspaceEntity,
   options?: RequestInit,
-): Promise<WorkspacesCreateResponse> => {
-  const res = await fetch(getV1WorkspacesCreateUrl(), {
+): Promise<workspacesCreateResponse> => {
+  const res = await fetch(getWorkspacesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceEntity),
+    body: JSON.stringify(workspaceEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: workspacesCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesCreateResponse;
+  } as workspacesCreateResponse;
 };
 
 /**
  * @summary Returns the specified team's workspaces and roles data
  */
-export type TeamsWorkspaceGetRolesResponse200 = {
+export type teamsWorkspaceGetRolesResponse200 = {
   data: WorkspaceScopeRoles;
   status: 200;
 };
 
-export type TeamsWorkspaceGetRolesResponseComposite =
-  TeamsWorkspaceGetRolesResponse200;
+export type teamsWorkspaceGetRolesResponseComposite =
+  teamsWorkspaceGetRolesResponse200;
 
-export type TeamsWorkspaceGetRolesResponse =
-  TeamsWorkspaceGetRolesResponseComposite & {
+export type teamsWorkspaceGetRolesResponse =
+  teamsWorkspaceGetRolesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsWorkspaceGetRolesUrl = (teamUid: string) => {
+export const getTeamsWorkspaceGetRolesUrl = (teamUid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/teams/${teamUid}/roles`;
 };
 
-export const TeamsWorkspaceGetRoles = async (
+export const teamsWorkspaceGetRoles = async (
   teamUid: string,
   options?: RequestInit,
-): Promise<TeamsWorkspaceGetRolesResponse> => {
-  const res = await fetch(getV1TeamsWorkspaceGetRolesUrl(teamUid), {
+): Promise<teamsWorkspaceGetRolesResponse> => {
+  const res = await fetch(getTeamsWorkspaceGetRolesUrl(teamUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsWorkspaceGetRolesResponse["data"] = body
+  const data: teamsWorkspaceGetRolesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -105,43 +105,43 @@ export const TeamsWorkspaceGetRoles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsWorkspaceGetRolesResponse;
+  } as teamsWorkspaceGetRolesResponse;
 };
 
 /**
  * @summary Updates the workspace roles for the specified team
  */
-export type TeamsWorkspaceRolesPutResponse204 = {
+export type teamsWorkspaceRolesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsWorkspaceRolesPutResponseComposite =
-  TeamsWorkspaceRolesPutResponse204;
+export type teamsWorkspaceRolesPutResponseComposite =
+  teamsWorkspaceRolesPutResponse204;
 
-export type TeamsWorkspaceRolesPutResponse =
-  TeamsWorkspaceRolesPutResponseComposite & {
+export type teamsWorkspaceRolesPutResponse =
+  teamsWorkspaceRolesPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsWorkspaceRolesPutUrl = (teamUid: string) => {
+export const getTeamsWorkspaceRolesPutUrl = (teamUid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/teams/${teamUid}/roles`;
 };
 
-export const TeamsWorkspaceRolesPut = async (
+export const teamsWorkspaceRolesPut = async (
   teamUid: string,
-  WorkspacesRolesPatchBody: WorkspacesRolesPatchBody,
+  v1WorkspacesRolesPatchBody: V1WorkspacesRolesPatchBody,
   options?: RequestInit,
-): Promise<TeamsWorkspaceRolesPutResponse> => {
-  const res = await fetch(getV1TeamsWorkspaceRolesPutUrl(teamUid), {
+): Promise<teamsWorkspaceRolesPutResponse> => {
+  const res = await fetch(getTeamsWorkspaceRolesPutUrl(teamUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspacesRolesPatchBody),
+    body: JSON.stringify(v1WorkspacesRolesPatchBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsWorkspaceRolesPutResponse["data"] = body
+  const data: teamsWorkspaceRolesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -149,41 +149,41 @@ export const TeamsWorkspaceRolesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsWorkspaceRolesPutResponse;
+  } as teamsWorkspaceRolesPutResponse;
 };
 
 /**
  * Returns a User with workspaces and roles
  * @summary Returns the specified User workspaces and Roles information
  */
-export type UsersWorkspaceGetRolesResponse200 = {
+export type usersWorkspaceGetRolesResponse200 = {
   data: WorkspaceScopeRoles;
   status: 200;
 };
 
-export type UsersWorkspaceGetRolesResponseComposite =
-  UsersWorkspaceGetRolesResponse200;
+export type usersWorkspaceGetRolesResponseComposite =
+  usersWorkspaceGetRolesResponse200;
 
-export type UsersWorkspaceGetRolesResponse =
-  UsersWorkspaceGetRolesResponseComposite & {
+export type usersWorkspaceGetRolesResponse =
+  usersWorkspaceGetRolesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersWorkspaceGetRolesUrl = (userUid: string) => {
+export const getUsersWorkspaceGetRolesUrl = (userUid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/users/${userUid}/roles`;
 };
 
-export const UsersWorkspaceGetRoles = async (
+export const usersWorkspaceGetRoles = async (
   userUid: string,
   options?: RequestInit,
-): Promise<UsersWorkspaceGetRolesResponse> => {
-  const res = await fetch(getV1UsersWorkspaceGetRolesUrl(userUid), {
+): Promise<usersWorkspaceGetRolesResponse> => {
+  const res = await fetch(getUsersWorkspaceGetRolesUrl(userUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersWorkspaceGetRolesResponse["data"] = body
+  const data: usersWorkspaceGetRolesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -191,44 +191,44 @@ export const UsersWorkspaceGetRoles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersWorkspaceGetRolesResponse;
+  } as usersWorkspaceGetRolesResponse;
 };
 
 /**
  * User is updated with workspace roles
  * @summary Updates the workspace roles for user
  */
-export type UsersWorkspaceRolesPutResponse204 = {
+export type usersWorkspaceRolesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersWorkspaceRolesPutResponseComposite =
-  UsersWorkspaceRolesPutResponse204;
+export type usersWorkspaceRolesPutResponseComposite =
+  usersWorkspaceRolesPutResponse204;
 
-export type UsersWorkspaceRolesPutResponse =
-  UsersWorkspaceRolesPutResponseComposite & {
+export type usersWorkspaceRolesPutResponse =
+  usersWorkspaceRolesPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersWorkspaceRolesPutUrl = (userUid: string) => {
+export const getUsersWorkspaceRolesPutUrl = (userUid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/users/${userUid}/roles`;
 };
 
-export const UsersWorkspaceRolesPut = async (
+export const usersWorkspaceRolesPut = async (
   userUid: string,
-  WorkspacesRolesPatchBody: WorkspacesRolesPatchBody,
+  v1WorkspacesRolesPatchBody: V1WorkspacesRolesPatchBody,
   options?: RequestInit,
-): Promise<UsersWorkspaceRolesPutResponse> => {
-  const res = await fetch(getV1UsersWorkspaceRolesPutUrl(userUid), {
+): Promise<usersWorkspaceRolesPutResponse> => {
+  const res = await fetch(getUsersWorkspaceRolesPutUrl(userUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspacesRolesPatchBody),
+    body: JSON.stringify(v1WorkspacesRolesPatchBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersWorkspaceRolesPutResponse["data"] = body
+  const data: usersWorkspaceRolesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -236,26 +236,26 @@ export const UsersWorkspaceRolesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersWorkspaceRolesPutResponse;
+  } as usersWorkspaceRolesPutResponse;
 };
 
 /**
  * @summary Validates the workspace name
  */
-export type WorkspacesValidateNameResponse204 = {
+export type workspacesValidateNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesValidateNameResponseComposite =
-  WorkspacesValidateNameResponse204;
+export type workspacesValidateNameResponseComposite =
+  workspacesValidateNameResponse204;
 
-export type WorkspacesValidateNameResponse =
-  WorkspacesValidateNameResponseComposite & {
+export type workspacesValidateNameResponse =
+  workspacesValidateNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesValidateNameUrl = (
+export const getWorkspacesValidateNameUrl = (
   params: WorkspacesValidateNameParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -273,17 +273,17 @@ export const getV1WorkspacesValidateNameUrl = (
     : `https://api.spectrocloud.com/v1/workspaces/validate/name`;
 };
 
-export const WorkspacesValidateName = async (
+export const workspacesValidateName = async (
   params: WorkspacesValidateNameParams,
   options?: RequestInit,
-): Promise<WorkspacesValidateNameResponse> => {
-  const res = await fetch(getV1WorkspacesValidateNameUrl(params), {
+): Promise<workspacesValidateNameResponse> => {
+  const res = await fetch(getWorkspacesValidateNameUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesValidateNameResponse["data"] = body
+  const data: workspacesValidateNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -291,40 +291,40 @@ export const WorkspacesValidateName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesValidateNameResponse;
+  } as workspacesValidateNameResponse;
 };
 
 /**
  * @summary Deletes the specified workspace
  */
-export type WorkspacesUidDeleteResponse204 = {
+export type workspacesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesUidDeleteResponseComposite =
-  WorkspacesUidDeleteResponse204;
+export type workspacesUidDeleteResponseComposite =
+  workspacesUidDeleteResponse204;
 
-export type WorkspacesUidDeleteResponse =
-  WorkspacesUidDeleteResponseComposite & {
+export type workspacesUidDeleteResponse =
+  workspacesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesUidDeleteUrl = (uid: string) => {
+export const getWorkspacesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}`;
 };
 
-export const WorkspacesUidDelete = async (
+export const workspacesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<WorkspacesUidDeleteResponse> => {
-  const res = await fetch(getV1WorkspacesUidDeleteUrl(uid), {
+): Promise<workspacesUidDeleteResponse> => {
+  const res = await fetch(getWorkspacesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidDeleteResponse["data"] = body
+  const data: workspacesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -332,80 +332,80 @@ export const WorkspacesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidDeleteResponse;
+  } as workspacesUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified workspace
  */
-export type WorkspacesUidGetResponse200 = {
+export type workspacesUidGetResponse200 = {
   data: Workspace;
   status: 200;
 };
 
-export type WorkspacesUidGetResponseComposite = WorkspacesUidGetResponse200;
+export type workspacesUidGetResponseComposite = workspacesUidGetResponse200;
 
-export type WorkspacesUidGetResponse = WorkspacesUidGetResponseComposite & {
+export type workspacesUidGetResponse = workspacesUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1WorkspacesUidGetUrl = (uid: string) => {
+export const getWorkspacesUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}`;
 };
 
-export const WorkspacesUidGet = async (
+export const workspacesUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<WorkspacesUidGetResponse> => {
-  const res = await fetch(getV1WorkspacesUidGetUrl(uid), {
+): Promise<workspacesUidGetResponse> => {
+  const res = await fetch(getWorkspacesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: workspacesUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidGetResponse;
+  } as workspacesUidGetResponse;
 };
 
 /**
  * @summary Delete workspace backup
  */
-export type WorkspaceOpsBackupDeleteResponse204 = {
+export type workspaceOpsBackupDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspaceOpsBackupDeleteResponseComposite =
-  WorkspaceOpsBackupDeleteResponse204;
+export type workspaceOpsBackupDeleteResponseComposite =
+  workspaceOpsBackupDeleteResponse204;
 
-export type WorkspaceOpsBackupDeleteResponse =
-  WorkspaceOpsBackupDeleteResponseComposite & {
+export type workspaceOpsBackupDeleteResponse =
+  workspaceOpsBackupDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsBackupDeleteUrl = (uid: string) => {
+export const getWorkspaceOpsBackupDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`;
 };
 
-export const WorkspaceOpsBackupDelete = async (
+export const workspaceOpsBackupDelete = async (
   uid: string,
-  WorkspaceBackupDeleteEntity: WorkspaceBackupDeleteEntity,
+  workspaceBackupDeleteEntity: WorkspaceBackupDeleteEntity,
   options?: RequestInit,
-): Promise<WorkspaceOpsBackupDeleteResponse> => {
-  const res = await fetch(getV1WorkspaceOpsBackupDeleteUrl(uid), {
+): Promise<workspaceOpsBackupDeleteResponse> => {
+  const res = await fetch(getWorkspaceOpsBackupDeleteUrl(uid), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceBackupDeleteEntity),
+    body: JSON.stringify(workspaceBackupDeleteEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsBackupDeleteResponse["data"] = body
+  const data: workspaceOpsBackupDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -413,26 +413,26 @@ export const WorkspaceOpsBackupDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsBackupDeleteResponse;
+  } as workspaceOpsBackupDeleteResponse;
 };
 
 /**
  * @summary Returns the  workspace backup result
  */
-export type WorkspaceOpsBackupGetResponse200 = {
+export type workspaceOpsBackupGetResponse200 = {
   data: WorkspaceBackup;
   status: 200;
 };
 
-export type WorkspaceOpsBackupGetResponseComposite =
-  WorkspaceOpsBackupGetResponse200;
+export type workspaceOpsBackupGetResponseComposite =
+  workspaceOpsBackupGetResponse200;
 
-export type WorkspaceOpsBackupGetResponse =
-  WorkspaceOpsBackupGetResponseComposite & {
+export type workspaceOpsBackupGetResponse =
+  workspaceOpsBackupGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsBackupGetUrl = (
+export const getWorkspaceOpsBackupGetUrl = (
   uid: string,
   params?: WorkspaceOpsBackupGetParams,
 ) => {
@@ -451,18 +451,18 @@ export const getV1WorkspaceOpsBackupGetUrl = (
     : `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`;
 };
 
-export const WorkspaceOpsBackupGet = async (
+export const workspaceOpsBackupGet = async (
   uid: string,
   params?: WorkspaceOpsBackupGetParams,
   options?: RequestInit,
-): Promise<WorkspaceOpsBackupGetResponse> => {
-  const res = await fetch(getV1WorkspaceOpsBackupGetUrl(uid, params), {
+): Promise<workspaceOpsBackupGetResponse> => {
+  const res = await fetch(getWorkspaceOpsBackupGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsBackupGetResponse["data"] = body
+  const data: workspaceOpsBackupGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -470,43 +470,43 @@ export const WorkspaceOpsBackupGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsBackupGetResponse;
+  } as workspaceOpsBackupGetResponse;
 };
 
 /**
  * @summary Create workspace backup settings
  */
-export type WorkspaceOpsBackupCreateResponse201 = {
+export type workspaceOpsBackupCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type WorkspaceOpsBackupCreateResponseComposite =
-  WorkspaceOpsBackupCreateResponse201;
+export type workspaceOpsBackupCreateResponseComposite =
+  workspaceOpsBackupCreateResponse201;
 
-export type WorkspaceOpsBackupCreateResponse =
-  WorkspaceOpsBackupCreateResponseComposite & {
+export type workspaceOpsBackupCreateResponse =
+  workspaceOpsBackupCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsBackupCreateUrl = (uid: string) => {
+export const getWorkspaceOpsBackupCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`;
 };
 
-export const WorkspaceOpsBackupCreate = async (
+export const workspaceOpsBackupCreate = async (
   uid: string,
-  WorkspaceBackupConfigEntityBody: WorkspaceBackupConfigEntityBody,
+  v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
-): Promise<WorkspaceOpsBackupCreateResponse> => {
-  const res = await fetch(getV1WorkspaceOpsBackupCreateUrl(uid), {
+): Promise<workspaceOpsBackupCreateResponse> => {
+  const res = await fetch(getWorkspaceOpsBackupCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceBackupConfigEntityBody),
+    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsBackupCreateResponse["data"] = body
+  const data: workspaceOpsBackupCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -514,43 +514,43 @@ export const WorkspaceOpsBackupCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsBackupCreateResponse;
+  } as workspaceOpsBackupCreateResponse;
 };
 
 /**
  * @summary Update workspace backup settings
  */
-export type WorkspaceOpsBackupUpdateResponse204 = {
+export type workspaceOpsBackupUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspaceOpsBackupUpdateResponseComposite =
-  WorkspaceOpsBackupUpdateResponse204;
+export type workspaceOpsBackupUpdateResponseComposite =
+  workspaceOpsBackupUpdateResponse204;
 
-export type WorkspaceOpsBackupUpdateResponse =
-  WorkspaceOpsBackupUpdateResponseComposite & {
+export type workspaceOpsBackupUpdateResponse =
+  workspaceOpsBackupUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsBackupUpdateUrl = (uid: string) => {
+export const getWorkspaceOpsBackupUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`;
 };
 
-export const WorkspaceOpsBackupUpdate = async (
+export const workspaceOpsBackupUpdate = async (
   uid: string,
-  WorkspaceBackupConfigEntityBody: WorkspaceBackupConfigEntityBody,
+  v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
-): Promise<WorkspaceOpsBackupUpdateResponse> => {
-  const res = await fetch(getV1WorkspaceOpsBackupUpdateUrl(uid), {
+): Promise<workspaceOpsBackupUpdateResponse> => {
+  const res = await fetch(getWorkspaceOpsBackupUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceBackupConfigEntityBody),
+    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsBackupUpdateResponse["data"] = body
+  const data: workspaceOpsBackupUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -558,43 +558,43 @@ export const WorkspaceOpsBackupUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsBackupUpdateResponse;
+  } as workspaceOpsBackupUpdateResponse;
 };
 
 /**
  * @summary Create On demand Workspace Backup
  */
-export type WorkspaceOpsBackupOnDemandCreateResponse201 = {
+export type workspaceOpsBackupOnDemandCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type WorkspaceOpsBackupOnDemandCreateResponseComposite =
-  WorkspaceOpsBackupOnDemandCreateResponse201;
+export type workspaceOpsBackupOnDemandCreateResponseComposite =
+  workspaceOpsBackupOnDemandCreateResponse201;
 
-export type WorkspaceOpsBackupOnDemandCreateResponse =
-  WorkspaceOpsBackupOnDemandCreateResponseComposite & {
+export type workspaceOpsBackupOnDemandCreateResponse =
+  workspaceOpsBackupOnDemandCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsBackupOnDemandCreateUrl = (uid: string) => {
+export const getWorkspaceOpsBackupOnDemandCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup/onDemand`;
 };
 
-export const WorkspaceOpsBackupOnDemandCreate = async (
+export const workspaceOpsBackupOnDemandCreate = async (
   uid: string,
-  WorkspaceBackupConfigEntityBody: WorkspaceBackupConfigEntityBody,
+  v1WorkspaceBackupConfigEntityBody: V1WorkspaceBackupConfigEntityBody,
   options?: RequestInit,
-): Promise<WorkspaceOpsBackupOnDemandCreateResponse> => {
-  const res = await fetch(getV1WorkspaceOpsBackupOnDemandCreateUrl(uid), {
+): Promise<workspaceOpsBackupOnDemandCreateResponse> => {
+  const res = await fetch(getWorkspaceOpsBackupOnDemandCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceBackupConfigEntityBody),
+    body: JSON.stringify(v1WorkspaceBackupConfigEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsBackupOnDemandCreateResponse["data"] = body
+  const data: workspaceOpsBackupOnDemandCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -602,43 +602,43 @@ export const WorkspaceOpsBackupOnDemandCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsBackupOnDemandCreateResponse;
+  } as workspaceOpsBackupOnDemandCreateResponse;
 };
 
 /**
  * @summary Updates the specified workspace namespaces
  */
-export type WorkspacesUidClusterNamespacesUpdateResponse204 = {
+export type workspacesUidClusterNamespacesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesUidClusterNamespacesUpdateResponseComposite =
-  WorkspacesUidClusterNamespacesUpdateResponse204;
+export type workspacesUidClusterNamespacesUpdateResponseComposite =
+  workspacesUidClusterNamespacesUpdateResponse204;
 
-export type WorkspacesUidClusterNamespacesUpdateResponse =
-  WorkspacesUidClusterNamespacesUpdateResponseComposite & {
+export type workspacesUidClusterNamespacesUpdateResponse =
+  workspacesUidClusterNamespacesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesUidClusterNamespacesUpdateUrl = (uid: string) => {
+export const getWorkspacesUidClusterNamespacesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterNamespaces`;
 };
 
-export const WorkspacesUidClusterNamespacesUpdate = async (
+export const workspacesUidClusterNamespacesUpdate = async (
   uid: string,
-  WorkspaceClusterNamespacesEntity: WorkspaceClusterNamespacesEntity,
+  workspaceClusterNamespacesEntity: WorkspaceClusterNamespacesEntity,
   options?: RequestInit,
-): Promise<WorkspacesUidClusterNamespacesUpdateResponse> => {
-  const res = await fetch(getV1WorkspacesUidClusterNamespacesUpdateUrl(uid), {
+): Promise<workspacesUidClusterNamespacesUpdateResponse> => {
+  const res = await fetch(getWorkspacesUidClusterNamespacesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceClusterNamespacesEntity),
+    body: JSON.stringify(workspaceClusterNamespacesEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidClusterNamespacesUpdateResponse["data"] = body
+  const data: workspacesUidClusterNamespacesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -646,43 +646,43 @@ export const WorkspacesUidClusterNamespacesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidClusterNamespacesUpdateResponse;
+  } as workspacesUidClusterNamespacesUpdateResponse;
 };
 
 /**
  * @summary Create cluster rbac in workspace
  */
-export type WorkspacesClusterRbacCreateResponse201 = {
+export type workspacesClusterRbacCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type WorkspacesClusterRbacCreateResponseComposite =
-  WorkspacesClusterRbacCreateResponse201;
+export type workspacesClusterRbacCreateResponseComposite =
+  workspacesClusterRbacCreateResponse201;
 
-export type WorkspacesClusterRbacCreateResponse =
-  WorkspacesClusterRbacCreateResponseComposite & {
+export type workspacesClusterRbacCreateResponse =
+  workspacesClusterRbacCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesClusterRbacCreateUrl = (uid: string) => {
+export const getWorkspacesClusterRbacCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs`;
 };
 
-export const WorkspacesClusterRbacCreate = async (
+export const workspacesClusterRbacCreate = async (
   uid: string,
-  ClusterRbacBody: ClusterRbacBody,
+  v1ClusterRbacBody: V1ClusterRbacBody,
   options?: RequestInit,
-): Promise<WorkspacesClusterRbacCreateResponse> => {
-  const res = await fetch(getV1WorkspacesClusterRbacCreateUrl(uid), {
+): Promise<workspacesClusterRbacCreateResponse> => {
+  const res = await fetch(getWorkspacesClusterRbacCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterRbacBody),
+    body: JSON.stringify(v1ClusterRbacBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesClusterRbacCreateResponse["data"] = body
+  const data: workspacesClusterRbacCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -690,39 +690,39 @@ export const WorkspacesClusterRbacCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesClusterRbacCreateResponse;
+  } as workspacesClusterRbacCreateResponse;
 };
 
 /**
  * @summary Deletes the specified workspace cluster rbac
  */
-export type WorkspacesUidClusterRbacDeleteResponse204 = {
+export type workspacesUidClusterRbacDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesUidClusterRbacDeleteResponseComposite =
-  WorkspacesUidClusterRbacDeleteResponse204;
+export type workspacesUidClusterRbacDeleteResponseComposite =
+  workspacesUidClusterRbacDeleteResponse204;
 
-export type WorkspacesUidClusterRbacDeleteResponse =
-  WorkspacesUidClusterRbacDeleteResponseComposite & {
+export type workspacesUidClusterRbacDeleteResponse =
+  workspacesUidClusterRbacDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesUidClusterRbacDeleteUrl = (
+export const getWorkspacesUidClusterRbacDeleteUrl = (
   uid: string,
   clusterRbacUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`;
 };
 
-export const WorkspacesUidClusterRbacDelete = async (
+export const workspacesUidClusterRbacDelete = async (
   uid: string,
   clusterRbacUid: string,
   options?: RequestInit,
-): Promise<WorkspacesUidClusterRbacDeleteResponse> => {
+): Promise<workspacesUidClusterRbacDeleteResponse> => {
   const res = await fetch(
-    getV1WorkspacesUidClusterRbacDeleteUrl(uid, clusterRbacUid),
+    getWorkspacesUidClusterRbacDeleteUrl(uid, clusterRbacUid),
     {
       ...options,
       method: "DELETE",
@@ -730,7 +730,7 @@ export const WorkspacesUidClusterRbacDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidClusterRbacDeleteResponse["data"] = body
+  const data: workspacesUidClusterRbacDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -738,50 +738,50 @@ export const WorkspacesUidClusterRbacDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidClusterRbacDeleteResponse;
+  } as workspacesUidClusterRbacDeleteResponse;
 };
 
 /**
  * @summary Updates the specified workspace cluster rbac
  */
-export type WorkspacesUidClusterRbacUpdateResponse204 = {
+export type workspacesUidClusterRbacUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesUidClusterRbacUpdateResponseComposite =
-  WorkspacesUidClusterRbacUpdateResponse204;
+export type workspacesUidClusterRbacUpdateResponseComposite =
+  workspacesUidClusterRbacUpdateResponse204;
 
-export type WorkspacesUidClusterRbacUpdateResponse =
-  WorkspacesUidClusterRbacUpdateResponseComposite & {
+export type workspacesUidClusterRbacUpdateResponse =
+  workspacesUidClusterRbacUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesUidClusterRbacUpdateUrl = (
+export const getWorkspacesUidClusterRbacUpdateUrl = (
   uid: string,
   clusterRbacUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`;
 };
 
-export const WorkspacesUidClusterRbacUpdate = async (
+export const workspacesUidClusterRbacUpdate = async (
   uid: string,
   clusterRbacUid: string,
-  ClusterRbacBody: ClusterRbacBody,
+  v1ClusterRbacBody: V1ClusterRbacBody,
   options?: RequestInit,
-): Promise<WorkspacesUidClusterRbacUpdateResponse> => {
+): Promise<workspacesUidClusterRbacUpdateResponse> => {
   const res = await fetch(
-    getV1WorkspacesUidClusterRbacUpdateUrl(uid, clusterRbacUid),
+    getWorkspacesUidClusterRbacUpdateUrl(uid, clusterRbacUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ClusterRbacBody),
+      body: JSON.stringify(v1ClusterRbacBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidClusterRbacUpdateResponse["data"] = body
+  const data: workspacesUidClusterRbacUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -789,43 +789,43 @@ export const WorkspacesUidClusterRbacUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidClusterRbacUpdateResponse;
+  } as workspacesUidClusterRbacUpdateResponse;
 };
 
 /**
  * @summary Updates the specified workspace meta
  */
-export type WorkspacesUidMetaUpdateResponse204 = {
+export type workspacesUidMetaUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type WorkspacesUidMetaUpdateResponseComposite =
-  WorkspacesUidMetaUpdateResponse204;
+export type workspacesUidMetaUpdateResponseComposite =
+  workspacesUidMetaUpdateResponse204;
 
-export type WorkspacesUidMetaUpdateResponse =
-  WorkspacesUidMetaUpdateResponseComposite & {
+export type workspacesUidMetaUpdateResponse =
+  workspacesUidMetaUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspacesUidMetaUpdateUrl = (uid: string) => {
+export const getWorkspacesUidMetaUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/meta`;
 };
 
-export const WorkspacesUidMetaUpdate = async (
+export const workspacesUidMetaUpdate = async (
   uid: string,
-  ObjectMetaBody: ObjectMetaBody,
+  v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
-): Promise<WorkspacesUidMetaUpdateResponse> => {
-  const res = await fetch(getV1WorkspacesUidMetaUpdateUrl(uid), {
+): Promise<workspacesUidMetaUpdateResponse> => {
+  const res = await fetch(getWorkspacesUidMetaUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ObjectMetaBody),
+    body: JSON.stringify(v1ObjectMetaBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspacesUidMetaUpdateResponse["data"] = body
+  const data: workspacesUidMetaUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -833,26 +833,26 @@ export const WorkspacesUidMetaUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspacesUidMetaUpdateResponse;
+  } as workspacesUidMetaUpdateResponse;
 };
 
 /**
  * @summary Returns the  workspace restore result
  */
-export type WorkspaceOpsRestoreGetResponse200 = {
+export type workspaceOpsRestoreGetResponse200 = {
   data: WorkspaceRestore;
   status: 200;
 };
 
-export type WorkspaceOpsRestoreGetResponseComposite =
-  WorkspaceOpsRestoreGetResponse200;
+export type workspaceOpsRestoreGetResponseComposite =
+  workspaceOpsRestoreGetResponse200;
 
-export type WorkspaceOpsRestoreGetResponse =
-  WorkspaceOpsRestoreGetResponseComposite & {
+export type workspaceOpsRestoreGetResponse =
+  workspaceOpsRestoreGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsRestoreGetUrl = (
+export const getWorkspaceOpsRestoreGetUrl = (
   uid: string,
   params?: WorkspaceOpsRestoreGetParams,
 ) => {
@@ -871,18 +871,18 @@ export const getV1WorkspaceOpsRestoreGetUrl = (
     : `https://api.spectrocloud.com/v1/workspaces/${uid}/restore`;
 };
 
-export const WorkspaceOpsRestoreGet = async (
+export const workspaceOpsRestoreGet = async (
   uid: string,
   params?: WorkspaceOpsRestoreGetParams,
   options?: RequestInit,
-): Promise<WorkspaceOpsRestoreGetResponse> => {
-  const res = await fetch(getV1WorkspaceOpsRestoreGetUrl(uid, params), {
+): Promise<workspaceOpsRestoreGetResponse> => {
+  const res = await fetch(getWorkspaceOpsRestoreGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsRestoreGetResponse["data"] = body
+  const data: workspaceOpsRestoreGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -890,43 +890,43 @@ export const WorkspaceOpsRestoreGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsRestoreGetResponse;
+  } as workspaceOpsRestoreGetResponse;
 };
 
 /**
  * @summary Create On demand Workspace Restore
  */
-export type WorkspaceOpsRestoreOnDemandCreateResponse201 = {
+export type workspaceOpsRestoreOnDemandCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type WorkspaceOpsRestoreOnDemandCreateResponseComposite =
-  WorkspaceOpsRestoreOnDemandCreateResponse201;
+export type workspaceOpsRestoreOnDemandCreateResponseComposite =
+  workspaceOpsRestoreOnDemandCreateResponse201;
 
-export type WorkspaceOpsRestoreOnDemandCreateResponse =
-  WorkspaceOpsRestoreOnDemandCreateResponseComposite & {
+export type workspaceOpsRestoreOnDemandCreateResponse =
+  workspaceOpsRestoreOnDemandCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1WorkspaceOpsRestoreOnDemandCreateUrl = (uid: string) => {
+export const getWorkspaceOpsRestoreOnDemandCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/workspaces/${uid}/restore/onDemand`;
 };
 
-export const WorkspaceOpsRestoreOnDemandCreate = async (
+export const workspaceOpsRestoreOnDemandCreate = async (
   uid: string,
-  WorkspaceRestoreConfigEntity: WorkspaceRestoreConfigEntity,
+  workspaceRestoreConfigEntity: WorkspaceRestoreConfigEntity,
   options?: RequestInit,
-): Promise<WorkspaceOpsRestoreOnDemandCreateResponse> => {
-  const res = await fetch(getV1WorkspaceOpsRestoreOnDemandCreateUrl(uid), {
+): Promise<workspaceOpsRestoreOnDemandCreateResponse> => {
+  const res = await fetch(getWorkspaceOpsRestoreOnDemandCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(WorkspaceRestoreConfigEntity),
+    body: JSON.stringify(workspaceRestoreConfigEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: WorkspaceOpsRestoreOnDemandCreateResponse["data"] = body
+  const data: workspaceOpsRestoreOnDemandCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -934,5 +934,5 @@ export const WorkspaceOpsRestoreOnDemandCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as WorkspaceOpsRestoreOnDemandCreateResponse;
+  } as workspaceOpsRestoreOnDemandCreateResponse;
 };

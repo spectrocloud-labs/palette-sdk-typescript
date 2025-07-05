@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SpectroAzureClusterEntitySpec } from "./SpectroAzureClusterEntitySpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { SpectroAzureClusterEntitySpec } from "./spectroAzureClusterEntitySpec";
 
 /**
  * Azure cluster request payload for create and update

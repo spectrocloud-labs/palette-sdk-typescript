@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { SshTunnelStatusState } from "./SshTunnelStatusState";
-import type { SshUserStatus } from "./SshUserStatus";
+import type { Time } from "./time";
+import type { SshTunnelStatusState } from "./sshTunnelStatusState";
+import type { SshUserStatus } from "./sshUserStatus";
 
 export interface SshTunnelStatus {
   lastModifiedTime?: Time;

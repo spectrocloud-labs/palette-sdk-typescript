@@ -12,11 +12,8 @@
 import type {
   AuthTokenRevoke,
   Macros,
-  MacrosBody,
   ProjectRolesEntity,
-  ProjectRolesPatchBody,
   ResourceRoles,
-  ResourceRolesUpdateEntityBody,
   SystemFeatures,
   SystemScarSpec,
   Uid,
@@ -24,11 +21,8 @@ import type {
   UserAssetSsh,
   UserAssetSshEntity,
   UserAssetsLocationAzure,
-  UserAssetsLocationAzureBody,
   UserAssetsLocationGcp,
-  UserAssetsLocationGcpBody,
   UserAssetsLocationS3,
-  UserAssetsLocationS3Body,
   UserAssetsLocations,
   UserAssetsSsh,
   UserEntity,
@@ -45,12 +39,18 @@ import type {
   UsersEmailPasswordResetBody,
   UsersListParams,
   UsersMetadata,
-  UsersPasswordChangeBody,
   UsersSummaryList,
   UsersSummarySpec,
   UsersUidPasswordChangeBody,
+  V1MacrosBody,
+  V1ProjectRolesPatchBody,
+  V1ResourceRolesUpdateEntityBody,
+  V1UserAssetsLocationAzureBody,
+  V1UserAssetsLocationGcpBody,
+  V1UserAssetsLocationS3Body,
+  V1UsersPasswordChangeBody,
+  V1VsphereDnsMappingBody,
   VsphereDnsMapping,
-  VsphereDnsMappingBody,
   VsphereDnsMappings,
   VsphereDnsMappingsGetParams,
   VsphereMappingGetParams,
@@ -60,18 +60,18 @@ import type {
  * Lists users the given user context
  * @summary Lists users
  */
-export type UsersListResponse200 = {
+export type usersListResponse200 = {
   data: Users;
   status: 200;
 };
 
-export type UsersListResponseComposite = UsersListResponse200;
+export type usersListResponseComposite = usersListResponse200;
 
-export type UsersListResponse = UsersListResponseComposite & {
+export type usersListResponse = usersListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersListUrl = (params?: UsersListParams) => {
+export const getUsersListUrl = (params?: UsersListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -87,82 +87,82 @@ export const getV1UsersListUrl = (params?: UsersListParams) => {
     : `https://api.spectrocloud.com/v1/users`;
 };
 
-export const UsersList = async (
+export const usersList = async (
   params?: UsersListParams,
   options?: RequestInit,
-): Promise<UsersListResponse> => {
-  const res = await fetch(getV1UsersListUrl(params), {
+): Promise<usersListResponse> => {
+  const res = await fetch(getUsersListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersListResponse;
+  } as usersListResponse;
 };
 
 /**
  * A user is created for the given user context
  * @summary Create User
  */
-export type UsersCreateResponse201 = {
+export type usersCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UsersCreateResponseComposite = UsersCreateResponse201;
+export type usersCreateResponseComposite = usersCreateResponse201;
 
-export type UsersCreateResponse = UsersCreateResponseComposite & {
+export type usersCreateResponse = usersCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersCreateUrl = () => {
+export const getUsersCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users`;
 };
 
-export const UsersCreate = async (
-  UserEntity: UserEntity,
+export const usersCreate = async (
+  userEntity: UserEntity,
   options?: RequestInit,
-): Promise<UsersCreateResponse> => {
-  const res = await fetch(getV1UsersCreateUrl(), {
+): Promise<usersCreateResponse> => {
+  const res = await fetch(getUsersCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserEntity),
+    body: JSON.stringify(userEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersCreateResponse;
+  } as usersCreateResponse;
 };
 
 /**
  * @summary Returns the specified users location
  */
-export type UsersAssetsLocationGetResponse200 = {
+export type usersAssetsLocationGetResponse200 = {
   data: UserAssetsLocations;
   status: 200;
 };
 
-export type UsersAssetsLocationGetResponseComposite =
-  UsersAssetsLocationGetResponse200;
+export type usersAssetsLocationGetResponseComposite =
+  usersAssetsLocationGetResponse200;
 
-export type UsersAssetsLocationGetResponse =
-  UsersAssetsLocationGetResponseComposite & {
+export type usersAssetsLocationGetResponse =
+  usersAssetsLocationGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationGetUrl = (
+export const getUsersAssetsLocationGetUrl = (
   params?: UsersAssetsLocationGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -180,17 +180,17 @@ export const getV1UsersAssetsLocationGetUrl = (
     : `https://api.spectrocloud.com/v1/users/assets/locations`;
 };
 
-export const UsersAssetsLocationGet = async (
+export const usersAssetsLocationGet = async (
   params?: UsersAssetsLocationGetParams,
   options?: RequestInit,
-): Promise<UsersAssetsLocationGetResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationGetUrl(params), {
+): Promise<usersAssetsLocationGetResponse> => {
+  const res = await fetch(getUsersAssetsLocationGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationGetResponse["data"] = body
+  const data: usersAssetsLocationGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -198,42 +198,42 @@ export const UsersAssetsLocationGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationGetResponse;
+  } as usersAssetsLocationGetResponse;
 };
 
 /**
  * @summary Create a Azure location
  */
-export type UsersAssetsLocationAzureCreateResponse201 = {
+export type usersAssetsLocationAzureCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UsersAssetsLocationAzureCreateResponseComposite =
-  UsersAssetsLocationAzureCreateResponse201;
+export type usersAssetsLocationAzureCreateResponseComposite =
+  usersAssetsLocationAzureCreateResponse201;
 
-export type UsersAssetsLocationAzureCreateResponse =
-  UsersAssetsLocationAzureCreateResponseComposite & {
+export type usersAssetsLocationAzureCreateResponse =
+  usersAssetsLocationAzureCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationAzureCreateUrl = () => {
+export const getUsersAssetsLocationAzureCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/azure`;
 };
 
-export const UsersAssetsLocationAzureCreate = async (
-  UserAssetsLocationAzureBody: UserAssetsLocationAzureBody,
+export const usersAssetsLocationAzureCreate = async (
+  v1UserAssetsLocationAzureBody: V1UserAssetsLocationAzureBody,
   options?: RequestInit,
-): Promise<UsersAssetsLocationAzureCreateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationAzureCreateUrl(), {
+): Promise<usersAssetsLocationAzureCreateResponse> => {
+  const res = await fetch(getUsersAssetsLocationAzureCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationAzureBody),
+    body: JSON.stringify(v1UserAssetsLocationAzureBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationAzureCreateResponse["data"] = body
+  const data: usersAssetsLocationAzureCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -241,40 +241,40 @@ export const UsersAssetsLocationAzureCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationAzureCreateResponse;
+  } as usersAssetsLocationAzureCreateResponse;
 };
 
 /**
  * @summary Returns the specified Azure location
  */
-export type UsersAssetsLocationAzureGetResponse200 = {
+export type usersAssetsLocationAzureGetResponse200 = {
   data: UserAssetsLocationAzure;
   status: 200;
 };
 
-export type UsersAssetsLocationAzureGetResponseComposite =
-  UsersAssetsLocationAzureGetResponse200;
+export type usersAssetsLocationAzureGetResponseComposite =
+  usersAssetsLocationAzureGetResponse200;
 
-export type UsersAssetsLocationAzureGetResponse =
-  UsersAssetsLocationAzureGetResponseComposite & {
+export type usersAssetsLocationAzureGetResponse =
+  usersAssetsLocationAzureGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationAzureGetUrl = (uid: string) => {
+export const getUsersAssetsLocationAzureGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/azure/${uid}`;
 };
 
-export const UsersAssetsLocationAzureGet = async (
+export const usersAssetsLocationAzureGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationAzureGetResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationAzureGetUrl(uid), {
+): Promise<usersAssetsLocationAzureGetResponse> => {
+  const res = await fetch(getUsersAssetsLocationAzureGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationAzureGetResponse["data"] = body
+  const data: usersAssetsLocationAzureGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -282,43 +282,43 @@ export const UsersAssetsLocationAzureGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationAzureGetResponse;
+  } as usersAssetsLocationAzureGetResponse;
 };
 
 /**
  * @summary Updates the specified Azure location
  */
-export type UsersAssetsLocationAzureUpdateResponse204 = {
+export type usersAssetsLocationAzureUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationAzureUpdateResponseComposite =
-  UsersAssetsLocationAzureUpdateResponse204;
+export type usersAssetsLocationAzureUpdateResponseComposite =
+  usersAssetsLocationAzureUpdateResponse204;
 
-export type UsersAssetsLocationAzureUpdateResponse =
-  UsersAssetsLocationAzureUpdateResponseComposite & {
+export type usersAssetsLocationAzureUpdateResponse =
+  usersAssetsLocationAzureUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationAzureUpdateUrl = (uid: string) => {
+export const getUsersAssetsLocationAzureUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/azure/${uid}`;
 };
 
-export const UsersAssetsLocationAzureUpdate = async (
+export const usersAssetsLocationAzureUpdate = async (
   uid: string,
-  UserAssetsLocationAzureBody: UserAssetsLocationAzureBody,
+  v1UserAssetsLocationAzureBody: V1UserAssetsLocationAzureBody,
   options?: RequestInit,
-): Promise<UsersAssetsLocationAzureUpdateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationAzureUpdateUrl(uid), {
+): Promise<usersAssetsLocationAzureUpdateResponse> => {
+  const res = await fetch(getUsersAssetsLocationAzureUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationAzureBody),
+    body: JSON.stringify(v1UserAssetsLocationAzureBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationAzureUpdateResponse["data"] = body
+  const data: usersAssetsLocationAzureUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -326,42 +326,42 @@ export const UsersAssetsLocationAzureUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationAzureUpdateResponse;
+  } as usersAssetsLocationAzureUpdateResponse;
 };
 
 /**
  * @summary Create a GCP location
  */
-export type UsersAssetsLocationGcpCreateResponse201 = {
+export type usersAssetsLocationGcpCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UsersAssetsLocationGcpCreateResponseComposite =
-  UsersAssetsLocationGcpCreateResponse201;
+export type usersAssetsLocationGcpCreateResponseComposite =
+  usersAssetsLocationGcpCreateResponse201;
 
-export type UsersAssetsLocationGcpCreateResponse =
-  UsersAssetsLocationGcpCreateResponseComposite & {
+export type usersAssetsLocationGcpCreateResponse =
+  usersAssetsLocationGcpCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationGcpCreateUrl = () => {
+export const getUsersAssetsLocationGcpCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/gcp`;
 };
 
-export const UsersAssetsLocationGcpCreate = async (
-  UserAssetsLocationGcpBody: UserAssetsLocationGcpBody,
+export const usersAssetsLocationGcpCreate = async (
+  v1UserAssetsLocationGcpBody: V1UserAssetsLocationGcpBody,
   options?: RequestInit,
-): Promise<UsersAssetsLocationGcpCreateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationGcpCreateUrl(), {
+): Promise<usersAssetsLocationGcpCreateResponse> => {
+  const res = await fetch(getUsersAssetsLocationGcpCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationGcpBody),
+    body: JSON.stringify(v1UserAssetsLocationGcpBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationGcpCreateResponse["data"] = body
+  const data: usersAssetsLocationGcpCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -369,40 +369,40 @@ export const UsersAssetsLocationGcpCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationGcpCreateResponse;
+  } as usersAssetsLocationGcpCreateResponse;
 };
 
 /**
  * @summary Returns the specified GCP location
  */
-export type UsersAssetsLocationGcpGetResponse200 = {
+export type usersAssetsLocationGcpGetResponse200 = {
   data: UserAssetsLocationGcp;
   status: 200;
 };
 
-export type UsersAssetsLocationGcpGetResponseComposite =
-  UsersAssetsLocationGcpGetResponse200;
+export type usersAssetsLocationGcpGetResponseComposite =
+  usersAssetsLocationGcpGetResponse200;
 
-export type UsersAssetsLocationGcpGetResponse =
-  UsersAssetsLocationGcpGetResponseComposite & {
+export type usersAssetsLocationGcpGetResponse =
+  usersAssetsLocationGcpGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationGcpGetUrl = (uid: string) => {
+export const getUsersAssetsLocationGcpGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/gcp/${uid}`;
 };
 
-export const UsersAssetsLocationGcpGet = async (
+export const usersAssetsLocationGcpGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationGcpGetResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationGcpGetUrl(uid), {
+): Promise<usersAssetsLocationGcpGetResponse> => {
+  const res = await fetch(getUsersAssetsLocationGcpGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationGcpGetResponse["data"] = body
+  const data: usersAssetsLocationGcpGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -410,43 +410,43 @@ export const UsersAssetsLocationGcpGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationGcpGetResponse;
+  } as usersAssetsLocationGcpGetResponse;
 };
 
 /**
  * @summary Updates the specified GCP location
  */
-export type UsersAssetsLocationGcpUpdateResponse204 = {
+export type usersAssetsLocationGcpUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationGcpUpdateResponseComposite =
-  UsersAssetsLocationGcpUpdateResponse204;
+export type usersAssetsLocationGcpUpdateResponseComposite =
+  usersAssetsLocationGcpUpdateResponse204;
 
-export type UsersAssetsLocationGcpUpdateResponse =
-  UsersAssetsLocationGcpUpdateResponseComposite & {
+export type usersAssetsLocationGcpUpdateResponse =
+  usersAssetsLocationGcpUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationGcpUpdateUrl = (uid: string) => {
+export const getUsersAssetsLocationGcpUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/gcp/${uid}`;
 };
 
-export const UsersAssetsLocationGcpUpdate = async (
+export const usersAssetsLocationGcpUpdate = async (
   uid: string,
-  UserAssetsLocationGcpBody: UserAssetsLocationGcpBody,
+  v1UserAssetsLocationGcpBody: V1UserAssetsLocationGcpBody,
   options?: RequestInit,
-): Promise<UsersAssetsLocationGcpUpdateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationGcpUpdateUrl(uid), {
+): Promise<usersAssetsLocationGcpUpdateResponse> => {
+  const res = await fetch(getUsersAssetsLocationGcpUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationGcpBody),
+    body: JSON.stringify(v1UserAssetsLocationGcpBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationGcpUpdateResponse["data"] = body
+  const data: usersAssetsLocationGcpUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -454,42 +454,42 @@ export const UsersAssetsLocationGcpUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationGcpUpdateResponse;
+  } as usersAssetsLocationGcpUpdateResponse;
 };
 
 /**
  * @summary Create a MinIO location
  */
-export type UsersAssetsLocationMinioCreateResponse201 = {
+export type usersAssetsLocationMinioCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UsersAssetsLocationMinioCreateResponseComposite =
-  UsersAssetsLocationMinioCreateResponse201;
+export type usersAssetsLocationMinioCreateResponseComposite =
+  usersAssetsLocationMinioCreateResponse201;
 
-export type UsersAssetsLocationMinioCreateResponse =
-  UsersAssetsLocationMinioCreateResponseComposite & {
+export type usersAssetsLocationMinioCreateResponse =
+  usersAssetsLocationMinioCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationMinioCreateUrl = () => {
+export const getUsersAssetsLocationMinioCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/minio`;
 };
 
-export const UsersAssetsLocationMinioCreate = async (
-  UserAssetsLocationS3Body: UserAssetsLocationS3Body,
+export const usersAssetsLocationMinioCreate = async (
+  v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
-): Promise<UsersAssetsLocationMinioCreateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationMinioCreateUrl(), {
+): Promise<usersAssetsLocationMinioCreateResponse> => {
+  const res = await fetch(getUsersAssetsLocationMinioCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationS3Body),
+    body: JSON.stringify(v1UserAssetsLocationS3Body),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationMinioCreateResponse["data"] = body
+  const data: usersAssetsLocationMinioCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -497,40 +497,40 @@ export const UsersAssetsLocationMinioCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationMinioCreateResponse;
+  } as usersAssetsLocationMinioCreateResponse;
 };
 
 /**
  * @summary Returns the specified MinIO location
  */
-export type UsersAssetsLocationMinioGetResponse200 = {
+export type usersAssetsLocationMinioGetResponse200 = {
   data: UserAssetsLocationS3;
   status: 200;
 };
 
-export type UsersAssetsLocationMinioGetResponseComposite =
-  UsersAssetsLocationMinioGetResponse200;
+export type usersAssetsLocationMinioGetResponseComposite =
+  usersAssetsLocationMinioGetResponse200;
 
-export type UsersAssetsLocationMinioGetResponse =
-  UsersAssetsLocationMinioGetResponseComposite & {
+export type usersAssetsLocationMinioGetResponse =
+  usersAssetsLocationMinioGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationMinioGetUrl = (uid: string) => {
+export const getUsersAssetsLocationMinioGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/minio/${uid}`;
 };
 
-export const UsersAssetsLocationMinioGet = async (
+export const usersAssetsLocationMinioGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationMinioGetResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationMinioGetUrl(uid), {
+): Promise<usersAssetsLocationMinioGetResponse> => {
+  const res = await fetch(getUsersAssetsLocationMinioGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationMinioGetResponse["data"] = body
+  const data: usersAssetsLocationMinioGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -538,43 +538,43 @@ export const UsersAssetsLocationMinioGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationMinioGetResponse;
+  } as usersAssetsLocationMinioGetResponse;
 };
 
 /**
  * @summary Updates the specified MinIO location
  */
-export type UsersAssetsLocationMinioUpdateResponse204 = {
+export type usersAssetsLocationMinioUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationMinioUpdateResponseComposite =
-  UsersAssetsLocationMinioUpdateResponse204;
+export type usersAssetsLocationMinioUpdateResponseComposite =
+  usersAssetsLocationMinioUpdateResponse204;
 
-export type UsersAssetsLocationMinioUpdateResponse =
-  UsersAssetsLocationMinioUpdateResponseComposite & {
+export type usersAssetsLocationMinioUpdateResponse =
+  usersAssetsLocationMinioUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationMinioUpdateUrl = (uid: string) => {
+export const getUsersAssetsLocationMinioUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/minio/${uid}`;
 };
 
-export const UsersAssetsLocationMinioUpdate = async (
+export const usersAssetsLocationMinioUpdate = async (
   uid: string,
-  UserAssetsLocationS3Body: UserAssetsLocationS3Body,
+  v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
-): Promise<UsersAssetsLocationMinioUpdateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationMinioUpdateUrl(uid), {
+): Promise<usersAssetsLocationMinioUpdateResponse> => {
+  const res = await fetch(getUsersAssetsLocationMinioUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationS3Body),
+    body: JSON.stringify(v1UserAssetsLocationS3Body),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationMinioUpdateResponse["data"] = body
+  const data: usersAssetsLocationMinioUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -582,42 +582,42 @@ export const UsersAssetsLocationMinioUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationMinioUpdateResponse;
+  } as usersAssetsLocationMinioUpdateResponse;
 };
 
 /**
  * @summary Create a S3 location
  */
-export type UsersAssetsLocationS3CreateResponse201 = {
+export type usersAssetsLocationS3CreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UsersAssetsLocationS3CreateResponseComposite =
-  UsersAssetsLocationS3CreateResponse201;
+export type usersAssetsLocationS3CreateResponseComposite =
+  usersAssetsLocationS3CreateResponse201;
 
-export type UsersAssetsLocationS3CreateResponse =
-  UsersAssetsLocationS3CreateResponseComposite & {
+export type usersAssetsLocationS3CreateResponse =
+  usersAssetsLocationS3CreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationS3CreateUrl = () => {
+export const getUsersAssetsLocationS3CreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/s3`;
 };
 
-export const UsersAssetsLocationS3Create = async (
-  UserAssetsLocationS3Body: UserAssetsLocationS3Body,
+export const usersAssetsLocationS3Create = async (
+  v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
-): Promise<UsersAssetsLocationS3CreateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationS3CreateUrl(), {
+): Promise<usersAssetsLocationS3CreateResponse> => {
+  const res = await fetch(getUsersAssetsLocationS3CreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationS3Body),
+    body: JSON.stringify(v1UserAssetsLocationS3Body),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationS3CreateResponse["data"] = body
+  const data: usersAssetsLocationS3CreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -625,40 +625,40 @@ export const UsersAssetsLocationS3Create = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationS3CreateResponse;
+  } as usersAssetsLocationS3CreateResponse;
 };
 
 /**
  * @summary Returns the specified S3 location
  */
-export type UsersAssetsLocationS3DeleteResponse204 = {
+export type usersAssetsLocationS3DeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationS3DeleteResponseComposite =
-  UsersAssetsLocationS3DeleteResponse204;
+export type usersAssetsLocationS3DeleteResponseComposite =
+  usersAssetsLocationS3DeleteResponse204;
 
-export type UsersAssetsLocationS3DeleteResponse =
-  UsersAssetsLocationS3DeleteResponseComposite & {
+export type usersAssetsLocationS3DeleteResponse =
+  usersAssetsLocationS3DeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationS3DeleteUrl = (uid: string) => {
+export const getUsersAssetsLocationS3DeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`;
 };
 
-export const UsersAssetsLocationS3Delete = async (
+export const usersAssetsLocationS3Delete = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationS3DeleteResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationS3DeleteUrl(uid), {
+): Promise<usersAssetsLocationS3DeleteResponse> => {
+  const res = await fetch(getUsersAssetsLocationS3DeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationS3DeleteResponse["data"] = body
+  const data: usersAssetsLocationS3DeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -666,40 +666,40 @@ export const UsersAssetsLocationS3Delete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationS3DeleteResponse;
+  } as usersAssetsLocationS3DeleteResponse;
 };
 
 /**
  * @summary Returns the specified S3 location
  */
-export type UsersAssetsLocationS3GetResponse200 = {
+export type usersAssetsLocationS3GetResponse200 = {
   data: UserAssetsLocationS3;
   status: 200;
 };
 
-export type UsersAssetsLocationS3GetResponseComposite =
-  UsersAssetsLocationS3GetResponse200;
+export type usersAssetsLocationS3GetResponseComposite =
+  usersAssetsLocationS3GetResponse200;
 
-export type UsersAssetsLocationS3GetResponse =
-  UsersAssetsLocationS3GetResponseComposite & {
+export type usersAssetsLocationS3GetResponse =
+  usersAssetsLocationS3GetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationS3GetUrl = (uid: string) => {
+export const getUsersAssetsLocationS3GetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`;
 };
 
-export const UsersAssetsLocationS3Get = async (
+export const usersAssetsLocationS3Get = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationS3GetResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationS3GetUrl(uid), {
+): Promise<usersAssetsLocationS3GetResponse> => {
+  const res = await fetch(getUsersAssetsLocationS3GetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationS3GetResponse["data"] = body
+  const data: usersAssetsLocationS3GetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -707,43 +707,43 @@ export const UsersAssetsLocationS3Get = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationS3GetResponse;
+  } as usersAssetsLocationS3GetResponse;
 };
 
 /**
  * @summary Updates the specified S3 location
  */
-export type UsersAssetsLocationS3UpdateResponse204 = {
+export type usersAssetsLocationS3UpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationS3UpdateResponseComposite =
-  UsersAssetsLocationS3UpdateResponse204;
+export type usersAssetsLocationS3UpdateResponseComposite =
+  usersAssetsLocationS3UpdateResponse204;
 
-export type UsersAssetsLocationS3UpdateResponse =
-  UsersAssetsLocationS3UpdateResponseComposite & {
+export type usersAssetsLocationS3UpdateResponse =
+  usersAssetsLocationS3UpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationS3UpdateUrl = (uid: string) => {
+export const getUsersAssetsLocationS3UpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`;
 };
 
-export const UsersAssetsLocationS3Update = async (
+export const usersAssetsLocationS3Update = async (
   uid: string,
-  UserAssetsLocationS3Body: UserAssetsLocationS3Body,
+  v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body,
   options?: RequestInit,
-): Promise<UsersAssetsLocationS3UpdateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationS3UpdateUrl(uid), {
+): Promise<usersAssetsLocationS3UpdateResponse> => {
+  const res = await fetch(getUsersAssetsLocationS3UpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetsLocationS3Body),
+    body: JSON.stringify(v1UserAssetsLocationS3Body),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationS3UpdateResponse["data"] = body
+  const data: usersAssetsLocationS3UpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -751,44 +751,44 @@ export const UsersAssetsLocationS3Update = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationS3UpdateResponse;
+  } as usersAssetsLocationS3UpdateResponse;
 };
 
 /**
  * @summary Update the default backup location
  */
-export type UsersAssetsLocationDefaultUpdateResponse204 = {
+export type usersAssetsLocationDefaultUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationDefaultUpdateResponseComposite =
-  UsersAssetsLocationDefaultUpdateResponse204;
+export type usersAssetsLocationDefaultUpdateResponseComposite =
+  usersAssetsLocationDefaultUpdateResponse204;
 
-export type UsersAssetsLocationDefaultUpdateResponse =
-  UsersAssetsLocationDefaultUpdateResponseComposite & {
+export type usersAssetsLocationDefaultUpdateResponse =
+  usersAssetsLocationDefaultUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationDefaultUpdateUrl = (
+export const getUsersAssetsLocationDefaultUpdateUrl = (
   type: string,
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/${type}/${uid}/default`;
 };
 
-export const UsersAssetsLocationDefaultUpdate = async (
+export const usersAssetsLocationDefaultUpdate = async (
   type: string,
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationDefaultUpdateResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationDefaultUpdateUrl(type, uid), {
+): Promise<usersAssetsLocationDefaultUpdateResponse> => {
+  const res = await fetch(getUsersAssetsLocationDefaultUpdateUrl(type, uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationDefaultUpdateResponse["data"] = body
+  const data: usersAssetsLocationDefaultUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -796,40 +796,40 @@ export const UsersAssetsLocationDefaultUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationDefaultUpdateResponse;
+  } as usersAssetsLocationDefaultUpdateResponse;
 };
 
 /**
  * @summary Deletes the specified location
  */
-export type UsersAssetsLocationDeleteResponse204 = {
+export type usersAssetsLocationDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetsLocationDeleteResponseComposite =
-  UsersAssetsLocationDeleteResponse204;
+export type usersAssetsLocationDeleteResponseComposite =
+  usersAssetsLocationDeleteResponse204;
 
-export type UsersAssetsLocationDeleteResponse =
-  UsersAssetsLocationDeleteResponseComposite & {
+export type usersAssetsLocationDeleteResponse =
+  usersAssetsLocationDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetsLocationDeleteUrl = (uid: string) => {
+export const getUsersAssetsLocationDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/locations/${uid}`;
 };
 
-export const UsersAssetsLocationDelete = async (
+export const usersAssetsLocationDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetsLocationDeleteResponse> => {
-  const res = await fetch(getV1UsersAssetsLocationDeleteUrl(uid), {
+): Promise<usersAssetsLocationDeleteResponse> => {
+  const res = await fetch(getUsersAssetsLocationDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsLocationDeleteResponse["data"] = body
+  const data: usersAssetsLocationDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -837,24 +837,24 @@ export const UsersAssetsLocationDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsLocationDeleteResponse;
+  } as usersAssetsLocationDeleteResponse;
 };
 
 /**
  * @summary Returns the SSH keys
  */
-export type UsersAssetsSshGetResponse200 = {
+export type usersAssetsSshGetResponse200 = {
   data: UserAssetsSsh;
   status: 200;
 };
 
-export type UsersAssetsSshGetResponseComposite = UsersAssetsSshGetResponse200;
+export type usersAssetsSshGetResponseComposite = usersAssetsSshGetResponse200;
 
-export type UsersAssetsSshGetResponse = UsersAssetsSshGetResponseComposite & {
+export type usersAssetsSshGetResponse = usersAssetsSshGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersAssetsSshGetUrl = (params?: UsersAssetsSshGetParams) => {
+export const getUsersAssetsSshGetUrl = (params?: UsersAssetsSshGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -870,58 +870,58 @@ export const getV1UsersAssetsSshGetUrl = (params?: UsersAssetsSshGetParams) => {
     : `https://api.spectrocloud.com/v1/users/assets/sshkeys`;
 };
 
-export const UsersAssetsSshGet = async (
+export const usersAssetsSshGet = async (
   params?: UsersAssetsSshGetParams,
   options?: RequestInit,
-): Promise<UsersAssetsSshGetResponse> => {
-  const res = await fetch(getV1UsersAssetsSshGetUrl(params), {
+): Promise<usersAssetsSshGetResponse> => {
+  const res = await fetch(getUsersAssetsSshGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetsSshGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersAssetsSshGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetsSshGetResponse;
+  } as usersAssetsSshGetResponse;
 };
 
 /**
  * @summary Creates a SSH key
  */
-export type UserAssetsSshCreateResponse201 = {
+export type userAssetsSshCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type UserAssetsSshCreateResponseComposite =
-  UserAssetsSshCreateResponse201;
+export type userAssetsSshCreateResponseComposite =
+  userAssetsSshCreateResponse201;
 
-export type UserAssetsSshCreateResponse =
-  UserAssetsSshCreateResponseComposite & {
+export type userAssetsSshCreateResponse =
+  userAssetsSshCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UserAssetsSshCreateUrl = () => {
+export const getUserAssetsSshCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/sshkeys`;
 };
 
-export const UserAssetsSshCreate = async (
-  UserAssetSshEntity: UserAssetSshEntity,
+export const userAssetsSshCreate = async (
+  userAssetSshEntity: UserAssetSshEntity,
   options?: RequestInit,
-): Promise<UserAssetsSshCreateResponse> => {
-  const res = await fetch(getV1UserAssetsSshCreateUrl(), {
+): Promise<userAssetsSshCreateResponse> => {
+  const res = await fetch(getUserAssetsSshCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetSshEntity),
+    body: JSON.stringify(userAssetSshEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UserAssetsSshCreateResponse["data"] = body
+  const data: userAssetsSshCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -929,40 +929,40 @@ export const UserAssetsSshCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UserAssetsSshCreateResponse;
+  } as userAssetsSshCreateResponse;
 };
 
 /**
  * @summary Returns the specified user ssh key
  */
-export type UsersAssetSshDeleteResponse204 = {
+export type usersAssetSshDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetSshDeleteResponseComposite =
-  UsersAssetSshDeleteResponse204;
+export type usersAssetSshDeleteResponseComposite =
+  usersAssetSshDeleteResponse204;
 
-export type UsersAssetSshDeleteResponse =
-  UsersAssetSshDeleteResponseComposite & {
+export type usersAssetSshDeleteResponse =
+  usersAssetSshDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetSshDeleteUrl = (uid: string) => {
+export const getUsersAssetSshDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`;
 };
 
-export const UsersAssetSshDelete = async (
+export const usersAssetSshDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetSshDeleteResponse> => {
-  const res = await fetch(getV1UsersAssetSshDeleteUrl(uid), {
+): Promise<usersAssetSshDeleteResponse> => {
+  const res = await fetch(getUsersAssetSshDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetSshDeleteResponse["data"] = body
+  const data: usersAssetSshDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -970,40 +970,40 @@ export const UsersAssetSshDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetSshDeleteResponse;
+  } as usersAssetSshDeleteResponse;
 };
 
 /**
  * @summary Returns the specified user ssh key
  */
-export type UsersAssetSshGetUidResponse200 = {
+export type usersAssetSshGetUidResponse200 = {
   data: UserAssetSsh;
   status: 200;
 };
 
-export type UsersAssetSshGetUidResponseComposite =
-  UsersAssetSshGetUidResponse200;
+export type usersAssetSshGetUidResponseComposite =
+  usersAssetSshGetUidResponse200;
 
-export type UsersAssetSshGetUidResponse =
-  UsersAssetSshGetUidResponseComposite & {
+export type usersAssetSshGetUidResponse =
+  usersAssetSshGetUidResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetSshGetUidUrl = (uid: string) => {
+export const getUsersAssetSshGetUidUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`;
 };
 
-export const UsersAssetSshGetUid = async (
+export const usersAssetSshGetUid = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersAssetSshGetUidResponse> => {
-  const res = await fetch(getV1UsersAssetSshGetUidUrl(uid), {
+): Promise<usersAssetSshGetUidResponse> => {
+  const res = await fetch(getUsersAssetSshGetUidUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetSshGetUidResponse["data"] = body
+  const data: usersAssetSshGetUidResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1011,43 +1011,43 @@ export const UsersAssetSshGetUid = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetSshGetUidResponse;
+  } as usersAssetSshGetUidResponse;
 };
 
 /**
  * @summary Updates the specified user ssh key
  */
-export type UsersAssetSshUpdateResponse204 = {
+export type usersAssetSshUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAssetSshUpdateResponseComposite =
-  UsersAssetSshUpdateResponse204;
+export type usersAssetSshUpdateResponseComposite =
+  usersAssetSshUpdateResponse204;
 
-export type UsersAssetSshUpdateResponse =
-  UsersAssetSshUpdateResponseComposite & {
+export type usersAssetSshUpdateResponse =
+  usersAssetSshUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAssetSshUpdateUrl = (uid: string) => {
+export const getUsersAssetSshUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`;
 };
 
-export const UsersAssetSshUpdate = async (
+export const usersAssetSshUpdate = async (
   uid: string,
-  UserAssetSsh: UserAssetSsh,
+  userAssetSsh: UserAssetSsh,
   options?: RequestInit,
-): Promise<UsersAssetSshUpdateResponse> => {
-  const res = await fetch(getV1UsersAssetSshUpdateUrl(uid), {
+): Promise<usersAssetSshUpdateResponse> => {
+  const res = await fetch(getUsersAssetSshUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserAssetSsh),
+    body: JSON.stringify(userAssetSsh),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAssetSshUpdateResponse["data"] = body
+  const data: usersAssetSshUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1055,24 +1055,24 @@ export const UsersAssetSshUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAssetSshUpdateResponse;
+  } as usersAssetSshUpdateResponse;
 };
 
 /**
  * @summary Returns the specified vSphere DNS mapping
  */
-export type VsphereMappingGetResponse200 = {
+export type vsphereMappingGetResponse200 = {
   data: VsphereDnsMapping;
   status: 200;
 };
 
-export type VsphereMappingGetResponseComposite = VsphereMappingGetResponse200;
+export type vsphereMappingGetResponseComposite = vsphereMappingGetResponse200;
 
-export type VsphereMappingGetResponse = VsphereMappingGetResponseComposite & {
+export type vsphereMappingGetResponse = vsphereMappingGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1VsphereMappingGetUrl = (params: VsphereMappingGetParams) => {
+export const getVsphereMappingGetUrl = (params: VsphereMappingGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1088,42 +1088,42 @@ export const getV1VsphereMappingGetUrl = (params: VsphereMappingGetParams) => {
     : `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMapping`;
 };
 
-export const VsphereMappingGet = async (
+export const vsphereMappingGet = async (
   params: VsphereMappingGetParams,
   options?: RequestInit,
-): Promise<VsphereMappingGetResponse> => {
-  const res = await fetch(getV1VsphereMappingGetUrl(params), {
+): Promise<vsphereMappingGetResponse> => {
+  const res = await fetch(getVsphereMappingGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereMappingGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: vsphereMappingGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereMappingGetResponse;
+  } as vsphereMappingGetResponse;
 };
 
 /**
  * @summary Returns the specified vSphere DNS mappings
  */
-export type VsphereDnsMappingsGetResponse200 = {
+export type vsphereDnsMappingsGetResponse200 = {
   data: VsphereDnsMappings;
   status: 200;
 };
 
-export type VsphereDnsMappingsGetResponseComposite =
-  VsphereDnsMappingsGetResponse200;
+export type vsphereDnsMappingsGetResponseComposite =
+  vsphereDnsMappingsGetResponse200;
 
-export type VsphereDnsMappingsGetResponse =
-  VsphereDnsMappingsGetResponseComposite & {
+export type vsphereDnsMappingsGetResponse =
+  vsphereDnsMappingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereDnsMappingsGetUrl = (
+export const getVsphereDnsMappingsGetUrl = (
   params?: VsphereDnsMappingsGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1141,17 +1141,17 @@ export const getV1VsphereDnsMappingsGetUrl = (
     : `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings`;
 };
 
-export const VsphereDnsMappingsGet = async (
+export const vsphereDnsMappingsGet = async (
   params?: VsphereDnsMappingsGetParams,
   options?: RequestInit,
-): Promise<VsphereDnsMappingsGetResponse> => {
-  const res = await fetch(getV1VsphereDnsMappingsGetUrl(params), {
+): Promise<vsphereDnsMappingsGetResponse> => {
+  const res = await fetch(getVsphereDnsMappingsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDnsMappingsGetResponse["data"] = body
+  const data: vsphereDnsMappingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1159,42 +1159,42 @@ export const VsphereDnsMappingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDnsMappingsGetResponse;
+  } as vsphereDnsMappingsGetResponse;
 };
 
 /**
  * @summary Create a vSphere DNS mapping
  */
-export type VsphereDnsMappingCreateResponse201 = {
+export type vsphereDnsMappingCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type VsphereDnsMappingCreateResponseComposite =
-  VsphereDnsMappingCreateResponse201;
+export type vsphereDnsMappingCreateResponseComposite =
+  vsphereDnsMappingCreateResponse201;
 
-export type VsphereDnsMappingCreateResponse =
-  VsphereDnsMappingCreateResponseComposite & {
+export type vsphereDnsMappingCreateResponse =
+  vsphereDnsMappingCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereDnsMappingCreateUrl = () => {
+export const getVsphereDnsMappingCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings`;
 };
 
-export const VsphereDnsMappingCreate = async (
-  VsphereDnsMappingBody: VsphereDnsMappingBody,
+export const vsphereDnsMappingCreate = async (
+  v1VsphereDnsMappingBody: V1VsphereDnsMappingBody,
   options?: RequestInit,
-): Promise<VsphereDnsMappingCreateResponse> => {
-  const res = await fetch(getV1VsphereDnsMappingCreateUrl(), {
+): Promise<vsphereDnsMappingCreateResponse> => {
+  const res = await fetch(getVsphereDnsMappingCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereDnsMappingBody),
+    body: JSON.stringify(v1VsphereDnsMappingBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDnsMappingCreateResponse["data"] = body
+  const data: vsphereDnsMappingCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1202,40 +1202,40 @@ export const VsphereDnsMappingCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDnsMappingCreateResponse;
+  } as vsphereDnsMappingCreateResponse;
 };
 
 /**
  * @summary Deletes the specified vSphere DNS mapping
  */
-export type VsphereDnsMappingDeleteResponse204 = {
+export type vsphereDnsMappingDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type VsphereDnsMappingDeleteResponseComposite =
-  VsphereDnsMappingDeleteResponse204;
+export type vsphereDnsMappingDeleteResponseComposite =
+  vsphereDnsMappingDeleteResponse204;
 
-export type VsphereDnsMappingDeleteResponse =
-  VsphereDnsMappingDeleteResponseComposite & {
+export type vsphereDnsMappingDeleteResponse =
+  vsphereDnsMappingDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereDnsMappingDeleteUrl = (uid: string) => {
+export const getVsphereDnsMappingDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`;
 };
 
-export const VsphereDnsMappingDelete = async (
+export const vsphereDnsMappingDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<VsphereDnsMappingDeleteResponse> => {
-  const res = await fetch(getV1VsphereDnsMappingDeleteUrl(uid), {
+): Promise<vsphereDnsMappingDeleteResponse> => {
+  const res = await fetch(getVsphereDnsMappingDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDnsMappingDeleteResponse["data"] = body
+  const data: vsphereDnsMappingDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1243,40 +1243,40 @@ export const VsphereDnsMappingDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDnsMappingDeleteResponse;
+  } as vsphereDnsMappingDeleteResponse;
 };
 
 /**
  * @summary Returns the specified vSphere DNS mapping
  */
-export type VsphereDnsMappingGetResponse200 = {
+export type vsphereDnsMappingGetResponse200 = {
   data: VsphereDnsMapping;
   status: 200;
 };
 
-export type VsphereDnsMappingGetResponseComposite =
-  VsphereDnsMappingGetResponse200;
+export type vsphereDnsMappingGetResponseComposite =
+  vsphereDnsMappingGetResponse200;
 
-export type VsphereDnsMappingGetResponse =
-  VsphereDnsMappingGetResponseComposite & {
+export type vsphereDnsMappingGetResponse =
+  vsphereDnsMappingGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereDnsMappingGetUrl = (uid: string) => {
+export const getVsphereDnsMappingGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`;
 };
 
-export const VsphereDnsMappingGet = async (
+export const vsphereDnsMappingGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<VsphereDnsMappingGetResponse> => {
-  const res = await fetch(getV1VsphereDnsMappingGetUrl(uid), {
+): Promise<vsphereDnsMappingGetResponse> => {
+  const res = await fetch(getVsphereDnsMappingGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDnsMappingGetResponse["data"] = body
+  const data: vsphereDnsMappingGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1284,43 +1284,43 @@ export const VsphereDnsMappingGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDnsMappingGetResponse;
+  } as vsphereDnsMappingGetResponse;
 };
 
 /**
  * @summary Updates the specified vSphere DNS mapping
  */
-export type VsphereDnsMappingUpdateResponse204 = {
+export type vsphereDnsMappingUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type VsphereDnsMappingUpdateResponseComposite =
-  VsphereDnsMappingUpdateResponse204;
+export type vsphereDnsMappingUpdateResponseComposite =
+  vsphereDnsMappingUpdateResponse204;
 
-export type VsphereDnsMappingUpdateResponse =
-  VsphereDnsMappingUpdateResponseComposite & {
+export type vsphereDnsMappingUpdateResponse =
+  vsphereDnsMappingUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereDnsMappingUpdateUrl = (uid: string) => {
+export const getVsphereDnsMappingUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`;
 };
 
-export const VsphereDnsMappingUpdate = async (
+export const vsphereDnsMappingUpdate = async (
   uid: string,
-  VsphereDnsMappingBody: VsphereDnsMappingBody,
+  v1VsphereDnsMappingBody: V1VsphereDnsMappingBody,
   options?: RequestInit,
-): Promise<VsphereDnsMappingUpdateResponse> => {
-  const res = await fetch(getV1VsphereDnsMappingUpdateUrl(uid), {
+): Promise<vsphereDnsMappingUpdateResponse> => {
+  const res = await fetch(getVsphereDnsMappingUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereDnsMappingBody),
+    body: JSON.stringify(v1VsphereDnsMappingBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDnsMappingUpdateResponse["data"] = body
+  const data: vsphereDnsMappingUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1328,42 +1328,42 @@ export const VsphereDnsMappingUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDnsMappingUpdateResponse;
+  } as vsphereDnsMappingUpdateResponse;
 };
 
 /**
  * @summary Revoke access of specific token(s)
  */
-export type UsersAuthTokensRevokeResponse204 = {
+export type usersAuthTokensRevokeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersAuthTokensRevokeResponseComposite =
-  UsersAuthTokensRevokeResponse204;
+export type usersAuthTokensRevokeResponseComposite =
+  usersAuthTokensRevokeResponse204;
 
-export type UsersAuthTokensRevokeResponse =
-  UsersAuthTokensRevokeResponseComposite & {
+export type usersAuthTokensRevokeResponse =
+  usersAuthTokensRevokeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersAuthTokensRevokeUrl = () => {
+export const getUsersAuthTokensRevokeUrl = () => {
   return `https://api.spectrocloud.com/v1/users/auth/tokens/revoke`;
 };
 
-export const UsersAuthTokensRevoke = async (
-  AuthTokenRevoke: AuthTokenRevoke,
+export const usersAuthTokensRevoke = async (
+  authTokenRevoke: AuthTokenRevoke,
   options?: RequestInit,
-): Promise<UsersAuthTokensRevokeResponse> => {
-  const res = await fetch(getV1UsersAuthTokensRevokeUrl(), {
+): Promise<usersAuthTokensRevokeResponse> => {
+  const res = await fetch(getUsersAuthTokensRevokeUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AuthTokenRevoke),
+    body: JSON.stringify(authTokenRevoke),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersAuthTokensRevokeResponse["data"] = body
+  const data: usersAuthTokensRevokeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1371,96 +1371,100 @@ export const UsersAuthTokensRevoke = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersAuthTokensRevokeResponse;
+  } as usersAuthTokensRevokeResponse;
 };
 
 /**
  * @summary Get the system Spectro repository. Restricted to edge services
  */
-export type UsersConfigScarGetResponse200 = {
+export type v1UsersConfigScarGetResponse200 = {
   data: SystemScarSpec;
   status: 200;
 };
 
-export type UsersConfigScarGetResponseComposite = UsersConfigScarGetResponse200;
+export type v1UsersConfigScarGetResponseComposite =
+  v1UsersConfigScarGetResponse200;
 
-export type UsersConfigScarGetResponse = UsersConfigScarGetResponseComposite & {
-  headers: Headers;
-};
+export type v1UsersConfigScarGetResponse =
+  v1UsersConfigScarGetResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1UsersConfigScarGetUrl = () => {
   return `https://api.spectrocloud.com/v1/users/config/scar`;
 };
 
-export const UsersConfigScarGet = async (
+export const v1UsersConfigScarGet = async (
   options?: RequestInit,
-): Promise<UsersConfigScarGetResponse> => {
+): Promise<v1UsersConfigScarGetResponse> => {
   const res = await fetch(getV1UsersConfigScarGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersConfigScarGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1UsersConfigScarGetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersConfigScarGetResponse;
+  } as v1UsersConfigScarGetResponse;
 };
 
 /**
  * Returns a basic information of User for the specified uid.
  * @summary Returns the base information of specified User
  */
-export type UsersInfoGetResponse200 = {
+export type usersInfoGetResponse200 = {
   data: UserInfo;
   status: 200;
 };
 
-export type UsersInfoGetResponseComposite = UsersInfoGetResponse200;
+export type usersInfoGetResponseComposite = usersInfoGetResponse200;
 
-export type UsersInfoGetResponse = UsersInfoGetResponseComposite & {
+export type usersInfoGetResponse = usersInfoGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersInfoGetUrl = () => {
+export const getUsersInfoGetUrl = () => {
   return `https://api.spectrocloud.com/v1/users/info`;
 };
 
-export const UsersInfoGet = async (
+export const usersInfoGet = async (
   options?: RequestInit,
-): Promise<UsersInfoGetResponse> => {
-  const res = await fetch(getV1UsersInfoGetUrl(), {
+): Promise<usersInfoGetResponse> => {
+  const res = await fetch(getUsersInfoGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersInfoGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersInfoGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersInfoGetResponse;
+  } as usersInfoGetResponse;
 };
 
 /**
  * gets users kubectl session
  * @summary gets users kubectl session
  */
-export type UsersKubectlSessionUidResponse200 = {
+export type v1UsersKubectlSessionUidResponse200 = {
   data: UserKubectlSession;
   status: 200;
 };
 
-export type UsersKubectlSessionUidResponseComposite =
-  UsersKubectlSessionUidResponse200;
+export type v1UsersKubectlSessionUidResponseComposite =
+  v1UsersKubectlSessionUidResponse200;
 
-export type UsersKubectlSessionUidResponse =
-  UsersKubectlSessionUidResponseComposite & {
+export type v1UsersKubectlSessionUidResponse =
+  v1UsersKubectlSessionUidResponseComposite & {
     headers: Headers;
   };
 
@@ -1468,17 +1472,17 @@ export const getV1UsersKubectlSessionUidUrl = (sessionUid: string) => {
   return `https://api.spectrocloud.com/v1/users/kubectl/session/${sessionUid}`;
 };
 
-export const UsersKubectlSessionUid = async (
+export const v1UsersKubectlSessionUid = async (
   sessionUid: string,
   options?: RequestInit,
-): Promise<UsersKubectlSessionUidResponse> => {
+): Promise<v1UsersKubectlSessionUidResponse> => {
   const res = await fetch(getV1UsersKubectlSessionUidUrl(sessionUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersKubectlSessionUidResponse["data"] = body
+  const data: v1UsersKubectlSessionUidResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1486,59 +1490,59 @@ export const UsersKubectlSessionUid = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersKubectlSessionUidResponse;
+  } as v1UsersKubectlSessionUidResponse;
 };
 
 /**
  * @summary Retrieves a list of users metadata
  */
-export type UsersMetadataResponse200 = {
+export type usersMetadataResponse200 = {
   data: UsersMetadata;
   status: 200;
 };
 
-export type UsersMetadataResponseComposite = UsersMetadataResponse200;
+export type usersMetadataResponseComposite = usersMetadataResponse200;
 
-export type UsersMetadataResponse = UsersMetadataResponseComposite & {
+export type usersMetadataResponse = usersMetadataResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersMetadataUrl = () => {
+export const getUsersMetadataUrl = () => {
   return `https://api.spectrocloud.com/v1/users/meta`;
 };
 
-export const UsersMetadata = async (
+export const usersMetadata = async (
   options?: RequestInit,
-): Promise<UsersMetadataResponse> => {
-  const res = await fetch(getV1UsersMetadataUrl(), {
+): Promise<usersMetadataResponse> => {
+  const res = await fetch(getUsersMetadataUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersMetadataResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersMetadataResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersMetadataResponse;
+  } as usersMetadataResponse;
 };
 
 /**
  * User password change request via current password and emailId
  * @summary User password change request using the user emailId
  */
-export type UsersPasswordChangeResponse204 = {
+export type v1UsersPasswordChangeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersPasswordChangeResponseComposite =
-  UsersPasswordChangeResponse204;
+export type v1UsersPasswordChangeResponseComposite =
+  v1UsersPasswordChangeResponse204;
 
-export type UsersPasswordChangeResponse =
-  UsersPasswordChangeResponseComposite & {
+export type v1UsersPasswordChangeResponse =
+  v1UsersPasswordChangeResponseComposite & {
     headers: Headers;
   };
 
@@ -1546,19 +1550,19 @@ export const getV1UsersPasswordChangeUrl = () => {
   return `https://api.spectrocloud.com/v1/users/password/change`;
 };
 
-export const UsersPasswordChange = async (
-  UsersPasswordChangeBody: UsersPasswordChangeBody,
+export const v1UsersPasswordChange = async (
+  v1UsersPasswordChangeBody: V1UsersPasswordChangeBody,
   options?: RequestInit,
-): Promise<UsersPasswordChangeResponse> => {
+): Promise<v1UsersPasswordChangeResponse> => {
   const res = await fetch(getV1UsersPasswordChangeUrl(), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UsersPasswordChangeBody),
+    body: JSON.stringify(v1UsersPasswordChangeBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersPasswordChangeResponse["data"] = body
+  const data: v1UsersPasswordChangeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1566,43 +1570,43 @@ export const UsersPasswordChange = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersPasswordChangeResponse;
+  } as v1UsersPasswordChangeResponse;
 };
 
 /**
  * User password request will be sent to the supplied emailId
  * @summary User password reset request using the email id
  */
-export type UsersEmailPasswordResetResponse204 = {
+export type usersEmailPasswordResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersEmailPasswordResetResponseComposite =
-  UsersEmailPasswordResetResponse204;
+export type usersEmailPasswordResetResponseComposite =
+  usersEmailPasswordResetResponse204;
 
-export type UsersEmailPasswordResetResponse =
-  UsersEmailPasswordResetResponseComposite & {
+export type usersEmailPasswordResetResponse =
+  usersEmailPasswordResetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersEmailPasswordResetUrl = () => {
+export const getUsersEmailPasswordResetUrl = () => {
   return `https://api.spectrocloud.com/v1/users/password/reset`;
 };
 
-export const UsersEmailPasswordReset = async (
-  UsersEmailPasswordResetBody: UsersEmailPasswordResetBody,
+export const usersEmailPasswordReset = async (
+  usersEmailPasswordResetBody: UsersEmailPasswordResetBody,
   options?: RequestInit,
-): Promise<UsersEmailPasswordResetResponse> => {
-  const res = await fetch(getV1UsersEmailPasswordResetUrl(), {
+): Promise<usersEmailPasswordResetResponse> => {
+  const res = await fetch(getUsersEmailPasswordResetUrl(), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UsersEmailPasswordResetBody),
+    body: JSON.stringify(usersEmailPasswordResetBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersEmailPasswordResetResponse["data"] = body
+  const data: usersEmailPasswordResetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1610,118 +1614,118 @@ export const UsersEmailPasswordReset = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersEmailPasswordResetResponse;
+  } as usersEmailPasswordResetResponse;
 };
 
 /**
  * @summary Retrieves a list of users summary with provided filter spec
  */
-export type UsersSummaryGetResponse200 = {
+export type usersSummaryGetResponse200 = {
   data: UsersSummaryList;
   status: 200;
 };
 
-export type UsersSummaryGetResponseComposite = UsersSummaryGetResponse200;
+export type usersSummaryGetResponseComposite = usersSummaryGetResponse200;
 
-export type UsersSummaryGetResponse = UsersSummaryGetResponseComposite & {
+export type usersSummaryGetResponse = usersSummaryGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersSummaryGetUrl = () => {
+export const getUsersSummaryGetUrl = () => {
   return `https://api.spectrocloud.com/v1/users/summary`;
 };
 
-export const UsersSummaryGet = async (
-  UsersSummarySpec: UsersSummarySpec,
+export const usersSummaryGet = async (
+  usersSummarySpec: UsersSummarySpec,
   options?: RequestInit,
-): Promise<UsersSummaryGetResponse> => {
-  const res = await fetch(getV1UsersSummaryGetUrl(), {
+): Promise<usersSummaryGetResponse> => {
+  const res = await fetch(getUsersSummaryGetUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UsersSummarySpec),
+    body: JSON.stringify(usersSummarySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSummaryGetResponse;
+  } as usersSummaryGetResponse;
 };
 
 /**
  * Returns the users system feature
  * @summary Returns the users system feature
  */
-export type UsersSystemFeatureResponse200 = {
+export type usersSystemFeatureResponse200 = {
   data: SystemFeatures;
   status: 200;
 };
 
-export type UsersSystemFeatureResponseComposite = UsersSystemFeatureResponse200;
+export type usersSystemFeatureResponseComposite = usersSystemFeatureResponse200;
 
-export type UsersSystemFeatureResponse = UsersSystemFeatureResponseComposite & {
+export type usersSystemFeatureResponse = usersSystemFeatureResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersSystemFeatureUrl = () => {
+export const getUsersSystemFeatureUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/features`;
 };
 
-export const UsersSystemFeature = async (
+export const usersSystemFeature = async (
   options?: RequestInit,
-): Promise<UsersSystemFeatureResponse> => {
-  const res = await fetch(getV1UsersSystemFeatureUrl(), {
+): Promise<usersSystemFeatureResponse> => {
+  const res = await fetch(getUsersSystemFeatureUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemFeatureResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersSystemFeatureResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemFeatureResponse;
+  } as usersSystemFeatureResponse;
 };
 
 /**
  * @summary Delete the macros for the system user by macro name
  */
-export type UsersSystemMacrosDeleteByMacroNameResponse204 = {
+export type usersSystemMacrosDeleteByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersSystemMacrosDeleteByMacroNameResponseComposite =
-  UsersSystemMacrosDeleteByMacroNameResponse204;
+export type usersSystemMacrosDeleteByMacroNameResponseComposite =
+  usersSystemMacrosDeleteByMacroNameResponse204;
 
-export type UsersSystemMacrosDeleteByMacroNameResponse =
-  UsersSystemMacrosDeleteByMacroNameResponseComposite & {
+export type usersSystemMacrosDeleteByMacroNameResponse =
+  usersSystemMacrosDeleteByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersSystemMacrosDeleteByMacroNameUrl = () => {
+export const getUsersSystemMacrosDeleteByMacroNameUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/macros`;
 };
 
-export const UsersSystemMacrosDeleteByMacroName = async (
-  MacrosBody: MacrosBody,
+export const usersSystemMacrosDeleteByMacroName = async (
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<UsersSystemMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(getV1UsersSystemMacrosDeleteByMacroNameUrl(), {
+): Promise<usersSystemMacrosDeleteByMacroNameResponse> => {
+  const res = await fetch(getUsersSystemMacrosDeleteByMacroNameUrl(), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemMacrosDeleteByMacroNameResponse["data"] = body
+  const data: usersSystemMacrosDeleteByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1729,39 +1733,39 @@ export const UsersSystemMacrosDeleteByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemMacrosDeleteByMacroNameResponse;
+  } as usersSystemMacrosDeleteByMacroNameResponse;
 };
 
 /**
  * @summary List the macros of the system
  */
-export type UsersSystemMacrosListResponse200 = {
+export type usersSystemMacrosListResponse200 = {
   data: Macros;
   status: 200;
 };
 
-export type UsersSystemMacrosListResponseComposite =
-  UsersSystemMacrosListResponse200;
+export type usersSystemMacrosListResponseComposite =
+  usersSystemMacrosListResponse200;
 
-export type UsersSystemMacrosListResponse =
-  UsersSystemMacrosListResponseComposite & {
+export type usersSystemMacrosListResponse =
+  usersSystemMacrosListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersSystemMacrosListUrl = () => {
+export const getUsersSystemMacrosListUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/macros`;
 };
 
-export const UsersSystemMacrosList = async (
+export const usersSystemMacrosList = async (
   options?: RequestInit,
-): Promise<UsersSystemMacrosListResponse> => {
-  const res = await fetch(getV1UsersSystemMacrosListUrl(), {
+): Promise<usersSystemMacrosListResponse> => {
+  const res = await fetch(getUsersSystemMacrosListUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemMacrosListResponse["data"] = body
+  const data: usersSystemMacrosListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1769,42 +1773,42 @@ export const UsersSystemMacrosList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemMacrosListResponse;
+  } as usersSystemMacrosListResponse;
 };
 
 /**
  * @summary Update the macros for the system user by macro name
  */
-export type UsersSystemMacrosUpdateByMacroNameResponse204 = {
+export type usersSystemMacrosUpdateByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersSystemMacrosUpdateByMacroNameResponseComposite =
-  UsersSystemMacrosUpdateByMacroNameResponse204;
+export type usersSystemMacrosUpdateByMacroNameResponseComposite =
+  usersSystemMacrosUpdateByMacroNameResponse204;
 
-export type UsersSystemMacrosUpdateByMacroNameResponse =
-  UsersSystemMacrosUpdateByMacroNameResponseComposite & {
+export type usersSystemMacrosUpdateByMacroNameResponse =
+  usersSystemMacrosUpdateByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersSystemMacrosUpdateByMacroNameUrl = () => {
+export const getUsersSystemMacrosUpdateByMacroNameUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/macros`;
 };
 
-export const UsersSystemMacrosUpdateByMacroName = async (
-  MacrosBody: MacrosBody,
+export const usersSystemMacrosUpdateByMacroName = async (
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<UsersSystemMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(getV1UsersSystemMacrosUpdateByMacroNameUrl(), {
+): Promise<usersSystemMacrosUpdateByMacroNameResponse> => {
+  const res = await fetch(getUsersSystemMacrosUpdateByMacroNameUrl(), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemMacrosUpdateByMacroNameResponse["data"] = body
+  const data: usersSystemMacrosUpdateByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1812,42 +1816,42 @@ export const UsersSystemMacrosUpdateByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemMacrosUpdateByMacroNameResponse;
+  } as usersSystemMacrosUpdateByMacroNameResponse;
 };
 
 /**
  * @summary Create or add new macros for the system user
  */
-export type UsersSystemMacrosCreateResponse204 = {
+export type usersSystemMacrosCreateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersSystemMacrosCreateResponseComposite =
-  UsersSystemMacrosCreateResponse204;
+export type usersSystemMacrosCreateResponseComposite =
+  usersSystemMacrosCreateResponse204;
 
-export type UsersSystemMacrosCreateResponse =
-  UsersSystemMacrosCreateResponseComposite & {
+export type usersSystemMacrosCreateResponse =
+  usersSystemMacrosCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersSystemMacrosCreateUrl = () => {
+export const getUsersSystemMacrosCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/macros`;
 };
 
-export const UsersSystemMacrosCreate = async (
-  MacrosBody: MacrosBody,
+export const usersSystemMacrosCreate = async (
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<UsersSystemMacrosCreateResponse> => {
-  const res = await fetch(getV1UsersSystemMacrosCreateUrl(), {
+): Promise<usersSystemMacrosCreateResponse> => {
+  const res = await fetch(getUsersSystemMacrosCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemMacrosCreateResponse["data"] = body
+  const data: usersSystemMacrosCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1855,42 +1859,42 @@ export const UsersSystemMacrosCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemMacrosCreateResponse;
+  } as usersSystemMacrosCreateResponse;
 };
 
 /**
  * @summary Update the macros of the system
  */
-export type UsersSystemMacrosUpdateResponse204 = {
+export type usersSystemMacrosUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersSystemMacrosUpdateResponseComposite =
-  UsersSystemMacrosUpdateResponse204;
+export type usersSystemMacrosUpdateResponseComposite =
+  usersSystemMacrosUpdateResponse204;
 
-export type UsersSystemMacrosUpdateResponse =
-  UsersSystemMacrosUpdateResponseComposite & {
+export type usersSystemMacrosUpdateResponse =
+  usersSystemMacrosUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersSystemMacrosUpdateUrl = () => {
+export const getUsersSystemMacrosUpdateUrl = () => {
   return `https://api.spectrocloud.com/v1/users/system/macros`;
 };
 
-export const UsersSystemMacrosUpdate = async (
-  MacrosBody: MacrosBody,
+export const usersSystemMacrosUpdate = async (
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<UsersSystemMacrosUpdateResponse> => {
-  const res = await fetch(getV1UsersSystemMacrosUpdateUrl(), {
+): Promise<usersSystemMacrosUpdateResponse> => {
+  const res = await fetch(getUsersSystemMacrosUpdateUrl(), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersSystemMacrosUpdateResponse["data"] = body
+  const data: usersSystemMacrosUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1898,202 +1902,202 @@ export const UsersSystemMacrosUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersSystemMacrosUpdateResponse;
+  } as usersSystemMacrosUpdateResponse;
 };
 
 /**
  * Deletes the specified User for given uid
  * @summary Deletes the specified User
  */
-export type UsersUidDeleteResponse204 = {
+export type usersUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidDeleteResponseComposite = UsersUidDeleteResponse204;
+export type usersUidDeleteResponseComposite = usersUidDeleteResponse204;
 
-export type UsersUidDeleteResponse = UsersUidDeleteResponseComposite & {
+export type usersUidDeleteResponse = usersUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersUidDeleteUrl = (uid: string) => {
+export const getUsersUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}`;
 };
 
-export const UsersUidDelete = async (
+export const usersUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersUidDeleteResponse> => {
-  const res = await fetch(getV1UsersUidDeleteUrl(uid), {
+): Promise<usersUidDeleteResponse> => {
+  const res = await fetch(getUsersUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidDeleteResponse;
+  } as usersUidDeleteResponse;
 };
 
 /**
  * Returns a User for the specified uid.
  * @summary Returns the specified User
  */
-export type UsersUidGetResponse200 = {
+export type usersUidGetResponse200 = {
   data: User;
   status: 200;
 };
 
-export type UsersUidGetResponseComposite = UsersUidGetResponse200;
+export type usersUidGetResponseComposite = usersUidGetResponse200;
 
-export type UsersUidGetResponse = UsersUidGetResponseComposite & {
+export type usersUidGetResponse = usersUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersUidGetUrl = (uid: string) => {
+export const getUsersUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}`;
 };
 
-export const UsersUidGet = async (
+export const usersUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersUidGetResponse> => {
-  const res = await fetch(getV1UsersUidGetUrl(uid), {
+): Promise<usersUidGetResponse> => {
+  const res = await fetch(getUsersUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidGetResponse;
+  } as usersUidGetResponse;
 };
 
 /**
  * User is patched for the specified information
  * @summary Patches the specified User
  */
-export type UsersUidPatchResponse204 = {
+export type usersUidPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidPatchResponseComposite = UsersUidPatchResponse204;
+export type usersUidPatchResponseComposite = usersUidPatchResponse204;
 
-export type UsersUidPatchResponse = UsersUidPatchResponseComposite & {
+export type usersUidPatchResponse = usersUidPatchResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersUidPatchUrl = (uid: string) => {
+export const getUsersUidPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}`;
 };
 
-export const UsersUidPatch = async (
+export const usersUidPatch = async (
   uid: string,
-  UserPatch: UserPatch,
+  userPatch: UserPatch,
   options?: RequestInit,
-): Promise<UsersUidPatchResponse> => {
-  const res = await fetch(getV1UsersUidPatchUrl(uid), {
+): Promise<usersUidPatchResponse> => {
+  const res = await fetch(getUsersUidPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserPatch),
+    body: JSON.stringify(userPatch),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidPatchResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersUidPatchResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidPatchResponse;
+  } as usersUidPatchResponse;
 };
 
 /**
  * A user is created for the given user context
  * @summary Update User
  */
-export type UsersUidUpdateResponse204 = {
+export type usersUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidUpdateResponseComposite = UsersUidUpdateResponse204;
+export type usersUidUpdateResponseComposite = usersUidUpdateResponse204;
 
-export type UsersUidUpdateResponse = UsersUidUpdateResponseComposite & {
+export type usersUidUpdateResponse = usersUidUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersUidUpdateUrl = (uid: string) => {
+export const getUsersUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}`;
 };
 
-export const UsersUidUpdate = async (
+export const usersUidUpdate = async (
   uid: string,
-  UserUpdateEntity: UserUpdateEntity,
+  userUpdateEntity: UserUpdateEntity,
   options?: RequestInit,
-): Promise<UsersUidUpdateResponse> => {
-  const res = await fetch(getV1UsersUidUpdateUrl(uid), {
+): Promise<usersUidUpdateResponse> => {
+  const res = await fetch(getUsersUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserUpdateEntity),
+    body: JSON.stringify(userUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidUpdateResponse;
+  } as usersUidUpdateResponse;
 };
 
 /**
  * User password change request via current password
  * @summary User password change request using the user uid
  */
-export type UsersUidPasswordChangeResponse204 = {
+export type usersUidPasswordChangeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidPasswordChangeResponseComposite =
-  UsersUidPasswordChangeResponse204;
+export type usersUidPasswordChangeResponseComposite =
+  usersUidPasswordChangeResponse204;
 
-export type UsersUidPasswordChangeResponse =
-  UsersUidPasswordChangeResponseComposite & {
+export type usersUidPasswordChangeResponse =
+  usersUidPasswordChangeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidPasswordChangeUrl = (uid: string) => {
+export const getUsersUidPasswordChangeUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/password/change`;
 };
 
-export const UsersUidPasswordChange = async (
+export const usersUidPasswordChange = async (
   uid: string,
-  UsersUidPasswordChangeBody: UsersUidPasswordChangeBody,
+  usersUidPasswordChangeBody: UsersUidPasswordChangeBody,
   options?: RequestInit,
-): Promise<UsersUidPasswordChangeResponse> => {
-  const res = await fetch(getV1UsersUidPasswordChangeUrl(uid), {
+): Promise<usersUidPasswordChangeResponse> => {
+  const res = await fetch(getUsersUidPasswordChangeUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UsersUidPasswordChangeBody),
+    body: JSON.stringify(usersUidPasswordChangeBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidPasswordChangeResponse["data"] = body
+  const data: usersUidPasswordChangeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2101,41 +2105,41 @@ export const UsersUidPasswordChange = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidPasswordChangeResponse;
+  } as usersUidPasswordChangeResponse;
 };
 
 /**
  * User password reset request, will send the password reset option through the emailId
  * @summary User password reset request using the user uid
  */
-export type UsersUidPasswordResetResponse204 = {
+export type usersUidPasswordResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidPasswordResetResponseComposite =
-  UsersUidPasswordResetResponse204;
+export type usersUidPasswordResetResponseComposite =
+  usersUidPasswordResetResponse204;
 
-export type UsersUidPasswordResetResponse =
-  UsersUidPasswordResetResponseComposite & {
+export type usersUidPasswordResetResponse =
+  usersUidPasswordResetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidPasswordResetUrl = (uid: string) => {
+export const getUsersUidPasswordResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/password/reset`;
 };
 
-export const UsersUidPasswordReset = async (
+export const usersUidPasswordReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersUidPasswordResetResponse> => {
-  const res = await fetch(getV1UsersUidPasswordResetUrl(uid), {
+): Promise<usersUidPasswordResetResponse> => {
+  const res = await fetch(getUsersUidPasswordResetUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidPasswordResetResponse["data"] = body
+  const data: usersUidPasswordResetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2143,82 +2147,82 @@ export const UsersUidPasswordReset = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidPasswordResetResponse;
+  } as usersUidPasswordResetResponse;
 };
 
 /**
  * Returns a User with projects and roles
  * @summary Returns the specified User Projects and Roles information
  */
-export type UsersProjectRolesResponse200 = {
+export type usersProjectRolesResponse200 = {
   data: ProjectRolesEntity;
   status: 200;
 };
 
-export type UsersProjectRolesResponseComposite = UsersProjectRolesResponse200;
+export type usersProjectRolesResponseComposite = usersProjectRolesResponse200;
 
-export type UsersProjectRolesResponse = UsersProjectRolesResponseComposite & {
+export type usersProjectRolesResponse = usersProjectRolesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersProjectRolesUrl = (uid: string) => {
+export const getUsersProjectRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/projects`;
 };
 
-export const UsersProjectRoles = async (
+export const usersProjectRoles = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersProjectRolesResponse> => {
-  const res = await fetch(getV1UsersProjectRolesUrl(uid), {
+): Promise<usersProjectRolesResponse> => {
+  const res = await fetch(getUsersProjectRolesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersProjectRolesResponse;
+  } as usersProjectRolesResponse;
 };
 
 /**
  * User is updated with projects and roles
  * @summary Updates the projects and roles for user
  */
-export type UsersProjectRolesPutResponse204 = {
+export type usersProjectRolesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersProjectRolesPutResponseComposite =
-  UsersProjectRolesPutResponse204;
+export type usersProjectRolesPutResponseComposite =
+  usersProjectRolesPutResponse204;
 
-export type UsersProjectRolesPutResponse =
-  UsersProjectRolesPutResponseComposite & {
+export type usersProjectRolesPutResponse =
+  usersProjectRolesPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersProjectRolesPutUrl = (uid: string) => {
+export const getUsersProjectRolesPutUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/projects`;
 };
 
-export const UsersProjectRolesPut = async (
+export const usersProjectRolesPut = async (
   uid: string,
-  ProjectRolesPatchBody: ProjectRolesPatchBody,
+  v1ProjectRolesPatchBody: V1ProjectRolesPatchBody,
   options?: RequestInit,
-): Promise<UsersProjectRolesPutResponse> => {
-  const res = await fetch(getV1UsersProjectRolesPutUrl(uid), {
+): Promise<usersProjectRolesPutResponse> => {
+  const res = await fetch(getUsersProjectRolesPutUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectRolesPatchBody),
+    body: JSON.stringify(v1ProjectRolesPatchBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersProjectRolesPutResponse["data"] = body
+  const data: usersProjectRolesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2226,41 +2230,41 @@ export const UsersProjectRolesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersProjectRolesPutResponse;
+  } as usersProjectRolesPutResponse;
 };
 
 /**
  * Returns resource roles for user
  * @summary Returns the specified individual and resource roles for a user
  */
-export type UsersUidResourceRolesResponse200 = {
+export type usersUidResourceRolesResponse200 = {
   data: ResourceRoles;
   status: 200;
 };
 
-export type UsersUidResourceRolesResponseComposite =
-  UsersUidResourceRolesResponse200;
+export type usersUidResourceRolesResponseComposite =
+  usersUidResourceRolesResponse200;
 
-export type UsersUidResourceRolesResponse =
-  UsersUidResourceRolesResponseComposite & {
+export type usersUidResourceRolesResponse =
+  usersUidResourceRolesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidResourceRolesUrl = (uid: string) => {
+export const getUsersUidResourceRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles`;
 };
 
-export const UsersUidResourceRoles = async (
+export const usersUidResourceRoles = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersUidResourceRolesResponse> => {
-  const res = await fetch(getV1UsersUidResourceRolesUrl(uid), {
+): Promise<usersUidResourceRolesResponse> => {
+  const res = await fetch(getUsersUidResourceRolesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidResourceRolesResponse["data"] = body
+  const data: usersUidResourceRolesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2268,44 +2272,44 @@ export const UsersUidResourceRoles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidResourceRolesResponse;
+  } as usersUidResourceRolesResponse;
 };
 
 /**
  * Resource roles added to specific user
  * @summary Add resource roles for user
  */
-export type UsersUidResourceRolesCreateResponse204 = {
+export type usersUidResourceRolesCreateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidResourceRolesCreateResponseComposite =
-  UsersUidResourceRolesCreateResponse204;
+export type usersUidResourceRolesCreateResponseComposite =
+  usersUidResourceRolesCreateResponse204;
 
-export type UsersUidResourceRolesCreateResponse =
-  UsersUidResourceRolesCreateResponseComposite & {
+export type usersUidResourceRolesCreateResponse =
+  usersUidResourceRolesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidResourceRolesCreateUrl = (uid: string) => {
+export const getUsersUidResourceRolesCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles`;
 };
 
-export const UsersUidResourceRolesCreate = async (
+export const usersUidResourceRolesCreate = async (
   uid: string,
-  ResourceRolesUpdateEntityBody: ResourceRolesUpdateEntityBody,
+  v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
-): Promise<UsersUidResourceRolesCreateResponse> => {
-  const res = await fetch(getV1UsersUidResourceRolesCreateUrl(uid), {
+): Promise<usersUidResourceRolesCreateResponse> => {
+  const res = await fetch(getUsersUidResourceRolesCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ResourceRolesUpdateEntityBody),
+    body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidResourceRolesCreateResponse["data"] = body
+  const data: usersUidResourceRolesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2313,39 +2317,39 @@ export const UsersUidResourceRolesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidResourceRolesCreateResponse;
+  } as usersUidResourceRolesCreateResponse;
 };
 
 /**
  * @summary Deleted the resource roles from user
  */
-export type UsersUidResourceRolesUidDeleteResponse204 = {
+export type usersUidResourceRolesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidResourceRolesUidDeleteResponseComposite =
-  UsersUidResourceRolesUidDeleteResponse204;
+export type usersUidResourceRolesUidDeleteResponseComposite =
+  usersUidResourceRolesUidDeleteResponse204;
 
-export type UsersUidResourceRolesUidDeleteResponse =
-  UsersUidResourceRolesUidDeleteResponseComposite & {
+export type usersUidResourceRolesUidDeleteResponse =
+  usersUidResourceRolesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidResourceRolesUidDeleteUrl = (
+export const getUsersUidResourceRolesUidDeleteUrl = (
   uid: string,
   resourceRoleUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles/${resourceRoleUid}`;
 };
 
-export const UsersUidResourceRolesUidDelete = async (
+export const usersUidResourceRolesUidDelete = async (
   uid: string,
   resourceRoleUid: string,
   options?: RequestInit,
-): Promise<UsersUidResourceRolesUidDeleteResponse> => {
+): Promise<usersUidResourceRolesUidDeleteResponse> => {
   const res = await fetch(
-    getV1UsersUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
+    getUsersUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "DELETE",
@@ -2353,7 +2357,7 @@ export const UsersUidResourceRolesUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidResourceRolesUidDeleteResponse["data"] = body
+  const data: usersUidResourceRolesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2361,51 +2365,51 @@ export const UsersUidResourceRolesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidResourceRolesUidDeleteResponse;
+  } as usersUidResourceRolesUidDeleteResponse;
 };
 
 /**
  * Specific resource roles fo user is updated
  * @summary Updates the resource roles for user
  */
-export type UsersResourceRolesUidUpdateResponse204 = {
+export type usersResourceRolesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersResourceRolesUidUpdateResponseComposite =
-  UsersResourceRolesUidUpdateResponse204;
+export type usersResourceRolesUidUpdateResponseComposite =
+  usersResourceRolesUidUpdateResponse204;
 
-export type UsersResourceRolesUidUpdateResponse =
-  UsersResourceRolesUidUpdateResponseComposite & {
+export type usersResourceRolesUidUpdateResponse =
+  usersResourceRolesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersResourceRolesUidUpdateUrl = (
+export const getUsersResourceRolesUidUpdateUrl = (
   uid: string,
   resourceRoleUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles/${resourceRoleUid}`;
 };
 
-export const UsersResourceRolesUidUpdate = async (
+export const usersResourceRolesUidUpdate = async (
   uid: string,
   resourceRoleUid: string,
-  ResourceRolesUpdateEntityBody: ResourceRolesUpdateEntityBody,
+  v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
-): Promise<UsersResourceRolesUidUpdateResponse> => {
+): Promise<usersResourceRolesUidUpdateResponse> => {
   const res = await fetch(
-    getV1UsersResourceRolesUidUpdateUrl(uid, resourceRoleUid),
+    getUsersResourceRolesUidUpdateUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "PATCH",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ResourceRolesUpdateEntityBody),
+      body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersResourceRolesUidUpdateResponse["data"] = body
+  const data: usersResourceRolesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2413,82 +2417,82 @@ export const UsersResourceRolesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersResourceRolesUidUpdateResponse;
+  } as usersResourceRolesUidUpdateResponse;
 };
 
 /**
  * Returns roles clubbed from team
  * @summary Returns the specified individual and team roles for a user
  */
-export type UsersUidRolesResponse200 = {
+export type usersUidRolesResponse200 = {
   data: UserRolesEntity;
   status: 200;
 };
 
-export type UsersUidRolesResponseComposite = UsersUidRolesResponse200;
+export type usersUidRolesResponseComposite = usersUidRolesResponse200;
 
-export type UsersUidRolesResponse = UsersUidRolesResponseComposite & {
+export type usersUidRolesResponse = usersUidRolesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1UsersUidRolesUrl = (uid: string) => {
+export const getUsersUidRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/roles`;
 };
 
-export const UsersUidRoles = async (
+export const usersUidRoles = async (
   uid: string,
   options?: RequestInit,
-): Promise<UsersUidRolesResponse> => {
-  const res = await fetch(getV1UsersUidRolesUrl(uid), {
+): Promise<usersUidRolesResponse> => {
+  const res = await fetch(getUsersUidRolesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidRolesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: usersUidRolesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidRolesResponse;
+  } as usersUidRolesResponse;
 };
 
 /**
  * User is updated with roles
  * @summary Updates the roles for user
  */
-export type UsersUidRolesUpdateResponse204 = {
+export type usersUidRolesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersUidRolesUpdateResponseComposite =
-  UsersUidRolesUpdateResponse204;
+export type usersUidRolesUpdateResponseComposite =
+  usersUidRolesUpdateResponse204;
 
-export type UsersUidRolesUpdateResponse =
-  UsersUidRolesUpdateResponseComposite & {
+export type usersUidRolesUpdateResponse =
+  usersUidRolesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersUidRolesUpdateUrl = (uid: string) => {
+export const getUsersUidRolesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/roles`;
 };
 
-export const UsersUidRolesUpdate = async (
+export const usersUidRolesUpdate = async (
   uid: string,
-  UserRoleUIDs: UserRoleUIDs,
+  userRoleUIDs: UserRoleUIDs,
   options?: RequestInit,
-): Promise<UsersUidRolesUpdateResponse> => {
-  const res = await fetch(getV1UsersUidRolesUpdateUrl(uid), {
+): Promise<usersUidRolesUpdateResponse> => {
+  const res = await fetch(getUsersUidRolesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserRoleUIDs),
+    body: JSON.stringify(userRoleUIDs),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersUidRolesUpdateResponse["data"] = body
+  const data: usersUidRolesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2496,43 +2500,43 @@ export const UsersUidRolesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersUidRolesUpdateResponse;
+  } as usersUidRolesUpdateResponse;
 };
 
 /**
  * @summary Users status login mode
  */
-export type UsersStatusLoginModeResponse204 = {
+export type usersStatusLoginModeResponse204 = {
   data: void;
   status: 204;
 };
 
-export type UsersStatusLoginModeResponseComposite =
-  UsersStatusLoginModeResponse204;
+export type usersStatusLoginModeResponseComposite =
+  usersStatusLoginModeResponse204;
 
-export type UsersStatusLoginModeResponse =
-  UsersStatusLoginModeResponseComposite & {
+export type usersStatusLoginModeResponse =
+  usersStatusLoginModeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1UsersStatusLoginModeUrl = (uid: string) => {
+export const getUsersStatusLoginModeUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/users/${uid}/status/loginMode`;
 };
 
-export const UsersStatusLoginMode = async (
+export const usersStatusLoginMode = async (
   uid: string,
-  UserStatusLoginMode: UserStatusLoginMode,
+  userStatusLoginMode: UserStatusLoginMode,
   options?: RequestInit,
-): Promise<UsersStatusLoginModeResponse> => {
-  const res = await fetch(getV1UsersStatusLoginModeUrl(uid), {
+): Promise<usersStatusLoginModeResponse> => {
+  const res = await fetch(getUsersStatusLoginModeUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(UserStatusLoginMode),
+    body: JSON.stringify(userStatusLoginMode),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: UsersStatusLoginModeResponse["data"] = body
+  const data: usersStatusLoginModeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2540,5 +2544,5 @@ export const UsersStatusLoginMode = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as UsersStatusLoginModeResponse;
+  } as usersStatusLoginModeResponse;
 };

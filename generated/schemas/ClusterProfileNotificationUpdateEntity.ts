@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackManifestUpdateEntity } from "./PackManifestUpdateEntity";
+import type { PackManifestUpdateEntity } from "./packManifestUpdateEntity";
 
 /**
  * Cluster profile notification update request payload

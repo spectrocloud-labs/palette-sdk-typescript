@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualInstanceType } from "./VirtualInstanceType";
+import type { VirtualInstanceType } from "./virtualInstanceType";
 
 export interface VirtualClusterResize {
   instanceType: VirtualInstanceType;

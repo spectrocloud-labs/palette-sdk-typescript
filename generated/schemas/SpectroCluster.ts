@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SpectroClusterSpec } from "./SpectroClusterSpec";
-import type { SpectroClusterStatus } from "./SpectroClusterStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { SpectroClusterSpec } from "./spectroClusterSpec";
+import type { SpectroClusterStatus } from "./spectroClusterStatus";
 
 /**
  * SpectroCluster is the Schema for the spectroclusters API

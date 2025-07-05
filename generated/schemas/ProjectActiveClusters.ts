@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectActiveCluster } from "./ProjectActiveCluster";
+import type { ProjectActiveCluster } from "./projectActiveCluster";
 
 /**
  * Active clusters

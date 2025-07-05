@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasZone } from "./MaasZone";
+import type { MaasZone } from "./maasZone";
 
 /**
  * List of Maas zones

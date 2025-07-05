@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterPackStatus } from "./ClusterPackStatus";
-import type { LifecycleStatus } from "./LifecycleStatus";
+import type { ClusterPackStatus } from "./clusterPackStatus";
+import type { LifecycleStatus } from "./lifecycleStatus";
 
 /**
  * Application deployment status

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GrpcEndpoint } from "./GrpcEndpoint";
+import type { GrpcEndpoint } from "./grpcEndpoint";
 
 /**
  * Describes the response that contains the grpc configuration to establish connection

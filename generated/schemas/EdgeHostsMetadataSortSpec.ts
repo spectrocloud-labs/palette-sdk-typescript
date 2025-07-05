@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostsMetadataSortFields } from "./EdgeHostsMetadataSortFields";
-import type { SortOrder } from "./SortOrder";
+import type { EdgeHostsMetadataSortFields } from "./edgeHostsMetadataSortFields";
+import type { SortOrder } from "./sortOrder";
 
 export interface EdgeHostsMetadataSortSpec {
   field?: EdgeHostsMetadataSortFields;

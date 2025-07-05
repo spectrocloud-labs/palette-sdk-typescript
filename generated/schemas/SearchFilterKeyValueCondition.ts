@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterKeyValueConditionMatch } from "./SearchFilterKeyValueConditionMatch";
-import type { SearchFilterStringOperator } from "./SearchFilterStringOperator";
+import type { SearchFilterKeyValueConditionMatch } from "./searchFilterKeyValueConditionMatch";
+import type { SearchFilterStringOperator } from "./searchFilterStringOperator";
 
 export interface SearchFilterKeyValueCondition {
   ignoreCase?: boolean;

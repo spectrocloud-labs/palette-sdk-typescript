@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Address } from "./Address";
-import type { InvoiceBillingPeriod } from "./InvoiceBillingPeriod";
-import type { InvoiceCredits } from "./InvoiceCredits";
-import type { Time } from "./Time";
-import type { InvoiceSpecPaymentUnit } from "./InvoiceSpecPaymentUnit";
-import type { InvoicePlan } from "./InvoicePlan";
+import type { Address } from "./address";
+import type { InvoiceBillingPeriod } from "./invoiceBillingPeriod";
+import type { InvoiceCredits } from "./invoiceCredits";
+import type { Time } from "./time";
+import type { InvoiceSpecPaymentUnit } from "./invoiceSpecPaymentUnit";
+import type { InvoicePlan } from "./invoicePlan";
 
 /**
  * Invoice specification

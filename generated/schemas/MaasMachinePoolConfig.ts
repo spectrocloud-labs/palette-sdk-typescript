@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasMachinePoolConfigAdditionalLabels } from "./MaasMachinePoolConfigAdditionalLabels";
-import type { MaasMachinePoolConfigAdditionalTags } from "./MaasMachinePoolConfigAdditionalTags";
-import type { MaasInstanceType } from "./MaasInstanceType";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { MaasMachinePoolConfigAdditionalLabels } from "./maasMachinePoolConfigAdditionalLabels";
+import type { MaasMachinePoolConfigAdditionalTags } from "./maasMachinePoolConfigAdditionalTags";
+import type { MaasInstanceType } from "./maasInstanceType";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 export interface MaasMachinePoolConfig {
   /** additionalLabels */

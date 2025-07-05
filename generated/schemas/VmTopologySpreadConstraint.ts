@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmLabelSelector } from "./VmLabelSelector";
+import type { VmLabelSelector } from "./vmLabelSelector";
 
 /**
  * TopologySpreadConstraint specifies how to spread matching pods among the given topology.

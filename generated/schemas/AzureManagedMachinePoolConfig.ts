@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OsType } from "./OsType";
+import type { OsType } from "./osType";
 
 export interface AzureManagedMachinePoolConfig {
   /** whether this pool is for system node Pool */

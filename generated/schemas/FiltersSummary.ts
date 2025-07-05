@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterSummary } from "./FilterSummary";
-import type { ListMetaData } from "./ListMetaData";
+import type { FilterSummary } from "./filterSummary";
+import type { ListMetaData } from "./listMetaData";
 
 export interface FiltersSummary {
   items: FilterSummary[];

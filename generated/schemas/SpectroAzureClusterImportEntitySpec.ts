@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ImportClusterConfig } from "./ImportClusterConfig";
+import type { ImportClusterConfig } from "./importClusterConfig";
 
 export type SpectroAzureClusterImportEntitySpec = {
   clusterConfig?: ImportClusterConfig;

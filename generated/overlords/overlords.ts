@@ -12,25 +12,19 @@
 import type {
   ClusterProfile,
   DeletedMsg,
-  IpPoolInputEntityBody,
   IpPools,
-  ObjectMetaInputEntitySchemaBody,
   OverloadVsphereOva,
   Overlord,
   OverlordMaasAccountCreate,
   OverlordMaasAccountEntity,
-  OverlordMaasCloudConfigBody,
   OverlordManifest,
   OverlordMigrateEntity,
   OverlordOpenStackAccountCreate,
   OverlordOpenStackAccountEntity,
-  OverlordOpenStackCloudConfigBody,
   OverlordVsphereAccountCreate,
   OverlordVsphereAccountEntity,
-  OverlordVsphereCloudConfigBody,
   Overlords,
   OverlordsListParams,
-  OverlordsMaasManifestParams,
   OverlordsOpenStackManifestParams,
   OverlordsPairingCodeParams,
   OverlordsUidMaasAccountValidateBody,
@@ -41,6 +35,12 @@ import type {
   PairingCode,
   Uid,
   UpdatedMsg,
+  V1IpPoolInputEntityBody,
+  V1ObjectMetaInputEntitySchemaBody,
+  V1OverlordMaasCloudConfigBody,
+  V1OverlordOpenStackCloudConfigBody,
+  V1OverlordVsphereCloudConfigBody,
+  V1OverlordsMaasManifestParams,
   VsphereComputeClusterResources,
   VsphereDatacenters,
 } from ".././schemas";
@@ -48,18 +48,18 @@ import type {
 /**
  * @summary Retrieves a list of overlords owned by the tenant
  */
-export type OverlordsListResponse200 = {
+export type overlordsListResponse200 = {
   data: Overlords;
   status: 200;
 };
 
-export type OverlordsListResponseComposite = OverlordsListResponse200;
+export type overlordsListResponseComposite = overlordsListResponse200;
 
-export type OverlordsListResponse = OverlordsListResponseComposite & {
+export type overlordsListResponse = overlordsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OverlordsListUrl = (params?: OverlordsListParams) => {
+export const getOverlordsListUrl = (params?: OverlordsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -75,43 +75,43 @@ export const getV1OverlordsListUrl = (params?: OverlordsListParams) => {
     : `https://api.spectrocloud.com/v1/overlords`;
 };
 
-export const OverlordsList = async (
+export const overlordsList = async (
   params?: OverlordsListParams,
   options?: RequestInit,
-): Promise<OverlordsListResponse> => {
-  const res = await fetch(getV1OverlordsListUrl(params), {
+): Promise<overlordsListResponse> => {
+  const res = await fetch(getOverlordsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: overlordsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsListResponse;
+  } as overlordsListResponse;
 };
 
 /**
  * @summary Returns the manifests required for the private gateway installation
  */
-export type OverlordsMaasManifestResponse200 = {
+export type v1OverlordsMaasManifestResponse200 = {
   data: OverlordManifest;
   status: 200;
 };
 
-export type OverlordsMaasManifestResponseComposite =
-  OverlordsMaasManifestResponse200;
+export type v1OverlordsMaasManifestResponseComposite =
+  v1OverlordsMaasManifestResponse200;
 
-export type OverlordsMaasManifestResponse =
-  OverlordsMaasManifestResponseComposite & {
+export type v1OverlordsMaasManifestResponse =
+  v1OverlordsMaasManifestResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OverlordsMaasManifestUrl = (
-  params: OverlordsMaasManifestParams,
+  params: V1OverlordsMaasManifestParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -124,17 +124,17 @@ export const getV1OverlordsMaasManifestUrl = (
     : `https://api.spectrocloud.com/v1/overlords/maas/manifest`;
 };
 
-export const OverlordsMaasManifest = async (
-  params: OverlordsMaasManifestParams,
+export const v1OverlordsMaasManifest = async (
+  params: V1OverlordsMaasManifestParams,
   options?: RequestInit,
-): Promise<OverlordsMaasManifestResponse> => {
+): Promise<v1OverlordsMaasManifestResponse> => {
   const res = await fetch(getV1OverlordsMaasManifestUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsMaasManifestResponse["data"] = body
+  const data: v1OverlordsMaasManifestResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -142,43 +142,43 @@ export const OverlordsMaasManifest = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsMaasManifestResponse;
+  } as v1OverlordsMaasManifestResponse;
 };
 
 /**
  * @summary create the maas cloudaccount for the private gateway
  */
-export type OverlordsUidMaasAccountCreateResponse201 = {
+export type overlordsUidMaasAccountCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidMaasAccountCreateResponseComposite =
-  OverlordsUidMaasAccountCreateResponse201;
+export type overlordsUidMaasAccountCreateResponseComposite =
+  overlordsUidMaasAccountCreateResponse201;
 
-export type OverlordsUidMaasAccountCreateResponse =
-  OverlordsUidMaasAccountCreateResponseComposite & {
+export type overlordsUidMaasAccountCreateResponse =
+  overlordsUidMaasAccountCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidMaasAccountCreateUrl = (uid: string) => {
+export const getOverlordsUidMaasAccountCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account`;
 };
 
-export const OverlordsUidMaasAccountCreate = async (
+export const overlordsUidMaasAccountCreate = async (
   uid: string,
-  OverlordMaasAccountCreate: OverlordMaasAccountCreate,
+  overlordMaasAccountCreate: OverlordMaasAccountCreate,
   options?: RequestInit,
-): Promise<OverlordsUidMaasAccountCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasAccountCreateUrl(uid), {
+): Promise<overlordsUidMaasAccountCreateResponse> => {
+  const res = await fetch(getOverlordsUidMaasAccountCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordMaasAccountCreate),
+    body: JSON.stringify(overlordMaasAccountCreate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasAccountCreateResponse["data"] = body
+  const data: overlordsUidMaasAccountCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -186,43 +186,43 @@ export const OverlordsUidMaasAccountCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasAccountCreateResponse;
+  } as overlordsUidMaasAccountCreateResponse;
 };
 
 /**
  * @summary update the maas cloudaccount for the private gateway
  */
-export type OverlordsUidMaasAccountUpdateResponse204 = {
+export type overlordsUidMaasAccountUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidMaasAccountUpdateResponseComposite =
-  OverlordsUidMaasAccountUpdateResponse204;
+export type overlordsUidMaasAccountUpdateResponseComposite =
+  overlordsUidMaasAccountUpdateResponse204;
 
-export type OverlordsUidMaasAccountUpdateResponse =
-  OverlordsUidMaasAccountUpdateResponseComposite & {
+export type overlordsUidMaasAccountUpdateResponse =
+  overlordsUidMaasAccountUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidMaasAccountUpdateUrl = (uid: string) => {
+export const getOverlordsUidMaasAccountUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account`;
 };
 
-export const OverlordsUidMaasAccountUpdate = async (
+export const overlordsUidMaasAccountUpdate = async (
   uid: string,
-  OverlordMaasAccountEntity: OverlordMaasAccountEntity,
+  overlordMaasAccountEntity: OverlordMaasAccountEntity,
   options?: RequestInit,
-): Promise<OverlordsUidMaasAccountUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasAccountUpdateUrl(uid), {
+): Promise<overlordsUidMaasAccountUpdateResponse> => {
+  const res = await fetch(getOverlordsUidMaasAccountUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordMaasAccountEntity),
+    body: JSON.stringify(overlordMaasAccountEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasAccountUpdateResponse["data"] = body
+  const data: overlordsUidMaasAccountUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -230,43 +230,43 @@ export const OverlordsUidMaasAccountUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasAccountUpdateResponse;
+  } as overlordsUidMaasAccountUpdateResponse;
 };
 
 /**
  * @summary validate the maas cloudaccount for the private gateway
  */
-export type OverlordsUidMaasAccountValidateResponse204 = {
+export type overlordsUidMaasAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidMaasAccountValidateResponseComposite =
-  OverlordsUidMaasAccountValidateResponse204;
+export type overlordsUidMaasAccountValidateResponseComposite =
+  overlordsUidMaasAccountValidateResponse204;
 
-export type OverlordsUidMaasAccountValidateResponse =
-  OverlordsUidMaasAccountValidateResponseComposite & {
+export type overlordsUidMaasAccountValidateResponse =
+  overlordsUidMaasAccountValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidMaasAccountValidateUrl = (uid: string) => {
+export const getOverlordsUidMaasAccountValidateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account/validate`;
 };
 
-export const OverlordsUidMaasAccountValidate = async (
+export const overlordsUidMaasAccountValidate = async (
   uid: string,
-  OverlordsUidMaasAccountValidateBody: OverlordsUidMaasAccountValidateBody,
+  overlordsUidMaasAccountValidateBody: OverlordsUidMaasAccountValidateBody,
   options?: RequestInit,
-): Promise<OverlordsUidMaasAccountValidateResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasAccountValidateUrl(uid), {
+): Promise<overlordsUidMaasAccountValidateResponse> => {
+  const res = await fetch(getOverlordsUidMaasAccountValidateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordsUidMaasAccountValidateBody),
+    body: JSON.stringify(overlordsUidMaasAccountValidateBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasAccountValidateResponse["data"] = body
+  const data: overlordsUidMaasAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -274,22 +274,22 @@ export const OverlordsUidMaasAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasAccountValidateResponse;
+  } as overlordsUidMaasAccountValidateResponse;
 };
 
 /**
  * @summary create the maas cloud config for the private gateway
  */
-export type OverlordsUidMaasCloudConfigCreateResponse201 = {
+export type v1OverlordsUidMaasCloudConfigCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidMaasCloudConfigCreateResponseComposite =
-  OverlordsUidMaasCloudConfigCreateResponse201;
+export type v1OverlordsUidMaasCloudConfigCreateResponseComposite =
+  v1OverlordsUidMaasCloudConfigCreateResponse201;
 
-export type OverlordsUidMaasCloudConfigCreateResponse =
-  OverlordsUidMaasCloudConfigCreateResponseComposite & {
+export type v1OverlordsUidMaasCloudConfigCreateResponse =
+  v1OverlordsUidMaasCloudConfigCreateResponseComposite & {
     headers: Headers;
   };
 
@@ -297,20 +297,20 @@ export const getV1OverlordsUidMaasCloudConfigCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidMaasCloudConfigCreate = async (
+export const v1OverlordsUidMaasCloudConfigCreate = async (
   uid: string,
-  OverlordMaasCloudConfigBody: OverlordMaasCloudConfigBody,
+  v1OverlordMaasCloudConfigBody: V1OverlordMaasCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidMaasCloudConfigCreateResponse> => {
+): Promise<v1OverlordsUidMaasCloudConfigCreateResponse> => {
   const res = await fetch(getV1OverlordsUidMaasCloudConfigCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordMaasCloudConfigBody),
+    body: JSON.stringify(v1OverlordMaasCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasCloudConfigCreateResponse["data"] = body
+  const data: v1OverlordsUidMaasCloudConfigCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -318,22 +318,22 @@ export const OverlordsUidMaasCloudConfigCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasCloudConfigCreateResponse;
+  } as v1OverlordsUidMaasCloudConfigCreateResponse;
 };
 
 /**
  * @summary update the maas cloud config for the private gateway
  */
-export type OverlordsUidMaasCloudConfigUpdateResponse204 = {
+export type v1OverlordsUidMaasCloudConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidMaasCloudConfigUpdateResponseComposite =
-  OverlordsUidMaasCloudConfigUpdateResponse204;
+export type v1OverlordsUidMaasCloudConfigUpdateResponseComposite =
+  v1OverlordsUidMaasCloudConfigUpdateResponse204;
 
-export type OverlordsUidMaasCloudConfigUpdateResponse =
-  OverlordsUidMaasCloudConfigUpdateResponseComposite & {
+export type v1OverlordsUidMaasCloudConfigUpdateResponse =
+  v1OverlordsUidMaasCloudConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -341,20 +341,20 @@ export const getV1OverlordsUidMaasCloudConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidMaasCloudConfigUpdate = async (
+export const v1OverlordsUidMaasCloudConfigUpdate = async (
   uid: string,
-  OverlordMaasCloudConfigBody: OverlordMaasCloudConfigBody,
+  v1OverlordMaasCloudConfigBody: V1OverlordMaasCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidMaasCloudConfigUpdateResponse> => {
+): Promise<v1OverlordsUidMaasCloudConfigUpdateResponse> => {
   const res = await fetch(getV1OverlordsUidMaasCloudConfigUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordMaasCloudConfigBody),
+    body: JSON.stringify(v1OverlordMaasCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasCloudConfigUpdateResponse["data"] = body
+  const data: v1OverlordsUidMaasCloudConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -362,40 +362,40 @@ export const OverlordsUidMaasCloudConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasCloudConfigUpdateResponse;
+  } as v1OverlordsUidMaasCloudConfigUpdateResponse;
 };
 
 /**
  * @summary Returns the specified maas private gateway cluster profile
  */
-export type OverlordsUidMaasClusterProfileResponse200 = {
+export type overlordsUidMaasClusterProfileResponse200 = {
   data: ClusterProfile;
   status: 200;
 };
 
-export type OverlordsUidMaasClusterProfileResponseComposite =
-  OverlordsUidMaasClusterProfileResponse200;
+export type overlordsUidMaasClusterProfileResponseComposite =
+  overlordsUidMaasClusterProfileResponse200;
 
-export type OverlordsUidMaasClusterProfileResponse =
-  OverlordsUidMaasClusterProfileResponseComposite & {
+export type overlordsUidMaasClusterProfileResponse =
+  overlordsUidMaasClusterProfileResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidMaasClusterProfileUrl = (uid: string) => {
+export const getOverlordsUidMaasClusterProfileUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/clusterprofile`;
 };
 
-export const OverlordsUidMaasClusterProfile = async (
+export const overlordsUidMaasClusterProfile = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidMaasClusterProfileResponse> => {
-  const res = await fetch(getV1OverlordsUidMaasClusterProfileUrl(uid), {
+): Promise<overlordsUidMaasClusterProfileResponse> => {
+  const res = await fetch(getOverlordsUidMaasClusterProfileUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMaasClusterProfileResponse["data"] = body
+  const data: overlordsUidMaasClusterProfileResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -403,20 +403,20 @@ export const OverlordsUidMaasClusterProfile = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMaasClusterProfileResponse;
+  } as overlordsUidMaasClusterProfileResponse;
 };
 
 /**
  * @summary migrate all the clusters from source overlord to target overlord
  */
-export type OverlordsMigrateResponse204 = {
+export type v1OverlordsMigrateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsMigrateResponseComposite = OverlordsMigrateResponse204;
+export type v1OverlordsMigrateResponseComposite = v1OverlordsMigrateResponse204;
 
-export type OverlordsMigrateResponse = OverlordsMigrateResponseComposite & {
+export type v1OverlordsMigrateResponse = v1OverlordsMigrateResponseComposite & {
   headers: Headers;
 };
 
@@ -424,44 +424,44 @@ export const getV1OverlordsMigrateUrl = () => {
   return `https://api.spectrocloud.com/v1/overlords/migrate`;
 };
 
-export const OverlordsMigrate = async (
-  OverlordMigrateEntity: OverlordMigrateEntity,
+export const v1OverlordsMigrate = async (
+  overlordMigrateEntity: OverlordMigrateEntity,
   options?: RequestInit,
-): Promise<OverlordsMigrateResponse> => {
+): Promise<v1OverlordsMigrateResponse> => {
   const res = await fetch(getV1OverlordsMigrateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordMigrateEntity),
+    body: JSON.stringify(overlordMigrateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsMigrateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1OverlordsMigrateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsMigrateResponse;
+  } as v1OverlordsMigrateResponse;
 };
 
 /**
  * @summary Returns the manifests required for the private gateway installation
  */
-export type OverlordsOpenStackManifestResponse200 = {
+export type overlordsOpenStackManifestResponse200 = {
   data: OverlordManifest;
   status: 200;
 };
 
-export type OverlordsOpenStackManifestResponseComposite =
-  OverlordsOpenStackManifestResponse200;
+export type overlordsOpenStackManifestResponseComposite =
+  overlordsOpenStackManifestResponse200;
 
-export type OverlordsOpenStackManifestResponse =
-  OverlordsOpenStackManifestResponseComposite & {
+export type overlordsOpenStackManifestResponse =
+  overlordsOpenStackManifestResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsOpenStackManifestUrl = (
+export const getOverlordsOpenStackManifestUrl = (
   params: OverlordsOpenStackManifestParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -475,17 +475,17 @@ export const getV1OverlordsOpenStackManifestUrl = (
     : `https://api.spectrocloud.com/v1/overlords/openstack/manifest`;
 };
 
-export const OverlordsOpenStackManifest = async (
+export const overlordsOpenStackManifest = async (
   params: OverlordsOpenStackManifestParams,
   options?: RequestInit,
-): Promise<OverlordsOpenStackManifestResponse> => {
-  const res = await fetch(getV1OverlordsOpenStackManifestUrl(params), {
+): Promise<overlordsOpenStackManifestResponse> => {
+  const res = await fetch(getOverlordsOpenStackManifestUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsOpenStackManifestResponse["data"] = body
+  const data: overlordsOpenStackManifestResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -493,43 +493,43 @@ export const OverlordsOpenStackManifest = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsOpenStackManifestResponse;
+  } as overlordsOpenStackManifestResponse;
 };
 
 /**
  * @summary create the OpenStack cloudaccount for the private gateway
  */
-export type OverlordsUidOpenStackAccountCreateResponse201 = {
+export type overlordsUidOpenStackAccountCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidOpenStackAccountCreateResponseComposite =
-  OverlordsUidOpenStackAccountCreateResponse201;
+export type overlordsUidOpenStackAccountCreateResponseComposite =
+  overlordsUidOpenStackAccountCreateResponse201;
 
-export type OverlordsUidOpenStackAccountCreateResponse =
-  OverlordsUidOpenStackAccountCreateResponseComposite & {
+export type overlordsUidOpenStackAccountCreateResponse =
+  overlordsUidOpenStackAccountCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackAccountCreateUrl = (uid: string) => {
+export const getOverlordsUidOpenStackAccountCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account`;
 };
 
-export const OverlordsUidOpenStackAccountCreate = async (
+export const overlordsUidOpenStackAccountCreate = async (
   uid: string,
-  OverlordOpenStackAccountCreate: OverlordOpenStackAccountCreate,
+  overlordOpenStackAccountCreate: OverlordOpenStackAccountCreate,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackAccountCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackAccountCreateUrl(uid), {
+): Promise<overlordsUidOpenStackAccountCreateResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackAccountCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordOpenStackAccountCreate),
+    body: JSON.stringify(overlordOpenStackAccountCreate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackAccountCreateResponse["data"] = body
+  const data: overlordsUidOpenStackAccountCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -537,43 +537,43 @@ export const OverlordsUidOpenStackAccountCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackAccountCreateResponse;
+  } as overlordsUidOpenStackAccountCreateResponse;
 };
 
 /**
  * @summary update the OpenStack cloudaccount for the private gateway
  */
-export type OverlordsUidOpenStackAccountUpdateResponse204 = {
+export type overlordsUidOpenStackAccountUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidOpenStackAccountUpdateResponseComposite =
-  OverlordsUidOpenStackAccountUpdateResponse204;
+export type overlordsUidOpenStackAccountUpdateResponseComposite =
+  overlordsUidOpenStackAccountUpdateResponse204;
 
-export type OverlordsUidOpenStackAccountUpdateResponse =
-  OverlordsUidOpenStackAccountUpdateResponseComposite & {
+export type overlordsUidOpenStackAccountUpdateResponse =
+  overlordsUidOpenStackAccountUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackAccountUpdateUrl = (uid: string) => {
+export const getOverlordsUidOpenStackAccountUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account`;
 };
 
-export const OverlordsUidOpenStackAccountUpdate = async (
+export const overlordsUidOpenStackAccountUpdate = async (
   uid: string,
-  OverlordOpenStackAccountEntity: OverlordOpenStackAccountEntity,
+  overlordOpenStackAccountEntity: OverlordOpenStackAccountEntity,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackAccountUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackAccountUpdateUrl(uid), {
+): Promise<overlordsUidOpenStackAccountUpdateResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackAccountUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordOpenStackAccountEntity),
+    body: JSON.stringify(overlordOpenStackAccountEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackAccountUpdateResponse["data"] = body
+  const data: overlordsUidOpenStackAccountUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -581,43 +581,43 @@ export const OverlordsUidOpenStackAccountUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackAccountUpdateResponse;
+  } as overlordsUidOpenStackAccountUpdateResponse;
 };
 
 /**
  * @summary validate the OpenStack cloudaccount for the private gateway
  */
-export type OverlordsUidOpenStackAccountValidateResponse204 = {
+export type overlordsUidOpenStackAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidOpenStackAccountValidateResponseComposite =
-  OverlordsUidOpenStackAccountValidateResponse204;
+export type overlordsUidOpenStackAccountValidateResponseComposite =
+  overlordsUidOpenStackAccountValidateResponse204;
 
-export type OverlordsUidOpenStackAccountValidateResponse =
-  OverlordsUidOpenStackAccountValidateResponseComposite & {
+export type overlordsUidOpenStackAccountValidateResponse =
+  overlordsUidOpenStackAccountValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackAccountValidateUrl = (uid: string) => {
+export const getOverlordsUidOpenStackAccountValidateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account/validate`;
 };
 
-export const OverlordsUidOpenStackAccountValidate = async (
+export const overlordsUidOpenStackAccountValidate = async (
   uid: string,
-  OverlordsUidOpenStackAccountValidateBody: OverlordsUidOpenStackAccountValidateBody,
+  overlordsUidOpenStackAccountValidateBody: OverlordsUidOpenStackAccountValidateBody,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackAccountValidateResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackAccountValidateUrl(uid), {
+): Promise<overlordsUidOpenStackAccountValidateResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackAccountValidateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordsUidOpenStackAccountValidateBody),
+    body: JSON.stringify(overlordsUidOpenStackAccountValidateBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackAccountValidateResponse["data"] = body
+  const data: overlordsUidOpenStackAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -625,43 +625,43 @@ export const OverlordsUidOpenStackAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackAccountValidateResponse;
+  } as overlordsUidOpenStackAccountValidateResponse;
 };
 
 /**
  * @summary create the OpenStack cloud config for the private gateway
  */
-export type OverlordsUidOpenStackCloudConfigCreateResponse201 = {
+export type overlordsUidOpenStackCloudConfigCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidOpenStackCloudConfigCreateResponseComposite =
-  OverlordsUidOpenStackCloudConfigCreateResponse201;
+export type overlordsUidOpenStackCloudConfigCreateResponseComposite =
+  overlordsUidOpenStackCloudConfigCreateResponse201;
 
-export type OverlordsUidOpenStackCloudConfigCreateResponse =
-  OverlordsUidOpenStackCloudConfigCreateResponseComposite & {
+export type overlordsUidOpenStackCloudConfigCreateResponse =
+  overlordsUidOpenStackCloudConfigCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackCloudConfigCreateUrl = (uid: string) => {
+export const getOverlordsUidOpenStackCloudConfigCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidOpenStackCloudConfigCreate = async (
+export const overlordsUidOpenStackCloudConfigCreate = async (
   uid: string,
-  OverlordOpenStackCloudConfigBody: OverlordOpenStackCloudConfigBody,
+  v1OverlordOpenStackCloudConfigBody: V1OverlordOpenStackCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackCloudConfigCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackCloudConfigCreateUrl(uid), {
+): Promise<overlordsUidOpenStackCloudConfigCreateResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackCloudConfigCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordOpenStackCloudConfigBody),
+    body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackCloudConfigCreateResponse["data"] = body
+  const data: overlordsUidOpenStackCloudConfigCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -669,43 +669,43 @@ export const OverlordsUidOpenStackCloudConfigCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackCloudConfigCreateResponse;
+  } as overlordsUidOpenStackCloudConfigCreateResponse;
 };
 
 /**
  * @summary update the OpenStack cloud config for the private gateway
  */
-export type OverlordsUidOpenStackCloudConfigUpdateResponse204 = {
+export type overlordsUidOpenStackCloudConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidOpenStackCloudConfigUpdateResponseComposite =
-  OverlordsUidOpenStackCloudConfigUpdateResponse204;
+export type overlordsUidOpenStackCloudConfigUpdateResponseComposite =
+  overlordsUidOpenStackCloudConfigUpdateResponse204;
 
-export type OverlordsUidOpenStackCloudConfigUpdateResponse =
-  OverlordsUidOpenStackCloudConfigUpdateResponseComposite & {
+export type overlordsUidOpenStackCloudConfigUpdateResponse =
+  overlordsUidOpenStackCloudConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackCloudConfigUpdateUrl = (uid: string) => {
+export const getOverlordsUidOpenStackCloudConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidOpenStackCloudConfigUpdate = async (
+export const overlordsUidOpenStackCloudConfigUpdate = async (
   uid: string,
-  OverlordOpenStackCloudConfigBody: OverlordOpenStackCloudConfigBody,
+  v1OverlordOpenStackCloudConfigBody: V1OverlordOpenStackCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackCloudConfigUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackCloudConfigUpdateUrl(uid), {
+): Promise<overlordsUidOpenStackCloudConfigUpdateResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackCloudConfigUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordOpenStackCloudConfigBody),
+    body: JSON.stringify(v1OverlordOpenStackCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackCloudConfigUpdateResponse["data"] = body
+  const data: overlordsUidOpenStackCloudConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -713,40 +713,40 @@ export const OverlordsUidOpenStackCloudConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackCloudConfigUpdateResponse;
+  } as overlordsUidOpenStackCloudConfigUpdateResponse;
 };
 
 /**
  * @summary Returns the specified OpenStack private gateway cluster profile
  */
-export type OverlordsUidOpenStackClusterProfileResponse200 = {
+export type overlordsUidOpenStackClusterProfileResponse200 = {
   data: ClusterProfile;
   status: 200;
 };
 
-export type OverlordsUidOpenStackClusterProfileResponseComposite =
-  OverlordsUidOpenStackClusterProfileResponse200;
+export type overlordsUidOpenStackClusterProfileResponseComposite =
+  overlordsUidOpenStackClusterProfileResponse200;
 
-export type OverlordsUidOpenStackClusterProfileResponse =
-  OverlordsUidOpenStackClusterProfileResponseComposite & {
+export type overlordsUidOpenStackClusterProfileResponse =
+  overlordsUidOpenStackClusterProfileResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidOpenStackClusterProfileUrl = (uid: string) => {
+export const getOverlordsUidOpenStackClusterProfileUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/clusterprofile`;
 };
 
-export const OverlordsUidOpenStackClusterProfile = async (
+export const overlordsUidOpenStackClusterProfile = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidOpenStackClusterProfileResponse> => {
-  const res = await fetch(getV1OverlordsUidOpenStackClusterProfileUrl(uid), {
+): Promise<overlordsUidOpenStackClusterProfileResponse> => {
+  const res = await fetch(getOverlordsUidOpenStackClusterProfileUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidOpenStackClusterProfileResponse["data"] = body
+  const data: overlordsUidOpenStackClusterProfileResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -754,26 +754,26 @@ export const OverlordsUidOpenStackClusterProfile = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidOpenStackClusterProfileResponse;
+  } as overlordsUidOpenStackClusterProfileResponse;
 };
 
 /**
  * @summary Returns the pairing code for the private gateway
  */
-export type OverlordsPairingCodeResponse200 = {
+export type overlordsPairingCodeResponse200 = {
   data: PairingCode;
   status: 200;
 };
 
-export type OverlordsPairingCodeResponseComposite =
-  OverlordsPairingCodeResponse200;
+export type overlordsPairingCodeResponseComposite =
+  overlordsPairingCodeResponse200;
 
-export type OverlordsPairingCodeResponse =
-  OverlordsPairingCodeResponseComposite & {
+export type overlordsPairingCodeResponse =
+  overlordsPairingCodeResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsPairingCodeUrl = (
+export const getOverlordsPairingCodeUrl = (
   params?: OverlordsPairingCodeParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -791,17 +791,17 @@ export const getV1OverlordsPairingCodeUrl = (
     : `https://api.spectrocloud.com/v1/overlords/pairing/code`;
 };
 
-export const OverlordsPairingCode = async (
+export const overlordsPairingCode = async (
   params?: OverlordsPairingCodeParams,
   options?: RequestInit,
-): Promise<OverlordsPairingCodeResponse> => {
-  const res = await fetch(getV1OverlordsPairingCodeUrl(params), {
+): Promise<overlordsPairingCodeResponse> => {
+  const res = await fetch(getOverlordsPairingCodeUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsPairingCodeResponse["data"] = body
+  const data: overlordsPairingCodeResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -809,26 +809,26 @@ export const OverlordsPairingCode = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsPairingCodeResponse;
+  } as overlordsPairingCodeResponse;
 };
 
 /**
  * @summary Returns the manifests required for the private gateway installation
  */
-export type OverlordsVsphereManifestResponse200 = {
+export type overlordsVsphereManifestResponse200 = {
   data: OverlordManifest;
   status: 200;
 };
 
-export type OverlordsVsphereManifestResponseComposite =
-  OverlordsVsphereManifestResponse200;
+export type overlordsVsphereManifestResponseComposite =
+  overlordsVsphereManifestResponse200;
 
-export type OverlordsVsphereManifestResponse =
-  OverlordsVsphereManifestResponseComposite & {
+export type overlordsVsphereManifestResponse =
+  overlordsVsphereManifestResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsVsphereManifestUrl = (
+export const getOverlordsVsphereManifestUrl = (
   params: OverlordsVsphereManifestParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -842,17 +842,17 @@ export const getV1OverlordsVsphereManifestUrl = (
     : `https://api.spectrocloud.com/v1/overlords/vsphere/manifest`;
 };
 
-export const OverlordsVsphereManifest = async (
+export const overlordsVsphereManifest = async (
   params: OverlordsVsphereManifestParams,
   options?: RequestInit,
-): Promise<OverlordsVsphereManifestResponse> => {
-  const res = await fetch(getV1OverlordsVsphereManifestUrl(params), {
+): Promise<overlordsVsphereManifestResponse> => {
+  const res = await fetch(getOverlordsVsphereManifestUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsVsphereManifestResponse["data"] = body
+  const data: overlordsVsphereManifestResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -860,39 +860,39 @@ export const OverlordsVsphereManifest = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsVsphereManifestResponse;
+  } as overlordsVsphereManifestResponse;
 };
 
 /**
  * @summary Returns overlord's ova information
  */
-export type OverlordsVsphereOvaGetResponse200 = {
+export type overlordsVsphereOvaGetResponse200 = {
   data: OverloadVsphereOva;
   status: 200;
 };
 
-export type OverlordsVsphereOvaGetResponseComposite =
-  OverlordsVsphereOvaGetResponse200;
+export type overlordsVsphereOvaGetResponseComposite =
+  overlordsVsphereOvaGetResponse200;
 
-export type OverlordsVsphereOvaGetResponse =
-  OverlordsVsphereOvaGetResponseComposite & {
+export type overlordsVsphereOvaGetResponse =
+  overlordsVsphereOvaGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsVsphereOvaGetUrl = () => {
+export const getOverlordsVsphereOvaGetUrl = () => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/ova`;
 };
 
-export const OverlordsVsphereOvaGet = async (
+export const overlordsVsphereOvaGet = async (
   options?: RequestInit,
-): Promise<OverlordsVsphereOvaGetResponse> => {
-  const res = await fetch(getV1OverlordsVsphereOvaGetUrl(), {
+): Promise<overlordsVsphereOvaGetResponse> => {
+  const res = await fetch(getOverlordsVsphereOvaGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsVsphereOvaGetResponse["data"] = body
+  const data: overlordsVsphereOvaGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -900,43 +900,43 @@ export const OverlordsVsphereOvaGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsVsphereOvaGetResponse;
+  } as overlordsVsphereOvaGetResponse;
 };
 
 /**
  * @summary create the vSphere cloudaccount for the private gateway
  */
-export type OverlordsUidVsphereAccountCreateResponse201 = {
+export type overlordsUidVsphereAccountCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidVsphereAccountCreateResponseComposite =
-  OverlordsUidVsphereAccountCreateResponse201;
+export type overlordsUidVsphereAccountCreateResponseComposite =
+  overlordsUidVsphereAccountCreateResponse201;
 
-export type OverlordsUidVsphereAccountCreateResponse =
-  OverlordsUidVsphereAccountCreateResponseComposite & {
+export type overlordsUidVsphereAccountCreateResponse =
+  overlordsUidVsphereAccountCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereAccountCreateUrl = (uid: string) => {
+export const getOverlordsUidVsphereAccountCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account`;
 };
 
-export const OverlordsUidVsphereAccountCreate = async (
+export const overlordsUidVsphereAccountCreate = async (
   uid: string,
-  OverlordVsphereAccountCreate: OverlordVsphereAccountCreate,
+  overlordVsphereAccountCreate: OverlordVsphereAccountCreate,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereAccountCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereAccountCreateUrl(uid), {
+): Promise<overlordsUidVsphereAccountCreateResponse> => {
+  const res = await fetch(getOverlordsUidVsphereAccountCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordVsphereAccountCreate),
+    body: JSON.stringify(overlordVsphereAccountCreate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereAccountCreateResponse["data"] = body
+  const data: overlordsUidVsphereAccountCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -944,43 +944,43 @@ export const OverlordsUidVsphereAccountCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereAccountCreateResponse;
+  } as overlordsUidVsphereAccountCreateResponse;
 };
 
 /**
  * @summary update the vSphere cloudaccount for the private gateway
  */
-export type OverlordsUidVsphereAccountUpdateResponse204 = {
+export type overlordsUidVsphereAccountUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidVsphereAccountUpdateResponseComposite =
-  OverlordsUidVsphereAccountUpdateResponse204;
+export type overlordsUidVsphereAccountUpdateResponseComposite =
+  overlordsUidVsphereAccountUpdateResponse204;
 
-export type OverlordsUidVsphereAccountUpdateResponse =
-  OverlordsUidVsphereAccountUpdateResponseComposite & {
+export type overlordsUidVsphereAccountUpdateResponse =
+  overlordsUidVsphereAccountUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereAccountUpdateUrl = (uid: string) => {
+export const getOverlordsUidVsphereAccountUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account`;
 };
 
-export const OverlordsUidVsphereAccountUpdate = async (
+export const overlordsUidVsphereAccountUpdate = async (
   uid: string,
-  OverlordVsphereAccountEntity: OverlordVsphereAccountEntity,
+  overlordVsphereAccountEntity: OverlordVsphereAccountEntity,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereAccountUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereAccountUpdateUrl(uid), {
+): Promise<overlordsUidVsphereAccountUpdateResponse> => {
+  const res = await fetch(getOverlordsUidVsphereAccountUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordVsphereAccountEntity),
+    body: JSON.stringify(overlordVsphereAccountEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereAccountUpdateResponse["data"] = body
+  const data: overlordsUidVsphereAccountUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -988,43 +988,43 @@ export const OverlordsUidVsphereAccountUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereAccountUpdateResponse;
+  } as overlordsUidVsphereAccountUpdateResponse;
 };
 
 /**
  * @summary validate the vSphere cloudaccount for the private gateway
  */
-export type OverlordsUidVsphereAccountValidateResponse204 = {
+export type overlordsUidVsphereAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidVsphereAccountValidateResponseComposite =
-  OverlordsUidVsphereAccountValidateResponse204;
+export type overlordsUidVsphereAccountValidateResponseComposite =
+  overlordsUidVsphereAccountValidateResponse204;
 
-export type OverlordsUidVsphereAccountValidateResponse =
-  OverlordsUidVsphereAccountValidateResponseComposite & {
+export type overlordsUidVsphereAccountValidateResponse =
+  overlordsUidVsphereAccountValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereAccountValidateUrl = (uid: string) => {
+export const getOverlordsUidVsphereAccountValidateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account/validate`;
 };
 
-export const OverlordsUidVsphereAccountValidate = async (
+export const overlordsUidVsphereAccountValidate = async (
   uid: string,
-  OverlordsUidVsphereAccountValidateBody: OverlordsUidVsphereAccountValidateBody,
+  overlordsUidVsphereAccountValidateBody: OverlordsUidVsphereAccountValidateBody,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereAccountValidateResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereAccountValidateUrl(uid), {
+): Promise<overlordsUidVsphereAccountValidateResponse> => {
+  const res = await fetch(getOverlordsUidVsphereAccountValidateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordsUidVsphereAccountValidateBody),
+    body: JSON.stringify(overlordsUidVsphereAccountValidateBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereAccountValidateResponse["data"] = body
+  const data: overlordsUidVsphereAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1032,43 +1032,43 @@ export const OverlordsUidVsphereAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereAccountValidateResponse;
+  } as overlordsUidVsphereAccountValidateResponse;
 };
 
 /**
  * @summary create the vSphere cloud config for the private gateway
  */
-export type OverlordsUidVsphereCloudConfigCreateResponse201 = {
+export type overlordsUidVsphereCloudConfigCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidVsphereCloudConfigCreateResponseComposite =
-  OverlordsUidVsphereCloudConfigCreateResponse201;
+export type overlordsUidVsphereCloudConfigCreateResponseComposite =
+  overlordsUidVsphereCloudConfigCreateResponse201;
 
-export type OverlordsUidVsphereCloudConfigCreateResponse =
-  OverlordsUidVsphereCloudConfigCreateResponseComposite & {
+export type overlordsUidVsphereCloudConfigCreateResponse =
+  overlordsUidVsphereCloudConfigCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereCloudConfigCreateUrl = (uid: string) => {
+export const getOverlordsUidVsphereCloudConfigCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidVsphereCloudConfigCreate = async (
+export const overlordsUidVsphereCloudConfigCreate = async (
   uid: string,
-  OverlordVsphereCloudConfigBody: OverlordVsphereCloudConfigBody,
+  v1OverlordVsphereCloudConfigBody: V1OverlordVsphereCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereCloudConfigCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereCloudConfigCreateUrl(uid), {
+): Promise<overlordsUidVsphereCloudConfigCreateResponse> => {
+  const res = await fetch(getOverlordsUidVsphereCloudConfigCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordVsphereCloudConfigBody),
+    body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereCloudConfigCreateResponse["data"] = body
+  const data: overlordsUidVsphereCloudConfigCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1076,43 +1076,43 @@ export const OverlordsUidVsphereCloudConfigCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereCloudConfigCreateResponse;
+  } as overlordsUidVsphereCloudConfigCreateResponse;
 };
 
 /**
  * @summary update the vSphere cloud config for the private gateway
  */
-export type OverlordsUidVsphereCloudConfigUpdateResponse204 = {
+export type overlordsUidVsphereCloudConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidVsphereCloudConfigUpdateResponseComposite =
-  OverlordsUidVsphereCloudConfigUpdateResponse204;
+export type overlordsUidVsphereCloudConfigUpdateResponseComposite =
+  overlordsUidVsphereCloudConfigUpdateResponse204;
 
-export type OverlordsUidVsphereCloudConfigUpdateResponse =
-  OverlordsUidVsphereCloudConfigUpdateResponseComposite & {
+export type overlordsUidVsphereCloudConfigUpdateResponse =
+  overlordsUidVsphereCloudConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereCloudConfigUpdateUrl = (uid: string) => {
+export const getOverlordsUidVsphereCloudConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/cloudconfig`;
 };
 
-export const OverlordsUidVsphereCloudConfigUpdate = async (
+export const overlordsUidVsphereCloudConfigUpdate = async (
   uid: string,
-  OverlordVsphereCloudConfigBody: OverlordVsphereCloudConfigBody,
+  v1OverlordVsphereCloudConfigBody: V1OverlordVsphereCloudConfigBody,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereCloudConfigUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereCloudConfigUpdateUrl(uid), {
+): Promise<overlordsUidVsphereCloudConfigUpdateResponse> => {
+  const res = await fetch(getOverlordsUidVsphereCloudConfigUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OverlordVsphereCloudConfigBody),
+    body: JSON.stringify(v1OverlordVsphereCloudConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereCloudConfigUpdateResponse["data"] = body
+  const data: overlordsUidVsphereCloudConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1120,40 +1120,40 @@ export const OverlordsUidVsphereCloudConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereCloudConfigUpdateResponse;
+  } as overlordsUidVsphereCloudConfigUpdateResponse;
 };
 
 /**
  * @summary Returns the specified vsphere private gateway cluster profile
  */
-export type OverlordsUidVsphereClusterProfileResponse200 = {
+export type overlordsUidVsphereClusterProfileResponse200 = {
   data: ClusterProfile;
   status: 200;
 };
 
-export type OverlordsUidVsphereClusterProfileResponseComposite =
-  OverlordsUidVsphereClusterProfileResponse200;
+export type overlordsUidVsphereClusterProfileResponseComposite =
+  overlordsUidVsphereClusterProfileResponse200;
 
-export type OverlordsUidVsphereClusterProfileResponse =
-  OverlordsUidVsphereClusterProfileResponseComposite & {
+export type overlordsUidVsphereClusterProfileResponse =
+  overlordsUidVsphereClusterProfileResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereClusterProfileUrl = (uid: string) => {
+export const getOverlordsUidVsphereClusterProfileUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/clusterprofile`;
 };
 
-export const OverlordsUidVsphereClusterProfile = async (
+export const overlordsUidVsphereClusterProfile = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereClusterProfileResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereClusterProfileUrl(uid), {
+): Promise<overlordsUidVsphereClusterProfileResponse> => {
+  const res = await fetch(getOverlordsUidVsphereClusterProfileUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereClusterProfileResponse["data"] = body
+  const data: overlordsUidVsphereClusterProfileResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1161,40 +1161,40 @@ export const OverlordsUidVsphereClusterProfile = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereClusterProfileResponse;
+  } as overlordsUidVsphereClusterProfileResponse;
 };
 
 /**
  * @summary Retrieves a list of IP Pools for the specified private gateway
  */
-export type OverlordsUidPoolsListResponse200 = {
+export type overlordsUidPoolsListResponse200 = {
   data: IpPools;
   status: 200;
 };
 
-export type OverlordsUidPoolsListResponseComposite =
-  OverlordsUidPoolsListResponse200;
+export type overlordsUidPoolsListResponseComposite =
+  overlordsUidPoolsListResponse200;
 
-export type OverlordsUidPoolsListResponse =
-  OverlordsUidPoolsListResponseComposite & {
+export type overlordsUidPoolsListResponse =
+  overlordsUidPoolsListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidPoolsListUrl = (uid: string) => {
+export const getOverlordsUidPoolsListUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools`;
 };
 
-export const OverlordsUidPoolsList = async (
+export const overlordsUidPoolsList = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidPoolsListResponse> => {
-  const res = await fetch(getV1OverlordsUidPoolsListUrl(uid), {
+): Promise<overlordsUidPoolsListResponse> => {
+  const res = await fetch(getOverlordsUidPoolsListUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidPoolsListResponse["data"] = body
+  const data: overlordsUidPoolsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1202,43 +1202,43 @@ export const OverlordsUidPoolsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidPoolsListResponse;
+  } as overlordsUidPoolsListResponse;
 };
 
 /**
  * @summary Creates an IP pool defintion for the sepcified private gateway
  */
-export type OverlordsUidPoolCreateResponse201 = {
+export type overlordsUidPoolCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type OverlordsUidPoolCreateResponseComposite =
-  OverlordsUidPoolCreateResponse201;
+export type overlordsUidPoolCreateResponseComposite =
+  overlordsUidPoolCreateResponse201;
 
-export type OverlordsUidPoolCreateResponse =
-  OverlordsUidPoolCreateResponseComposite & {
+export type overlordsUidPoolCreateResponse =
+  overlordsUidPoolCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidPoolCreateUrl = (uid: string) => {
+export const getOverlordsUidPoolCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools`;
 };
 
-export const OverlordsUidPoolCreate = async (
+export const overlordsUidPoolCreate = async (
   uid: string,
-  IpPoolInputEntityBody: IpPoolInputEntityBody,
+  v1IpPoolInputEntityBody: V1IpPoolInputEntityBody,
   options?: RequestInit,
-): Promise<OverlordsUidPoolCreateResponse> => {
-  const res = await fetch(getV1OverlordsUidPoolCreateUrl(uid), {
+): Promise<overlordsUidPoolCreateResponse> => {
+  const res = await fetch(getOverlordsUidPoolCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(IpPoolInputEntityBody),
+    body: JSON.stringify(v1IpPoolInputEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidPoolCreateResponse["data"] = body
+  const data: overlordsUidPoolCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1246,44 +1246,41 @@ export const OverlordsUidPoolCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidPoolCreateResponse;
+  } as overlordsUidPoolCreateResponse;
 };
 
 /**
  * @summary Deletes the private gateways's specified IP Pool data
  */
-export type OverlordsUidPoolDeleteResponse204 = {
+export type overlordsUidPoolDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidPoolDeleteResponseComposite =
-  OverlordsUidPoolDeleteResponse204;
+export type overlordsUidPoolDeleteResponseComposite =
+  overlordsUidPoolDeleteResponse204;
 
-export type OverlordsUidPoolDeleteResponse =
-  OverlordsUidPoolDeleteResponseComposite & {
+export type overlordsUidPoolDeleteResponse =
+  overlordsUidPoolDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidPoolDeleteUrl = (
-  uid: string,
-  poolUid: string,
-) => {
+export const getOverlordsUidPoolDeleteUrl = (uid: string, poolUid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools/${poolUid}`;
 };
 
-export const OverlordsUidPoolDelete = async (
+export const overlordsUidPoolDelete = async (
   uid: string,
   poolUid: string,
   options?: RequestInit,
-): Promise<OverlordsUidPoolDeleteResponse> => {
-  const res = await fetch(getV1OverlordsUidPoolDeleteUrl(uid, poolUid), {
+): Promise<overlordsUidPoolDeleteResponse> => {
+  const res = await fetch(getOverlordsUidPoolDeleteUrl(uid, poolUid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidPoolDeleteResponse["data"] = body
+  const data: overlordsUidPoolDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1291,47 +1288,44 @@ export const OverlordsUidPoolDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidPoolDeleteResponse;
+  } as overlordsUidPoolDeleteResponse;
 };
 
 /**
  * @summary Updates the private gateways's specified IP Pool data
  */
-export type OverlordsUidPoolUpdateResponse204 = {
+export type overlordsUidPoolUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidPoolUpdateResponseComposite =
-  OverlordsUidPoolUpdateResponse204;
+export type overlordsUidPoolUpdateResponseComposite =
+  overlordsUidPoolUpdateResponse204;
 
-export type OverlordsUidPoolUpdateResponse =
-  OverlordsUidPoolUpdateResponseComposite & {
+export type overlordsUidPoolUpdateResponse =
+  overlordsUidPoolUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidPoolUpdateUrl = (
-  uid: string,
-  poolUid: string,
-) => {
+export const getOverlordsUidPoolUpdateUrl = (uid: string, poolUid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools/${poolUid}`;
 };
 
-export const OverlordsUidPoolUpdate = async (
+export const overlordsUidPoolUpdate = async (
   uid: string,
   poolUid: string,
-  IpPoolInputEntityBody: IpPoolInputEntityBody,
+  v1IpPoolInputEntityBody: V1IpPoolInputEntityBody,
   options?: RequestInit,
-): Promise<OverlordsUidPoolUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidPoolUpdateUrl(uid, poolUid), {
+): Promise<overlordsUidPoolUpdateResponse> => {
+  const res = await fetch(getOverlordsUidPoolUpdateUrl(uid, poolUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(IpPoolInputEntityBody),
+    body: JSON.stringify(v1IpPoolInputEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidPoolUpdateResponse["data"] = body
+  const data: overlordsUidPoolUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1339,26 +1333,26 @@ export const OverlordsUidPoolUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidPoolUpdateResponse;
+  } as overlordsUidPoolUpdateResponse;
 };
 
 /**
  * @summary Retrieves the vSphere computecluster resources for the specified private gateway's account
  */
-export type OverlordsUidVsphereComputeclusterResResponse200 = {
+export type overlordsUidVsphereComputeclusterResResponse200 = {
   data: VsphereComputeClusterResources;
   status: 200;
 };
 
-export type OverlordsUidVsphereComputeclusterResResponseComposite =
-  OverlordsUidVsphereComputeclusterResResponse200;
+export type overlordsUidVsphereComputeclusterResResponseComposite =
+  overlordsUidVsphereComputeclusterResResponse200;
 
-export type OverlordsUidVsphereComputeclusterResResponse =
-  OverlordsUidVsphereComputeclusterResResponseComposite & {
+export type overlordsUidVsphereComputeclusterResResponse =
+  overlordsUidVsphereComputeclusterResResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereComputeclusterResUrl = (
+export const getOverlordsUidVsphereComputeclusterResUrl = (
   uid: string,
   params: OverlordsUidVsphereComputeclusterResParams,
 ) => {
@@ -1373,13 +1367,13 @@ export const getV1OverlordsUidVsphereComputeclusterResUrl = (
     : `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/properties/computecluster/resources`;
 };
 
-export const OverlordsUidVsphereComputeclusterRes = async (
+export const overlordsUidVsphereComputeclusterRes = async (
   uid: string,
   params: OverlordsUidVsphereComputeclusterResParams,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereComputeclusterResResponse> => {
+): Promise<overlordsUidVsphereComputeclusterResResponse> => {
   const res = await fetch(
-    getV1OverlordsUidVsphereComputeclusterResUrl(uid, params),
+    getOverlordsUidVsphereComputeclusterResUrl(uid, params),
     {
       ...options,
       method: "GET",
@@ -1387,7 +1381,7 @@ export const OverlordsUidVsphereComputeclusterRes = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereComputeclusterResResponse["data"] = body
+  const data: overlordsUidVsphereComputeclusterResResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1395,40 +1389,40 @@ export const OverlordsUidVsphereComputeclusterRes = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereComputeclusterResResponse;
+  } as overlordsUidVsphereComputeclusterResResponse;
 };
 
 /**
  * @summary Retrieves the vSphere datacenters & datacluster for the specified private gateway's account
  */
-export type OverlordsUidVsphereDatacentersResponse200 = {
+export type overlordsUidVsphereDatacentersResponse200 = {
   data: VsphereDatacenters;
   status: 200;
 };
 
-export type OverlordsUidVsphereDatacentersResponseComposite =
-  OverlordsUidVsphereDatacentersResponse200;
+export type overlordsUidVsphereDatacentersResponseComposite =
+  overlordsUidVsphereDatacentersResponse200;
 
-export type OverlordsUidVsphereDatacentersResponse =
-  OverlordsUidVsphereDatacentersResponseComposite & {
+export type overlordsUidVsphereDatacentersResponse =
+  overlordsUidVsphereDatacentersResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidVsphereDatacentersUrl = (uid: string) => {
+export const getOverlordsUidVsphereDatacentersUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/properties/datacenters`;
 };
 
-export const OverlordsUidVsphereDatacenters = async (
+export const overlordsUidVsphereDatacenters = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidVsphereDatacentersResponse> => {
-  const res = await fetch(getV1OverlordsUidVsphereDatacentersUrl(uid), {
+): Promise<overlordsUidVsphereDatacentersResponse> => {
+  const res = await fetch(getOverlordsUidVsphereDatacentersUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidVsphereDatacentersResponse["data"] = body
+  const data: overlordsUidVsphereDatacentersResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1436,117 +1430,117 @@ export const OverlordsUidVsphereDatacenters = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidVsphereDatacentersResponse;
+  } as overlordsUidVsphereDatacentersResponse;
 };
 
 /**
  * @summary delete the private gateway
  */
-export type OverlordsUidDeleteResponse200 = {
+export type overlordsUidDeleteResponse200 = {
   data: DeletedMsg;
   status: 200;
 };
 
-export type OverlordsUidDeleteResponseComposite = OverlordsUidDeleteResponse200;
+export type overlordsUidDeleteResponseComposite = overlordsUidDeleteResponse200;
 
-export type OverlordsUidDeleteResponse = OverlordsUidDeleteResponseComposite & {
+export type overlordsUidDeleteResponse = overlordsUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OverlordsUidDeleteUrl = (uid: string) => {
+export const getOverlordsUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}`;
 };
 
-export const OverlordsUidDelete = async (
+export const overlordsUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidDeleteResponse> => {
-  const res = await fetch(getV1OverlordsUidDeleteUrl(uid), {
+): Promise<overlordsUidDeleteResponse> => {
+  const res = await fetch(getOverlordsUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: overlordsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidDeleteResponse;
+  } as overlordsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified private gateway's for the given uid
  */
-export type OverlordsUidGetResponse200 = {
+export type overlordsUidGetResponse200 = {
   data: Overlord;
   status: 200;
 };
 
-export type OverlordsUidGetResponseComposite = OverlordsUidGetResponse200;
+export type overlordsUidGetResponseComposite = overlordsUidGetResponse200;
 
-export type OverlordsUidGetResponse = OverlordsUidGetResponseComposite & {
+export type overlordsUidGetResponse = overlordsUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OverlordsUidGetUrl = (uid: string) => {
+export const getOverlordsUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}`;
 };
 
-export const OverlordsUidGet = async (
+export const overlordsUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidGetResponse> => {
-  const res = await fetch(getV1OverlordsUidGetUrl(uid), {
+): Promise<overlordsUidGetResponse> => {
+  const res = await fetch(getOverlordsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: overlordsUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidGetResponse;
+  } as overlordsUidGetResponse;
 };
 
 /**
  * @summary update the private gateway's metadata
  */
-export type OverlordsUidMetadataUpdateResponse204 = {
+export type overlordsUidMetadataUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OverlordsUidMetadataUpdateResponseComposite =
-  OverlordsUidMetadataUpdateResponse204;
+export type overlordsUidMetadataUpdateResponseComposite =
+  overlordsUidMetadataUpdateResponse204;
 
-export type OverlordsUidMetadataUpdateResponse =
-  OverlordsUidMetadataUpdateResponseComposite & {
+export type overlordsUidMetadataUpdateResponse =
+  overlordsUidMetadataUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OverlordsUidMetadataUpdateUrl = (uid: string) => {
+export const getOverlordsUidMetadataUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}/metadata`;
 };
 
-export const OverlordsUidMetadataUpdate = async (
+export const overlordsUidMetadataUpdate = async (
   uid: string,
-  ObjectMetaInputEntitySchemaBody: ObjectMetaInputEntitySchemaBody,
+  v1ObjectMetaInputEntitySchemaBody: V1ObjectMetaInputEntitySchemaBody,
   options?: RequestInit,
-): Promise<OverlordsUidMetadataUpdateResponse> => {
-  const res = await fetch(getV1OverlordsUidMetadataUpdateUrl(uid), {
+): Promise<overlordsUidMetadataUpdateResponse> => {
+  const res = await fetch(getOverlordsUidMetadataUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ObjectMetaInputEntitySchemaBody),
+    body: JSON.stringify(v1ObjectMetaInputEntitySchemaBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidMetadataUpdateResponse["data"] = body
+  const data: overlordsUidMetadataUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1554,42 +1548,42 @@ export const OverlordsUidMetadataUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidMetadataUpdateResponse;
+  } as overlordsUidMetadataUpdateResponse;
 };
 
 /**
  * @summary reset the private gateway by disaaociating the private gateway's resources
  */
-export type OverlordsUidResetResponse200 = {
+export type overlordsUidResetResponse200 = {
   data: UpdatedMsg;
   status: 200;
 };
 
-export type OverlordsUidResetResponseComposite = OverlordsUidResetResponse200;
+export type overlordsUidResetResponseComposite = overlordsUidResetResponse200;
 
-export type OverlordsUidResetResponse = OverlordsUidResetResponseComposite & {
+export type overlordsUidResetResponse = overlordsUidResetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OverlordsUidResetUrl = (uid: string) => {
+export const getOverlordsUidResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/overlords/${uid}/reset`;
 };
 
-export const OverlordsUidReset = async (
+export const overlordsUidReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<OverlordsUidResetResponse> => {
-  const res = await fetch(getV1OverlordsUidResetUrl(uid), {
+): Promise<overlordsUidResetResponse> => {
+  const res = await fetch(getOverlordsUidResetUrl(uid), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OverlordsUidResetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: overlordsUidResetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OverlordsUidResetResponse;
+  } as overlordsUidResetResponse;
 };

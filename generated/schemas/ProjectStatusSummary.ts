@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClustersHealth } from "./SpectroClustersHealth";
-import type { ProjectStatus } from "./ProjectStatus";
-import type { ProjectUsageSummary } from "./ProjectUsageSummary";
+import type { SpectroClustersHealth } from "./spectroClustersHealth";
+import type { ProjectStatus } from "./projectStatus";
+import type { ProjectUsageSummary } from "./projectUsageSummary";
 
 /**
  * Project status summary

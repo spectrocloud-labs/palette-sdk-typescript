@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistriesPackCreateScope } from "./RegistriesPackCreateScope";
+import type { RegistriesPackCreateScope } from "./registriesPackCreateScope";
 
 export type RegistriesPackCreateParams = {
   scope?: RegistriesPackCreateScope;

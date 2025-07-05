@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridMachinePoolClusterHealth } from "./HybridMachinePoolClusterHealth";
+import type { HybridMachinePoolClusterHealth } from "./hybridMachinePoolClusterHealth";
 
 /**
  * Get the hybrid machine pool's cluster status

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterSchemaSpecEnumValue } from "./SearchFilterSchemaSpecEnumValue";
+import type { SearchFilterSchemaSpecEnumValue } from "./searchFilterSchemaSpecEnumValue";
 
 export interface SearchFilterSchemaSpecProperty {
   default?: string;

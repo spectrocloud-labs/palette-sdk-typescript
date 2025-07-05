@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RoleCloneMetadata } from "./RoleCloneMetadata";
+import type { RoleCloneMetadata } from "./roleCloneMetadata";
 
 /**
  * Role clone specifications

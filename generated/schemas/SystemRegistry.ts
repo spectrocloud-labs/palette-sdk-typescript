@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { RegistryConf } from "./RegistryConf";
+import type { ObjectMeta } from "./objectMeta";
+import type { RegistryConf } from "./registryConf";
 
 /**
  * Registry configuration

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmCondition } from "./VmCondition";
-import type { Time } from "./Time";
-import type { VmError } from "./VmError";
-import type { VmSnapshotVolumesLists } from "./VmSnapshotVolumesLists";
+import type { VmCondition } from "./vmCondition";
+import type { Time } from "./time";
+import type { VmError } from "./vmError";
+import type { VmSnapshotVolumesLists } from "./vmSnapshotVolumesLists";
 
 /**
  * VirtualMachineSnapshotStatus is the status for a VirtualMachineSnapshot resource

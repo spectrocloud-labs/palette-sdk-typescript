@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpSubnet } from "./GcpSubnet";
+import type { GcpSubnet } from "./gcpSubnet";
 
 /**
  * GCP network enity is a virtual version of a physical network

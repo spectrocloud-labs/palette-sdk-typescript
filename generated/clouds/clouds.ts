@@ -15,144 +15,144 @@ import type {
   AsyncOperationIdEntity,
   AwsAccountCredentials,
   AwsAccountSts,
-  AwsAccountStsGetParams,
   AwsAvailabilityZones,
   AwsCloudAccount,
   AwsCloudCostSpec,
   AwsCloudCostSummary,
-  AwsClusterNameValidateParams,
   AwsFindImageRequest,
-  AwsIamPoliciesParams,
   AwsImage,
   AwsInstanceTypes,
-  AwsInstanceTypesParams,
-  AwsKeyPairValidateParams,
   AwsKeyPairs,
-  AwsKeyPairsParams,
   AwsKmsKeyEntity,
-  AwsKmsKeyGetParams,
-  AwsKmsKeyValidateParams,
   AwsKmsKeys,
-  AwsKmsKeysParams,
   AwsPolicies,
   AwsPolicyArnsSpec,
-  AwsPolicyArnsValidateParams,
   AwsPropertiesValidateSpec,
   AwsRegions,
-  AwsRegionsParams,
   AwsS3BucketCredentials,
   AwsSecretSpecInputEntity,
   AwsSecurityGroups,
-  AwsSecurityGroupsParams,
   AwsStorageTypes,
   AwsVolumeSize,
-  AwsVolumeSizeGetParams,
-  AwsVolumeTypesGetParams,
   AwsVpcs,
-  AwsVpcsParams,
-  AwsZonesParams,
   AzValidateEntity,
   AzureCloudAccount,
-  AzureClusterNameValidateParams,
   AzureGroups,
-  AzureGroupsParams,
   AzureInstanceTypes,
-  AzureInstanceTypesParams,
   AzurePrivateDnsZones,
-  AzurePrivateDnsZonesParams,
   AzureRegions,
-  AzureRegionsParams,
   AzureResourceGroupList,
-  AzureResourceGroupListParams,
   AzureStorageAccountEntity,
-  AzureStorageAccountTypesParams,
   AzureStorageAccounts,
-  AzureStorageAccountsParams,
   AzureStorageContainers,
-  AzureStorageContainersParams,
   AzureStorageTypes,
   AzureSubscriptionList,
-  AzureSubscriptionListParams,
   AzureVhdUrlEntity,
   AzureVirtualNetworkList,
-  AzureVirtualNetworkListParams,
   AzureZoneEntity,
-  AzureZonesParams,
   CloudAccountUidEntity,
-  CloudComputeRateParams,
   CloudCost,
-  CloudStorageRateParams,
-  CloudWatchConfig,
   CustomCloudMetaEntity,
   CustomCloudRequestEntity,
-  CustomCloudTypeBootstrapUpdateBody,
   CustomCloudTypeCloudAccountKeys,
   CustomCloudTypeContentResponse,
   CustomCloudTypes,
   EksPropertiesValidateSpec,
   GcpAccountNameValidateSpec,
-  GcpAvailabilityZonesParams,
   GcpCloudAccountValidateEntity,
-  GcpContainerImageValidateParams,
   GcpImageUrlEntity,
   GcpInstanceTypes,
-  GcpInstanceTypesParams,
   GcpNetworks,
-  GcpNetworksParams,
   GcpProjects,
-  GcpProjectsParams,
   GcpPropertiesValidateSpec,
   GcpRegions,
-  GcpRegionsParams,
   GcpStorageTypes,
   GcpZones,
-  GcpZonesParams,
   MaasCloudAccount,
   MaasDomains,
-  MaasDomainsGetParams,
   MaasPools,
-  MaasPoolsGetParams,
   MaasSubnets,
-  MaasSubnetsGetParams,
   MaasTags,
-  MaasTagsGetParams,
   MaasZones,
-  MaasZonesGetParams,
   OpenStackAzs,
-  OpenStackAzsGetParams,
   OpenStackCloudAccount,
   OpenStackFlavors,
-  OpenStackFlavorsGetParams,
   OpenStackKeypairs,
-  OpenStackKeypairsGetParams,
   OpenStackNetworks,
-  OpenStackNetworksGetParams,
   OpenStackProjects,
-  OpenStackProjectsGetParams,
   OpenStackRegions,
-  OpenStackRegionsGetParams,
   Uid,
-  VsphereCloudAccountBody,
+  V1AwsAccountStsGetParams,
+  V1AwsClusterNameValidateParams,
+  V1AwsIamPoliciesParams,
+  V1AwsInstanceTypesParams,
+  V1AwsKeyPairValidateParams,
+  V1AwsKeyPairsParams,
+  V1AwsKmsKeyGetParams,
+  V1AwsKmsKeyValidateParams,
+  V1AwsKmsKeysParams,
+  V1AwsPolicyArnsValidateParams,
+  V1AwsRegionsParams,
+  V1AwsSecurityGroupsParams,
+  V1AwsVolumeSizeGetParams,
+  V1AwsVolumeTypesGetParams,
+  V1AwsVpcsParams,
+  V1AwsZonesParams,
+  V1AzureClusterNameValidateParams,
+  V1AzureGroupsParams,
+  V1AzureInstanceTypesParams,
+  V1AzurePrivateDnsZonesParams,
+  V1AzureRegionsParams,
+  V1AzureResourceGroupListParams,
+  V1AzureStorageAccountTypesParams,
+  V1AzureStorageAccountsParams,
+  V1AzureStorageContainersParams,
+  V1AzureSubscriptionListParams,
+  V1AzureVirtualNetworkListParams,
+  V1AzureZonesParams,
+  V1CloudComputeRateParams,
+  V1CloudStorageRateParams,
+  V1CloudWatchConfig,
+  V1CustomCloudTypeBootstrapUpdateBody,
+  V1GcpAvailabilityZonesParams,
+  V1GcpContainerImageValidateParams,
+  V1GcpInstanceTypesParams,
+  V1GcpNetworksParams,
+  V1GcpProjectsParams,
+  V1GcpRegionsParams,
+  V1GcpZonesParams,
+  V1MaasDomainsGetParams,
+  V1MaasPoolsGetParams,
+  V1MaasSubnetsGetParams,
+  V1MaasTagsGetParams,
+  V1MaasZonesGetParams,
+  V1OpenStackAzsGetParams,
+  V1OpenStackFlavorsGetParams,
+  V1OpenStackKeypairsGetParams,
+  V1OpenStackNetworksGetParams,
+  V1OpenStackProjectsGetParams,
+  V1OpenStackRegionsGetParams,
+  V1VsphereCloudAccountBody,
+  V1VsphereComputeClusterResourcesParams,
+  V1VsphereDatacentersParams,
   VsphereComputeClusterResources,
-  VsphereComputeClusterResourcesParams,
   VsphereDatacenters,
-  VsphereDatacentersParams,
   VsphereEnv,
 } from ".././schemas";
 
 /**
  * @summary Retrieves the Aws secret credentials
  */
-export type AwsAccountSecretCredentialsResponse200 = {
+export type v1AwsAccountSecretCredentialsResponse200 = {
   data: AwsAccountCredentials;
   status: 200;
 };
 
-export type AwsAccountSecretCredentialsResponseComposite =
-  AwsAccountSecretCredentialsResponse200;
+export type v1AwsAccountSecretCredentialsResponseComposite =
+  v1AwsAccountSecretCredentialsResponse200;
 
-export type AwsAccountSecretCredentialsResponse =
-  AwsAccountSecretCredentialsResponseComposite & {
+export type v1AwsAccountSecretCredentialsResponse =
+  v1AwsAccountSecretCredentialsResponseComposite & {
     headers: Headers;
   };
 
@@ -160,19 +160,19 @@ export const getV1AwsAccountSecretCredentialsUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/aws/account/secret/credentials`;
 };
 
-export const AwsAccountSecretCredentials = async (
-  AwsSecretSpecInputEntity: AwsSecretSpecInputEntity,
+export const v1AwsAccountSecretCredentials = async (
+  awsSecretSpecInputEntity: AwsSecretSpecInputEntity,
   options?: RequestInit,
-): Promise<AwsAccountSecretCredentialsResponse> => {
+): Promise<v1AwsAccountSecretCredentialsResponse> => {
   const res = await fetch(getV1AwsAccountSecretCredentialsUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsSecretSpecInputEntity),
+    body: JSON.stringify(awsSecretSpecInputEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsAccountSecretCredentialsResponse["data"] = body
+  const data: v1AwsAccountSecretCredentialsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -180,24 +180,24 @@ export const AwsAccountSecretCredentials = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsAccountSecretCredentialsResponse;
+  } as v1AwsAccountSecretCredentialsResponse;
 };
 
 /**
  * @summary Retrieves AWS external id and account id
  */
-export type AwsAccountStsGetResponse200 = {
+export type v1AwsAccountStsGetResponse200 = {
   data: AwsAccountSts;
   status: 200;
 };
 
-export type AwsAccountStsGetResponseComposite = AwsAccountStsGetResponse200;
+export type v1AwsAccountStsGetResponseComposite = v1AwsAccountStsGetResponse200;
 
-export type AwsAccountStsGetResponse = AwsAccountStsGetResponseComposite & {
+export type v1AwsAccountStsGetResponse = v1AwsAccountStsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsAccountStsGetUrl = (params?: AwsAccountStsGetParams) => {
+export const getV1AwsAccountStsGetUrl = (params?: V1AwsAccountStsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -213,134 +213,58 @@ export const getV1AwsAccountStsGetUrl = (params?: AwsAccountStsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/account/sts`;
 };
 
-export const AwsAccountStsGet = async (
-  params?: AwsAccountStsGetParams,
+export const v1AwsAccountStsGet = async (
+  params?: V1AwsAccountStsGetParams,
   options?: RequestInit,
-): Promise<AwsAccountStsGetResponse> => {
+): Promise<v1AwsAccountStsGetResponse> => {
   const res = await fetch(getV1AwsAccountStsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsAccountStsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsAccountStsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsAccountStsGetResponse;
+  } as v1AwsAccountStsGetResponse;
 };
 
 /**
  * @summary Validate the specified AWS account credentials
  */
-export type AwsAccountValidateResponse204 = {
+export type v1AwsAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsAccountValidateResponseComposite = AwsAccountValidateResponse204;
+export type v1AwsAccountValidateResponseComposite =
+  v1AwsAccountValidateResponse204;
 
-export type AwsAccountValidateResponse = AwsAccountValidateResponseComposite & {
-  headers: Headers;
-};
+export type v1AwsAccountValidateResponse =
+  v1AwsAccountValidateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1AwsAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/aws/account/validate`;
 };
 
-export const AwsAccountValidate = async (
-  AwsCloudAccount: AwsCloudAccount,
+export const v1AwsAccountValidate = async (
+  awsCloudAccount: AwsCloudAccount,
   options?: RequestInit,
-): Promise<AwsAccountValidateResponse> => {
+): Promise<v1AwsAccountValidateResponse> => {
   const res = await fetch(getV1AwsAccountValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsCloudAccount),
+    body: JSON.stringify(awsCloudAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsAccountValidateResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AwsAccountValidateResponse;
-};
-
-/**
- * @summary Retrieves a list of AWS AMI types
- */
-export type AwsAmiTypesResponse200 = {
-  data: AmiTypes;
-  status: 200;
-};
-
-export type AwsAmiTypesResponseComposite = AwsAmiTypesResponse200;
-
-export type AwsAmiTypesResponse = AwsAmiTypesResponseComposite & {
-  headers: Headers;
-};
-
-export const getV1AwsAmiTypesUrl = () => {
-  return `https://api.spectrocloud.com/v1/clouds/aws/amiTypes`;
-};
-
-export const AwsAmiTypes = async (
-  options?: RequestInit,
-): Promise<AwsAmiTypesResponse> => {
-  const res = await fetch(getV1AwsAmiTypesUrl(), {
-    ...options,
-    method: "GET",
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsAmiTypesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AwsAmiTypesResponse;
-};
-
-/**
- * Validates aws cloud watch credentials
- * @summary validates aws cloud watch credentials
- */
-export type CloudsAwsCloudWatchValidateResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type CloudsAwsCloudWatchValidateResponseComposite =
-  CloudsAwsCloudWatchValidateResponse204;
-
-export type CloudsAwsCloudWatchValidateResponse =
-  CloudsAwsCloudWatchValidateResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1CloudsAwsCloudWatchValidateUrl = () => {
-  return `https://api.spectrocloud.com/v1/clouds/aws/cloudwatch/validate`;
-};
-
-export const CloudsAwsCloudWatchValidate = async (
-  CloudWatchConfig: CloudWatchConfig,
-  options?: RequestInit,
-): Promise<CloudsAwsCloudWatchValidateResponse> => {
-  const res = await fetch(getV1CloudsAwsCloudWatchValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CloudWatchConfig),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudsAwsCloudWatchValidateResponse["data"] = body
+  const data: v1AwsAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -348,66 +272,146 @@ export const CloudsAwsCloudWatchValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudsAwsCloudWatchValidateResponse;
+  } as v1AwsAccountValidateResponse;
 };
 
 /**
- * @summary Retrieves AWS cloud account usage cost from cost explorer.
+ * @summary Retrieves a list of AWS AMI types
  */
-export type AwsCloudCostResponse200 = {
-  data: AwsCloudCostSummary;
+export type v1AwsAmiTypesResponse200 = {
+  data: AmiTypes;
   status: 200;
 };
 
-export type AwsCloudCostResponseComposite = AwsCloudCostResponse200;
+export type v1AwsAmiTypesResponseComposite = v1AwsAmiTypesResponse200;
 
-export type AwsCloudCostResponse = AwsCloudCostResponseComposite & {
+export type v1AwsAmiTypesResponse = v1AwsAmiTypesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsCloudCostUrl = () => {
-  return `https://api.spectrocloud.com/v1/clouds/aws/cost`;
+export const getV1AwsAmiTypesUrl = () => {
+  return `https://api.spectrocloud.com/v1/clouds/aws/amiTypes`;
 };
 
-export const AwsCloudCost = async (
-  AwsCloudCostSpec: AwsCloudCostSpec,
+export const v1AwsAmiTypes = async (
   options?: RequestInit,
-): Promise<AwsCloudCostResponse> => {
-  const res = await fetch(getV1AwsCloudCostUrl(), {
+): Promise<v1AwsAmiTypesResponse> => {
+  const res = await fetch(getV1AwsAmiTypesUrl(), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsCloudCostSpec),
+    method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsCloudCostResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsAmiTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsCloudCostResponse;
+  } as v1AwsAmiTypesResponse;
+};
+
+/**
+ * Validates aws cloud watch credentials
+ * @summary validates aws cloud watch credentials
+ */
+export type v1CloudsAwsCloudWatchValidateResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type v1CloudsAwsCloudWatchValidateResponseComposite =
+  v1CloudsAwsCloudWatchValidateResponse204;
+
+export type v1CloudsAwsCloudWatchValidateResponse =
+  v1CloudsAwsCloudWatchValidateResponseComposite & {
+    headers: Headers;
+  };
+
+export const getV1CloudsAwsCloudWatchValidateUrl = () => {
+  return `https://api.spectrocloud.com/v1/clouds/aws/cloudwatch/validate`;
+};
+
+export const v1CloudsAwsCloudWatchValidate = async (
+  v1CloudWatchConfig: V1CloudWatchConfig,
+  options?: RequestInit,
+): Promise<v1CloudsAwsCloudWatchValidateResponse> => {
+  const res = await fetch(getV1CloudsAwsCloudWatchValidateUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(v1CloudWatchConfig),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: v1CloudsAwsCloudWatchValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1CloudsAwsCloudWatchValidateResponse;
+};
+
+/**
+ * @summary Retrieves AWS cloud account usage cost from cost explorer.
+ */
+export type awsCloudCostResponse200 = {
+  data: AwsCloudCostSummary;
+  status: 200;
+};
+
+export type awsCloudCostResponseComposite = awsCloudCostResponse200;
+
+export type awsCloudCostResponse = awsCloudCostResponseComposite & {
+  headers: Headers;
+};
+
+export const getAwsCloudCostUrl = () => {
+  return `https://api.spectrocloud.com/v1/clouds/aws/cost`;
+};
+
+export const awsCloudCost = async (
+  awsCloudCostSpec: AwsCloudCostSpec,
+  options?: RequestInit,
+): Promise<awsCloudCostResponse> => {
+  const res = await fetch(getAwsCloudCostUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(awsCloudCostSpec),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: awsCloudCostResponse["data"] = body ? JSON.parse(body) : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as awsCloudCostResponse;
 };
 
 /**
  * Get AWS Volume Size
  * @summary Get AWS Volume Size
  */
-export type AwsVolumeSizeGetResponse200 = {
+export type v1AwsVolumeSizeGetResponse200 = {
   data: AwsVolumeSize;
   status: 200;
 };
 
-export type AwsVolumeSizeGetResponseComposite = AwsVolumeSizeGetResponse200;
+export type v1AwsVolumeSizeGetResponseComposite = v1AwsVolumeSizeGetResponse200;
 
-export type AwsVolumeSizeGetResponse = AwsVolumeSizeGetResponseComposite & {
+export type v1AwsVolumeSizeGetResponse = v1AwsVolumeSizeGetResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AwsVolumeSizeGetUrl = (
   imageId: string,
-  params: AwsVolumeSizeGetParams,
+  params: V1AwsVolumeSizeGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -424,41 +428,41 @@ export const getV1AwsVolumeSizeGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/imageIds/${imageId}/volumeSize`;
 };
 
-export const AwsVolumeSizeGet = async (
+export const v1AwsVolumeSizeGet = async (
   imageId: string,
-  params: AwsVolumeSizeGetParams,
+  params: V1AwsVolumeSizeGetParams,
   options?: RequestInit,
-): Promise<AwsVolumeSizeGetResponse> => {
+): Promise<v1AwsVolumeSizeGetResponse> => {
   const res = await fetch(getV1AwsVolumeSizeGetUrl(imageId, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsVolumeSizeGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsVolumeSizeGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsVolumeSizeGetResponse;
+  } as v1AwsVolumeSizeGetResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS policies for the specified account
  */
-export type AwsIamPoliciesResponse200 = {
+export type v1AwsIamPoliciesResponse200 = {
   data: AwsPolicies;
   status: 200;
 };
 
-export type AwsIamPoliciesResponseComposite = AwsIamPoliciesResponse200;
+export type v1AwsIamPoliciesResponseComposite = v1AwsIamPoliciesResponse200;
 
-export type AwsIamPoliciesResponse = AwsIamPoliciesResponseComposite & {
+export type v1AwsIamPoliciesResponse = v1AwsIamPoliciesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsIamPoliciesUrl = (params?: AwsIamPoliciesParams) => {
+export const getV1AwsIamPoliciesUrl = (params?: V1AwsIamPoliciesParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -474,46 +478,46 @@ export const getV1AwsIamPoliciesUrl = (params?: AwsIamPoliciesParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/policies`;
 };
 
-export const AwsIamPolicies = async (
-  AwsCloudAccount: AwsCloudAccount,
-  params?: AwsIamPoliciesParams,
+export const v1AwsIamPolicies = async (
+  awsCloudAccount: AwsCloudAccount,
+  params?: V1AwsIamPoliciesParams,
   options?: RequestInit,
-): Promise<AwsIamPoliciesResponse> => {
+): Promise<v1AwsIamPoliciesResponse> => {
   const res = await fetch(getV1AwsIamPoliciesUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsCloudAccount),
+    body: JSON.stringify(awsCloudAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsIamPoliciesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsIamPoliciesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsIamPoliciesResponse;
+  } as v1AwsIamPoliciesResponse;
 };
 
 /**
  * @summary Validate the aws policy arns validate
  */
-export type AwsPolicyArnsValidateResponse204 = {
+export type v1AwsPolicyArnsValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsPolicyArnsValidateResponseComposite =
-  AwsPolicyArnsValidateResponse204;
+export type v1AwsPolicyArnsValidateResponseComposite =
+  v1AwsPolicyArnsValidateResponse204;
 
-export type AwsPolicyArnsValidateResponse =
-  AwsPolicyArnsValidateResponseComposite & {
+export type v1AwsPolicyArnsValidateResponse =
+  v1AwsPolicyArnsValidateResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AwsPolicyArnsValidateUrl = (
-  params?: AwsPolicyArnsValidateParams,
+  params?: V1AwsPolicyArnsValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -530,20 +534,20 @@ export const getV1AwsPolicyArnsValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/policyArns/validate`;
 };
 
-export const AwsPolicyArnsValidate = async (
-  AwsPolicyArnsSpec: AwsPolicyArnsSpec,
-  params?: AwsPolicyArnsValidateParams,
+export const v1AwsPolicyArnsValidate = async (
+  awsPolicyArnsSpec: AwsPolicyArnsSpec,
+  params?: V1AwsPolicyArnsValidateParams,
   options?: RequestInit,
-): Promise<AwsPolicyArnsValidateResponse> => {
+): Promise<v1AwsPolicyArnsValidateResponse> => {
   const res = await fetch(getV1AwsPolicyArnsValidateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsPolicyArnsSpec),
+    body: JSON.stringify(awsPolicyArnsSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsPolicyArnsValidateResponse["data"] = body
+  const data: v1AwsPolicyArnsValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -551,22 +555,22 @@ export const AwsPolicyArnsValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsPolicyArnsValidateResponse;
+  } as v1AwsPolicyArnsValidateResponse;
 };
 
 /**
  * @summary Validate AWS properties
  */
-export type AwsPropertiesValidateResponse204 = {
+export type v1AwsPropertiesValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsPropertiesValidateResponseComposite =
-  AwsPropertiesValidateResponse204;
+export type v1AwsPropertiesValidateResponseComposite =
+  v1AwsPropertiesValidateResponse204;
 
-export type AwsPropertiesValidateResponse =
-  AwsPropertiesValidateResponseComposite & {
+export type v1AwsPropertiesValidateResponse =
+  v1AwsPropertiesValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -574,19 +578,19 @@ export const getV1AwsPropertiesValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/aws/properties/validate`;
 };
 
-export const AwsPropertiesValidate = async (
-  AwsPropertiesValidateSpec: AwsPropertiesValidateSpec,
+export const v1AwsPropertiesValidate = async (
+  awsPropertiesValidateSpec: AwsPropertiesValidateSpec,
   options?: RequestInit,
-): Promise<AwsPropertiesValidateResponse> => {
+): Promise<v1AwsPropertiesValidateResponse> => {
   const res = await fetch(getV1AwsPropertiesValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsPropertiesValidateSpec),
+    body: JSON.stringify(awsPropertiesValidateSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsPropertiesValidateResponse["data"] = body
+  const data: v1AwsPropertiesValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -594,24 +598,24 @@ export const AwsPropertiesValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsPropertiesValidateResponse;
+  } as v1AwsPropertiesValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS regions for the specified account
  */
-export type AwsRegionsResponse200 = {
+export type v1AwsRegionsResponse200 = {
   data: AwsRegions;
   status: 200;
 };
 
-export type AwsRegionsResponseComposite = AwsRegionsResponse200;
+export type v1AwsRegionsResponseComposite = v1AwsRegionsResponse200;
 
-export type AwsRegionsResponse = AwsRegionsResponseComposite & {
+export type v1AwsRegionsResponse = v1AwsRegionsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsRegionsUrl = (params: AwsRegionsParams) => {
+export const getV1AwsRegionsUrl = (params: V1AwsRegionsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -627,40 +631,40 @@ export const getV1AwsRegionsUrl = (params: AwsRegionsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/regions`;
 };
 
-export const AwsRegions = async (
-  params: AwsRegionsParams,
+export const v1AwsRegions = async (
+  params: V1AwsRegionsParams,
   options?: RequestInit,
-): Promise<AwsRegionsResponse> => {
+): Promise<v1AwsRegionsResponse> => {
   const res = await fetch(getV1AwsRegionsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsRegionsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsRegionsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsRegionsResponse;
+  } as v1AwsRegionsResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS availability zones for the specified region
  */
-export type AwsZonesResponse200 = {
+export type v1AwsZonesResponse200 = {
   data: AwsAvailabilityZones;
   status: 200;
 };
 
-export type AwsZonesResponseComposite = AwsZonesResponse200;
+export type v1AwsZonesResponseComposite = v1AwsZonesResponse200;
 
-export type AwsZonesResponse = AwsZonesResponseComposite & {
+export type v1AwsZonesResponse = v1AwsZonesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsZonesUrl = (region: string, params: AwsZonesParams) => {
+export const getV1AwsZonesUrl = (region: string, params: V1AwsZonesParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -676,35 +680,39 @@ export const getV1AwsZonesUrl = (region: string, params: AwsZonesParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/availabilityzones`;
 };
 
-export const AwsZones = async (
+export const v1AwsZones = async (
   region: string,
-  params: AwsZonesParams,
+  params: V1AwsZonesParams,
   options?: RequestInit,
-): Promise<AwsZonesResponse> => {
+): Promise<v1AwsZonesResponse> => {
   const res = await fetch(getV1AwsZonesUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsZonesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsZonesResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as AwsZonesResponse;
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1AwsZonesResponse;
 };
 
 /**
  * @summary Copies the specified image from one region to another region
  */
-export type AwsCopyImageFromDefaultRegionResponse200 = {
+export type v1AwsCopyImageFromDefaultRegionResponse200 = {
   data: AsyncOperationIdEntity;
   status: 200;
 };
 
-export type AwsCopyImageFromDefaultRegionResponseComposite =
-  AwsCopyImageFromDefaultRegionResponse200;
+export type v1AwsCopyImageFromDefaultRegionResponseComposite =
+  v1AwsCopyImageFromDefaultRegionResponse200;
 
-export type AwsCopyImageFromDefaultRegionResponse =
-  AwsCopyImageFromDefaultRegionResponseComposite & {
+export type v1AwsCopyImageFromDefaultRegionResponse =
+  v1AwsCopyImageFromDefaultRegionResponseComposite & {
     headers: Headers;
   };
 
@@ -712,20 +720,20 @@ export const getV1AwsCopyImageFromDefaultRegionUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/copydefaultimages`;
 };
 
-export const AwsCopyImageFromDefaultRegion = async (
+export const v1AwsCopyImageFromDefaultRegion = async (
   region: string,
-  AwsFindImageRequest: AwsFindImageRequest,
+  awsFindImageRequest: AwsFindImageRequest,
   options?: RequestInit,
-): Promise<AwsCopyImageFromDefaultRegionResponse> => {
+): Promise<v1AwsCopyImageFromDefaultRegionResponse> => {
   const res = await fetch(getV1AwsCopyImageFromDefaultRegionUrl(region), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsFindImageRequest),
+    body: JSON.stringify(awsFindImageRequest),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsCopyImageFromDefaultRegionResponse["data"] = body
+  const data: v1AwsCopyImageFromDefaultRegionResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -733,29 +741,29 @@ export const AwsCopyImageFromDefaultRegion = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsCopyImageFromDefaultRegionResponse;
+  } as v1AwsCopyImageFromDefaultRegionResponse;
 };
 
 /**
  * Returns no contents if aws cluster name is valid else error.
  * @summary Check if Aws cluster name is valid
  */
-export type AwsClusterNameValidateResponse204 = {
+export type v1AwsClusterNameValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsClusterNameValidateResponseComposite =
-  AwsClusterNameValidateResponse204;
+export type v1AwsClusterNameValidateResponseComposite =
+  v1AwsClusterNameValidateResponse204;
 
-export type AwsClusterNameValidateResponse =
-  AwsClusterNameValidateResponseComposite & {
+export type v1AwsClusterNameValidateResponse =
+  v1AwsClusterNameValidateResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AwsClusterNameValidateUrl = (
   region: string,
-  params: AwsClusterNameValidateParams,
+  params: V1AwsClusterNameValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -772,18 +780,18 @@ export const getV1AwsClusterNameValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/eksClusters/name/validate`;
 };
 
-export const AwsClusterNameValidate = async (
+export const v1AwsClusterNameValidate = async (
   region: string,
-  params: AwsClusterNameValidateParams,
+  params: V1AwsClusterNameValidateParams,
   options?: RequestInit,
-): Promise<AwsClusterNameValidateResponse> => {
+): Promise<v1AwsClusterNameValidateResponse> => {
   const res = await fetch(getV1AwsClusterNameValidateUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsClusterNameValidateResponse["data"] = body
+  const data: v1AwsClusterNameValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -791,20 +799,20 @@ export const AwsClusterNameValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsClusterNameValidateResponse;
+  } as v1AwsClusterNameValidateResponse;
 };
 
 /**
  * @summary Returns AWS image for the specified AMI name
  */
-export type AwsFindImageResponse200 = {
+export type v1AwsFindImageResponse200 = {
   data: AwsImage;
   status: 200;
 };
 
-export type AwsFindImageResponseComposite = AwsFindImageResponse200;
+export type v1AwsFindImageResponseComposite = v1AwsFindImageResponse200;
 
-export type AwsFindImageResponse = AwsFindImageResponseComposite & {
+export type v1AwsFindImageResponse = v1AwsFindImageResponseComposite & {
   headers: Headers;
 };
 
@@ -812,45 +820,45 @@ export const getV1AwsFindImageUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/images`;
 };
 
-export const AwsFindImage = async (
+export const v1AwsFindImage = async (
   region: string,
-  AwsFindImageRequest: AwsFindImageRequest,
+  awsFindImageRequest: AwsFindImageRequest,
   options?: RequestInit,
-): Promise<AwsFindImageResponse> => {
+): Promise<v1AwsFindImageResponse> => {
   const res = await fetch(getV1AwsFindImageUrl(region), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsFindImageRequest),
+    body: JSON.stringify(awsFindImageRequest),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsFindImageResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsFindImageResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsFindImageResponse;
+  } as v1AwsFindImageResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS instance types
  */
-export type AwsInstanceTypesResponse200 = {
+export type v1AwsInstanceTypesResponse200 = {
   data: AwsInstanceTypes;
   status: 200;
 };
 
-export type AwsInstanceTypesResponseComposite = AwsInstanceTypesResponse200;
+export type v1AwsInstanceTypesResponseComposite = v1AwsInstanceTypesResponse200;
 
-export type AwsInstanceTypesResponse = AwsInstanceTypesResponseComposite & {
+export type v1AwsInstanceTypesResponse = v1AwsInstanceTypesResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AwsInstanceTypesUrl = (
   region: string,
-  params?: AwsInstanceTypesParams,
+  params?: V1AwsInstanceTypesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -867,43 +875,43 @@ export const getV1AwsInstanceTypesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/instancetypes`;
 };
 
-export const AwsInstanceTypes = async (
+export const v1AwsInstanceTypes = async (
   region: string,
-  params?: AwsInstanceTypesParams,
+  params?: V1AwsInstanceTypesParams,
   options?: RequestInit,
-): Promise<AwsInstanceTypesResponse> => {
+): Promise<v1AwsInstanceTypesResponse> => {
   const res = await fetch(getV1AwsInstanceTypesUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsInstanceTypesResponse;
+  } as v1AwsInstanceTypesResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS keypairs
  */
-export type AwsKeyPairsResponse200 = {
+export type v1AwsKeyPairsResponse200 = {
   data: AwsKeyPairs;
   status: 200;
 };
 
-export type AwsKeyPairsResponseComposite = AwsKeyPairsResponse200;
+export type v1AwsKeyPairsResponseComposite = v1AwsKeyPairsResponse200;
 
-export type AwsKeyPairsResponse = AwsKeyPairsResponseComposite & {
+export type v1AwsKeyPairsResponse = v1AwsKeyPairsResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AwsKeyPairsUrl = (
   region: string,
-  params: AwsKeyPairsParams,
+  params: V1AwsKeyPairsParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -920,44 +928,46 @@ export const getV1AwsKeyPairsUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs`;
 };
 
-export const AwsKeyPairs = async (
+export const v1AwsKeyPairs = async (
   region: string,
-  params: AwsKeyPairsParams,
+  params: V1AwsKeyPairsParams,
   options?: RequestInit,
-): Promise<AwsKeyPairsResponse> => {
+): Promise<v1AwsKeyPairsResponse> => {
   const res = await fetch(getV1AwsKeyPairsUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKeyPairsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsKeyPairsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsKeyPairsResponse;
+  } as v1AwsKeyPairsResponse;
 };
 
 /**
  * @summary Validate the specified AWS keypair
  */
-export type AwsKeyPairValidateResponse204 = {
+export type v1AwsKeyPairValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsKeyPairValidateResponseComposite = AwsKeyPairValidateResponse204;
+export type v1AwsKeyPairValidateResponseComposite =
+  v1AwsKeyPairValidateResponse204;
 
-export type AwsKeyPairValidateResponse = AwsKeyPairValidateResponseComposite & {
-  headers: Headers;
-};
+export type v1AwsKeyPairValidateResponse =
+  v1AwsKeyPairValidateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1AwsKeyPairValidateUrl = (
   region: string,
   keypair: string,
-  params: AwsKeyPairValidateParams,
+  params: V1AwsKeyPairValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -974,45 +984,47 @@ export const getV1AwsKeyPairValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate`;
 };
 
-export const AwsKeyPairValidate = async (
+export const v1AwsKeyPairValidate = async (
   region: string,
   keypair: string,
-  params: AwsKeyPairValidateParams,
+  params: V1AwsKeyPairValidateParams,
   options?: RequestInit,
-): Promise<AwsKeyPairValidateResponse> => {
+): Promise<v1AwsKeyPairValidateResponse> => {
   const res = await fetch(getV1AwsKeyPairValidateUrl(region, keypair, params), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKeyPairValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsKeyPairValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsKeyPairValidateResponse;
+  } as v1AwsKeyPairValidateResponse;
 };
 
 /**
  * @summary Get AWS KMS key by Id
  */
-export type AwsKmsKeyGetResponse200 = {
+export type v1AwsKmsKeyGetResponse200 = {
   data: AwsKmsKeyEntity;
   status: 200;
 };
 
-export type AwsKmsKeyGetResponseComposite = AwsKmsKeyGetResponse200;
+export type v1AwsKmsKeyGetResponseComposite = v1AwsKmsKeyGetResponse200;
 
-export type AwsKmsKeyGetResponse = AwsKmsKeyGetResponseComposite & {
+export type v1AwsKmsKeyGetResponse = v1AwsKmsKeyGetResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AwsKmsKeyGetUrl = (
   region: string,
   keyId: string,
-  params: AwsKmsKeyGetParams,
+  params: V1AwsKmsKeyGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1029,44 +1041,44 @@ export const getV1AwsKmsKeyGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kms/${keyId}`;
 };
 
-export const AwsKmsKeyGet = async (
+export const v1AwsKmsKeyGet = async (
   region: string,
   keyId: string,
-  params: AwsKmsKeyGetParams,
+  params: V1AwsKmsKeyGetParams,
   options?: RequestInit,
-): Promise<AwsKmsKeyGetResponse> => {
+): Promise<v1AwsKmsKeyGetResponse> => {
   const res = await fetch(getV1AwsKmsKeyGetUrl(region, keyId, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKmsKeyGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsKmsKeyGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsKmsKeyGetResponse;
+  } as v1AwsKmsKeyGetResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS KMS keys for the specified account
  */
-export type AwsKmsKeysResponse200 = {
+export type v1AwsKmsKeysResponse200 = {
   data: AwsKmsKeys;
   status: 200;
 };
 
-export type AwsKmsKeysResponseComposite = AwsKmsKeysResponse200;
+export type v1AwsKmsKeysResponseComposite = v1AwsKmsKeysResponse200;
 
-export type AwsKmsKeysResponse = AwsKmsKeysResponseComposite & {
+export type v1AwsKmsKeysResponse = v1AwsKmsKeysResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AwsKmsKeysUrl = (
   region: string,
-  params: AwsKmsKeysParams,
+  params: V1AwsKmsKeysParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1083,43 +1095,45 @@ export const getV1AwsKmsKeysUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys`;
 };
 
-export const AwsKmsKeys = async (
+export const v1AwsKmsKeys = async (
   region: string,
-  params: AwsKmsKeysParams,
+  params: V1AwsKmsKeysParams,
   options?: RequestInit,
-): Promise<AwsKmsKeysResponse> => {
+): Promise<v1AwsKmsKeysResponse> => {
   const res = await fetch(getV1AwsKmsKeysUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKmsKeysResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsKmsKeysResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsKmsKeysResponse;
+  } as v1AwsKmsKeysResponse;
 };
 
 /**
  * @summary Validate an Aws KMS key for the specified account
  */
-export type AwsKmsKeyValidateResponse204 = {
+export type v1AwsKmsKeyValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsKmsKeyValidateResponseComposite = AwsKmsKeyValidateResponse204;
+export type v1AwsKmsKeyValidateResponseComposite =
+  v1AwsKmsKeyValidateResponse204;
 
-export type AwsKmsKeyValidateResponse = AwsKmsKeyValidateResponseComposite & {
-  headers: Headers;
-};
+export type v1AwsKmsKeyValidateResponse =
+  v1AwsKmsKeyValidateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1AwsKmsKeyValidateUrl = (
   region: string,
-  params: AwsKmsKeyValidateParams,
+  params: V1AwsKmsKeyValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1136,37 +1150,39 @@ export const getV1AwsKmsKeyValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys/validate`;
 };
 
-export const AwsKmsKeyValidate = async (
+export const v1AwsKmsKeyValidate = async (
   region: string,
-  params: AwsKmsKeyValidateParams,
+  params: V1AwsKmsKeyValidateParams,
   options?: RequestInit,
-): Promise<AwsKmsKeyValidateResponse> => {
+): Promise<v1AwsKmsKeyValidateResponse> => {
   const res = await fetch(getV1AwsKmsKeyValidateUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsKmsKeyValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsKmsKeyValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsKmsKeyValidateResponse;
+  } as v1AwsKmsKeyValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS storage types
  */
-export type AwsStorageTypesResponse200 = {
+export type v1AwsStorageTypesResponse200 = {
   data: AwsStorageTypes;
   status: 200;
 };
 
-export type AwsStorageTypesResponseComposite = AwsStorageTypesResponse200;
+export type v1AwsStorageTypesResponseComposite = v1AwsStorageTypesResponse200;
 
-export type AwsStorageTypesResponse = AwsStorageTypesResponseComposite & {
+export type v1AwsStorageTypesResponse = v1AwsStorageTypesResponseComposite & {
   headers: Headers;
 };
 
@@ -1174,40 +1190,40 @@ export const getV1AwsStorageTypesUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/storagetypes`;
 };
 
-export const AwsStorageTypes = async (
+export const v1AwsStorageTypes = async (
   region: string,
   options?: RequestInit,
-): Promise<AwsStorageTypesResponse> => {
+): Promise<v1AwsStorageTypesResponse> => {
   const res = await fetch(getV1AwsStorageTypesUrl(region), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsStorageTypesResponse;
+  } as v1AwsStorageTypesResponse;
 };
 
 /**
  * @summary Retrieves a list of VPCs for the specified account
  */
-export type AwsVpcsResponse200 = {
+export type v1AwsVpcsResponse200 = {
   data: AwsVpcs;
   status: 200;
 };
 
-export type AwsVpcsResponseComposite = AwsVpcsResponse200;
+export type v1AwsVpcsResponseComposite = v1AwsVpcsResponse200;
 
-export type AwsVpcsResponse = AwsVpcsResponseComposite & {
+export type v1AwsVpcsResponse = v1AwsVpcsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AwsVpcsUrl = (region: string, params: AwsVpcsParams) => {
+export const getV1AwsVpcsUrl = (region: string, params: V1AwsVpcsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1223,33 +1239,37 @@ export const getV1AwsVpcsUrl = (region: string, params: AwsVpcsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/vpcs`;
 };
 
-export const AwsVpcs = async (
+export const v1AwsVpcs = async (
   region: string,
-  params: AwsVpcsParams,
+  params: V1AwsVpcsParams,
   options?: RequestInit,
-): Promise<AwsVpcsResponse> => {
+): Promise<v1AwsVpcsResponse> => {
   const res = await fetch(getV1AwsVpcsUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsVpcsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsVpcsResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as AwsVpcsResponse;
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1AwsVpcsResponse;
 };
 
 /**
  * @summary Validate the AWS S3 bucket
  */
-export type AwsS3ValidateResponse204 = {
+export type v1AwsS3ValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AwsS3ValidateResponseComposite = AwsS3ValidateResponse204;
+export type v1AwsS3ValidateResponseComposite = v1AwsS3ValidateResponse204;
 
-export type AwsS3ValidateResponse = AwsS3ValidateResponseComposite & {
+export type v1AwsS3ValidateResponse = v1AwsS3ValidateResponseComposite & {
   headers: Headers;
 };
 
@@ -1257,42 +1277,46 @@ export const getV1AwsS3ValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/aws/s3/validate`;
 };
 
-export const AwsS3Validate = async (
-  AwsS3BucketCredentials: AwsS3BucketCredentials,
+export const v1AwsS3Validate = async (
+  awsS3BucketCredentials: AwsS3BucketCredentials,
   options?: RequestInit,
-): Promise<AwsS3ValidateResponse> => {
+): Promise<v1AwsS3ValidateResponse> => {
   const res = await fetch(getV1AwsS3ValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsS3BucketCredentials),
+    body: JSON.stringify(awsS3BucketCredentials),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsS3ValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsS3ValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsS3ValidateResponse;
+  } as v1AwsS3ValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of AWS security groups for the specified account
  */
-export type AwsSecurityGroupsResponse200 = {
+export type v1AwsSecurityGroupsResponse200 = {
   data: AwsSecurityGroups;
   status: 200;
 };
 
-export type AwsSecurityGroupsResponseComposite = AwsSecurityGroupsResponse200;
+export type v1AwsSecurityGroupsResponseComposite =
+  v1AwsSecurityGroupsResponse200;
 
-export type AwsSecurityGroupsResponse = AwsSecurityGroupsResponseComposite & {
-  headers: Headers;
-};
+export type v1AwsSecurityGroupsResponse =
+  v1AwsSecurityGroupsResponseComposite & {
+    headers: Headers;
+  };
 
-export const getV1AwsSecurityGroupsUrl = (params: AwsSecurityGroupsParams) => {
+export const getV1AwsSecurityGroupsUrl = (
+  params: V1AwsSecurityGroupsParams,
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1308,41 +1332,47 @@ export const getV1AwsSecurityGroupsUrl = (params: AwsSecurityGroupsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/securitygroups`;
 };
 
-export const AwsSecurityGroups = async (
-  params: AwsSecurityGroupsParams,
+export const v1AwsSecurityGroups = async (
+  params: V1AwsSecurityGroupsParams,
   options?: RequestInit,
-): Promise<AwsSecurityGroupsResponse> => {
+): Promise<v1AwsSecurityGroupsResponse> => {
   const res = await fetch(getV1AwsSecurityGroupsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsSecurityGroupsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AwsSecurityGroupsResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AwsSecurityGroupsResponse;
+  } as v1AwsSecurityGroupsResponse;
 };
 
 /**
  * List all AWS Volume Types
  * @summary Get all AWS Volume Types
  */
-export type AwsVolumeTypesGetResponse200 = {
+export type v1AwsVolumeTypesGetResponse200 = {
   data: AWSVolumeTypes;
   status: 200;
 };
 
-export type AwsVolumeTypesGetResponseComposite = AwsVolumeTypesGetResponse200;
+export type v1AwsVolumeTypesGetResponseComposite =
+  v1AwsVolumeTypesGetResponse200;
 
-export type AwsVolumeTypesGetResponse = AwsVolumeTypesGetResponseComposite & {
-  headers: Headers;
-};
+export type v1AwsVolumeTypesGetResponse =
+  v1AwsVolumeTypesGetResponseComposite & {
+    headers: Headers;
+  };
 
-export const getV1AwsVolumeTypesGetUrl = (params: AwsVolumeTypesGetParams) => {
+export const getV1AwsVolumeTypesGetUrl = (
+  params: V1AwsVolumeTypesGetParams,
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1358,59 +1388,17 @@ export const getV1AwsVolumeTypesGetUrl = (params: AwsVolumeTypesGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/aws/volumeTypes`;
 };
 
-export const AwsVolumeTypesGet = async (
-  params: AwsVolumeTypesGetParams,
+export const v1AwsVolumeTypesGet = async (
+  params: V1AwsVolumeTypesGetParams,
   options?: RequestInit,
-): Promise<AwsVolumeTypesGetResponse> => {
+): Promise<v1AwsVolumeTypesGetResponse> => {
   const res = await fetch(getV1AwsVolumeTypesGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AwsVolumeTypesGetResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AwsVolumeTypesGetResponse;
-};
-
-/**
- * Returns no contents if account is valid else error.
- * @summary Check if Azure account is valid
- */
-export type AzureAccountValidateResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type AzureAccountValidateResponseComposite =
-  AzureAccountValidateResponse204;
-
-export type AzureAccountValidateResponse =
-  AzureAccountValidateResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1AzureAccountValidateUrl = () => {
-  return `https://api.spectrocloud.com/v1/clouds/azure/account/validate`;
-};
-
-export const AzureAccountValidate = async (
-  AzureCloudAccount: AzureCloudAccount,
-  options?: RequestInit,
-): Promise<AzureAccountValidateResponse> => {
-  const res = await fetch(getV1AzureAccountValidateUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AzureCloudAccount),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureAccountValidateResponse["data"] = body
+  const data: v1AwsVolumeTypesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1418,24 +1406,68 @@ export const AzureAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureAccountValidateResponse;
+  } as v1AwsVolumeTypesGetResponse;
+};
+
+/**
+ * Returns no contents if account is valid else error.
+ * @summary Check if Azure account is valid
+ */
+export type v1AzureAccountValidateResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type v1AzureAccountValidateResponseComposite =
+  v1AzureAccountValidateResponse204;
+
+export type v1AzureAccountValidateResponse =
+  v1AzureAccountValidateResponseComposite & {
+    headers: Headers;
+  };
+
+export const getV1AzureAccountValidateUrl = () => {
+  return `https://api.spectrocloud.com/v1/clouds/azure/account/validate`;
+};
+
+export const v1AzureAccountValidate = async (
+  azureCloudAccount: AzureCloudAccount,
+  options?: RequestInit,
+): Promise<v1AzureAccountValidateResponse> => {
+  const res = await fetch(getV1AzureAccountValidateUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(azureCloudAccount),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: v1AzureAccountValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1AzureAccountValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure groups
  */
-export type AzureGroupsResponse200 = {
+export type v1AzureGroupsResponse200 = {
   data: AzureGroups;
   status: 200;
 };
 
-export type AzureGroupsResponseComposite = AzureGroupsResponse200;
+export type v1AzureGroupsResponseComposite = v1AzureGroupsResponse200;
 
-export type AzureGroupsResponse = AzureGroupsResponseComposite & {
+export type v1AzureGroupsResponse = v1AzureGroupsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AzureGroupsUrl = (params?: AzureGroupsParams) => {
+export const getV1AzureGroupsUrl = (params?: V1AzureGroupsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1451,40 +1483,40 @@ export const getV1AzureGroupsUrl = (params?: AzureGroupsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/azure/groups`;
 };
 
-export const AzureGroups = async (
-  params?: AzureGroupsParams,
+export const v1AzureGroups = async (
+  params?: V1AzureGroupsParams,
   options?: RequestInit,
-): Promise<AzureGroupsResponse> => {
+): Promise<v1AzureGroupsResponse> => {
   const res = await fetch(getV1AzureGroupsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureGroupsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureGroupsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureGroupsResponse;
+  } as v1AzureGroupsResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure regions
  */
-export type AzureRegionsResponse200 = {
+export type v1AzureRegionsResponse200 = {
   data: AzureRegions;
   status: 200;
 };
 
-export type AzureRegionsResponseComposite = AzureRegionsResponse200;
+export type v1AzureRegionsResponseComposite = v1AzureRegionsResponse200;
 
-export type AzureRegionsResponse = AzureRegionsResponseComposite & {
+export type v1AzureRegionsResponse = v1AzureRegionsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AzureRegionsUrl = (params?: AzureRegionsParams) => {
+export const getV1AzureRegionsUrl = (params?: V1AzureRegionsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1500,42 +1532,44 @@ export const getV1AzureRegionsUrl = (params?: AzureRegionsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/azure/regions`;
 };
 
-export const AzureRegions = async (
-  params?: AzureRegionsParams,
+export const v1AzureRegions = async (
+  params?: V1AzureRegionsParams,
   options?: RequestInit,
-): Promise<AzureRegionsResponse> => {
+): Promise<v1AzureRegionsResponse> => {
   const res = await fetch(getV1AzureRegionsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureRegionsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureRegionsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureRegionsResponse;
+  } as v1AzureRegionsResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure instance types
  */
-export type AzureInstanceTypesResponse200 = {
+export type v1AzureInstanceTypesResponse200 = {
   data: AzureInstanceTypes;
   status: 200;
 };
 
-export type AzureInstanceTypesResponseComposite = AzureInstanceTypesResponse200;
+export type v1AzureInstanceTypesResponseComposite =
+  v1AzureInstanceTypesResponse200;
 
-export type AzureInstanceTypesResponse = AzureInstanceTypesResponseComposite & {
-  headers: Headers;
-};
+export type v1AzureInstanceTypesResponse =
+  v1AzureInstanceTypesResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1AzureInstanceTypesUrl = (
   region: string,
-  params?: AzureInstanceTypesParams,
+  params?: V1AzureInstanceTypesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1552,84 +1586,90 @@ export const getV1AzureInstanceTypesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/instancetypes`;
 };
 
-export const AzureInstanceTypes = async (
+export const v1AzureInstanceTypes = async (
   region: string,
-  params?: AzureInstanceTypesParams,
+  params?: V1AzureInstanceTypesParams,
   options?: RequestInit,
-): Promise<AzureInstanceTypesResponse> => {
+): Promise<v1AzureInstanceTypesResponse> => {
   const res = await fetch(getV1AzureInstanceTypesUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureInstanceTypesResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureInstanceTypesResponse;
+  } as v1AzureInstanceTypesResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure storage types
  */
-export type AzureStorageTypesResponse200 = {
+export type v1AzureStorageTypesResponse200 = {
   data: AzureStorageTypes;
   status: 200;
 };
 
-export type AzureStorageTypesResponseComposite = AzureStorageTypesResponse200;
+export type v1AzureStorageTypesResponseComposite =
+  v1AzureStorageTypesResponse200;
 
-export type AzureStorageTypesResponse = AzureStorageTypesResponseComposite & {
-  headers: Headers;
-};
+export type v1AzureStorageTypesResponse =
+  v1AzureStorageTypesResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1AzureStorageTypesUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/storagetypes`;
 };
 
-export const AzureStorageTypes = async (
+export const v1AzureStorageTypes = async (
   region: string,
   options?: RequestInit,
-): Promise<AzureStorageTypesResponse> => {
+): Promise<v1AzureStorageTypesResponse> => {
   const res = await fetch(getV1AzureStorageTypesUrl(region), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureStorageTypesResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureStorageTypesResponse;
+  } as v1AzureStorageTypesResponse;
 };
 
 /**
  * Returns no contents if Azure cluster name is valid else error.
  * @summary Check if Azure cluster name is valid
  */
-export type AzureClusterNameValidateResponse204 = {
+export type v1AzureClusterNameValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AzureClusterNameValidateResponseComposite =
-  AzureClusterNameValidateResponse204;
+export type v1AzureClusterNameValidateResponseComposite =
+  v1AzureClusterNameValidateResponse204;
 
-export type AzureClusterNameValidateResponse =
-  AzureClusterNameValidateResponseComposite & {
+export type v1AzureClusterNameValidateResponse =
+  v1AzureClusterNameValidateResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureClusterNameValidateUrl = (
   region: string,
   subscriptionId: string,
-  params: AzureClusterNameValidateParams,
+  params: V1AzureClusterNameValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1646,12 +1686,12 @@ export const getV1AzureClusterNameValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate`;
 };
 
-export const AzureClusterNameValidate = async (
+export const v1AzureClusterNameValidate = async (
   region: string,
   subscriptionId: string,
-  params: AzureClusterNameValidateParams,
+  params: V1AzureClusterNameValidateParams,
   options?: RequestInit,
-): Promise<AzureClusterNameValidateResponse> => {
+): Promise<v1AzureClusterNameValidateResponse> => {
   const res = await fetch(
     getV1AzureClusterNameValidateUrl(region, subscriptionId, params),
     {
@@ -1661,7 +1701,7 @@ export const AzureClusterNameValidate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureClusterNameValidateResponse["data"] = body
+  const data: v1AzureClusterNameValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1669,29 +1709,29 @@ export const AzureClusterNameValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureClusterNameValidateResponse;
+  } as v1AzureClusterNameValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure virtual network list for the sepcified account
  */
-export type AzureVirtualNetworkListResponse200 = {
+export type v1AzureVirtualNetworkListResponse200 = {
   data: AzureVirtualNetworkList;
   status: 200;
 };
 
-export type AzureVirtualNetworkListResponseComposite =
-  AzureVirtualNetworkListResponse200;
+export type v1AzureVirtualNetworkListResponseComposite =
+  v1AzureVirtualNetworkListResponse200;
 
-export type AzureVirtualNetworkListResponse =
-  AzureVirtualNetworkListResponseComposite & {
+export type v1AzureVirtualNetworkListResponse =
+  v1AzureVirtualNetworkListResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureVirtualNetworkListUrl = (
   region: string,
   subscriptionId: string,
-  params: AzureVirtualNetworkListParams,
+  params: V1AzureVirtualNetworkListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1708,12 +1748,12 @@ export const getV1AzureVirtualNetworkListUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks`;
 };
 
-export const AzureVirtualNetworkList = async (
+export const v1AzureVirtualNetworkList = async (
   region: string,
   subscriptionId: string,
-  params: AzureVirtualNetworkListParams,
+  params: V1AzureVirtualNetworkListParams,
   options?: RequestInit,
-): Promise<AzureVirtualNetworkListResponse> => {
+): Promise<v1AzureVirtualNetworkListResponse> => {
   const res = await fetch(
     getV1AzureVirtualNetworkListUrl(region, subscriptionId, params),
     {
@@ -1723,7 +1763,7 @@ export const AzureVirtualNetworkList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureVirtualNetworkListResponse["data"] = body
+  const data: v1AzureVirtualNetworkListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1731,29 +1771,29 @@ export const AzureVirtualNetworkList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureVirtualNetworkListResponse;
+  } as v1AzureVirtualNetworkListResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure resource group for the specified account
  */
-export type AzureResourceGroupListResponse200 = {
+export type v1AzureResourceGroupListResponse200 = {
   data: AzureResourceGroupList;
   status: 200;
 };
 
-export type AzureResourceGroupListResponseComposite =
-  AzureResourceGroupListResponse200;
+export type v1AzureResourceGroupListResponseComposite =
+  v1AzureResourceGroupListResponse200;
 
-export type AzureResourceGroupListResponse =
-  AzureResourceGroupListResponseComposite & {
+export type v1AzureResourceGroupListResponse =
+  v1AzureResourceGroupListResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureResourceGroupListUrl = (
   region: string,
   subscriptionId: string,
-  params: AzureResourceGroupListParams,
+  params: V1AzureResourceGroupListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1770,12 +1810,12 @@ export const getV1AzureResourceGroupListUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups`;
 };
 
-export const AzureResourceGroupList = async (
+export const v1AzureResourceGroupList = async (
   region: string,
   subscriptionId: string,
-  params: AzureResourceGroupListParams,
+  params: V1AzureResourceGroupListParams,
   options?: RequestInit,
-): Promise<AzureResourceGroupListResponse> => {
+): Promise<v1AzureResourceGroupListResponse> => {
   const res = await fetch(
     getV1AzureResourceGroupListUrl(region, subscriptionId, params),
     {
@@ -1785,7 +1825,7 @@ export const AzureResourceGroupList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureResourceGroupListResponse["data"] = body
+  const data: v1AzureResourceGroupListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1793,26 +1833,26 @@ export const AzureResourceGroupList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureResourceGroupListResponse;
+  } as v1AzureResourceGroupListResponse;
 };
 
 /**
  * @summary Retrieves a list of Azure zones for the specified region
  */
-export type AzureZonesResponse200 = {
+export type v1AzureZonesResponse200 = {
   data: AzureZoneEntity;
   status: 200;
 };
 
-export type AzureZonesResponseComposite = AzureZonesResponse200;
+export type v1AzureZonesResponseComposite = v1AzureZonesResponse200;
 
-export type AzureZonesResponse = AzureZonesResponseComposite & {
+export type v1AzureZonesResponse = v1AzureZonesResponseComposite & {
   headers: Headers;
 };
 
 export const getV1AzureZonesUrl = (
   region: string,
-  params?: AzureZonesParams,
+  params?: V1AzureZonesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1829,46 +1869,46 @@ export const getV1AzureZonesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/zones`;
 };
 
-export const AzureZones = async (
+export const v1AzureZones = async (
   region: string,
-  params?: AzureZonesParams,
+  params?: V1AzureZonesParams,
   options?: RequestInit,
-): Promise<AzureZonesResponse> => {
+): Promise<v1AzureZonesResponse> => {
   const res = await fetch(getV1AzureZonesUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureZonesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureZonesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureZonesResponse;
+  } as v1AzureZonesResponse;
 };
 
 /**
  * Returns Azure private DNS zones
  * @summary Get Azure private DNS zones for the given resource group
  */
-export type AzurePrivateDnsZonesResponse200 = {
+export type v1AzurePrivateDnsZonesResponse200 = {
   data: AzurePrivateDnsZones;
   status: 200;
 };
 
-export type AzurePrivateDnsZonesResponseComposite =
-  AzurePrivateDnsZonesResponse200;
+export type v1AzurePrivateDnsZonesResponseComposite =
+  v1AzurePrivateDnsZonesResponse200;
 
-export type AzurePrivateDnsZonesResponse =
-  AzurePrivateDnsZonesResponseComposite & {
+export type v1AzurePrivateDnsZonesResponse =
+  v1AzurePrivateDnsZonesResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzurePrivateDnsZonesUrl = (
   resourceGroup: string,
-  params: AzurePrivateDnsZonesParams,
+  params: V1AzurePrivateDnsZonesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1885,18 +1925,18 @@ export const getV1AzurePrivateDnsZonesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones`;
 };
 
-export const AzurePrivateDnsZones = async (
+export const v1AzurePrivateDnsZones = async (
   resourceGroup: string,
-  params: AzurePrivateDnsZonesParams,
+  params: V1AzurePrivateDnsZonesParams,
   options?: RequestInit,
-): Promise<AzurePrivateDnsZonesResponse> => {
+): Promise<v1AzurePrivateDnsZonesResponse> => {
   const res = await fetch(getV1AzurePrivateDnsZonesUrl(resourceGroup, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzurePrivateDnsZonesResponse["data"] = body
+  const data: v1AzurePrivateDnsZonesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1904,29 +1944,29 @@ export const AzurePrivateDnsZones = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzurePrivateDnsZonesResponse;
+  } as v1AzurePrivateDnsZonesResponse;
 };
 
 /**
  * Returns Azure storage accounts.
  * @summary Get Azure storage accounts
  */
-export type AzureStorageAccountsResponse200 = {
+export type v1AzureStorageAccountsResponse200 = {
   data: AzureStorageAccounts;
   status: 200;
 };
 
-export type AzureStorageAccountsResponseComposite =
-  AzureStorageAccountsResponse200;
+export type v1AzureStorageAccountsResponseComposite =
+  v1AzureStorageAccountsResponse200;
 
-export type AzureStorageAccountsResponse =
-  AzureStorageAccountsResponseComposite & {
+export type v1AzureStorageAccountsResponse =
+  v1AzureStorageAccountsResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureStorageAccountsUrl = (
   resourceGroup: string,
-  params: AzureStorageAccountsParams,
+  params: V1AzureStorageAccountsParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -1943,18 +1983,18 @@ export const getV1AzureStorageAccountsUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts`;
 };
 
-export const AzureStorageAccounts = async (
+export const v1AzureStorageAccounts = async (
   resourceGroup: string,
-  params: AzureStorageAccountsParams,
+  params: V1AzureStorageAccountsParams,
   options?: RequestInit,
-): Promise<AzureStorageAccountsResponse> => {
+): Promise<v1AzureStorageAccountsResponse> => {
   const res = await fetch(getV1AzureStorageAccountsUrl(resourceGroup, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureStorageAccountsResponse["data"] = body
+  const data: v1AzureStorageAccountsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1962,30 +2002,30 @@ export const AzureStorageAccounts = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureStorageAccountsResponse;
+  } as v1AzureStorageAccountsResponse;
 };
 
 /**
  * Returns Azure storage containers for the given account.
  * @summary Get Azure storage containers
  */
-export type AzureStorageContainersResponse200 = {
+export type v1AzureStorageContainersResponse200 = {
   data: AzureStorageContainers;
   status: 200;
 };
 
-export type AzureStorageContainersResponseComposite =
-  AzureStorageContainersResponse200;
+export type v1AzureStorageContainersResponseComposite =
+  v1AzureStorageContainersResponse200;
 
-export type AzureStorageContainersResponse =
-  AzureStorageContainersResponseComposite & {
+export type v1AzureStorageContainersResponse =
+  v1AzureStorageContainersResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureStorageContainersUrl = (
   resourceGroup: string,
   storageAccountName: string,
-  params: AzureStorageContainersParams,
+  params: V1AzureStorageContainersParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -2002,12 +2042,12 @@ export const getV1AzureStorageContainersUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers`;
 };
 
-export const AzureStorageContainers = async (
+export const v1AzureStorageContainers = async (
   resourceGroup: string,
   storageAccountName: string,
-  params: AzureStorageContainersParams,
+  params: V1AzureStorageContainersParams,
   options?: RequestInit,
-): Promise<AzureStorageContainersResponse> => {
+): Promise<v1AzureStorageContainersResponse> => {
   const res = await fetch(
     getV1AzureStorageContainersUrl(resourceGroup, storageAccountName, params),
     {
@@ -2017,7 +2057,7 @@ export const AzureStorageContainers = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureStorageContainersResponse["data"] = body
+  const data: v1AzureStorageContainersResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2025,28 +2065,28 @@ export const AzureStorageContainers = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureStorageContainersResponse;
+  } as v1AzureStorageContainersResponse;
 };
 
 /**
  * Returns Azure storage account types.
  * @summary Get Azure storage account types
  */
-export type AzureStorageAccountTypesResponse200 = {
+export type v1AzureStorageAccountTypesResponse200 = {
   data: AzureStorageAccountEntity;
   status: 200;
 };
 
-export type AzureStorageAccountTypesResponseComposite =
-  AzureStorageAccountTypesResponse200;
+export type v1AzureStorageAccountTypesResponseComposite =
+  v1AzureStorageAccountTypesResponse200;
 
-export type AzureStorageAccountTypesResponse =
-  AzureStorageAccountTypesResponseComposite & {
+export type v1AzureStorageAccountTypesResponse =
+  v1AzureStorageAccountTypesResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureStorageAccountTypesUrl = (
-  params?: AzureStorageAccountTypesParams,
+  params?: V1AzureStorageAccountTypesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -2063,17 +2103,17 @@ export const getV1AzureStorageAccountTypesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/storageaccounttypes`;
 };
 
-export const AzureStorageAccountTypes = async (
-  params?: AzureStorageAccountTypesParams,
+export const v1AzureStorageAccountTypes = async (
+  params?: V1AzureStorageAccountTypesParams,
   options?: RequestInit,
-): Promise<AzureStorageAccountTypesResponse> => {
+): Promise<v1AzureStorageAccountTypesResponse> => {
   const res = await fetch(getV1AzureStorageAccountTypesUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureStorageAccountTypesResponse["data"] = body
+  const data: v1AzureStorageAccountTypesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2081,28 +2121,28 @@ export const AzureStorageAccountTypes = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureStorageAccountTypesResponse;
+  } as v1AzureStorageAccountTypesResponse;
 };
 
 /**
  * Returns list of Azure subscription list.
  * @summary Retrieves a list of Azure subscription list for the specified account
  */
-export type AzureSubscriptionListResponse200 = {
+export type v1AzureSubscriptionListResponse200 = {
   data: AzureSubscriptionList;
   status: 200;
 };
 
-export type AzureSubscriptionListResponseComposite =
-  AzureSubscriptionListResponse200;
+export type v1AzureSubscriptionListResponseComposite =
+  v1AzureSubscriptionListResponse200;
 
-export type AzureSubscriptionListResponse =
-  AzureSubscriptionListResponseComposite & {
+export type v1AzureSubscriptionListResponse =
+  v1AzureSubscriptionListResponseComposite & {
     headers: Headers;
   };
 
 export const getV1AzureSubscriptionListUrl = (
-  params: AzureSubscriptionListParams,
+  params: V1AzureSubscriptionListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -2119,17 +2159,17 @@ export const getV1AzureSubscriptionListUrl = (
     : `https://api.spectrocloud.com/v1/clouds/azure/subscriptions`;
 };
 
-export const AzureSubscriptionList = async (
-  params: AzureSubscriptionListParams,
+export const v1AzureSubscriptionList = async (
+  params: V1AzureSubscriptionListParams,
   options?: RequestInit,
-): Promise<AzureSubscriptionListResponse> => {
+): Promise<v1AzureSubscriptionListResponse> => {
   const res = await fetch(getV1AzureSubscriptionListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureSubscriptionListResponse["data"] = body
+  const data: v1AzureSubscriptionListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2137,20 +2177,20 @@ export const AzureSubscriptionList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureSubscriptionListResponse;
+  } as v1AzureSubscriptionListResponse;
 };
 
 /**
  * @summary Returns the Azure vhd url for the specified vhd location
  */
-export type AzureVhdUrlResponse200 = {
+export type v1AzureVhdUrlResponse200 = {
   data: AzureVhdUrlEntity;
   status: 200;
 };
 
-export type AzureVhdUrlResponseComposite = AzureVhdUrlResponse200;
+export type v1AzureVhdUrlResponseComposite = v1AzureVhdUrlResponse200;
 
-export type AzureVhdUrlResponse = AzureVhdUrlResponseComposite & {
+export type v1AzureVhdUrlResponse = v1AzureVhdUrlResponseComposite & {
   headers: Headers;
 };
 
@@ -2158,38 +2198,38 @@ export const getV1AzureVhdUrlUrl = (vhd: string) => {
   return `https://api.spectrocloud.com/v1/clouds/azure/vhds/${vhd}/url`;
 };
 
-export const AzureVhdUrl = async (
+export const v1AzureVhdUrl = async (
   vhd: string,
   options?: RequestInit,
-): Promise<AzureVhdUrlResponse> => {
+): Promise<v1AzureVhdUrlResponse> => {
   const res = await fetch(getV1AzureVhdUrlUrl(vhd), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AzureVhdUrlResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AzureVhdUrlResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AzureVhdUrlResponse;
+  } as v1AzureVhdUrlResponse;
 };
 
 /**
  * @summary Returns the custom cloud types
  */
-export type CustomCloudTypesGetResponse200 = {
+export type v1CustomCloudTypesGetResponse200 = {
   data: CustomCloudTypes;
   status: 200;
 };
 
-export type CustomCloudTypesGetResponseComposite =
-  CustomCloudTypesGetResponse200;
+export type v1CustomCloudTypesGetResponseComposite =
+  v1CustomCloudTypesGetResponse200;
 
-export type CustomCloudTypesGetResponse =
-  CustomCloudTypesGetResponseComposite & {
+export type v1CustomCloudTypesGetResponse =
+  v1CustomCloudTypesGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2197,16 +2237,16 @@ export const getV1CustomCloudTypesGetUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes`;
 };
 
-export const CustomCloudTypesGet = async (
+export const v1CustomCloudTypesGet = async (
   options?: RequestInit,
-): Promise<CustomCloudTypesGetResponse> => {
+): Promise<v1CustomCloudTypesGetResponse> => {
   const res = await fetch(getV1CustomCloudTypesGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypesGetResponse["data"] = body
+  const data: v1CustomCloudTypesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2214,22 +2254,22 @@ export const CustomCloudTypesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypesGetResponse;
+  } as v1CustomCloudTypesGetResponse;
 };
 
 /**
  * @summary Registers the custom cloud type
  */
-export type CustomCloudTypeRegisterResponse201 = {
+export type v1CustomCloudTypeRegisterResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CustomCloudTypeRegisterResponseComposite =
-  CustomCloudTypeRegisterResponse201;
+export type v1CustomCloudTypeRegisterResponseComposite =
+  v1CustomCloudTypeRegisterResponse201;
 
-export type CustomCloudTypeRegisterResponse =
-  CustomCloudTypeRegisterResponseComposite & {
+export type v1CustomCloudTypeRegisterResponse =
+  v1CustomCloudTypeRegisterResponseComposite & {
     headers: Headers;
   };
 
@@ -2237,19 +2277,19 @@ export const getV1CustomCloudTypeRegisterUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/register`;
 };
 
-export const CustomCloudTypeRegister = async (
-  CustomCloudRequestEntity: CustomCloudRequestEntity,
+export const v1CustomCloudTypeRegister = async (
+  customCloudRequestEntity: CustomCloudRequestEntity,
   options?: RequestInit,
-): Promise<CustomCloudTypeRegisterResponse> => {
+): Promise<v1CustomCloudTypeRegisterResponse> => {
   const res = await fetch(getV1CustomCloudTypeRegisterUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CustomCloudRequestEntity),
+    body: JSON.stringify(customCloudRequestEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeRegisterResponse["data"] = body
+  const data: v1CustomCloudTypeRegisterResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2257,22 +2297,22 @@ export const CustomCloudTypeRegister = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeRegisterResponse;
+  } as v1CustomCloudTypeRegisterResponse;
 };
 
 /**
  * @summary Deletes the custom cloud type
  */
-export type CustomCloudTypesDeleteResponse204 = {
+export type v1CustomCloudTypesDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypesDeleteResponseComposite =
-  CustomCloudTypesDeleteResponse204;
+export type v1CustomCloudTypesDeleteResponseComposite =
+  v1CustomCloudTypesDeleteResponse204;
 
-export type CustomCloudTypesDeleteResponse =
-  CustomCloudTypesDeleteResponseComposite & {
+export type v1CustomCloudTypesDeleteResponse =
+  v1CustomCloudTypesDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2280,17 +2320,17 @@ export const getV1CustomCloudTypesDeleteUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}`;
 };
 
-export const CustomCloudTypesDelete = async (
+export const v1CustomCloudTypesDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypesDeleteResponse> => {
+): Promise<v1CustomCloudTypesDeleteResponse> => {
   const res = await fetch(getV1CustomCloudTypesDeleteUrl(cloudType), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypesDeleteResponse["data"] = body
+  const data: v1CustomCloudTypesDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2298,22 +2338,22 @@ export const CustomCloudTypesDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypesDeleteResponse;
+  } as v1CustomCloudTypesDeleteResponse;
 };
 
 /**
  * @summary Returns valid keys for the cloud account used for custom cloud type
  */
-export type CustomCloudTypeCloudAccountKeysGetResponse200 = {
+export type v1CustomCloudTypeCloudAccountKeysGetResponse200 = {
   data: CustomCloudTypeCloudAccountKeys;
   status: 200;
 };
 
-export type CustomCloudTypeCloudAccountKeysGetResponseComposite =
-  CustomCloudTypeCloudAccountKeysGetResponse200;
+export type v1CustomCloudTypeCloudAccountKeysGetResponseComposite =
+  v1CustomCloudTypeCloudAccountKeysGetResponse200;
 
-export type CustomCloudTypeCloudAccountKeysGetResponse =
-  CustomCloudTypeCloudAccountKeysGetResponseComposite & {
+export type v1CustomCloudTypeCloudAccountKeysGetResponse =
+  v1CustomCloudTypeCloudAccountKeysGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2323,10 +2363,10 @@ export const getV1CustomCloudTypeCloudAccountKeysGetUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`;
 };
 
-export const CustomCloudTypeCloudAccountKeysGet = async (
+export const v1CustomCloudTypeCloudAccountKeysGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeCloudAccountKeysGetResponse> => {
+): Promise<v1CustomCloudTypeCloudAccountKeysGetResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeCloudAccountKeysGetUrl(cloudType),
     {
@@ -2336,7 +2376,7 @@ export const CustomCloudTypeCloudAccountKeysGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCloudAccountKeysGetResponse["data"] = body
+  const data: v1CustomCloudTypeCloudAccountKeysGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2344,22 +2384,22 @@ export const CustomCloudTypeCloudAccountKeysGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCloudAccountKeysGetResponse;
+  } as v1CustomCloudTypeCloudAccountKeysGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type cloud account keys
  */
-export type CustomCloudTypeCloudAccountKeysUpdateResponse204 = {
+export type v1CustomCloudTypeCloudAccountKeysUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeCloudAccountKeysUpdateResponseComposite =
-  CustomCloudTypeCloudAccountKeysUpdateResponse204;
+export type v1CustomCloudTypeCloudAccountKeysUpdateResponseComposite =
+  v1CustomCloudTypeCloudAccountKeysUpdateResponse204;
 
-export type CustomCloudTypeCloudAccountKeysUpdateResponse =
-  CustomCloudTypeCloudAccountKeysUpdateResponseComposite & {
+export type v1CustomCloudTypeCloudAccountKeysUpdateResponse =
+  v1CustomCloudTypeCloudAccountKeysUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2369,23 +2409,23 @@ export const getV1CustomCloudTypeCloudAccountKeysUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`;
 };
 
-export const CustomCloudTypeCloudAccountKeysUpdate = async (
+export const v1CustomCloudTypeCloudAccountKeysUpdate = async (
   cloudType: string,
-  CustomCloudTypeCloudAccountKeys: CustomCloudTypeCloudAccountKeys,
+  customCloudTypeCloudAccountKeys: CustomCloudTypeCloudAccountKeys,
   options?: RequestInit,
-): Promise<CustomCloudTypeCloudAccountKeysUpdateResponse> => {
+): Promise<v1CustomCloudTypeCloudAccountKeysUpdateResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeCloudAccountKeysUpdateUrl(cloudType),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(CustomCloudTypeCloudAccountKeys),
+      body: JSON.stringify(customCloudTypeCloudAccountKeys),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCloudAccountKeysUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeCloudAccountKeysUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2393,22 +2433,22 @@ export const CustomCloudTypeCloudAccountKeysUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCloudAccountKeysUpdateResponse;
+  } as v1CustomCloudTypeCloudAccountKeysUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type bootstrap
  */
-export type CustomCloudTypeBootstrapDeleteResponse204 = {
+export type v1CustomCloudTypeBootstrapDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeBootstrapDeleteResponseComposite =
-  CustomCloudTypeBootstrapDeleteResponse204;
+export type v1CustomCloudTypeBootstrapDeleteResponseComposite =
+  v1CustomCloudTypeBootstrapDeleteResponse204;
 
-export type CustomCloudTypeBootstrapDeleteResponse =
-  CustomCloudTypeBootstrapDeleteResponseComposite & {
+export type v1CustomCloudTypeBootstrapDeleteResponse =
+  v1CustomCloudTypeBootstrapDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2416,17 +2456,17 @@ export const getV1CustomCloudTypeBootstrapDeleteUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`;
 };
 
-export const CustomCloudTypeBootstrapDelete = async (
+export const v1CustomCloudTypeBootstrapDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeBootstrapDeleteResponse> => {
+): Promise<v1CustomCloudTypeBootstrapDeleteResponse> => {
   const res = await fetch(getV1CustomCloudTypeBootstrapDeleteUrl(cloudType), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeBootstrapDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeBootstrapDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2434,22 +2474,22 @@ export const CustomCloudTypeBootstrapDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeBootstrapDeleteResponse;
+  } as v1CustomCloudTypeBootstrapDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type bootstrap
  */
-export type CustomCloudTypeBootstrapGetResponse200 = {
+export type v1CustomCloudTypeBootstrapGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeBootstrapGetResponseComposite =
-  CustomCloudTypeBootstrapGetResponse200;
+export type v1CustomCloudTypeBootstrapGetResponseComposite =
+  v1CustomCloudTypeBootstrapGetResponse200;
 
-export type CustomCloudTypeBootstrapGetResponse =
-  CustomCloudTypeBootstrapGetResponseComposite & {
+export type v1CustomCloudTypeBootstrapGetResponse =
+  v1CustomCloudTypeBootstrapGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2457,17 +2497,17 @@ export const getV1CustomCloudTypeBootstrapGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`;
 };
 
-export const CustomCloudTypeBootstrapGet = async (
+export const v1CustomCloudTypeBootstrapGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeBootstrapGetResponse> => {
+): Promise<v1CustomCloudTypeBootstrapGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeBootstrapGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeBootstrapGetResponse["data"] = body
+  const data: v1CustomCloudTypeBootstrapGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2475,22 +2515,22 @@ export const CustomCloudTypeBootstrapGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeBootstrapGetResponse;
+  } as v1CustomCloudTypeBootstrapGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type bootstrap
  */
-export type CustomCloudTypeBootstrapUpdateResponse204 = {
+export type v1CustomCloudTypeBootstrapUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeBootstrapUpdateResponseComposite =
-  CustomCloudTypeBootstrapUpdateResponse204;
+export type v1CustomCloudTypeBootstrapUpdateResponseComposite =
+  v1CustomCloudTypeBootstrapUpdateResponse204;
 
-export type CustomCloudTypeBootstrapUpdateResponse =
-  CustomCloudTypeBootstrapUpdateResponseComposite & {
+export type v1CustomCloudTypeBootstrapUpdateResponse =
+  v1CustomCloudTypeBootstrapUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2498,14 +2538,14 @@ export const getV1CustomCloudTypeBootstrapUpdateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`;
 };
 
-export const CustomCloudTypeBootstrapUpdate = async (
+export const v1CustomCloudTypeBootstrapUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeBootstrapUpdateResponse> => {
+): Promise<v1CustomCloudTypeBootstrapUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(getV1CustomCloudTypeBootstrapUpdateUrl(cloudType), {
@@ -2515,7 +2555,7 @@ export const CustomCloudTypeBootstrapUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeBootstrapUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeBootstrapUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2523,22 +2563,22 @@ export const CustomCloudTypeBootstrapUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeBootstrapUpdateResponse;
+  } as v1CustomCloudTypeBootstrapUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type cloud provider
  */
-export type CustomCloudTypeCloudProviderDeleteResponse204 = {
+export type v1CustomCloudTypeCloudProviderDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeCloudProviderDeleteResponseComposite =
-  CustomCloudTypeCloudProviderDeleteResponse204;
+export type v1CustomCloudTypeCloudProviderDeleteResponseComposite =
+  v1CustomCloudTypeCloudProviderDeleteResponse204;
 
-export type CustomCloudTypeCloudProviderDeleteResponse =
-  CustomCloudTypeCloudProviderDeleteResponseComposite & {
+export type v1CustomCloudTypeCloudProviderDeleteResponse =
+  v1CustomCloudTypeCloudProviderDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2548,10 +2588,10 @@ export const getV1CustomCloudTypeCloudProviderDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`;
 };
 
-export const CustomCloudTypeCloudProviderDelete = async (
+export const v1CustomCloudTypeCloudProviderDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeCloudProviderDeleteResponse> => {
+): Promise<v1CustomCloudTypeCloudProviderDeleteResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeCloudProviderDeleteUrl(cloudType),
     {
@@ -2561,7 +2601,7 @@ export const CustomCloudTypeCloudProviderDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCloudProviderDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeCloudProviderDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2569,22 +2609,22 @@ export const CustomCloudTypeCloudProviderDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCloudProviderDeleteResponse;
+  } as v1CustomCloudTypeCloudProviderDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type cloud provider
  */
-export type CustomCloudTypeCloudProviderGetResponse200 = {
+export type v1CustomCloudTypeCloudProviderGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeCloudProviderGetResponseComposite =
-  CustomCloudTypeCloudProviderGetResponse200;
+export type v1CustomCloudTypeCloudProviderGetResponseComposite =
+  v1CustomCloudTypeCloudProviderGetResponse200;
 
-export type CustomCloudTypeCloudProviderGetResponse =
-  CustomCloudTypeCloudProviderGetResponseComposite & {
+export type v1CustomCloudTypeCloudProviderGetResponse =
+  v1CustomCloudTypeCloudProviderGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2592,17 +2632,17 @@ export const getV1CustomCloudTypeCloudProviderGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`;
 };
 
-export const CustomCloudTypeCloudProviderGet = async (
+export const v1CustomCloudTypeCloudProviderGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeCloudProviderGetResponse> => {
+): Promise<v1CustomCloudTypeCloudProviderGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeCloudProviderGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCloudProviderGetResponse["data"] = body
+  const data: v1CustomCloudTypeCloudProviderGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2610,22 +2650,22 @@ export const CustomCloudTypeCloudProviderGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCloudProviderGetResponse;
+  } as v1CustomCloudTypeCloudProviderGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type cloud provider
  */
-export type CustomCloudTypeCloudProviderUpdateResponse204 = {
+export type v1CustomCloudTypeCloudProviderUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeCloudProviderUpdateResponseComposite =
-  CustomCloudTypeCloudProviderUpdateResponse204;
+export type v1CustomCloudTypeCloudProviderUpdateResponseComposite =
+  v1CustomCloudTypeCloudProviderUpdateResponse204;
 
-export type CustomCloudTypeCloudProviderUpdateResponse =
-  CustomCloudTypeCloudProviderUpdateResponseComposite & {
+export type v1CustomCloudTypeCloudProviderUpdateResponse =
+  v1CustomCloudTypeCloudProviderUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2635,14 +2675,14 @@ export const getV1CustomCloudTypeCloudProviderUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`;
 };
 
-export const CustomCloudTypeCloudProviderUpdate = async (
+export const v1CustomCloudTypeCloudProviderUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeCloudProviderUpdateResponse> => {
+): Promise<v1CustomCloudTypeCloudProviderUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -2655,7 +2695,7 @@ export const CustomCloudTypeCloudProviderUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCloudProviderUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeCloudProviderUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2663,22 +2703,22 @@ export const CustomCloudTypeCloudProviderUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCloudProviderUpdateResponse;
+  } as v1CustomCloudTypeCloudProviderUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type control plane
  */
-export type CustomCloudTypeControlPlaneDeleteResponse204 = {
+export type v1CustomCloudTypeControlPlaneDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeControlPlaneDeleteResponseComposite =
-  CustomCloudTypeControlPlaneDeleteResponse204;
+export type v1CustomCloudTypeControlPlaneDeleteResponseComposite =
+  v1CustomCloudTypeControlPlaneDeleteResponse204;
 
-export type CustomCloudTypeControlPlaneDeleteResponse =
-  CustomCloudTypeControlPlaneDeleteResponseComposite & {
+export type v1CustomCloudTypeControlPlaneDeleteResponse =
+  v1CustomCloudTypeControlPlaneDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2688,10 +2728,10 @@ export const getV1CustomCloudTypeControlPlaneDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`;
 };
 
-export const CustomCloudTypeControlPlaneDelete = async (
+export const v1CustomCloudTypeControlPlaneDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlaneDeleteResponse> => {
+): Promise<v1CustomCloudTypeControlPlaneDeleteResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeControlPlaneDeleteUrl(cloudType),
     {
@@ -2701,7 +2741,7 @@ export const CustomCloudTypeControlPlaneDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlaneDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeControlPlaneDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2709,22 +2749,22 @@ export const CustomCloudTypeControlPlaneDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlaneDeleteResponse;
+  } as v1CustomCloudTypeControlPlaneDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type control plane
  */
-export type CustomCloudTypeControlPlaneGetResponse200 = {
+export type v1CustomCloudTypeControlPlaneGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeControlPlaneGetResponseComposite =
-  CustomCloudTypeControlPlaneGetResponse200;
+export type v1CustomCloudTypeControlPlaneGetResponseComposite =
+  v1CustomCloudTypeControlPlaneGetResponse200;
 
-export type CustomCloudTypeControlPlaneGetResponse =
-  CustomCloudTypeControlPlaneGetResponseComposite & {
+export type v1CustomCloudTypeControlPlaneGetResponse =
+  v1CustomCloudTypeControlPlaneGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2732,17 +2772,17 @@ export const getV1CustomCloudTypeControlPlaneGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`;
 };
 
-export const CustomCloudTypeControlPlaneGet = async (
+export const v1CustomCloudTypeControlPlaneGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlaneGetResponse> => {
+): Promise<v1CustomCloudTypeControlPlaneGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeControlPlaneGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlaneGetResponse["data"] = body
+  const data: v1CustomCloudTypeControlPlaneGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2750,22 +2790,22 @@ export const CustomCloudTypeControlPlaneGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlaneGetResponse;
+  } as v1CustomCloudTypeControlPlaneGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type control plane
  */
-export type CustomCloudTypeControlPlaneUpdateResponse204 = {
+export type v1CustomCloudTypeControlPlaneUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeControlPlaneUpdateResponseComposite =
-  CustomCloudTypeControlPlaneUpdateResponse204;
+export type v1CustomCloudTypeControlPlaneUpdateResponseComposite =
+  v1CustomCloudTypeControlPlaneUpdateResponse204;
 
-export type CustomCloudTypeControlPlaneUpdateResponse =
-  CustomCloudTypeControlPlaneUpdateResponseComposite & {
+export type v1CustomCloudTypeControlPlaneUpdateResponse =
+  v1CustomCloudTypeControlPlaneUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2775,14 +2815,14 @@ export const getV1CustomCloudTypeControlPlaneUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`;
 };
 
-export const CustomCloudTypeControlPlaneUpdate = async (
+export const v1CustomCloudTypeControlPlaneUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlaneUpdateResponse> => {
+): Promise<v1CustomCloudTypeControlPlaneUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -2795,7 +2835,7 @@ export const CustomCloudTypeControlPlaneUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlaneUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeControlPlaneUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2803,22 +2843,22 @@ export const CustomCloudTypeControlPlaneUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlaneUpdateResponse;
+  } as v1CustomCloudTypeControlPlaneUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type core
  */
-export type CustomCloudTypeCoreDeleteResponse204 = {
+export type v1CustomCloudTypeCoreDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeCoreDeleteResponseComposite =
-  CustomCloudTypeCoreDeleteResponse204;
+export type v1CustomCloudTypeCoreDeleteResponseComposite =
+  v1CustomCloudTypeCoreDeleteResponse204;
 
-export type CustomCloudTypeCoreDeleteResponse =
-  CustomCloudTypeCoreDeleteResponseComposite & {
+export type v1CustomCloudTypeCoreDeleteResponse =
+  v1CustomCloudTypeCoreDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2826,17 +2866,17 @@ export const getV1CustomCloudTypeCoreDeleteUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`;
 };
 
-export const CustomCloudTypeCoreDelete = async (
+export const v1CustomCloudTypeCoreDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeCoreDeleteResponse> => {
+): Promise<v1CustomCloudTypeCoreDeleteResponse> => {
   const res = await fetch(getV1CustomCloudTypeCoreDeleteUrl(cloudType), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCoreDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeCoreDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2844,22 +2884,22 @@ export const CustomCloudTypeCoreDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCoreDeleteResponse;
+  } as v1CustomCloudTypeCoreDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type core
  */
-export type CustomCloudTypeCoreGetResponse200 = {
+export type v1CustomCloudTypeCoreGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeCoreGetResponseComposite =
-  CustomCloudTypeCoreGetResponse200;
+export type v1CustomCloudTypeCoreGetResponseComposite =
+  v1CustomCloudTypeCoreGetResponse200;
 
-export type CustomCloudTypeCoreGetResponse =
-  CustomCloudTypeCoreGetResponseComposite & {
+export type v1CustomCloudTypeCoreGetResponse =
+  v1CustomCloudTypeCoreGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2867,17 +2907,17 @@ export const getV1CustomCloudTypeCoreGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`;
 };
 
-export const CustomCloudTypeCoreGet = async (
+export const v1CustomCloudTypeCoreGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeCoreGetResponse> => {
+): Promise<v1CustomCloudTypeCoreGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeCoreGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCoreGetResponse["data"] = body
+  const data: v1CustomCloudTypeCoreGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2885,22 +2925,22 @@ export const CustomCloudTypeCoreGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCoreGetResponse;
+  } as v1CustomCloudTypeCoreGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type core
  */
-export type CustomCloudTypeCoreUpdateResponse204 = {
+export type v1CustomCloudTypeCoreUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeCoreUpdateResponseComposite =
-  CustomCloudTypeCoreUpdateResponse204;
+export type v1CustomCloudTypeCoreUpdateResponseComposite =
+  v1CustomCloudTypeCoreUpdateResponse204;
 
-export type CustomCloudTypeCoreUpdateResponse =
-  CustomCloudTypeCoreUpdateResponseComposite & {
+export type v1CustomCloudTypeCoreUpdateResponse =
+  v1CustomCloudTypeCoreUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2908,14 +2948,14 @@ export const getV1CustomCloudTypeCoreUpdateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`;
 };
 
-export const CustomCloudTypeCoreUpdate = async (
+export const v1CustomCloudTypeCoreUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeCoreUpdateResponse> => {
+): Promise<v1CustomCloudTypeCoreUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(getV1CustomCloudTypeCoreUpdateUrl(cloudType), {
@@ -2925,7 +2965,7 @@ export const CustomCloudTypeCoreUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeCoreUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeCoreUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2933,22 +2973,22 @@ export const CustomCloudTypeCoreUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeCoreUpdateResponse;
+  } as v1CustomCloudTypeCoreUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type cluster template
  */
-export type CustomCloudTypeClusterTemplateDeleteResponse204 = {
+export type v1CustomCloudTypeClusterTemplateDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeClusterTemplateDeleteResponseComposite =
-  CustomCloudTypeClusterTemplateDeleteResponse204;
+export type v1CustomCloudTypeClusterTemplateDeleteResponseComposite =
+  v1CustomCloudTypeClusterTemplateDeleteResponse204;
 
-export type CustomCloudTypeClusterTemplateDeleteResponse =
-  CustomCloudTypeClusterTemplateDeleteResponseComposite & {
+export type v1CustomCloudTypeClusterTemplateDeleteResponse =
+  v1CustomCloudTypeClusterTemplateDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -2958,10 +2998,10 @@ export const getV1CustomCloudTypeClusterTemplateDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`;
 };
 
-export const CustomCloudTypeClusterTemplateDelete = async (
+export const v1CustomCloudTypeClusterTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeClusterTemplateDeleteResponse> => {
+): Promise<v1CustomCloudTypeClusterTemplateDeleteResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeClusterTemplateDeleteUrl(cloudType),
     {
@@ -2971,7 +3011,7 @@ export const CustomCloudTypeClusterTemplateDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeClusterTemplateDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeClusterTemplateDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2979,22 +3019,22 @@ export const CustomCloudTypeClusterTemplateDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeClusterTemplateDeleteResponse;
+  } as v1CustomCloudTypeClusterTemplateDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type cluster template
  */
-export type CustomCloudTypeClusterTemplateGetResponse200 = {
+export type v1CustomCloudTypeClusterTemplateGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeClusterTemplateGetResponseComposite =
-  CustomCloudTypeClusterTemplateGetResponse200;
+export type v1CustomCloudTypeClusterTemplateGetResponseComposite =
+  v1CustomCloudTypeClusterTemplateGetResponse200;
 
-export type CustomCloudTypeClusterTemplateGetResponse =
-  CustomCloudTypeClusterTemplateGetResponseComposite & {
+export type v1CustomCloudTypeClusterTemplateGetResponse =
+  v1CustomCloudTypeClusterTemplateGetResponseComposite & {
     headers: Headers;
   };
 
@@ -3004,10 +3044,10 @@ export const getV1CustomCloudTypeClusterTemplateGetUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`;
 };
 
-export const CustomCloudTypeClusterTemplateGet = async (
+export const v1CustomCloudTypeClusterTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeClusterTemplateGetResponse> => {
+): Promise<v1CustomCloudTypeClusterTemplateGetResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeClusterTemplateGetUrl(cloudType),
     {
@@ -3017,7 +3057,7 @@ export const CustomCloudTypeClusterTemplateGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeClusterTemplateGetResponse["data"] = body
+  const data: v1CustomCloudTypeClusterTemplateGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3025,22 +3065,22 @@ export const CustomCloudTypeClusterTemplateGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeClusterTemplateGetResponse;
+  } as v1CustomCloudTypeClusterTemplateGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type cluster template
  */
-export type CustomCloudTypeClusterTemplateUpdateResponse204 = {
+export type v1CustomCloudTypeClusterTemplateUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeClusterTemplateUpdateResponseComposite =
-  CustomCloudTypeClusterTemplateUpdateResponse204;
+export type v1CustomCloudTypeClusterTemplateUpdateResponseComposite =
+  v1CustomCloudTypeClusterTemplateUpdateResponse204;
 
-export type CustomCloudTypeClusterTemplateUpdateResponse =
-  CustomCloudTypeClusterTemplateUpdateResponseComposite & {
+export type v1CustomCloudTypeClusterTemplateUpdateResponse =
+  v1CustomCloudTypeClusterTemplateUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3050,14 +3090,14 @@ export const getV1CustomCloudTypeClusterTemplateUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`;
 };
 
-export const CustomCloudTypeClusterTemplateUpdate = async (
+export const v1CustomCloudTypeClusterTemplateUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeClusterTemplateUpdateResponse> => {
+): Promise<v1CustomCloudTypeClusterTemplateUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -3070,7 +3110,7 @@ export const CustomCloudTypeClusterTemplateUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeClusterTemplateUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeClusterTemplateUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3078,22 +3118,22 @@ export const CustomCloudTypeClusterTemplateUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeClusterTemplateUpdateResponse;
+  } as v1CustomCloudTypeClusterTemplateUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type controlPlane pool template
  */
-export type CustomCloudTypeControlPlanePoolTemplateDeleteResponse204 = {
+export type v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeControlPlanePoolTemplateDeleteResponseComposite =
-  CustomCloudTypeControlPlanePoolTemplateDeleteResponse204;
+export type v1CustomCloudTypeControlPlanePoolTemplateDeleteResponseComposite =
+  v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse204;
 
-export type CustomCloudTypeControlPlanePoolTemplateDeleteResponse =
-  CustomCloudTypeControlPlanePoolTemplateDeleteResponseComposite & {
+export type v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse =
+  v1CustomCloudTypeControlPlanePoolTemplateDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -3103,10 +3143,10 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`;
 };
 
-export const CustomCloudTypeControlPlanePoolTemplateDelete = async (
+export const v1CustomCloudTypeControlPlanePoolTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlanePoolTemplateDeleteResponse> => {
+): Promise<v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeControlPlanePoolTemplateDeleteUrl(cloudType),
     {
@@ -3116,29 +3156,29 @@ export const CustomCloudTypeControlPlanePoolTemplateDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlanePoolTemplateDeleteResponse["data"] =
+  const data: v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlanePoolTemplateDeleteResponse;
+  } as v1CustomCloudTypeControlPlanePoolTemplateDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type controlPlane pool template
  */
-export type CustomCloudTypeControlPlanePoolTemplateGetResponse200 = {
+export type v1CustomCloudTypeControlPlanePoolTemplateGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeControlPlanePoolTemplateGetResponseComposite =
-  CustomCloudTypeControlPlanePoolTemplateGetResponse200;
+export type v1CustomCloudTypeControlPlanePoolTemplateGetResponseComposite =
+  v1CustomCloudTypeControlPlanePoolTemplateGetResponse200;
 
-export type CustomCloudTypeControlPlanePoolTemplateGetResponse =
-  CustomCloudTypeControlPlanePoolTemplateGetResponseComposite & {
+export type v1CustomCloudTypeControlPlanePoolTemplateGetResponse =
+  v1CustomCloudTypeControlPlanePoolTemplateGetResponseComposite & {
     headers: Headers;
   };
 
@@ -3148,10 +3188,10 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateGetUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`;
 };
 
-export const CustomCloudTypeControlPlanePoolTemplateGet = async (
+export const v1CustomCloudTypeControlPlanePoolTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlanePoolTemplateGetResponse> => {
+): Promise<v1CustomCloudTypeControlPlanePoolTemplateGetResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeControlPlanePoolTemplateGetUrl(cloudType),
     {
@@ -3161,30 +3201,29 @@ export const CustomCloudTypeControlPlanePoolTemplateGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlanePoolTemplateGetResponse["data"] = body
-    ? JSON.parse(body)
-    : {};
+  const data: v1CustomCloudTypeControlPlanePoolTemplateGetResponse["data"] =
+    body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlanePoolTemplateGetResponse;
+  } as v1CustomCloudTypeControlPlanePoolTemplateGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type controlPlane pool template
  */
-export type CustomCloudTypeControlPlanePoolTemplateUpdateResponse204 = {
+export type v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeControlPlanePoolTemplateUpdateResponseComposite =
-  CustomCloudTypeControlPlanePoolTemplateUpdateResponse204;
+export type v1CustomCloudTypeControlPlanePoolTemplateUpdateResponseComposite =
+  v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse204;
 
-export type CustomCloudTypeControlPlanePoolTemplateUpdateResponse =
-  CustomCloudTypeControlPlanePoolTemplateUpdateResponseComposite & {
+export type v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse =
+  v1CustomCloudTypeControlPlanePoolTemplateUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3194,14 +3233,14 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`;
 };
 
-export const CustomCloudTypeControlPlanePoolTemplateUpdate = async (
+export const v1CustomCloudTypeControlPlanePoolTemplateUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeControlPlanePoolTemplateUpdateResponse> => {
+): Promise<v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -3214,29 +3253,29 @@ export const CustomCloudTypeControlPlanePoolTemplateUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeControlPlanePoolTemplateUpdateResponse["data"] =
+  const data: v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeControlPlanePoolTemplateUpdateResponse;
+  } as v1CustomCloudTypeControlPlanePoolTemplateUpdateResponse;
 };
 
 /**
  * @summary Delete the custom cloud type worker pool template
  */
-export type CustomCloudTypeWorkerPoolTemplateDeleteResponse204 = {
+export type v1CustomCloudTypeWorkerPoolTemplateDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeWorkerPoolTemplateDeleteResponseComposite =
-  CustomCloudTypeWorkerPoolTemplateDeleteResponse204;
+export type v1CustomCloudTypeWorkerPoolTemplateDeleteResponseComposite =
+  v1CustomCloudTypeWorkerPoolTemplateDeleteResponse204;
 
-export type CustomCloudTypeWorkerPoolTemplateDeleteResponse =
-  CustomCloudTypeWorkerPoolTemplateDeleteResponseComposite & {
+export type v1CustomCloudTypeWorkerPoolTemplateDeleteResponse =
+  v1CustomCloudTypeWorkerPoolTemplateDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -3246,10 +3285,10 @@ export const getV1CustomCloudTypeWorkerPoolTemplateDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`;
 };
 
-export const CustomCloudTypeWorkerPoolTemplateDelete = async (
+export const v1CustomCloudTypeWorkerPoolTemplateDelete = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeWorkerPoolTemplateDeleteResponse> => {
+): Promise<v1CustomCloudTypeWorkerPoolTemplateDeleteResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeWorkerPoolTemplateDeleteUrl(cloudType),
     {
@@ -3259,7 +3298,7 @@ export const CustomCloudTypeWorkerPoolTemplateDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeWorkerPoolTemplateDeleteResponse["data"] = body
+  const data: v1CustomCloudTypeWorkerPoolTemplateDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3267,22 +3306,22 @@ export const CustomCloudTypeWorkerPoolTemplateDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeWorkerPoolTemplateDeleteResponse;
+  } as v1CustomCloudTypeWorkerPoolTemplateDeleteResponse;
 };
 
 /**
  * @summary Returns the custom cloud type worker pool template
  */
-export type CustomCloudTypeWorkerPoolTemplateGetResponse200 = {
+export type v1CustomCloudTypeWorkerPoolTemplateGetResponse200 = {
   data: CustomCloudTypeContentResponse;
   status: 200;
 };
 
-export type CustomCloudTypeWorkerPoolTemplateGetResponseComposite =
-  CustomCloudTypeWorkerPoolTemplateGetResponse200;
+export type v1CustomCloudTypeWorkerPoolTemplateGetResponseComposite =
+  v1CustomCloudTypeWorkerPoolTemplateGetResponse200;
 
-export type CustomCloudTypeWorkerPoolTemplateGetResponse =
-  CustomCloudTypeWorkerPoolTemplateGetResponseComposite & {
+export type v1CustomCloudTypeWorkerPoolTemplateGetResponse =
+  v1CustomCloudTypeWorkerPoolTemplateGetResponseComposite & {
     headers: Headers;
   };
 
@@ -3292,10 +3331,10 @@ export const getV1CustomCloudTypeWorkerPoolTemplateGetUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`;
 };
 
-export const CustomCloudTypeWorkerPoolTemplateGet = async (
+export const v1CustomCloudTypeWorkerPoolTemplateGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeWorkerPoolTemplateGetResponse> => {
+): Promise<v1CustomCloudTypeWorkerPoolTemplateGetResponse> => {
   const res = await fetch(
     getV1CustomCloudTypeWorkerPoolTemplateGetUrl(cloudType),
     {
@@ -3305,7 +3344,7 @@ export const CustomCloudTypeWorkerPoolTemplateGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeWorkerPoolTemplateGetResponse["data"] = body
+  const data: v1CustomCloudTypeWorkerPoolTemplateGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3313,22 +3352,22 @@ export const CustomCloudTypeWorkerPoolTemplateGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeWorkerPoolTemplateGetResponse;
+  } as v1CustomCloudTypeWorkerPoolTemplateGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type worker pool template
  */
-export type CustomCloudTypeWorkerPoolTemplateUpdateResponse204 = {
+export type v1CustomCloudTypeWorkerPoolTemplateUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeWorkerPoolTemplateUpdateResponseComposite =
-  CustomCloudTypeWorkerPoolTemplateUpdateResponse204;
+export type v1CustomCloudTypeWorkerPoolTemplateUpdateResponseComposite =
+  v1CustomCloudTypeWorkerPoolTemplateUpdateResponse204;
 
-export type CustomCloudTypeWorkerPoolTemplateUpdateResponse =
-  CustomCloudTypeWorkerPoolTemplateUpdateResponseComposite & {
+export type v1CustomCloudTypeWorkerPoolTemplateUpdateResponse =
+  v1CustomCloudTypeWorkerPoolTemplateUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3338,14 +3377,14 @@ export const getV1CustomCloudTypeWorkerPoolTemplateUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`;
 };
 
-export const CustomCloudTypeWorkerPoolTemplateUpdate = async (
+export const v1CustomCloudTypeWorkerPoolTemplateUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeWorkerPoolTemplateUpdateResponse> => {
+): Promise<v1CustomCloudTypeWorkerPoolTemplateUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(
@@ -3358,7 +3397,7 @@ export const CustomCloudTypeWorkerPoolTemplateUpdate = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeWorkerPoolTemplateUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeWorkerPoolTemplateUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3366,22 +3405,22 @@ export const CustomCloudTypeWorkerPoolTemplateUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeWorkerPoolTemplateUpdateResponse;
+  } as v1CustomCloudTypeWorkerPoolTemplateUpdateResponse;
 };
 
 /**
  * @summary Returns the custom cloud type logo
  */
-export type CustomCloudTypeLogoGetResponse200 = {
+export type v1CustomCloudTypeLogoGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type CustomCloudTypeLogoGetResponseComposite =
-  CustomCloudTypeLogoGetResponse200;
+export type v1CustomCloudTypeLogoGetResponseComposite =
+  v1CustomCloudTypeLogoGetResponse200;
 
-export type CustomCloudTypeLogoGetResponse =
-  CustomCloudTypeLogoGetResponseComposite & {
+export type v1CustomCloudTypeLogoGetResponse =
+  v1CustomCloudTypeLogoGetResponseComposite & {
     headers: Headers;
   };
 
@@ -3389,17 +3428,17 @@ export const getV1CustomCloudTypeLogoGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/logo`;
 };
 
-export const CustomCloudTypeLogoGet = async (
+export const v1CustomCloudTypeLogoGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeLogoGetResponse> => {
+): Promise<v1CustomCloudTypeLogoGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeLogoGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeLogoGetResponse["data"] = body
+  const data: v1CustomCloudTypeLogoGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3407,22 +3446,22 @@ export const CustomCloudTypeLogoGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeLogoGetResponse;
+  } as v1CustomCloudTypeLogoGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type logo
  */
-export type CustomCloudTypeLogoUpdateResponse204 = {
+export type v1CustomCloudTypeLogoUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeLogoUpdateResponseComposite =
-  CustomCloudTypeLogoUpdateResponse204;
+export type v1CustomCloudTypeLogoUpdateResponseComposite =
+  v1CustomCloudTypeLogoUpdateResponse204;
 
-export type CustomCloudTypeLogoUpdateResponse =
-  CustomCloudTypeLogoUpdateResponseComposite & {
+export type v1CustomCloudTypeLogoUpdateResponse =
+  v1CustomCloudTypeLogoUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3430,14 +3469,14 @@ export const getV1CustomCloudTypeLogoUpdateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/logo`;
 };
 
-export const CustomCloudTypeLogoUpdate = async (
+export const v1CustomCloudTypeLogoUpdate = async (
   cloudType: string,
-  CustomCloudTypeBootstrapUpdateBody: CustomCloudTypeBootstrapUpdateBody,
+  v1CustomCloudTypeBootstrapUpdateBody: V1CustomCloudTypeBootstrapUpdateBody,
   options?: RequestInit,
-): Promise<CustomCloudTypeLogoUpdateResponse> => {
+): Promise<v1CustomCloudTypeLogoUpdateResponse> => {
   const formData = new FormData();
-  if (CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
-    formData.append(`fileName`, CustomCloudTypeBootstrapUpdateBody.fileName);
+  if (v1CustomCloudTypeBootstrapUpdateBody.fileName !== undefined) {
+    formData.append(`fileName`, v1CustomCloudTypeBootstrapUpdateBody.fileName);
   }
 
   const res = await fetch(getV1CustomCloudTypeLogoUpdateUrl(cloudType), {
@@ -3447,7 +3486,7 @@ export const CustomCloudTypeLogoUpdate = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeLogoUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeLogoUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3455,22 +3494,22 @@ export const CustomCloudTypeLogoUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeLogoUpdateResponse;
+  } as v1CustomCloudTypeLogoUpdateResponse;
 };
 
 /**
  * @summary Returns the custom cloud type meta
  */
-export type CustomCloudTypeMetaGetResponse200 = {
+export type v1CustomCloudTypeMetaGetResponse200 = {
   data: CustomCloudMetaEntity;
   status: 200;
 };
 
-export type CustomCloudTypeMetaGetResponseComposite =
-  CustomCloudTypeMetaGetResponse200;
+export type v1CustomCloudTypeMetaGetResponseComposite =
+  v1CustomCloudTypeMetaGetResponse200;
 
-export type CustomCloudTypeMetaGetResponse =
-  CustomCloudTypeMetaGetResponseComposite & {
+export type v1CustomCloudTypeMetaGetResponse =
+  v1CustomCloudTypeMetaGetResponseComposite & {
     headers: Headers;
   };
 
@@ -3478,17 +3517,17 @@ export const getV1CustomCloudTypeMetaGetUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/meta`;
 };
 
-export const CustomCloudTypeMetaGet = async (
+export const v1CustomCloudTypeMetaGet = async (
   cloudType: string,
   options?: RequestInit,
-): Promise<CustomCloudTypeMetaGetResponse> => {
+): Promise<v1CustomCloudTypeMetaGetResponse> => {
   const res = await fetch(getV1CustomCloudTypeMetaGetUrl(cloudType), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeMetaGetResponse["data"] = body
+  const data: v1CustomCloudTypeMetaGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3496,22 +3535,22 @@ export const CustomCloudTypeMetaGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeMetaGetResponse;
+  } as v1CustomCloudTypeMetaGetResponse;
 };
 
 /**
  * @summary Update the custom cloud type meta
  */
-export type CustomCloudTypeMetaUpdateResponse204 = {
+export type v1CustomCloudTypeMetaUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CustomCloudTypeMetaUpdateResponseComposite =
-  CustomCloudTypeMetaUpdateResponse204;
+export type v1CustomCloudTypeMetaUpdateResponseComposite =
+  v1CustomCloudTypeMetaUpdateResponse204;
 
-export type CustomCloudTypeMetaUpdateResponse =
-  CustomCloudTypeMetaUpdateResponseComposite & {
+export type v1CustomCloudTypeMetaUpdateResponse =
+  v1CustomCloudTypeMetaUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -3519,20 +3558,20 @@ export const getV1CustomCloudTypeMetaUpdateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/meta`;
 };
 
-export const CustomCloudTypeMetaUpdate = async (
+export const v1CustomCloudTypeMetaUpdate = async (
   cloudType: string,
-  CustomCloudRequestEntity: CustomCloudRequestEntity,
+  customCloudRequestEntity: CustomCloudRequestEntity,
   options?: RequestInit,
-): Promise<CustomCloudTypeMetaUpdateResponse> => {
+): Promise<v1CustomCloudTypeMetaUpdateResponse> => {
   const res = await fetch(getV1CustomCloudTypeMetaUpdateUrl(cloudType), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CustomCloudRequestEntity),
+    body: JSON.stringify(customCloudRequestEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CustomCloudTypeMetaUpdateResponse["data"] = body
+  const data: v1CustomCloudTypeMetaUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3540,22 +3579,22 @@ export const CustomCloudTypeMetaUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CustomCloudTypeMetaUpdateResponse;
+  } as v1CustomCloudTypeMetaUpdateResponse;
 };
 
 /**
  * @summary Validate EKS properties
  */
-export type EksPropertiesValidateResponse204 = {
+export type v1EksPropertiesValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EksPropertiesValidateResponseComposite =
-  EksPropertiesValidateResponse204;
+export type v1EksPropertiesValidateResponseComposite =
+  v1EksPropertiesValidateResponse204;
 
-export type EksPropertiesValidateResponse =
-  EksPropertiesValidateResponseComposite & {
+export type v1EksPropertiesValidateResponse =
+  v1EksPropertiesValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -3563,19 +3602,19 @@ export const getV1EksPropertiesValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/eks/properties/validate`;
 };
 
-export const EksPropertiesValidate = async (
-  EksPropertiesValidateSpec: EksPropertiesValidateSpec,
+export const v1EksPropertiesValidate = async (
+  eksPropertiesValidateSpec: EksPropertiesValidateSpec,
   options?: RequestInit,
-): Promise<EksPropertiesValidateResponse> => {
+): Promise<v1EksPropertiesValidateResponse> => {
   const res = await fetch(getV1EksPropertiesValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EksPropertiesValidateSpec),
+    body: JSON.stringify(eksPropertiesValidateSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EksPropertiesValidateResponse["data"] = body
+  const data: v1EksPropertiesValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3583,59 +3622,63 @@ export const EksPropertiesValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EksPropertiesValidateResponse;
+  } as v1EksPropertiesValidateResponse;
 };
 
 /**
  * @summary Validate the specified GCP account credentials
  */
-export type GcpAccountValidateResponse204 = {
+export type v1GcpAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type GcpAccountValidateResponseComposite = GcpAccountValidateResponse204;
+export type v1GcpAccountValidateResponseComposite =
+  v1GcpAccountValidateResponse204;
 
-export type GcpAccountValidateResponse = GcpAccountValidateResponseComposite & {
-  headers: Headers;
-};
+export type v1GcpAccountValidateResponse =
+  v1GcpAccountValidateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1GcpAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/account/validate`;
 };
 
-export const GcpAccountValidate = async (
-  GcpCloudAccountValidateEntity: GcpCloudAccountValidateEntity,
+export const v1GcpAccountValidate = async (
+  gcpCloudAccountValidateEntity: GcpCloudAccountValidateEntity,
   options?: RequestInit,
-): Promise<GcpAccountValidateResponse> => {
+): Promise<v1GcpAccountValidateResponse> => {
   const res = await fetch(getV1GcpAccountValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GcpCloudAccountValidateEntity),
+    body: JSON.stringify(gcpCloudAccountValidateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpAccountValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpAccountValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpAccountValidateResponse;
+  } as v1GcpAccountValidateResponse;
 };
 
 /**
  * @summary Validate the specified GCP az
  */
-export type GcpAzValidateResponse204 = {
+export type v1GcpAzValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type GcpAzValidateResponseComposite = GcpAzValidateResponse204;
+export type v1GcpAzValidateResponseComposite = v1GcpAzValidateResponse204;
 
-export type GcpAzValidateResponse = GcpAzValidateResponseComposite & {
+export type v1GcpAzValidateResponse = v1GcpAzValidateResponseComposite & {
   headers: Headers;
 };
 
@@ -3643,40 +3686,40 @@ export const getV1GcpAzValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/azs/validate`;
 };
 
-export const GcpAzValidate = async (
-  AzValidateEntity: AzValidateEntity,
+export const v1GcpAzValidate = async (
+  azValidateEntity: AzValidateEntity,
   options?: RequestInit,
-): Promise<GcpAzValidateResponse> => {
+): Promise<v1GcpAzValidateResponse> => {
   const res = await fetch(getV1GcpAzValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AzValidateEntity),
+    body: JSON.stringify(azValidateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpAzValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpAzValidateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpAzValidateResponse;
+  } as v1GcpAzValidateResponse;
 };
 
 /**
  * @summary Validate the specified GCP bucket name credentials
  */
-export type GcpBucketNameValidateResponse204 = {
+export type v1GcpBucketNameValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type GcpBucketNameValidateResponseComposite =
-  GcpBucketNameValidateResponse204;
+export type v1GcpBucketNameValidateResponseComposite =
+  v1GcpBucketNameValidateResponse204;
 
-export type GcpBucketNameValidateResponse =
-  GcpBucketNameValidateResponseComposite & {
+export type v1GcpBucketNameValidateResponse =
+  v1GcpBucketNameValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -3684,19 +3727,19 @@ export const getV1GcpBucketNameValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/bucketname/validate`;
 };
 
-export const GcpBucketNameValidate = async (
-  GcpAccountNameValidateSpec: GcpAccountNameValidateSpec,
+export const v1GcpBucketNameValidate = async (
+  gcpAccountNameValidateSpec: GcpAccountNameValidateSpec,
   options?: RequestInit,
-): Promise<GcpBucketNameValidateResponse> => {
+): Promise<v1GcpBucketNameValidateResponse> => {
   const res = await fetch(getV1GcpBucketNameValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GcpAccountNameValidateSpec),
+    body: JSON.stringify(gcpAccountNameValidateSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpBucketNameValidateResponse["data"] = body
+  const data: v1GcpBucketNameValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3704,27 +3747,27 @@ export const GcpBucketNameValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpBucketNameValidateResponse;
+  } as v1GcpBucketNameValidateResponse;
 };
 
 /**
  * @summary Validates the image with tag
  */
-export type GcpContainerImageValidateResponse204 = {
+export type v1GcpContainerImageValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type GcpContainerImageValidateResponseComposite =
-  GcpContainerImageValidateResponse204;
+export type v1GcpContainerImageValidateResponseComposite =
+  v1GcpContainerImageValidateResponse204;
 
-export type GcpContainerImageValidateResponse =
-  GcpContainerImageValidateResponseComposite & {
+export type v1GcpContainerImageValidateResponse =
+  v1GcpContainerImageValidateResponseComposite & {
     headers: Headers;
   };
 
 export const getV1GcpContainerImageValidateUrl = (
-  params: GcpContainerImageValidateParams,
+  params: V1GcpContainerImageValidateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -3741,17 +3784,17 @@ export const getV1GcpContainerImageValidateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/image/container/validate`;
 };
 
-export const GcpContainerImageValidate = async (
-  params: GcpContainerImageValidateParams,
+export const v1GcpContainerImageValidate = async (
+  params: V1GcpContainerImageValidateParams,
   options?: RequestInit,
-): Promise<GcpContainerImageValidateResponse> => {
+): Promise<v1GcpContainerImageValidateResponse> => {
   const res = await fetch(getV1GcpContainerImageValidateUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpContainerImageValidateResponse["data"] = body
+  const data: v1GcpContainerImageValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -3759,20 +3802,20 @@ export const GcpContainerImageValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpContainerImageValidateResponse;
+  } as v1GcpContainerImageValidateResponse;
 };
 
 /**
  * @summary Returns the Gcp image url for the specified image location
  */
-export type GcpImageUrlResponse200 = {
+export type v1GcpImageUrlResponse200 = {
   data: GcpImageUrlEntity;
   status: 200;
 };
 
-export type GcpImageUrlResponseComposite = GcpImageUrlResponse200;
+export type v1GcpImageUrlResponseComposite = v1GcpImageUrlResponse200;
 
-export type GcpImageUrlResponse = GcpImageUrlResponseComposite & {
+export type v1GcpImageUrlResponse = v1GcpImageUrlResponseComposite & {
   headers: Headers;
 };
 
@@ -3780,40 +3823,40 @@ export const getV1GcpImageUrlUrl = (imageName: string) => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/images/${imageName}/url`;
 };
 
-export const GcpImageUrl = async (
+export const v1GcpImageUrl = async (
   imageName: string,
   options?: RequestInit,
-): Promise<GcpImageUrlResponse> => {
+): Promise<v1GcpImageUrlResponse> => {
   const res = await fetch(getV1GcpImageUrlUrl(imageName), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpImageUrlResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpImageUrlResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpImageUrlResponse;
+  } as v1GcpImageUrlResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP projects for the specified account
  */
-export type GcpProjectsResponse200 = {
+export type v1GcpProjectsResponse200 = {
   data: GcpProjects;
   status: 200;
 };
 
-export type GcpProjectsResponseComposite = GcpProjectsResponse200;
+export type v1GcpProjectsResponseComposite = v1GcpProjectsResponse200;
 
-export type GcpProjectsResponse = GcpProjectsResponseComposite & {
+export type v1GcpProjectsResponse = v1GcpProjectsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1GcpProjectsUrl = (params: GcpProjectsParams) => {
+export const getV1GcpProjectsUrl = (params: V1GcpProjectsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -3829,42 +3872,42 @@ export const getV1GcpProjectsUrl = (params: GcpProjectsParams) => {
     : `https://api.spectrocloud.com/v1/clouds/gcp/projects`;
 };
 
-export const GcpProjects = async (
-  params: GcpProjectsParams,
+export const v1GcpProjects = async (
+  params: V1GcpProjectsParams,
   options?: RequestInit,
-): Promise<GcpProjectsResponse> => {
+): Promise<v1GcpProjectsResponse> => {
   const res = await fetch(getV1GcpProjectsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpProjectsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpProjectsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpProjectsResponse;
+  } as v1GcpProjectsResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP regions
  */
-export type GcpRegionsResponse200 = {
+export type v1GcpRegionsResponse200 = {
   data: GcpRegions;
   status: 200;
 };
 
-export type GcpRegionsResponseComposite = GcpRegionsResponse200;
+export type v1GcpRegionsResponseComposite = v1GcpRegionsResponse200;
 
-export type GcpRegionsResponse = GcpRegionsResponseComposite & {
+export type v1GcpRegionsResponse = v1GcpRegionsResponseComposite & {
   headers: Headers;
 };
 
 export const getV1GcpRegionsUrl = (
   project: string,
-  params: GcpRegionsParams,
+  params: V1GcpRegionsParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -3881,44 +3924,44 @@ export const getV1GcpRegionsUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions`;
 };
 
-export const GcpRegions = async (
+export const v1GcpRegions = async (
   project: string,
-  params: GcpRegionsParams,
+  params: V1GcpRegionsParams,
   options?: RequestInit,
-): Promise<GcpRegionsResponse> => {
+): Promise<v1GcpRegionsResponse> => {
   const res = await fetch(getV1GcpRegionsUrl(project, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpRegionsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpRegionsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpRegionsResponse;
+  } as v1GcpRegionsResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP networks for the specified account
  */
-export type GcpNetworksResponse200 = {
+export type v1GcpNetworksResponse200 = {
   data: GcpNetworks;
   status: 200;
 };
 
-export type GcpNetworksResponseComposite = GcpNetworksResponse200;
+export type v1GcpNetworksResponseComposite = v1GcpNetworksResponse200;
 
-export type GcpNetworksResponse = GcpNetworksResponseComposite & {
+export type v1GcpNetworksResponse = v1GcpNetworksResponseComposite & {
   headers: Headers;
 };
 
 export const getV1GcpNetworksUrl = (
   project: string,
   region: string,
-  params: GcpNetworksParams,
+  params: V1GcpNetworksParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -3935,45 +3978,45 @@ export const getV1GcpNetworksUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/networks`;
 };
 
-export const GcpNetworks = async (
+export const v1GcpNetworks = async (
   project: string,
   region: string,
-  params: GcpNetworksParams,
+  params: V1GcpNetworksParams,
   options?: RequestInit,
-): Promise<GcpNetworksResponse> => {
+): Promise<v1GcpNetworksResponse> => {
   const res = await fetch(getV1GcpNetworksUrl(project, region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpNetworksResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpNetworksResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpNetworksResponse;
+  } as v1GcpNetworksResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP zones for the specified account and region
  */
-export type GcpZonesResponse200 = {
+export type v1GcpZonesResponse200 = {
   data: GcpZones;
   status: 200;
 };
 
-export type GcpZonesResponseComposite = GcpZonesResponse200;
+export type v1GcpZonesResponseComposite = v1GcpZonesResponse200;
 
-export type GcpZonesResponse = GcpZonesResponseComposite & {
+export type v1GcpZonesResponse = v1GcpZonesResponseComposite & {
   headers: Headers;
 };
 
 export const getV1GcpZonesUrl = (
   project: string,
   region: string,
-  params: GcpZonesParams,
+  params: V1GcpZonesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -3990,82 +4033,90 @@ export const getV1GcpZonesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/zones`;
 };
 
-export const GcpZones = async (
+export const v1GcpZones = async (
   project: string,
   region: string,
-  params: GcpZonesParams,
+  params: V1GcpZonesParams,
   options?: RequestInit,
-): Promise<GcpZonesResponse> => {
+): Promise<v1GcpZonesResponse> => {
   const res = await fetch(getV1GcpZonesUrl(project, region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpZonesResponse["data"] = body ? JSON.parse(body) : {};
-
-  return { data, status: res.status, headers: res.headers } as GcpZonesResponse;
-};
-
-/**
- * @summary Validate the specified GCP project
- */
-export type GcpProjectValidateResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type GcpProjectValidateResponseComposite = GcpProjectValidateResponse204;
-
-export type GcpProjectValidateResponse = GcpProjectValidateResponseComposite & {
-  headers: Headers;
-};
-
-export const getV1GcpProjectValidateUrl = (project: string) => {
-  return `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/validate`;
-};
-
-export const GcpProjectValidate = async (
-  project: string,
-  CloudAccountUidEntity: CloudAccountUidEntity,
-  options?: RequestInit,
-): Promise<GcpProjectValidateResponse> => {
-  const res = await fetch(getV1GcpProjectValidateUrl(project), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CloudAccountUidEntity),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpProjectValidateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpZonesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpProjectValidateResponse;
+  } as v1GcpZonesResponse;
+};
+
+/**
+ * @summary Validate the specified GCP project
+ */
+export type v1GcpProjectValidateResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type v1GcpProjectValidateResponseComposite =
+  v1GcpProjectValidateResponse204;
+
+export type v1GcpProjectValidateResponse =
+  v1GcpProjectValidateResponseComposite & {
+    headers: Headers;
+  };
+
+export const getV1GcpProjectValidateUrl = (project: string) => {
+  return `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/validate`;
+};
+
+export const v1GcpProjectValidate = async (
+  project: string,
+  cloudAccountUidEntity: CloudAccountUidEntity,
+  options?: RequestInit,
+): Promise<v1GcpProjectValidateResponse> => {
+  const res = await fetch(getV1GcpProjectValidateUrl(project), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(cloudAccountUidEntity),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: v1GcpProjectValidateResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1GcpProjectValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP zones for the specified account
  */
-export type GcpAvailabilityZonesResponse200 = {
+export type v1GcpAvailabilityZonesResponse200 = {
   data: GcpZones;
   status: 200;
 };
 
-export type GcpAvailabilityZonesResponseComposite =
-  GcpAvailabilityZonesResponse200;
+export type v1GcpAvailabilityZonesResponseComposite =
+  v1GcpAvailabilityZonesResponse200;
 
-export type GcpAvailabilityZonesResponse =
-  GcpAvailabilityZonesResponseComposite & {
+export type v1GcpAvailabilityZonesResponse =
+  v1GcpAvailabilityZonesResponseComposite & {
     headers: Headers;
   };
 
 export const getV1GcpAvailabilityZonesUrl = (
   project: string,
-  params: GcpAvailabilityZonesParams,
+  params: V1GcpAvailabilityZonesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4082,18 +4133,18 @@ export const getV1GcpAvailabilityZonesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/zones`;
 };
 
-export const GcpAvailabilityZones = async (
+export const v1GcpAvailabilityZones = async (
   project: string,
-  params: GcpAvailabilityZonesParams,
+  params: V1GcpAvailabilityZonesParams,
   options?: RequestInit,
-): Promise<GcpAvailabilityZonesResponse> => {
+): Promise<v1GcpAvailabilityZonesResponse> => {
   const res = await fetch(getV1GcpAvailabilityZonesUrl(project, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpAvailabilityZonesResponse["data"] = body
+  const data: v1GcpAvailabilityZonesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4101,22 +4152,22 @@ export const GcpAvailabilityZones = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpAvailabilityZonesResponse;
+  } as v1GcpAvailabilityZonesResponse;
 };
 
 /**
  * @summary Validate GCP properties
  */
-export type GcpPropertiesValidateResponse204 = {
+export type v1GcpPropertiesValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type GcpPropertiesValidateResponseComposite =
-  GcpPropertiesValidateResponse204;
+export type v1GcpPropertiesValidateResponseComposite =
+  v1GcpPropertiesValidateResponse204;
 
-export type GcpPropertiesValidateResponse =
-  GcpPropertiesValidateResponseComposite & {
+export type v1GcpPropertiesValidateResponse =
+  v1GcpPropertiesValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -4124,19 +4175,19 @@ export const getV1GcpPropertiesValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/properties/validate`;
 };
 
-export const GcpPropertiesValidate = async (
-  GcpPropertiesValidateSpec: GcpPropertiesValidateSpec,
+export const v1GcpPropertiesValidate = async (
+  gcpPropertiesValidateSpec: GcpPropertiesValidateSpec,
   options?: RequestInit,
-): Promise<GcpPropertiesValidateResponse> => {
+): Promise<v1GcpPropertiesValidateResponse> => {
   const res = await fetch(getV1GcpPropertiesValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GcpPropertiesValidateSpec),
+    body: JSON.stringify(gcpPropertiesValidateSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpPropertiesValidateResponse["data"] = body
+  const data: v1GcpPropertiesValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4144,26 +4195,26 @@ export const GcpPropertiesValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpPropertiesValidateResponse;
+  } as v1GcpPropertiesValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of GCP instance types
  */
-export type GcpInstanceTypesResponse200 = {
+export type v1GcpInstanceTypesResponse200 = {
   data: GcpInstanceTypes;
   status: 200;
 };
 
-export type GcpInstanceTypesResponseComposite = GcpInstanceTypesResponse200;
+export type v1GcpInstanceTypesResponseComposite = v1GcpInstanceTypesResponse200;
 
-export type GcpInstanceTypesResponse = GcpInstanceTypesResponseComposite & {
+export type v1GcpInstanceTypesResponse = v1GcpInstanceTypesResponseComposite & {
   headers: Headers;
 };
 
 export const getV1GcpInstanceTypesUrl = (
   region: string,
-  params?: GcpInstanceTypesParams,
+  params?: V1GcpInstanceTypesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4180,37 +4231,37 @@ export const getV1GcpInstanceTypesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/gcp/regions/${region}/instancetypes`;
 };
 
-export const GcpInstanceTypes = async (
+export const v1GcpInstanceTypes = async (
   region: string,
-  params?: GcpInstanceTypesParams,
+  params?: V1GcpInstanceTypesParams,
   options?: RequestInit,
-): Promise<GcpInstanceTypesResponse> => {
+): Promise<v1GcpInstanceTypesResponse> => {
   const res = await fetch(getV1GcpInstanceTypesUrl(region, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpInstanceTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpInstanceTypesResponse;
+  } as v1GcpInstanceTypesResponse;
 };
 
 /**
  * @summary Retrieves a list of Gcp storage types
  */
-export type GcpStorageTypesResponse200 = {
+export type v1GcpStorageTypesResponse200 = {
   data: GcpStorageTypes;
   status: 200;
 };
 
-export type GcpStorageTypesResponseComposite = GcpStorageTypesResponse200;
+export type v1GcpStorageTypesResponseComposite = v1GcpStorageTypesResponse200;
 
-export type GcpStorageTypesResponse = GcpStorageTypesResponseComposite & {
+export type v1GcpStorageTypesResponse = v1GcpStorageTypesResponseComposite & {
   headers: Headers;
 };
 
@@ -4218,39 +4269,39 @@ export const getV1GcpStorageTypesUrl = (region: string) => {
   return `https://api.spectrocloud.com/v1/clouds/gcp/regions/${region}/storagetypes`;
 };
 
-export const GcpStorageTypes = async (
+export const v1GcpStorageTypes = async (
   region: string,
   options?: RequestInit,
-): Promise<GcpStorageTypesResponse> => {
+): Promise<v1GcpStorageTypesResponse> => {
   const res = await fetch(getV1GcpStorageTypesUrl(region), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: GcpStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1GcpStorageTypesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as GcpStorageTypesResponse;
+  } as v1GcpStorageTypesResponse;
 };
 
 /**
  * Returns no contents if account is valid else error.
  * @summary Check if Maas account is valid
  */
-export type MaasAccountValidateResponse204 = {
+export type v1MaasAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type MaasAccountValidateResponseComposite =
-  MaasAccountValidateResponse204;
+export type v1MaasAccountValidateResponseComposite =
+  v1MaasAccountValidateResponse204;
 
-export type MaasAccountValidateResponse =
-  MaasAccountValidateResponseComposite & {
+export type v1MaasAccountValidateResponse =
+  v1MaasAccountValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -4258,19 +4309,19 @@ export const getV1MaasAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/maas/account/validate`;
 };
 
-export const MaasAccountValidate = async (
-  MaasCloudAccount: MaasCloudAccount,
+export const v1MaasAccountValidate = async (
+  maasCloudAccount: MaasCloudAccount,
   options?: RequestInit,
-): Promise<MaasAccountValidateResponse> => {
+): Promise<v1MaasAccountValidateResponse> => {
   const res = await fetch(getV1MaasAccountValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MaasCloudAccount),
+    body: JSON.stringify(maasCloudAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountValidateResponse["data"] = body
+  const data: v1MaasAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4278,24 +4329,24 @@ export const MaasAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountValidateResponse;
+  } as v1MaasAccountValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas zones for a particular account uid
  */
-export type MaasZonesGetResponse200 = {
+export type v1MaasZonesGetResponse200 = {
   data: MaasZones;
   status: 200;
 };
 
-export type MaasZonesGetResponseComposite = MaasZonesGetResponse200;
+export type v1MaasZonesGetResponseComposite = v1MaasZonesGetResponse200;
 
-export type MaasZonesGetResponse = MaasZonesGetResponseComposite & {
+export type v1MaasZonesGetResponse = v1MaasZonesGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasZonesGetUrl = (params?: MaasZonesGetParams) => {
+export const getV1MaasZonesGetUrl = (params?: V1MaasZonesGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4311,40 +4362,40 @@ export const getV1MaasZonesGetUrl = (params?: MaasZonesGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/maas/azs`;
 };
 
-export const MaasZonesGet = async (
-  params?: MaasZonesGetParams,
+export const v1MaasZonesGet = async (
+  params?: V1MaasZonesGetParams,
   options?: RequestInit,
-): Promise<MaasZonesGetResponse> => {
+): Promise<v1MaasZonesGetResponse> => {
   const res = await fetch(getV1MaasZonesGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasZonesGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1MaasZonesGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasZonesGetResponse;
+  } as v1MaasZonesGetResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas domains
  */
-export type MaasDomainsGetResponse200 = {
+export type v1MaasDomainsGetResponse200 = {
   data: MaasDomains;
   status: 200;
 };
 
-export type MaasDomainsGetResponseComposite = MaasDomainsGetResponse200;
+export type v1MaasDomainsGetResponseComposite = v1MaasDomainsGetResponse200;
 
-export type MaasDomainsGetResponse = MaasDomainsGetResponseComposite & {
+export type v1MaasDomainsGetResponse = v1MaasDomainsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasDomainsGetUrl = (params?: MaasDomainsGetParams) => {
+export const getV1MaasDomainsGetUrl = (params?: V1MaasDomainsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4360,40 +4411,40 @@ export const getV1MaasDomainsGetUrl = (params?: MaasDomainsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/maas/domains`;
 };
 
-export const MaasDomainsGet = async (
-  params?: MaasDomainsGetParams,
+export const v1MaasDomainsGet = async (
+  params?: V1MaasDomainsGetParams,
   options?: RequestInit,
-): Promise<MaasDomainsGetResponse> => {
+): Promise<v1MaasDomainsGetResponse> => {
   const res = await fetch(getV1MaasDomainsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasDomainsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1MaasDomainsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasDomainsGetResponse;
+  } as v1MaasDomainsGetResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas pools for a particular account uid
  */
-export type MaasPoolsGetResponse200 = {
+export type v1MaasPoolsGetResponse200 = {
   data: MaasPools;
   status: 200;
 };
 
-export type MaasPoolsGetResponseComposite = MaasPoolsGetResponse200;
+export type v1MaasPoolsGetResponseComposite = v1MaasPoolsGetResponse200;
 
-export type MaasPoolsGetResponse = MaasPoolsGetResponseComposite & {
+export type v1MaasPoolsGetResponse = v1MaasPoolsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasPoolsGetUrl = (params?: MaasPoolsGetParams) => {
+export const getV1MaasPoolsGetUrl = (params?: V1MaasPoolsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4409,40 +4460,40 @@ export const getV1MaasPoolsGetUrl = (params?: MaasPoolsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/maas/resourcePools`;
 };
 
-export const MaasPoolsGet = async (
-  params?: MaasPoolsGetParams,
+export const v1MaasPoolsGet = async (
+  params?: V1MaasPoolsGetParams,
   options?: RequestInit,
-): Promise<MaasPoolsGetResponse> => {
+): Promise<v1MaasPoolsGetResponse> => {
   const res = await fetch(getV1MaasPoolsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasPoolsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1MaasPoolsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasPoolsGetResponse;
+  } as v1MaasPoolsGetResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas subnets for a particular account uid
  */
-export type MaasSubnetsGetResponse200 = {
+export type v1MaasSubnetsGetResponse200 = {
   data: MaasSubnets;
   status: 200;
 };
 
-export type MaasSubnetsGetResponseComposite = MaasSubnetsGetResponse200;
+export type v1MaasSubnetsGetResponseComposite = v1MaasSubnetsGetResponse200;
 
-export type MaasSubnetsGetResponse = MaasSubnetsGetResponseComposite & {
+export type v1MaasSubnetsGetResponse = v1MaasSubnetsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasSubnetsGetUrl = (params?: MaasSubnetsGetParams) => {
+export const getV1MaasSubnetsGetUrl = (params?: V1MaasSubnetsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4458,40 +4509,40 @@ export const getV1MaasSubnetsGetUrl = (params?: MaasSubnetsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/maas/subnets`;
 };
 
-export const MaasSubnetsGet = async (
-  params?: MaasSubnetsGetParams,
+export const v1MaasSubnetsGet = async (
+  params?: V1MaasSubnetsGetParams,
   options?: RequestInit,
-): Promise<MaasSubnetsGetResponse> => {
+): Promise<v1MaasSubnetsGetResponse> => {
   const res = await fetch(getV1MaasSubnetsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasSubnetsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1MaasSubnetsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasSubnetsGetResponse;
+  } as v1MaasSubnetsGetResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas tags for a particular account uid
  */
-export type MaasTagsGetResponse200 = {
+export type v1MaasTagsGetResponse200 = {
   data: MaasTags;
   status: 200;
 };
 
-export type MaasTagsGetResponseComposite = MaasTagsGetResponse200;
+export type v1MaasTagsGetResponseComposite = v1MaasTagsGetResponse200;
 
-export type MaasTagsGetResponse = MaasTagsGetResponseComposite & {
+export type v1MaasTagsGetResponse = v1MaasTagsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasTagsGetUrl = (params?: MaasTagsGetParams) => {
+export const getV1MaasTagsGetUrl = (params?: V1MaasTagsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4507,39 +4558,39 @@ export const getV1MaasTagsGetUrl = (params?: MaasTagsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/maas/tags`;
 };
 
-export const MaasTagsGet = async (
-  params?: MaasTagsGetParams,
+export const v1MaasTagsGet = async (
+  params?: V1MaasTagsGetParams,
   options?: RequestInit,
-): Promise<MaasTagsGetResponse> => {
+): Promise<v1MaasTagsGetResponse> => {
   const res = await fetch(getV1MaasTagsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasTagsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1MaasTagsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasTagsGetResponse;
+  } as v1MaasTagsGetResponse;
 };
 
 /**
  * Returns no contents if account is valid else error.
  * @summary Check if OpenStack account is valid
  */
-export type OpenStackAccountValidateResponse204 = {
+export type v1OpenStackAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OpenStackAccountValidateResponseComposite =
-  OpenStackAccountValidateResponse204;
+export type v1OpenStackAccountValidateResponseComposite =
+  v1OpenStackAccountValidateResponse204;
 
-export type OpenStackAccountValidateResponse =
-  OpenStackAccountValidateResponseComposite & {
+export type v1OpenStackAccountValidateResponse =
+  v1OpenStackAccountValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -4547,19 +4598,19 @@ export const getV1OpenStackAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/openstack/account/validate`;
 };
 
-export const OpenStackAccountValidate = async (
-  OpenStackCloudAccount: OpenStackCloudAccount,
+export const v1OpenStackAccountValidate = async (
+  openStackCloudAccount: OpenStackCloudAccount,
   options?: RequestInit,
-): Promise<OpenStackAccountValidateResponse> => {
+): Promise<v1OpenStackAccountValidateResponse> => {
   const res = await fetch(getV1OpenStackAccountValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OpenStackCloudAccount),
+    body: JSON.stringify(openStackCloudAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackAccountValidateResponse["data"] = body
+  const data: v1OpenStackAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4567,24 +4618,24 @@ export const OpenStackAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackAccountValidateResponse;
+  } as v1OpenStackAccountValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of OpenStack azs for a particular account uid
  */
-export type OpenStackAzsGetResponse200 = {
+export type v1OpenStackAzsGetResponse200 = {
   data: OpenStackAzs;
   status: 200;
 };
 
-export type OpenStackAzsGetResponseComposite = OpenStackAzsGetResponse200;
+export type v1OpenStackAzsGetResponseComposite = v1OpenStackAzsGetResponse200;
 
-export type OpenStackAzsGetResponse = OpenStackAzsGetResponseComposite & {
+export type v1OpenStackAzsGetResponse = v1OpenStackAzsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OpenStackAzsGetUrl = (params?: OpenStackAzsGetParams) => {
+export const getV1OpenStackAzsGetUrl = (params?: V1OpenStackAzsGetParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -4600,43 +4651,43 @@ export const getV1OpenStackAzsGetUrl = (params?: OpenStackAzsGetParams) => {
     : `https://api.spectrocloud.com/v1/clouds/openstack/azs`;
 };
 
-export const OpenStackAzsGet = async (
-  params?: OpenStackAzsGetParams,
+export const v1OpenStackAzsGet = async (
+  params?: V1OpenStackAzsGetParams,
   options?: RequestInit,
-): Promise<OpenStackAzsGetResponse> => {
+): Promise<v1OpenStackAzsGetResponse> => {
   const res = await fetch(getV1OpenStackAzsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackAzsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1OpenStackAzsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackAzsGetResponse;
+  } as v1OpenStackAzsGetResponse;
 };
 
 /**
  * @summary Returns the OpenStack flavors
  */
-export type OpenStackFlavorsGetResponse200 = {
+export type v1OpenStackFlavorsGetResponse200 = {
   data: OpenStackFlavors;
   status: 200;
 };
 
-export type OpenStackFlavorsGetResponseComposite =
-  OpenStackFlavorsGetResponse200;
+export type v1OpenStackFlavorsGetResponseComposite =
+  v1OpenStackFlavorsGetResponse200;
 
-export type OpenStackFlavorsGetResponse =
-  OpenStackFlavorsGetResponseComposite & {
+export type v1OpenStackFlavorsGetResponse =
+  v1OpenStackFlavorsGetResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OpenStackFlavorsGetUrl = (
-  params?: OpenStackFlavorsGetParams,
+  params?: V1OpenStackFlavorsGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4653,17 +4704,17 @@ export const getV1OpenStackFlavorsGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/openstack/flavors`;
 };
 
-export const OpenStackFlavorsGet = async (
-  params?: OpenStackFlavorsGetParams,
+export const v1OpenStackFlavorsGet = async (
+  params?: V1OpenStackFlavorsGetParams,
   options?: RequestInit,
-): Promise<OpenStackFlavorsGetResponse> => {
+): Promise<v1OpenStackFlavorsGetResponse> => {
   const res = await fetch(getV1OpenStackFlavorsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackFlavorsGetResponse["data"] = body
+  const data: v1OpenStackFlavorsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4671,27 +4722,27 @@ export const OpenStackFlavorsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackFlavorsGetResponse;
+  } as v1OpenStackFlavorsGetResponse;
 };
 
 /**
  * @summary Returns the OpenStack keypair
  */
-export type OpenStackKeypairsGetResponse200 = {
+export type v1OpenStackKeypairsGetResponse200 = {
   data: OpenStackKeypairs;
   status: 200;
 };
 
-export type OpenStackKeypairsGetResponseComposite =
-  OpenStackKeypairsGetResponse200;
+export type v1OpenStackKeypairsGetResponseComposite =
+  v1OpenStackKeypairsGetResponse200;
 
-export type OpenStackKeypairsGetResponse =
-  OpenStackKeypairsGetResponseComposite & {
+export type v1OpenStackKeypairsGetResponse =
+  v1OpenStackKeypairsGetResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OpenStackKeypairsGetUrl = (
-  params?: OpenStackKeypairsGetParams,
+  params?: V1OpenStackKeypairsGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4708,17 +4759,17 @@ export const getV1OpenStackKeypairsGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/openstack/keypairs`;
 };
 
-export const OpenStackKeypairsGet = async (
-  params?: OpenStackKeypairsGetParams,
+export const v1OpenStackKeypairsGet = async (
+  params?: V1OpenStackKeypairsGetParams,
   options?: RequestInit,
-): Promise<OpenStackKeypairsGetResponse> => {
+): Promise<v1OpenStackKeypairsGetResponse> => {
   const res = await fetch(getV1OpenStackKeypairsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackKeypairsGetResponse["data"] = body
+  const data: v1OpenStackKeypairsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4726,27 +4777,27 @@ export const OpenStackKeypairsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackKeypairsGetResponse;
+  } as v1OpenStackKeypairsGetResponse;
 };
 
 /**
  * @summary Returns the OpenStack networks
  */
-export type OpenStackNetworksGetResponse200 = {
+export type v1OpenStackNetworksGetResponse200 = {
   data: OpenStackNetworks;
   status: 200;
 };
 
-export type OpenStackNetworksGetResponseComposite =
-  OpenStackNetworksGetResponse200;
+export type v1OpenStackNetworksGetResponseComposite =
+  v1OpenStackNetworksGetResponse200;
 
-export type OpenStackNetworksGetResponse =
-  OpenStackNetworksGetResponseComposite & {
+export type v1OpenStackNetworksGetResponse =
+  v1OpenStackNetworksGetResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OpenStackNetworksGetUrl = (
-  params?: OpenStackNetworksGetParams,
+  params?: V1OpenStackNetworksGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4763,17 +4814,17 @@ export const getV1OpenStackNetworksGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/openstack/networks`;
 };
 
-export const OpenStackNetworksGet = async (
-  params?: OpenStackNetworksGetParams,
+export const v1OpenStackNetworksGet = async (
+  params?: V1OpenStackNetworksGetParams,
   options?: RequestInit,
-): Promise<OpenStackNetworksGetResponse> => {
+): Promise<v1OpenStackNetworksGetResponse> => {
   const res = await fetch(getV1OpenStackNetworksGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackNetworksGetResponse["data"] = body
+  const data: v1OpenStackNetworksGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4781,27 +4832,27 @@ export const OpenStackNetworksGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackNetworksGetResponse;
+  } as v1OpenStackNetworksGetResponse;
 };
 
 /**
  * @summary Returns the OpenStack projects
  */
-export type OpenStackProjectsGetResponse200 = {
+export type v1OpenStackProjectsGetResponse200 = {
   data: OpenStackProjects;
   status: 200;
 };
 
-export type OpenStackProjectsGetResponseComposite =
-  OpenStackProjectsGetResponse200;
+export type v1OpenStackProjectsGetResponseComposite =
+  v1OpenStackProjectsGetResponse200;
 
-export type OpenStackProjectsGetResponse =
-  OpenStackProjectsGetResponseComposite & {
+export type v1OpenStackProjectsGetResponse =
+  v1OpenStackProjectsGetResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OpenStackProjectsGetUrl = (
-  params?: OpenStackProjectsGetParams,
+  params?: V1OpenStackProjectsGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4818,17 +4869,17 @@ export const getV1OpenStackProjectsGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/openstack/projects`;
 };
 
-export const OpenStackProjectsGet = async (
-  params?: OpenStackProjectsGetParams,
+export const v1OpenStackProjectsGet = async (
+  params?: V1OpenStackProjectsGetParams,
   options?: RequestInit,
-): Promise<OpenStackProjectsGetResponse> => {
+): Promise<v1OpenStackProjectsGetResponse> => {
   const res = await fetch(getV1OpenStackProjectsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackProjectsGetResponse["data"] = body
+  const data: v1OpenStackProjectsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4836,27 +4887,27 @@ export const OpenStackProjectsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackProjectsGetResponse;
+  } as v1OpenStackProjectsGetResponse;
 };
 
 /**
  * @summary Returns the OpenStack regions
  */
-export type OpenStackRegionsGetResponse200 = {
+export type v1OpenStackRegionsGetResponse200 = {
   data: OpenStackRegions;
   status: 200;
 };
 
-export type OpenStackRegionsGetResponseComposite =
-  OpenStackRegionsGetResponse200;
+export type v1OpenStackRegionsGetResponseComposite =
+  v1OpenStackRegionsGetResponse200;
 
-export type OpenStackRegionsGetResponse =
-  OpenStackRegionsGetResponseComposite & {
+export type v1OpenStackRegionsGetResponse =
+  v1OpenStackRegionsGetResponseComposite & {
     headers: Headers;
   };
 
 export const getV1OpenStackRegionsGetUrl = (
-  params?: OpenStackRegionsGetParams,
+  params?: V1OpenStackRegionsGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4873,17 +4924,17 @@ export const getV1OpenStackRegionsGetUrl = (
     : `https://api.spectrocloud.com/v1/clouds/openstack/regions`;
 };
 
-export const OpenStackRegionsGet = async (
-  params?: OpenStackRegionsGetParams,
+export const v1OpenStackRegionsGet = async (
+  params?: V1OpenStackRegionsGetParams,
   options?: RequestInit,
-): Promise<OpenStackRegionsGetResponse> => {
+): Promise<v1OpenStackRegionsGetResponse> => {
   const res = await fetch(getV1OpenStackRegionsGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenStackRegionsGetResponse["data"] = body
+  const data: v1OpenStackRegionsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4891,23 +4942,23 @@ export const OpenStackRegionsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenStackRegionsGetResponse;
+  } as v1OpenStackRegionsGetResponse;
 };
 
 /**
  * Returns no contents if account is valid else error.
  * @summary Check if Vsphere account is valid
  */
-export type VsphereAccountValidateResponse204 = {
+export type v1VsphereAccountValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type VsphereAccountValidateResponseComposite =
-  VsphereAccountValidateResponse204;
+export type v1VsphereAccountValidateResponseComposite =
+  v1VsphereAccountValidateResponse204;
 
-export type VsphereAccountValidateResponse =
-  VsphereAccountValidateResponseComposite & {
+export type v1VsphereAccountValidateResponse =
+  v1VsphereAccountValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -4915,19 +4966,19 @@ export const getV1VsphereAccountValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/vsphere/account/validate`;
 };
 
-export const VsphereAccountValidate = async (
-  VsphereCloudAccountBody: VsphereCloudAccountBody,
+export const v1VsphereAccountValidate = async (
+  v1VsphereCloudAccountBody: V1VsphereCloudAccountBody,
   options?: RequestInit,
-): Promise<VsphereAccountValidateResponse> => {
+): Promise<v1VsphereAccountValidateResponse> => {
   const res = await fetch(getV1VsphereAccountValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereCloudAccountBody),
+    body: JSON.stringify(v1VsphereCloudAccountBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereAccountValidateResponse["data"] = body
+  const data: v1VsphereAccountValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -4935,25 +4986,27 @@ export const VsphereAccountValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereAccountValidateResponse;
+  } as v1VsphereAccountValidateResponse;
 };
 
 /**
  * @summary Returns the vsphere data centers
  */
-export type VsphereDatacentersResponse200 = {
+export type v1VsphereDatacentersResponse200 = {
   data: VsphereDatacenters;
   status: 200;
 };
 
-export type VsphereDatacentersResponseComposite = VsphereDatacentersResponse200;
+export type v1VsphereDatacentersResponseComposite =
+  v1VsphereDatacentersResponse200;
 
-export type VsphereDatacentersResponse = VsphereDatacentersResponseComposite & {
-  headers: Headers;
-};
+export type v1VsphereDatacentersResponse =
+  v1VsphereDatacentersResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1VsphereDatacentersUrl = (
-  params?: VsphereDatacentersParams,
+  params?: V1VsphereDatacentersParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -4970,45 +5023,47 @@ export const getV1VsphereDatacentersUrl = (
     : `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters`;
 };
 
-export const VsphereDatacenters = async (
-  params?: VsphereDatacentersParams,
+export const v1VsphereDatacenters = async (
+  params?: V1VsphereDatacentersParams,
   options?: RequestInit,
-): Promise<VsphereDatacentersResponse> => {
+): Promise<v1VsphereDatacentersResponse> => {
   const res = await fetch(getV1VsphereDatacentersUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereDatacentersResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1VsphereDatacentersResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereDatacentersResponse;
+  } as v1VsphereDatacentersResponse;
 };
 
 /**
  * @summary Returns the resources for vsphere compute cluster
  */
-export type VsphereComputeClusterResourcesResponse200 = {
+export type v1VsphereComputeClusterResourcesResponse200 = {
   data: VsphereComputeClusterResources;
   status: 200;
 };
 
-export type VsphereComputeClusterResourcesResponseComposite =
-  VsphereComputeClusterResourcesResponse200;
+export type v1VsphereComputeClusterResourcesResponseComposite =
+  v1VsphereComputeClusterResourcesResponse200;
 
-export type VsphereComputeClusterResourcesResponse =
-  VsphereComputeClusterResourcesResponseComposite & {
+export type v1VsphereComputeClusterResourcesResponse =
+  v1VsphereComputeClusterResourcesResponseComposite & {
     headers: Headers;
   };
 
 export const getV1VsphereComputeClusterResourcesUrl = (
   uid: string,
   computecluster: string,
-  params: VsphereComputeClusterResourcesParams,
+  params: V1VsphereComputeClusterResourcesParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -5025,12 +5080,12 @@ export const getV1VsphereComputeClusterResourcesUrl = (
     : `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}`;
 };
 
-export const VsphereComputeClusterResources = async (
+export const v1VsphereComputeClusterResources = async (
   uid: string,
   computecluster: string,
-  params: VsphereComputeClusterResourcesParams,
+  params: V1VsphereComputeClusterResourcesParams,
   options?: RequestInit,
-): Promise<VsphereComputeClusterResourcesResponse> => {
+): Promise<v1VsphereComputeClusterResourcesResponse> => {
   const res = await fetch(
     getV1VsphereComputeClusterResourcesUrl(uid, computecluster, params),
     {
@@ -5040,7 +5095,7 @@ export const VsphereComputeClusterResources = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereComputeClusterResourcesResponse["data"] = body
+  const data: v1VsphereComputeClusterResourcesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -5048,20 +5103,20 @@ export const VsphereComputeClusterResources = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereComputeClusterResourcesResponse;
+  } as v1VsphereComputeClusterResourcesResponse;
 };
 
 /**
  * @summary Retrieves vsphere env
  */
-export type VsphereEnvResponse200 = {
+export type v1VsphereEnvResponse200 = {
   data: VsphereEnv;
   status: 200;
 };
 
-export type VsphereEnvResponseComposite = VsphereEnvResponse200;
+export type v1VsphereEnvResponseComposite = v1VsphereEnvResponse200;
 
-export type VsphereEnvResponse = VsphereEnvResponseComposite & {
+export type v1VsphereEnvResponse = v1VsphereEnvResponseComposite & {
   headers: Headers;
 };
 
@@ -5069,45 +5124,45 @@ export const getV1VsphereEnvUrl = () => {
   return `https://api.spectrocloud.com/v1/clouds/vsphere/env`;
 };
 
-export const VsphereEnv = async (
-  VsphereCloudAccountBody: VsphereCloudAccountBody,
+export const v1VsphereEnv = async (
+  v1VsphereCloudAccountBody: V1VsphereCloudAccountBody,
   options?: RequestInit,
-): Promise<VsphereEnvResponse> => {
+): Promise<v1VsphereEnvResponse> => {
   const res = await fetch(getV1VsphereEnvUrl(), {
     ...options,
     method: "GET",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereCloudAccountBody),
+    body: JSON.stringify(v1VsphereCloudAccountBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereEnvResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1VsphereEnvResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereEnvResponse;
+  } as v1VsphereEnvResponse;
 };
 
 /**
  * @summary Returns the cloud compute rate
  */
-export type CloudComputeRateResponse200 = {
+export type v1CloudComputeRateResponse200 = {
   data: CloudCost;
   status: 200;
 };
 
-export type CloudComputeRateResponseComposite = CloudComputeRateResponse200;
+export type v1CloudComputeRateResponseComposite = v1CloudComputeRateResponse200;
 
-export type CloudComputeRateResponse = CloudComputeRateResponseComposite & {
+export type v1CloudComputeRateResponse = v1CloudComputeRateResponseComposite & {
   headers: Headers;
 };
 
 export const getV1CloudComputeRateUrl = (
   cloud: string,
   type: string,
-  params: CloudComputeRateParams,
+  params: V1CloudComputeRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -5124,45 +5179,45 @@ export const getV1CloudComputeRateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/${cloud}/compute/${type}/rate`;
 };
 
-export const CloudComputeRate = async (
+export const v1CloudComputeRate = async (
   cloud: string,
   type: string,
-  params: CloudComputeRateParams,
+  params: V1CloudComputeRateParams,
   options?: RequestInit,
-): Promise<CloudComputeRateResponse> => {
+): Promise<v1CloudComputeRateResponse> => {
   const res = await fetch(getV1CloudComputeRateUrl(cloud, type, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudComputeRateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1CloudComputeRateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudComputeRateResponse;
+  } as v1CloudComputeRateResponse;
 };
 
 /**
  * @summary Returns the cloud storage rate
  */
-export type CloudStorageRateResponse200 = {
+export type v1CloudStorageRateResponse200 = {
   data: CloudCost;
   status: 200;
 };
 
-export type CloudStorageRateResponseComposite = CloudStorageRateResponse200;
+export type v1CloudStorageRateResponseComposite = v1CloudStorageRateResponse200;
 
-export type CloudStorageRateResponse = CloudStorageRateResponseComposite & {
+export type v1CloudStorageRateResponse = v1CloudStorageRateResponseComposite & {
   headers: Headers;
 };
 
 export const getV1CloudStorageRateUrl = (
   cloud: string,
   type: string,
-  params: CloudStorageRateParams,
+  params: V1CloudStorageRateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -5179,23 +5234,23 @@ export const getV1CloudStorageRateUrl = (
     : `https://api.spectrocloud.com/v1/clouds/${cloud}/storage/${type}/rate`;
 };
 
-export const CloudStorageRate = async (
+export const v1CloudStorageRate = async (
   cloud: string,
   type: string,
-  params: CloudStorageRateParams,
+  params: V1CloudStorageRateParams,
   options?: RequestInit,
-): Promise<CloudStorageRateResponse> => {
+): Promise<v1CloudStorageRateResponse> => {
   const res = await fetch(getV1CloudStorageRateUrl(cloud, type, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudStorageRateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1CloudStorageRateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudStorageRateResponse;
+  } as v1CloudStorageRateResponse;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./FilterString";
+import type { FilterString } from "./filterString";
 
 /**
  * Edge hosts pair metadata filter spec

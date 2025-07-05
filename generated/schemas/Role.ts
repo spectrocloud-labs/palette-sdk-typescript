@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { RoleSpec } from "./RoleSpec";
-import type { RoleStatus } from "./RoleStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { RoleSpec } from "./roleSpec";
+import type { RoleStatus } from "./roleStatus";
 
 /**
  * Role

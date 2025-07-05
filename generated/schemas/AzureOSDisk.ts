@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManagedDisk } from "./ManagedDisk";
-import type { OsType } from "./OsType";
+import type { ManagedDisk } from "./managedDisk";
+import type { OsType } from "./osType";
 
 export interface AzureOSDisk {
   diskSizeGB?: number;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamSummary } from "./TeamSummary";
+import type { TeamSummary } from "./teamSummary";
 
 /**
  * Returns Team summary

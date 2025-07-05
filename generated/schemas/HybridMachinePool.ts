@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridMachinePoolStatus } from "./HybridMachinePoolStatus";
+import type { HybridMachinePoolStatus } from "./hybridMachinePoolStatus";
 
 /**
  * Metadata information related to a hybrid machine pool launched as part of an hybrid cluster

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterResourceError } from "./ClusterResourceError";
+import type { ClusterResourceError } from "./clusterResourceError";
 
 /**
  * Cluster rbac status

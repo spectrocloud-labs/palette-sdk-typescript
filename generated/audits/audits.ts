@@ -20,18 +20,18 @@ import type {
 /**
  * @summary Retrieves the list of audit logs
  */
-export type AuditsListResponse200 = {
+export type auditsListResponse200 = {
   data: Audits;
   status: 200;
 };
 
-export type AuditsListResponseComposite = AuditsListResponse200;
+export type auditsListResponseComposite = auditsListResponse200;
 
-export type AuditsListResponse = AuditsListResponseComposite & {
+export type auditsListResponse = auditsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuditsListUrl = (params?: AuditsListParams) => {
+export const getAuditsListUrl = (params?: AuditsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -47,135 +47,135 @@ export const getV1AuditsListUrl = (params?: AuditsListParams) => {
     : `https://api.spectrocloud.com/v1/audits`;
 };
 
-export const AuditsList = async (
+export const auditsList = async (
   params?: AuditsListParams,
   options?: RequestInit,
-): Promise<AuditsListResponse> => {
-  const res = await fetch(getV1AuditsListUrl(params), {
+): Promise<auditsListResponse> => {
+  const res = await fetch(getAuditsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: auditsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuditsListResponse;
+  } as auditsListResponse;
 };
 
 /**
  * @summary Returns the specified audit log
  */
-export type AuditsUidGetResponse200 = {
+export type auditsUidGetResponse200 = {
   data: Audit;
   status: 200;
 };
 
-export type AuditsUidGetResponseComposite = AuditsUidGetResponse200;
+export type auditsUidGetResponseComposite = auditsUidGetResponse200;
 
-export type AuditsUidGetResponse = AuditsUidGetResponseComposite & {
+export type auditsUidGetResponse = auditsUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuditsUidGetUrl = (uid: string) => {
+export const getAuditsUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/audits/${uid}`;
 };
 
-export const AuditsUidGet = async (
+export const auditsUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<AuditsUidGetResponse> => {
-  const res = await fetch(getV1AuditsUidGetUrl(uid), {
+): Promise<auditsUidGetResponse> => {
+  const res = await fetch(getAuditsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: auditsUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuditsUidGetResponse;
+  } as auditsUidGetResponse;
 };
 
 /**
  * @summary Returns the specified system audit message
  */
-export type AuditsUidGetSysMsgResponse200 = {
+export type auditsUidGetSysMsgResponse200 = {
   data: AuditSysMsg;
   status: 200;
 };
 
-export type AuditsUidGetSysMsgResponseComposite = AuditsUidGetSysMsgResponse200;
+export type auditsUidGetSysMsgResponseComposite = auditsUidGetSysMsgResponse200;
 
-export type AuditsUidGetSysMsgResponse = AuditsUidGetSysMsgResponseComposite & {
+export type auditsUidGetSysMsgResponse = auditsUidGetSysMsgResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuditsUidGetSysMsgUrl = (uid: string) => {
+export const getAuditsUidGetSysMsgUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/audits/${uid}/sysMsg`;
 };
 
-export const AuditsUidGetSysMsg = async (
+export const auditsUidGetSysMsg = async (
   uid: string,
   options?: RequestInit,
-): Promise<AuditsUidGetSysMsgResponse> => {
-  const res = await fetch(getV1AuditsUidGetSysMsgUrl(uid), {
+): Promise<auditsUidGetSysMsgResponse> => {
+  const res = await fetch(getAuditsUidGetSysMsgUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsUidGetSysMsgResponse["data"] = body ? JSON.parse(body) : {};
+  const data: auditsUidGetSysMsgResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuditsUidGetSysMsgResponse;
+  } as auditsUidGetSysMsgResponse;
 };
 
 /**
  * @summary Updates the specified user message for the specified audit
  */
-export type AuditsUidMsgUpdateResponse204 = {
+export type auditsUidMsgUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AuditsUidMsgUpdateResponseComposite = AuditsUidMsgUpdateResponse204;
+export type auditsUidMsgUpdateResponseComposite = auditsUidMsgUpdateResponse204;
 
-export type AuditsUidMsgUpdateResponse = AuditsUidMsgUpdateResponseComposite & {
+export type auditsUidMsgUpdateResponse = auditsUidMsgUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuditsUidMsgUpdateUrl = (uid: string) => {
+export const getAuditsUidMsgUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/audits/${uid}/userMsg`;
 };
 
-export const AuditsUidMsgUpdate = async (
+export const auditsUidMsgUpdate = async (
   uid: string,
-  AuditMsgUpdate: AuditMsgUpdate,
+  auditMsgUpdate: AuditMsgUpdate,
   options?: RequestInit,
-): Promise<AuditsUidMsgUpdateResponse> => {
-  const res = await fetch(getV1AuditsUidMsgUpdateUrl(uid), {
+): Promise<auditsUidMsgUpdateResponse> => {
+  const res = await fetch(getAuditsUidMsgUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AuditMsgUpdate),
+    body: JSON.stringify(auditMsgUpdate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuditsUidMsgUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: auditsUidMsgUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuditsUidMsgUpdateResponse;
+  } as auditsUidMsgUpdateResponse;
 };

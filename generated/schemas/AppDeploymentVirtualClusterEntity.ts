@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./ObjectMetaInputEntity";
-import type { AppDeploymentVirtualClusterSpec } from "./AppDeploymentVirtualClusterSpec";
+import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { AppDeploymentVirtualClusterSpec } from "./appDeploymentVirtualClusterSpec";
 
 /**
  * Application deployment virtual cluster request payload

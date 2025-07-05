@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Scope } from "./Scope";
+import type { Scope } from "./scope";
 
 /**
  * Cluster profile clone meta input entity

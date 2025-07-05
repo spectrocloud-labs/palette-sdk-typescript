@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestInputEntity } from "./ManifestInputEntity";
-import type { PackType } from "./PackType";
+import type { ManifestInputEntity } from "./manifestInputEntity";
+import type { PackType } from "./packType";
 
 /**
  * Pack request payload

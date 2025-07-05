@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectResourceUsage } from "./ProjectResourceUsage";
+import type { ProjectResourceUsage } from "./projectResourceUsage";
 
 /**
  * Total Resource Usage

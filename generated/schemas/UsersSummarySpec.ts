@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UsersFilterSpec } from "./UsersFilterSpec";
-import type { UserSummarySortSpec } from "./UserSummarySortSpec";
+import type { UsersFilterSpec } from "./usersFilterSpec";
+import type { UserSummarySortSpec } from "./userSummarySortSpec";
 
 /**
  * Users filter summary spec

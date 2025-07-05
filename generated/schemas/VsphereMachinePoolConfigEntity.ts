@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereMachinePoolCloudConfigEntity } from "./VsphereMachinePoolCloudConfigEntity";
-import type { MachinePoolConfigEntity } from "./MachinePoolConfigEntity";
+import type { VsphereMachinePoolCloudConfigEntity } from "./vsphereMachinePoolCloudConfigEntity";
+import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
 export interface VsphereMachinePoolConfigEntity {
   cloudConfig: VsphereMachinePoolCloudConfigEntity;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MfaUserEntityId } from "./MfaUserEntityId";
+import type { MfaUserEntityId } from "./mfaUserEntityId";
 
 export interface MfaUserEntity {
   displayName?: string;

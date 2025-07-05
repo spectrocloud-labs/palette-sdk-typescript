@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureMachinePoolCloudConfigEntity } from "./AzureMachinePoolCloudConfigEntity";
-import type { AzureManagedMachinePoolConfig } from "./AzureManagedMachinePoolConfig";
-import type { MachinePoolConfigEntity } from "./MachinePoolConfigEntity";
+import type { AzureMachinePoolCloudConfigEntity } from "./azureMachinePoolCloudConfigEntity";
+import type { AzureManagedMachinePoolConfig } from "./azureManagedMachinePoolConfig";
+import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
 export interface AzureMachinePoolConfigEntity {
   cloudConfig: AzureMachinePoolCloudConfigEntity;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateMeta } from "./ClusterProfileTemplateMeta";
+import type { ClusterProfileTemplateMeta } from "./clusterProfileTemplateMeta";
 
 export interface MachinePoolMeta {
   cloudType?: string;

@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmClientPassthroughDevices } from "./VmClientPassthroughDevices";
-import type { VmDisk } from "./VmDisk";
-import type { VmFilesystem } from "./VmFilesystem";
-import type { VmGPU } from "./VmGPU";
-import type { VmHostDevice } from "./VmHostDevice";
-import type { VmInput } from "./VmInput";
-import type { VmInterface } from "./VmInterface";
-import type { VmRng } from "./VmRng";
-import type { VmSoundDevice } from "./VmSoundDevice";
-import type { VmTPMDevice } from "./VmTPMDevice";
-import type { VmWatchdog } from "./VmWatchdog";
+import type { VmClientPassthroughDevices } from "./vmClientPassthroughDevices";
+import type { VmDisk } from "./vmDisk";
+import type { VmFilesystem } from "./vmFilesystem";
+import type { VmGPU } from "./vmGPU";
+import type { VmHostDevice } from "./vmHostDevice";
+import type { VmInput } from "./vmInput";
+import type { VmInterface } from "./vmInterface";
+import type { VmRng } from "./vmRng";
+import type { VmSoundDevice } from "./vmSoundDevice";
+import type { VmTPMDevice } from "./vmTPMDevice";
+import type { VmWatchdog } from "./vmWatchdog";
 
 export interface VmDevices {
   /** Whether to attach the default graphics device or not. VNC will not be available if set to false. Defaults to true. */

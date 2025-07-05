@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AuditsListActionType } from "./AuditsListActionType";
+import type { AuditsListActionType } from "./auditsListActionType";
 
 export type AuditsListParams = {
   /**

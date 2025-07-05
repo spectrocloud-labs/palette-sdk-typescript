@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksClusterConfig } from "./EksClusterConfig";
+import type { EksClusterConfig } from "./eksClusterConfig";
 
 /**
  * EKS cloud cluster config entity

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtDbInfo } from "./MgmtDbInfo";
+import type { MgmtDbInfo } from "./mgmtDbInfo";
 
 export interface MgmtDbHealth {
   databases?: MgmtDbInfo[];

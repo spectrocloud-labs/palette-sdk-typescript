@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { UserAssetSshSpec } from "./UserAssetSshSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { UserAssetSshSpec } from "./userAssetSshSpec";
 
 /**
  * SSH key information

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Subscription } from "./Subscription";
+import type { Subscription } from "./subscription";
 
 /**
  * List of Azure subscription

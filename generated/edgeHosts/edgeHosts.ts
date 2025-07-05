@@ -13,7 +13,6 @@ import type {
   EdgeHostClusterEntity,
   EdgeHostConfig,
   EdgeHostDevice,
-  EdgeHostDeviceBody,
   EdgeHostDeviceEntity,
   EdgeHostDeviceHostCheckSum,
   EdgeHostDeviceHostPairingKey,
@@ -32,47 +31,48 @@ import type {
   EdgeTokenUpdate,
   EdgeTokens,
   Manifest,
-  SpectroClusterPacksStatusEntityBody,
   SpectroClusterProfileList,
-  SpectroClusterProfilesBody,
   SpectroTunnelConfig,
   SpectroTunnelStatus,
   Uid,
+  V1EdgeHostDeviceBody,
+  V1SpectroClusterPacksStatusEntityBody,
+  V1SpectroClusterProfilesBody,
 } from ".././schemas";
 
 /**
  * @summary Create the edge host device
  */
-export type EdgeHostDevicesCreateResponse201 = {
+export type edgeHostDevicesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type EdgeHostDevicesCreateResponseComposite =
-  EdgeHostDevicesCreateResponse201;
+export type edgeHostDevicesCreateResponseComposite =
+  edgeHostDevicesCreateResponse201;
 
-export type EdgeHostDevicesCreateResponse =
-  EdgeHostDevicesCreateResponseComposite & {
+export type edgeHostDevicesCreateResponse =
+  edgeHostDevicesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesCreateUrl = () => {
+export const getEdgeHostDevicesCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/edgehosts`;
 };
 
-export const EdgeHostDevicesCreate = async (
-  EdgeHostDeviceEntity: EdgeHostDeviceEntity,
+export const edgeHostDevicesCreate = async (
+  edgeHostDeviceEntity: EdgeHostDeviceEntity,
   options?: RequestInit,
-): Promise<EdgeHostDevicesCreateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesCreateUrl(), {
+): Promise<edgeHostDevicesCreateResponse> => {
+  const res = await fetch(getEdgeHostDevicesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceEntity),
+    body: JSON.stringify(edgeHostDeviceEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesCreateResponse["data"] = body
+  const data: edgeHostDevicesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -80,26 +80,26 @@ export const EdgeHostDevicesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesCreateResponse;
+  } as edgeHostDevicesCreateResponse;
 };
 
 /**
  * @summary Retrieves a list of edge hosts metadata matching the filter condition
  */
-export type EdgeHostsMetadataQuickFilterGetResponse200 = {
+export type edgeHostsMetadataQuickFilterGetResponse200 = {
   data: EdgeHostsMeta;
   status: 200;
 };
 
-export type EdgeHostsMetadataQuickFilterGetResponseComposite =
-  EdgeHostsMetadataQuickFilterGetResponse200;
+export type edgeHostsMetadataQuickFilterGetResponseComposite =
+  edgeHostsMetadataQuickFilterGetResponse200;
 
-export type EdgeHostsMetadataQuickFilterGetResponse =
-  EdgeHostsMetadataQuickFilterGetResponseComposite & {
+export type edgeHostsMetadataQuickFilterGetResponse =
+  edgeHostsMetadataQuickFilterGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostsMetadataQuickFilterGetUrl = (
+export const getEdgeHostsMetadataQuickFilterGetUrl = (
   params?: EdgeHostsMetadataQuickFilterGetParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -117,17 +117,17 @@ export const getV1EdgeHostsMetadataQuickFilterGetUrl = (
     : `https://api.spectrocloud.com/v1/edgehosts/metadata`;
 };
 
-export const EdgeHostsMetadataQuickFilterGet = async (
+export const edgeHostsMetadataQuickFilterGet = async (
   params?: EdgeHostsMetadataQuickFilterGetParams,
   options?: RequestInit,
-): Promise<EdgeHostsMetadataQuickFilterGetResponse> => {
-  const res = await fetch(getV1EdgeHostsMetadataQuickFilterGetUrl(params), {
+): Promise<edgeHostsMetadataQuickFilterGetResponse> => {
+  const res = await fetch(getEdgeHostsMetadataQuickFilterGetUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostsMetadataQuickFilterGetResponse["data"] = body
+  const data: edgeHostsMetadataQuickFilterGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -135,42 +135,42 @@ export const EdgeHostsMetadataQuickFilterGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostsMetadataQuickFilterGetResponse;
+  } as edgeHostsMetadataQuickFilterGetResponse;
 };
 
 /**
  * @summary Registers the edge host device
  */
-export type EdgeHostDevicesRegisterResponse200 = {
+export type edgeHostDevicesRegisterResponse200 = {
   data: EdgeHostDevice;
   status: 200;
 };
 
-export type EdgeHostDevicesRegisterResponseComposite =
-  EdgeHostDevicesRegisterResponse200;
+export type edgeHostDevicesRegisterResponseComposite =
+  edgeHostDevicesRegisterResponse200;
 
-export type EdgeHostDevicesRegisterResponse =
-  EdgeHostDevicesRegisterResponseComposite & {
+export type edgeHostDevicesRegisterResponse =
+  edgeHostDevicesRegisterResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesRegisterUrl = () => {
+export const getEdgeHostDevicesRegisterUrl = () => {
   return `https://api.spectrocloud.com/v1/edgehosts/register`;
 };
 
-export const EdgeHostDevicesRegister = async (
-  EdgeHostDeviceBody: EdgeHostDeviceBody,
+export const edgeHostDevicesRegister = async (
+  v1EdgeHostDeviceBody: V1EdgeHostDeviceBody,
   options?: RequestInit,
-): Promise<EdgeHostDevicesRegisterResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesRegisterUrl(), {
+): Promise<edgeHostDevicesRegisterResponse> => {
+  const res = await fetch(getEdgeHostDevicesRegisterUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceBody),
+    body: JSON.stringify(v1EdgeHostDeviceBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesRegisterResponse["data"] = body
+  const data: edgeHostDevicesRegisterResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -178,151 +178,151 @@ export const EdgeHostDevicesRegister = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesRegisterResponse;
+  } as edgeHostDevicesRegisterResponse;
 };
 
 /**
  * @summary Retrieves a list of edge hosts tags
  */
-export type EdgeHostsTagsGetResponse200 = {
+export type edgeHostsTagsGetResponse200 = {
   data: EdgeHostsTags;
   status: 200;
 };
 
-export type EdgeHostsTagsGetResponseComposite = EdgeHostsTagsGetResponse200;
+export type edgeHostsTagsGetResponseComposite = edgeHostsTagsGetResponse200;
 
-export type EdgeHostsTagsGetResponse = EdgeHostsTagsGetResponseComposite & {
+export type edgeHostsTagsGetResponse = edgeHostsTagsGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1EdgeHostsTagsGetUrl = () => {
+export const getEdgeHostsTagsGetUrl = () => {
   return `https://api.spectrocloud.com/v1/edgehosts/tags`;
 };
 
-export const EdgeHostsTagsGet = async (
+export const edgeHostsTagsGet = async (
   options?: RequestInit,
-): Promise<EdgeHostsTagsGetResponse> => {
-  const res = await fetch(getV1EdgeHostsTagsGetUrl(), {
+): Promise<edgeHostsTagsGetResponse> => {
+  const res = await fetch(getEdgeHostsTagsGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostsTagsGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: edgeHostsTagsGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostsTagsGetResponse;
+  } as edgeHostsTagsGetResponse;
 };
 
 /**
  * @summary Retrieves a list of edge tokens
  */
-export type EdgeTokensListResponse200 = {
+export type edgeTokensListResponse200 = {
   data: EdgeTokens;
   status: 200;
 };
 
-export type EdgeTokensListResponseComposite = EdgeTokensListResponse200;
+export type edgeTokensListResponseComposite = edgeTokensListResponse200;
 
-export type EdgeTokensListResponse = EdgeTokensListResponseComposite & {
+export type edgeTokensListResponse = edgeTokensListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1EdgeTokensListUrl = () => {
+export const getEdgeTokensListUrl = () => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens`;
 };
 
-export const EdgeTokensList = async (
+export const edgeTokensList = async (
   options?: RequestInit,
-): Promise<EdgeTokensListResponse> => {
-  const res = await fetch(getV1EdgeTokensListUrl(), {
+): Promise<edgeTokensListResponse> => {
+  const res = await fetch(getEdgeTokensListUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: edgeTokensListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensListResponse;
+  } as edgeTokensListResponse;
 };
 
 /**
  * @summary Create the edge token
  */
-export type EdgeTokensCreateResponse201 = {
+export type edgeTokensCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type EdgeTokensCreateResponseComposite = EdgeTokensCreateResponse201;
+export type edgeTokensCreateResponseComposite = edgeTokensCreateResponse201;
 
-export type EdgeTokensCreateResponse = EdgeTokensCreateResponseComposite & {
+export type edgeTokensCreateResponse = edgeTokensCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1EdgeTokensCreateUrl = () => {
+export const getEdgeTokensCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens`;
 };
 
-export const EdgeTokensCreate = async (
-  EdgeTokenEntity: EdgeTokenEntity,
+export const edgeTokensCreate = async (
+  edgeTokenEntity: EdgeTokenEntity,
   options?: RequestInit,
-): Promise<EdgeTokensCreateResponse> => {
-  const res = await fetch(getV1EdgeTokensCreateUrl(), {
+): Promise<edgeTokensCreateResponse> => {
+  const res = await fetch(getEdgeTokensCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeTokenEntity),
+    body: JSON.stringify(edgeTokenEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: edgeTokensCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensCreateResponse;
+  } as edgeTokensCreateResponse;
 };
 
 /**
  * @summary Deletes the specified edge token
  */
-export type EdgeTokensUidDeleteResponse204 = {
+export type edgeTokensUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeTokensUidDeleteResponseComposite =
-  EdgeTokensUidDeleteResponse204;
+export type edgeTokensUidDeleteResponseComposite =
+  edgeTokensUidDeleteResponse204;
 
-export type EdgeTokensUidDeleteResponse =
-  EdgeTokensUidDeleteResponseComposite & {
+export type edgeTokensUidDeleteResponse =
+  edgeTokensUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeTokensUidDeleteUrl = (uid: string) => {
+export const getEdgeTokensUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`;
 };
 
-export const EdgeTokensUidDelete = async (
+export const edgeTokensUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeTokensUidDeleteResponse> => {
-  const res = await fetch(getV1EdgeTokensUidDeleteUrl(uid), {
+): Promise<edgeTokensUidDeleteResponse> => {
+  const res = await fetch(getEdgeTokensUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensUidDeleteResponse["data"] = body
+  const data: edgeTokensUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -330,80 +330,80 @@ export const EdgeTokensUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensUidDeleteResponse;
+  } as edgeTokensUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified edge token
  */
-export type EdgeTokensUidGetResponse200 = {
+export type edgeTokensUidGetResponse200 = {
   data: EdgeToken;
   status: 200;
 };
 
-export type EdgeTokensUidGetResponseComposite = EdgeTokensUidGetResponse200;
+export type edgeTokensUidGetResponseComposite = edgeTokensUidGetResponse200;
 
-export type EdgeTokensUidGetResponse = EdgeTokensUidGetResponseComposite & {
+export type edgeTokensUidGetResponse = edgeTokensUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1EdgeTokensUidGetUrl = (uid: string) => {
+export const getEdgeTokensUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`;
 };
 
-export const EdgeTokensUidGet = async (
+export const edgeTokensUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeTokensUidGetResponse> => {
-  const res = await fetch(getV1EdgeTokensUidGetUrl(uid), {
+): Promise<edgeTokensUidGetResponse> => {
+  const res = await fetch(getEdgeTokensUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: edgeTokensUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensUidGetResponse;
+  } as edgeTokensUidGetResponse;
 };
 
 /**
  * @summary Updates the specified edge token
  */
-export type EdgeTokensUidUpdateResponse204 = {
+export type edgeTokensUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeTokensUidUpdateResponseComposite =
-  EdgeTokensUidUpdateResponse204;
+export type edgeTokensUidUpdateResponseComposite =
+  edgeTokensUidUpdateResponse204;
 
-export type EdgeTokensUidUpdateResponse =
-  EdgeTokensUidUpdateResponseComposite & {
+export type edgeTokensUidUpdateResponse =
+  edgeTokensUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeTokensUidUpdateUrl = (uid: string) => {
+export const getEdgeTokensUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`;
 };
 
-export const EdgeTokensUidUpdate = async (
+export const edgeTokensUidUpdate = async (
   uid: string,
-  EdgeTokenUpdate: EdgeTokenUpdate,
+  edgeTokenUpdate: EdgeTokenUpdate,
   options?: RequestInit,
-): Promise<EdgeTokensUidUpdateResponse> => {
-  const res = await fetch(getV1EdgeTokensUidUpdateUrl(uid), {
+): Promise<edgeTokensUidUpdateResponse> => {
+  const res = await fetch(getEdgeTokensUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeTokenUpdate),
+    body: JSON.stringify(edgeTokenUpdate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensUidUpdateResponse["data"] = body
+  const data: edgeTokensUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -411,80 +411,80 @@ export const EdgeTokensUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensUidUpdateResponse;
+  } as edgeTokensUidUpdateResponse;
 };
 
 /**
  * @summary Revoke or re-activate the edge token access
  */
-export type EdgeTokensUidStateResponse204 = {
+export type edgeTokensUidStateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeTokensUidStateResponseComposite = EdgeTokensUidStateResponse204;
+export type edgeTokensUidStateResponseComposite = edgeTokensUidStateResponse204;
 
-export type EdgeTokensUidStateResponse = EdgeTokensUidStateResponseComposite & {
+export type edgeTokensUidStateResponse = edgeTokensUidStateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1EdgeTokensUidStateUrl = (uid: string) => {
+export const getEdgeTokensUidStateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}/state`;
 };
 
-export const EdgeTokensUidState = async (
+export const edgeTokensUidState = async (
   uid: string,
-  EdgeTokenActiveState: EdgeTokenActiveState,
+  edgeTokenActiveState: EdgeTokenActiveState,
   options?: RequestInit,
-): Promise<EdgeTokensUidStateResponse> => {
-  const res = await fetch(getV1EdgeTokensUidStateUrl(uid), {
+): Promise<edgeTokensUidStateResponse> => {
+  const res = await fetch(getEdgeTokensUidStateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeTokenActiveState),
+    body: JSON.stringify(edgeTokenActiveState),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeTokensUidStateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: edgeTokensUidStateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeTokensUidStateResponse;
+  } as edgeTokensUidStateResponse;
 };
 
 /**
  * @summary Deletes the specified edge host device
  */
-export type EdgeHostDevicesUidDeleteResponse204 = {
+export type edgeHostDevicesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidDeleteResponseComposite =
-  EdgeHostDevicesUidDeleteResponse204;
+export type edgeHostDevicesUidDeleteResponseComposite =
+  edgeHostDevicesUidDeleteResponse204;
 
-export type EdgeHostDevicesUidDeleteResponse =
-  EdgeHostDevicesUidDeleteResponseComposite & {
+export type edgeHostDevicesUidDeleteResponse =
+  edgeHostDevicesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidDeleteUrl = (uid: string) => {
+export const getEdgeHostDevicesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}`;
 };
 
-export const EdgeHostDevicesUidDelete = async (
+export const edgeHostDevicesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidDeleteResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidDeleteUrl(uid), {
+): Promise<edgeHostDevicesUidDeleteResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidDeleteResponse["data"] = body
+  const data: edgeHostDevicesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -492,26 +492,26 @@ export const EdgeHostDevicesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidDeleteResponse;
+  } as edgeHostDevicesUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified edge host device
  */
-export type EdgeHostDevicesUidGetResponse200 = {
+export type edgeHostDevicesUidGetResponse200 = {
   data: EdgeHostDevice;
   status: 200;
 };
 
-export type EdgeHostDevicesUidGetResponseComposite =
-  EdgeHostDevicesUidGetResponse200;
+export type edgeHostDevicesUidGetResponseComposite =
+  edgeHostDevicesUidGetResponse200;
 
-export type EdgeHostDevicesUidGetResponse =
-  EdgeHostDevicesUidGetResponseComposite & {
+export type edgeHostDevicesUidGetResponse =
+  edgeHostDevicesUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidGetUrl = (
+export const getEdgeHostDevicesUidGetUrl = (
   uid: string,
   params?: EdgeHostDevicesUidGetParams,
 ) => {
@@ -530,18 +530,18 @@ export const getV1EdgeHostDevicesUidGetUrl = (
     : `https://api.spectrocloud.com/v1/edgehosts/${uid}`;
 };
 
-export const EdgeHostDevicesUidGet = async (
+export const edgeHostDevicesUidGet = async (
   uid: string,
   params?: EdgeHostDevicesUidGetParams,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidGetResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidGetUrl(uid, params), {
+): Promise<edgeHostDevicesUidGetResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidGetResponse["data"] = body
+  const data: edgeHostDevicesUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -549,43 +549,43 @@ export const EdgeHostDevicesUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidGetResponse;
+  } as edgeHostDevicesUidGetResponse;
 };
 
 /**
  * @summary Updates the specified edge host device
  */
-export type EdgeHostDevicesUidUpdateResponse204 = {
+export type edgeHostDevicesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidUpdateResponseComposite =
-  EdgeHostDevicesUidUpdateResponse204;
+export type edgeHostDevicesUidUpdateResponseComposite =
+  edgeHostDevicesUidUpdateResponse204;
 
-export type EdgeHostDevicesUidUpdateResponse =
-  EdgeHostDevicesUidUpdateResponseComposite & {
+export type edgeHostDevicesUidUpdateResponse =
+  edgeHostDevicesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}`;
 };
 
-export const EdgeHostDevicesUidUpdate = async (
+export const edgeHostDevicesUidUpdate = async (
   uid: string,
-  EdgeHostDeviceBody: EdgeHostDeviceBody,
+  v1EdgeHostDeviceBody: V1EdgeHostDeviceBody,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidUpdateUrl(uid), {
+): Promise<edgeHostDevicesUidUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceBody),
+    body: JSON.stringify(v1EdgeHostDeviceBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -593,40 +593,40 @@ export const EdgeHostDevicesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidUpdateResponse;
+  } as edgeHostDevicesUidUpdateResponse;
 };
 
 /**
  * @summary Deassociate the clusters to the edge host
  */
-export type EdgeHostDevicesUidClusterDeassociateResponse204 = {
+export type edgeHostDevicesUidClusterDeassociateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidClusterDeassociateResponseComposite =
-  EdgeHostDevicesUidClusterDeassociateResponse204;
+export type edgeHostDevicesUidClusterDeassociateResponseComposite =
+  edgeHostDevicesUidClusterDeassociateResponse204;
 
-export type EdgeHostDevicesUidClusterDeassociateResponse =
-  EdgeHostDevicesUidClusterDeassociateResponseComposite & {
+export type edgeHostDevicesUidClusterDeassociateResponse =
+  edgeHostDevicesUidClusterDeassociateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidClusterDeassociateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidClusterDeassociateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/cluster/associate`;
 };
 
-export const EdgeHostDevicesUidClusterDeassociate = async (
+export const edgeHostDevicesUidClusterDeassociate = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidClusterDeassociateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidClusterDeassociateUrl(uid), {
+): Promise<edgeHostDevicesUidClusterDeassociateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidClusterDeassociateUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidClusterDeassociateResponse["data"] = body
+  const data: edgeHostDevicesUidClusterDeassociateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -634,43 +634,43 @@ export const EdgeHostDevicesUidClusterDeassociate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidClusterDeassociateResponse;
+  } as edgeHostDevicesUidClusterDeassociateResponse;
 };
 
 /**
  * @summary Associate the clusters to the edge host
  */
-export type EdgeHostDevicesUidClusterAssociateResponse204 = {
+export type edgeHostDevicesUidClusterAssociateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidClusterAssociateResponseComposite =
-  EdgeHostDevicesUidClusterAssociateResponse204;
+export type edgeHostDevicesUidClusterAssociateResponseComposite =
+  edgeHostDevicesUidClusterAssociateResponse204;
 
-export type EdgeHostDevicesUidClusterAssociateResponse =
-  EdgeHostDevicesUidClusterAssociateResponseComposite & {
+export type edgeHostDevicesUidClusterAssociateResponse =
+  edgeHostDevicesUidClusterAssociateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidClusterAssociateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidClusterAssociateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/cluster/associate`;
 };
 
-export const EdgeHostDevicesUidClusterAssociate = async (
+export const edgeHostDevicesUidClusterAssociate = async (
   uid: string,
-  EdgeHostClusterEntity: EdgeHostClusterEntity,
+  edgeHostClusterEntity: EdgeHostClusterEntity,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidClusterAssociateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidClusterAssociateUrl(uid), {
+): Promise<edgeHostDevicesUidClusterAssociateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidClusterAssociateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostClusterEntity),
+    body: JSON.stringify(edgeHostClusterEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidClusterAssociateResponse["data"] = body
+  const data: edgeHostDevicesUidClusterAssociateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -678,40 +678,40 @@ export const EdgeHostDevicesUidClusterAssociate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidClusterAssociateResponse;
+  } as edgeHostDevicesUidClusterAssociateResponse;
 };
 
 /**
  * @summary Get the specified edge host device configuration
  */
-export type EdgeHostDevicesUidConfigGetResponse200 = {
+export type edgeHostDevicesUidConfigGetResponse200 = {
   data: EdgeHostConfig;
   status: 200;
 };
 
-export type EdgeHostDevicesUidConfigGetResponseComposite =
-  EdgeHostDevicesUidConfigGetResponse200;
+export type edgeHostDevicesUidConfigGetResponseComposite =
+  edgeHostDevicesUidConfigGetResponse200;
 
-export type EdgeHostDevicesUidConfigGetResponse =
-  EdgeHostDevicesUidConfigGetResponseComposite & {
+export type edgeHostDevicesUidConfigGetResponse =
+  edgeHostDevicesUidConfigGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidConfigGetUrl = (uid: string) => {
+export const getEdgeHostDevicesUidConfigGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/config`;
 };
 
-export const EdgeHostDevicesUidConfigGet = async (
+export const edgeHostDevicesUidConfigGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidConfigGetResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidConfigGetUrl(uid), {
+): Promise<edgeHostDevicesUidConfigGetResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidConfigGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidConfigGetResponse["data"] = body
+  const data: edgeHostDevicesUidConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -719,43 +719,43 @@ export const EdgeHostDevicesUidConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidConfigGetResponse;
+  } as edgeHostDevicesUidConfigGetResponse;
 };
 
 /**
  * @summary Updates the edge host health
  */
-export type EdgeHostDevicesHealthUpdateResponse204 = {
+export type edgeHostDevicesHealthUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesHealthUpdateResponseComposite =
-  EdgeHostDevicesHealthUpdateResponse204;
+export type edgeHostDevicesHealthUpdateResponseComposite =
+  edgeHostDevicesHealthUpdateResponse204;
 
-export type EdgeHostDevicesHealthUpdateResponse =
-  EdgeHostDevicesHealthUpdateResponseComposite & {
+export type edgeHostDevicesHealthUpdateResponse =
+  edgeHostDevicesHealthUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesHealthUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesHealthUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/health`;
 };
 
-export const EdgeHostDevicesHealthUpdate = async (
+export const edgeHostDevicesHealthUpdate = async (
   uid: string,
-  EdgeHostHealth: EdgeHostHealth,
+  edgeHostHealth: EdgeHostHealth,
   options?: RequestInit,
-): Promise<EdgeHostDevicesHealthUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesHealthUpdateUrl(uid), {
+): Promise<edgeHostDevicesHealthUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesHealthUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostHealth),
+    body: JSON.stringify(edgeHostHealth),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesHealthUpdateResponse["data"] = body
+  const data: edgeHostDevicesHealthUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -763,43 +763,43 @@ export const EdgeHostDevicesHealthUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesHealthUpdateResponse;
+  } as edgeHostDevicesHealthUpdateResponse;
 };
 
 /**
  * @summary Update the specified edge host device host check sum
  */
-export type EdgeHostDeviceHostCheckSumUpdateResponse204 = {
+export type edgeHostDeviceHostCheckSumUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDeviceHostCheckSumUpdateResponseComposite =
-  EdgeHostDeviceHostCheckSumUpdateResponse204;
+export type edgeHostDeviceHostCheckSumUpdateResponseComposite =
+  edgeHostDeviceHostCheckSumUpdateResponse204;
 
-export type EdgeHostDeviceHostCheckSumUpdateResponse =
-  EdgeHostDeviceHostCheckSumUpdateResponseComposite & {
+export type edgeHostDeviceHostCheckSumUpdateResponse =
+  edgeHostDeviceHostCheckSumUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDeviceHostCheckSumUpdateUrl = (uid: string) => {
+export const getEdgeHostDeviceHostCheckSumUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/hostCheckSum`;
 };
 
-export const EdgeHostDeviceHostCheckSumUpdate = async (
+export const edgeHostDeviceHostCheckSumUpdate = async (
   uid: string,
-  EdgeHostDeviceHostCheckSum: EdgeHostDeviceHostCheckSum,
+  edgeHostDeviceHostCheckSum: EdgeHostDeviceHostCheckSum,
   options?: RequestInit,
-): Promise<EdgeHostDeviceHostCheckSumUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDeviceHostCheckSumUpdateUrl(uid), {
+): Promise<edgeHostDeviceHostCheckSumUpdateResponse> => {
+  const res = await fetch(getEdgeHostDeviceHostCheckSumUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceHostCheckSum),
+    body: JSON.stringify(edgeHostDeviceHostCheckSum),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDeviceHostCheckSumUpdateResponse["data"] = body
+  const data: edgeHostDeviceHostCheckSumUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -807,43 +807,43 @@ export const EdgeHostDeviceHostCheckSumUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDeviceHostCheckSumUpdateResponse;
+  } as edgeHostDeviceHostCheckSumUpdateResponse;
 };
 
 /**
  * @summary Update the specified edge host device host pairing key
  */
-export type EdgeHostDeviceHostPairingKeyUpdateResponse204 = {
+export type edgeHostDeviceHostPairingKeyUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDeviceHostPairingKeyUpdateResponseComposite =
-  EdgeHostDeviceHostPairingKeyUpdateResponse204;
+export type edgeHostDeviceHostPairingKeyUpdateResponseComposite =
+  edgeHostDeviceHostPairingKeyUpdateResponse204;
 
-export type EdgeHostDeviceHostPairingKeyUpdateResponse =
-  EdgeHostDeviceHostPairingKeyUpdateResponseComposite & {
+export type edgeHostDeviceHostPairingKeyUpdateResponse =
+  edgeHostDeviceHostPairingKeyUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDeviceHostPairingKeyUpdateUrl = (uid: string) => {
+export const getEdgeHostDeviceHostPairingKeyUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/hostPairingKey`;
 };
 
-export const EdgeHostDeviceHostPairingKeyUpdate = async (
+export const edgeHostDeviceHostPairingKeyUpdate = async (
   uid: string,
-  EdgeHostDeviceHostPairingKey: EdgeHostDeviceHostPairingKey,
+  edgeHostDeviceHostPairingKey: EdgeHostDeviceHostPairingKey,
   options?: RequestInit,
-): Promise<EdgeHostDeviceHostPairingKeyUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDeviceHostPairingKeyUpdateUrl(uid), {
+): Promise<edgeHostDeviceHostPairingKeyUpdateResponse> => {
+  const res = await fetch(getEdgeHostDeviceHostPairingKeyUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceHostPairingKey),
+    body: JSON.stringify(edgeHostDeviceHostPairingKey),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDeviceHostPairingKeyUpdateResponse["data"] = body
+  const data: edgeHostDeviceHostPairingKeyUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -851,43 +851,43 @@ export const EdgeHostDeviceHostPairingKeyUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDeviceHostPairingKeyUpdateResponse;
+  } as edgeHostDeviceHostPairingKeyUpdateResponse;
 };
 
 /**
  * @summary Updates the specified edge host device meta
  */
-export type EdgeHostDevicesUidMetaUpdateResponse204 = {
+export type edgeHostDevicesUidMetaUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidMetaUpdateResponseComposite =
-  EdgeHostDevicesUidMetaUpdateResponse204;
+export type edgeHostDevicesUidMetaUpdateResponseComposite =
+  edgeHostDevicesUidMetaUpdateResponse204;
 
-export type EdgeHostDevicesUidMetaUpdateResponse =
-  EdgeHostDevicesUidMetaUpdateResponseComposite & {
+export type edgeHostDevicesUidMetaUpdateResponse =
+  edgeHostDevicesUidMetaUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidMetaUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidMetaUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/meta`;
 };
 
-export const EdgeHostDevicesUidMetaUpdate = async (
+export const edgeHostDevicesUidMetaUpdate = async (
   uid: string,
-  EdgeHostDeviceMetaUpdateEntity: EdgeHostDeviceMetaUpdateEntity,
+  edgeHostDeviceMetaUpdateEntity: EdgeHostDeviceMetaUpdateEntity,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidMetaUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidMetaUpdateUrl(uid), {
+): Promise<edgeHostDevicesUidMetaUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidMetaUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EdgeHostDeviceMetaUpdateEntity),
+    body: JSON.stringify(edgeHostDeviceMetaUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidMetaUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidMetaUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -895,26 +895,26 @@ export const EdgeHostDevicesUidMetaUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidMetaUpdateResponse;
+  } as edgeHostDevicesUidMetaUpdateResponse;
 };
 
 /**
  * @summary Returns the specified edge host's manifest
  */
-export type EdgeHostDevicesUidPackManifestsUidGetResponse200 = {
+export type edgeHostDevicesUidPackManifestsUidGetResponse200 = {
   data: Manifest;
   status: 200;
 };
 
-export type EdgeHostDevicesUidPackManifestsUidGetResponseComposite =
-  EdgeHostDevicesUidPackManifestsUidGetResponse200;
+export type edgeHostDevicesUidPackManifestsUidGetResponseComposite =
+  edgeHostDevicesUidPackManifestsUidGetResponse200;
 
-export type EdgeHostDevicesUidPackManifestsUidGetResponse =
-  EdgeHostDevicesUidPackManifestsUidGetResponseComposite & {
+export type edgeHostDevicesUidPackManifestsUidGetResponse =
+  edgeHostDevicesUidPackManifestsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidPackManifestsUidGetUrl = (
+export const getEdgeHostDevicesUidPackManifestsUidGetUrl = (
   uid: string,
   manifestUid: string,
   params?: EdgeHostDevicesUidPackManifestsUidGetParams,
@@ -934,14 +934,14 @@ export const getV1EdgeHostDevicesUidPackManifestsUidGetUrl = (
     : `https://api.spectrocloud.com/v1/edgehosts/${uid}/pack/manifests/${manifestUid}`;
 };
 
-export const EdgeHostDevicesUidPackManifestsUidGet = async (
+export const edgeHostDevicesUidPackManifestsUidGet = async (
   uid: string,
   manifestUid: string,
   params?: EdgeHostDevicesUidPackManifestsUidGetParams,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidPackManifestsUidGetResponse> => {
+): Promise<edgeHostDevicesUidPackManifestsUidGetResponse> => {
   const res = await fetch(
-    getV1EdgeHostDevicesUidPackManifestsUidGetUrl(uid, manifestUid, params),
+    getEdgeHostDevicesUidPackManifestsUidGetUrl(uid, manifestUid, params),
     {
       ...options,
       method: "GET",
@@ -949,7 +949,7 @@ export const EdgeHostDevicesUidPackManifestsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidPackManifestsUidGetResponse["data"] = body
+  const data: edgeHostDevicesUidPackManifestsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -957,43 +957,43 @@ export const EdgeHostDevicesUidPackManifestsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidPackManifestsUidGetResponse;
+  } as edgeHostDevicesUidPackManifestsUidGetResponse;
 };
 
 /**
  * @summary Patch update specified edge host's packs status
  */
-export type EdgeHostDevicesUidPacksStatusPatchResponse204 = {
+export type edgeHostDevicesUidPacksStatusPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidPacksStatusPatchResponseComposite =
-  EdgeHostDevicesUidPacksStatusPatchResponse204;
+export type edgeHostDevicesUidPacksStatusPatchResponseComposite =
+  edgeHostDevicesUidPacksStatusPatchResponse204;
 
-export type EdgeHostDevicesUidPacksStatusPatchResponse =
-  EdgeHostDevicesUidPacksStatusPatchResponseComposite & {
+export type edgeHostDevicesUidPacksStatusPatchResponse =
+  edgeHostDevicesUidPacksStatusPatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidPacksStatusPatchUrl = (uid: string) => {
+export const getEdgeHostDevicesUidPacksStatusPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/packs/status`;
 };
 
-export const EdgeHostDevicesUidPacksStatusPatch = async (
+export const edgeHostDevicesUidPacksStatusPatch = async (
   uid: string,
-  SpectroClusterPacksStatusEntityBody: SpectroClusterPacksStatusEntityBody,
+  v1SpectroClusterPacksStatusEntityBody: V1SpectroClusterPacksStatusEntityBody,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidPacksStatusPatchResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidPacksStatusPatchUrl(uid), {
+): Promise<edgeHostDevicesUidPacksStatusPatchResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidPacksStatusPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterPacksStatusEntityBody),
+    body: JSON.stringify(v1SpectroClusterPacksStatusEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidPacksStatusPatchResponse["data"] = body
+  const data: edgeHostDevicesUidPacksStatusPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1001,26 +1001,26 @@ export const EdgeHostDevicesUidPacksStatusPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidPacksStatusPatchResponse;
+  } as edgeHostDevicesUidPacksStatusPatchResponse;
 };
 
 /**
  * @summary Returns the associated profiles of a specified edge host device
  */
-export type EdgeHostDevicesUidProfilesGetResponse200 = {
+export type edgeHostDevicesUidProfilesGetResponse200 = {
   data: SpectroClusterProfileList;
   status: 200;
 };
 
-export type EdgeHostDevicesUidProfilesGetResponseComposite =
-  EdgeHostDevicesUidProfilesGetResponse200;
+export type edgeHostDevicesUidProfilesGetResponseComposite =
+  edgeHostDevicesUidProfilesGetResponse200;
 
-export type EdgeHostDevicesUidProfilesGetResponse =
-  EdgeHostDevicesUidProfilesGetResponseComposite & {
+export type edgeHostDevicesUidProfilesGetResponse =
+  edgeHostDevicesUidProfilesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidProfilesGetUrl = (
+export const getEdgeHostDevicesUidProfilesGetUrl = (
   uid: string,
   params?: EdgeHostDevicesUidProfilesGetParams,
 ) => {
@@ -1039,18 +1039,18 @@ export const getV1EdgeHostDevicesUidProfilesGetUrl = (
     : `https://api.spectrocloud.com/v1/edgehosts/${uid}/profiles`;
 };
 
-export const EdgeHostDevicesUidProfilesGet = async (
+export const edgeHostDevicesUidProfilesGet = async (
   uid: string,
   params?: EdgeHostDevicesUidProfilesGetParams,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidProfilesGetResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidProfilesGetUrl(uid, params), {
+): Promise<edgeHostDevicesUidProfilesGetResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidProfilesGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidProfilesGetResponse["data"] = body
+  const data: edgeHostDevicesUidProfilesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1058,43 +1058,43 @@ export const EdgeHostDevicesUidProfilesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidProfilesGetResponse;
+  } as edgeHostDevicesUidProfilesGetResponse;
 };
 
 /**
  * @summary Associate cluster profiles to the specified edge host device
  */
-export type EdgeHostDevicesUidProfilesUpdateResponse204 = {
+export type edgeHostDevicesUidProfilesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidProfilesUpdateResponseComposite =
-  EdgeHostDevicesUidProfilesUpdateResponse204;
+export type edgeHostDevicesUidProfilesUpdateResponseComposite =
+  edgeHostDevicesUidProfilesUpdateResponse204;
 
-export type EdgeHostDevicesUidProfilesUpdateResponse =
-  EdgeHostDevicesUidProfilesUpdateResponseComposite & {
+export type edgeHostDevicesUidProfilesUpdateResponse =
+  edgeHostDevicesUidProfilesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidProfilesUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidProfilesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/profiles`;
 };
 
-export const EdgeHostDevicesUidProfilesUpdate = async (
+export const edgeHostDevicesUidProfilesUpdate = async (
   uid: string,
-  SpectroClusterProfilesBody: SpectroClusterProfilesBody,
+  v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidProfilesUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidProfilesUpdateUrl(uid), {
+): Promise<edgeHostDevicesUidProfilesUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidProfilesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterProfilesBody),
+    body: JSON.stringify(v1SpectroClusterProfilesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidProfilesUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidProfilesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1102,77 +1102,81 @@ export const EdgeHostDevicesUidProfilesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidProfilesUpdateResponse;
+  } as edgeHostDevicesUidProfilesUpdateResponse;
 };
 
 /**
  * @summary Reset the cluster through edge host
  */
-export type EdgeHostsUidResetResponse204 = {
+export type v1EdgeHostsUidResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostsUidResetResponseComposite = EdgeHostsUidResetResponse204;
+export type v1EdgeHostsUidResetResponseComposite =
+  v1EdgeHostsUidResetResponse204;
 
-export type EdgeHostsUidResetResponse = EdgeHostsUidResetResponseComposite & {
-  headers: Headers;
-};
+export type v1EdgeHostsUidResetResponse =
+  v1EdgeHostsUidResetResponseComposite & {
+    headers: Headers;
+  };
 
 export const getV1EdgeHostsUidResetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/reset`;
 };
 
-export const EdgeHostsUidReset = async (
+export const v1EdgeHostsUidReset = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeHostsUidResetResponse> => {
+): Promise<v1EdgeHostsUidResetResponse> => {
   const res = await fetch(getV1EdgeHostsUidResetUrl(uid), {
     ...options,
     method: "PUT",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostsUidResetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1EdgeHostsUidResetResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostsUidResetResponse;
+  } as v1EdgeHostsUidResetResponse;
 };
 
 /**
  * @summary Download the specified edge host device spc
  */
-export type EdgeHostDevicesUidSpcDownloadResponse200 = {
+export type edgeHostDevicesUidSpcDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type EdgeHostDevicesUidSpcDownloadResponseComposite =
-  EdgeHostDevicesUidSpcDownloadResponse200;
+export type edgeHostDevicesUidSpcDownloadResponseComposite =
+  edgeHostDevicesUidSpcDownloadResponse200;
 
-export type EdgeHostDevicesUidSpcDownloadResponse =
-  EdgeHostDevicesUidSpcDownloadResponseComposite & {
+export type edgeHostDevicesUidSpcDownloadResponse =
+  edgeHostDevicesUidSpcDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidSpcDownloadUrl = (uid: string) => {
+export const getEdgeHostDevicesUidSpcDownloadUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/spc/download`;
 };
 
-export const EdgeHostDevicesUidSpcDownload = async (
+export const edgeHostDevicesUidSpcDownload = async (
   uid: string,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidSpcDownloadResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidSpcDownloadUrl(uid), {
+): Promise<edgeHostDevicesUidSpcDownloadResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidSpcDownloadUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidSpcDownloadResponse["data"] = body
+  const data: edgeHostDevicesUidSpcDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1180,43 +1184,43 @@ export const EdgeHostDevicesUidSpcDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidSpcDownloadResponse;
+  } as edgeHostDevicesUidSpcDownloadResponse;
 };
 
 /**
  * @summary Updates the specified edge host device tunnel configuration
  */
-export type EdgeHostDevicesUidTunnelConfigUpdateResponse204 = {
+export type edgeHostDevicesUidTunnelConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidTunnelConfigUpdateResponseComposite =
-  EdgeHostDevicesUidTunnelConfigUpdateResponse204;
+export type edgeHostDevicesUidTunnelConfigUpdateResponseComposite =
+  edgeHostDevicesUidTunnelConfigUpdateResponse204;
 
-export type EdgeHostDevicesUidTunnelConfigUpdateResponse =
-  EdgeHostDevicesUidTunnelConfigUpdateResponseComposite & {
+export type edgeHostDevicesUidTunnelConfigUpdateResponse =
+  edgeHostDevicesUidTunnelConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidTunnelConfigUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidTunnelConfigUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/tunnelConfig`;
 };
 
-export const EdgeHostDevicesUidTunnelConfigUpdate = async (
+export const edgeHostDevicesUidTunnelConfigUpdate = async (
   uid: string,
-  SpectroTunnelConfig: SpectroTunnelConfig,
+  spectroTunnelConfig: SpectroTunnelConfig,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidTunnelConfigUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidTunnelConfigUpdateUrl(uid), {
+): Promise<edgeHostDevicesUidTunnelConfigUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidTunnelConfigUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroTunnelConfig),
+    body: JSON.stringify(spectroTunnelConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidTunnelConfigUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidTunnelConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1224,43 +1228,43 @@ export const EdgeHostDevicesUidTunnelConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidTunnelConfigUpdateResponse;
+  } as edgeHostDevicesUidTunnelConfigUpdateResponse;
 };
 
 /**
  * @summary Updates the edge host tunnel status
  */
-export type EdgeHostDevicesUidTunnelStatusUpdateResponse204 = {
+export type edgeHostDevicesUidTunnelStatusUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidTunnelStatusUpdateResponseComposite =
-  EdgeHostDevicesUidTunnelStatusUpdateResponse204;
+export type edgeHostDevicesUidTunnelStatusUpdateResponseComposite =
+  edgeHostDevicesUidTunnelStatusUpdateResponse204;
 
-export type EdgeHostDevicesUidTunnelStatusUpdateResponse =
-  EdgeHostDevicesUidTunnelStatusUpdateResponseComposite & {
+export type edgeHostDevicesUidTunnelStatusUpdateResponse =
+  edgeHostDevicesUidTunnelStatusUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidTunnelStatusUpdateUrl = (uid: string) => {
+export const getEdgeHostDevicesUidTunnelStatusUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/tunnelStatus`;
 };
 
-export const EdgeHostDevicesUidTunnelStatusUpdate = async (
+export const edgeHostDevicesUidTunnelStatusUpdate = async (
   uid: string,
-  SpectroTunnelStatus: SpectroTunnelStatus,
+  spectroTunnelStatus: SpectroTunnelStatus,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidTunnelStatusUpdateResponse> => {
-  const res = await fetch(getV1EdgeHostDevicesUidTunnelStatusUpdateUrl(uid), {
+): Promise<edgeHostDevicesUidTunnelStatusUpdateResponse> => {
+  const res = await fetch(getEdgeHostDevicesUidTunnelStatusUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroTunnelStatus),
+    body: JSON.stringify(spectroTunnelStatus),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidTunnelStatusUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidTunnelStatusUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1268,48 +1272,48 @@ export const EdgeHostDevicesUidTunnelStatusUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidTunnelStatusUpdateResponse;
+  } as edgeHostDevicesUidTunnelStatusUpdateResponse;
 };
 
 /**
  * @summary Updates the specified edge host device vsphere properties
  */
-export type EdgeHostDevicesUidVspherePropertiesUpdateResponse204 = {
+export type edgeHostDevicesUidVspherePropertiesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EdgeHostDevicesUidVspherePropertiesUpdateResponseComposite =
-  EdgeHostDevicesUidVspherePropertiesUpdateResponse204;
+export type edgeHostDevicesUidVspherePropertiesUpdateResponseComposite =
+  edgeHostDevicesUidVspherePropertiesUpdateResponse204;
 
-export type EdgeHostDevicesUidVspherePropertiesUpdateResponse =
-  EdgeHostDevicesUidVspherePropertiesUpdateResponseComposite & {
+export type edgeHostDevicesUidVspherePropertiesUpdateResponse =
+  edgeHostDevicesUidVspherePropertiesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EdgeHostDevicesUidVspherePropertiesUpdateUrl = (
+export const getEdgeHostDevicesUidVspherePropertiesUpdateUrl = (
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/edgehosts/${uid}/vsphere/properties`;
 };
 
-export const EdgeHostDevicesUidVspherePropertiesUpdate = async (
+export const edgeHostDevicesUidVspherePropertiesUpdate = async (
   uid: string,
-  EdgeHostVsphereCloudProperties: EdgeHostVsphereCloudProperties,
+  edgeHostVsphereCloudProperties: EdgeHostVsphereCloudProperties,
   options?: RequestInit,
-): Promise<EdgeHostDevicesUidVspherePropertiesUpdateResponse> => {
+): Promise<edgeHostDevicesUidVspherePropertiesUpdateResponse> => {
   const res = await fetch(
-    getV1EdgeHostDevicesUidVspherePropertiesUpdateUrl(uid),
+    getEdgeHostDevicesUidVspherePropertiesUpdateUrl(uid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(EdgeHostVsphereCloudProperties),
+      body: JSON.stringify(edgeHostVsphereCloudProperties),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EdgeHostDevicesUidVspherePropertiesUpdateResponse["data"] = body
+  const data: edgeHostDevicesUidVspherePropertiesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1317,5 +1321,5 @@ export const EdgeHostDevicesUidVspherePropertiesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EdgeHostDevicesUidVspherePropertiesUpdateResponse;
+  } as edgeHostDevicesUidVspherePropertiesUpdateResponse;
 };

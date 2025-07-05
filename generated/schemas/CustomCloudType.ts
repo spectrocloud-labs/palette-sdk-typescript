@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudCategory } from "./CloudCategory";
+import type { CloudCategory } from "./cloudCategory";
 
 export interface CustomCloudType {
   cloudCategory?: CloudCategory;

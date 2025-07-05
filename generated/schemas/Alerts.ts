@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Alert } from "./Alert";
+import type { Alert } from "./alert";
 
 export type Alerts = Alert[];

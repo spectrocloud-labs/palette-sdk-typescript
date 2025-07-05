@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { ResourceWorkloadFilter } from "./ResourceWorkloadFilter";
+import type { Time } from "./time";
+import type { ResourceWorkloadFilter } from "./resourceWorkloadFilter";
 
 /**
  * Resource usage summary filter

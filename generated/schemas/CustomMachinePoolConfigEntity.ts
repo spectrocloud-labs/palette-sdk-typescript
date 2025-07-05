@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachinePoolCloudConfigEntity } from "./CustomMachinePoolCloudConfigEntity";
-import type { CustomMachinePoolBaseConfigEntity } from "./CustomMachinePoolBaseConfigEntity";
+import type { CustomMachinePoolCloudConfigEntity } from "./customMachinePoolCloudConfigEntity";
+import type { CustomMachinePoolBaseConfigEntity } from "./customMachinePoolBaseConfigEntity";
 
 export interface CustomMachinePoolConfigEntity {
   cloudConfig: CustomMachinePoolCloudConfigEntity;

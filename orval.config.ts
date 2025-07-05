@@ -10,7 +10,7 @@ export default defineConfig({
     input: {
       target: "./api/palette-apis-spec-tagged.json",
       override: {
-        transformer: "./api/remove-duplicate-schema.js",
+        transformer: "./api/transformer.js",
       },
     },
     output: {
@@ -19,7 +19,6 @@ export default defineConfig({
       baseUrl: "https://api.spectrocloud.com",
       schemas: "./generated/schemas",
       mode: "tags-split",
-      namingConvention: "camelCase",
       prettier: true,
     },
   },

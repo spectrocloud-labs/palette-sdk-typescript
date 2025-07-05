@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeControlPlaneEndPointType } from "./EdgeNativeControlPlaneEndPointType";
+import type { EdgeNativeControlPlaneEndPointType } from "./edgeNativeControlPlaneEndPointType";
 
 export interface EdgeNativeControlPlaneEndPoint {
   /** DDNSSearchDomain is the search domain used for resolving IP addresses when the EndpointType is DDNS. This search domain is appended to the generated Hostname to obtain the complete DNS name for the endpoint. If Host is already a DDNS FQDN, DDNSSearchDomain is not required */

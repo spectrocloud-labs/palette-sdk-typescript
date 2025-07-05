@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { MaasMachineSpec } from "./MaasMachineSpec";
-import type { CloudMachineStatus } from "./CloudMachineStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { MaasMachineSpec } from "./maasMachineSpec";
+import type { CloudMachineStatus } from "./cloudMachineStatus";
 
 /**
  * Maas cloud VM definition

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { EcrRegistrySpec } from "./EcrRegistrySpec";
-import type { OciRegistryStatus } from "./OciRegistryStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { EcrRegistrySpec } from "./ecrRegistrySpec";
+import type { OciRegistryStatus } from "./ociRegistryStatus";
 
 /**
  * Ecr registry information

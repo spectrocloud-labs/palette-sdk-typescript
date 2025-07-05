@@ -18,113 +18,113 @@ import type {
 /**
  * @summary Returns the private gateway manifest link
  */
-export type PcgSelfHostedResponse200 = {
+export type pcgSelfHostedResponse200 = {
   data: PcgServiceKubectlCommands;
   status: 200;
 };
 
-export type PcgSelfHostedResponseComposite = PcgSelfHostedResponse200;
+export type pcgSelfHostedResponseComposite = pcgSelfHostedResponse200;
 
-export type PcgSelfHostedResponse = PcgSelfHostedResponseComposite & {
+export type pcgSelfHostedResponse = pcgSelfHostedResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PcgSelfHostedUrl = () => {
+export const getPcgSelfHostedUrl = () => {
   return `https://api.spectrocloud.com/v1/pcg/selfHosted`;
 };
 
-export const PcgSelfHosted = async (
-  PcgSelfHostedParams: PcgSelfHostedParams,
+export const pcgSelfHosted = async (
+  pcgSelfHostedParams: PcgSelfHostedParams,
   options?: RequestInit,
-): Promise<PcgSelfHostedResponse> => {
-  const res = await fetch(getV1PcgSelfHostedUrl(), {
+): Promise<pcgSelfHostedResponse> => {
+  const res = await fetch(getPcgSelfHostedUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PcgSelfHostedParams),
+    body: JSON.stringify(pcgSelfHostedParams),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PcgSelfHostedResponse["data"] = body ? JSON.parse(body) : {};
+  const data: pcgSelfHostedResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PcgSelfHostedResponse;
+  } as pcgSelfHostedResponse;
 };
 
 /**
  * @summary Registers the pcg
  */
-export type PcgUidRegisterResponse204 = {
+export type pcgUidRegisterResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PcgUidRegisterResponseComposite = PcgUidRegisterResponse204;
+export type pcgUidRegisterResponseComposite = pcgUidRegisterResponse204;
 
-export type PcgUidRegisterResponse = PcgUidRegisterResponseComposite & {
+export type pcgUidRegisterResponse = pcgUidRegisterResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PcgUidRegisterUrl = (uid: string) => {
+export const getPcgUidRegisterUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/pcg/${uid}/register`;
 };
 
-export const PcgUidRegister = async (
+export const pcgUidRegister = async (
   uid: string,
-  PairingCode: PairingCode,
+  pairingCode: PairingCode,
   options?: RequestInit,
-): Promise<PcgUidRegisterResponse> => {
-  const res = await fetch(getV1PcgUidRegisterUrl(uid), {
+): Promise<pcgUidRegisterResponse> => {
+  const res = await fetch(getPcgUidRegisterUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PairingCode),
+    body: JSON.stringify(pairingCode),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PcgUidRegisterResponse["data"] = body ? JSON.parse(body) : {};
+  const data: pcgUidRegisterResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PcgUidRegisterResponse;
+  } as pcgUidRegisterResponse;
 };
 
 /**
  * @summary Returns the pcg ally manifest
  */
-export type PcgUidAllyManifestGetResponse200 = {
+export type pcgUidAllyManifestGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type PcgUidAllyManifestGetResponseComposite =
-  PcgUidAllyManifestGetResponse200;
+export type pcgUidAllyManifestGetResponseComposite =
+  pcgUidAllyManifestGetResponse200;
 
-export type PcgUidAllyManifestGetResponse =
-  PcgUidAllyManifestGetResponseComposite & {
+export type pcgUidAllyManifestGetResponse =
+  pcgUidAllyManifestGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1PcgUidAllyManifestGetUrl = (uid: string) => {
+export const getPcgUidAllyManifestGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/pcg/${uid}/services/ally/manifest`;
 };
 
-export const PcgUidAllyManifestGet = async (
+export const pcgUidAllyManifestGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<PcgUidAllyManifestGetResponse> => {
-  const res = await fetch(getV1PcgUidAllyManifestGetUrl(uid), {
+): Promise<pcgUidAllyManifestGetResponse> => {
+  const res = await fetch(getPcgUidAllyManifestGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PcgUidAllyManifestGetResponse["data"] = body
+  const data: pcgUidAllyManifestGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -132,40 +132,40 @@ export const PcgUidAllyManifestGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PcgUidAllyManifestGetResponse;
+  } as pcgUidAllyManifestGetResponse;
 };
 
 /**
  * @summary Returns the pcg jet manifest
  */
-export type PcgUidJetManifestGetResponse200 = {
+export type pcgUidJetManifestGetResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type PcgUidJetManifestGetResponseComposite =
-  PcgUidJetManifestGetResponse200;
+export type pcgUidJetManifestGetResponseComposite =
+  pcgUidJetManifestGetResponse200;
 
-export type PcgUidJetManifestGetResponse =
-  PcgUidJetManifestGetResponseComposite & {
+export type pcgUidJetManifestGetResponse =
+  pcgUidJetManifestGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1PcgUidJetManifestGetUrl = (uid: string) => {
+export const getPcgUidJetManifestGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/pcg/${uid}/services/jet/manifest`;
 };
 
-export const PcgUidJetManifestGet = async (
+export const pcgUidJetManifestGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<PcgUidJetManifestGetResponse> => {
-  const res = await fetch(getV1PcgUidJetManifestGetUrl(uid), {
+): Promise<pcgUidJetManifestGetResponse> => {
+  const res = await fetch(getPcgUidJetManifestGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PcgUidJetManifestGetResponse["data"] = body
+  const data: pcgUidJetManifestGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -173,5 +173,5 @@ export const PcgUidJetManifestGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PcgUidJetManifestGetResponse;
+  } as pcgUidJetManifestGetResponse;
 };

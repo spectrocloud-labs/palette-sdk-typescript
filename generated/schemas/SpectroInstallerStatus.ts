@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InstallerStatus } from "./InstallerStatus";
+import type { InstallerStatus } from "./installerStatus";
 
 /**
  * spectro installer status

@@ -10,24 +10,24 @@
  * OpenAPI spec version: v1
  */
 import type {
-  PasswordsBlockListBody,
   SystemReverseProxy,
   Updated,
+  V1PasswordsBlockListBody,
 } from ".././schemas";
 
 /**
  * @summary get the system config reverse proxy
  */
-export type SystemConfigReverseProxyGetResponse200 = {
+export type v1SystemConfigReverseProxyGetResponse200 = {
   data: SystemReverseProxy;
   status: 200;
 };
 
-export type SystemConfigReverseProxyGetResponseComposite =
-  SystemConfigReverseProxyGetResponse200;
+export type v1SystemConfigReverseProxyGetResponseComposite =
+  v1SystemConfigReverseProxyGetResponse200;
 
-export type SystemConfigReverseProxyGetResponse =
-  SystemConfigReverseProxyGetResponseComposite & {
+export type v1SystemConfigReverseProxyGetResponse =
+  v1SystemConfigReverseProxyGetResponseComposite & {
     headers: Headers;
   };
 
@@ -35,16 +35,16 @@ export const getV1SystemConfigReverseProxyGetUrl = () => {
   return `https://api.spectrocloud.com/v1/system/config/reverseproxy`;
 };
 
-export const SystemConfigReverseProxyGet = async (
+export const v1SystemConfigReverseProxyGet = async (
   options?: RequestInit,
-): Promise<SystemConfigReverseProxyGetResponse> => {
+): Promise<v1SystemConfigReverseProxyGetResponse> => {
   const res = await fetch(getV1SystemConfigReverseProxyGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SystemConfigReverseProxyGetResponse["data"] = body
+  const data: v1SystemConfigReverseProxyGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -52,22 +52,22 @@ export const SystemConfigReverseProxyGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SystemConfigReverseProxyGetResponse;
+  } as v1SystemConfigReverseProxyGetResponse;
 };
 
 /**
  * @summary updates the system config reverse proxy
  */
-export type SystemConfigReverseProxyUpdateResponse204 = {
+export type v1SystemConfigReverseProxyUpdateResponse204 = {
   data: Updated;
   status: 204;
 };
 
-export type SystemConfigReverseProxyUpdateResponseComposite =
-  SystemConfigReverseProxyUpdateResponse204;
+export type v1SystemConfigReverseProxyUpdateResponseComposite =
+  v1SystemConfigReverseProxyUpdateResponse204;
 
-export type SystemConfigReverseProxyUpdateResponse =
-  SystemConfigReverseProxyUpdateResponseComposite & {
+export type v1SystemConfigReverseProxyUpdateResponse =
+  v1SystemConfigReverseProxyUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -75,19 +75,19 @@ export const getV1SystemConfigReverseProxyUpdateUrl = () => {
   return `https://api.spectrocloud.com/v1/system/config/reverseproxy`;
 };
 
-export const SystemConfigReverseProxyUpdate = async (
-  SystemReverseProxy: SystemReverseProxy,
+export const v1SystemConfigReverseProxyUpdate = async (
+  systemReverseProxy: SystemReverseProxy,
   options?: RequestInit,
-): Promise<SystemConfigReverseProxyUpdateResponse> => {
+): Promise<v1SystemConfigReverseProxyUpdateResponse> => {
   const res = await fetch(getV1SystemConfigReverseProxyUpdateUrl(), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SystemReverseProxy),
+    body: JSON.stringify(systemReverseProxy),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SystemConfigReverseProxyUpdateResponse["data"] = body
+  const data: v1SystemConfigReverseProxyUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -95,22 +95,22 @@ export const SystemConfigReverseProxyUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as SystemConfigReverseProxyUpdateResponse;
+  } as v1SystemConfigReverseProxyUpdateResponse;
 };
 
 /**
  * @summary Delete a list of block listed passwords
  */
-export type PasswordsBlockListDeleteResponse204 = {
+export type v1PasswordsBlockListDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PasswordsBlockListDeleteResponseComposite =
-  PasswordsBlockListDeleteResponse204;
+export type v1PasswordsBlockListDeleteResponseComposite =
+  v1PasswordsBlockListDeleteResponse204;
 
-export type PasswordsBlockListDeleteResponse =
-  PasswordsBlockListDeleteResponseComposite & {
+export type v1PasswordsBlockListDeleteResponse =
+  v1PasswordsBlockListDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -118,19 +118,19 @@ export const getV1PasswordsBlockListDeleteUrl = () => {
   return `https://api.spectrocloud.com/v1/system/passwords/blocklist`;
 };
 
-export const PasswordsBlockListDelete = async (
-  PasswordsBlockListBody: PasswordsBlockListBody,
+export const v1PasswordsBlockListDelete = async (
+  v1PasswordsBlockListBody: V1PasswordsBlockListBody,
   options?: RequestInit,
-): Promise<PasswordsBlockListDeleteResponse> => {
+): Promise<v1PasswordsBlockListDeleteResponse> => {
   const res = await fetch(getV1PasswordsBlockListDeleteUrl(), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PasswordsBlockListBody),
+    body: JSON.stringify(v1PasswordsBlockListBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PasswordsBlockListDeleteResponse["data"] = body
+  const data: v1PasswordsBlockListDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -138,22 +138,22 @@ export const PasswordsBlockListDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PasswordsBlockListDeleteResponse;
+  } as v1PasswordsBlockListDeleteResponse;
 };
 
 /**
  * @summary List of block listed passwords
  */
-export type PasswordsBlockListUpdateResponse204 = {
+export type v1PasswordsBlockListUpdateResponse204 = {
   data: Updated;
   status: 204;
 };
 
-export type PasswordsBlockListUpdateResponseComposite =
-  PasswordsBlockListUpdateResponse204;
+export type v1PasswordsBlockListUpdateResponseComposite =
+  v1PasswordsBlockListUpdateResponse204;
 
-export type PasswordsBlockListUpdateResponse =
-  PasswordsBlockListUpdateResponseComposite & {
+export type v1PasswordsBlockListUpdateResponse =
+  v1PasswordsBlockListUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -161,19 +161,19 @@ export const getV1PasswordsBlockListUpdateUrl = () => {
   return `https://api.spectrocloud.com/v1/system/passwords/blocklist`;
 };
 
-export const PasswordsBlockListUpdate = async (
-  PasswordsBlockListBody: PasswordsBlockListBody,
+export const v1PasswordsBlockListUpdate = async (
+  v1PasswordsBlockListBody: V1PasswordsBlockListBody,
   options?: RequestInit,
-): Promise<PasswordsBlockListUpdateResponse> => {
+): Promise<v1PasswordsBlockListUpdateResponse> => {
   const res = await fetch(getV1PasswordsBlockListUpdateUrl(), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PasswordsBlockListBody),
+    body: JSON.stringify(v1PasswordsBlockListBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PasswordsBlockListUpdateResponse["data"] = body
+  const data: v1PasswordsBlockListUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -181,5 +181,5 @@ export const PasswordsBlockListUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PasswordsBlockListUpdateResponse;
+  } as v1PasswordsBlockListUpdateResponse;
 };

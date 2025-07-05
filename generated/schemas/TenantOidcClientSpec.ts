@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OidcIssuerTls } from "./OidcIssuerTls";
-import type { TenantOidcClaims } from "./TenantOidcClaims";
-import type { OidcUserInfo } from "./OidcUserInfo";
+import type { OidcIssuerTls } from "./oidcIssuerTls";
+import type { TenantOidcClaims } from "./tenantOidcClaims";
+import type { OidcUserInfo } from "./oidcUserInfo";
 
 /**
  * Tenant

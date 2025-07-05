@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasMachine } from "./MaasMachine";
-import type { ListMetaData } from "./ListMetaData";
+import type { MaasMachine } from "./maasMachine";
+import type { ListMetaData } from "./listMetaData";
 
 /**
  * List of MAAS machines

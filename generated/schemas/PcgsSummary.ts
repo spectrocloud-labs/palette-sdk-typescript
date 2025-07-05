@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Overlord } from "./Overlord";
-import type { ListMetaData } from "./ListMetaData";
+import type { Overlord } from "./overlord";
+import type { ListMetaData } from "./listMetaData";
 
 export interface PcgsSummary {
   items: Overlord[];

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadDaemonSet } from "./ClusterWorkloadDaemonSet";
+import type { ClusterWorkloadDaemonSet } from "./clusterWorkloadDaemonSet";
 
 /**
  * Cluster workload daemonset summary

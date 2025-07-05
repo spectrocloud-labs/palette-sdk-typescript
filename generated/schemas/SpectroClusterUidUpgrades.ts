@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Upgrades } from "./Upgrades";
+import type { Upgrades } from "./upgrades";
 
 /**
  * Cluster status upgrades

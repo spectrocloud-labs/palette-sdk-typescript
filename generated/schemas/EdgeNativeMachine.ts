@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { EdgeNativeMachineSpec } from "./EdgeNativeMachineSpec";
-import type { CloudMachineStatus } from "./CloudMachineStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { EdgeNativeMachineSpec } from "./edgeNativeMachineSpec";
+import type { CloudMachineStatus } from "./cloudMachineStatus";
 
 /**
  * EdgeNative cloud VM definition

@@ -12,113 +12,113 @@
 import type {
   AlertEntity,
   Channel,
-  ChannelBody,
   Macros,
-  MacrosBody,
-  NodesAutoRemediationSettingsBody,
-  ObjectMetaBody,
   Project,
   ProjectActiveResources,
   ProjectAlertComponents,
   ProjectCleanup,
   ProjectClusterSettings,
-  ProjectEntityBody,
   ProjectTeamsEntity,
   ProjectUsersEntity,
   ProjectsUidDeleteParams,
   Uid,
+  V1ChannelBody,
+  V1MacrosBody,
+  V1NodesAutoRemediationSettingsBody,
+  V1ObjectMetaBody,
+  V1ProjectEntityBody,
 } from ".././schemas";
 
 /**
  * @summary Creates a project
  */
-export type ProjectsCreateResponse201 = {
+export type projectsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ProjectsCreateResponseComposite = ProjectsCreateResponse201;
+export type projectsCreateResponseComposite = projectsCreateResponse201;
 
-export type ProjectsCreateResponse = ProjectsCreateResponseComposite & {
+export type projectsCreateResponse = projectsCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ProjectsCreateUrl = () => {
+export const getProjectsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/projects`;
 };
 
-export const ProjectsCreate = async (
-  ProjectEntityBody: ProjectEntityBody,
+export const projectsCreate = async (
+  v1ProjectEntityBody: V1ProjectEntityBody,
   options?: RequestInit,
-): Promise<ProjectsCreateResponse> => {
-  const res = await fetch(getV1ProjectsCreateUrl(), {
+): Promise<projectsCreateResponse> => {
+  const res = await fetch(getProjectsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectEntityBody),
+    body: JSON.stringify(v1ProjectEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: projectsCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsCreateResponse;
+  } as projectsCreateResponse;
 };
 
 /**
  * @summary Retrieves a list of supported alerts for a project
  */
-export type ProjectsAlertsResponse200 = {
+export type projectsAlertsResponse200 = {
   data: ProjectAlertComponents;
   status: 200;
 };
 
-export type ProjectsAlertsResponseComposite = ProjectsAlertsResponse200;
+export type projectsAlertsResponseComposite = projectsAlertsResponse200;
 
-export type ProjectsAlertsResponse = ProjectsAlertsResponseComposite & {
+export type projectsAlertsResponse = projectsAlertsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ProjectsAlertsUrl = () => {
+export const getProjectsAlertsUrl = () => {
   return `https://api.spectrocloud.com/v1/projects/alerts`;
 };
 
-export const ProjectsAlerts = async (
+export const projectsAlerts = async (
   options?: RequestInit,
-): Promise<ProjectsAlertsResponse> => {
-  const res = await fetch(getV1ProjectsAlertsUrl(), {
+): Promise<projectsAlertsResponse> => {
+  const res = await fetch(getProjectsAlertsUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsAlertsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: projectsAlertsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsAlertsResponse;
+  } as projectsAlertsResponse;
 };
 
 /**
  * @summary Deletes the specified project
  */
-export type ProjectsUidDeleteResponse204 = {
+export type projectsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidDeleteResponseComposite = ProjectsUidDeleteResponse204;
+export type projectsUidDeleteResponseComposite = projectsUidDeleteResponse204;
 
-export type ProjectsUidDeleteResponse = ProjectsUidDeleteResponseComposite & {
+export type projectsUidDeleteResponse = projectsUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ProjectsUidDeleteUrl = (
+export const getProjectsUidDeleteUrl = (
   uid: string,
   params?: ProjectsUidDeleteParams,
 ) => {
@@ -137,141 +137,141 @@ export const getV1ProjectsUidDeleteUrl = (
     : `https://api.spectrocloud.com/v1/projects/${uid}`;
 };
 
-export const ProjectsUidDelete = async (
+export const projectsUidDelete = async (
   uid: string,
-  ProjectCleanup: ProjectCleanup,
+  projectCleanup: ProjectCleanup,
   params?: ProjectsUidDeleteParams,
   options?: RequestInit,
-): Promise<ProjectsUidDeleteResponse> => {
-  const res = await fetch(getV1ProjectsUidDeleteUrl(uid, params), {
+): Promise<projectsUidDeleteResponse> => {
+  const res = await fetch(getProjectsUidDeleteUrl(uid, params), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectCleanup),
+    body: JSON.stringify(projectCleanup),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: projectsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidDeleteResponse;
+  } as projectsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified project
  */
-export type ProjectsUidGetResponse200 = {
+export type projectsUidGetResponse200 = {
   data: Project;
   status: 200;
 };
 
-export type ProjectsUidGetResponseComposite = ProjectsUidGetResponse200;
+export type projectsUidGetResponseComposite = projectsUidGetResponse200;
 
-export type ProjectsUidGetResponse = ProjectsUidGetResponseComposite & {
+export type projectsUidGetResponse = projectsUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ProjectsUidGetUrl = (uid: string) => {
+export const getProjectsUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}`;
 };
 
-export const ProjectsUidGet = async (
+export const projectsUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ProjectsUidGetResponse> => {
-  const res = await fetch(getV1ProjectsUidGetUrl(uid), {
+): Promise<projectsUidGetResponse> => {
+  const res = await fetch(getProjectsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: projectsUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidGetResponse;
+  } as projectsUidGetResponse;
 };
 
 /**
  * @summary Updates the specified project
  */
-export type ProjectsUidUpdateResponse204 = {
+export type projectsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidUpdateResponseComposite = ProjectsUidUpdateResponse204;
+export type projectsUidUpdateResponseComposite = projectsUidUpdateResponse204;
 
-export type ProjectsUidUpdateResponse = ProjectsUidUpdateResponseComposite & {
+export type projectsUidUpdateResponse = projectsUidUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ProjectsUidUpdateUrl = (uid: string) => {
+export const getProjectsUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}`;
 };
 
-export const ProjectsUidUpdate = async (
+export const projectsUidUpdate = async (
   uid: string,
-  ProjectEntityBody: ProjectEntityBody,
+  v1ProjectEntityBody: V1ProjectEntityBody,
   options?: RequestInit,
-): Promise<ProjectsUidUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidUpdateUrl(uid), {
+): Promise<projectsUidUpdateResponse> => {
+  const res = await fetch(getProjectsUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectEntityBody),
+    body: JSON.stringify(v1ProjectEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: projectsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidUpdateResponse;
+  } as projectsUidUpdateResponse;
 };
 
 /**
  * @summary Deletes the specified alert to the specified project
  */
-export type ProjectsUidAlertDeleteResponse204 = {
+export type projectsUidAlertDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidAlertDeleteResponseComposite =
-  ProjectsUidAlertDeleteResponse204;
+export type projectsUidAlertDeleteResponseComposite =
+  projectsUidAlertDeleteResponse204;
 
-export type ProjectsUidAlertDeleteResponse =
-  ProjectsUidAlertDeleteResponseComposite & {
+export type projectsUidAlertDeleteResponse =
+  projectsUidAlertDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertDeleteUrl = (
+export const getProjectsUidAlertDeleteUrl = (
   uid: string,
   component: string,
 ) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`;
 };
 
-export const ProjectsUidAlertDelete = async (
+export const projectsUidAlertDelete = async (
   uid: string,
   component: string,
   options?: RequestInit,
-): Promise<ProjectsUidAlertDeleteResponse> => {
-  const res = await fetch(getV1ProjectsUidAlertDeleteUrl(uid, component), {
+): Promise<projectsUidAlertDeleteResponse> => {
+  const res = await fetch(getProjectsUidAlertDeleteUrl(uid, component), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertDeleteResponse["data"] = body
+  const data: projectsUidAlertDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -279,47 +279,47 @@ export const ProjectsUidAlertDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertDeleteResponse;
+  } as projectsUidAlertDeleteResponse;
 };
 
 /**
  * @summary Create the specified alert to the specified project
  */
-export type ProjectsUidAlertCreateResponse201 = {
+export type projectsUidAlertCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ProjectsUidAlertCreateResponseComposite =
-  ProjectsUidAlertCreateResponse201;
+export type projectsUidAlertCreateResponseComposite =
+  projectsUidAlertCreateResponse201;
 
-export type ProjectsUidAlertCreateResponse =
-  ProjectsUidAlertCreateResponseComposite & {
+export type projectsUidAlertCreateResponse =
+  projectsUidAlertCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertCreateUrl = (
+export const getProjectsUidAlertCreateUrl = (
   uid: string,
   component: string,
 ) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`;
 };
 
-export const ProjectsUidAlertCreate = async (
+export const projectsUidAlertCreate = async (
   uid: string,
   component: string,
-  ChannelBody: ChannelBody,
+  v1ChannelBody: V1ChannelBody,
   options?: RequestInit,
-): Promise<ProjectsUidAlertCreateResponse> => {
-  const res = await fetch(getV1ProjectsUidAlertCreateUrl(uid, component), {
+): Promise<projectsUidAlertCreateResponse> => {
+  const res = await fetch(getProjectsUidAlertCreateUrl(uid, component), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ChannelBody),
+    body: JSON.stringify(v1ChannelBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertCreateResponse["data"] = body
+  const data: projectsUidAlertCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -327,47 +327,47 @@ export const ProjectsUidAlertCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertCreateResponse;
+  } as projectsUidAlertCreateResponse;
 };
 
 /**
  * @summary Upsert the specified alert to the specified project
  */
-export type ProjectsUidAlertUpdateResponse204 = {
+export type projectsUidAlertUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidAlertUpdateResponseComposite =
-  ProjectsUidAlertUpdateResponse204;
+export type projectsUidAlertUpdateResponseComposite =
+  projectsUidAlertUpdateResponse204;
 
-export type ProjectsUidAlertUpdateResponse =
-  ProjectsUidAlertUpdateResponseComposite & {
+export type projectsUidAlertUpdateResponse =
+  projectsUidAlertUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertUpdateUrl = (
+export const getProjectsUidAlertUpdateUrl = (
   uid: string,
   component: string,
 ) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`;
 };
 
-export const ProjectsUidAlertUpdate = async (
+export const projectsUidAlertUpdate = async (
   uid: string,
   component: string,
-  AlertEntity: AlertEntity,
+  alertEntity: AlertEntity,
   options?: RequestInit,
-): Promise<ProjectsUidAlertUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidAlertUpdateUrl(uid, component), {
+): Promise<projectsUidAlertUpdateResponse> => {
+  const res = await fetch(getProjectsUidAlertUpdateUrl(uid, component), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AlertEntity),
+    body: JSON.stringify(alertEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertUpdateResponse["data"] = body
+  const data: projectsUidAlertUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -375,26 +375,26 @@ export const ProjectsUidAlertUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertUpdateResponse;
+  } as projectsUidAlertUpdateResponse;
 };
 
 /**
  * @summary Deletes the specified alert of the specified project
  */
-export type ProjectsUidAlertsUidDeleteResponse204 = {
+export type projectsUidAlertsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidAlertsUidDeleteResponseComposite =
-  ProjectsUidAlertsUidDeleteResponse204;
+export type projectsUidAlertsUidDeleteResponseComposite =
+  projectsUidAlertsUidDeleteResponse204;
 
-export type ProjectsUidAlertsUidDeleteResponse =
-  ProjectsUidAlertsUidDeleteResponseComposite & {
+export type projectsUidAlertsUidDeleteResponse =
+  projectsUidAlertsUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertsUidDeleteUrl = (
+export const getProjectsUidAlertsUidDeleteUrl = (
   uid: string,
   component: string,
   alertUid: string,
@@ -402,14 +402,14 @@ export const getV1ProjectsUidAlertsUidDeleteUrl = (
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`;
 };
 
-export const ProjectsUidAlertsUidDelete = async (
+export const projectsUidAlertsUidDelete = async (
   uid: string,
   component: string,
   alertUid: string,
   options?: RequestInit,
-): Promise<ProjectsUidAlertsUidDeleteResponse> => {
+): Promise<projectsUidAlertsUidDeleteResponse> => {
   const res = await fetch(
-    getV1ProjectsUidAlertsUidDeleteUrl(uid, component, alertUid),
+    getProjectsUidAlertsUidDeleteUrl(uid, component, alertUid),
     {
       ...options,
       method: "DELETE",
@@ -417,7 +417,7 @@ export const ProjectsUidAlertsUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertsUidDeleteResponse["data"] = body
+  const data: projectsUidAlertsUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -425,26 +425,26 @@ export const ProjectsUidAlertsUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertsUidDeleteResponse;
+  } as projectsUidAlertsUidDeleteResponse;
 };
 
 /**
  * @summary Get the specified alert of the specified project
  */
-export type ProjectsUidAlertsUidGetResponse200 = {
+export type projectsUidAlertsUidGetResponse200 = {
   data: Channel;
   status: 200;
 };
 
-export type ProjectsUidAlertsUidGetResponseComposite =
-  ProjectsUidAlertsUidGetResponse200;
+export type projectsUidAlertsUidGetResponseComposite =
+  projectsUidAlertsUidGetResponse200;
 
-export type ProjectsUidAlertsUidGetResponse =
-  ProjectsUidAlertsUidGetResponseComposite & {
+export type projectsUidAlertsUidGetResponse =
+  projectsUidAlertsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertsUidGetUrl = (
+export const getProjectsUidAlertsUidGetUrl = (
   uid: string,
   component: string,
   alertUid: string,
@@ -452,14 +452,14 @@ export const getV1ProjectsUidAlertsUidGetUrl = (
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`;
 };
 
-export const ProjectsUidAlertsUidGet = async (
+export const projectsUidAlertsUidGet = async (
   uid: string,
   component: string,
   alertUid: string,
   options?: RequestInit,
-): Promise<ProjectsUidAlertsUidGetResponse> => {
+): Promise<projectsUidAlertsUidGetResponse> => {
   const res = await fetch(
-    getV1ProjectsUidAlertsUidGetUrl(uid, component, alertUid),
+    getProjectsUidAlertsUidGetUrl(uid, component, alertUid),
     {
       ...options,
       method: "GET",
@@ -467,7 +467,7 @@ export const ProjectsUidAlertsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertsUidGetResponse["data"] = body
+  const data: projectsUidAlertsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -475,26 +475,26 @@ export const ProjectsUidAlertsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertsUidGetResponse;
+  } as projectsUidAlertsUidGetResponse;
 };
 
 /**
  * @summary Update the specified alert of the specified project
  */
-export type ProjectsUidAlertsUidUpdateResponse204 = {
+export type projectsUidAlertsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidAlertsUidUpdateResponseComposite =
-  ProjectsUidAlertsUidUpdateResponse204;
+export type projectsUidAlertsUidUpdateResponseComposite =
+  projectsUidAlertsUidUpdateResponse204;
 
-export type ProjectsUidAlertsUidUpdateResponse =
-  ProjectsUidAlertsUidUpdateResponseComposite & {
+export type projectsUidAlertsUidUpdateResponse =
+  projectsUidAlertsUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidAlertsUidUpdateUrl = (
+export const getProjectsUidAlertsUidUpdateUrl = (
   uid: string,
   component: string,
   alertUid: string,
@@ -502,25 +502,25 @@ export const getV1ProjectsUidAlertsUidUpdateUrl = (
   return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`;
 };
 
-export const ProjectsUidAlertsUidUpdate = async (
+export const projectsUidAlertsUidUpdate = async (
   uid: string,
   component: string,
   alertUid: string,
-  ChannelBody: ChannelBody,
+  v1ChannelBody: V1ChannelBody,
   options?: RequestInit,
-): Promise<ProjectsUidAlertsUidUpdateResponse> => {
+): Promise<projectsUidAlertsUidUpdateResponse> => {
   const res = await fetch(
-    getV1ProjectsUidAlertsUidUpdateUrl(uid, component, alertUid),
+    getProjectsUidAlertsUidUpdateUrl(uid, component, alertUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ChannelBody),
+      body: JSON.stringify(v1ChannelBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidAlertsUidUpdateResponse["data"] = body
+  const data: projectsUidAlertsUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -528,43 +528,43 @@ export const ProjectsUidAlertsUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidAlertsUidUpdateResponse;
+  } as projectsUidAlertsUidUpdateResponse;
 };
 
 /**
  * @summary Delete the macros for the specified project by macro name
  */
-export type ProjectsUidMacrosDeleteByMacroNameResponse204 = {
+export type projectsUidMacrosDeleteByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidMacrosDeleteByMacroNameResponseComposite =
-  ProjectsUidMacrosDeleteByMacroNameResponse204;
+export type projectsUidMacrosDeleteByMacroNameResponseComposite =
+  projectsUidMacrosDeleteByMacroNameResponse204;
 
-export type ProjectsUidMacrosDeleteByMacroNameResponse =
-  ProjectsUidMacrosDeleteByMacroNameResponseComposite & {
+export type projectsUidMacrosDeleteByMacroNameResponse =
+  projectsUidMacrosDeleteByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMacrosDeleteByMacroNameUrl = (uid: string) => {
+export const getProjectsUidMacrosDeleteByMacroNameUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/macros`;
 };
 
-export const ProjectsUidMacrosDeleteByMacroName = async (
+export const projectsUidMacrosDeleteByMacroName = async (
   uid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<ProjectsUidMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(getV1ProjectsUidMacrosDeleteByMacroNameUrl(uid), {
+): Promise<projectsUidMacrosDeleteByMacroNameResponse> => {
+  const res = await fetch(getProjectsUidMacrosDeleteByMacroNameUrl(uid), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMacrosDeleteByMacroNameResponse["data"] = body
+  const data: projectsUidMacrosDeleteByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -572,40 +572,40 @@ export const ProjectsUidMacrosDeleteByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMacrosDeleteByMacroNameResponse;
+  } as projectsUidMacrosDeleteByMacroNameResponse;
 };
 
 /**
  * @summary List the macros of the specified project
  */
-export type ProjectsUidMacrosListResponse200 = {
+export type projectsUidMacrosListResponse200 = {
   data: Macros;
   status: 200;
 };
 
-export type ProjectsUidMacrosListResponseComposite =
-  ProjectsUidMacrosListResponse200;
+export type projectsUidMacrosListResponseComposite =
+  projectsUidMacrosListResponse200;
 
-export type ProjectsUidMacrosListResponse =
-  ProjectsUidMacrosListResponseComposite & {
+export type projectsUidMacrosListResponse =
+  projectsUidMacrosListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMacrosListUrl = (uid: string) => {
+export const getProjectsUidMacrosListUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/macros`;
 };
 
-export const ProjectsUidMacrosList = async (
+export const projectsUidMacrosList = async (
   uid: string,
   options?: RequestInit,
-): Promise<ProjectsUidMacrosListResponse> => {
-  const res = await fetch(getV1ProjectsUidMacrosListUrl(uid), {
+): Promise<projectsUidMacrosListResponse> => {
+  const res = await fetch(getProjectsUidMacrosListUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMacrosListResponse["data"] = body
+  const data: projectsUidMacrosListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -613,43 +613,43 @@ export const ProjectsUidMacrosList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMacrosListResponse;
+  } as projectsUidMacrosListResponse;
 };
 
 /**
  * @summary Update the macros for the specified project by macro name
  */
-export type ProjectsUidMacrosUpdateByMacroNameResponse204 = {
+export type projectsUidMacrosUpdateByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidMacrosUpdateByMacroNameResponseComposite =
-  ProjectsUidMacrosUpdateByMacroNameResponse204;
+export type projectsUidMacrosUpdateByMacroNameResponseComposite =
+  projectsUidMacrosUpdateByMacroNameResponse204;
 
-export type ProjectsUidMacrosUpdateByMacroNameResponse =
-  ProjectsUidMacrosUpdateByMacroNameResponseComposite & {
+export type projectsUidMacrosUpdateByMacroNameResponse =
+  projectsUidMacrosUpdateByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMacrosUpdateByMacroNameUrl = (uid: string) => {
+export const getProjectsUidMacrosUpdateByMacroNameUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/macros`;
 };
 
-export const ProjectsUidMacrosUpdateByMacroName = async (
+export const projectsUidMacrosUpdateByMacroName = async (
   uid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<ProjectsUidMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(getV1ProjectsUidMacrosUpdateByMacroNameUrl(uid), {
+): Promise<projectsUidMacrosUpdateByMacroNameResponse> => {
+  const res = await fetch(getProjectsUidMacrosUpdateByMacroNameUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMacrosUpdateByMacroNameResponse["data"] = body
+  const data: projectsUidMacrosUpdateByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -657,43 +657,43 @@ export const ProjectsUidMacrosUpdateByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMacrosUpdateByMacroNameResponse;
+  } as projectsUidMacrosUpdateByMacroNameResponse;
 };
 
 /**
  * @summary Create or add new macros for the specified project
  */
-export type ProjectsUidMacrosCreateResponse204 = {
+export type projectsUidMacrosCreateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidMacrosCreateResponseComposite =
-  ProjectsUidMacrosCreateResponse204;
+export type projectsUidMacrosCreateResponseComposite =
+  projectsUidMacrosCreateResponse204;
 
-export type ProjectsUidMacrosCreateResponse =
-  ProjectsUidMacrosCreateResponseComposite & {
+export type projectsUidMacrosCreateResponse =
+  projectsUidMacrosCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMacrosCreateUrl = (uid: string) => {
+export const getProjectsUidMacrosCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/macros`;
 };
 
-export const ProjectsUidMacrosCreate = async (
+export const projectsUidMacrosCreate = async (
   uid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<ProjectsUidMacrosCreateResponse> => {
-  const res = await fetch(getV1ProjectsUidMacrosCreateUrl(uid), {
+): Promise<projectsUidMacrosCreateResponse> => {
+  const res = await fetch(getProjectsUidMacrosCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMacrosCreateResponse["data"] = body
+  const data: projectsUidMacrosCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -701,43 +701,43 @@ export const ProjectsUidMacrosCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMacrosCreateResponse;
+  } as projectsUidMacrosCreateResponse;
 };
 
 /**
  * @summary Update the macros of the specified project
  */
-export type ProjectsUidMacrosUpdateResponse204 = {
+export type projectsUidMacrosUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidMacrosUpdateResponseComposite =
-  ProjectsUidMacrosUpdateResponse204;
+export type projectsUidMacrosUpdateResponseComposite =
+  projectsUidMacrosUpdateResponse204;
 
-export type ProjectsUidMacrosUpdateResponse =
-  ProjectsUidMacrosUpdateResponseComposite & {
+export type projectsUidMacrosUpdateResponse =
+  projectsUidMacrosUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMacrosUpdateUrl = (uid: string) => {
+export const getProjectsUidMacrosUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/macros`;
 };
 
-export const ProjectsUidMacrosUpdate = async (
+export const projectsUidMacrosUpdate = async (
   uid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<ProjectsUidMacrosUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidMacrosUpdateUrl(uid), {
+): Promise<projectsUidMacrosUpdateResponse> => {
+  const res = await fetch(getProjectsUidMacrosUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMacrosUpdateResponse["data"] = body
+  const data: projectsUidMacrosUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -745,43 +745,43 @@ export const ProjectsUidMacrosUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMacrosUpdateResponse;
+  } as projectsUidMacrosUpdateResponse;
 };
 
 /**
  * @summary Update the metadata of the specified project
  */
-export type ProjectsUidMetaUpdateResponse204 = {
+export type projectsUidMetaUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidMetaUpdateResponseComposite =
-  ProjectsUidMetaUpdateResponse204;
+export type projectsUidMetaUpdateResponseComposite =
+  projectsUidMetaUpdateResponse204;
 
-export type ProjectsUidMetaUpdateResponse =
-  ProjectsUidMetaUpdateResponseComposite & {
+export type projectsUidMetaUpdateResponse =
+  projectsUidMetaUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidMetaUpdateUrl = (uid: string) => {
+export const getProjectsUidMetaUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/meta`;
 };
 
-export const ProjectsUidMetaUpdate = async (
+export const projectsUidMetaUpdate = async (
   uid: string,
-  ObjectMetaBody: ObjectMetaBody,
+  v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
-): Promise<ProjectsUidMetaUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidMetaUpdateUrl(uid), {
+): Promise<projectsUidMetaUpdateResponse> => {
+  const res = await fetch(getProjectsUidMetaUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ObjectMetaBody),
+    body: JSON.stringify(v1ObjectMetaBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidMetaUpdateResponse["data"] = body
+  const data: projectsUidMetaUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -789,40 +789,40 @@ export const ProjectsUidMetaUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidMetaUpdateResponse;
+  } as projectsUidMetaUpdateResponse;
 };
 
 /**
  * @summary Get project cluster settings
  */
-export type ProjectClusterSettingsGetResponse200 = {
+export type projectClusterSettingsGetResponse200 = {
   data: ProjectClusterSettings;
   status: 200;
 };
 
-export type ProjectClusterSettingsGetResponseComposite =
-  ProjectClusterSettingsGetResponse200;
+export type projectClusterSettingsGetResponseComposite =
+  projectClusterSettingsGetResponse200;
 
-export type ProjectClusterSettingsGetResponse =
-  ProjectClusterSettingsGetResponseComposite & {
+export type projectClusterSettingsGetResponse =
+  projectClusterSettingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectClusterSettingsGetUrl = (uid: string) => {
+export const getProjectClusterSettingsGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/preferences/clusterSettings`;
 };
 
-export const ProjectClusterSettingsGet = async (
+export const projectClusterSettingsGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ProjectClusterSettingsGetResponse> => {
-  const res = await fetch(getV1ProjectClusterSettingsGetUrl(uid), {
+): Promise<projectClusterSettingsGetResponse> => {
+  const res = await fetch(getProjectClusterSettingsGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectClusterSettingsGetResponse["data"] = body
+  const data: projectClusterSettingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -830,91 +830,91 @@ export const ProjectClusterSettingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectClusterSettingsGetResponse;
+  } as projectClusterSettingsGetResponse;
 };
 
 /**
  * @summary Update project clusters nodes auto remediation setting
  */
-export type ProjectClustersNodesAutoRemediationSettingUpdateResponse204 = {
+export type projectClustersNodesAutoRemediationSettingUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectClustersNodesAutoRemediationSettingUpdateResponseComposite =
-  ProjectClustersNodesAutoRemediationSettingUpdateResponse204;
+export type projectClustersNodesAutoRemediationSettingUpdateResponseComposite =
+  projectClustersNodesAutoRemediationSettingUpdateResponse204;
 
-export type ProjectClustersNodesAutoRemediationSettingUpdateResponse =
-  ProjectClustersNodesAutoRemediationSettingUpdateResponseComposite & {
+export type projectClustersNodesAutoRemediationSettingUpdateResponse =
+  projectClustersNodesAutoRemediationSettingUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectClustersNodesAutoRemediationSettingUpdateUrl = (
+export const getProjectClustersNodesAutoRemediationSettingUpdateUrl = (
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/preferences/clusterSettings/nodesAutoRemediationSetting`;
 };
 
-export const ProjectClustersNodesAutoRemediationSettingUpdate = async (
+export const projectClustersNodesAutoRemediationSettingUpdate = async (
   uid: string,
-  NodesAutoRemediationSettingsBody: NodesAutoRemediationSettingsBody,
+  v1NodesAutoRemediationSettingsBody: V1NodesAutoRemediationSettingsBody,
   options?: RequestInit,
-): Promise<ProjectClustersNodesAutoRemediationSettingUpdateResponse> => {
+): Promise<projectClustersNodesAutoRemediationSettingUpdateResponse> => {
   const res = await fetch(
-    getV1ProjectClustersNodesAutoRemediationSettingUpdateUrl(uid),
+    getProjectClustersNodesAutoRemediationSettingUpdateUrl(uid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(NodesAutoRemediationSettingsBody),
+      body: JSON.stringify(v1NodesAutoRemediationSettingsBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectClustersNodesAutoRemediationSettingUpdateResponse["data"] =
+  const data: projectClustersNodesAutoRemediationSettingUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectClustersNodesAutoRemediationSettingUpdateResponse;
+  } as projectClustersNodesAutoRemediationSettingUpdateResponse;
 };
 
 /**
  * @summary Update the teams association to the specified project
  */
-export type ProjectsUidTeamsUpdateResponse204 = {
+export type projectsUidTeamsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidTeamsUpdateResponseComposite =
-  ProjectsUidTeamsUpdateResponse204;
+export type projectsUidTeamsUpdateResponseComposite =
+  projectsUidTeamsUpdateResponse204;
 
-export type ProjectsUidTeamsUpdateResponse =
-  ProjectsUidTeamsUpdateResponseComposite & {
+export type projectsUidTeamsUpdateResponse =
+  projectsUidTeamsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidTeamsUpdateUrl = (uid: string) => {
+export const getProjectsUidTeamsUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/teams`;
 };
 
-export const ProjectsUidTeamsUpdate = async (
+export const projectsUidTeamsUpdate = async (
   uid: string,
-  ProjectTeamsEntity: ProjectTeamsEntity,
+  projectTeamsEntity: ProjectTeamsEntity,
   options?: RequestInit,
-): Promise<ProjectsUidTeamsUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidTeamsUpdateUrl(uid), {
+): Promise<projectsUidTeamsUpdateResponse> => {
+  const res = await fetch(getProjectsUidTeamsUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectTeamsEntity),
+    body: JSON.stringify(projectTeamsEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidTeamsUpdateResponse["data"] = body
+  const data: projectsUidTeamsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -922,43 +922,43 @@ export const ProjectsUidTeamsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidTeamsUpdateResponse;
+  } as projectsUidTeamsUpdateResponse;
 };
 
 /**
  * @summary Update the users association to the specified project
  */
-export type ProjectsUidUsersUpdateResponse204 = {
+export type projectsUidUsersUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ProjectsUidUsersUpdateResponseComposite =
-  ProjectsUidUsersUpdateResponse204;
+export type projectsUidUsersUpdateResponseComposite =
+  projectsUidUsersUpdateResponse204;
 
-export type ProjectsUidUsersUpdateResponse =
-  ProjectsUidUsersUpdateResponseComposite & {
+export type projectsUidUsersUpdateResponse =
+  projectsUidUsersUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidUsersUpdateUrl = (uid: string) => {
+export const getProjectsUidUsersUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/users`;
 };
 
-export const ProjectsUidUsersUpdate = async (
+export const projectsUidUsersUpdate = async (
   uid: string,
-  ProjectUsersEntity: ProjectUsersEntity,
+  projectUsersEntity: ProjectUsersEntity,
   options?: RequestInit,
-): Promise<ProjectsUidUsersUpdateResponse> => {
-  const res = await fetch(getV1ProjectsUidUsersUpdateUrl(uid), {
+): Promise<projectsUidUsersUpdateResponse> => {
+  const res = await fetch(getProjectsUidUsersUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectUsersEntity),
+    body: JSON.stringify(projectUsersEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidUsersUpdateResponse["data"] = body
+  const data: projectsUidUsersUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -966,40 +966,40 @@ export const ProjectsUidUsersUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidUsersUpdateResponse;
+  } as projectsUidUsersUpdateResponse;
 };
 
 /**
  * @summary Validate and returns active resource of project before delete
  */
-export type ProjectsUidValidateResponse200 = {
+export type projectsUidValidateResponse200 = {
   data: ProjectActiveResources;
   status: 200;
 };
 
-export type ProjectsUidValidateResponseComposite =
-  ProjectsUidValidateResponse200;
+export type projectsUidValidateResponseComposite =
+  projectsUidValidateResponse200;
 
-export type ProjectsUidValidateResponse =
-  ProjectsUidValidateResponseComposite & {
+export type projectsUidValidateResponse =
+  projectsUidValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ProjectsUidValidateUrl = (uid: string) => {
+export const getProjectsUidValidateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/projects/${uid}/validate`;
 };
 
-export const ProjectsUidValidate = async (
+export const projectsUidValidate = async (
   uid: string,
   options?: RequestInit,
-): Promise<ProjectsUidValidateResponse> => {
-  const res = await fetch(getV1ProjectsUidValidateUrl(uid), {
+): Promise<projectsUidValidateResponse> => {
+  const res = await fetch(getProjectsUidValidateUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ProjectsUidValidateResponse["data"] = body
+  const data: projectsUidValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1007,5 +1007,5 @@ export const ProjectsUidValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ProjectsUidValidateResponse;
+  } as projectsUidValidateResponse;
 };

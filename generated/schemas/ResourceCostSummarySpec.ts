@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceCostSummaryFilter } from "./ResourceCostSummaryFilter";
-import type { ResourceCostSummaryOptions } from "./ResourceCostSummaryOptions";
+import type { ResourceCostSummaryFilter } from "./resourceCostSummaryFilter";
+import type { ResourceCostSummaryOptions } from "./resourceCostSummaryOptions";
 
 /**
  * Resource cost summary spec

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Invoice } from "./Invoice";
-import type { ListMetaData } from "./ListMetaData";
+import type { Invoice } from "./invoice";
+import type { ListMetaData } from "./listMetaData";
 
 /**
  * List of invoices

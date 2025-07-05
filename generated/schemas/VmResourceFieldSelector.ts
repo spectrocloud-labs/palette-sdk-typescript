@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./VmQuantity";
+import type { VmQuantity } from "./vmQuantity";
 
 /**
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format

@@ -29,7 +29,6 @@ import type {
   CustomAccountEntity,
   CustomAccounts,
   GcpAccount,
-  GcpAccountEntityBody,
   GcpAccounts,
   GeolocationLatlong,
   MaasAccount,
@@ -52,8 +51,9 @@ import type {
   OpenstackAccountsUidKeypairsParams,
   OpenstackAccountsUidNetworksParams,
   Uid,
+  V1GcpAccountEntityBody,
+  V1VsphereAccountBody,
   VsphereAccount,
-  VsphereAccountBody,
   VsphereAccounts,
   VsphereAccountsUidClusterResParams,
   VsphereComputeClusterResources,
@@ -63,20 +63,20 @@ import type {
 /**
  * @summary Retrieves a list of AWS cloud accounts
  */
-export type CloudAccountsAwsListResponse200 = {
+export type cloudAccountsAwsListResponse200 = {
   data: AwsAccounts;
   status: 200;
 };
 
-export type CloudAccountsAwsListResponseComposite =
-  CloudAccountsAwsListResponse200;
+export type cloudAccountsAwsListResponseComposite =
+  cloudAccountsAwsListResponse200;
 
-export type CloudAccountsAwsListResponse =
-  CloudAccountsAwsListResponseComposite & {
+export type cloudAccountsAwsListResponse =
+  cloudAccountsAwsListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAwsListUrl = (
+export const getCloudAccountsAwsListUrl = (
   params?: CloudAccountsAwsListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -94,17 +94,17 @@ export const getV1CloudAccountsAwsListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/aws`;
 };
 
-export const CloudAccountsAwsList = async (
+export const cloudAccountsAwsList = async (
   params?: CloudAccountsAwsListParams,
   options?: RequestInit,
-): Promise<CloudAccountsAwsListResponse> => {
-  const res = await fetch(getV1CloudAccountsAwsListUrl(params), {
+): Promise<cloudAccountsAwsListResponse> => {
+  const res = await fetch(getCloudAccountsAwsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAwsListResponse["data"] = body
+  const data: cloudAccountsAwsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -112,42 +112,42 @@ export const CloudAccountsAwsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAwsListResponse;
+  } as cloudAccountsAwsListResponse;
 };
 
 /**
  * @summary Creates an AWS cloud account
  */
-export type CloudAccountsAwsCreateResponse201 = {
+export type cloudAccountsAwsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsAwsCreateResponseComposite =
-  CloudAccountsAwsCreateResponse201;
+export type cloudAccountsAwsCreateResponseComposite =
+  cloudAccountsAwsCreateResponse201;
 
-export type CloudAccountsAwsCreateResponse =
-  CloudAccountsAwsCreateResponseComposite & {
+export type cloudAccountsAwsCreateResponse =
+  cloudAccountsAwsCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAwsCreateUrl = () => {
+export const getCloudAccountsAwsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/aws`;
 };
 
-export const CloudAccountsAwsCreate = async (
-  AwsAccount: AwsAccount,
+export const cloudAccountsAwsCreate = async (
+  awsAccount: AwsAccount,
   options?: RequestInit,
-): Promise<CloudAccountsAwsCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsAwsCreateUrl(), {
+): Promise<cloudAccountsAwsCreateResponse> => {
+  const res = await fetch(getCloudAccountsAwsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsAccount),
+    body: JSON.stringify(awsAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAwsCreateResponse["data"] = body
+  const data: cloudAccountsAwsCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -155,40 +155,40 @@ export const CloudAccountsAwsCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAwsCreateResponse;
+  } as cloudAccountsAwsCreateResponse;
 };
 
 /**
  * @summary Deletes the specified AWS account
  */
-export type CloudAccountsAwsDeleteResponse204 = {
+export type cloudAccountsAwsDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsAwsDeleteResponseComposite =
-  CloudAccountsAwsDeleteResponse204;
+export type cloudAccountsAwsDeleteResponseComposite =
+  cloudAccountsAwsDeleteResponse204;
 
-export type CloudAccountsAwsDeleteResponse =
-  CloudAccountsAwsDeleteResponseComposite & {
+export type cloudAccountsAwsDeleteResponse =
+  cloudAccountsAwsDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAwsDeleteUrl = (uid: string) => {
+export const getCloudAccountsAwsDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`;
 };
 
-export const CloudAccountsAwsDelete = async (
+export const cloudAccountsAwsDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsAwsDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsAwsDeleteUrl(uid), {
+): Promise<cloudAccountsAwsDeleteResponse> => {
+  const res = await fetch(getCloudAccountsAwsDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAwsDeleteResponse["data"] = body
+  const data: cloudAccountsAwsDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -196,26 +196,26 @@ export const CloudAccountsAwsDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAwsDeleteResponse;
+  } as cloudAccountsAwsDeleteResponse;
 };
 
 /**
  * @summary Returns the specified AWS account
  */
-export type CloudAccountsAwsGetResponse200 = {
+export type cloudAccountsAwsGetResponse200 = {
   data: AwsAccount;
   status: 200;
 };
 
-export type CloudAccountsAwsGetResponseComposite =
-  CloudAccountsAwsGetResponse200;
+export type cloudAccountsAwsGetResponseComposite =
+  cloudAccountsAwsGetResponse200;
 
-export type CloudAccountsAwsGetResponse =
-  CloudAccountsAwsGetResponseComposite & {
+export type cloudAccountsAwsGetResponse =
+  cloudAccountsAwsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAwsGetUrl = (
+export const getCloudAccountsAwsGetUrl = (
   uid: string,
   params?: CloudAccountsAwsGetParams,
 ) => {
@@ -234,18 +234,18 @@ export const getV1CloudAccountsAwsGetUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`;
 };
 
-export const CloudAccountsAwsGet = async (
+export const cloudAccountsAwsGet = async (
   uid: string,
   params?: CloudAccountsAwsGetParams,
   options?: RequestInit,
-): Promise<CloudAccountsAwsGetResponse> => {
-  const res = await fetch(getV1CloudAccountsAwsGetUrl(uid, params), {
+): Promise<cloudAccountsAwsGetResponse> => {
+  const res = await fetch(getCloudAccountsAwsGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAwsGetResponse["data"] = body
+  const data: cloudAccountsAwsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -253,43 +253,43 @@ export const CloudAccountsAwsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAwsGetResponse;
+  } as cloudAccountsAwsGetResponse;
 };
 
 /**
  * @summary Updates the specified AWS account
  */
-export type CloudAccountsAwsUpdateResponse204 = {
+export type cloudAccountsAwsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsAwsUpdateResponseComposite =
-  CloudAccountsAwsUpdateResponse204;
+export type cloudAccountsAwsUpdateResponseComposite =
+  cloudAccountsAwsUpdateResponse204;
 
-export type CloudAccountsAwsUpdateResponse =
-  CloudAccountsAwsUpdateResponseComposite & {
+export type cloudAccountsAwsUpdateResponse =
+  cloudAccountsAwsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAwsUpdateUrl = (uid: string) => {
+export const getCloudAccountsAwsUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`;
 };
 
-export const CloudAccountsAwsUpdate = async (
+export const cloudAccountsAwsUpdate = async (
   uid: string,
-  AwsAccount: AwsAccount,
+  awsAccount: AwsAccount,
   options?: RequestInit,
-): Promise<CloudAccountsAwsUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsAwsUpdateUrl(uid), {
+): Promise<cloudAccountsAwsUpdateResponse> => {
+  const res = await fetch(getCloudAccountsAwsUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AwsAccount),
+    body: JSON.stringify(awsAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAwsUpdateResponse["data"] = body
+  const data: cloudAccountsAwsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -297,26 +297,26 @@ export const CloudAccountsAwsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAwsUpdateResponse;
+  } as cloudAccountsAwsUpdateResponse;
 };
 
 /**
  * @summary Retrieves a list of azure cloud accounts
  */
-export type CloudAccountsAzureListResponse200 = {
+export type cloudAccountsAzureListResponse200 = {
   data: AzureAccounts;
   status: 200;
 };
 
-export type CloudAccountsAzureListResponseComposite =
-  CloudAccountsAzureListResponse200;
+export type cloudAccountsAzureListResponseComposite =
+  cloudAccountsAzureListResponse200;
 
-export type CloudAccountsAzureListResponse =
-  CloudAccountsAzureListResponseComposite & {
+export type cloudAccountsAzureListResponse =
+  cloudAccountsAzureListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAzureListUrl = (
+export const getCloudAccountsAzureListUrl = (
   params?: CloudAccountsAzureListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -334,17 +334,17 @@ export const getV1CloudAccountsAzureListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/azure`;
 };
 
-export const CloudAccountsAzureList = async (
+export const cloudAccountsAzureList = async (
   params?: CloudAccountsAzureListParams,
   options?: RequestInit,
-): Promise<CloudAccountsAzureListResponse> => {
-  const res = await fetch(getV1CloudAccountsAzureListUrl(params), {
+): Promise<cloudAccountsAzureListResponse> => {
+  const res = await fetch(getCloudAccountsAzureListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAzureListResponse["data"] = body
+  const data: cloudAccountsAzureListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -352,42 +352,42 @@ export const CloudAccountsAzureList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAzureListResponse;
+  } as cloudAccountsAzureListResponse;
 };
 
 /**
  * @summary Create azure cloud account
  */
-export type CloudAccountsAzureCreateResponse201 = {
+export type cloudAccountsAzureCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsAzureCreateResponseComposite =
-  CloudAccountsAzureCreateResponse201;
+export type cloudAccountsAzureCreateResponseComposite =
+  cloudAccountsAzureCreateResponse201;
 
-export type CloudAccountsAzureCreateResponse =
-  CloudAccountsAzureCreateResponseComposite & {
+export type cloudAccountsAzureCreateResponse =
+  cloudAccountsAzureCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAzureCreateUrl = () => {
+export const getCloudAccountsAzureCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/azure`;
 };
 
-export const CloudAccountsAzureCreate = async (
-  AzureAccount: AzureAccount,
+export const cloudAccountsAzureCreate = async (
+  azureAccount: AzureAccount,
   options?: RequestInit,
-): Promise<CloudAccountsAzureCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsAzureCreateUrl(), {
+): Promise<cloudAccountsAzureCreateResponse> => {
+  const res = await fetch(getCloudAccountsAzureCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AzureAccount),
+    body: JSON.stringify(azureAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAzureCreateResponse["data"] = body
+  const data: cloudAccountsAzureCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -395,40 +395,40 @@ export const CloudAccountsAzureCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAzureCreateResponse;
+  } as cloudAccountsAzureCreateResponse;
 };
 
 /**
  * @summary Deletes the specified azure account
  */
-export type CloudAccountsAzureDeleteResponse204 = {
+export type cloudAccountsAzureDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsAzureDeleteResponseComposite =
-  CloudAccountsAzureDeleteResponse204;
+export type cloudAccountsAzureDeleteResponseComposite =
+  cloudAccountsAzureDeleteResponse204;
 
-export type CloudAccountsAzureDeleteResponse =
-  CloudAccountsAzureDeleteResponseComposite & {
+export type cloudAccountsAzureDeleteResponse =
+  cloudAccountsAzureDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAzureDeleteUrl = (uid: string) => {
+export const getCloudAccountsAzureDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`;
 };
 
-export const CloudAccountsAzureDelete = async (
+export const cloudAccountsAzureDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsAzureDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsAzureDeleteUrl(uid), {
+): Promise<cloudAccountsAzureDeleteResponse> => {
+  const res = await fetch(getCloudAccountsAzureDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAzureDeleteResponse["data"] = body
+  const data: cloudAccountsAzureDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -436,40 +436,40 @@ export const CloudAccountsAzureDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAzureDeleteResponse;
+  } as cloudAccountsAzureDeleteResponse;
 };
 
 /**
  * @summary Returns the specified azure cloud account
  */
-export type CloudAccountsAzureGetResponse200 = {
+export type cloudAccountsAzureGetResponse200 = {
   data: AzureAccount;
   status: 200;
 };
 
-export type CloudAccountsAzureGetResponseComposite =
-  CloudAccountsAzureGetResponse200;
+export type cloudAccountsAzureGetResponseComposite =
+  cloudAccountsAzureGetResponse200;
 
-export type CloudAccountsAzureGetResponse =
-  CloudAccountsAzureGetResponseComposite & {
+export type cloudAccountsAzureGetResponse =
+  cloudAccountsAzureGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAzureGetUrl = (uid: string) => {
+export const getCloudAccountsAzureGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`;
 };
 
-export const CloudAccountsAzureGet = async (
+export const cloudAccountsAzureGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsAzureGetResponse> => {
-  const res = await fetch(getV1CloudAccountsAzureGetUrl(uid), {
+): Promise<cloudAccountsAzureGetResponse> => {
+  const res = await fetch(getCloudAccountsAzureGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAzureGetResponse["data"] = body
+  const data: cloudAccountsAzureGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -477,43 +477,43 @@ export const CloudAccountsAzureGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAzureGetResponse;
+  } as cloudAccountsAzureGetResponse;
 };
 
 /**
  * @summary Updates the specified azure account
  */
-export type CloudAccountsAzureUpdateResponse204 = {
+export type cloudAccountsAzureUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsAzureUpdateResponseComposite =
-  CloudAccountsAzureUpdateResponse204;
+export type cloudAccountsAzureUpdateResponseComposite =
+  cloudAccountsAzureUpdateResponse204;
 
-export type CloudAccountsAzureUpdateResponse =
-  CloudAccountsAzureUpdateResponseComposite & {
+export type cloudAccountsAzureUpdateResponse =
+  cloudAccountsAzureUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsAzureUpdateUrl = (uid: string) => {
+export const getCloudAccountsAzureUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`;
 };
 
-export const CloudAccountsAzureUpdate = async (
+export const cloudAccountsAzureUpdate = async (
   uid: string,
-  AzureAccount: AzureAccount,
+  azureAccount: AzureAccount,
   options?: RequestInit,
-): Promise<CloudAccountsAzureUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsAzureUpdateUrl(uid), {
+): Promise<cloudAccountsAzureUpdateResponse> => {
+  const res = await fetch(getCloudAccountsAzureUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AzureAccount),
+    body: JSON.stringify(azureAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsAzureUpdateResponse["data"] = body
+  const data: cloudAccountsAzureUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -521,26 +521,26 @@ export const CloudAccountsAzureUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsAzureUpdateResponse;
+  } as cloudAccountsAzureUpdateResponse;
 };
 
 /**
  * @summary Retrieves a list of cloud accounts by cloud type
  */
-export type CloudAccountsCustomListResponse200 = {
+export type cloudAccountsCustomListResponse200 = {
   data: CustomAccounts;
   status: 200;
 };
 
-export type CloudAccountsCustomListResponseComposite =
-  CloudAccountsCustomListResponse200;
+export type cloudAccountsCustomListResponseComposite =
+  cloudAccountsCustomListResponse200;
 
-export type CloudAccountsCustomListResponse =
-  CloudAccountsCustomListResponseComposite & {
+export type cloudAccountsCustomListResponse =
+  cloudAccountsCustomListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsCustomListUrl = (
+export const getCloudAccountsCustomListUrl = (
   cloudType: string,
   params?: CloudAccountsCustomListParams,
 ) => {
@@ -559,18 +559,18 @@ export const getV1CloudAccountsCustomListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}`;
 };
 
-export const CloudAccountsCustomList = async (
+export const cloudAccountsCustomList = async (
   cloudType: string,
   params?: CloudAccountsCustomListParams,
   options?: RequestInit,
-): Promise<CloudAccountsCustomListResponse> => {
-  const res = await fetch(getV1CloudAccountsCustomListUrl(cloudType, params), {
+): Promise<cloudAccountsCustomListResponse> => {
+  const res = await fetch(getCloudAccountsCustomListUrl(cloudType, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsCustomListResponse["data"] = body
+  const data: cloudAccountsCustomListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -578,43 +578,43 @@ export const CloudAccountsCustomList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsCustomListResponse;
+  } as cloudAccountsCustomListResponse;
 };
 
 /**
  * @summary Creates an cloud account of specific cloud type
  */
-export type CloudAccountsCustomCreateResponse201 = {
+export type cloudAccountsCustomCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsCustomCreateResponseComposite =
-  CloudAccountsCustomCreateResponse201;
+export type cloudAccountsCustomCreateResponseComposite =
+  cloudAccountsCustomCreateResponse201;
 
-export type CloudAccountsCustomCreateResponse =
-  CloudAccountsCustomCreateResponseComposite & {
+export type cloudAccountsCustomCreateResponse =
+  cloudAccountsCustomCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsCustomCreateUrl = (cloudType: string) => {
+export const getCloudAccountsCustomCreateUrl = (cloudType: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}`;
 };
 
-export const CloudAccountsCustomCreate = async (
+export const cloudAccountsCustomCreate = async (
   cloudType: string,
-  CustomAccountEntity: CustomAccountEntity,
+  customAccountEntity: CustomAccountEntity,
   options?: RequestInit,
-): Promise<CloudAccountsCustomCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsCustomCreateUrl(cloudType), {
+): Promise<cloudAccountsCustomCreateResponse> => {
+  const res = await fetch(getCloudAccountsCustomCreateUrl(cloudType), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CustomAccountEntity),
+    body: JSON.stringify(customAccountEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsCustomCreateResponse["data"] = body
+  const data: cloudAccountsCustomCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -622,44 +622,44 @@ export const CloudAccountsCustomCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsCustomCreateResponse;
+  } as cloudAccountsCustomCreateResponse;
 };
 
 /**
  * @summary Deletes the specified account by cloud type
  */
-export type CloudAccountsCustomDeleteResponse204 = {
+export type cloudAccountsCustomDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsCustomDeleteResponseComposite =
-  CloudAccountsCustomDeleteResponse204;
+export type cloudAccountsCustomDeleteResponseComposite =
+  cloudAccountsCustomDeleteResponse204;
 
-export type CloudAccountsCustomDeleteResponse =
-  CloudAccountsCustomDeleteResponseComposite & {
+export type cloudAccountsCustomDeleteResponse =
+  cloudAccountsCustomDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsCustomDeleteUrl = (
+export const getCloudAccountsCustomDeleteUrl = (
   cloudType: string,
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`;
 };
 
-export const CloudAccountsCustomDelete = async (
+export const cloudAccountsCustomDelete = async (
   cloudType: string,
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsCustomDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsCustomDeleteUrl(cloudType, uid), {
+): Promise<cloudAccountsCustomDeleteResponse> => {
+  const res = await fetch(getCloudAccountsCustomDeleteUrl(cloudType, uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsCustomDeleteResponse["data"] = body
+  const data: cloudAccountsCustomDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -667,44 +667,44 @@ export const CloudAccountsCustomDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsCustomDeleteResponse;
+  } as cloudAccountsCustomDeleteResponse;
 };
 
 /**
  * @summary Returns the specified account by cloud type
  */
-export type CloudAccountsCustomGetResponse200 = {
+export type cloudAccountsCustomGetResponse200 = {
   data: CustomAccount;
   status: 200;
 };
 
-export type CloudAccountsCustomGetResponseComposite =
-  CloudAccountsCustomGetResponse200;
+export type cloudAccountsCustomGetResponseComposite =
+  cloudAccountsCustomGetResponse200;
 
-export type CloudAccountsCustomGetResponse =
-  CloudAccountsCustomGetResponseComposite & {
+export type cloudAccountsCustomGetResponse =
+  cloudAccountsCustomGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsCustomGetUrl = (
+export const getCloudAccountsCustomGetUrl = (
   cloudType: string,
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`;
 };
 
-export const CloudAccountsCustomGet = async (
+export const cloudAccountsCustomGet = async (
   cloudType: string,
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsCustomGetResponse> => {
-  const res = await fetch(getV1CloudAccountsCustomGetUrl(cloudType, uid), {
+): Promise<cloudAccountsCustomGetResponse> => {
+  const res = await fetch(getCloudAccountsCustomGetUrl(cloudType, uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsCustomGetResponse["data"] = body
+  const data: cloudAccountsCustomGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -712,47 +712,47 @@ export const CloudAccountsCustomGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsCustomGetResponse;
+  } as cloudAccountsCustomGetResponse;
 };
 
 /**
  * @summary Updates the specified account by cloud type
  */
-export type CloudAccountsCustomUpdateResponse204 = {
+export type cloudAccountsCustomUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsCustomUpdateResponseComposite =
-  CloudAccountsCustomUpdateResponse204;
+export type cloudAccountsCustomUpdateResponseComposite =
+  cloudAccountsCustomUpdateResponse204;
 
-export type CloudAccountsCustomUpdateResponse =
-  CloudAccountsCustomUpdateResponseComposite & {
+export type cloudAccountsCustomUpdateResponse =
+  cloudAccountsCustomUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsCustomUpdateUrl = (
+export const getCloudAccountsCustomUpdateUrl = (
   cloudType: string,
   uid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`;
 };
 
-export const CloudAccountsCustomUpdate = async (
+export const cloudAccountsCustomUpdate = async (
   cloudType: string,
   uid: string,
-  CustomAccountEntity: CustomAccountEntity,
+  customAccountEntity: CustomAccountEntity,
   options?: RequestInit,
-): Promise<CloudAccountsCustomUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsCustomUpdateUrl(cloudType, uid), {
+): Promise<cloudAccountsCustomUpdateResponse> => {
+  const res = await fetch(getCloudAccountsCustomUpdateUrl(cloudType, uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CustomAccountEntity),
+    body: JSON.stringify(customAccountEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsCustomUpdateResponse["data"] = body
+  const data: cloudAccountsCustomUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -760,26 +760,26 @@ export const CloudAccountsCustomUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsCustomUpdateResponse;
+  } as cloudAccountsCustomUpdateResponse;
 };
 
 /**
  * @summary Retrieves a list of gcp cloud accounts
  */
-export type CloudAccountsGcpListResponse200 = {
+export type cloudAccountsGcpListResponse200 = {
   data: GcpAccounts;
   status: 200;
 };
 
-export type CloudAccountsGcpListResponseComposite =
-  CloudAccountsGcpListResponse200;
+export type cloudAccountsGcpListResponseComposite =
+  cloudAccountsGcpListResponse200;
 
-export type CloudAccountsGcpListResponse =
-  CloudAccountsGcpListResponseComposite & {
+export type cloudAccountsGcpListResponse =
+  cloudAccountsGcpListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsGcpListUrl = (
+export const getCloudAccountsGcpListUrl = (
   params?: CloudAccountsGcpListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -797,17 +797,17 @@ export const getV1CloudAccountsGcpListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/gcp`;
 };
 
-export const CloudAccountsGcpList = async (
+export const cloudAccountsGcpList = async (
   params?: CloudAccountsGcpListParams,
   options?: RequestInit,
-): Promise<CloudAccountsGcpListResponse> => {
-  const res = await fetch(getV1CloudAccountsGcpListUrl(params), {
+): Promise<cloudAccountsGcpListResponse> => {
+  const res = await fetch(getCloudAccountsGcpListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsGcpListResponse["data"] = body
+  const data: cloudAccountsGcpListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -815,42 +815,42 @@ export const CloudAccountsGcpList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsGcpListResponse;
+  } as cloudAccountsGcpListResponse;
 };
 
 /**
  * @summary Creates a GCP cloud account
  */
-export type CloudAccountsGcpCreateResponse201 = {
+export type cloudAccountsGcpCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsGcpCreateResponseComposite =
-  CloudAccountsGcpCreateResponse201;
+export type cloudAccountsGcpCreateResponseComposite =
+  cloudAccountsGcpCreateResponse201;
 
-export type CloudAccountsGcpCreateResponse =
-  CloudAccountsGcpCreateResponseComposite & {
+export type cloudAccountsGcpCreateResponse =
+  cloudAccountsGcpCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsGcpCreateUrl = () => {
+export const getCloudAccountsGcpCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/gcp`;
 };
 
-export const CloudAccountsGcpCreate = async (
-  GcpAccountEntityBody: GcpAccountEntityBody,
+export const cloudAccountsGcpCreate = async (
+  v1GcpAccountEntityBody: V1GcpAccountEntityBody,
   options?: RequestInit,
-): Promise<CloudAccountsGcpCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsGcpCreateUrl(), {
+): Promise<cloudAccountsGcpCreateResponse> => {
+  const res = await fetch(getCloudAccountsGcpCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GcpAccountEntityBody),
+    body: JSON.stringify(v1GcpAccountEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsGcpCreateResponse["data"] = body
+  const data: cloudAccountsGcpCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -858,40 +858,40 @@ export const CloudAccountsGcpCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsGcpCreateResponse;
+  } as cloudAccountsGcpCreateResponse;
 };
 
 /**
  * @summary Deletes the specified GCP account
  */
-export type CloudAccountsGcpDeleteResponse204 = {
+export type cloudAccountsGcpDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsGcpDeleteResponseComposite =
-  CloudAccountsGcpDeleteResponse204;
+export type cloudAccountsGcpDeleteResponseComposite =
+  cloudAccountsGcpDeleteResponse204;
 
-export type CloudAccountsGcpDeleteResponse =
-  CloudAccountsGcpDeleteResponseComposite & {
+export type cloudAccountsGcpDeleteResponse =
+  cloudAccountsGcpDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsGcpDeleteUrl = (uid: string) => {
+export const getCloudAccountsGcpDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`;
 };
 
-export const CloudAccountsGcpDelete = async (
+export const cloudAccountsGcpDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsGcpDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsGcpDeleteUrl(uid), {
+): Promise<cloudAccountsGcpDeleteResponse> => {
+  const res = await fetch(getCloudAccountsGcpDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsGcpDeleteResponse["data"] = body
+  const data: cloudAccountsGcpDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -899,40 +899,40 @@ export const CloudAccountsGcpDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsGcpDeleteResponse;
+  } as cloudAccountsGcpDeleteResponse;
 };
 
 /**
  * @summary Returns the specified GCP cloud account
  */
-export type CloudAccountsGcpGetResponse200 = {
+export type cloudAccountsGcpGetResponse200 = {
   data: GcpAccount;
   status: 200;
 };
 
-export type CloudAccountsGcpGetResponseComposite =
-  CloudAccountsGcpGetResponse200;
+export type cloudAccountsGcpGetResponseComposite =
+  cloudAccountsGcpGetResponse200;
 
-export type CloudAccountsGcpGetResponse =
-  CloudAccountsGcpGetResponseComposite & {
+export type cloudAccountsGcpGetResponse =
+  cloudAccountsGcpGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsGcpGetUrl = (uid: string) => {
+export const getCloudAccountsGcpGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`;
 };
 
-export const CloudAccountsGcpGet = async (
+export const cloudAccountsGcpGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsGcpGetResponse> => {
-  const res = await fetch(getV1CloudAccountsGcpGetUrl(uid), {
+): Promise<cloudAccountsGcpGetResponse> => {
+  const res = await fetch(getCloudAccountsGcpGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsGcpGetResponse["data"] = body
+  const data: cloudAccountsGcpGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -940,43 +940,43 @@ export const CloudAccountsGcpGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsGcpGetResponse;
+  } as cloudAccountsGcpGetResponse;
 };
 
 /**
  * @summary Updates the specified GCP account
  */
-export type CloudAccountsGcpUpdateResponse204 = {
+export type cloudAccountsGcpUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsGcpUpdateResponseComposite =
-  CloudAccountsGcpUpdateResponse204;
+export type cloudAccountsGcpUpdateResponseComposite =
+  cloudAccountsGcpUpdateResponse204;
 
-export type CloudAccountsGcpUpdateResponse =
-  CloudAccountsGcpUpdateResponseComposite & {
+export type cloudAccountsGcpUpdateResponse =
+  cloudAccountsGcpUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsGcpUpdateUrl = (uid: string) => {
+export const getCloudAccountsGcpUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`;
 };
 
-export const CloudAccountsGcpUpdate = async (
+export const cloudAccountsGcpUpdate = async (
   uid: string,
-  GcpAccountEntityBody: GcpAccountEntityBody,
+  v1GcpAccountEntityBody: V1GcpAccountEntityBody,
   options?: RequestInit,
-): Promise<CloudAccountsGcpUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsGcpUpdateUrl(uid), {
+): Promise<cloudAccountsGcpUpdateResponse> => {
+  const res = await fetch(getCloudAccountsGcpUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GcpAccountEntityBody),
+    body: JSON.stringify(v1GcpAccountEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsGcpUpdateResponse["data"] = body
+  const data: cloudAccountsGcpUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -984,26 +984,26 @@ export const CloudAccountsGcpUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsGcpUpdateResponse;
+  } as cloudAccountsGcpUpdateResponse;
 };
 
 /**
  * @summary Retrieves a list of Maas cloud accounts
  */
-export type CloudAccountsMaasListResponse200 = {
+export type cloudAccountsMaasListResponse200 = {
   data: MaasAccounts;
   status: 200;
 };
 
-export type CloudAccountsMaasListResponseComposite =
-  CloudAccountsMaasListResponse200;
+export type cloudAccountsMaasListResponseComposite =
+  cloudAccountsMaasListResponse200;
 
-export type CloudAccountsMaasListResponse =
-  CloudAccountsMaasListResponseComposite & {
+export type cloudAccountsMaasListResponse =
+  cloudAccountsMaasListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasListUrl = (
+export const getCloudAccountsMaasListUrl = (
   params?: CloudAccountsMaasListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1021,17 +1021,17 @@ export const getV1CloudAccountsMaasListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/maas`;
 };
 
-export const CloudAccountsMaasList = async (
+export const cloudAccountsMaasList = async (
   params?: CloudAccountsMaasListParams,
   options?: RequestInit,
-): Promise<CloudAccountsMaasListResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasListUrl(params), {
+): Promise<cloudAccountsMaasListResponse> => {
+  const res = await fetch(getCloudAccountsMaasListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasListResponse["data"] = body
+  const data: cloudAccountsMaasListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1039,42 +1039,42 @@ export const CloudAccountsMaasList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasListResponse;
+  } as cloudAccountsMaasListResponse;
 };
 
 /**
  * @summary Creates an Maas cloud account
  */
-export type CloudAccountsMaasCreateResponse201 = {
+export type cloudAccountsMaasCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsMaasCreateResponseComposite =
-  CloudAccountsMaasCreateResponse201;
+export type cloudAccountsMaasCreateResponseComposite =
+  cloudAccountsMaasCreateResponse201;
 
-export type CloudAccountsMaasCreateResponse =
-  CloudAccountsMaasCreateResponseComposite & {
+export type cloudAccountsMaasCreateResponse =
+  cloudAccountsMaasCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasCreateUrl = () => {
+export const getCloudAccountsMaasCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas`;
 };
 
-export const CloudAccountsMaasCreate = async (
-  MaasAccount: MaasAccount,
+export const cloudAccountsMaasCreate = async (
+  maasAccount: MaasAccount,
   options?: RequestInit,
-): Promise<CloudAccountsMaasCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasCreateUrl(), {
+): Promise<cloudAccountsMaasCreateResponse> => {
+  const res = await fetch(getCloudAccountsMaasCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MaasAccount),
+    body: JSON.stringify(maasAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasCreateResponse["data"] = body
+  const data: cloudAccountsMaasCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1082,40 +1082,40 @@ export const CloudAccountsMaasCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasCreateResponse;
+  } as cloudAccountsMaasCreateResponse;
 };
 
 /**
  * @summary Deletes the specified Maas account
  */
-export type CloudAccountsMaasDeleteResponse204 = {
+export type cloudAccountsMaasDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsMaasDeleteResponseComposite =
-  CloudAccountsMaasDeleteResponse204;
+export type cloudAccountsMaasDeleteResponseComposite =
+  cloudAccountsMaasDeleteResponse204;
 
-export type CloudAccountsMaasDeleteResponse =
-  CloudAccountsMaasDeleteResponseComposite & {
+export type cloudAccountsMaasDeleteResponse =
+  cloudAccountsMaasDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasDeleteUrl = (uid: string) => {
+export const getCloudAccountsMaasDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`;
 };
 
-export const CloudAccountsMaasDelete = async (
+export const cloudAccountsMaasDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsMaasDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasDeleteUrl(uid), {
+): Promise<cloudAccountsMaasDeleteResponse> => {
+  const res = await fetch(getCloudAccountsMaasDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasDeleteResponse["data"] = body
+  const data: cloudAccountsMaasDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1123,40 +1123,40 @@ export const CloudAccountsMaasDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasDeleteResponse;
+  } as cloudAccountsMaasDeleteResponse;
 };
 
 /**
  * @summary Returns the specified Maas account
  */
-export type CloudAccountsMaasGetResponse200 = {
+export type cloudAccountsMaasGetResponse200 = {
   data: MaasAccount;
   status: 200;
 };
 
-export type CloudAccountsMaasGetResponseComposite =
-  CloudAccountsMaasGetResponse200;
+export type cloudAccountsMaasGetResponseComposite =
+  cloudAccountsMaasGetResponse200;
 
-export type CloudAccountsMaasGetResponse =
-  CloudAccountsMaasGetResponseComposite & {
+export type cloudAccountsMaasGetResponse =
+  cloudAccountsMaasGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasGetUrl = (uid: string) => {
+export const getCloudAccountsMaasGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`;
 };
 
-export const CloudAccountsMaasGet = async (
+export const cloudAccountsMaasGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsMaasGetResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasGetUrl(uid), {
+): Promise<cloudAccountsMaasGetResponse> => {
+  const res = await fetch(getCloudAccountsMaasGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasGetResponse["data"] = body
+  const data: cloudAccountsMaasGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1164,43 +1164,43 @@ export const CloudAccountsMaasGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasGetResponse;
+  } as cloudAccountsMaasGetResponse;
 };
 
 /**
  * @summary Patches the specified CloudAccount Maas
  */
-export type CloudAccountsMaasPatchResponse204 = {
+export type cloudAccountsMaasPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsMaasPatchResponseComposite =
-  CloudAccountsMaasPatchResponse204;
+export type cloudAccountsMaasPatchResponseComposite =
+  cloudAccountsMaasPatchResponse204;
 
-export type CloudAccountsMaasPatchResponse =
-  CloudAccountsMaasPatchResponseComposite & {
+export type cloudAccountsMaasPatchResponse =
+  cloudAccountsMaasPatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasPatchUrl = (uid: string) => {
+export const getCloudAccountsMaasPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`;
 };
 
-export const CloudAccountsMaasPatch = async (
+export const cloudAccountsMaasPatch = async (
   uid: string,
-  CloudAccountsPatch: CloudAccountsPatch,
+  cloudAccountsPatch: CloudAccountsPatch,
   options?: RequestInit,
-): Promise<CloudAccountsMaasPatchResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasPatchUrl(uid), {
+): Promise<cloudAccountsMaasPatchResponse> => {
+  const res = await fetch(getCloudAccountsMaasPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(CloudAccountsPatch),
+    body: JSON.stringify(cloudAccountsPatch),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasPatchResponse["data"] = body
+  const data: cloudAccountsMaasPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1208,43 +1208,43 @@ export const CloudAccountsMaasPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasPatchResponse;
+  } as cloudAccountsMaasPatchResponse;
 };
 
 /**
  * @summary Updates the specified Maas account
  */
-export type CloudAccountsMaasUpdateResponse204 = {
+export type cloudAccountsMaasUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsMaasUpdateResponseComposite =
-  CloudAccountsMaasUpdateResponse204;
+export type cloudAccountsMaasUpdateResponseComposite =
+  cloudAccountsMaasUpdateResponse204;
 
-export type CloudAccountsMaasUpdateResponse =
-  CloudAccountsMaasUpdateResponseComposite & {
+export type cloudAccountsMaasUpdateResponse =
+  cloudAccountsMaasUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsMaasUpdateUrl = (uid: string) => {
+export const getCloudAccountsMaasUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`;
 };
 
-export const CloudAccountsMaasUpdate = async (
+export const cloudAccountsMaasUpdate = async (
   uid: string,
-  MaasAccount: MaasAccount,
+  maasAccount: MaasAccount,
   options?: RequestInit,
-): Promise<CloudAccountsMaasUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsMaasUpdateUrl(uid), {
+): Promise<cloudAccountsMaasUpdateResponse> => {
+  const res = await fetch(getCloudAccountsMaasUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MaasAccount),
+    body: JSON.stringify(maasAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsMaasUpdateResponse["data"] = body
+  const data: cloudAccountsMaasUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1252,77 +1252,77 @@ export const CloudAccountsMaasUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsMaasUpdateResponse;
+  } as cloudAccountsMaasUpdateResponse;
 };
 
 /**
  * @summary Get the maas azs for a given account
  */
-export type MaasAccountsUidAzsResponse200 = {
+export type maasAccountsUidAzsResponse200 = {
   data: MaasZones;
   status: 200;
 };
 
-export type MaasAccountsUidAzsResponseComposite = MaasAccountsUidAzsResponse200;
+export type maasAccountsUidAzsResponseComposite = maasAccountsUidAzsResponse200;
 
-export type MaasAccountsUidAzsResponse = MaasAccountsUidAzsResponseComposite & {
+export type maasAccountsUidAzsResponse = maasAccountsUidAzsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MaasAccountsUidAzsUrl = (uid: string) => {
+export const getMaasAccountsUidAzsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/azs`;
 };
 
-export const MaasAccountsUidAzs = async (
+export const maasAccountsUidAzs = async (
   uid: string,
   options?: RequestInit,
-): Promise<MaasAccountsUidAzsResponse> => {
-  const res = await fetch(getV1MaasAccountsUidAzsUrl(uid), {
+): Promise<maasAccountsUidAzsResponse> => {
+  const res = await fetch(getMaasAccountsUidAzsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidAzsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: maasAccountsUidAzsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountsUidAzsResponse;
+  } as maasAccountsUidAzsResponse;
 };
 
 /**
  * @summary Get the maas domains for a given account
  */
-export type MaasAccountsUidDomainsResponse200 = {
+export type maasAccountsUidDomainsResponse200 = {
   data: MaasDomains;
   status: 200;
 };
 
-export type MaasAccountsUidDomainsResponseComposite =
-  MaasAccountsUidDomainsResponse200;
+export type maasAccountsUidDomainsResponseComposite =
+  maasAccountsUidDomainsResponse200;
 
-export type MaasAccountsUidDomainsResponse =
-  MaasAccountsUidDomainsResponseComposite & {
+export type maasAccountsUidDomainsResponse =
+  maasAccountsUidDomainsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1MaasAccountsUidDomainsUrl = (uid: string) => {
+export const getMaasAccountsUidDomainsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/domains`;
 };
 
-export const MaasAccountsUidDomains = async (
+export const maasAccountsUidDomains = async (
   uid: string,
   options?: RequestInit,
-): Promise<MaasAccountsUidDomainsResponse> => {
-  const res = await fetch(getV1MaasAccountsUidDomainsUrl(uid), {
+): Promise<maasAccountsUidDomainsResponse> => {
+  const res = await fetch(getMaasAccountsUidDomainsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidDomainsResponse["data"] = body
+  const data: maasAccountsUidDomainsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1330,40 +1330,40 @@ export const MaasAccountsUidDomains = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountsUidDomainsResponse;
+  } as maasAccountsUidDomainsResponse;
 };
 
 /**
  * @summary Get the maas pools for a given account
  */
-export type MaasAccountsUidPoolsResponse200 = {
+export type maasAccountsUidPoolsResponse200 = {
   data: MaasPools;
   status: 200;
 };
 
-export type MaasAccountsUidPoolsResponseComposite =
-  MaasAccountsUidPoolsResponse200;
+export type maasAccountsUidPoolsResponseComposite =
+  maasAccountsUidPoolsResponse200;
 
-export type MaasAccountsUidPoolsResponse =
-  MaasAccountsUidPoolsResponseComposite & {
+export type maasAccountsUidPoolsResponse =
+  maasAccountsUidPoolsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1MaasAccountsUidPoolsUrl = (uid: string) => {
+export const getMaasAccountsUidPoolsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/resourcePools`;
 };
 
-export const MaasAccountsUidPools = async (
+export const maasAccountsUidPools = async (
   uid: string,
   options?: RequestInit,
-): Promise<MaasAccountsUidPoolsResponse> => {
-  const res = await fetch(getV1MaasAccountsUidPoolsUrl(uid), {
+): Promise<maasAccountsUidPoolsResponse> => {
+  const res = await fetch(getMaasAccountsUidPoolsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidPoolsResponse["data"] = body
+  const data: maasAccountsUidPoolsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1371,40 +1371,40 @@ export const MaasAccountsUidPools = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountsUidPoolsResponse;
+  } as maasAccountsUidPoolsResponse;
 };
 
 /**
  * @summary Get the maas subnets for a given account
  */
-export type MaasAccountsUidSubnetsResponse200 = {
+export type maasAccountsUidSubnetsResponse200 = {
   data: MaasSubnets;
   status: 200;
 };
 
-export type MaasAccountsUidSubnetsResponseComposite =
-  MaasAccountsUidSubnetsResponse200;
+export type maasAccountsUidSubnetsResponseComposite =
+  maasAccountsUidSubnetsResponse200;
 
-export type MaasAccountsUidSubnetsResponse =
-  MaasAccountsUidSubnetsResponseComposite & {
+export type maasAccountsUidSubnetsResponse =
+  maasAccountsUidSubnetsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1MaasAccountsUidSubnetsUrl = (uid: string) => {
+export const getMaasAccountsUidSubnetsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/subnets`;
 };
 
-export const MaasAccountsUidSubnets = async (
+export const maasAccountsUidSubnets = async (
   uid: string,
   options?: RequestInit,
-): Promise<MaasAccountsUidSubnetsResponse> => {
-  const res = await fetch(getV1MaasAccountsUidSubnetsUrl(uid), {
+): Promise<maasAccountsUidSubnetsResponse> => {
+  const res = await fetch(getMaasAccountsUidSubnetsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidSubnetsResponse["data"] = body
+  const data: maasAccountsUidSubnetsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1412,40 +1412,40 @@ export const MaasAccountsUidSubnets = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountsUidSubnetsResponse;
+  } as maasAccountsUidSubnetsResponse;
 };
 
 /**
  * @summary Get the maas tags for a given account
  */
-export type MaasAccountsUidTagsResponse200 = {
+export type maasAccountsUidTagsResponse200 = {
   data: MaasTags;
   status: 200;
 };
 
-export type MaasAccountsUidTagsResponseComposite =
-  MaasAccountsUidTagsResponse200;
+export type maasAccountsUidTagsResponseComposite =
+  maasAccountsUidTagsResponse200;
 
-export type MaasAccountsUidTagsResponse =
-  MaasAccountsUidTagsResponseComposite & {
+export type maasAccountsUidTagsResponse =
+  maasAccountsUidTagsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1MaasAccountsUidTagsUrl = (uid: string) => {
+export const getMaasAccountsUidTagsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/tags`;
 };
 
-export const MaasAccountsUidTags = async (
+export const maasAccountsUidTags = async (
   uid: string,
   options?: RequestInit,
-): Promise<MaasAccountsUidTagsResponse> => {
-  const res = await fetch(getV1MaasAccountsUidTagsUrl(uid), {
+): Promise<maasAccountsUidTagsResponse> => {
+  const res = await fetch(getMaasAccountsUidTagsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MaasAccountsUidTagsResponse["data"] = body
+  const data: maasAccountsUidTagsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1453,26 +1453,26 @@ export const MaasAccountsUidTags = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as MaasAccountsUidTagsResponse;
+  } as maasAccountsUidTagsResponse;
 };
 
 /**
  * @summary Retrieves a list of OpenStack cloud accounts
  */
-export type CloudAccountsOpenStackListResponse200 = {
+export type cloudAccountsOpenStackListResponse200 = {
   data: OpenStackAccounts;
   status: 200;
 };
 
-export type CloudAccountsOpenStackListResponseComposite =
-  CloudAccountsOpenStackListResponse200;
+export type cloudAccountsOpenStackListResponseComposite =
+  cloudAccountsOpenStackListResponse200;
 
-export type CloudAccountsOpenStackListResponse =
-  CloudAccountsOpenStackListResponseComposite & {
+export type cloudAccountsOpenStackListResponse =
+  cloudAccountsOpenStackListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsOpenStackListUrl = (
+export const getCloudAccountsOpenStackListUrl = (
   params?: CloudAccountsOpenStackListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1490,17 +1490,17 @@ export const getV1CloudAccountsOpenStackListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/openstack`;
 };
 
-export const CloudAccountsOpenStackList = async (
+export const cloudAccountsOpenStackList = async (
   params?: CloudAccountsOpenStackListParams,
   options?: RequestInit,
-): Promise<CloudAccountsOpenStackListResponse> => {
-  const res = await fetch(getV1CloudAccountsOpenStackListUrl(params), {
+): Promise<cloudAccountsOpenStackListResponse> => {
+  const res = await fetch(getCloudAccountsOpenStackListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsOpenStackListResponse["data"] = body
+  const data: cloudAccountsOpenStackListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1508,42 +1508,42 @@ export const CloudAccountsOpenStackList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsOpenStackListResponse;
+  } as cloudAccountsOpenStackListResponse;
 };
 
 /**
  * @summary Creates a OpenStack cloud account
  */
-export type CloudAccountsOpenStackCreateResponse201 = {
+export type cloudAccountsOpenStackCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsOpenStackCreateResponseComposite =
-  CloudAccountsOpenStackCreateResponse201;
+export type cloudAccountsOpenStackCreateResponseComposite =
+  cloudAccountsOpenStackCreateResponse201;
 
-export type CloudAccountsOpenStackCreateResponse =
-  CloudAccountsOpenStackCreateResponseComposite & {
+export type cloudAccountsOpenStackCreateResponse =
+  cloudAccountsOpenStackCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsOpenStackCreateUrl = () => {
+export const getCloudAccountsOpenStackCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack`;
 };
 
-export const CloudAccountsOpenStackCreate = async (
-  OpenStackAccount: OpenStackAccount,
+export const cloudAccountsOpenStackCreate = async (
+  openStackAccount: OpenStackAccount,
   options?: RequestInit,
-): Promise<CloudAccountsOpenStackCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsOpenStackCreateUrl(), {
+): Promise<cloudAccountsOpenStackCreateResponse> => {
+  const res = await fetch(getCloudAccountsOpenStackCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OpenStackAccount),
+    body: JSON.stringify(openStackAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsOpenStackCreateResponse["data"] = body
+  const data: cloudAccountsOpenStackCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1551,40 +1551,40 @@ export const CloudAccountsOpenStackCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsOpenStackCreateResponse;
+  } as cloudAccountsOpenStackCreateResponse;
 };
 
 /**
  * @summary Deletes the specified OpenStack account
  */
-export type CloudAccountsOpenStackDeleteResponse204 = {
+export type cloudAccountsOpenStackDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsOpenStackDeleteResponseComposite =
-  CloudAccountsOpenStackDeleteResponse204;
+export type cloudAccountsOpenStackDeleteResponseComposite =
+  cloudAccountsOpenStackDeleteResponse204;
 
-export type CloudAccountsOpenStackDeleteResponse =
-  CloudAccountsOpenStackDeleteResponseComposite & {
+export type cloudAccountsOpenStackDeleteResponse =
+  cloudAccountsOpenStackDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsOpenStackDeleteUrl = (uid: string) => {
+export const getCloudAccountsOpenStackDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`;
 };
 
-export const CloudAccountsOpenStackDelete = async (
+export const cloudAccountsOpenStackDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsOpenStackDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsOpenStackDeleteUrl(uid), {
+): Promise<cloudAccountsOpenStackDeleteResponse> => {
+  const res = await fetch(getCloudAccountsOpenStackDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsOpenStackDeleteResponse["data"] = body
+  const data: cloudAccountsOpenStackDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1592,40 +1592,40 @@ export const CloudAccountsOpenStackDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsOpenStackDeleteResponse;
+  } as cloudAccountsOpenStackDeleteResponse;
 };
 
 /**
  * @summary Returns the specified OpenStack account
  */
-export type CloudAccountsOpenStackGetResponse200 = {
+export type cloudAccountsOpenStackGetResponse200 = {
   data: OpenStackAccount;
   status: 200;
 };
 
-export type CloudAccountsOpenStackGetResponseComposite =
-  CloudAccountsOpenStackGetResponse200;
+export type cloudAccountsOpenStackGetResponseComposite =
+  cloudAccountsOpenStackGetResponse200;
 
-export type CloudAccountsOpenStackGetResponse =
-  CloudAccountsOpenStackGetResponseComposite & {
+export type cloudAccountsOpenStackGetResponse =
+  cloudAccountsOpenStackGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsOpenStackGetUrl = (uid: string) => {
+export const getCloudAccountsOpenStackGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`;
 };
 
-export const CloudAccountsOpenStackGet = async (
+export const cloudAccountsOpenStackGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsOpenStackGetResponse> => {
-  const res = await fetch(getV1CloudAccountsOpenStackGetUrl(uid), {
+): Promise<cloudAccountsOpenStackGetResponse> => {
+  const res = await fetch(getCloudAccountsOpenStackGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsOpenStackGetResponse["data"] = body
+  const data: cloudAccountsOpenStackGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1633,43 +1633,43 @@ export const CloudAccountsOpenStackGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsOpenStackGetResponse;
+  } as cloudAccountsOpenStackGetResponse;
 };
 
 /**
  * @summary Updates the specified OpenStack account
  */
-export type CloudAccountsOpenStackUpdateResponse204 = {
+export type cloudAccountsOpenStackUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsOpenStackUpdateResponseComposite =
-  CloudAccountsOpenStackUpdateResponse204;
+export type cloudAccountsOpenStackUpdateResponseComposite =
+  cloudAccountsOpenStackUpdateResponse204;
 
-export type CloudAccountsOpenStackUpdateResponse =
-  CloudAccountsOpenStackUpdateResponseComposite & {
+export type cloudAccountsOpenStackUpdateResponse =
+  cloudAccountsOpenStackUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsOpenStackUpdateUrl = (uid: string) => {
+export const getCloudAccountsOpenStackUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`;
 };
 
-export const CloudAccountsOpenStackUpdate = async (
+export const cloudAccountsOpenStackUpdate = async (
   uid: string,
-  OpenStackAccount: OpenStackAccount,
+  openStackAccount: OpenStackAccount,
   options?: RequestInit,
-): Promise<CloudAccountsOpenStackUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsOpenStackUpdateUrl(uid), {
+): Promise<cloudAccountsOpenStackUpdateResponse> => {
+  const res = await fetch(getCloudAccountsOpenStackUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(OpenStackAccount),
+    body: JSON.stringify(openStackAccount),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsOpenStackUpdateResponse["data"] = body
+  const data: cloudAccountsOpenStackUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1677,26 +1677,26 @@ export const CloudAccountsOpenStackUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsOpenStackUpdateResponse;
+  } as cloudAccountsOpenStackUpdateResponse;
 };
 
 /**
  * @summary Get the openstack azs for a given account and region
  */
-export type OpenstackAccountsUidAzsResponse200 = {
+export type openstackAccountsUidAzsResponse200 = {
   data: OpenStackAzs;
   status: 200;
 };
 
-export type OpenstackAccountsUidAzsResponseComposite =
-  OpenstackAccountsUidAzsResponse200;
+export type openstackAccountsUidAzsResponseComposite =
+  openstackAccountsUidAzsResponse200;
 
-export type OpenstackAccountsUidAzsResponse =
-  OpenstackAccountsUidAzsResponseComposite & {
+export type openstackAccountsUidAzsResponse =
+  openstackAccountsUidAzsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidAzsUrl = (
+export const getOpenstackAccountsUidAzsUrl = (
   uid: string,
   params?: OpenstackAccountsUidAzsParams,
 ) => {
@@ -1715,18 +1715,18 @@ export const getV1OpenstackAccountsUidAzsUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/azs`;
 };
 
-export const OpenstackAccountsUidAzs = async (
+export const openstackAccountsUidAzs = async (
   uid: string,
   params?: OpenstackAccountsUidAzsParams,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidAzsResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidAzsUrl(uid, params), {
+): Promise<openstackAccountsUidAzsResponse> => {
+  const res = await fetch(getOpenstackAccountsUidAzsUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidAzsResponse["data"] = body
+  const data: openstackAccountsUidAzsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1734,26 +1734,26 @@ export const OpenstackAccountsUidAzs = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidAzsResponse;
+  } as openstackAccountsUidAzsResponse;
 };
 
 /**
  * @summary Get the openstack keypairs for a given account and scope
  */
-export type OpenstackAccountsUidFlavorsResponse200 = {
+export type openstackAccountsUidFlavorsResponse200 = {
   data: OpenStackFlavors;
   status: 200;
 };
 
-export type OpenstackAccountsUidFlavorsResponseComposite =
-  OpenstackAccountsUidFlavorsResponse200;
+export type openstackAccountsUidFlavorsResponseComposite =
+  openstackAccountsUidFlavorsResponse200;
 
-export type OpenstackAccountsUidFlavorsResponse =
-  OpenstackAccountsUidFlavorsResponseComposite & {
+export type openstackAccountsUidFlavorsResponse =
+  openstackAccountsUidFlavorsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidFlavorsUrl = (
+export const getOpenstackAccountsUidFlavorsUrl = (
   uid: string,
   params?: OpenstackAccountsUidFlavorsParams,
 ) => {
@@ -1772,18 +1772,18 @@ export const getV1OpenstackAccountsUidFlavorsUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/flavors`;
 };
 
-export const OpenstackAccountsUidFlavors = async (
+export const openstackAccountsUidFlavors = async (
   uid: string,
   params?: OpenstackAccountsUidFlavorsParams,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidFlavorsResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidFlavorsUrl(uid, params), {
+): Promise<openstackAccountsUidFlavorsResponse> => {
+  const res = await fetch(getOpenstackAccountsUidFlavorsUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidFlavorsResponse["data"] = body
+  const data: openstackAccountsUidFlavorsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1791,26 +1791,26 @@ export const OpenstackAccountsUidFlavors = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidFlavorsResponse;
+  } as openstackAccountsUidFlavorsResponse;
 };
 
 /**
  * @summary Get the openstack keypairs for a given account and scope
  */
-export type OpenstackAccountsUidKeypairsResponse200 = {
+export type openstackAccountsUidKeypairsResponse200 = {
   data: OpenStackKeypairs;
   status: 200;
 };
 
-export type OpenstackAccountsUidKeypairsResponseComposite =
-  OpenstackAccountsUidKeypairsResponse200;
+export type openstackAccountsUidKeypairsResponseComposite =
+  openstackAccountsUidKeypairsResponse200;
 
-export type OpenstackAccountsUidKeypairsResponse =
-  OpenstackAccountsUidKeypairsResponseComposite & {
+export type openstackAccountsUidKeypairsResponse =
+  openstackAccountsUidKeypairsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidKeypairsUrl = (
+export const getOpenstackAccountsUidKeypairsUrl = (
   uid: string,
   params?: OpenstackAccountsUidKeypairsParams,
 ) => {
@@ -1829,18 +1829,18 @@ export const getV1OpenstackAccountsUidKeypairsUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/keypairs`;
 };
 
-export const OpenstackAccountsUidKeypairs = async (
+export const openstackAccountsUidKeypairs = async (
   uid: string,
   params?: OpenstackAccountsUidKeypairsParams,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidKeypairsResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidKeypairsUrl(uid, params), {
+): Promise<openstackAccountsUidKeypairsResponse> => {
+  const res = await fetch(getOpenstackAccountsUidKeypairsUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidKeypairsResponse["data"] = body
+  const data: openstackAccountsUidKeypairsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1848,26 +1848,26 @@ export const OpenstackAccountsUidKeypairs = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidKeypairsResponse;
+  } as openstackAccountsUidKeypairsResponse;
 };
 
 /**
  * @summary Get the openstack networks for a given account and scope
  */
-export type OpenstackAccountsUidNetworksResponse200 = {
+export type openstackAccountsUidNetworksResponse200 = {
   data: OpenStackNetworks;
   status: 200;
 };
 
-export type OpenstackAccountsUidNetworksResponseComposite =
-  OpenstackAccountsUidNetworksResponse200;
+export type openstackAccountsUidNetworksResponseComposite =
+  openstackAccountsUidNetworksResponse200;
 
-export type OpenstackAccountsUidNetworksResponse =
-  OpenstackAccountsUidNetworksResponseComposite & {
+export type openstackAccountsUidNetworksResponse =
+  openstackAccountsUidNetworksResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidNetworksUrl = (
+export const getOpenstackAccountsUidNetworksUrl = (
   uid: string,
   params?: OpenstackAccountsUidNetworksParams,
 ) => {
@@ -1886,18 +1886,18 @@ export const getV1OpenstackAccountsUidNetworksUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/networks`;
 };
 
-export const OpenstackAccountsUidNetworks = async (
+export const openstackAccountsUidNetworks = async (
   uid: string,
   params?: OpenstackAccountsUidNetworksParams,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidNetworksResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidNetworksUrl(uid, params), {
+): Promise<openstackAccountsUidNetworksResponse> => {
+  const res = await fetch(getOpenstackAccountsUidNetworksUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidNetworksResponse["data"] = body
+  const data: openstackAccountsUidNetworksResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1905,40 +1905,40 @@ export const OpenstackAccountsUidNetworks = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidNetworksResponse;
+  } as openstackAccountsUidNetworksResponse;
 };
 
 /**
  * @summary Get the openstack projects for a given account
  */
-export type OpenstackAccountsUidProjectsResponse200 = {
+export type openstackAccountsUidProjectsResponse200 = {
   data: OpenStackProjects;
   status: 200;
 };
 
-export type OpenstackAccountsUidProjectsResponseComposite =
-  OpenstackAccountsUidProjectsResponse200;
+export type openstackAccountsUidProjectsResponseComposite =
+  openstackAccountsUidProjectsResponse200;
 
-export type OpenstackAccountsUidProjectsResponse =
-  OpenstackAccountsUidProjectsResponseComposite & {
+export type openstackAccountsUidProjectsResponse =
+  openstackAccountsUidProjectsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidProjectsUrl = (uid: string) => {
+export const getOpenstackAccountsUidProjectsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/projects`;
 };
 
-export const OpenstackAccountsUidProjects = async (
+export const openstackAccountsUidProjects = async (
   uid: string,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidProjectsResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidProjectsUrl(uid), {
+): Promise<openstackAccountsUidProjectsResponse> => {
+  const res = await fetch(getOpenstackAccountsUidProjectsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidProjectsResponse["data"] = body
+  const data: openstackAccountsUidProjectsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1946,40 +1946,40 @@ export const OpenstackAccountsUidProjects = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidProjectsResponse;
+  } as openstackAccountsUidProjectsResponse;
 };
 
 /**
  * @summary Get the openstack regions for a given account
  */
-export type OpenstackAccountsUidRegionsResponse200 = {
+export type openstackAccountsUidRegionsResponse200 = {
   data: OpenStackRegions;
   status: 200;
 };
 
-export type OpenstackAccountsUidRegionsResponseComposite =
-  OpenstackAccountsUidRegionsResponse200;
+export type openstackAccountsUidRegionsResponseComposite =
+  openstackAccountsUidRegionsResponse200;
 
-export type OpenstackAccountsUidRegionsResponse =
-  OpenstackAccountsUidRegionsResponseComposite & {
+export type openstackAccountsUidRegionsResponse =
+  openstackAccountsUidRegionsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OpenstackAccountsUidRegionsUrl = (uid: string) => {
+export const getOpenstackAccountsUidRegionsUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/regions`;
 };
 
-export const OpenstackAccountsUidRegions = async (
+export const openstackAccountsUidRegions = async (
   uid: string,
   options?: RequestInit,
-): Promise<OpenstackAccountsUidRegionsResponse> => {
-  const res = await fetch(getV1OpenstackAccountsUidRegionsUrl(uid), {
+): Promise<openstackAccountsUidRegionsResponse> => {
+  const res = await fetch(getOpenstackAccountsUidRegionsUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OpenstackAccountsUidRegionsResponse["data"] = body
+  const data: openstackAccountsUidRegionsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1987,26 +1987,26 @@ export const OpenstackAccountsUidRegions = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OpenstackAccountsUidRegionsResponse;
+  } as openstackAccountsUidRegionsResponse;
 };
 
 /**
  * @summary Retrieves a list of cloud accounts summary
  */
-export type CloudAccountsListSummaryResponse200 = {
+export type cloudAccountsListSummaryResponse200 = {
   data: CloudAccountsSummary;
   status: 200;
 };
 
-export type CloudAccountsListSummaryResponseComposite =
-  CloudAccountsListSummaryResponse200;
+export type cloudAccountsListSummaryResponseComposite =
+  cloudAccountsListSummaryResponse200;
 
-export type CloudAccountsListSummaryResponse =
-  CloudAccountsListSummaryResponseComposite & {
+export type cloudAccountsListSummaryResponse =
+  cloudAccountsListSummaryResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsListSummaryUrl = (
+export const getCloudAccountsListSummaryUrl = (
   params?: CloudAccountsListSummaryParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2024,17 +2024,17 @@ export const getV1CloudAccountsListSummaryUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/summary`;
 };
 
-export const CloudAccountsListSummary = async (
+export const cloudAccountsListSummary = async (
   params?: CloudAccountsListSummaryParams,
   options?: RequestInit,
-): Promise<CloudAccountsListSummaryResponse> => {
-  const res = await fetch(getV1CloudAccountsListSummaryUrl(params), {
+): Promise<cloudAccountsListSummaryResponse> => {
+  const res = await fetch(getCloudAccountsListSummaryUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsListSummaryResponse["data"] = body
+  const data: cloudAccountsListSummaryResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2042,26 +2042,26 @@ export const CloudAccountsListSummary = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsListSummaryResponse;
+  } as cloudAccountsListSummaryResponse;
 };
 
 /**
  * @summary Retrieves a list of vSphere cloud accounts
  */
-export type CloudAccountsVsphereListResponse200 = {
+export type cloudAccountsVsphereListResponse200 = {
   data: VsphereAccounts;
   status: 200;
 };
 
-export type CloudAccountsVsphereListResponseComposite =
-  CloudAccountsVsphereListResponse200;
+export type cloudAccountsVsphereListResponseComposite =
+  cloudAccountsVsphereListResponse200;
 
-export type CloudAccountsVsphereListResponse =
-  CloudAccountsVsphereListResponseComposite & {
+export type cloudAccountsVsphereListResponse =
+  cloudAccountsVsphereListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsVsphereListUrl = (
+export const getCloudAccountsVsphereListUrl = (
   params?: CloudAccountsVsphereListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -2079,17 +2079,17 @@ export const getV1CloudAccountsVsphereListUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/vsphere`;
 };
 
-export const CloudAccountsVsphereList = async (
+export const cloudAccountsVsphereList = async (
   params?: CloudAccountsVsphereListParams,
   options?: RequestInit,
-): Promise<CloudAccountsVsphereListResponse> => {
-  const res = await fetch(getV1CloudAccountsVsphereListUrl(params), {
+): Promise<cloudAccountsVsphereListResponse> => {
+  const res = await fetch(getCloudAccountsVsphereListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsVsphereListResponse["data"] = body
+  const data: cloudAccountsVsphereListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2097,42 +2097,42 @@ export const CloudAccountsVsphereList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsVsphereListResponse;
+  } as cloudAccountsVsphereListResponse;
 };
 
 /**
  * @summary Creates a vSphere cloud account
  */
-export type CloudAccountsVsphereCreateResponse201 = {
+export type cloudAccountsVsphereCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type CloudAccountsVsphereCreateResponseComposite =
-  CloudAccountsVsphereCreateResponse201;
+export type cloudAccountsVsphereCreateResponseComposite =
+  cloudAccountsVsphereCreateResponse201;
 
-export type CloudAccountsVsphereCreateResponse =
-  CloudAccountsVsphereCreateResponseComposite & {
+export type cloudAccountsVsphereCreateResponse =
+  cloudAccountsVsphereCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsVsphereCreateUrl = () => {
+export const getCloudAccountsVsphereCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere`;
 };
 
-export const CloudAccountsVsphereCreate = async (
-  VsphereAccountBody: VsphereAccountBody,
+export const cloudAccountsVsphereCreate = async (
+  v1VsphereAccountBody: V1VsphereAccountBody,
   options?: RequestInit,
-): Promise<CloudAccountsVsphereCreateResponse> => {
-  const res = await fetch(getV1CloudAccountsVsphereCreateUrl(), {
+): Promise<cloudAccountsVsphereCreateResponse> => {
+  const res = await fetch(getCloudAccountsVsphereCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereAccountBody),
+    body: JSON.stringify(v1VsphereAccountBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsVsphereCreateResponse["data"] = body
+  const data: cloudAccountsVsphereCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2140,40 +2140,40 @@ export const CloudAccountsVsphereCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsVsphereCreateResponse;
+  } as cloudAccountsVsphereCreateResponse;
 };
 
 /**
  * @summary Deletes the specified vSphere account
  */
-export type CloudAccountsVsphereDeleteResponse204 = {
+export type cloudAccountsVsphereDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsVsphereDeleteResponseComposite =
-  CloudAccountsVsphereDeleteResponse204;
+export type cloudAccountsVsphereDeleteResponseComposite =
+  cloudAccountsVsphereDeleteResponse204;
 
-export type CloudAccountsVsphereDeleteResponse =
-  CloudAccountsVsphereDeleteResponseComposite & {
+export type cloudAccountsVsphereDeleteResponse =
+  cloudAccountsVsphereDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsVsphereDeleteUrl = (uid: string) => {
+export const getCloudAccountsVsphereDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`;
 };
 
-export const CloudAccountsVsphereDelete = async (
+export const cloudAccountsVsphereDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsVsphereDeleteResponse> => {
-  const res = await fetch(getV1CloudAccountsVsphereDeleteUrl(uid), {
+): Promise<cloudAccountsVsphereDeleteResponse> => {
+  const res = await fetch(getCloudAccountsVsphereDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsVsphereDeleteResponse["data"] = body
+  const data: cloudAccountsVsphereDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2181,40 +2181,40 @@ export const CloudAccountsVsphereDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsVsphereDeleteResponse;
+  } as cloudAccountsVsphereDeleteResponse;
 };
 
 /**
  * @summary Returns the specified vSphere account
  */
-export type CloudAccountsVsphereGetResponse200 = {
+export type cloudAccountsVsphereGetResponse200 = {
   data: VsphereAccount;
   status: 200;
 };
 
-export type CloudAccountsVsphereGetResponseComposite =
-  CloudAccountsVsphereGetResponse200;
+export type cloudAccountsVsphereGetResponseComposite =
+  cloudAccountsVsphereGetResponse200;
 
-export type CloudAccountsVsphereGetResponse =
-  CloudAccountsVsphereGetResponseComposite & {
+export type cloudAccountsVsphereGetResponse =
+  cloudAccountsVsphereGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsVsphereGetUrl = (uid: string) => {
+export const getCloudAccountsVsphereGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`;
 };
 
-export const CloudAccountsVsphereGet = async (
+export const cloudAccountsVsphereGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<CloudAccountsVsphereGetResponse> => {
-  const res = await fetch(getV1CloudAccountsVsphereGetUrl(uid), {
+): Promise<cloudAccountsVsphereGetResponse> => {
+  const res = await fetch(getCloudAccountsVsphereGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsVsphereGetResponse["data"] = body
+  const data: cloudAccountsVsphereGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2222,43 +2222,43 @@ export const CloudAccountsVsphereGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsVsphereGetResponse;
+  } as cloudAccountsVsphereGetResponse;
 };
 
 /**
  * @summary Updates the specified VSphere account
  */
-export type CloudAccountsVsphereUpdateResponse204 = {
+export type cloudAccountsVsphereUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type CloudAccountsVsphereUpdateResponseComposite =
-  CloudAccountsVsphereUpdateResponse204;
+export type cloudAccountsVsphereUpdateResponseComposite =
+  cloudAccountsVsphereUpdateResponse204;
 
-export type CloudAccountsVsphereUpdateResponse =
-  CloudAccountsVsphereUpdateResponseComposite & {
+export type cloudAccountsVsphereUpdateResponse =
+  cloudAccountsVsphereUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1CloudAccountsVsphereUpdateUrl = (uid: string) => {
+export const getCloudAccountsVsphereUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`;
 };
 
-export const CloudAccountsVsphereUpdate = async (
+export const cloudAccountsVsphereUpdate = async (
   uid: string,
-  VsphereAccountBody: VsphereAccountBody,
+  v1VsphereAccountBody: V1VsphereAccountBody,
   options?: RequestInit,
-): Promise<CloudAccountsVsphereUpdateResponse> => {
-  const res = await fetch(getV1CloudAccountsVsphereUpdateUrl(uid), {
+): Promise<cloudAccountsVsphereUpdateResponse> => {
+  const res = await fetch(getCloudAccountsVsphereUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VsphereAccountBody),
+    body: JSON.stringify(v1VsphereAccountBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: CloudAccountsVsphereUpdateResponse["data"] = body
+  const data: cloudAccountsVsphereUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2266,26 +2266,26 @@ export const CloudAccountsVsphereUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as CloudAccountsVsphereUpdateResponse;
+  } as cloudAccountsVsphereUpdateResponse;
 };
 
 /**
  * @summary Get the vSphere computecluster resources for the given overlord account
  */
-export type VsphereAccountsUidClusterResResponse200 = {
+export type vsphereAccountsUidClusterResResponse200 = {
   data: VsphereComputeClusterResources;
   status: 200;
 };
 
-export type VsphereAccountsUidClusterResResponseComposite =
-  VsphereAccountsUidClusterResResponse200;
+export type vsphereAccountsUidClusterResResponseComposite =
+  vsphereAccountsUidClusterResResponse200;
 
-export type VsphereAccountsUidClusterResResponse =
-  VsphereAccountsUidClusterResResponseComposite & {
+export type vsphereAccountsUidClusterResResponse =
+  vsphereAccountsUidClusterResResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereAccountsUidClusterResUrl = (
+export const getVsphereAccountsUidClusterResUrl = (
   uid: string,
   params: VsphereAccountsUidClusterResParams,
 ) => {
@@ -2300,18 +2300,18 @@ export const getV1VsphereAccountsUidClusterResUrl = (
     : `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources`;
 };
 
-export const VsphereAccountsUidClusterRes = async (
+export const vsphereAccountsUidClusterRes = async (
   uid: string,
   params: VsphereAccountsUidClusterResParams,
   options?: RequestInit,
-): Promise<VsphereAccountsUidClusterResResponse> => {
-  const res = await fetch(getV1VsphereAccountsUidClusterResUrl(uid, params), {
+): Promise<vsphereAccountsUidClusterResResponse> => {
+  const res = await fetch(getVsphereAccountsUidClusterResUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereAccountsUidClusterResResponse["data"] = body
+  const data: vsphereAccountsUidClusterResResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2319,40 +2319,40 @@ export const VsphereAccountsUidClusterRes = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereAccountsUidClusterResResponse;
+  } as vsphereAccountsUidClusterResResponse;
 };
 
 /**
  * @summary Get the vSphere datacenters & datacluster for the given overlord account
  */
-export type VsphereAccountsUidDatacentersResponse200 = {
+export type vsphereAccountsUidDatacentersResponse200 = {
   data: VsphereDatacenters;
   status: 200;
 };
 
-export type VsphereAccountsUidDatacentersResponseComposite =
-  VsphereAccountsUidDatacentersResponse200;
+export type vsphereAccountsUidDatacentersResponseComposite =
+  vsphereAccountsUidDatacentersResponse200;
 
-export type VsphereAccountsUidDatacentersResponse =
-  VsphereAccountsUidDatacentersResponseComposite & {
+export type vsphereAccountsUidDatacentersResponse =
+  vsphereAccountsUidDatacentersResponseComposite & {
     headers: Headers;
   };
 
-export const getV1VsphereAccountsUidDatacentersUrl = (uid: string) => {
+export const getVsphereAccountsUidDatacentersUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}/properties/datacenters`;
 };
 
-export const VsphereAccountsUidDatacenters = async (
+export const vsphereAccountsUidDatacenters = async (
   uid: string,
   options?: RequestInit,
-): Promise<VsphereAccountsUidDatacentersResponse> => {
-  const res = await fetch(getV1VsphereAccountsUidDatacentersUrl(uid), {
+): Promise<vsphereAccountsUidDatacentersResponse> => {
+  const res = await fetch(getVsphereAccountsUidDatacentersUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: VsphereAccountsUidDatacentersResponse["data"] = body
+  const data: vsphereAccountsUidDatacentersResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2360,43 +2360,43 @@ export const VsphereAccountsUidDatacenters = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as VsphereAccountsUidDatacentersResponse;
+  } as vsphereAccountsUidDatacentersResponse;
 };
 
 /**
  * @summary Update the geolocation annotation
  */
-export type AccountsGeolocationPatchResponse204 = {
+export type accountsGeolocationPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AccountsGeolocationPatchResponseComposite =
-  AccountsGeolocationPatchResponse204;
+export type accountsGeolocationPatchResponseComposite =
+  accountsGeolocationPatchResponse204;
 
-export type AccountsGeolocationPatchResponse =
-  AccountsGeolocationPatchResponseComposite & {
+export type accountsGeolocationPatchResponse =
+  accountsGeolocationPatchResponseComposite & {
     headers: Headers;
   };
 
-export const getV1AccountsGeolocationPatchUrl = (uid: string) => {
+export const getAccountsGeolocationPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/cloudaccounts/${uid}/geoLocation`;
 };
 
-export const AccountsGeolocationPatch = async (
+export const accountsGeolocationPatch = async (
   uid: string,
-  GeolocationLatlong: GeolocationLatlong,
+  geolocationLatlong: GeolocationLatlong,
   options?: RequestInit,
-): Promise<AccountsGeolocationPatchResponse> => {
-  const res = await fetch(getV1AccountsGeolocationPatchUrl(uid), {
+): Promise<accountsGeolocationPatchResponse> => {
+  const res = await fetch(getAccountsGeolocationPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(GeolocationLatlong),
+    body: JSON.stringify(geolocationLatlong),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AccountsGeolocationPatchResponse["data"] = body
+  const data: accountsGeolocationPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2404,5 +2404,5 @@ export const AccountsGeolocationPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as AccountsGeolocationPatchResponse;
+  } as accountsGeolocationPatchResponse;
 };

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaUpdateEntityAnnotations } from "./ObjectMetaUpdateEntityAnnotations";
-import type { ObjectMetaUpdateEntityLabels } from "./ObjectMetaUpdateEntityLabels";
+import type { ObjectMetaUpdateEntityAnnotations } from "./objectMetaUpdateEntityAnnotations";
+import type { ObjectMetaUpdateEntityLabels } from "./objectMetaUpdateEntityLabels";
 
 /**
  * ObjectMeta update entity with uid as input

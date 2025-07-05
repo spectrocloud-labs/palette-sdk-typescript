@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceReference } from "./ResourceReference";
-import type { ResourceConsumptionDataPoint } from "./ResourceConsumptionDataPoint";
-import type { ResourceTotalConsumptionData } from "./ResourceTotalConsumptionData";
+import type { ResourceReference } from "./resourceReference";
+import type { ResourceConsumptionDataPoint } from "./resourceConsumptionDataPoint";
+import type { ResourceTotalConsumptionData } from "./resourceTotalConsumptionData";
 
 /**
  * Resource consumption information

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UidSummary } from "./UidSummary";
+import type { UidSummary } from "./uidSummary";
 
 export interface ProjectSpecSummary {
   logoUrl?: string;

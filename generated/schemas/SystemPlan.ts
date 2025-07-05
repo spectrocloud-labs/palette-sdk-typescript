@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemPlanCredit } from "./SystemPlanCredit";
-import type { SystemPlanLimit } from "./SystemPlanLimit";
-import type { Time } from "./Time";
+import type { SystemPlanCredit } from "./systemPlanCredit";
+import type { SystemPlanLimit } from "./systemPlanLimit";
+import type { Time } from "./time";
 
 /**
  * system plan

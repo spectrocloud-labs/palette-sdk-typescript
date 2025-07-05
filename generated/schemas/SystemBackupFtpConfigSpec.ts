@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemBackupSpec } from "./SystemBackupSpec";
-import type { SystemFtpSpec } from "./SystemFtpSpec";
+import type { SystemBackupSpec } from "./systemBackupSpec";
+import type { SystemFtpSpec } from "./systemFtpSpec";
 
 /**
  * system backup config spec

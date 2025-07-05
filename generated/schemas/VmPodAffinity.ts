@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmWeightedPodAffinityTerm } from "./VmWeightedPodAffinityTerm";
-import type { VmPodAffinityTerm } from "./VmPodAffinityTerm";
+import type { VmWeightedPodAffinityTerm } from "./vmWeightedPodAffinityTerm";
+import type { VmPodAffinityTerm } from "./vmPodAffinityTerm";
 
 /**
  * Pod affinity is a group of inter pod affinity scheduling rules.

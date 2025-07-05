@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ConfigReverseProxyProtocol } from "./ConfigReverseProxyProtocol";
+import type { ConfigReverseProxyProtocol } from "./configReverseProxyProtocol";
 
 /**
  * Describes the reverse proxy configuration

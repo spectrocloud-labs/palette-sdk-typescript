@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SyftReportEntity } from "./SyftReportEntity";
-import type { SyftEntityStatus } from "./SyftEntityStatus";
+import type { SyftReportEntity } from "./syftReportEntity";
+import type { SyftEntityStatus } from "./syftEntityStatus";
 
 /**
  * Syft response

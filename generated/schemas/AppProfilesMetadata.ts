@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileMetadata } from "./AppProfileMetadata";
+import type { AppProfileMetadata } from "./appProfileMetadata";
 
 export interface AppProfilesMetadata {
   appProfiles?: AppProfileMetadata[];

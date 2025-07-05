@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsMachinePoolConfigAdditionalLabels } from "./AwsMachinePoolConfigAdditionalLabels";
-import type { AwsResourceReference } from "./AwsResourceReference";
-import type { AwsMachinePoolConfigAdditionalTags } from "./AwsMachinePoolConfigAdditionalTags";
-import type { AwsMachinePoolConfigCapacityType } from "./AwsMachinePoolConfigCapacityType";
-import type { InstanceConfig } from "./InstanceConfig";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { SpotMarketOptions } from "./SpotMarketOptions";
-import type { AwsMachinePoolConfigSubnetIds } from "./AwsMachinePoolConfigSubnetIds";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { AwsMachinePoolConfigAdditionalLabels } from "./awsMachinePoolConfigAdditionalLabels";
+import type { AwsResourceReference } from "./awsResourceReference";
+import type { AwsMachinePoolConfigAdditionalTags } from "./awsMachinePoolConfigAdditionalTags";
+import type { AwsMachinePoolConfigCapacityType } from "./awsMachinePoolConfigCapacityType";
+import type { InstanceConfig } from "./instanceConfig";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { SpotMarketOptions } from "./spotMarketOptions";
+import type { AwsMachinePoolConfigSubnetIds } from "./awsMachinePoolConfigSubnetIds";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 export interface AwsMachinePoolConfig {
   /** additionalLabels */

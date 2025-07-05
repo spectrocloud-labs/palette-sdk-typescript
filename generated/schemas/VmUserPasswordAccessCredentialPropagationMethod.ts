@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQemuGuestAgentUserPasswordAccessCredentialPropagation } from "./VmQemuGuestAgentUserPasswordAccessCredentialPropagation";
+import type { VmQemuGuestAgentUserPasswordAccessCredentialPropagation } from "./vmQemuGuestAgentUserPasswordAccessCredentialPropagation";
 
 /**
  * UserPasswordAccessCredentialPropagationMethod represents the method used to inject a user passwords into the vm guest. Only one of its members may be specified.

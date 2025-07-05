@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClustersAzureRatePeriodType } from "./SpectroClustersAzureRatePeriodType";
+import type { SpectroClustersAzureRatePeriodType } from "./spectroClustersAzureRatePeriodType";
 
 export type SpectroClustersAzureRateParams = {
   periodType?: SpectroClustersAzureRatePeriodType;

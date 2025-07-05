@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Alert } from "./Alert";
-import type { TeamRoleMap } from "./TeamRoleMap";
-import type { UserRoleMap } from "./UserRoleMap";
+import type { Alert } from "./alert";
+import type { TeamRoleMap } from "./teamRoleMap";
+import type { UserRoleMap } from "./userRoleMap";
 
 /**
  * Project specifications

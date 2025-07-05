@@ -13,12 +13,10 @@ import type {
   BasicOciRegistriesCreateParams,
   BasicOciRegistriesUidSyncParams,
   BasicOciRegistry,
-  BasicOciRegistryBody,
   BasicOciRegistrySpec,
   EcrRegistriesCreateParams,
   EcrRegistriesUidSyncParams,
   EcrRegistry,
-  EcrRegistryBody,
   EcrRegistrySpec,
   HelmRegistries,
   HelmRegistriesSummary,
@@ -32,7 +30,6 @@ import type {
   PackRegistries,
   PackRegistriesSummary,
   PackRegistry,
-  PackRegistryBody,
   PackRegistrySpec,
   RegistriesHelmCreateParams,
   RegistriesHelmListParams,
@@ -47,25 +44,26 @@ import type {
   RegistryConfigEntity,
   RegistrySyncStatus,
   Uid,
+  V1BasicOciRegistryBody,
+  V1EcrRegistryBody,
+  V1PackRegistryBody,
 } from ".././schemas";
 
 /**
  * @summary Retrieves a list of Helm registries
  */
-export type RegistriesHelmListResponse200 = {
+export type registriesHelmListResponse200 = {
   data: HelmRegistries;
   status: 200;
 };
 
-export type RegistriesHelmListResponseComposite = RegistriesHelmListResponse200;
+export type registriesHelmListResponseComposite = registriesHelmListResponse200;
 
-export type RegistriesHelmListResponse = RegistriesHelmListResponseComposite & {
+export type registriesHelmListResponse = registriesHelmListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RegistriesHelmListUrl = (
-  params?: RegistriesHelmListParams,
-) => {
+export const getRegistriesHelmListUrl = (params?: RegistriesHelmListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -81,42 +79,42 @@ export const getV1RegistriesHelmListUrl = (
     : `https://api.spectrocloud.com/v1/registries/helm`;
 };
 
-export const RegistriesHelmList = async (
+export const registriesHelmList = async (
   params?: RegistriesHelmListParams,
   options?: RequestInit,
-): Promise<RegistriesHelmListResponse> => {
-  const res = await fetch(getV1RegistriesHelmListUrl(params), {
+): Promise<registriesHelmListResponse> => {
+  const res = await fetch(getRegistriesHelmListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: registriesHelmListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmListResponse;
+  } as registriesHelmListResponse;
 };
 
 /**
  * @summary Creates a helm registry
  */
-export type RegistriesHelmCreateResponse201 = {
+export type registriesHelmCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type RegistriesHelmCreateResponseComposite =
-  RegistriesHelmCreateResponse201;
+export type registriesHelmCreateResponseComposite =
+  registriesHelmCreateResponse201;
 
-export type RegistriesHelmCreateResponse =
-  RegistriesHelmCreateResponseComposite & {
+export type registriesHelmCreateResponse =
+  registriesHelmCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmCreateUrl = (
+export const getRegistriesHelmCreateUrl = (
   params?: RegistriesHelmCreateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -130,20 +128,20 @@ export const getV1RegistriesHelmCreateUrl = (
     : `https://api.spectrocloud.com/v1/registries/helm`;
 };
 
-export const RegistriesHelmCreate = async (
-  HelmRegistryEntity: HelmRegistryEntity,
+export const registriesHelmCreate = async (
+  helmRegistryEntity: HelmRegistryEntity,
   params?: RegistriesHelmCreateParams,
   options?: RequestInit,
-): Promise<RegistriesHelmCreateResponse> => {
-  const res = await fetch(getV1RegistriesHelmCreateUrl(params), {
+): Promise<registriesHelmCreateResponse> => {
+  const res = await fetch(getRegistriesHelmCreateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(HelmRegistryEntity),
+    body: JSON.stringify(helmRegistryEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmCreateResponse["data"] = body
+  const data: registriesHelmCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -151,26 +149,26 @@ export const RegistriesHelmCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmCreateResponse;
+  } as registriesHelmCreateResponse;
 };
 
 /**
  * @summary Retrieves a list of helm registries as summary
  */
-export type RegistriesHelmSummaryListResponse200 = {
+export type registriesHelmSummaryListResponse200 = {
   data: HelmRegistriesSummary;
   status: 200;
 };
 
-export type RegistriesHelmSummaryListResponseComposite =
-  RegistriesHelmSummaryListResponse200;
+export type registriesHelmSummaryListResponseComposite =
+  registriesHelmSummaryListResponse200;
 
-export type RegistriesHelmSummaryListResponse =
-  RegistriesHelmSummaryListResponseComposite & {
+export type registriesHelmSummaryListResponse =
+  registriesHelmSummaryListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmSummaryListUrl = (
+export const getRegistriesHelmSummaryListUrl = (
   params?: RegistriesHelmSummaryListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -188,17 +186,17 @@ export const getV1RegistriesHelmSummaryListUrl = (
     : `https://api.spectrocloud.com/v1/registries/helm/summary`;
 };
 
-export const RegistriesHelmSummaryList = async (
+export const registriesHelmSummaryList = async (
   params?: RegistriesHelmSummaryListParams,
   options?: RequestInit,
-): Promise<RegistriesHelmSummaryListResponse> => {
-  const res = await fetch(getV1RegistriesHelmSummaryListUrl(params), {
+): Promise<registriesHelmSummaryListResponse> => {
+  const res = await fetch(getRegistriesHelmSummaryListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmSummaryListResponse["data"] = body
+  const data: registriesHelmSummaryListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -206,23 +204,23 @@ export const RegistriesHelmSummaryList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmSummaryListResponse;
+  } as registriesHelmSummaryListResponse;
 };
 
 /**
  * Returns no contents if helm registry is valid else error.
  * @summary Check if helm registry is valid
  */
-export type RegistriesHelmValidateResponse204 = {
+export type v1RegistriesHelmValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesHelmValidateResponseComposite =
-  RegistriesHelmValidateResponse204;
+export type v1RegistriesHelmValidateResponseComposite =
+  v1RegistriesHelmValidateResponse204;
 
-export type RegistriesHelmValidateResponse =
-  RegistriesHelmValidateResponseComposite & {
+export type v1RegistriesHelmValidateResponse =
+  v1RegistriesHelmValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -230,19 +228,19 @@ export const getV1RegistriesHelmValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/helm/validate`;
 };
 
-export const RegistriesHelmValidate = async (
-  HelmRegistrySpec: HelmRegistrySpec,
+export const v1RegistriesHelmValidate = async (
+  helmRegistrySpec: HelmRegistrySpec,
   options?: RequestInit,
-): Promise<RegistriesHelmValidateResponse> => {
+): Promise<v1RegistriesHelmValidateResponse> => {
   const res = await fetch(getV1RegistriesHelmValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(HelmRegistrySpec),
+    body: JSON.stringify(helmRegistrySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmValidateResponse["data"] = body
+  const data: v1RegistriesHelmValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -250,40 +248,40 @@ export const RegistriesHelmValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmValidateResponse;
+  } as v1RegistriesHelmValidateResponse;
 };
 
 /**
  * @summary Deletes the specified helm registry
  */
-export type RegistriesHelmUidDeleteResponse204 = {
+export type registriesHelmUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesHelmUidDeleteResponseComposite =
-  RegistriesHelmUidDeleteResponse204;
+export type registriesHelmUidDeleteResponseComposite =
+  registriesHelmUidDeleteResponse204;
 
-export type RegistriesHelmUidDeleteResponse =
-  RegistriesHelmUidDeleteResponseComposite & {
+export type registriesHelmUidDeleteResponse =
+  registriesHelmUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmUidDeleteUrl = (uid: string) => {
+export const getRegistriesHelmUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/helm/${uid}`;
 };
 
-export const RegistriesHelmUidDelete = async (
+export const registriesHelmUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesHelmUidDeleteResponse> => {
-  const res = await fetch(getV1RegistriesHelmUidDeleteUrl(uid), {
+): Promise<registriesHelmUidDeleteResponse> => {
+  const res = await fetch(getRegistriesHelmUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmUidDeleteResponse["data"] = body
+  const data: registriesHelmUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -291,40 +289,40 @@ export const RegistriesHelmUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmUidDeleteResponse;
+  } as registriesHelmUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified Helm registry
  */
-export type RegistriesHelmUidGetResponse200 = {
+export type registriesHelmUidGetResponse200 = {
   data: HelmRegistry;
   status: 200;
 };
 
-export type RegistriesHelmUidGetResponseComposite =
-  RegistriesHelmUidGetResponse200;
+export type registriesHelmUidGetResponseComposite =
+  registriesHelmUidGetResponse200;
 
-export type RegistriesHelmUidGetResponse =
-  RegistriesHelmUidGetResponseComposite & {
+export type registriesHelmUidGetResponse =
+  registriesHelmUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmUidGetUrl = (uid: string) => {
+export const getRegistriesHelmUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/helm/${uid}`;
 };
 
-export const RegistriesHelmUidGet = async (
+export const registriesHelmUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesHelmUidGetResponse> => {
-  const res = await fetch(getV1RegistriesHelmUidGetUrl(uid), {
+): Promise<registriesHelmUidGetResponse> => {
+  const res = await fetch(getRegistriesHelmUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmUidGetResponse["data"] = body
+  const data: registriesHelmUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -332,43 +330,43 @@ export const RegistriesHelmUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmUidGetResponse;
+  } as registriesHelmUidGetResponse;
 };
 
 /**
  * @summary Updates the specified helm registry
  */
-export type RegistriesHelmUidUpdateResponse204 = {
+export type registriesHelmUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesHelmUidUpdateResponseComposite =
-  RegistriesHelmUidUpdateResponse204;
+export type registriesHelmUidUpdateResponseComposite =
+  registriesHelmUidUpdateResponse204;
 
-export type RegistriesHelmUidUpdateResponse =
-  RegistriesHelmUidUpdateResponseComposite & {
+export type registriesHelmUidUpdateResponse =
+  registriesHelmUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmUidUpdateUrl = (uid: string) => {
+export const getRegistriesHelmUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/helm/${uid}`;
 };
 
-export const RegistriesHelmUidUpdate = async (
+export const registriesHelmUidUpdate = async (
   uid: string,
-  HelmRegistry: HelmRegistry,
+  helmRegistry: HelmRegistry,
   options?: RequestInit,
-): Promise<RegistriesHelmUidUpdateResponse> => {
-  const res = await fetch(getV1RegistriesHelmUidUpdateUrl(uid), {
+): Promise<registriesHelmUidUpdateResponse> => {
+  const res = await fetch(getRegistriesHelmUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(HelmRegistry),
+    body: JSON.stringify(helmRegistry),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmUidUpdateResponse["data"] = body
+  const data: registriesHelmUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -376,27 +374,27 @@ export const RegistriesHelmUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmUidUpdateResponse;
+  } as registriesHelmUidUpdateResponse;
 };
 
 /**
  * Sync all the helm charts from the registry
  * @summary Sync Helm registry
  */
-export type RegistriesHelmUidSyncResponse202 = {
+export type registriesHelmUidSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type RegistriesHelmUidSyncResponseComposite =
-  RegistriesHelmUidSyncResponse202;
+export type registriesHelmUidSyncResponseComposite =
+  registriesHelmUidSyncResponse202;
 
-export type RegistriesHelmUidSyncResponse =
-  RegistriesHelmUidSyncResponseComposite & {
+export type registriesHelmUidSyncResponse =
+  registriesHelmUidSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmUidSyncUrl = (
+export const getRegistriesHelmUidSyncUrl = (
   uid: string,
   params?: RegistriesHelmUidSyncParams,
 ) => {
@@ -411,18 +409,18 @@ export const getV1RegistriesHelmUidSyncUrl = (
     : `https://api.spectrocloud.com/v1/registries/helm/${uid}/sync`;
 };
 
-export const RegistriesHelmUidSync = async (
+export const registriesHelmUidSync = async (
   uid: string,
   params?: RegistriesHelmUidSyncParams,
   options?: RequestInit,
-): Promise<RegistriesHelmUidSyncResponse> => {
-  const res = await fetch(getV1RegistriesHelmUidSyncUrl(uid, params), {
+): Promise<registriesHelmUidSyncResponse> => {
+  const res = await fetch(getRegistriesHelmUidSyncUrl(uid, params), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmUidSyncResponse["data"] = body
+  const data: registriesHelmUidSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -430,41 +428,41 @@ export const RegistriesHelmUidSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmUidSyncResponse;
+  } as registriesHelmUidSyncResponse;
 };
 
 /**
  * Get the sync status for the specified helm registry
  * @summary Get helm registry sync status
  */
-export type RegistriesHelmUidSyncStatusResponse200 = {
+export type registriesHelmUidSyncStatusResponse200 = {
   data: RegistrySyncStatus;
   status: 200;
 };
 
-export type RegistriesHelmUidSyncStatusResponseComposite =
-  RegistriesHelmUidSyncStatusResponse200;
+export type registriesHelmUidSyncStatusResponseComposite =
+  registriesHelmUidSyncStatusResponse200;
 
-export type RegistriesHelmUidSyncStatusResponse =
-  RegistriesHelmUidSyncStatusResponseComposite & {
+export type registriesHelmUidSyncStatusResponse =
+  registriesHelmUidSyncStatusResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesHelmUidSyncStatusUrl = (uid: string) => {
+export const getRegistriesHelmUidSyncStatusUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/helm/${uid}/sync/status`;
 };
 
-export const RegistriesHelmUidSyncStatus = async (
+export const registriesHelmUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesHelmUidSyncStatusResponse> => {
-  const res = await fetch(getV1RegistriesHelmUidSyncStatusUrl(uid), {
+): Promise<registriesHelmUidSyncStatusResponse> => {
+  const res = await fetch(getRegistriesHelmUidSyncStatusUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesHelmUidSyncStatusResponse["data"] = body
+  const data: registriesHelmUidSyncStatusResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -472,26 +470,24 @@ export const RegistriesHelmUidSyncStatus = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesHelmUidSyncStatusResponse;
+  } as registriesHelmUidSyncStatusResponse;
 };
 
 /**
  * @summary Retrieves a list of registries metadata
  */
-export type RegistriesMetadataResponse200 = {
+export type registriesMetadataResponse200 = {
   data: RegistriesMetadata;
   status: 200;
 };
 
-export type RegistriesMetadataResponseComposite = RegistriesMetadataResponse200;
+export type registriesMetadataResponseComposite = registriesMetadataResponse200;
 
-export type RegistriesMetadataResponse = RegistriesMetadataResponseComposite & {
+export type registriesMetadataResponse = registriesMetadataResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RegistriesMetadataUrl = (
-  params?: RegistriesMetadataParams,
-) => {
+export const getRegistriesMetadataUrl = (params?: RegistriesMetadataParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {});
@@ -503,42 +499,42 @@ export const getV1RegistriesMetadataUrl = (
     : `https://api.spectrocloud.com/v1/registries/metadata`;
 };
 
-export const RegistriesMetadata = async (
+export const registriesMetadata = async (
   params?: RegistriesMetadataParams,
   options?: RequestInit,
-): Promise<RegistriesMetadataResponse> => {
-  const res = await fetch(getV1RegistriesMetadataUrl(params), {
+): Promise<registriesMetadataResponse> => {
+  const res = await fetch(getRegistriesMetadataUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesMetadataResponse["data"] = body ? JSON.parse(body) : {};
+  const data: registriesMetadataResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesMetadataResponse;
+  } as registriesMetadataResponse;
 };
 
 /**
  * @summary Creates a basic oci registry
  */
-export type BasicOciRegistriesCreateResponse201 = {
+export type basicOciRegistriesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type BasicOciRegistriesCreateResponseComposite =
-  BasicOciRegistriesCreateResponse201;
+export type basicOciRegistriesCreateResponseComposite =
+  basicOciRegistriesCreateResponse201;
 
-export type BasicOciRegistriesCreateResponse =
-  BasicOciRegistriesCreateResponseComposite & {
+export type basicOciRegistriesCreateResponse =
+  basicOciRegistriesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesCreateUrl = (
+export const getBasicOciRegistriesCreateUrl = (
   params?: BasicOciRegistriesCreateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -556,20 +552,20 @@ export const getV1BasicOciRegistriesCreateUrl = (
     : `https://api.spectrocloud.com/v1/registries/oci/basic`;
 };
 
-export const BasicOciRegistriesCreate = async (
-  BasicOciRegistryBody: BasicOciRegistryBody,
+export const basicOciRegistriesCreate = async (
+  v1BasicOciRegistryBody: V1BasicOciRegistryBody,
   params?: BasicOciRegistriesCreateParams,
   options?: RequestInit,
-): Promise<BasicOciRegistriesCreateResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesCreateUrl(params), {
+): Promise<basicOciRegistriesCreateResponse> => {
+  const res = await fetch(getBasicOciRegistriesCreateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(BasicOciRegistryBody),
+    body: JSON.stringify(v1BasicOciRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesCreateResponse["data"] = body
+  const data: basicOciRegistriesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -577,43 +573,43 @@ export const BasicOciRegistriesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesCreateResponse;
+  } as basicOciRegistriesCreateResponse;
 };
 
 /**
  * Returns no contents if oci registry is valid else error.
  * @summary Check if oci registry is valid
  */
-export type BasicOciRegistriesValidateResponse204 = {
+export type basicOciRegistriesValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type BasicOciRegistriesValidateResponseComposite =
-  BasicOciRegistriesValidateResponse204;
+export type basicOciRegistriesValidateResponseComposite =
+  basicOciRegistriesValidateResponse204;
 
-export type BasicOciRegistriesValidateResponse =
-  BasicOciRegistriesValidateResponseComposite & {
+export type basicOciRegistriesValidateResponse =
+  basicOciRegistriesValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesValidateUrl = () => {
+export const getBasicOciRegistriesValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/oci/basic/validate`;
 };
 
-export const BasicOciRegistriesValidate = async (
-  BasicOciRegistrySpec: BasicOciRegistrySpec,
+export const basicOciRegistriesValidate = async (
+  basicOciRegistrySpec: BasicOciRegistrySpec,
   options?: RequestInit,
-): Promise<BasicOciRegistriesValidateResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesValidateUrl(), {
+): Promise<basicOciRegistriesValidateResponse> => {
+  const res = await fetch(getBasicOciRegistriesValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(BasicOciRegistrySpec),
+    body: JSON.stringify(basicOciRegistrySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesValidateResponse["data"] = body
+  const data: basicOciRegistriesValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -621,26 +617,26 @@ export const BasicOciRegistriesValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesValidateResponse;
+  } as basicOciRegistriesValidateResponse;
 };
 
 /**
  * @summary Creates a ecr registry
  */
-export type EcrRegistriesCreateResponse201 = {
+export type ecrRegistriesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type EcrRegistriesCreateResponseComposite =
-  EcrRegistriesCreateResponse201;
+export type ecrRegistriesCreateResponseComposite =
+  ecrRegistriesCreateResponse201;
 
-export type EcrRegistriesCreateResponse =
-  EcrRegistriesCreateResponseComposite & {
+export type ecrRegistriesCreateResponse =
+  ecrRegistriesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesCreateUrl = (
+export const getEcrRegistriesCreateUrl = (
   params?: EcrRegistriesCreateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -658,20 +654,20 @@ export const getV1EcrRegistriesCreateUrl = (
     : `https://api.spectrocloud.com/v1/registries/oci/ecr`;
 };
 
-export const EcrRegistriesCreate = async (
-  EcrRegistryBody: EcrRegistryBody,
+export const ecrRegistriesCreate = async (
+  v1EcrRegistryBody: V1EcrRegistryBody,
   params?: EcrRegistriesCreateParams,
   options?: RequestInit,
-): Promise<EcrRegistriesCreateResponse> => {
-  const res = await fetch(getV1EcrRegistriesCreateUrl(params), {
+): Promise<ecrRegistriesCreateResponse> => {
+  const res = await fetch(getEcrRegistriesCreateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EcrRegistryBody),
+    body: JSON.stringify(v1EcrRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesCreateResponse["data"] = body
+  const data: ecrRegistriesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -679,43 +675,43 @@ export const EcrRegistriesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesCreateResponse;
+  } as ecrRegistriesCreateResponse;
 };
 
 /**
  * Returns no contents if ecr registry is valid else error.
  * @summary Check if ecr registry is valid
  */
-export type EcrRegistriesValidateResponse204 = {
+export type ecrRegistriesValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EcrRegistriesValidateResponseComposite =
-  EcrRegistriesValidateResponse204;
+export type ecrRegistriesValidateResponseComposite =
+  ecrRegistriesValidateResponse204;
 
-export type EcrRegistriesValidateResponse =
-  EcrRegistriesValidateResponseComposite & {
+export type ecrRegistriesValidateResponse =
+  ecrRegistriesValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesValidateUrl = () => {
+export const getEcrRegistriesValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/oci/ecr/validate`;
 };
 
-export const EcrRegistriesValidate = async (
-  EcrRegistrySpec: EcrRegistrySpec,
+export const ecrRegistriesValidate = async (
+  ecrRegistrySpec: EcrRegistrySpec,
   options?: RequestInit,
-): Promise<EcrRegistriesValidateResponse> => {
-  const res = await fetch(getV1EcrRegistriesValidateUrl(), {
+): Promise<ecrRegistriesValidateResponse> => {
+  const res = await fetch(getEcrRegistriesValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EcrRegistrySpec),
+    body: JSON.stringify(ecrRegistrySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesValidateResponse["data"] = body
+  const data: ecrRegistriesValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -723,39 +719,39 @@ export const EcrRegistriesValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesValidateResponse;
+  } as ecrRegistriesValidateResponse;
 };
 
 /**
  * @summary Creates a image registry
  */
-export type OciImageRegistryGetResponse200 = {
+export type ociImageRegistryGetResponse200 = {
   data: OciImageRegistry;
   status: 200;
 };
 
-export type OciImageRegistryGetResponseComposite =
-  OciImageRegistryGetResponse200;
+export type ociImageRegistryGetResponseComposite =
+  ociImageRegistryGetResponse200;
 
-export type OciImageRegistryGetResponse =
-  OciImageRegistryGetResponseComposite & {
+export type ociImageRegistryGetResponse =
+  ociImageRegistryGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OciImageRegistryGetUrl = () => {
+export const getOciImageRegistryGetUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/oci/image`;
 };
 
-export const OciImageRegistryGet = async (
+export const ociImageRegistryGet = async (
   options?: RequestInit,
-): Promise<OciImageRegistryGetResponse> => {
-  const res = await fetch(getV1OciImageRegistryGetUrl(), {
+): Promise<ociImageRegistryGetResponse> => {
+  const res = await fetch(getOciImageRegistryGetUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OciImageRegistryGetResponse["data"] = body
+  const data: ociImageRegistryGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -763,39 +759,39 @@ export const OciImageRegistryGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OciImageRegistryGetResponse;
+  } as ociImageRegistryGetResponse;
 };
 
 /**
  * @summary Retrieves a oci registries summary
  */
-export type OciRegistriesSummaryResponse200 = {
+export type ociRegistriesSummaryResponse200 = {
   data: OciRegistries;
   status: 200;
 };
 
-export type OciRegistriesSummaryResponseComposite =
-  OciRegistriesSummaryResponse200;
+export type ociRegistriesSummaryResponseComposite =
+  ociRegistriesSummaryResponse200;
 
-export type OciRegistriesSummaryResponse =
-  OciRegistriesSummaryResponseComposite & {
+export type ociRegistriesSummaryResponse =
+  ociRegistriesSummaryResponseComposite & {
     headers: Headers;
   };
 
-export const getV1OciRegistriesSummaryUrl = () => {
+export const getOciRegistriesSummaryUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/oci/summary`;
 };
 
-export const OciRegistriesSummary = async (
+export const ociRegistriesSummary = async (
   options?: RequestInit,
-): Promise<OciRegistriesSummaryResponse> => {
-  const res = await fetch(getV1OciRegistriesSummaryUrl(), {
+): Promise<ociRegistriesSummaryResponse> => {
+  const res = await fetch(getOciRegistriesSummaryUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OciRegistriesSummaryResponse["data"] = body
+  const data: ociRegistriesSummaryResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -803,24 +799,24 @@ export const OciRegistriesSummary = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as OciRegistriesSummaryResponse;
+  } as ociRegistriesSummaryResponse;
 };
 
 /**
  * @summary Returns the information of specified oci registry
  */
-export type OciRegistriesGetResponse200 = {
+export type ociRegistriesGetResponse200 = {
   data: OciRegistryEntity;
   status: 200;
 };
 
-export type OciRegistriesGetResponseComposite = OciRegistriesGetResponse200;
+export type ociRegistriesGetResponseComposite = ociRegistriesGetResponse200;
 
-export type OciRegistriesGetResponse = OciRegistriesGetResponseComposite & {
+export type ociRegistriesGetResponse = ociRegistriesGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OciRegistriesGetUrl = (
+export const getOciRegistriesGetUrl = (
   uid: string,
   params?: OciRegistriesGetParams,
 ) => {
@@ -835,57 +831,57 @@ export const getV1OciRegistriesGetUrl = (
     : `https://api.spectrocloud.com/v1/registries/oci/${uid}`;
 };
 
-export const OciRegistriesGet = async (
+export const ociRegistriesGet = async (
   uid: string,
   params?: OciRegistriesGetParams,
   options?: RequestInit,
-): Promise<OciRegistriesGetResponse> => {
-  const res = await fetch(getV1OciRegistriesGetUrl(uid, params), {
+): Promise<ociRegistriesGetResponse> => {
+  const res = await fetch(getOciRegistriesGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OciRegistriesGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: ociRegistriesGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OciRegistriesGetResponse;
+  } as ociRegistriesGetResponse;
 };
 
 /**
  * @summary Deletes the specified basic oci registry
  */
-export type BasicOciRegistriesUidDeleteResponse204 = {
+export type basicOciRegistriesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type BasicOciRegistriesUidDeleteResponseComposite =
-  BasicOciRegistriesUidDeleteResponse204;
+export type basicOciRegistriesUidDeleteResponseComposite =
+  basicOciRegistriesUidDeleteResponse204;
 
-export type BasicOciRegistriesUidDeleteResponse =
-  BasicOciRegistriesUidDeleteResponseComposite & {
+export type basicOciRegistriesUidDeleteResponse =
+  basicOciRegistriesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesUidDeleteUrl = (uid: string) => {
+export const getBasicOciRegistriesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`;
 };
 
-export const BasicOciRegistriesUidDelete = async (
+export const basicOciRegistriesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<BasicOciRegistriesUidDeleteResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesUidDeleteUrl(uid), {
+): Promise<basicOciRegistriesUidDeleteResponse> => {
+  const res = await fetch(getBasicOciRegistriesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesUidDeleteResponse["data"] = body
+  const data: basicOciRegistriesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -893,40 +889,40 @@ export const BasicOciRegistriesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesUidDeleteResponse;
+  } as basicOciRegistriesUidDeleteResponse;
 };
 
 /**
  * @summary Returns the basic oci registry
  */
-export type BasicOciRegistriesUidGetResponse200 = {
+export type basicOciRegistriesUidGetResponse200 = {
   data: BasicOciRegistry;
   status: 200;
 };
 
-export type BasicOciRegistriesUidGetResponseComposite =
-  BasicOciRegistriesUidGetResponse200;
+export type basicOciRegistriesUidGetResponseComposite =
+  basicOciRegistriesUidGetResponse200;
 
-export type BasicOciRegistriesUidGetResponse =
-  BasicOciRegistriesUidGetResponseComposite & {
+export type basicOciRegistriesUidGetResponse =
+  basicOciRegistriesUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesUidGetUrl = (uid: string) => {
+export const getBasicOciRegistriesUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`;
 };
 
-export const BasicOciRegistriesUidGet = async (
+export const basicOciRegistriesUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<BasicOciRegistriesUidGetResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesUidGetUrl(uid), {
+): Promise<basicOciRegistriesUidGetResponse> => {
+  const res = await fetch(getBasicOciRegistriesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesUidGetResponse["data"] = body
+  const data: basicOciRegistriesUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -934,43 +930,43 @@ export const BasicOciRegistriesUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesUidGetResponse;
+  } as basicOciRegistriesUidGetResponse;
 };
 
 /**
  * @summary Updates the specified basic oci registry
  */
-export type BasicOciRegistriesUidUpdateResponse204 = {
+export type basicOciRegistriesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type BasicOciRegistriesUidUpdateResponseComposite =
-  BasicOciRegistriesUidUpdateResponse204;
+export type basicOciRegistriesUidUpdateResponseComposite =
+  basicOciRegistriesUidUpdateResponse204;
 
-export type BasicOciRegistriesUidUpdateResponse =
-  BasicOciRegistriesUidUpdateResponseComposite & {
+export type basicOciRegistriesUidUpdateResponse =
+  basicOciRegistriesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesUidUpdateUrl = (uid: string) => {
+export const getBasicOciRegistriesUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`;
 };
 
-export const BasicOciRegistriesUidUpdate = async (
+export const basicOciRegistriesUidUpdate = async (
   uid: string,
-  BasicOciRegistryBody: BasicOciRegistryBody,
+  v1BasicOciRegistryBody: V1BasicOciRegistryBody,
   options?: RequestInit,
-): Promise<BasicOciRegistriesUidUpdateResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesUidUpdateUrl(uid), {
+): Promise<basicOciRegistriesUidUpdateResponse> => {
+  const res = await fetch(getBasicOciRegistriesUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(BasicOciRegistryBody),
+    body: JSON.stringify(v1BasicOciRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesUidUpdateResponse["data"] = body
+  const data: basicOciRegistriesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -978,27 +974,27 @@ export const BasicOciRegistriesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesUidUpdateResponse;
+  } as basicOciRegistriesUidUpdateResponse;
 };
 
 /**
  * Sync all the content from the oci registry
  * @summary Sync oci registry
  */
-export type BasicOciRegistriesUidSyncResponse202 = {
+export type basicOciRegistriesUidSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type BasicOciRegistriesUidSyncResponseComposite =
-  BasicOciRegistriesUidSyncResponse202;
+export type basicOciRegistriesUidSyncResponseComposite =
+  basicOciRegistriesUidSyncResponse202;
 
-export type BasicOciRegistriesUidSyncResponse =
-  BasicOciRegistriesUidSyncResponseComposite & {
+export type basicOciRegistriesUidSyncResponse =
+  basicOciRegistriesUidSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesUidSyncUrl = (
+export const getBasicOciRegistriesUidSyncUrl = (
   uid: string,
   params?: BasicOciRegistriesUidSyncParams,
 ) => {
@@ -1013,18 +1009,18 @@ export const getV1BasicOciRegistriesUidSyncUrl = (
     : `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic/sync`;
 };
 
-export const BasicOciRegistriesUidSync = async (
+export const basicOciRegistriesUidSync = async (
   uid: string,
   params?: BasicOciRegistriesUidSyncParams,
   options?: RequestInit,
-): Promise<BasicOciRegistriesUidSyncResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesUidSyncUrl(uid, params), {
+): Promise<basicOciRegistriesUidSyncResponse> => {
+  const res = await fetch(getBasicOciRegistriesUidSyncUrl(uid, params), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesUidSyncResponse["data"] = body
+  const data: basicOciRegistriesUidSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1032,41 +1028,41 @@ export const BasicOciRegistriesUidSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesUidSyncResponse;
+  } as basicOciRegistriesUidSyncResponse;
 };
 
 /**
  * Get sync status for the oci specified registry
  * @summary Get oci registry sync status
  */
-export type BasicOciRegistriesUidSyncStatusResponse200 = {
+export type basicOciRegistriesUidSyncStatusResponse200 = {
   data: RegistrySyncStatus;
   status: 200;
 };
 
-export type BasicOciRegistriesUidSyncStatusResponseComposite =
-  BasicOciRegistriesUidSyncStatusResponse200;
+export type basicOciRegistriesUidSyncStatusResponseComposite =
+  basicOciRegistriesUidSyncStatusResponse200;
 
-export type BasicOciRegistriesUidSyncStatusResponse =
-  BasicOciRegistriesUidSyncStatusResponseComposite & {
+export type basicOciRegistriesUidSyncStatusResponse =
+  basicOciRegistriesUidSyncStatusResponseComposite & {
     headers: Headers;
   };
 
-export const getV1BasicOciRegistriesUidSyncStatusUrl = (uid: string) => {
+export const getBasicOciRegistriesUidSyncStatusUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic/sync/status`;
 };
 
-export const BasicOciRegistriesUidSyncStatus = async (
+export const basicOciRegistriesUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
-): Promise<BasicOciRegistriesUidSyncStatusResponse> => {
-  const res = await fetch(getV1BasicOciRegistriesUidSyncStatusUrl(uid), {
+): Promise<basicOciRegistriesUidSyncStatusResponse> => {
+  const res = await fetch(getBasicOciRegistriesUidSyncStatusUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: BasicOciRegistriesUidSyncStatusResponse["data"] = body
+  const data: basicOciRegistriesUidSyncStatusResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1074,40 +1070,40 @@ export const BasicOciRegistriesUidSyncStatus = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as BasicOciRegistriesUidSyncStatusResponse;
+  } as basicOciRegistriesUidSyncStatusResponse;
 };
 
 /**
  * @summary Deletes the specified ecr registry
  */
-export type EcrRegistriesUidDeleteResponse204 = {
+export type ecrRegistriesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EcrRegistriesUidDeleteResponseComposite =
-  EcrRegistriesUidDeleteResponse204;
+export type ecrRegistriesUidDeleteResponseComposite =
+  ecrRegistriesUidDeleteResponse204;
 
-export type EcrRegistriesUidDeleteResponse =
-  EcrRegistriesUidDeleteResponseComposite & {
+export type ecrRegistriesUidDeleteResponse =
+  ecrRegistriesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesUidDeleteUrl = (uid: string) => {
+export const getEcrRegistriesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`;
 };
 
-export const EcrRegistriesUidDelete = async (
+export const ecrRegistriesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<EcrRegistriesUidDeleteResponse> => {
-  const res = await fetch(getV1EcrRegistriesUidDeleteUrl(uid), {
+): Promise<ecrRegistriesUidDeleteResponse> => {
+  const res = await fetch(getEcrRegistriesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesUidDeleteResponse["data"] = body
+  const data: ecrRegistriesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1115,40 +1111,40 @@ export const EcrRegistriesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesUidDeleteResponse;
+  } as ecrRegistriesUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified ecr registry
  */
-export type EcrRegistriesUidGetResponse200 = {
+export type ecrRegistriesUidGetResponse200 = {
   data: EcrRegistry;
   status: 200;
 };
 
-export type EcrRegistriesUidGetResponseComposite =
-  EcrRegistriesUidGetResponse200;
+export type ecrRegistriesUidGetResponseComposite =
+  ecrRegistriesUidGetResponse200;
 
-export type EcrRegistriesUidGetResponse =
-  EcrRegistriesUidGetResponseComposite & {
+export type ecrRegistriesUidGetResponse =
+  ecrRegistriesUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesUidGetUrl = (uid: string) => {
+export const getEcrRegistriesUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`;
 };
 
-export const EcrRegistriesUidGet = async (
+export const ecrRegistriesUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<EcrRegistriesUidGetResponse> => {
-  const res = await fetch(getV1EcrRegistriesUidGetUrl(uid), {
+): Promise<ecrRegistriesUidGetResponse> => {
+  const res = await fetch(getEcrRegistriesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesUidGetResponse["data"] = body
+  const data: ecrRegistriesUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1156,43 +1152,43 @@ export const EcrRegistriesUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesUidGetResponse;
+  } as ecrRegistriesUidGetResponse;
 };
 
 /**
  * @summary Updates the specified ecr registry
  */
-export type EcrRegistriesUidUpdateResponse204 = {
+export type ecrRegistriesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EcrRegistriesUidUpdateResponseComposite =
-  EcrRegistriesUidUpdateResponse204;
+export type ecrRegistriesUidUpdateResponseComposite =
+  ecrRegistriesUidUpdateResponse204;
 
-export type EcrRegistriesUidUpdateResponse =
-  EcrRegistriesUidUpdateResponseComposite & {
+export type ecrRegistriesUidUpdateResponse =
+  ecrRegistriesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesUidUpdateUrl = (uid: string) => {
+export const getEcrRegistriesUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`;
 };
 
-export const EcrRegistriesUidUpdate = async (
+export const ecrRegistriesUidUpdate = async (
   uid: string,
-  EcrRegistryBody: EcrRegistryBody,
+  v1EcrRegistryBody: V1EcrRegistryBody,
   options?: RequestInit,
-): Promise<EcrRegistriesUidUpdateResponse> => {
-  const res = await fetch(getV1EcrRegistriesUidUpdateUrl(uid), {
+): Promise<ecrRegistriesUidUpdateResponse> => {
+  const res = await fetch(getEcrRegistriesUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(EcrRegistryBody),
+    body: JSON.stringify(v1EcrRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesUidUpdateResponse["data"] = body
+  const data: ecrRegistriesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1200,27 +1196,27 @@ export const EcrRegistriesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesUidUpdateResponse;
+  } as ecrRegistriesUidUpdateResponse;
 };
 
 /**
  * Sync all the content from the ecr registry
  * @summary Sync ecr registry
  */
-export type EcrRegistriesUidSyncResponse202 = {
+export type ecrRegistriesUidSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type EcrRegistriesUidSyncResponseComposite =
-  EcrRegistriesUidSyncResponse202;
+export type ecrRegistriesUidSyncResponseComposite =
+  ecrRegistriesUidSyncResponse202;
 
-export type EcrRegistriesUidSyncResponse =
-  EcrRegistriesUidSyncResponseComposite & {
+export type ecrRegistriesUidSyncResponse =
+  ecrRegistriesUidSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesUidSyncUrl = (
+export const getEcrRegistriesUidSyncUrl = (
   uid: string,
   params?: EcrRegistriesUidSyncParams,
 ) => {
@@ -1235,18 +1231,18 @@ export const getV1EcrRegistriesUidSyncUrl = (
     : `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr/sync`;
 };
 
-export const EcrRegistriesUidSync = async (
+export const ecrRegistriesUidSync = async (
   uid: string,
   params?: EcrRegistriesUidSyncParams,
   options?: RequestInit,
-): Promise<EcrRegistriesUidSyncResponse> => {
-  const res = await fetch(getV1EcrRegistriesUidSyncUrl(uid, params), {
+): Promise<ecrRegistriesUidSyncResponse> => {
+  const res = await fetch(getEcrRegistriesUidSyncUrl(uid, params), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesUidSyncResponse["data"] = body
+  const data: ecrRegistriesUidSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1254,41 +1250,41 @@ export const EcrRegistriesUidSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesUidSyncResponse;
+  } as ecrRegistriesUidSyncResponse;
 };
 
 /**
  * Get sync status for the ecr specified registry
  * @summary Get ecr registry sync status
  */
-export type EcrRegistriesUidSyncStatusResponse200 = {
+export type ecrRegistriesUidSyncStatusResponse200 = {
   data: RegistrySyncStatus;
   status: 200;
 };
 
-export type EcrRegistriesUidSyncStatusResponseComposite =
-  EcrRegistriesUidSyncStatusResponse200;
+export type ecrRegistriesUidSyncStatusResponseComposite =
+  ecrRegistriesUidSyncStatusResponse200;
 
-export type EcrRegistriesUidSyncStatusResponse =
-  EcrRegistriesUidSyncStatusResponseComposite & {
+export type ecrRegistriesUidSyncStatusResponse =
+  ecrRegistriesUidSyncStatusResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EcrRegistriesUidSyncStatusUrl = (uid: string) => {
+export const getEcrRegistriesUidSyncStatusUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr/sync/status`;
 };
 
-export const EcrRegistriesUidSyncStatus = async (
+export const ecrRegistriesUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
-): Promise<EcrRegistriesUidSyncStatusResponse> => {
-  const res = await fetch(getV1EcrRegistriesUidSyncStatusUrl(uid), {
+): Promise<ecrRegistriesUidSyncStatusResponse> => {
+  const res = await fetch(getEcrRegistriesUidSyncStatusUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EcrRegistriesUidSyncStatusResponse["data"] = body
+  const data: ecrRegistriesUidSyncStatusResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1296,26 +1292,24 @@ export const EcrRegistriesUidSyncStatus = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EcrRegistriesUidSyncStatusResponse;
+  } as ecrRegistriesUidSyncStatusResponse;
 };
 
 /**
  * @summary Retrieves a list of Pack registries
  */
-export type RegistriesPackListResponse200 = {
+export type registriesPackListResponse200 = {
   data: PackRegistries;
   status: 200;
 };
 
-export type RegistriesPackListResponseComposite = RegistriesPackListResponse200;
+export type registriesPackListResponseComposite = registriesPackListResponse200;
 
-export type RegistriesPackListResponse = RegistriesPackListResponseComposite & {
+export type registriesPackListResponse = registriesPackListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RegistriesPackListUrl = (
-  params?: RegistriesPackListParams,
-) => {
+export const getRegistriesPackListUrl = (params?: RegistriesPackListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -1331,42 +1325,42 @@ export const getV1RegistriesPackListUrl = (
     : `https://api.spectrocloud.com/v1/registries/pack`;
 };
 
-export const RegistriesPackList = async (
+export const registriesPackList = async (
   params?: RegistriesPackListParams,
   options?: RequestInit,
-): Promise<RegistriesPackListResponse> => {
-  const res = await fetch(getV1RegistriesPackListUrl(params), {
+): Promise<registriesPackListResponse> => {
+  const res = await fetch(getRegistriesPackListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: registriesPackListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackListResponse;
+  } as registriesPackListResponse;
 };
 
 /**
  * @summary Creates a pack registry
  */
-export type RegistriesPackCreateResponse201 = {
+export type registriesPackCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type RegistriesPackCreateResponseComposite =
-  RegistriesPackCreateResponse201;
+export type registriesPackCreateResponseComposite =
+  registriesPackCreateResponse201;
 
-export type RegistriesPackCreateResponse =
-  RegistriesPackCreateResponseComposite & {
+export type registriesPackCreateResponse =
+  registriesPackCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackCreateUrl = (
+export const getRegistriesPackCreateUrl = (
   params?: RegistriesPackCreateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1384,20 +1378,20 @@ export const getV1RegistriesPackCreateUrl = (
     : `https://api.spectrocloud.com/v1/registries/pack`;
 };
 
-export const RegistriesPackCreate = async (
-  PackRegistryBody: PackRegistryBody,
+export const registriesPackCreate = async (
+  v1PackRegistryBody: V1PackRegistryBody,
   params?: RegistriesPackCreateParams,
   options?: RequestInit,
-): Promise<RegistriesPackCreateResponse> => {
-  const res = await fetch(getV1RegistriesPackCreateUrl(params), {
+): Promise<registriesPackCreateResponse> => {
+  const res = await fetch(getRegistriesPackCreateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PackRegistryBody),
+    body: JSON.stringify(v1PackRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackCreateResponse["data"] = body
+  const data: registriesPackCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1405,26 +1399,26 @@ export const RegistriesPackCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackCreateResponse;
+  } as registriesPackCreateResponse;
 };
 
 /**
  * @summary Retrieves a list of pack registries as summary
  */
-export type RegistriesPackSummaryListResponse200 = {
+export type registriesPackSummaryListResponse200 = {
   data: PackRegistriesSummary;
   status: 200;
 };
 
-export type RegistriesPackSummaryListResponseComposite =
-  RegistriesPackSummaryListResponse200;
+export type registriesPackSummaryListResponseComposite =
+  registriesPackSummaryListResponse200;
 
-export type RegistriesPackSummaryListResponse =
-  RegistriesPackSummaryListResponseComposite & {
+export type registriesPackSummaryListResponse =
+  registriesPackSummaryListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackSummaryListUrl = (
+export const getRegistriesPackSummaryListUrl = (
   params?: RegistriesPackSummaryListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -1442,17 +1436,17 @@ export const getV1RegistriesPackSummaryListUrl = (
     : `https://api.spectrocloud.com/v1/registries/pack/summary`;
 };
 
-export const RegistriesPackSummaryList = async (
+export const registriesPackSummaryList = async (
   params?: RegistriesPackSummaryListParams,
   options?: RequestInit,
-): Promise<RegistriesPackSummaryListResponse> => {
-  const res = await fetch(getV1RegistriesPackSummaryListUrl(params), {
+): Promise<registriesPackSummaryListResponse> => {
+  const res = await fetch(getRegistriesPackSummaryListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackSummaryListResponse["data"] = body
+  const data: registriesPackSummaryListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1460,23 +1454,23 @@ export const RegistriesPackSummaryList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackSummaryListResponse;
+  } as registriesPackSummaryListResponse;
 };
 
 /**
  * Returns no contents if pack registry is valid else error.
  * @summary Check if pack registry is valid
  */
-export type RegistriesPackValidateResponse204 = {
+export type v1RegistriesPackValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesPackValidateResponseComposite =
-  RegistriesPackValidateResponse204;
+export type v1RegistriesPackValidateResponseComposite =
+  v1RegistriesPackValidateResponse204;
 
-export type RegistriesPackValidateResponse =
-  RegistriesPackValidateResponseComposite & {
+export type v1RegistriesPackValidateResponse =
+  v1RegistriesPackValidateResponseComposite & {
     headers: Headers;
   };
 
@@ -1484,19 +1478,19 @@ export const getV1RegistriesPackValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/registries/pack/validate`;
 };
 
-export const RegistriesPackValidate = async (
-  PackRegistrySpec: PackRegistrySpec,
+export const v1RegistriesPackValidate = async (
+  packRegistrySpec: PackRegistrySpec,
   options?: RequestInit,
-): Promise<RegistriesPackValidateResponse> => {
+): Promise<v1RegistriesPackValidateResponse> => {
   const res = await fetch(getV1RegistriesPackValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PackRegistrySpec),
+    body: JSON.stringify(packRegistrySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackValidateResponse["data"] = body
+  const data: v1RegistriesPackValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1504,40 +1498,40 @@ export const RegistriesPackValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackValidateResponse;
+  } as v1RegistriesPackValidateResponse;
 };
 
 /**
  * @summary Deletes the specified pack registry
  */
-export type RegistriesPackUidDeleteResponse204 = {
+export type registriesPackUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesPackUidDeleteResponseComposite =
-  RegistriesPackUidDeleteResponse204;
+export type registriesPackUidDeleteResponseComposite =
+  registriesPackUidDeleteResponse204;
 
-export type RegistriesPackUidDeleteResponse =
-  RegistriesPackUidDeleteResponseComposite & {
+export type registriesPackUidDeleteResponse =
+  registriesPackUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackUidDeleteUrl = (uid: string) => {
+export const getRegistriesPackUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/pack/${uid}`;
 };
 
-export const RegistriesPackUidDelete = async (
+export const registriesPackUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesPackUidDeleteResponse> => {
-  const res = await fetch(getV1RegistriesPackUidDeleteUrl(uid), {
+): Promise<registriesPackUidDeleteResponse> => {
+  const res = await fetch(getRegistriesPackUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackUidDeleteResponse["data"] = body
+  const data: registriesPackUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1545,40 +1539,40 @@ export const RegistriesPackUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackUidDeleteResponse;
+  } as registriesPackUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified Pack registry
  */
-export type RegistriesPackUidGetResponse200 = {
+export type registriesPackUidGetResponse200 = {
   data: PackRegistry;
   status: 200;
 };
 
-export type RegistriesPackUidGetResponseComposite =
-  RegistriesPackUidGetResponse200;
+export type registriesPackUidGetResponseComposite =
+  registriesPackUidGetResponse200;
 
-export type RegistriesPackUidGetResponse =
-  RegistriesPackUidGetResponseComposite & {
+export type registriesPackUidGetResponse =
+  registriesPackUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackUidGetUrl = (uid: string) => {
+export const getRegistriesPackUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/pack/${uid}`;
 };
 
-export const RegistriesPackUidGet = async (
+export const registriesPackUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesPackUidGetResponse> => {
-  const res = await fetch(getV1RegistriesPackUidGetUrl(uid), {
+): Promise<registriesPackUidGetResponse> => {
+  const res = await fetch(getRegistriesPackUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackUidGetResponse["data"] = body
+  const data: registriesPackUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1586,43 +1580,43 @@ export const RegistriesPackUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackUidGetResponse;
+  } as registriesPackUidGetResponse;
 };
 
 /**
  * @summary Updates the specified pack registry
  */
-export type RegistriesPackUidUpdateResponse204 = {
+export type registriesPackUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesPackUidUpdateResponseComposite =
-  RegistriesPackUidUpdateResponse204;
+export type registriesPackUidUpdateResponseComposite =
+  registriesPackUidUpdateResponse204;
 
-export type RegistriesPackUidUpdateResponse =
-  RegistriesPackUidUpdateResponseComposite & {
+export type registriesPackUidUpdateResponse =
+  registriesPackUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackUidUpdateUrl = (uid: string) => {
+export const getRegistriesPackUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/pack/${uid}`;
 };
 
-export const RegistriesPackUidUpdate = async (
+export const registriesPackUidUpdate = async (
   uid: string,
-  PackRegistryBody: PackRegistryBody,
+  v1PackRegistryBody: V1PackRegistryBody,
   options?: RequestInit,
-): Promise<RegistriesPackUidUpdateResponse> => {
-  const res = await fetch(getV1RegistriesPackUidUpdateUrl(uid), {
+): Promise<registriesPackUidUpdateResponse> => {
+  const res = await fetch(getRegistriesPackUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PackRegistryBody),
+    body: JSON.stringify(v1PackRegistryBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackUidUpdateResponse["data"] = body
+  const data: registriesPackUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1630,27 +1624,27 @@ export const RegistriesPackUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackUidUpdateResponse;
+  } as registriesPackUidUpdateResponse;
 };
 
 /**
  * Sync all the packs from the registry
  * @summary Sync Pack registry
  */
-export type RegistriesPackUidSyncResponse202 = {
+export type registriesPackUidSyncResponse202 = {
   data: void;
   status: 202;
 };
 
-export type RegistriesPackUidSyncResponseComposite =
-  RegistriesPackUidSyncResponse202;
+export type registriesPackUidSyncResponseComposite =
+  registriesPackUidSyncResponse202;
 
-export type RegistriesPackUidSyncResponse =
-  RegistriesPackUidSyncResponseComposite & {
+export type registriesPackUidSyncResponse =
+  registriesPackUidSyncResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackUidSyncUrl = (
+export const getRegistriesPackUidSyncUrl = (
   uid: string,
   params?: RegistriesPackUidSyncParams,
 ) => {
@@ -1665,18 +1659,18 @@ export const getV1RegistriesPackUidSyncUrl = (
     : `https://api.spectrocloud.com/v1/registries/pack/${uid}/sync`;
 };
 
-export const RegistriesPackUidSync = async (
+export const registriesPackUidSync = async (
   uid: string,
   params?: RegistriesPackUidSyncParams,
   options?: RequestInit,
-): Promise<RegistriesPackUidSyncResponse> => {
-  const res = await fetch(getV1RegistriesPackUidSyncUrl(uid, params), {
+): Promise<registriesPackUidSyncResponse> => {
+  const res = await fetch(getRegistriesPackUidSyncUrl(uid, params), {
     ...options,
     method: "POST",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackUidSyncResponse["data"] = body
+  const data: registriesPackUidSyncResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1684,41 +1678,41 @@ export const RegistriesPackUidSync = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackUidSyncResponse;
+  } as registriesPackUidSyncResponse;
 };
 
 /**
  * Get sync status for the pack specified registry
  * @summary Get pack registry sync status
  */
-export type RegistriesPackUidSyncStatusResponse200 = {
+export type registriesPackUidSyncStatusResponse200 = {
   data: RegistrySyncStatus;
   status: 200;
 };
 
-export type RegistriesPackUidSyncStatusResponseComposite =
-  RegistriesPackUidSyncStatusResponse200;
+export type registriesPackUidSyncStatusResponseComposite =
+  registriesPackUidSyncStatusResponse200;
 
-export type RegistriesPackUidSyncStatusResponse =
-  RegistriesPackUidSyncStatusResponseComposite & {
+export type registriesPackUidSyncStatusResponse =
+  registriesPackUidSyncStatusResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesPackUidSyncStatusUrl = (uid: string) => {
+export const getRegistriesPackUidSyncStatusUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/pack/${uid}/sync/status`;
 };
 
-export const RegistriesPackUidSyncStatus = async (
+export const registriesPackUidSyncStatus = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesPackUidSyncStatusResponse> => {
-  const res = await fetch(getV1RegistriesPackUidSyncStatusUrl(uid), {
+): Promise<registriesPackUidSyncStatusResponse> => {
+  const res = await fetch(getRegistriesPackUidSyncStatusUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesPackUidSyncStatusResponse["data"] = body
+  const data: registriesPackUidSyncStatusResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1726,40 +1720,40 @@ export const RegistriesPackUidSyncStatus = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesPackUidSyncStatusResponse;
+  } as registriesPackUidSyncStatusResponse;
 };
 
 /**
  * @summary Returns the specified system scope registry configuration
  */
-export type RegistriesNameConfigGetResponse200 = {
+export type registriesNameConfigGetResponse200 = {
   data: RegistryConfigEntity;
   status: 200;
 };
 
-export type RegistriesNameConfigGetResponseComposite =
-  RegistriesNameConfigGetResponse200;
+export type registriesNameConfigGetResponseComposite =
+  registriesNameConfigGetResponse200;
 
-export type RegistriesNameConfigGetResponse =
-  RegistriesNameConfigGetResponseComposite & {
+export type registriesNameConfigGetResponse =
+  registriesNameConfigGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesNameConfigGetUrl = (registryName: string) => {
+export const getRegistriesNameConfigGetUrl = (registryName: string) => {
   return `https://api.spectrocloud.com/v1/registries/${registryName}/config`;
 };
 
-export const RegistriesNameConfigGet = async (
+export const registriesNameConfigGet = async (
   registryName: string,
   options?: RequestInit,
-): Promise<RegistriesNameConfigGetResponse> => {
-  const res = await fetch(getV1RegistriesNameConfigGetUrl(registryName), {
+): Promise<registriesNameConfigGetResponse> => {
+  const res = await fetch(getRegistriesNameConfigGetUrl(registryName), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesNameConfigGetResponse["data"] = body
+  const data: registriesNameConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1767,40 +1761,40 @@ export const RegistriesNameConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesNameConfigGetResponse;
+  } as registriesNameConfigGetResponse;
 };
 
 /**
  * @summary Deletes the specified registry
  */
-export type RegistriesUidDeleteResponse204 = {
+export type registriesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RegistriesUidDeleteResponseComposite =
-  RegistriesUidDeleteResponse204;
+export type registriesUidDeleteResponseComposite =
+  registriesUidDeleteResponse204;
 
-export type RegistriesUidDeleteResponse =
-  RegistriesUidDeleteResponseComposite & {
+export type registriesUidDeleteResponse =
+  registriesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1RegistriesUidDeleteUrl = (uid: string) => {
+export const getRegistriesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/registries/${uid}`;
 };
 
-export const RegistriesUidDelete = async (
+export const registriesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<RegistriesUidDeleteResponse> => {
-  const res = await fetch(getV1RegistriesUidDeleteUrl(uid), {
+): Promise<registriesUidDeleteResponse> => {
+  const res = await fetch(getRegistriesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RegistriesUidDeleteResponse["data"] = body
+  const data: registriesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1808,5 +1802,5 @@ export const RegistriesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as RegistriesUidDeleteResponse;
+  } as registriesUidDeleteResponse;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./ArchType";
+import type { ArchType } from "./archType";
 
 /**
  * Machine pool specific properties

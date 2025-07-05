@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanLimitSpec } from "./PlanLimitSpec";
+import type { PlanLimitSpec } from "./planLimitSpec";
 
 /**
  * Monthly Plan Limit

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmMultusNetwork } from "./VmMultusNetwork";
-import type { VmPodNetwork } from "./VmPodNetwork";
+import type { VmMultusNetwork } from "./vmMultusNetwork";
+import type { VmPodNetwork } from "./vmPodNetwork";
 
 /**
  * Network represents a network type and a resource that should be connected to the vm.

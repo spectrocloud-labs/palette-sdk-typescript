@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadCronJob } from "./ClusterWorkloadCronJob";
-import type { RelatedObject } from "./RelatedObject";
+import type { ClusterWorkloadCronJob } from "./clusterWorkloadCronJob";
+import type { RelatedObject } from "./relatedObject";
 
 /**
  * Workspace cluster workload cronjobs summary

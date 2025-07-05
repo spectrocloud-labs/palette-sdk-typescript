@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostIdentity } from "./EdgeHostIdentity";
-import type { ObjectEntity } from "./ObjectEntity";
+import type { EdgeHostIdentity } from "./edgeHostIdentity";
+import type { ObjectEntity } from "./objectEntity";
 
 /**
  * EdgeHost is the underlying appliance

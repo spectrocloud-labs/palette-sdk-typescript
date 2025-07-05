@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppEnvHealthStatusNamespaces } from "./MgmtAppEnvHealthStatusNamespaces";
+import type { MgmtAppEnvHealthStatusNamespaces } from "./mgmtAppEnvHealthStatusNamespaces";
 
 export interface MgmtAppEnvHealthStatus {
   isHealthy?: boolean;

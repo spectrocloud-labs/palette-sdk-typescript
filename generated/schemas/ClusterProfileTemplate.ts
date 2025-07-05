@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { PackRef } from "./PackRef";
+import type { ObjectReference } from "./objectReference";
+import type { PackRef } from "./packRef";
 
 /**
  * ClusterProfileTemplate contains details of a clusterprofile definition

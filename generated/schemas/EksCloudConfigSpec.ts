@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { EksClusterConfig } from "./EksClusterConfig";
-import type { FargateProfile } from "./FargateProfile";
-import type { EksMachinePoolConfig } from "./EksMachinePoolConfig";
+import type { ObjectReference } from "./objectReference";
+import type { EksClusterConfig } from "./eksClusterConfig";
+import type { FargateProfile } from "./fargateProfile";
+import type { EksMachinePoolConfig } from "./eksMachinePoolConfig";
 
 /**
  * EksCloudConfigSpec defines the cloud configuration input by user

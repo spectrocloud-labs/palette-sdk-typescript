@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserProfile } from "./UserProfile";
-import type { ListMetaData } from "./ListMetaData";
+import type { UserProfile } from "./userProfile";
+import type { ListMetaData } from "./listMetaData";
 
 export interface UserProfiles {
   items: UserProfile[];

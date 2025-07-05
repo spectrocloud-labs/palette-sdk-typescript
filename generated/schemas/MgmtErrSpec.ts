@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtErrSpecDebug } from "./MgmtErrSpecDebug";
-import type { MgmtErrSpecUserCtx } from "./MgmtErrSpecUserCtx";
+import type { MgmtErrSpecDebug } from "./mgmtErrSpecDebug";
+import type { MgmtErrSpecUserCtx } from "./mgmtErrSpecUserCtx";
 
 export interface MgmtErrSpec {
   causes?: string[];

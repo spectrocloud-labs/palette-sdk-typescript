@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchSortFields } from "./SearchSortFields";
-import type { SortOrder } from "./SortOrder";
+import type { SearchSortFields } from "./searchSortFields";
+import type { SortOrder } from "./sortOrder";
 
 export interface SearchFilterSortSpec {
   field?: SearchSortFields;

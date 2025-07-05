@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./ObjectMetaInputEntity";
-import type { UserAssetsLocationAzureSpec } from "./UserAssetsLocationAzureSpec";
+import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { UserAssetsLocationAzureSpec } from "./userAssetsLocationAzureSpec";
 
 /**
  * Azure location object

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackManifestRef } from "./PackManifestRef";
+import type { PackManifestRef } from "./packManifestRef";
 
 export interface PackConfigSpec {
   associatedObject?: string;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpZone } from "./GcpZone";
+import type { GcpZone } from "./gcpZone";
 
 /**
  * List of GCP zones

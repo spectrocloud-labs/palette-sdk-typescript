@@ -17,11 +17,9 @@ import type {
   ClusterProfileCloneMetaInputEntity,
   ClusterProfileEntity,
   ClusterProfileImportEntity,
-  ClusterProfileImportEntityBody,
   ClusterProfilePackConfigList,
   ClusterProfilePacksEntities,
   ClusterProfilePacksManifests,
-  ClusterProfileTemplateDraftBody,
   ClusterProfileUpdateEntity,
   ClusterProfileValidatorResponse,
   ClusterProfilesCreateParams,
@@ -31,8 +29,6 @@ import type {
   ClusterProfilesImportFileParams,
   ClusterProfilesImportParams,
   ClusterProfilesPacksRefUpdateParams,
-  ClusterProfilesUidExportParams,
-  ClusterProfilesUidExportTerraformParams,
   ClusterProfilesUidPacksAddParams,
   ClusterProfilesUidPacksConfigGetParams,
   ClusterProfilesUidPacksGetParams,
@@ -42,35 +38,39 @@ import type {
   Macros,
   ManifestEntities,
   ManifestEntity,
-  ManifestInputEntityBody,
   PackInputEntity,
   PackRefSummaryResponse,
   PackResolvedValues,
   PackUpdateEntity,
   ProfileMetaEntity,
   Uid,
+  V1ClusterProfileImportEntityBody,
+  V1ClusterProfileTemplateDraftBody,
+  V1ClusterProfilesUidExportParams,
+  V1ClusterProfilesUidExportTerraformParams,
+  V1ManifestInputEntityBody,
+  V1VariablesBody,
   VariableNames,
   Variables,
-  VariablesBody,
 } from ".././schemas";
 
 /**
  * @summary Creates a cluster profile
  */
-export type ClusterProfilesCreateResponse201 = {
+export type clusterProfilesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesCreateResponseComposite =
-  ClusterProfilesCreateResponse201;
+export type clusterProfilesCreateResponseComposite =
+  clusterProfilesCreateResponse201;
 
-export type ClusterProfilesCreateResponse =
-  ClusterProfilesCreateResponseComposite & {
+export type clusterProfilesCreateResponse =
+  clusterProfilesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesCreateUrl = (
+export const getClusterProfilesCreateUrl = (
   params?: ClusterProfilesCreateParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -88,20 +88,20 @@ export const getV1ClusterProfilesCreateUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles`;
 };
 
-export const ClusterProfilesCreate = async (
-  ClusterProfileEntity: ClusterProfileEntity,
+export const clusterProfilesCreate = async (
+  clusterProfileEntity: ClusterProfileEntity,
   params?: ClusterProfilesCreateParams,
   options?: RequestInit,
-): Promise<ClusterProfilesCreateResponse> => {
-  const res = await fetch(getV1ClusterProfilesCreateUrl(params), {
+): Promise<clusterProfilesCreateResponse> => {
+  const res = await fetch(getClusterProfilesCreateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileEntity),
+    body: JSON.stringify(clusterProfileEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesCreateResponse["data"] = body
+  const data: clusterProfilesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -109,42 +109,42 @@ export const ClusterProfilesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesCreateResponse;
+  } as clusterProfilesCreateResponse;
 };
 
 /**
  * @summary Deletes list of cluster profiles
  */
-export type ClusterProfilesBulkDeleteResponse200 = {
+export type clusterProfilesBulkDeleteResponse200 = {
   data: BulkDeleteResponse;
   status: 200;
 };
 
-export type ClusterProfilesBulkDeleteResponseComposite =
-  ClusterProfilesBulkDeleteResponse200;
+export type clusterProfilesBulkDeleteResponseComposite =
+  clusterProfilesBulkDeleteResponse200;
 
-export type ClusterProfilesBulkDeleteResponse =
-  ClusterProfilesBulkDeleteResponseComposite & {
+export type clusterProfilesBulkDeleteResponse =
+  clusterProfilesBulkDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesBulkDeleteUrl = () => {
+export const getClusterProfilesBulkDeleteUrl = () => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/bulk`;
 };
 
-export const ClusterProfilesBulkDelete = async (
-  BulkDeleteRequest: BulkDeleteRequest,
+export const clusterProfilesBulkDelete = async (
+  bulkDeleteRequest: BulkDeleteRequest,
   options?: RequestInit,
-): Promise<ClusterProfilesBulkDeleteResponse> => {
-  const res = await fetch(getV1ClusterProfilesBulkDeleteUrl(), {
+): Promise<clusterProfilesBulkDeleteResponse> => {
+  const res = await fetch(getClusterProfilesBulkDeleteUrl(), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(BulkDeleteRequest),
+    body: JSON.stringify(bulkDeleteRequest),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesBulkDeleteResponse["data"] = body
+  const data: clusterProfilesBulkDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -152,26 +152,26 @@ export const ClusterProfilesBulkDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesBulkDeleteResponse;
+  } as clusterProfilesBulkDeleteResponse;
 };
 
 /**
  * @summary Imports a cluster profile
  */
-export type ClusterProfilesImportResponse201 = {
+export type clusterProfilesImportResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesImportResponseComposite =
-  ClusterProfilesImportResponse201;
+export type clusterProfilesImportResponseComposite =
+  clusterProfilesImportResponse201;
 
-export type ClusterProfilesImportResponse =
-  ClusterProfilesImportResponseComposite & {
+export type clusterProfilesImportResponse =
+  clusterProfilesImportResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesImportUrl = (
+export const getClusterProfilesImportUrl = (
   params?: ClusterProfilesImportParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -189,20 +189,20 @@ export const getV1ClusterProfilesImportUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/import`;
 };
 
-export const ClusterProfilesImport = async (
-  ClusterProfileImportEntityBody: ClusterProfileImportEntityBody,
+export const clusterProfilesImport = async (
+  v1ClusterProfileImportEntityBody: V1ClusterProfileImportEntityBody,
   params?: ClusterProfilesImportParams,
   options?: RequestInit,
-): Promise<ClusterProfilesImportResponse> => {
-  const res = await fetch(getV1ClusterProfilesImportUrl(params), {
+): Promise<clusterProfilesImportResponse> => {
+  const res = await fetch(getClusterProfilesImportUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileImportEntityBody),
+    body: JSON.stringify(v1ClusterProfileImportEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesImportResponse["data"] = body
+  const data: clusterProfilesImportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -210,26 +210,26 @@ export const ClusterProfilesImport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesImportResponse;
+  } as clusterProfilesImportResponse;
 };
 
 /**
  * @summary Imports a cluster profile via file
  */
-export type ClusterProfilesImportFileResponse201 = {
+export type clusterProfilesImportFileResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesImportFileResponseComposite =
-  ClusterProfilesImportFileResponse201;
+export type clusterProfilesImportFileResponseComposite =
+  clusterProfilesImportFileResponse201;
 
-export type ClusterProfilesImportFileResponse =
-  ClusterProfilesImportFileResponseComposite & {
+export type clusterProfilesImportFileResponse =
+  clusterProfilesImportFileResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesImportFileUrl = (
+export const getClusterProfilesImportFileUrl = (
   params?: ClusterProfilesImportFileParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -247,24 +247,24 @@ export const getV1ClusterProfilesImportFileUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/import/file`;
 };
 
-export const ClusterProfilesImportFile = async (
-  ClusterProfilesImportFileBody: ClusterProfilesImportFileBody,
+export const clusterProfilesImportFile = async (
+  clusterProfilesImportFileBody: ClusterProfilesImportFileBody,
   params?: ClusterProfilesImportFileParams,
   options?: RequestInit,
-): Promise<ClusterProfilesImportFileResponse> => {
+): Promise<clusterProfilesImportFileResponse> => {
   const formData = new FormData();
-  if (ClusterProfilesImportFileBody.importFile !== undefined) {
-    formData.append(`importFile`, ClusterProfilesImportFileBody.importFile);
+  if (clusterProfilesImportFileBody.importFile !== undefined) {
+    formData.append(`importFile`, clusterProfilesImportFileBody.importFile);
   }
 
-  const res = await fetch(getV1ClusterProfilesImportFileUrl(params), {
+  const res = await fetch(getClusterProfilesImportFileUrl(params), {
     ...options,
     method: "POST",
     body: formData,
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesImportFileResponse["data"] = body
+  const data: clusterProfilesImportFileResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -272,42 +272,42 @@ export const ClusterProfilesImportFile = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesImportFileResponse;
+  } as clusterProfilesImportFileResponse;
 };
 
 /**
  * @summary Validates cluster profile import
  */
-export type ClusterProfilesImportValidateResponse200 = {
+export type clusterProfilesImportValidateResponse200 = {
   data: ClusterProfileImportEntity;
   status: 200;
 };
 
-export type ClusterProfilesImportValidateResponseComposite =
-  ClusterProfilesImportValidateResponse200;
+export type clusterProfilesImportValidateResponseComposite =
+  clusterProfilesImportValidateResponse200;
 
-export type ClusterProfilesImportValidateResponse =
-  ClusterProfilesImportValidateResponseComposite & {
+export type clusterProfilesImportValidateResponse =
+  clusterProfilesImportValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesImportValidateUrl = () => {
+export const getClusterProfilesImportValidateUrl = () => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/import/validate`;
 };
 
-export const ClusterProfilesImportValidate = async (
-  ClusterProfileImportEntityBody: ClusterProfileImportEntityBody,
+export const clusterProfilesImportValidate = async (
+  v1ClusterProfileImportEntityBody: V1ClusterProfileImportEntityBody,
   options?: RequestInit,
-): Promise<ClusterProfilesImportValidateResponse> => {
-  const res = await fetch(getV1ClusterProfilesImportValidateUrl(), {
+): Promise<clusterProfilesImportValidateResponse> => {
+  const res = await fetch(getClusterProfilesImportValidateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileImportEntityBody),
+    body: JSON.stringify(v1ClusterProfileImportEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesImportValidateResponse["data"] = body
+  const data: clusterProfilesImportValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -315,63 +315,63 @@ export const ClusterProfilesImportValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesImportValidateResponse;
+  } as clusterProfilesImportValidateResponse;
 };
 
 /**
  * @summary Retrieves a list of macros
  */
-export type MacrosListResponse200 = {
+export type macrosListResponse200 = {
   data: Macros;
   status: 200;
 };
 
-export type MacrosListResponseComposite = MacrosListResponse200;
+export type macrosListResponseComposite = macrosListResponse200;
 
-export type MacrosListResponse = MacrosListResponseComposite & {
+export type macrosListResponse = macrosListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MacrosListUrl = () => {
+export const getMacrosListUrl = () => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/macros`;
 };
 
-export const MacrosList = async (
+export const macrosList = async (
   options?: RequestInit,
-): Promise<MacrosListResponse> => {
-  const res = await fetch(getV1MacrosListUrl(), {
+): Promise<macrosListResponse> => {
+  const res = await fetch(getMacrosListUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MacrosListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: macrosListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MacrosListResponse;
+  } as macrosListResponse;
 };
 
 /**
  * Validates the cluster profile name and version
  * @summary Validates the cluster profile metadata
  */
-export type ClusterProfilesValidateNameVersionResponse204 = {
+export type clusterProfilesValidateNameVersionResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesValidateNameVersionResponseComposite =
-  ClusterProfilesValidateNameVersionResponse204;
+export type clusterProfilesValidateNameVersionResponseComposite =
+  clusterProfilesValidateNameVersionResponse204;
 
-export type ClusterProfilesValidateNameVersionResponse =
-  ClusterProfilesValidateNameVersionResponseComposite & {
+export type clusterProfilesValidateNameVersionResponse =
+  clusterProfilesValidateNameVersionResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesValidateNameVersionUrl = (
+export const getClusterProfilesValidateNameVersionUrl = (
   params?: ClusterProfilesValidateNameVersionParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -389,17 +389,17 @@ export const getV1ClusterProfilesValidateNameVersionUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/validate/name`;
 };
 
-export const ClusterProfilesValidateNameVersion = async (
+export const clusterProfilesValidateNameVersion = async (
   params?: ClusterProfilesValidateNameVersionParams,
   options?: RequestInit,
-): Promise<ClusterProfilesValidateNameVersionResponse> => {
-  const res = await fetch(getV1ClusterProfilesValidateNameVersionUrl(params), {
+): Promise<clusterProfilesValidateNameVersionResponse> => {
+  const res = await fetch(getClusterProfilesValidateNameVersionUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesValidateNameVersionResponse["data"] = body
+  const data: clusterProfilesValidateNameVersionResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -407,42 +407,42 @@ export const ClusterProfilesValidateNameVersion = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesValidateNameVersionResponse;
+  } as clusterProfilesValidateNameVersionResponse;
 };
 
 /**
  * @summary Validates cluster profile packs
  */
-export type ClusterProfilesValidatePacksResponse200 = {
+export type clusterProfilesValidatePacksResponse200 = {
   data: ClusterProfileValidatorResponse;
   status: 200;
 };
 
-export type ClusterProfilesValidatePacksResponseComposite =
-  ClusterProfilesValidatePacksResponse200;
+export type clusterProfilesValidatePacksResponseComposite =
+  clusterProfilesValidatePacksResponse200;
 
-export type ClusterProfilesValidatePacksResponse =
-  ClusterProfilesValidatePacksResponseComposite & {
+export type clusterProfilesValidatePacksResponse =
+  clusterProfilesValidatePacksResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesValidatePacksUrl = () => {
+export const getClusterProfilesValidatePacksUrl = () => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/validate/packs`;
 };
 
-export const ClusterProfilesValidatePacks = async (
-  ClusterProfileTemplateDraftBody: ClusterProfileTemplateDraftBody,
+export const clusterProfilesValidatePacks = async (
+  v1ClusterProfileTemplateDraftBody: V1ClusterProfileTemplateDraftBody,
   options?: RequestInit,
-): Promise<ClusterProfilesValidatePacksResponse> => {
-  const res = await fetch(getV1ClusterProfilesValidatePacksUrl(), {
+): Promise<clusterProfilesValidatePacksResponse> => {
+  const res = await fetch(getClusterProfilesValidatePacksUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileTemplateDraftBody),
+    body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesValidatePacksResponse["data"] = body
+  const data: clusterProfilesValidatePacksResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -450,26 +450,26 @@ export const ClusterProfilesValidatePacks = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesValidatePacksResponse;
+  } as clusterProfilesValidatePacksResponse;
 };
 
 /**
  * @summary Deletes the specified cluster profile
  */
-export type ClusterProfilesDeleteResponse204 = {
+export type clusterProfilesDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesDeleteResponseComposite =
-  ClusterProfilesDeleteResponse204;
+export type clusterProfilesDeleteResponseComposite =
+  clusterProfilesDeleteResponse204;
 
-export type ClusterProfilesDeleteResponse =
-  ClusterProfilesDeleteResponseComposite & {
+export type clusterProfilesDeleteResponse =
+  clusterProfilesDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesDeleteUrl = (
+export const getClusterProfilesDeleteUrl = (
   uid: string,
   params?: ClusterProfilesDeleteParams,
 ) => {
@@ -484,18 +484,18 @@ export const getV1ClusterProfilesDeleteUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`;
 };
 
-export const ClusterProfilesDelete = async (
+export const clusterProfilesDelete = async (
   uid: string,
   params?: ClusterProfilesDeleteParams,
   options?: RequestInit,
-): Promise<ClusterProfilesDeleteResponse> => {
-  const res = await fetch(getV1ClusterProfilesDeleteUrl(uid, params), {
+): Promise<clusterProfilesDeleteResponse> => {
+  const res = await fetch(getClusterProfilesDeleteUrl(uid, params), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesDeleteResponse["data"] = body
+  const data: clusterProfilesDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -503,24 +503,24 @@ export const ClusterProfilesDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesDeleteResponse;
+  } as clusterProfilesDeleteResponse;
 };
 
 /**
  * @summary Returns a specified cluster profile
  */
-export type ClusterProfilesGetResponse200 = {
+export type clusterProfilesGetResponse200 = {
   data: ClusterProfile;
   status: 200;
 };
 
-export type ClusterProfilesGetResponseComposite = ClusterProfilesGetResponse200;
+export type clusterProfilesGetResponseComposite = clusterProfilesGetResponse200;
 
-export type ClusterProfilesGetResponse = ClusterProfilesGetResponseComposite & {
+export type clusterProfilesGetResponse = clusterProfilesGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ClusterProfilesGetUrl = (
+export const getClusterProfilesGetUrl = (
   uid: string,
   params?: ClusterProfilesGetParams,
 ) => {
@@ -535,43 +535,43 @@ export const getV1ClusterProfilesGetUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`;
 };
 
-export const ClusterProfilesGet = async (
+export const clusterProfilesGet = async (
   uid: string,
   params?: ClusterProfilesGetParams,
   options?: RequestInit,
-): Promise<ClusterProfilesGetResponse> => {
-  const res = await fetch(getV1ClusterProfilesGetUrl(uid, params), {
+): Promise<clusterProfilesGetResponse> => {
+  const res = await fetch(getClusterProfilesGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: clusterProfilesGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesGetResponse;
+  } as clusterProfilesGetResponse;
 };
 
 /**
  * @summary Updates the specified cluster profile
  */
-export type ClusterProfilesUpdateResponse204 = {
+export type clusterProfilesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUpdateResponseComposite =
-  ClusterProfilesUpdateResponse204;
+export type clusterProfilesUpdateResponseComposite =
+  clusterProfilesUpdateResponse204;
 
-export type ClusterProfilesUpdateResponse =
-  ClusterProfilesUpdateResponseComposite & {
+export type clusterProfilesUpdateResponse =
+  clusterProfilesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUpdateUrl = (
+export const getClusterProfilesUpdateUrl = (
   uid: string,
   params?: ClusterProfilesUpdateParams,
 ) => {
@@ -586,21 +586,21 @@ export const getV1ClusterProfilesUpdateUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`;
 };
 
-export const ClusterProfilesUpdate = async (
+export const clusterProfilesUpdate = async (
   uid: string,
-  ClusterProfileUpdateEntity: ClusterProfileUpdateEntity,
+  clusterProfileUpdateEntity: ClusterProfileUpdateEntity,
   params?: ClusterProfilesUpdateParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUpdateResponse> => {
-  const res = await fetch(getV1ClusterProfilesUpdateUrl(uid, params), {
+): Promise<clusterProfilesUpdateResponse> => {
+  const res = await fetch(getClusterProfilesUpdateUrl(uid, params), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileUpdateEntity),
+    body: JSON.stringify(clusterProfileUpdateEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUpdateResponse["data"] = body
+  const data: clusterProfilesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -608,43 +608,43 @@ export const ClusterProfilesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUpdateResponse;
+  } as clusterProfilesUpdateResponse;
 };
 
 /**
  * @summary Creates a clone of the specified cluster profile
  */
-export type ClusterProfilesUidCloneResponse201 = {
+export type clusterProfilesUidCloneResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesUidCloneResponseComposite =
-  ClusterProfilesUidCloneResponse201;
+export type clusterProfilesUidCloneResponseComposite =
+  clusterProfilesUidCloneResponse201;
 
-export type ClusterProfilesUidCloneResponse =
-  ClusterProfilesUidCloneResponseComposite & {
+export type clusterProfilesUidCloneResponse =
+  clusterProfilesUidCloneResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidCloneUrl = (uid: string) => {
+export const getClusterProfilesUidCloneUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/clone`;
 };
 
-export const ClusterProfilesUidClone = async (
+export const clusterProfilesUidClone = async (
   uid: string,
-  ClusterProfileCloneEntity: ClusterProfileCloneEntity,
+  clusterProfileCloneEntity: ClusterProfileCloneEntity,
   options?: RequestInit,
-): Promise<ClusterProfilesUidCloneResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidCloneUrl(uid), {
+): Promise<clusterProfilesUidCloneResponse> => {
+  const res = await fetch(getClusterProfilesUidCloneUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileCloneEntity),
+    body: JSON.stringify(clusterProfileCloneEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidCloneResponse["data"] = body
+  const data: clusterProfilesUidCloneResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -652,44 +652,44 @@ export const ClusterProfilesUidClone = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidCloneResponse;
+  } as clusterProfilesUidCloneResponse;
 };
 
 /**
  * Validates the cloned cluster profile name, version and target project uid
  * @summary Validates the cluster profile clone
  */
-export type ClusterProfilesUidCloneValidateResponse204 = {
+export type clusterProfilesUidCloneValidateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidCloneValidateResponseComposite =
-  ClusterProfilesUidCloneValidateResponse204;
+export type clusterProfilesUidCloneValidateResponseComposite =
+  clusterProfilesUidCloneValidateResponse204;
 
-export type ClusterProfilesUidCloneValidateResponse =
-  ClusterProfilesUidCloneValidateResponseComposite & {
+export type clusterProfilesUidCloneValidateResponse =
+  clusterProfilesUidCloneValidateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidCloneValidateUrl = (uid: string) => {
+export const getClusterProfilesUidCloneValidateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/clone/validate`;
 };
 
-export const ClusterProfilesUidCloneValidate = async (
+export const clusterProfilesUidCloneValidate = async (
   uid: string,
-  ClusterProfileCloneMetaInputEntity: ClusterProfileCloneMetaInputEntity,
+  clusterProfileCloneMetaInputEntity: ClusterProfileCloneMetaInputEntity,
   options?: RequestInit,
-): Promise<ClusterProfilesUidCloneValidateResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidCloneValidateUrl(uid), {
+): Promise<clusterProfilesUidCloneValidateResponse> => {
+  const res = await fetch(getClusterProfilesUidCloneValidateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileCloneMetaInputEntity),
+    body: JSON.stringify(clusterProfileCloneMetaInputEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidCloneValidateResponse["data"] = body
+  const data: clusterProfilesUidCloneValidateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -697,28 +697,28 @@ export const ClusterProfilesUidCloneValidate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidCloneValidateResponse;
+  } as clusterProfilesUidCloneValidateResponse;
 };
 
 /**
  * @summary Export the specified cluster profile
  */
-export type ClusterProfilesUidExportResponse200 = {
+export type v1ClusterProfilesUidExportResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type ClusterProfilesUidExportResponseComposite =
-  ClusterProfilesUidExportResponse200;
+export type v1ClusterProfilesUidExportResponseComposite =
+  v1ClusterProfilesUidExportResponse200;
 
-export type ClusterProfilesUidExportResponse =
-  ClusterProfilesUidExportResponseComposite & {
+export type v1ClusterProfilesUidExportResponse =
+  v1ClusterProfilesUidExportResponseComposite & {
     headers: Headers;
   };
 
 export const getV1ClusterProfilesUidExportUrl = (
   uid: string,
-  params?: ClusterProfilesUidExportParams,
+  params?: V1ClusterProfilesUidExportParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -731,18 +731,18 @@ export const getV1ClusterProfilesUidExportUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export`;
 };
 
-export const ClusterProfilesUidExport = async (
+export const v1ClusterProfilesUidExport = async (
   uid: string,
-  params?: ClusterProfilesUidExportParams,
+  params?: V1ClusterProfilesUidExportParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidExportResponse> => {
+): Promise<v1ClusterProfilesUidExportResponse> => {
   const res = await fetch(getV1ClusterProfilesUidExportUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidExportResponse["data"] = body
+  const data: v1ClusterProfilesUidExportResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -750,28 +750,28 @@ export const ClusterProfilesUidExport = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidExportResponse;
+  } as v1ClusterProfilesUidExportResponse;
 };
 
 /**
  * @summary Downloads the specified cluster profile
  */
-export type ClusterProfilesUidExportTerraformResponse200 = {
+export type v1ClusterProfilesUidExportTerraformResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type ClusterProfilesUidExportTerraformResponseComposite =
-  ClusterProfilesUidExportTerraformResponse200;
+export type v1ClusterProfilesUidExportTerraformResponseComposite =
+  v1ClusterProfilesUidExportTerraformResponse200;
 
-export type ClusterProfilesUidExportTerraformResponse =
-  ClusterProfilesUidExportTerraformResponseComposite & {
+export type v1ClusterProfilesUidExportTerraformResponse =
+  v1ClusterProfilesUidExportTerraformResponseComposite & {
     headers: Headers;
   };
 
 export const getV1ClusterProfilesUidExportTerraformUrl = (
   uid: string,
-  params?: ClusterProfilesUidExportTerraformParams,
+  params?: V1ClusterProfilesUidExportTerraformParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -784,11 +784,11 @@ export const getV1ClusterProfilesUidExportTerraformUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export/terraform`;
 };
 
-export const ClusterProfilesUidExportTerraform = async (
+export const v1ClusterProfilesUidExportTerraform = async (
   uid: string,
-  params?: ClusterProfilesUidExportTerraformParams,
+  params?: V1ClusterProfilesUidExportTerraformParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidExportTerraformResponse> => {
+): Promise<v1ClusterProfilesUidExportTerraformResponse> => {
   const res = await fetch(
     getV1ClusterProfilesUidExportTerraformUrl(uid, params),
     {
@@ -798,7 +798,7 @@ export const ClusterProfilesUidExportTerraform = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidExportTerraformResponse["data"] = body
+  const data: v1ClusterProfilesUidExportTerraformResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -806,43 +806,43 @@ export const ClusterProfilesUidExportTerraform = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidExportTerraformResponse;
+  } as v1ClusterProfilesUidExportTerraformResponse;
 };
 
 /**
  * @summary Updates the specified cluster profile metadata
  */
-export type ClusterProfilesUidMetadataUpdateResponse204 = {
+export type clusterProfilesUidMetadataUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidMetadataUpdateResponseComposite =
-  ClusterProfilesUidMetadataUpdateResponse204;
+export type clusterProfilesUidMetadataUpdateResponseComposite =
+  clusterProfilesUidMetadataUpdateResponse204;
 
-export type ClusterProfilesUidMetadataUpdateResponse =
-  ClusterProfilesUidMetadataUpdateResponseComposite & {
+export type clusterProfilesUidMetadataUpdateResponse =
+  clusterProfilesUidMetadataUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidMetadataUpdateUrl = (uid: string) => {
+export const getClusterProfilesUidMetadataUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/metadata`;
 };
 
-export const ClusterProfilesUidMetadataUpdate = async (
+export const clusterProfilesUidMetadataUpdate = async (
   uid: string,
-  ProfileMetaEntity: ProfileMetaEntity,
+  profileMetaEntity: ProfileMetaEntity,
   options?: RequestInit,
-): Promise<ClusterProfilesUidMetadataUpdateResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidMetadataUpdateUrl(uid), {
+): Promise<clusterProfilesUidMetadataUpdateResponse> => {
+  const res = await fetch(getClusterProfilesUidMetadataUpdateUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProfileMetaEntity),
+    body: JSON.stringify(profileMetaEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidMetadataUpdateResponse["data"] = body
+  const data: clusterProfilesUidMetadataUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -850,26 +850,26 @@ export const ClusterProfilesUidMetadataUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidMetadataUpdateResponse;
+  } as clusterProfilesUidMetadataUpdateResponse;
 };
 
 /**
  * @summary Updates cluster profile packs ref
  */
-export type ClusterProfilesPacksRefUpdateResponse204 = {
+export type clusterProfilesPacksRefUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesPacksRefUpdateResponseComposite =
-  ClusterProfilesPacksRefUpdateResponse204;
+export type clusterProfilesPacksRefUpdateResponseComposite =
+  clusterProfilesPacksRefUpdateResponse204;
 
-export type ClusterProfilesPacksRefUpdateResponse =
-  ClusterProfilesPacksRefUpdateResponseComposite & {
+export type clusterProfilesPacksRefUpdateResponse =
+  clusterProfilesPacksRefUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesPacksRefUpdateUrl = (
+export const getClusterProfilesPacksRefUpdateUrl = (
   uid: string,
   params?: ClusterProfilesPacksRefUpdateParams,
 ) => {
@@ -884,18 +884,18 @@ export const getV1ClusterProfilesPacksRefUpdateUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packRefs`;
 };
 
-export const ClusterProfilesPacksRefUpdate = async (
+export const clusterProfilesPacksRefUpdate = async (
   uid: string,
   params?: ClusterProfilesPacksRefUpdateParams,
   options?: RequestInit,
-): Promise<ClusterProfilesPacksRefUpdateResponse> => {
-  const res = await fetch(getV1ClusterProfilesPacksRefUpdateUrl(uid, params), {
+): Promise<clusterProfilesPacksRefUpdateResponse> => {
+  const res = await fetch(getClusterProfilesPacksRefUpdateUrl(uid, params), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesPacksRefUpdateResponse["data"] = body
+  const data: clusterProfilesPacksRefUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -903,26 +903,26 @@ export const ClusterProfilesPacksRefUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesPacksRefUpdateResponse;
+  } as clusterProfilesPacksRefUpdateResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile packs
  */
-export type ClusterProfilesUidPacksGetResponse200 = {
+export type clusterProfilesUidPacksGetResponse200 = {
   data: ClusterProfilePacksEntities;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksGetResponseComposite =
-  ClusterProfilesUidPacksGetResponse200;
+export type clusterProfilesUidPacksGetResponseComposite =
+  clusterProfilesUidPacksGetResponse200;
 
-export type ClusterProfilesUidPacksGetResponse =
-  ClusterProfilesUidPacksGetResponseComposite & {
+export type clusterProfilesUidPacksGetResponse =
+  clusterProfilesUidPacksGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksGetUrl = (
+export const getClusterProfilesUidPacksGetUrl = (
   uid: string,
   params?: ClusterProfilesUidPacksGetParams,
 ) => {
@@ -937,18 +937,18 @@ export const getV1ClusterProfilesUidPacksGetUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs`;
 };
 
-export const ClusterProfilesUidPacksGet = async (
+export const clusterProfilesUidPacksGet = async (
   uid: string,
   params?: ClusterProfilesUidPacksGetParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksGetResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidPacksGetUrl(uid, params), {
+): Promise<clusterProfilesUidPacksGetResponse> => {
+  const res = await fetch(getClusterProfilesUidPacksGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksGetResponse["data"] = body
+  const data: clusterProfilesUidPacksGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -956,26 +956,26 @@ export const ClusterProfilesUidPacksGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksGetResponse;
+  } as clusterProfilesUidPacksGetResponse;
 };
 
 /**
  * @summary Adds a new pack to the specified cluster profile and returns the created pack uid
  */
-export type ClusterProfilesUidPacksAddResponse201 = {
+export type clusterProfilesUidPacksAddResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesUidPacksAddResponseComposite =
-  ClusterProfilesUidPacksAddResponse201;
+export type clusterProfilesUidPacksAddResponseComposite =
+  clusterProfilesUidPacksAddResponse201;
 
-export type ClusterProfilesUidPacksAddResponse =
-  ClusterProfilesUidPacksAddResponseComposite & {
+export type clusterProfilesUidPacksAddResponse =
+  clusterProfilesUidPacksAddResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksAddUrl = (
+export const getClusterProfilesUidPacksAddUrl = (
   uid: string,
   params?: ClusterProfilesUidPacksAddParams,
 ) => {
@@ -990,21 +990,21 @@ export const getV1ClusterProfilesUidPacksAddUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs`;
 };
 
-export const ClusterProfilesUidPacksAdd = async (
+export const clusterProfilesUidPacksAdd = async (
   uid: string,
-  PackInputEntity: PackInputEntity,
+  packInputEntity: PackInputEntity,
   params?: ClusterProfilesUidPacksAddParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksAddResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidPacksAddUrl(uid, params), {
+): Promise<clusterProfilesUidPacksAddResponse> => {
+  const res = await fetch(getClusterProfilesUidPacksAddUrl(uid, params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PackInputEntity),
+    body: JSON.stringify(packInputEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksAddResponse["data"] = body
+  const data: clusterProfilesUidPacksAddResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1012,26 +1012,26 @@ export const ClusterProfilesUidPacksAdd = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksAddResponse;
+  } as clusterProfilesUidPacksAddResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile pack manifests
  */
-export type ClusterProfilesUidPacksManifestsGetResponse200 = {
+export type clusterProfilesUidPacksManifestsGetResponse200 = {
   data: ClusterProfilePacksManifests;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksManifestsGetResponseComposite =
-  ClusterProfilesUidPacksManifestsGetResponse200;
+export type clusterProfilesUidPacksManifestsGetResponseComposite =
+  clusterProfilesUidPacksManifestsGetResponse200;
 
-export type ClusterProfilesUidPacksManifestsGetResponse =
-  ClusterProfilesUidPacksManifestsGetResponseComposite & {
+export type clusterProfilesUidPacksManifestsGetResponse =
+  clusterProfilesUidPacksManifestsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksManifestsGetUrl = (
+export const getClusterProfilesUidPacksManifestsGetUrl = (
   uid: string,
   params?: ClusterProfilesUidPacksManifestsGetParams,
 ) => {
@@ -1046,13 +1046,13 @@ export const getV1ClusterProfilesUidPacksManifestsGetUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/manifests`;
 };
 
-export const ClusterProfilesUidPacksManifestsGet = async (
+export const clusterProfilesUidPacksManifestsGet = async (
   uid: string,
   params?: ClusterProfilesUidPacksManifestsGetParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksManifestsGetResponse> => {
+): Promise<clusterProfilesUidPacksManifestsGetResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksManifestsGetUrl(uid, params),
+    getClusterProfilesUidPacksManifestsGetUrl(uid, params),
     {
       ...options,
       method: "GET",
@@ -1060,7 +1060,7 @@ export const ClusterProfilesUidPacksManifestsGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksManifestsGetResponse["data"] = body
+  const data: clusterProfilesUidPacksManifestsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1068,45 +1068,40 @@ export const ClusterProfilesUidPacksManifestsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksManifestsGetResponse;
+  } as clusterProfilesUidPacksManifestsGetResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile packs resolved values
  */
-export type ClusterProfilesUidPacksResolvedValuesGetResponse200 = {
+export type clusterProfilesUidPacksResolvedValuesGetResponse200 = {
   data: PackResolvedValues;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksResolvedValuesGetResponseComposite =
-  ClusterProfilesUidPacksResolvedValuesGetResponse200;
+export type clusterProfilesUidPacksResolvedValuesGetResponseComposite =
+  clusterProfilesUidPacksResolvedValuesGetResponse200;
 
-export type ClusterProfilesUidPacksResolvedValuesGetResponse =
-  ClusterProfilesUidPacksResolvedValuesGetResponseComposite & {
+export type clusterProfilesUidPacksResolvedValuesGetResponse =
+  clusterProfilesUidPacksResolvedValuesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksResolvedValuesGetUrl = (
-  uid: string,
-) => {
+export const getClusterProfilesUidPacksResolvedValuesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/resolvedValues`;
 };
 
-export const ClusterProfilesUidPacksResolvedValuesGet = async (
+export const clusterProfilesUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(
-    getV1ClusterProfilesUidPacksResolvedValuesGetUrl(uid),
-    {
-      ...options,
-      method: "GET",
-    },
-  );
+): Promise<clusterProfilesUidPacksResolvedValuesGetResponse> => {
+  const res = await fetch(getClusterProfilesUidPacksResolvedValuesGetUrl(uid), {
+    ...options,
+    method: "GET",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksResolvedValuesGetResponse["data"] = body
+  const data: clusterProfilesUidPacksResolvedValuesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1114,39 +1109,39 @@ export const ClusterProfilesUidPacksResolvedValuesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksResolvedValuesGetResponse;
+  } as clusterProfilesUidPacksResolvedValuesGetResponse;
 };
 
 /**
  * @summary Deletes the specified pack information in the cluster profile
  */
-export type ClusterProfilesUidPacksNameDeleteResponse204 = {
+export type clusterProfilesUidPacksNameDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidPacksNameDeleteResponseComposite =
-  ClusterProfilesUidPacksNameDeleteResponse204;
+export type clusterProfilesUidPacksNameDeleteResponseComposite =
+  clusterProfilesUidPacksNameDeleteResponse204;
 
-export type ClusterProfilesUidPacksNameDeleteResponse =
-  ClusterProfilesUidPacksNameDeleteResponseComposite & {
+export type clusterProfilesUidPacksNameDeleteResponse =
+  clusterProfilesUidPacksNameDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameDeleteUrl = (
+export const getClusterProfilesUidPacksNameDeleteUrl = (
   uid: string,
   packName: string,
 ) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`;
 };
 
-export const ClusterProfilesUidPacksNameDelete = async (
+export const clusterProfilesUidPacksNameDelete = async (
   uid: string,
   packName: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameDeleteResponse> => {
+): Promise<clusterProfilesUidPacksNameDeleteResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameDeleteUrl(uid, packName),
+    getClusterProfilesUidPacksNameDeleteUrl(uid, packName),
     {
       ...options,
       method: "DELETE",
@@ -1154,7 +1149,7 @@ export const ClusterProfilesUidPacksNameDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameDeleteResponse["data"] = body
+  const data: clusterProfilesUidPacksNameDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1162,22 +1157,22 @@ export const ClusterProfilesUidPacksNameDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameDeleteResponse;
+  } as clusterProfilesUidPacksNameDeleteResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile pack
  */
-export type ClusterProfilesUidPacksNameGetResponse200 = {
+export type v1ClusterProfilesUidPacksNameGetResponse200 = {
   data: PackRefSummaryResponse;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksNameGetResponseComposite =
-  ClusterProfilesUidPacksNameGetResponse200;
+export type v1ClusterProfilesUidPacksNameGetResponseComposite =
+  v1ClusterProfilesUidPacksNameGetResponse200;
 
-export type ClusterProfilesUidPacksNameGetResponse =
-  ClusterProfilesUidPacksNameGetResponseComposite & {
+export type v1ClusterProfilesUidPacksNameGetResponse =
+  v1ClusterProfilesUidPacksNameGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1188,11 +1183,11 @@ export const getV1ClusterProfilesUidPacksNameGetUrl = (
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`;
 };
 
-export const ClusterProfilesUidPacksNameGet = async (
+export const v1ClusterProfilesUidPacksNameGet = async (
   uid: string,
   packName: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameGetResponse> => {
+): Promise<v1ClusterProfilesUidPacksNameGetResponse> => {
   const res = await fetch(
     getV1ClusterProfilesUidPacksNameGetUrl(uid, packName),
     {
@@ -1202,7 +1197,7 @@ export const ClusterProfilesUidPacksNameGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameGetResponse["data"] = body
+  const data: v1ClusterProfilesUidPacksNameGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1210,50 +1205,50 @@ export const ClusterProfilesUidPacksNameGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameGetResponse;
+  } as v1ClusterProfilesUidPacksNameGetResponse;
 };
 
 /**
  * @summary Updates the specified pack information in the cluster profile
  */
-export type ClusterProfilesUidPacksNameUpdateResponse204 = {
+export type clusterProfilesUidPacksNameUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidPacksNameUpdateResponseComposite =
-  ClusterProfilesUidPacksNameUpdateResponse204;
+export type clusterProfilesUidPacksNameUpdateResponseComposite =
+  clusterProfilesUidPacksNameUpdateResponse204;
 
-export type ClusterProfilesUidPacksNameUpdateResponse =
-  ClusterProfilesUidPacksNameUpdateResponseComposite & {
+export type clusterProfilesUidPacksNameUpdateResponse =
+  clusterProfilesUidPacksNameUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameUpdateUrl = (
+export const getClusterProfilesUidPacksNameUpdateUrl = (
   uid: string,
   packName: string,
 ) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`;
 };
 
-export const ClusterProfilesUidPacksNameUpdate = async (
+export const clusterProfilesUidPacksNameUpdate = async (
   uid: string,
   packName: string,
-  PackUpdateEntity: PackUpdateEntity,
+  packUpdateEntity: PackUpdateEntity,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameUpdateResponse> => {
+): Promise<clusterProfilesUidPacksNameUpdateResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameUpdateUrl(uid, packName),
+    getClusterProfilesUidPacksNameUpdateUrl(uid, packName),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(PackUpdateEntity),
+      body: JSON.stringify(packUpdateEntity),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameUpdateResponse["data"] = body
+  const data: clusterProfilesUidPacksNameUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1261,26 +1256,26 @@ export const ClusterProfilesUidPacksNameUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameUpdateResponse;
+  } as clusterProfilesUidPacksNameUpdateResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile pack configuration
  */
-export type ClusterProfilesUidPacksConfigGetResponse200 = {
+export type clusterProfilesUidPacksConfigGetResponse200 = {
   data: ClusterProfilePackConfigList;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksConfigGetResponseComposite =
-  ClusterProfilesUidPacksConfigGetResponse200;
+export type clusterProfilesUidPacksConfigGetResponseComposite =
+  clusterProfilesUidPacksConfigGetResponse200;
 
-export type ClusterProfilesUidPacksConfigGetResponse =
-  ClusterProfilesUidPacksConfigGetResponseComposite & {
+export type clusterProfilesUidPacksConfigGetResponse =
+  clusterProfilesUidPacksConfigGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksConfigGetUrl = (
+export const getClusterProfilesUidPacksConfigGetUrl = (
   uid: string,
   packName: string,
   params: ClusterProfilesUidPacksConfigGetParams,
@@ -1300,14 +1295,14 @@ export const getV1ClusterProfilesUidPacksConfigGetUrl = (
     : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/config`;
 };
 
-export const ClusterProfilesUidPacksConfigGet = async (
+export const clusterProfilesUidPacksConfigGet = async (
   uid: string,
   packName: string,
   params: ClusterProfilesUidPacksConfigGetParams,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksConfigGetResponse> => {
+): Promise<clusterProfilesUidPacksConfigGetResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksConfigGetUrl(uid, packName, params),
+    getClusterProfilesUidPacksConfigGetUrl(uid, packName, params),
     {
       ...options,
       method: "GET",
@@ -1315,7 +1310,7 @@ export const ClusterProfilesUidPacksConfigGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksConfigGetResponse["data"] = body
+  const data: clusterProfilesUidPacksConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1323,39 +1318,39 @@ export const ClusterProfilesUidPacksConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksConfigGetResponse;
+  } as clusterProfilesUidPacksConfigGetResponse;
 };
 
 /**
  * @summary Returns the associated manifests for the specified profile's pack
  */
-export type ClusterProfilesUidPacksUidManifestsResponse200 = {
+export type clusterProfilesUidPacksUidManifestsResponse200 = {
   data: ManifestEntities;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksUidManifestsResponseComposite =
-  ClusterProfilesUidPacksUidManifestsResponse200;
+export type clusterProfilesUidPacksUidManifestsResponseComposite =
+  clusterProfilesUidPacksUidManifestsResponse200;
 
-export type ClusterProfilesUidPacksUidManifestsResponse =
-  ClusterProfilesUidPacksUidManifestsResponseComposite & {
+export type clusterProfilesUidPacksUidManifestsResponse =
+  clusterProfilesUidPacksUidManifestsResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksUidManifestsUrl = (
+export const getClusterProfilesUidPacksUidManifestsUrl = (
   uid: string,
   packName: string,
 ) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests`;
 };
 
-export const ClusterProfilesUidPacksUidManifests = async (
+export const clusterProfilesUidPacksUidManifests = async (
   uid: string,
   packName: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksUidManifestsResponse> => {
+): Promise<clusterProfilesUidPacksUidManifestsResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksUidManifestsUrl(uid, packName),
+    getClusterProfilesUidPacksUidManifestsUrl(uid, packName),
     {
       ...options,
       method: "GET",
@@ -1363,7 +1358,7 @@ export const ClusterProfilesUidPacksUidManifests = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksUidManifestsResponse["data"] = body
+  const data: clusterProfilesUidPacksUidManifestsResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1371,50 +1366,50 @@ export const ClusterProfilesUidPacksUidManifests = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksUidManifestsResponse;
+  } as clusterProfilesUidPacksUidManifestsResponse;
 };
 
 /**
  * @summary Adds manifest to the profiles packs and returns the added manifests uid
  */
-export type ClusterProfilesUidPacksNameManifestsAddResponse201 = {
+export type clusterProfilesUidPacksNameManifestsAddResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterProfilesUidPacksNameManifestsAddResponseComposite =
-  ClusterProfilesUidPacksNameManifestsAddResponse201;
+export type clusterProfilesUidPacksNameManifestsAddResponseComposite =
+  clusterProfilesUidPacksNameManifestsAddResponse201;
 
-export type ClusterProfilesUidPacksNameManifestsAddResponse =
-  ClusterProfilesUidPacksNameManifestsAddResponseComposite & {
+export type clusterProfilesUidPacksNameManifestsAddResponse =
+  clusterProfilesUidPacksNameManifestsAddResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameManifestsAddUrl = (
+export const getClusterProfilesUidPacksNameManifestsAddUrl = (
   uid: string,
   packName: string,
 ) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests`;
 };
 
-export const ClusterProfilesUidPacksNameManifestsAdd = async (
+export const clusterProfilesUidPacksNameManifestsAdd = async (
   uid: string,
   packName: string,
-  ManifestInputEntityBody: ManifestInputEntityBody,
+  v1ManifestInputEntityBody: V1ManifestInputEntityBody,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameManifestsAddResponse> => {
+): Promise<clusterProfilesUidPacksNameManifestsAddResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameManifestsAddUrl(uid, packName),
+    getClusterProfilesUidPacksNameManifestsAddUrl(uid, packName),
     {
       ...options,
       method: "POST",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ManifestInputEntityBody),
+      body: JSON.stringify(v1ManifestInputEntityBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameManifestsAddResponse["data"] = body
+  const data: clusterProfilesUidPacksNameManifestsAddResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1422,26 +1417,26 @@ export const ClusterProfilesUidPacksNameManifestsAdd = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameManifestsAddResponse;
+  } as clusterProfilesUidPacksNameManifestsAddResponse;
 };
 
 /**
  * @summary Deletes the specified cluster profile pack manifest
  */
-export type ClusterProfilesUidPacksNameManifestsUidDeleteResponse204 = {
+export type clusterProfilesUidPacksNameManifestsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidPacksNameManifestsUidDeleteResponseComposite =
-  ClusterProfilesUidPacksNameManifestsUidDeleteResponse204;
+export type clusterProfilesUidPacksNameManifestsUidDeleteResponseComposite =
+  clusterProfilesUidPacksNameManifestsUidDeleteResponse204;
 
-export type ClusterProfilesUidPacksNameManifestsUidDeleteResponse =
-  ClusterProfilesUidPacksNameManifestsUidDeleteResponseComposite & {
+export type clusterProfilesUidPacksNameManifestsUidDeleteResponse =
+  clusterProfilesUidPacksNameManifestsUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameManifestsUidDeleteUrl = (
+export const getClusterProfilesUidPacksNameManifestsUidDeleteUrl = (
   uid: string,
   packName: string,
   manifestUid: string,
@@ -1449,14 +1444,14 @@ export const getV1ClusterProfilesUidPacksNameManifestsUidDeleteUrl = (
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`;
 };
 
-export const ClusterProfilesUidPacksNameManifestsUidDelete = async (
+export const clusterProfilesUidPacksNameManifestsUidDelete = async (
   uid: string,
   packName: string,
   manifestUid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameManifestsUidDeleteResponse> => {
+): Promise<clusterProfilesUidPacksNameManifestsUidDeleteResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameManifestsUidDeleteUrl(
+    getClusterProfilesUidPacksNameManifestsUidDeleteUrl(
       uid,
       packName,
       manifestUid,
@@ -1468,33 +1463,33 @@ export const ClusterProfilesUidPacksNameManifestsUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameManifestsUidDeleteResponse["data"] =
+  const data: clusterProfilesUidPacksNameManifestsUidDeleteResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameManifestsUidDeleteResponse;
+  } as clusterProfilesUidPacksNameManifestsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified cluster profile pack manifest
  */
-export type ClusterProfilesUidPacksNameManifestsUidGetResponse200 = {
+export type clusterProfilesUidPacksNameManifestsUidGetResponse200 = {
   data: ManifestEntity;
   status: 200;
 };
 
-export type ClusterProfilesUidPacksNameManifestsUidGetResponseComposite =
-  ClusterProfilesUidPacksNameManifestsUidGetResponse200;
+export type clusterProfilesUidPacksNameManifestsUidGetResponseComposite =
+  clusterProfilesUidPacksNameManifestsUidGetResponse200;
 
-export type ClusterProfilesUidPacksNameManifestsUidGetResponse =
-  ClusterProfilesUidPacksNameManifestsUidGetResponseComposite & {
+export type clusterProfilesUidPacksNameManifestsUidGetResponse =
+  clusterProfilesUidPacksNameManifestsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameManifestsUidGetUrl = (
+export const getClusterProfilesUidPacksNameManifestsUidGetUrl = (
   uid: string,
   packName: string,
   manifestUid: string,
@@ -1502,14 +1497,14 @@ export const getV1ClusterProfilesUidPacksNameManifestsUidGetUrl = (
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`;
 };
 
-export const ClusterProfilesUidPacksNameManifestsUidGet = async (
+export const clusterProfilesUidPacksNameManifestsUidGet = async (
   uid: string,
   packName: string,
   manifestUid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameManifestsUidGetResponse> => {
+): Promise<clusterProfilesUidPacksNameManifestsUidGetResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameManifestsUidGetUrl(
+    getClusterProfilesUidPacksNameManifestsUidGetUrl(
       uid,
       packName,
       manifestUid,
@@ -1521,7 +1516,7 @@ export const ClusterProfilesUidPacksNameManifestsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameManifestsUidGetResponse["data"] = body
+  const data: clusterProfilesUidPacksNameManifestsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1529,26 +1524,26 @@ export const ClusterProfilesUidPacksNameManifestsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameManifestsUidGetResponse;
+  } as clusterProfilesUidPacksNameManifestsUidGetResponse;
 };
 
 /**
  * @summary Updates the specified manifest of the profile's pack
  */
-export type ClusterProfilesUidPacksNameManifestsUidUpdateResponse204 = {
+export type clusterProfilesUidPacksNameManifestsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidPacksNameManifestsUidUpdateResponseComposite =
-  ClusterProfilesUidPacksNameManifestsUidUpdateResponse204;
+export type clusterProfilesUidPacksNameManifestsUidUpdateResponseComposite =
+  clusterProfilesUidPacksNameManifestsUidUpdateResponse204;
 
-export type ClusterProfilesUidPacksNameManifestsUidUpdateResponse =
-  ClusterProfilesUidPacksNameManifestsUidUpdateResponseComposite & {
+export type clusterProfilesUidPacksNameManifestsUidUpdateResponse =
+  clusterProfilesUidPacksNameManifestsUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidPacksNameManifestsUidUpdateUrl = (
+export const getClusterProfilesUidPacksNameManifestsUidUpdateUrl = (
   uid: string,
   packName: string,
   manifestUid: string,
@@ -1556,15 +1551,15 @@ export const getV1ClusterProfilesUidPacksNameManifestsUidUpdateUrl = (
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`;
 };
 
-export const ClusterProfilesUidPacksNameManifestsUidUpdate = async (
+export const clusterProfilesUidPacksNameManifestsUidUpdate = async (
   uid: string,
   packName: string,
   manifestUid: string,
-  ManifestInputEntityBody: ManifestInputEntityBody,
+  v1ManifestInputEntityBody: V1ManifestInputEntityBody,
   options?: RequestInit,
-): Promise<ClusterProfilesUidPacksNameManifestsUidUpdateResponse> => {
+): Promise<clusterProfilesUidPacksNameManifestsUidUpdateResponse> => {
   const res = await fetch(
-    getV1ClusterProfilesUidPacksNameManifestsUidUpdateUrl(
+    getClusterProfilesUidPacksNameManifestsUidUpdateUrl(
       uid,
       packName,
       manifestUid,
@@ -1573,19 +1568,19 @@ export const ClusterProfilesUidPacksNameManifestsUidUpdate = async (
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ManifestInputEntityBody),
+      body: JSON.stringify(v1ManifestInputEntityBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidPacksNameManifestsUidUpdateResponse["data"] =
+  const data: clusterProfilesUidPacksNameManifestsUidUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidPacksNameManifestsUidUpdateResponse;
+  } as clusterProfilesUidPacksNameManifestsUidUpdateResponse;
 };
 
 /**
@@ -1594,34 +1589,34 @@ and the draft cluster profile will be set to null in the cluster profile templat
 
  * @summary Publishes the specified cluster profile
  */
-export type ClusterProfilesPublishResponse204 = {
+export type clusterProfilesPublishResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesPublishResponseComposite =
-  ClusterProfilesPublishResponse204;
+export type clusterProfilesPublishResponseComposite =
+  clusterProfilesPublishResponse204;
 
-export type ClusterProfilesPublishResponse =
-  ClusterProfilesPublishResponseComposite & {
+export type clusterProfilesPublishResponse =
+  clusterProfilesPublishResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesPublishUrl = (uid: string) => {
+export const getClusterProfilesPublishUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/publish`;
 };
 
-export const ClusterProfilesPublish = async (
+export const clusterProfilesPublish = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesPublishResponse> => {
-  const res = await fetch(getV1ClusterProfilesPublishUrl(uid), {
+): Promise<clusterProfilesPublishResponse> => {
+  const res = await fetch(getClusterProfilesPublishUrl(uid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesPublishResponse["data"] = body
+  const data: clusterProfilesPublishResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1629,40 +1624,40 @@ export const ClusterProfilesPublish = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesPublishResponse;
+  } as clusterProfilesPublishResponse;
 };
 
 /**
  * @summary Downloads the specified cluster profile
  */
-export type ClusterProfilesUidSpcDownloadResponse200 = {
+export type clusterProfilesUidSpcDownloadResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type ClusterProfilesUidSpcDownloadResponseComposite =
-  ClusterProfilesUidSpcDownloadResponse200;
+export type clusterProfilesUidSpcDownloadResponseComposite =
+  clusterProfilesUidSpcDownloadResponse200;
 
-export type ClusterProfilesUidSpcDownloadResponse =
-  ClusterProfilesUidSpcDownloadResponseComposite & {
+export type clusterProfilesUidSpcDownloadResponse =
+  clusterProfilesUidSpcDownloadResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidSpcDownloadUrl = (uid: string) => {
+export const getClusterProfilesUidSpcDownloadUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/spc/download`;
 };
 
-export const ClusterProfilesUidSpcDownload = async (
+export const clusterProfilesUidSpcDownload = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidSpcDownloadResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidSpcDownloadUrl(uid), {
+): Promise<clusterProfilesUidSpcDownloadResponse> => {
+  const res = await fetch(getClusterProfilesUidSpcDownloadUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidSpcDownloadResponse["data"] = body
+  const data: clusterProfilesUidSpcDownloadResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1670,43 +1665,43 @@ export const ClusterProfilesUidSpcDownload = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidSpcDownloadResponse;
+  } as clusterProfilesUidSpcDownloadResponse;
 };
 
 /**
  * @summary Validates specified cluster profile packs
  */
-export type ClusterProfilesUidValidatePacksResponse200 = {
+export type clusterProfilesUidValidatePacksResponse200 = {
   data: ClusterProfileValidatorResponse;
   status: 200;
 };
 
-export type ClusterProfilesUidValidatePacksResponseComposite =
-  ClusterProfilesUidValidatePacksResponse200;
+export type clusterProfilesUidValidatePacksResponseComposite =
+  clusterProfilesUidValidatePacksResponse200;
 
-export type ClusterProfilesUidValidatePacksResponse =
-  ClusterProfilesUidValidatePacksResponseComposite & {
+export type clusterProfilesUidValidatePacksResponse =
+  clusterProfilesUidValidatePacksResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterProfilesUidValidatePacksUrl = (uid: string) => {
+export const getClusterProfilesUidValidatePacksUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/validate/packs`;
 };
 
-export const ClusterProfilesUidValidatePacks = async (
+export const clusterProfilesUidValidatePacks = async (
   uid: string,
-  ClusterProfileTemplateDraftBody: ClusterProfileTemplateDraftBody,
+  v1ClusterProfileTemplateDraftBody: V1ClusterProfileTemplateDraftBody,
   options?: RequestInit,
-): Promise<ClusterProfilesUidValidatePacksResponse> => {
-  const res = await fetch(getV1ClusterProfilesUidValidatePacksUrl(uid), {
+): Promise<clusterProfilesUidValidatePacksResponse> => {
+  const res = await fetch(getClusterProfilesUidValidatePacksUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterProfileTemplateDraftBody),
+    body: JSON.stringify(v1ClusterProfileTemplateDraftBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidValidatePacksResponse["data"] = body
+  const data: clusterProfilesUidValidatePacksResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1714,22 +1709,22 @@ export const ClusterProfilesUidValidatePacks = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidValidatePacksResponse;
+  } as clusterProfilesUidValidatePacksResponse;
 };
 
 /**
  * @summary Deletes the specified cluster profile variables
  */
-export type ClusterProfilesUidVariablesDeleteResponse204 = {
+export type v1ClusterProfilesUidVariablesDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidVariablesDeleteResponseComposite =
-  ClusterProfilesUidVariablesDeleteResponse204;
+export type v1ClusterProfilesUidVariablesDeleteResponseComposite =
+  v1ClusterProfilesUidVariablesDeleteResponse204;
 
-export type ClusterProfilesUidVariablesDeleteResponse =
-  ClusterProfilesUidVariablesDeleteResponseComposite & {
+export type v1ClusterProfilesUidVariablesDeleteResponse =
+  v1ClusterProfilesUidVariablesDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -1737,20 +1732,20 @@ export const getV1ClusterProfilesUidVariablesDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`;
 };
 
-export const ClusterProfilesUidVariablesDelete = async (
+export const v1ClusterProfilesUidVariablesDelete = async (
   uid: string,
-  VariableNames: VariableNames,
+  variableNames: VariableNames,
   options?: RequestInit,
-): Promise<ClusterProfilesUidVariablesDeleteResponse> => {
+): Promise<v1ClusterProfilesUidVariablesDeleteResponse> => {
   const res = await fetch(getV1ClusterProfilesUidVariablesDeleteUrl(uid), {
     ...options,
     method: "DELETE",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VariableNames),
+    body: JSON.stringify(variableNames),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidVariablesDeleteResponse["data"] = body
+  const data: v1ClusterProfilesUidVariablesDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1758,22 +1753,22 @@ export const ClusterProfilesUidVariablesDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidVariablesDeleteResponse;
+  } as v1ClusterProfilesUidVariablesDeleteResponse;
 };
 
 /**
  * @summary Retrieve a list of variables defined for the cluster profile
  */
-export type ClusterProfilesUidVariablesGetResponse200 = {
+export type v1ClusterProfilesUidVariablesGetResponse200 = {
   data: Variables;
   status: 200;
 };
 
-export type ClusterProfilesUidVariablesGetResponseComposite =
-  ClusterProfilesUidVariablesGetResponse200;
+export type v1ClusterProfilesUidVariablesGetResponseComposite =
+  v1ClusterProfilesUidVariablesGetResponse200;
 
-export type ClusterProfilesUidVariablesGetResponse =
-  ClusterProfilesUidVariablesGetResponseComposite & {
+export type v1ClusterProfilesUidVariablesGetResponse =
+  v1ClusterProfilesUidVariablesGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1781,17 +1776,17 @@ export const getV1ClusterProfilesUidVariablesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`;
 };
 
-export const ClusterProfilesUidVariablesGet = async (
+export const v1ClusterProfilesUidVariablesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterProfilesUidVariablesGetResponse> => {
+): Promise<v1ClusterProfilesUidVariablesGetResponse> => {
   const res = await fetch(getV1ClusterProfilesUidVariablesGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidVariablesGetResponse["data"] = body
+  const data: v1ClusterProfilesUidVariablesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1799,22 +1794,22 @@ export const ClusterProfilesUidVariablesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidVariablesGetResponse;
+  } as v1ClusterProfilesUidVariablesGetResponse;
 };
 
 /**
  * @summary Update specific variables defined for a cluster profile
  */
-export type ClusterProfilesUidVariablesPatchResponse204 = {
+export type v1ClusterProfilesUidVariablesPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidVariablesPatchResponseComposite =
-  ClusterProfilesUidVariablesPatchResponse204;
+export type v1ClusterProfilesUidVariablesPatchResponseComposite =
+  v1ClusterProfilesUidVariablesPatchResponse204;
 
-export type ClusterProfilesUidVariablesPatchResponse =
-  ClusterProfilesUidVariablesPatchResponseComposite & {
+export type v1ClusterProfilesUidVariablesPatchResponse =
+  v1ClusterProfilesUidVariablesPatchResponseComposite & {
     headers: Headers;
   };
 
@@ -1822,20 +1817,20 @@ export const getV1ClusterProfilesUidVariablesPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`;
 };
 
-export const ClusterProfilesUidVariablesPatch = async (
+export const v1ClusterProfilesUidVariablesPatch = async (
   uid: string,
-  VariablesBody: VariablesBody,
+  v1VariablesBody: V1VariablesBody,
   options?: RequestInit,
-): Promise<ClusterProfilesUidVariablesPatchResponse> => {
+): Promise<v1ClusterProfilesUidVariablesPatchResponse> => {
   const res = await fetch(getV1ClusterProfilesUidVariablesPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VariablesBody),
+    body: JSON.stringify(v1VariablesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidVariablesPatchResponse["data"] = body
+  const data: v1ClusterProfilesUidVariablesPatchResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1843,22 +1838,22 @@ export const ClusterProfilesUidVariablesPatch = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidVariablesPatchResponse;
+  } as v1ClusterProfilesUidVariablesPatchResponse;
 };
 
 /**
  * @summary Update the variables defined for a cluster profile
  */
-export type ClusterProfilesUidVariablesPutResponse204 = {
+export type v1ClusterProfilesUidVariablesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterProfilesUidVariablesPutResponseComposite =
-  ClusterProfilesUidVariablesPutResponse204;
+export type v1ClusterProfilesUidVariablesPutResponseComposite =
+  v1ClusterProfilesUidVariablesPutResponse204;
 
-export type ClusterProfilesUidVariablesPutResponse =
-  ClusterProfilesUidVariablesPutResponseComposite & {
+export type v1ClusterProfilesUidVariablesPutResponse =
+  v1ClusterProfilesUidVariablesPutResponseComposite & {
     headers: Headers;
   };
 
@@ -1866,20 +1861,20 @@ export const getV1ClusterProfilesUidVariablesPutUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`;
 };
 
-export const ClusterProfilesUidVariablesPut = async (
+export const v1ClusterProfilesUidVariablesPut = async (
   uid: string,
-  VariablesBody: VariablesBody,
+  v1VariablesBody: V1VariablesBody,
   options?: RequestInit,
-): Promise<ClusterProfilesUidVariablesPutResponse> => {
+): Promise<v1ClusterProfilesUidVariablesPutResponse> => {
   const res = await fetch(getV1ClusterProfilesUidVariablesPutUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(VariablesBody),
+    body: JSON.stringify(v1VariablesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterProfilesUidVariablesPutResponse["data"] = body
+  const data: v1ClusterProfilesUidVariablesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1887,5 +1882,5 @@ export const ClusterProfilesUidVariablesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterProfilesUidVariablesPutResponse;
+  } as v1ClusterProfilesUidVariablesPutResponse;
 };

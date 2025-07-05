@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileFilterSpec } from "./ClusterProfileFilterSpec";
-import type { ClusterProfileSortSpec } from "./ClusterProfileSortSpec";
+import type { ClusterProfileFilterSpec } from "./clusterProfileFilterSpec";
+import type { ClusterProfileSortSpec } from "./clusterProfileSortSpec";
 
 /**
  * Spectro cluster filter summary spec

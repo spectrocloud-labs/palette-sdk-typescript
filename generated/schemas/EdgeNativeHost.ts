@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Nic } from "./Nic";
-import type { EdgeNativeHostTwoNodeCandidatePriority } from "./EdgeNativeHostTwoNodeCandidatePriority";
+import type { Nic } from "./nic";
+import type { EdgeNativeHostTwoNodeCandidatePriority } from "./edgeNativeHostTwoNodeCandidatePriority";
 
 /**
  * EdgeNativeHost is the underlying appliance

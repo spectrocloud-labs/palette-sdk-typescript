@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./ClusterCondition";
-import type { GcpImage } from "./GcpImage";
-import type { GcpCloudConfigStatusRoleDigest } from "./GcpCloudConfigStatusRoleDigest";
+import type { ClusterCondition } from "./clusterCondition";
+import type { GcpImage } from "./gcpImage";
+import type { GcpCloudConfigStatusRoleDigest } from "./gcpCloudConfigStatusRoleDigest";
 
 /**
  * GcpCloudConfigStatus defines the observed state of GcpCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool

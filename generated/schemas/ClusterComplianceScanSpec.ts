@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterComplianceScanSpecDriverSpec } from "./ClusterComplianceScanSpecDriverSpec";
+import type { ClusterComplianceScanSpecDriverSpec } from "./clusterComplianceScanSpecDriverSpec";
 
 /**
  * Cluster compliance scan Spec

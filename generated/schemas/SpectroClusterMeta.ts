@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SpectroClusterMetaSpec } from "./SpectroClusterMetaSpec";
-import type { SpectroClusterMetaStatus } from "./SpectroClusterMetaStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { SpectroClusterMetaSpec } from "./spectroClusterMetaSpec";
+import type { SpectroClusterMetaStatus } from "./spectroClusterMetaStatus";
 
 export interface SpectroClusterMeta {
   metadata?: ObjectMeta;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAzureSpec } from "./SystemAzureSpec";
+import type { SystemAzureSpec } from "./systemAzureSpec";
 
 /**
  * SystemAdmin

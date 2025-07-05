@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./ObjectMetaInputEntity";
-import type { SpectroVsphereClusterImportEntitySpec } from "./SpectroVsphereClusterImportEntitySpec";
+import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { SpectroVsphereClusterImportEntitySpec } from "./spectroVsphereClusterImportEntitySpec";
 
 /**
  * Spectro Vsphere cluster import request payload

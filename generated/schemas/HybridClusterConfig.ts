@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridPoolClusterRef } from "./HybridPoolClusterRef";
+import type { HybridPoolClusterRef } from "./hybridPoolClusterRef";
 
 export interface HybridClusterConfig {
   /** Parent cluster uid. Provided for hybrid (child) clusters only. */

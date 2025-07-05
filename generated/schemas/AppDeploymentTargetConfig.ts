@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterRef } from "./AppDeploymentClusterRef";
-import type { AppDeploymentTargetEnvironmentRef } from "./AppDeploymentTargetEnvironmentRef";
+import type { AppDeploymentClusterRef } from "./appDeploymentClusterRef";
+import type { AppDeploymentTargetEnvironmentRef } from "./appDeploymentTargetEnvironmentRef";
 
 /**
  * Application deployment target config response

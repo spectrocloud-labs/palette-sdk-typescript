@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRoleRef } from "./ClusterRoleRef";
-import type { ClusterRbacSubjects } from "./ClusterRbacSubjects";
-import type { ClusterRbacBindingType } from "./ClusterRbacBindingType";
+import type { ClusterRoleRef } from "./clusterRoleRef";
+import type { ClusterRbacSubjects } from "./clusterRbacSubjects";
+import type { ClusterRbacBindingType } from "./clusterRbacBindingType";
 
 /**
  * Cluster RBAC binding

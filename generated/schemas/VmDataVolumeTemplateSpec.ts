@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmObjectMeta } from "./VmObjectMeta";
-import type { VmDataVolumeSpec } from "./VmDataVolumeSpec";
+import type { VmObjectMeta } from "./vmObjectMeta";
+import type { VmDataVolumeSpec } from "./vmDataVolumeSpec";
 
 export interface VmDataVolumeTemplateSpec {
   /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. */

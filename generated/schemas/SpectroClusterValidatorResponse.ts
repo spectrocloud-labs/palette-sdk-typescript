@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ConstraintValidatorResponse } from "./ConstraintValidatorResponse";
-import type { SpectroClusterProfileValidatorResponse } from "./SpectroClusterProfileValidatorResponse";
+import type { ConstraintValidatorResponse } from "./constraintValidatorResponse";
+import type { SpectroClusterProfileValidatorResponse } from "./spectroClusterProfileValidatorResponse";
 
 /**
  * Cluster validator response

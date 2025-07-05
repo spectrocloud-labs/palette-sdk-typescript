@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GeolocationLatlong } from "./GeolocationLatlong";
+import type { GeolocationLatlong } from "./geolocationLatlong";
 
 /**
  * Cluster location information

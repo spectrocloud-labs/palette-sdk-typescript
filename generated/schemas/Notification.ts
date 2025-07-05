@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { NotificationAction } from "./NotificationAction";
-import type { ObjectMeta } from "./ObjectMeta";
-import type { RelatedObject } from "./RelatedObject";
-import type { NotificationSource } from "./NotificationSource";
-import type { NotificationType } from "./NotificationType";
+import type { NotificationAction } from "./notificationAction";
+import type { ObjectMeta } from "./objectMeta";
+import type { RelatedObject } from "./relatedObject";
+import type { NotificationSource } from "./notificationSource";
+import type { NotificationType } from "./notificationType";
 
 /**
  * Describes event notification and action definition

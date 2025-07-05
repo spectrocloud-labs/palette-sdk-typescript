@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { LockSpec } from "./LockSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { LockSpec } from "./lockSpec";
 
 export interface Lock {
   metadata?: ObjectMeta;

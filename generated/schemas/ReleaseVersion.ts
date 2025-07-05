@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { ReleaseDescription } from "./ReleaseDescription";
+import type { Time } from "./time";
+import type { ReleaseDescription } from "./releaseDescription";
 
 /**
  * spectro application management release version information

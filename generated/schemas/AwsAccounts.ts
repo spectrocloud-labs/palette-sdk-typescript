@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsAccount } from "./AwsAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { AwsAccount } from "./awsAccount";
+import type { ListMetaData } from "./listMetaData";
 
 /**
  * List of AWS accounts

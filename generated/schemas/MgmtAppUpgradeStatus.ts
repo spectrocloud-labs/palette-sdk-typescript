@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppUpgradeStatusStates } from "./MgmtAppUpgradeStatusStates";
+import type { MgmtAppUpgradeStatusStates } from "./mgmtAppUpgradeStatusStates";
 
 export type MgmtAppUpgradeStatus = {
   action?: string;

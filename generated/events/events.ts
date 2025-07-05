@@ -23,20 +23,20 @@ import type {
  * Returns a paginated list of component events based on request parameters
  * @summary Returns a paginated list of component events based on request parameters
  */
-export type EventsComponentsListResponse200 = {
+export type eventsComponentsListResponse200 = {
   data: Events;
   status: 200;
 };
 
-export type EventsComponentsListResponseComposite =
-  EventsComponentsListResponse200;
+export type eventsComponentsListResponseComposite =
+  eventsComponentsListResponse200;
 
-export type EventsComponentsListResponse =
-  EventsComponentsListResponseComposite & {
+export type eventsComponentsListResponse =
+  eventsComponentsListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EventsComponentsListUrl = (
+export const getEventsComponentsListUrl = (
   params?: EventsComponentsListParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -54,17 +54,17 @@ export const getV1EventsComponentsListUrl = (
     : `https://api.spectrocloud.com/v1/events/components`;
 };
 
-export const EventsComponentsList = async (
+export const eventsComponentsList = async (
   params?: EventsComponentsListParams,
   options?: RequestInit,
-): Promise<EventsComponentsListResponse> => {
-  const res = await fetch(getV1EventsComponentsListUrl(params), {
+): Promise<eventsComponentsListResponse> => {
+  const res = await fetch(getEventsComponentsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EventsComponentsListResponse["data"] = body
+  const data: eventsComponentsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -72,43 +72,43 @@ export const EventsComponentsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EventsComponentsListResponse;
+  } as eventsComponentsListResponse;
 };
 
 /**
  * Creates a component event
  * @summary Creates a component event
  */
-export type EventsComponentsCreateResponse201 = {
+export type eventsComponentsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type EventsComponentsCreateResponseComposite =
-  EventsComponentsCreateResponse201;
+export type eventsComponentsCreateResponseComposite =
+  eventsComponentsCreateResponse201;
 
-export type EventsComponentsCreateResponse =
-  EventsComponentsCreateResponseComposite & {
+export type eventsComponentsCreateResponse =
+  eventsComponentsCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EventsComponentsCreateUrl = () => {
+export const getEventsComponentsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/events/components`;
 };
 
-export const EventsComponentsCreate = async (
-  Event: Event,
+export const eventsComponentsCreate = async (
+  event: Event,
   options?: RequestInit,
-): Promise<EventsComponentsCreateResponse> => {
-  const res = await fetch(getV1EventsComponentsCreateUrl(), {
+): Promise<eventsComponentsCreateResponse> => {
+  const res = await fetch(getEventsComponentsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(Event),
+    body: JSON.stringify(event),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EventsComponentsCreateResponse["data"] = body
+  const data: eventsComponentsCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -116,43 +116,43 @@ export const EventsComponentsCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EventsComponentsCreateResponse;
+  } as eventsComponentsCreateResponse;
 };
 
 /**
  * Creates the component events in bulk
  * @summary Creates the component events in bulk
  */
-export type EventsComponentsCreateBulkResponse201 = {
+export type eventsComponentsCreateBulkResponse201 = {
   data: Uids;
   status: 201;
 };
 
-export type EventsComponentsCreateBulkResponseComposite =
-  EventsComponentsCreateBulkResponse201;
+export type eventsComponentsCreateBulkResponseComposite =
+  eventsComponentsCreateBulkResponse201;
 
-export type EventsComponentsCreateBulkResponse =
-  EventsComponentsCreateBulkResponseComposite & {
+export type eventsComponentsCreateBulkResponse =
+  eventsComponentsCreateBulkResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EventsComponentsCreateBulkUrl = () => {
+export const getEventsComponentsCreateBulkUrl = () => {
   return `https://api.spectrocloud.com/v1/events/components/bulk`;
 };
 
-export const EventsComponentsCreateBulk = async (
-  BulkEvents: BulkEvents,
+export const eventsComponentsCreateBulk = async (
+  bulkEvents: BulkEvents,
   options?: RequestInit,
-): Promise<EventsComponentsCreateBulkResponse> => {
-  const res = await fetch(getV1EventsComponentsCreateBulkUrl(), {
+): Promise<eventsComponentsCreateBulkResponse> => {
+  const res = await fetch(getEventsComponentsCreateBulkUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(BulkEvents),
+    body: JSON.stringify(bulkEvents),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EventsComponentsCreateBulkResponse["data"] = body
+  const data: eventsComponentsCreateBulkResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -160,39 +160,39 @@ export const EventsComponentsCreateBulk = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EventsComponentsCreateBulkResponse;
+  } as eventsComponentsCreateBulkResponse;
 };
 
 /**
  * @summary Delete all the components events for the specified related object
  */
-export type EventsComponentsObjTypeUidDeleteResponse204 = {
+export type eventsComponentsObjTypeUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type EventsComponentsObjTypeUidDeleteResponseComposite =
-  EventsComponentsObjTypeUidDeleteResponse204;
+export type eventsComponentsObjTypeUidDeleteResponseComposite =
+  eventsComponentsObjTypeUidDeleteResponse204;
 
-export type EventsComponentsObjTypeUidDeleteResponse =
-  EventsComponentsObjTypeUidDeleteResponseComposite & {
+export type eventsComponentsObjTypeUidDeleteResponse =
+  eventsComponentsObjTypeUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EventsComponentsObjTypeUidDeleteUrl = (
+export const getEventsComponentsObjTypeUidDeleteUrl = (
   objectKind: "spectrocluster" | "edgehost",
   objectUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/events/components/${objectKind}/${objectUid}`;
 };
 
-export const EventsComponentsObjTypeUidDelete = async (
+export const eventsComponentsObjTypeUidDelete = async (
   objectKind: "spectrocluster" | "edgehost",
   objectUid: string,
   options?: RequestInit,
-): Promise<EventsComponentsObjTypeUidDeleteResponse> => {
+): Promise<eventsComponentsObjTypeUidDeleteResponse> => {
   const res = await fetch(
-    getV1EventsComponentsObjTypeUidDeleteUrl(objectKind, objectUid),
+    getEventsComponentsObjTypeUidDeleteUrl(objectKind, objectUid),
     {
       ...options,
       method: "DELETE",
@@ -200,7 +200,7 @@ export const EventsComponentsObjTypeUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EventsComponentsObjTypeUidDeleteResponse["data"] = body
+  const data: eventsComponentsObjTypeUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -208,27 +208,27 @@ export const EventsComponentsObjTypeUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EventsComponentsObjTypeUidDeleteResponse;
+  } as eventsComponentsObjTypeUidDeleteResponse;
 };
 
 /**
  * Returns a list of components events for the specified related object
  * @summary Returns a list of components events for the specified related object
  */
-export type EventsComponentsObjTypeUidListResponse200 = {
+export type eventsComponentsObjTypeUidListResponse200 = {
   data: Events;
   status: 200;
 };
 
-export type EventsComponentsObjTypeUidListResponseComposite =
-  EventsComponentsObjTypeUidListResponse200;
+export type eventsComponentsObjTypeUidListResponseComposite =
+  eventsComponentsObjTypeUidListResponse200;
 
-export type EventsComponentsObjTypeUidListResponse =
-  EventsComponentsObjTypeUidListResponseComposite & {
+export type eventsComponentsObjTypeUidListResponse =
+  eventsComponentsObjTypeUidListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1EventsComponentsObjTypeUidListUrl = (
+export const getEventsComponentsObjTypeUidListUrl = (
   objectKind: "spectrocluster" | "edgehost",
   objectUid: string,
   params?: EventsComponentsObjTypeUidListParams,
@@ -248,14 +248,14 @@ export const getV1EventsComponentsObjTypeUidListUrl = (
     : `https://api.spectrocloud.com/v1/events/components/${objectKind}/${objectUid}`;
 };
 
-export const EventsComponentsObjTypeUidList = async (
+export const eventsComponentsObjTypeUidList = async (
   objectKind: "spectrocluster" | "edgehost",
   objectUid: string,
   params?: EventsComponentsObjTypeUidListParams,
   options?: RequestInit,
-): Promise<EventsComponentsObjTypeUidListResponse> => {
+): Promise<eventsComponentsObjTypeUidListResponse> => {
   const res = await fetch(
-    getV1EventsComponentsObjTypeUidListUrl(objectKind, objectUid, params),
+    getEventsComponentsObjTypeUidListUrl(objectKind, objectUid, params),
     {
       ...options,
       method: "GET",
@@ -263,7 +263,7 @@ export const EventsComponentsObjTypeUidList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: EventsComponentsObjTypeUidListResponse["data"] = body
+  const data: eventsComponentsObjTypeUidListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -271,5 +271,5 @@ export const EventsComponentsObjTypeUidList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as EventsComponentsObjTypeUidListResponse;
+  } as eventsComponentsObjTypeUidListResponse;
 };

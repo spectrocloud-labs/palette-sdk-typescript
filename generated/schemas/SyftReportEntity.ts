@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SyftDependencyEntity } from "./SyftDependencyEntity";
-import type { SyftImageContext } from "./SyftImageContext";
-import type { Time } from "./Time";
-import type { SyftVulnerabilityEntity } from "./SyftVulnerabilityEntity";
-import type { SyftVulnerabilitySummaryEntity } from "./SyftVulnerabilitySummaryEntity";
+import type { SyftDependencyEntity } from "./syftDependencyEntity";
+import type { SyftImageContext } from "./syftImageContext";
+import type { Time } from "./time";
+import type { SyftVulnerabilityEntity } from "./syftVulnerabilityEntity";
+import type { SyftVulnerabilitySummaryEntity } from "./syftVulnerabilitySummaryEntity";
 
 /**
  * Syft report

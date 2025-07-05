@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryAuth } from "./RegistryAuth";
+import type { RegistryAuth } from "./registryAuth";
 
 /**
  * Pack registry credentials spec

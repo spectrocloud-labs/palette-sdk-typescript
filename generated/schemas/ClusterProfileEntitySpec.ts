@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateDraft } from "./ClusterProfileTemplateDraft";
-import type { Variable } from "./Variable";
+import type { ClusterProfileTemplateDraft } from "./clusterProfileTemplateDraft";
+import type { Variable } from "./variable";
 
 export type ClusterProfileEntitySpec = {
   template?: ClusterProfileTemplateDraft;

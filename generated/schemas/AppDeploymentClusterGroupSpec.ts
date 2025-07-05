@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterGroupConfigEntity } from "./AppDeploymentClusterGroupConfigEntity";
-import type { AppDeploymentProfileEntity } from "./AppDeploymentProfileEntity";
+import type { AppDeploymentClusterGroupConfigEntity } from "./appDeploymentClusterGroupConfigEntity";
+import type { AppDeploymentProfileEntity } from "./appDeploymentProfileEntity";
 
 /**
  * Application deployment cluster group spec

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterWorkloadDeployments } from "./WorkspaceClusterWorkloadDeployments";
-import type { ObjectMetaInputEntity } from "./ObjectMetaInputEntity";
+import type { WorkspaceClusterWorkloadDeployments } from "./workspaceClusterWorkloadDeployments";
+import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
 
 /**
  * Workspace clusters workload deployments summary

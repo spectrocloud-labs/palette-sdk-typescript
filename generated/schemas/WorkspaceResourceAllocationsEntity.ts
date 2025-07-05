@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterNamespace } from "./WorkspaceClusterNamespace";
-import type { WorkspaceClusterRef } from "./WorkspaceClusterRef";
-import type { WorkspaceQuota } from "./WorkspaceQuota";
+import type { WorkspaceClusterNamespace } from "./workspaceClusterNamespace";
+import type { WorkspaceClusterRef } from "./workspaceClusterRef";
+import type { WorkspaceQuota } from "./workspaceQuota";
 
 /**
  * Workspace resource allocation update entity

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { TeamSpecSummary } from "./TeamSpecSummary";
-import type { TeamStatus } from "./TeamStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { TeamSpecSummary } from "./teamSpecSummary";
+import type { TeamStatus } from "./teamStatus";
 
 /**
  * Team summary

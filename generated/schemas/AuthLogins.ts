@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AuthLoginsAuthType } from "./AuthLoginsAuthType";
-import type { AuthLoginEntity } from "./AuthLoginEntity";
+import type { AuthLoginsAuthType } from "./authLoginsAuthType";
+import type { AuthLoginEntity } from "./authLoginEntity";
 
 /**
  * Deprecated. Applicable auth logins with multiple orgs

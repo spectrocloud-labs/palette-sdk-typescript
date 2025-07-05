@@ -8,10 +8,10 @@
  */
 
 import {
-  ClusterProfilesFilterSummary,
-  ClusterProfilesMetadata,
-  ClusterProfilesCreate,
-  ClusterProfilesBulkDelete,
+  clusterProfilesFilterSummary,
+  clusterProfilesMetadata,
+  clusterProfilesCreate,
+  clusterProfilesBulkDelete,
 } from "../generated/index";
 
 import dotenvx from "@dotenvx/dotenvx";
@@ -54,27 +54,27 @@ async function testClusterProfiles() {
 
     // Test that functions are available
     console.log(
-      `✅ ClusterProfilesFilterSummary type: ${typeof ClusterProfilesFilterSummary}`
+      `✅ clusterProfilesFilterSummary type: ${typeof clusterProfilesFilterSummary}`
     );
     console.log(
-      `✅ ClusterProfilesMetadata type: ${typeof ClusterProfilesMetadata}`
+      `✅ clusterProfilesMetadata type: ${typeof clusterProfilesMetadata}`
     );
     console.log(
-      `✅ ClusterProfilesCreate type: ${typeof ClusterProfilesCreate}`
+      `✅ clusterProfilesCreate type: ${typeof clusterProfilesCreate}`
     );
     console.log(
-      `✅ ClusterProfilesBulkDelete type: ${typeof ClusterProfilesBulkDelete}`
+      `✅ clusterProfilesBulkDelete type: ${typeof clusterProfilesBulkDelete}`
     );
 
     // Verify all functions are available
     const functions = [
       {
-        name: "ClusterProfilesFilterSummary",
-        func: ClusterProfilesFilterSummary,
+        name: "clusterProfilesFilterSummary",
+        func: clusterProfilesFilterSummary,
       },
-      { name: "ClusterProfilesMetadata", func: ClusterProfilesMetadata },
-      { name: "ClusterProfilesCreate", func: ClusterProfilesCreate },
-      { name: "ClusterProfilesBulkDelete", func: ClusterProfilesBulkDelete },
+      { name: "clusterProfilesMetadata", func: clusterProfilesMetadata },
+      { name: "clusterProfilesCreate", func: clusterProfilesCreate },
+      { name: "clusterProfilesBulkDelete", func: clusterProfilesBulkDelete },
     ];
 
     for (const { name, func } of functions) {

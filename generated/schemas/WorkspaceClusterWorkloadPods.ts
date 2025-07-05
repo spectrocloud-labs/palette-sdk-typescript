@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./RelatedObject";
-import type { ClusterWorkloadPod } from "./ClusterWorkloadPod";
+import type { RelatedObject } from "./relatedObject";
+import type { ClusterWorkloadPod } from "./clusterWorkloadPod";
 
 /**
  * Workspace cluster workload pods summary

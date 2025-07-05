@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridPoolClusterCloudType } from "./HybridPoolClusterCloudType";
+import type { HybridPoolClusterCloudType } from "./hybridPoolClusterCloudType";
 
 export interface HybridPoolClusterRef {
   cloudType?: HybridPoolClusterCloudType;

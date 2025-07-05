@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { MaasClusterConfig } from "./MaasClusterConfig";
-import type { MaasMachinePoolConfig } from "./MaasMachinePoolConfig";
+import type { ObjectReference } from "./objectReference";
+import type { MaasClusterConfig } from "./maasClusterConfig";
+import type { MaasMachinePoolConfig } from "./maasMachinePoolConfig";
 
 /**
  * MaasCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api

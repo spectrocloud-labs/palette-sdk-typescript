@@ -14,75 +14,75 @@ import type { FeatureUpdate, Features } from ".././schemas";
 /**
  * @summary Retrieves the list of features
  */
-export type FeaturesListResponse200 = {
+export type featuresListResponse200 = {
   data: Features;
   status: 200;
 };
 
-export type FeaturesListResponseComposite = FeaturesListResponse200;
+export type featuresListResponseComposite = featuresListResponse200;
 
-export type FeaturesListResponse = FeaturesListResponseComposite & {
+export type featuresListResponse = featuresListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1FeaturesListUrl = () => {
+export const getFeaturesListUrl = () => {
   return `https://api.spectrocloud.com/v1/features`;
 };
 
-export const FeaturesList = async (
+export const featuresList = async (
   options?: RequestInit,
-): Promise<FeaturesListResponse> => {
-  const res = await fetch(getV1FeaturesListUrl(), {
+): Promise<featuresListResponse> => {
+  const res = await fetch(getFeaturesListUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: FeaturesListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: featuresListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as FeaturesListResponse;
+  } as featuresListResponse;
 };
 
 /**
  * @summary Update a feature
  */
-export type FeaturesUpdateResponse204 = {
+export type featuresUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type FeaturesUpdateResponseComposite = FeaturesUpdateResponse204;
+export type featuresUpdateResponseComposite = featuresUpdateResponse204;
 
-export type FeaturesUpdateResponse = FeaturesUpdateResponseComposite & {
+export type featuresUpdateResponse = featuresUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1FeaturesUpdateUrl = (uid: string) => {
+export const getFeaturesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/features/${uid}`;
 };
 
-export const FeaturesUpdate = async (
+export const featuresUpdate = async (
   uid: string,
-  FeatureUpdate: FeatureUpdate,
+  featureUpdate: FeatureUpdate,
   options?: RequestInit,
-): Promise<FeaturesUpdateResponse> => {
-  const res = await fetch(getV1FeaturesUpdateUrl(uid), {
+): Promise<featuresUpdateResponse> => {
+  const res = await fetch(getFeaturesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(FeatureUpdate),
+    body: JSON.stringify(featureUpdate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: FeaturesUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: featuresUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as FeaturesUpdateResponse;
+  } as featuresUpdateResponse;
 };

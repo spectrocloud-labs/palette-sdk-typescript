@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceError } from "./WorkspaceError";
+import type { WorkspaceError } from "./workspaceError";
 
 /**
  * Workspace status

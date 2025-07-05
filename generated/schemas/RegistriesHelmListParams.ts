@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistriesHelmListScope } from "./RegistriesHelmListScope";
+import type { RegistriesHelmListScope } from "./registriesHelmListScope";
 
 export type RegistriesHelmListParams = {
   scope?: RegistriesHelmListScope;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HostClusterEndpoint } from "./HostClusterEndpoint";
-import type { ObjectReference } from "./ObjectReference";
+import type { HostClusterEndpoint } from "./hostClusterEndpoint";
+import type { ObjectReference } from "./objectReference";
 
 export interface HostClusterConfig {
   clusterEndpoint?: HostClusterEndpoint;

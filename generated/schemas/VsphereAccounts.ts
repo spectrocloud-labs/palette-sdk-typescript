@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereAccount } from "./VsphereAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { VsphereAccount } from "./vsphereAccount";
+import type { ListMetaData } from "./listMetaData";
 
 export interface VsphereAccounts {
   items: VsphereAccount[];

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Variable } from "./Variable";
+import type { Variable } from "./variable";
 
 export interface Variables {
   /** List of unique variable fields with schema constraints */

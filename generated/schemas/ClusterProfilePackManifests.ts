@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { PackManifestsSpec } from "./PackManifestsSpec";
-import type { PackSummaryStatus } from "./PackSummaryStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { PackManifestsSpec } from "./packManifestsSpec";
+import type { PackSummaryStatus } from "./packSummaryStatus";
 
 /**
  * Cluster profile pack manifests

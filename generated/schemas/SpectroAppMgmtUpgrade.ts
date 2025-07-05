@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileNotificationUpdateEntity } from "./ClusterProfileNotificationUpdateEntity";
+import type { ClusterProfileNotificationUpdateEntity } from "./clusterProfileNotificationUpdateEntity";
 
 /**
  * Spectro application management upgrade information

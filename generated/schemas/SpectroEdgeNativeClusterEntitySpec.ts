@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeClusterConfig } from "./EdgeNativeClusterConfig";
-import type { ClusterConfigEntity } from "./ClusterConfigEntity";
-import type { EdgeNativeMachinePoolConfigEntity } from "./EdgeNativeMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./SpectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./SpectroClusterProfileEntity";
+import type { EdgeNativeClusterConfig } from "./edgeNativeClusterConfig";
+import type { ClusterConfigEntity } from "./clusterConfigEntity";
+import type { EdgeNativeMachinePoolConfigEntity } from "./edgeNativeMachinePoolConfigEntity";
+import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
+import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
 
 export type SpectroEdgeNativeClusterEntitySpec = {
   cloudConfig?: EdgeNativeClusterConfig;

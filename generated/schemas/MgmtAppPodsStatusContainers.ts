@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppContainersStatus } from "./MgmtAppContainersStatus";
+import type { MgmtAppContainersStatus } from "./mgmtAppContainersStatus";
 
 export type MgmtAppPodsStatusContainers = {
   [key: string]: MgmtAppContainersStatus;

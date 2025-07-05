@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeHybridConfigEntity } from "./EdgeNativeHybridConfigEntity";
-import type { MachinePoolConfigEntity } from "./MachinePoolConfigEntity";
+import type { EdgeNativeHybridConfigEntity } from "./edgeNativeHybridConfigEntity";
+import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
 /**
  * Hybrid Edge-Native cluster's machine-pool configuration request payload

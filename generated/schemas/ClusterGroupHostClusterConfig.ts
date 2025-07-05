@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HostClusterEndpointConfig } from "./HostClusterEndpointConfig";
+import type { HostClusterEndpointConfig } from "./hostClusterEndpointConfig";
 
 export interface ClusterGroupHostClusterConfig {
   clusterUid?: string;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmPreferredSchedulingTerm } from "./VmPreferredSchedulingTerm";
-import type { VmNodeSelector } from "./VmNodeSelector";
+import type { VmPreferredSchedulingTerm } from "./vmPreferredSchedulingTerm";
+import type { VmNodeSelector } from "./vmNodeSelector";
 
 /**
  * Node affinity is a group of node affinity scheduling rules.

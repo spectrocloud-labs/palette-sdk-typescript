@@ -9,21 +9,21 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmCloudInitConfigDriveSource } from "./VmCloudInitConfigDriveSource";
-import type { VmCloudInitNoCloudSource } from "./VmCloudInitNoCloudSource";
-import type { VmConfigMapVolumeSource } from "./VmConfigMapVolumeSource";
-import type { VmContainerDiskSource } from "./VmContainerDiskSource";
-import type { VmCoreDataVolumeSource } from "./VmCoreDataVolumeSource";
-import type { VmDownwardApiVolumeSource } from "./VmDownwardApiVolumeSource";
-import type { VmDownwardMetricsVolumeSource } from "./VmDownwardMetricsVolumeSource";
-import type { VmEmptyDiskSource } from "./VmEmptyDiskSource";
-import type { VmEphemeralVolumeSource } from "./VmEphemeralVolumeSource";
-import type { VmHostDisk } from "./VmHostDisk";
-import type { VmMemoryDumpVolumeSource } from "./VmMemoryDumpVolumeSource";
-import type { VmPersistentVolumeClaimVolumeSource } from "./VmPersistentVolumeClaimVolumeSource";
-import type { VmSecretVolumeSource } from "./VmSecretVolumeSource";
-import type { VmServiceAccountVolumeSource } from "./VmServiceAccountVolumeSource";
-import type { VmSysprepSource } from "./VmSysprepSource";
+import type { VmCloudInitConfigDriveSource } from "./vmCloudInitConfigDriveSource";
+import type { VmCloudInitNoCloudSource } from "./vmCloudInitNoCloudSource";
+import type { VmConfigMapVolumeSource } from "./vmConfigMapVolumeSource";
+import type { VmContainerDiskSource } from "./vmContainerDiskSource";
+import type { VmCoreDataVolumeSource } from "./vmCoreDataVolumeSource";
+import type { VmDownwardApiVolumeSource } from "./vmDownwardApiVolumeSource";
+import type { VmDownwardMetricsVolumeSource } from "./vmDownwardMetricsVolumeSource";
+import type { VmEmptyDiskSource } from "./vmEmptyDiskSource";
+import type { VmEphemeralVolumeSource } from "./vmEphemeralVolumeSource";
+import type { VmHostDisk } from "./vmHostDisk";
+import type { VmMemoryDumpVolumeSource } from "./vmMemoryDumpVolumeSource";
+import type { VmPersistentVolumeClaimVolumeSource } from "./vmPersistentVolumeClaimVolumeSource";
+import type { VmSecretVolumeSource } from "./vmSecretVolumeSource";
+import type { VmServiceAccountVolumeSource } from "./vmServiceAccountVolumeSource";
+import type { VmSysprepSource } from "./vmSysprepSource";
 
 /**
  * Volume represents a named volume in a vmi.

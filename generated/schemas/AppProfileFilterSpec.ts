@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./FilterString";
-import type { FilterArray } from "./FilterArray";
-import type { FilterVersionString } from "./FilterVersionString";
+import type { FilterString } from "./filterString";
+import type { FilterArray } from "./filterArray";
+import type { FilterVersionString } from "./filterVersionString";
 
 /**
  * Application profile filter spec

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmPodDnsConfigOption } from "./VmPodDnsConfigOption";
+import type { VmPodDnsConfigOption } from "./vmPodDnsConfigOption";
 
 /**
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.

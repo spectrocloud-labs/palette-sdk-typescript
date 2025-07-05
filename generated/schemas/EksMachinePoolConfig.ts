@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksMachinePoolConfigAdditionalLabels } from "./EksMachinePoolConfigAdditionalLabels";
-import type { EksMachinePoolConfigAdditionalTags } from "./EksMachinePoolConfigAdditionalTags";
-import type { AwsLaunchTemplate } from "./AwsLaunchTemplate";
-import type { EksMachinePoolConfigCapacityType } from "./EksMachinePoolConfigCapacityType";
-import type { InstanceConfig } from "./InstanceConfig";
-import type { MachinePoolProperties } from "./MachinePoolProperties";
-import type { SpotMarketOptions } from "./SpotMarketOptions";
-import type { EksMachinePoolConfigSubnetIds } from "./EksMachinePoolConfigSubnetIds";
-import type { Taint } from "./Taint";
-import type { UpdateStrategy } from "./UpdateStrategy";
+import type { EksMachinePoolConfigAdditionalLabels } from "./eksMachinePoolConfigAdditionalLabels";
+import type { EksMachinePoolConfigAdditionalTags } from "./eksMachinePoolConfigAdditionalTags";
+import type { AwsLaunchTemplate } from "./awsLaunchTemplate";
+import type { EksMachinePoolConfigCapacityType } from "./eksMachinePoolConfigCapacityType";
+import type { InstanceConfig } from "./instanceConfig";
+import type { MachinePoolProperties } from "./machinePoolProperties";
+import type { SpotMarketOptions } from "./spotMarketOptions";
+import type { EksMachinePoolConfigSubnetIds } from "./eksMachinePoolConfigSubnetIds";
+import type { Taint } from "./taint";
+import type { UpdateStrategy } from "./updateStrategy";
 
 export interface EksMachinePoolConfig {
   /** additionalLabels */

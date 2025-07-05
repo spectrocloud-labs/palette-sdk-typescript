@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SystemFeaturesSpec } from "./SystemFeaturesSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { SystemFeaturesSpec } from "./systemFeaturesSpec";
 
 export interface SystemFeature {
   metadata?: ObjectMeta;

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ThemeMetadata } from "./ThemeMetadata";
+import type { ThemeMetadata } from "./themeMetadata";
 
 /**
  * Theme metadata

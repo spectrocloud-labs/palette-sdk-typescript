@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./RelatedObject";
+import type { RelatedObject } from "./relatedObject";
 
 /**
  * Spectro cluster health condition

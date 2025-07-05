@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./FilterString";
-import type { ClusterState } from "./ClusterState";
-import type { FilterIntRange } from "./FilterIntRange";
-import type { SpectroClusterFilterSpecHealthState } from "./SpectroClusterFilterSpecHealthState";
-import type { FilterNumberRange } from "./FilterNumberRange";
-import type { FilterArray } from "./FilterArray";
+import type { FilterString } from "./filterString";
+import type { ClusterState } from "./clusterState";
+import type { FilterIntRange } from "./filterIntRange";
+import type { SpectroClusterFilterSpecHealthState } from "./spectroClusterFilterSpecHealthState";
+import type { FilterNumberRange } from "./filterNumberRange";
+import type { FilterArray } from "./filterArray";
 
 /**
  * Spectro cluster filter spec

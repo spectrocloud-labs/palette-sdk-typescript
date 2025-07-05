@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SshUserCredentials } from "./SshUserCredentials";
-import type { Time } from "./Time";
-import type { SshUserStatusState } from "./SshUserStatusState";
+import type { SshUserCredentials } from "./sshUserCredentials";
+import type { Time } from "./time";
+import type { SshUserStatusState } from "./sshUserStatusState";
 
 export interface SshUserStatus {
   credentials?: SshUserCredentials;

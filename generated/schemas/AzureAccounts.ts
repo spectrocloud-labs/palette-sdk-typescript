@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureAccount } from "./AzureAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { AzureAccount } from "./azureAccount";
+import type { ListMetaData } from "./listMetaData";
 
 export interface AzureAccounts {
   items: AzureAccount[];

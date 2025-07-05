@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAdminActivation } from "./SystemAdminActivation";
-import type { Time } from "./Time";
+import type { SystemAdminActivation } from "./systemAdminActivation";
+import type { Time } from "./time";
 
 /**
  * System Administrator Status

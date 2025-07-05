@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpAccountValidateSpec } from "./GcpAccountValidateSpec";
+import type { GcpAccountValidateSpec } from "./gcpAccountValidateSpec";
 
 /**
  * Gcp cloud account spec

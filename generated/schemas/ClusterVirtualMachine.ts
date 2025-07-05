@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmObjectMeta } from "./VmObjectMeta";
-import type { ClusterVirtualMachineSpec } from "./ClusterVirtualMachineSpec";
-import type { ClusterVirtualMachineStatus } from "./ClusterVirtualMachineStatus";
+import type { VmObjectMeta } from "./vmObjectMeta";
+import type { ClusterVirtualMachineSpec } from "./clusterVirtualMachineSpec";
+import type { ClusterVirtualMachineStatus } from "./clusterVirtualMachineStatus";
 
 /**
  * VirtualMachine handles the VirtualMachines that are not running

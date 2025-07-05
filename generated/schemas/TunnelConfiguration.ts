@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TunnelEndpoint } from "./TunnelEndpoint";
+import type { TunnelEndpoint } from "./tunnelEndpoint";
 
 /**
  * Describes the response that contains the tunnel configuration to establish connection

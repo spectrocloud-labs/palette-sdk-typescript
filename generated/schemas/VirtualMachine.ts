@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { VirtualMachineSpec } from "./VirtualMachineSpec";
-import type { CloudMachineStatus } from "./CloudMachineStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { VirtualMachineSpec } from "./virtualMachineSpec";
+import type { CloudMachineStatus } from "./cloudMachineStatus";
 
 /**
  * Virtual cloud machine definition

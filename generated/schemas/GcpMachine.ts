@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { GcpMachineSpec } from "./GcpMachineSpec";
-import type { CloudMachineStatus } from "./CloudMachineStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { GcpMachineSpec } from "./gcpMachineSpec";
+import type { CloudMachineStatus } from "./cloudMachineStatus";
 
 /**
  * GCP cloud VM definition

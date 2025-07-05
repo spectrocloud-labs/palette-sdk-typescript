@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDuration } from "./VmDuration";
-import type { VmTypedLocalObjectReference } from "./VmTypedLocalObjectReference";
+import type { VmDuration } from "./vmDuration";
+import type { VmTypedLocalObjectReference } from "./vmTypedLocalObjectReference";
 
 /**
  * VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource

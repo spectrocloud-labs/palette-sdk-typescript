@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { CustomCloudConfigSpec } from "./CustomCloudConfigSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { CustomCloudConfigSpec } from "./customCloudConfigSpec";
 
 /**
  * CustomCloudConfig is the Schema for the custom cloudconfigs API

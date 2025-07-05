@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { FeatureSpec } from "./FeatureSpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { FeatureSpec } from "./featureSpec";
 
 /**
  * Feature response

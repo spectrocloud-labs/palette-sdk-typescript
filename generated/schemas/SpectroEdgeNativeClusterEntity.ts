@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SpectroEdgeNativeClusterEntitySpec } from "./SpectroEdgeNativeClusterEntitySpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { SpectroEdgeNativeClusterEntitySpec } from "./spectroEdgeNativeClusterEntitySpec";
 
 /**
  * EdgeNative cluster create or update request payload

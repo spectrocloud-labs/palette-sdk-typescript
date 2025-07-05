@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRepaveState } from "./ClusterRepaveState";
+import type { ClusterRepaveState } from "./clusterRepaveState";
 
 /**
  * Cluster repave status

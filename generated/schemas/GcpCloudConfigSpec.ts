@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { GcpClusterConfig } from "./GcpClusterConfig";
-import type { GcpMachinePoolConfig } from "./GcpMachinePoolConfig";
+import type { ObjectReference } from "./objectReference";
+import type { GcpClusterConfig } from "./gcpClusterConfig";
+import type { GcpMachinePoolConfig } from "./gcpMachinePoolConfig";
 
 /**
  * GcpCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api

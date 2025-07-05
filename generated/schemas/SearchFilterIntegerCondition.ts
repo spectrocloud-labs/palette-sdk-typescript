@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterIntegerConditionMatch } from "./SearchFilterIntegerConditionMatch";
-import type { SearchFilterIntegerOperator } from "./SearchFilterIntegerOperator";
+import type { SearchFilterIntegerConditionMatch } from "./searchFilterIntegerConditionMatch";
+import type { SearchFilterIntegerOperator } from "./searchFilterIntegerOperator";
 
 export interface SearchFilterIntegerCondition {
   match?: SearchFilterIntegerConditionMatch;

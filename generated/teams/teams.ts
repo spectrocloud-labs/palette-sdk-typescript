@@ -11,11 +11,8 @@
  */
 import type {
   ProjectRolesEntity,
-  ProjectRolesPatchBody,
   ResourceRoles,
-  ResourceRolesUpdateEntityBody,
   Team,
-  TeamBody,
   TeamPatch,
   TeamTenantRolesEntity,
   TeamTenantRolesUpdate,
@@ -24,23 +21,26 @@ import type {
   TeamsSummaryList,
   TeamsSummarySpec,
   Uid,
+  V1ProjectRolesPatchBody,
+  V1ResourceRolesUpdateEntityBody,
+  V1TeamBody,
 } from ".././schemas";
 
 /**
  * @summary Retrieves a list of teams
  */
-export type TeamsListResponse200 = {
+export type teamsListResponse200 = {
   data: Teams;
   status: 200;
 };
 
-export type TeamsListResponseComposite = TeamsListResponse200;
+export type teamsListResponseComposite = teamsListResponse200;
 
-export type TeamsListResponse = TeamsListResponseComposite & {
+export type teamsListResponse = teamsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsListUrl = (params?: TeamsListParams) => {
+export const getTeamsListUrl = (params?: TeamsListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -56,328 +56,328 @@ export const getV1TeamsListUrl = (params?: TeamsListParams) => {
     : `https://api.spectrocloud.com/v1/teams`;
 };
 
-export const TeamsList = async (
+export const teamsList = async (
   params?: TeamsListParams,
   options?: RequestInit,
-): Promise<TeamsListResponse> => {
-  const res = await fetch(getV1TeamsListUrl(params), {
+): Promise<teamsListResponse> => {
+  const res = await fetch(getTeamsListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsListResponse;
+  } as teamsListResponse;
 };
 
 /**
  * @summary Creates a team with the specified users and roles
  */
-export type TeamsCreateResponse201 = {
+export type teamsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type TeamsCreateResponseComposite = TeamsCreateResponse201;
+export type teamsCreateResponseComposite = teamsCreateResponse201;
 
-export type TeamsCreateResponse = TeamsCreateResponseComposite & {
+export type teamsCreateResponse = teamsCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsCreateUrl = () => {
+export const getTeamsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/teams`;
 };
 
-export const TeamsCreate = async (
-  TeamBody: TeamBody,
+export const teamsCreate = async (
+  v1TeamBody: V1TeamBody,
   options?: RequestInit,
-): Promise<TeamsCreateResponse> => {
-  const res = await fetch(getV1TeamsCreateUrl(), {
+): Promise<teamsCreateResponse> => {
+  const res = await fetch(getTeamsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TeamBody),
+    body: JSON.stringify(v1TeamBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsCreateResponse;
+  } as teamsCreateResponse;
 };
 
 /**
  * @summary Retrieves a list of teams summary with provided filter spec
  */
-export type TeamsSummaryGetResponse200 = {
+export type teamsSummaryGetResponse200 = {
   data: TeamsSummaryList;
   status: 200;
 };
 
-export type TeamsSummaryGetResponseComposite = TeamsSummaryGetResponse200;
+export type teamsSummaryGetResponseComposite = teamsSummaryGetResponse200;
 
-export type TeamsSummaryGetResponse = TeamsSummaryGetResponseComposite & {
+export type teamsSummaryGetResponse = teamsSummaryGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsSummaryGetUrl = () => {
+export const getTeamsSummaryGetUrl = () => {
   return `https://api.spectrocloud.com/v1/teams/summary`;
 };
 
-export const TeamsSummaryGet = async (
-  TeamsSummarySpec: TeamsSummarySpec,
+export const teamsSummaryGet = async (
+  teamsSummarySpec: TeamsSummarySpec,
   options?: RequestInit,
-): Promise<TeamsSummaryGetResponse> => {
-  const res = await fetch(getV1TeamsSummaryGetUrl(), {
+): Promise<teamsSummaryGetResponse> => {
+  const res = await fetch(getTeamsSummaryGetUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TeamsSummarySpec),
+    body: JSON.stringify(teamsSummarySpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsSummaryGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsSummaryGetResponse;
+  } as teamsSummaryGetResponse;
 };
 
 /**
  * @summary Deletes the specified team
  */
-export type TeamsUidDeleteResponse204 = {
+export type teamsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidDeleteResponseComposite = TeamsUidDeleteResponse204;
+export type teamsUidDeleteResponseComposite = teamsUidDeleteResponse204;
 
-export type TeamsUidDeleteResponse = TeamsUidDeleteResponseComposite & {
+export type teamsUidDeleteResponse = teamsUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsUidDeleteUrl = (uid: string) => {
+export const getTeamsUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}`;
 };
 
-export const TeamsUidDelete = async (
+export const teamsUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<TeamsUidDeleteResponse> => {
-  const res = await fetch(getV1TeamsUidDeleteUrl(uid), {
+): Promise<teamsUidDeleteResponse> => {
+  const res = await fetch(getTeamsUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidDeleteResponse;
+  } as teamsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the sepcified team
  */
-export type TeamsUidGetResponse200 = {
+export type teamsUidGetResponse200 = {
   data: Team;
   status: 200;
 };
 
-export type TeamsUidGetResponseComposite = TeamsUidGetResponse200;
+export type teamsUidGetResponseComposite = teamsUidGetResponse200;
 
-export type TeamsUidGetResponse = TeamsUidGetResponseComposite & {
+export type teamsUidGetResponse = teamsUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsUidGetUrl = (uid: string) => {
+export const getTeamsUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}`;
 };
 
-export const TeamsUidGet = async (
+export const teamsUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<TeamsUidGetResponse> => {
-  const res = await fetch(getV1TeamsUidGetUrl(uid), {
+): Promise<teamsUidGetResponse> => {
+  const res = await fetch(getTeamsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidGetResponse;
+  } as teamsUidGetResponse;
 };
 
 /**
  * @summary Patches the specified team
  */
-export type TeamsUidPatchResponse204 = {
+export type teamsUidPatchResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidPatchResponseComposite = TeamsUidPatchResponse204;
+export type teamsUidPatchResponseComposite = teamsUidPatchResponse204;
 
-export type TeamsUidPatchResponse = TeamsUidPatchResponseComposite & {
+export type teamsUidPatchResponse = teamsUidPatchResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsUidPatchUrl = (uid: string) => {
+export const getTeamsUidPatchUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}`;
 };
 
-export const TeamsUidPatch = async (
+export const teamsUidPatch = async (
   uid: string,
-  TeamPatch: TeamPatch,
+  teamPatch: TeamPatch,
   options?: RequestInit,
-): Promise<TeamsUidPatchResponse> => {
-  const res = await fetch(getV1TeamsUidPatchUrl(uid), {
+): Promise<teamsUidPatchResponse> => {
+  const res = await fetch(getTeamsUidPatchUrl(uid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TeamPatch),
+    body: JSON.stringify(teamPatch),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidPatchResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsUidPatchResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidPatchResponse;
+  } as teamsUidPatchResponse;
 };
 
 /**
  * @summary Updates the sepcified team
  */
-export type TeamsUidUpdateResponse204 = {
+export type teamsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidUpdateResponseComposite = TeamsUidUpdateResponse204;
+export type teamsUidUpdateResponseComposite = teamsUidUpdateResponse204;
 
-export type TeamsUidUpdateResponse = TeamsUidUpdateResponseComposite & {
+export type teamsUidUpdateResponse = teamsUidUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsUidUpdateUrl = (uid: string) => {
+export const getTeamsUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}`;
 };
 
-export const TeamsUidUpdate = async (
+export const teamsUidUpdate = async (
   uid: string,
-  TeamBody: TeamBody,
+  v1TeamBody: V1TeamBody,
   options?: RequestInit,
-): Promise<TeamsUidUpdateResponse> => {
-  const res = await fetch(getV1TeamsUidUpdateUrl(uid), {
+): Promise<teamsUidUpdateResponse> => {
+  const res = await fetch(getTeamsUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TeamBody),
+    body: JSON.stringify(v1TeamBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidUpdateResponse;
+  } as teamsUidUpdateResponse;
 };
 
 /**
  * @summary Returns the specified team's project and roles data
  */
-export type TeamsProjectRolesResponse200 = {
+export type teamsProjectRolesResponse200 = {
   data: ProjectRolesEntity;
   status: 200;
 };
 
-export type TeamsProjectRolesResponseComposite = TeamsProjectRolesResponse200;
+export type teamsProjectRolesResponseComposite = teamsProjectRolesResponse200;
 
-export type TeamsProjectRolesResponse = TeamsProjectRolesResponseComposite & {
+export type teamsProjectRolesResponse = teamsProjectRolesResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TeamsProjectRolesUrl = (uid: string) => {
+export const getTeamsProjectRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/projects`;
 };
 
-export const TeamsProjectRoles = async (
+export const teamsProjectRoles = async (
   uid: string,
   options?: RequestInit,
-): Promise<TeamsProjectRolesResponse> => {
-  const res = await fetch(getV1TeamsProjectRolesUrl(uid), {
+): Promise<teamsProjectRolesResponse> => {
+  const res = await fetch(getTeamsProjectRolesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
+  const data: teamsProjectRolesResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsProjectRolesResponse;
+  } as teamsProjectRolesResponse;
 };
 
 /**
  * @summary Updates the projects and roles for the specified team
  */
-export type TeamsProjectRolesPutResponse204 = {
+export type teamsProjectRolesPutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsProjectRolesPutResponseComposite =
-  TeamsProjectRolesPutResponse204;
+export type teamsProjectRolesPutResponseComposite =
+  teamsProjectRolesPutResponse204;
 
-export type TeamsProjectRolesPutResponse =
-  TeamsProjectRolesPutResponseComposite & {
+export type teamsProjectRolesPutResponse =
+  teamsProjectRolesPutResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsProjectRolesPutUrl = (uid: string) => {
+export const getTeamsProjectRolesPutUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/projects`;
 };
 
-export const TeamsProjectRolesPut = async (
+export const teamsProjectRolesPut = async (
   uid: string,
-  ProjectRolesPatchBody: ProjectRolesPatchBody,
+  v1ProjectRolesPatchBody: V1ProjectRolesPatchBody,
   options?: RequestInit,
-): Promise<TeamsProjectRolesPutResponse> => {
-  const res = await fetch(getV1TeamsProjectRolesPutUrl(uid), {
+): Promise<teamsProjectRolesPutResponse> => {
+  const res = await fetch(getTeamsProjectRolesPutUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ProjectRolesPatchBody),
+    body: JSON.stringify(v1ProjectRolesPatchBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsProjectRolesPutResponse["data"] = body
+  const data: teamsProjectRolesPutResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -385,41 +385,41 @@ export const TeamsProjectRolesPut = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsProjectRolesPutResponse;
+  } as teamsProjectRolesPutResponse;
 };
 
 /**
  * Returns resource roles for team
  * @summary Returns the specified individual and resource roles for a team
  */
-export type TeamsUidResourceRolesResponse200 = {
+export type teamsUidResourceRolesResponse200 = {
   data: ResourceRoles;
   status: 200;
 };
 
-export type TeamsUidResourceRolesResponseComposite =
-  TeamsUidResourceRolesResponse200;
+export type teamsUidResourceRolesResponseComposite =
+  teamsUidResourceRolesResponse200;
 
-export type TeamsUidResourceRolesResponse =
-  TeamsUidResourceRolesResponseComposite & {
+export type teamsUidResourceRolesResponse =
+  teamsUidResourceRolesResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsUidResourceRolesUrl = (uid: string) => {
+export const getTeamsUidResourceRolesUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles`;
 };
 
-export const TeamsUidResourceRoles = async (
+export const teamsUidResourceRoles = async (
   uid: string,
   options?: RequestInit,
-): Promise<TeamsUidResourceRolesResponse> => {
-  const res = await fetch(getV1TeamsUidResourceRolesUrl(uid), {
+): Promise<teamsUidResourceRolesResponse> => {
+  const res = await fetch(getTeamsUidResourceRolesUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidResourceRolesResponse["data"] = body
+  const data: teamsUidResourceRolesResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -427,44 +427,44 @@ export const TeamsUidResourceRoles = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidResourceRolesResponse;
+  } as teamsUidResourceRolesResponse;
 };
 
 /**
  * Resource roles added to specific team
  * @summary Add resource roles for team
  */
-export type TeamsUidResourceRolesCreateResponse204 = {
+export type teamsUidResourceRolesCreateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidResourceRolesCreateResponseComposite =
-  TeamsUidResourceRolesCreateResponse204;
+export type teamsUidResourceRolesCreateResponseComposite =
+  teamsUidResourceRolesCreateResponse204;
 
-export type TeamsUidResourceRolesCreateResponse =
-  TeamsUidResourceRolesCreateResponseComposite & {
+export type teamsUidResourceRolesCreateResponse =
+  teamsUidResourceRolesCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsUidResourceRolesCreateUrl = (uid: string) => {
+export const getTeamsUidResourceRolesCreateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles`;
 };
 
-export const TeamsUidResourceRolesCreate = async (
+export const teamsUidResourceRolesCreate = async (
   uid: string,
-  ResourceRolesUpdateEntityBody: ResourceRolesUpdateEntityBody,
+  v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
-): Promise<TeamsUidResourceRolesCreateResponse> => {
-  const res = await fetch(getV1TeamsUidResourceRolesCreateUrl(uid), {
+): Promise<teamsUidResourceRolesCreateResponse> => {
+  const res = await fetch(getTeamsUidResourceRolesCreateUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ResourceRolesUpdateEntityBody),
+    body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidResourceRolesCreateResponse["data"] = body
+  const data: teamsUidResourceRolesCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -472,39 +472,39 @@ export const TeamsUidResourceRolesCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidResourceRolesCreateResponse;
+  } as teamsUidResourceRolesCreateResponse;
 };
 
 /**
  * @summary Deleted the resource roles from team
  */
-export type TeamsUidResourceRolesUidDeleteResponse204 = {
+export type teamsUidResourceRolesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidResourceRolesUidDeleteResponseComposite =
-  TeamsUidResourceRolesUidDeleteResponse204;
+export type teamsUidResourceRolesUidDeleteResponseComposite =
+  teamsUidResourceRolesUidDeleteResponse204;
 
-export type TeamsUidResourceRolesUidDeleteResponse =
-  TeamsUidResourceRolesUidDeleteResponseComposite & {
+export type teamsUidResourceRolesUidDeleteResponse =
+  teamsUidResourceRolesUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsUidResourceRolesUidDeleteUrl = (
+export const getTeamsUidResourceRolesUidDeleteUrl = (
   uid: string,
   resourceRoleUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`;
 };
 
-export const TeamsUidResourceRolesUidDelete = async (
+export const teamsUidResourceRolesUidDelete = async (
   uid: string,
   resourceRoleUid: string,
   options?: RequestInit,
-): Promise<TeamsUidResourceRolesUidDeleteResponse> => {
+): Promise<teamsUidResourceRolesUidDeleteResponse> => {
   const res = await fetch(
-    getV1TeamsUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
+    getTeamsUidResourceRolesUidDeleteUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "DELETE",
@@ -512,7 +512,7 @@ export const TeamsUidResourceRolesUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidResourceRolesUidDeleteResponse["data"] = body
+  const data: teamsUidResourceRolesUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -520,51 +520,51 @@ export const TeamsUidResourceRolesUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidResourceRolesUidDeleteResponse;
+  } as teamsUidResourceRolesUidDeleteResponse;
 };
 
 /**
  * Specific resource roles fo team is updated
  * @summary Updates the resource roles for team
  */
-export type TeamsResourceRolesUidUpdateResponse204 = {
+export type teamsResourceRolesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsResourceRolesUidUpdateResponseComposite =
-  TeamsResourceRolesUidUpdateResponse204;
+export type teamsResourceRolesUidUpdateResponseComposite =
+  teamsResourceRolesUidUpdateResponse204;
 
-export type TeamsResourceRolesUidUpdateResponse =
-  TeamsResourceRolesUidUpdateResponseComposite & {
+export type teamsResourceRolesUidUpdateResponse =
+  teamsResourceRolesUidUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TeamsResourceRolesUidUpdateUrl = (
+export const getTeamsResourceRolesUidUpdateUrl = (
   uid: string,
   resourceRoleUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`;
 };
 
-export const TeamsResourceRolesUidUpdate = async (
+export const teamsResourceRolesUidUpdate = async (
   uid: string,
   resourceRoleUid: string,
-  ResourceRolesUpdateEntityBody: ResourceRolesUpdateEntityBody,
+  v1ResourceRolesUpdateEntityBody: V1ResourceRolesUpdateEntityBody,
   options?: RequestInit,
-): Promise<TeamsResourceRolesUidUpdateResponse> => {
+): Promise<teamsResourceRolesUidUpdateResponse> => {
   const res = await fetch(
-    getV1TeamsResourceRolesUidUpdateUrl(uid, resourceRoleUid),
+    getTeamsResourceRolesUidUpdateUrl(uid, resourceRoleUid),
     {
       ...options,
       method: "PATCH",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(ResourceRolesUpdateEntityBody),
+      body: JSON.stringify(v1ResourceRolesUpdateEntityBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsResourceRolesUidUpdateResponse["data"] = body
+  const data: teamsResourceRolesUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -572,22 +572,22 @@ export const TeamsResourceRolesUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsResourceRolesUidUpdateResponse;
+  } as teamsResourceRolesUidUpdateResponse;
 };
 
 /**
  * @summary Returns the specified team's tenant roles
  */
-export type TeamsUidTenantRolesGetResponse200 = {
+export type v1TeamsUidTenantRolesGetResponse200 = {
   data: TeamTenantRolesEntity;
   status: 200;
 };
 
-export type TeamsUidTenantRolesGetResponseComposite =
-  TeamsUidTenantRolesGetResponse200;
+export type v1TeamsUidTenantRolesGetResponseComposite =
+  v1TeamsUidTenantRolesGetResponse200;
 
-export type TeamsUidTenantRolesGetResponse =
-  TeamsUidTenantRolesGetResponseComposite & {
+export type v1TeamsUidTenantRolesGetResponse =
+  v1TeamsUidTenantRolesGetResponseComposite & {
     headers: Headers;
   };
 
@@ -595,17 +595,17 @@ export const getV1TeamsUidTenantRolesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/roles`;
 };
 
-export const TeamsUidTenantRolesGet = async (
+export const v1TeamsUidTenantRolesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<TeamsUidTenantRolesGetResponse> => {
+): Promise<v1TeamsUidTenantRolesGetResponse> => {
   const res = await fetch(getV1TeamsUidTenantRolesGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidTenantRolesGetResponse["data"] = body
+  const data: v1TeamsUidTenantRolesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -613,22 +613,22 @@ export const TeamsUidTenantRolesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidTenantRolesGetResponse;
+  } as v1TeamsUidTenantRolesGetResponse;
 };
 
 /**
  * @summary Updates the tenant roles of the specified team
  */
-export type TeamsUidTenantRolesUpdateResponse204 = {
+export type v1TeamsUidTenantRolesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TeamsUidTenantRolesUpdateResponseComposite =
-  TeamsUidTenantRolesUpdateResponse204;
+export type v1TeamsUidTenantRolesUpdateResponseComposite =
+  v1TeamsUidTenantRolesUpdateResponse204;
 
-export type TeamsUidTenantRolesUpdateResponse =
-  TeamsUidTenantRolesUpdateResponseComposite & {
+export type v1TeamsUidTenantRolesUpdateResponse =
+  v1TeamsUidTenantRolesUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -636,20 +636,20 @@ export const getV1TeamsUidTenantRolesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/teams/${uid}/roles`;
 };
 
-export const TeamsUidTenantRolesUpdate = async (
+export const v1TeamsUidTenantRolesUpdate = async (
   uid: string,
-  TeamTenantRolesUpdate: TeamTenantRolesUpdate,
+  teamTenantRolesUpdate: TeamTenantRolesUpdate,
   options?: RequestInit,
-): Promise<TeamsUidTenantRolesUpdateResponse> => {
+): Promise<v1TeamsUidTenantRolesUpdateResponse> => {
   const res = await fetch(getV1TeamsUidTenantRolesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TeamTenantRolesUpdate),
+    body: JSON.stringify(teamTenantRolesUpdate),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TeamsUidTenantRolesUpdateResponse["data"] = body
+  const data: v1TeamsUidTenantRolesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -657,5 +657,5 @@ export const TeamsUidTenantRolesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TeamsUidTenantRolesUpdateResponse;
+  } as v1TeamsUidTenantRolesUpdateResponse;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Macro } from "./Macro";
+import type { Macro } from "./macro";
 
 export interface Macros {
   macros?: Macro[];

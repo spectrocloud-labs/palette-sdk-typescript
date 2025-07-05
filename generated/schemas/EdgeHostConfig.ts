@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroTunnelConfig } from "./SpectroTunnelConfig";
+import type { SpectroTunnelConfig } from "./spectroTunnelConfig";
 
 export interface EdgeHostConfig {
   clusterUids?: string[];

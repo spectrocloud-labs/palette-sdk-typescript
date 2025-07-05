@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GitRepoFileContent } from "./GitRepoFileContent";
+import type { GitRepoFileContent } from "./gitRepoFileContent";
 
 export interface ServiceVersionSpec {
   latestVersion?: GitRepoFileContent;

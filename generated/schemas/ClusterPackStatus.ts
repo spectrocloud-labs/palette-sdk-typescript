@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./ClusterCondition";
-import type { Time } from "./Time";
-import type { ClusterPackManifestStatus } from "./ClusterPackManifestStatus";
-import type { LoadBalancerService } from "./LoadBalancerService";
+import type { ClusterCondition } from "./clusterCondition";
+import type { Time } from "./time";
+import type { ClusterPackManifestStatus } from "./clusterPackManifestStatus";
+import type { LoadBalancerService } from "./loadBalancerService";
 
 export interface ClusterPackStatus {
   condition?: ClusterCondition;

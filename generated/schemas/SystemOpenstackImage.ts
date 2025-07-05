@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemOpenstackImageSpec } from "./SystemOpenstackImageSpec";
+import type { SystemOpenstackImageSpec } from "./systemOpenstackImageSpec";
 
 /**
  * SystemAdmin

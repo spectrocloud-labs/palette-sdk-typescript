@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PasswordsBlockListEntity } from "./PasswordsBlockListEntity";
+import type { PasswordsBlockListEntity } from "./passwordsBlockListEntity";
 
 /**
  * List of blocklisted passwords

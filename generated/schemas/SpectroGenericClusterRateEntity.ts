@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericClusterConfig } from "./GenericClusterConfig";
-import type { GenericMachinePoolConfigEntity } from "./GenericMachinePoolConfigEntity";
+import type { GenericClusterConfig } from "./genericClusterConfig";
+import type { GenericMachinePoolConfigEntity } from "./genericMachinePoolConfigEntity";
 
 /**
  * Generic cluster request payload for estimating rate

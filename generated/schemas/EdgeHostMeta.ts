@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./ArchType";
-import type { EdgeHostMetaEdgeHostType } from "./EdgeHostMetaEdgeHostType";
+import type { ArchType } from "./archType";
+import type { EdgeHostMetaEdgeHostType } from "./edgeHostMetaEdgeHostType";
 
 export interface EdgeHostMeta {
   archType?: ArchType;

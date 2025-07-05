@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasClusterConfig } from "./MaasClusterConfig";
-import type { ClusterConfigEntity } from "./ClusterConfigEntity";
-import type { MaasMachinePoolConfigEntity } from "./MaasMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./SpectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./SpectroClusterProfileEntity";
+import type { MaasClusterConfig } from "./maasClusterConfig";
+import type { ClusterConfigEntity } from "./clusterConfigEntity";
+import type { MaasMachinePoolConfigEntity } from "./maasMachinePoolConfigEntity";
+import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
+import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
 
 export type SpectroMaasClusterEntitySpec = {
   /** Cloud account uid to be used for cluster provisioning */

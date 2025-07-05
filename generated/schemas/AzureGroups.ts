@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureGroup } from "./AzureGroup";
+import type { AzureGroup } from "./azureGroup";
 
 /**
  * List of Azure groups

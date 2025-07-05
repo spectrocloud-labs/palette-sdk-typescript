@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
+import type { ObjectReference } from "./objectReference";
 
 /**
  * Cluster Object References

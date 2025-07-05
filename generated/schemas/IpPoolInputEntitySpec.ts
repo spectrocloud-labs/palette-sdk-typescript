@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Pool } from "./Pool";
+import type { Pool } from "./pool";
 
 export type IpPoolInputEntitySpec = {
   pool: Pool;

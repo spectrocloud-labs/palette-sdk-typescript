@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroMgmtUpgradeProfiles } from "./SpectroMgmtUpgradeProfiles";
+import type { SpectroMgmtUpgradeProfiles } from "./spectroMgmtUpgradeProfiles";
 
 /**
  * Spectro application management cluster upgrade profiles

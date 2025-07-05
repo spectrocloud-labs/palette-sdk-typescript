@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackSubnet } from "./OpenStackSubnet";
+import type { OpenStackSubnet } from "./openStackSubnet";
 
 /**
  * OpenStack network

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemSsoAuthSpec } from "./SystemSsoAuthSpec";
+import type { SystemSsoAuthSpec } from "./systemSsoAuthSpec";
 
 /**
  * system sso config spec

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmHPETTimer } from "./VmHPETTimer";
-import type { VmHypervTimer } from "./VmHypervTimer";
-import type { VmKVmTimer } from "./VmKVmTimer";
-import type { VmPITTimer } from "./VmPITTimer";
-import type { VmRTCTimer } from "./VmRTCTimer";
+import type { VmHPETTimer } from "./vmHPETTimer";
+import type { VmHypervTimer } from "./vmHypervTimer";
+import type { VmKVmTimer } from "./vmKVmTimer";
+import type { VmPITTimer } from "./vmPITTimer";
+import type { VmRTCTimer } from "./vmRTCTimer";
 
 /**
  * Represents all available timers in a vmi.

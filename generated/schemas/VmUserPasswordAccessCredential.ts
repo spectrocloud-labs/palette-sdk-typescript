@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmUserPasswordAccessCredentialPropagationMethod } from "./VmUserPasswordAccessCredentialPropagationMethod";
-import type { VmUserPasswordAccessCredentialSource } from "./VmUserPasswordAccessCredentialSource";
+import type { VmUserPasswordAccessCredentialPropagationMethod } from "./vmUserPasswordAccessCredentialPropagationMethod";
+import type { VmUserPasswordAccessCredentialSource } from "./vmUserPasswordAccessCredentialSource";
 
 /**
  * UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.

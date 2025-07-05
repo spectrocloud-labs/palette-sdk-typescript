@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRbacInputEntity } from "./ClusterRbacInputEntity";
+import type { ClusterRbacInputEntity } from "./clusterRbacInputEntity";
 
 export interface ClusterRbacResourcesUpdateEntity {
   rbacs?: ClusterRbacInputEntity[];

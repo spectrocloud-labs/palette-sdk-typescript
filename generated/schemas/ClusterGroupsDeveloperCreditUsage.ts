@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DeveloperCredit } from "./DeveloperCredit";
+import type { DeveloperCredit } from "./developerCredit";
 
 /**
  * Cluster group resource allocated and usage information

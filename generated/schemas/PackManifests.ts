@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Manifest } from "./Manifest";
+import type { Manifest } from "./manifest";
 
 export interface PackManifests {
   /** Manifests array */

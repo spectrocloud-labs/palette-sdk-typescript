@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MetricsList } from "./MetricsList";
+import type { MetricsList } from "./metricsList";
 
 export interface MetricTimeSeriesList {
   items: MetricsList[];

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { WorkspaceSpec } from "./WorkspaceSpec";
-import type { WorkspaceStatus } from "./WorkspaceStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { WorkspaceSpec } from "./workspaceSpec";
+import type { WorkspaceStatus } from "./workspaceStatus";
 
 /**
  * Workspace information

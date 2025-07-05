@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardSpectroClustersRepaveListRepaveState } from "./DashboardSpectroClustersRepaveListRepaveState";
+import type { DashboardSpectroClustersRepaveListRepaveState } from "./dashboardSpectroClustersRepaveListRepaveState";
 
 export type DashboardSpectroClustersRepaveListParams = {
   /**

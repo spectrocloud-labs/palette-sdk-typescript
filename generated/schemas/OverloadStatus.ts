@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterHealthStatus } from "./SpectroClusterHealthStatus";
-import type { ClusterNotificationStatus } from "./ClusterNotificationStatus";
+import type { SpectroClusterHealthStatus } from "./spectroClusterHealthStatus";
+import type { ClusterNotificationStatus } from "./clusterNotificationStatus";
 
 /**
  * Overload status

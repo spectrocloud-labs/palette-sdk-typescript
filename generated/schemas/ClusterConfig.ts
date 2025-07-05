@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceReference } from "./ResourceReference";
-import type { ClusterResources } from "./ClusterResources";
-import type { HostClusterConfig } from "./HostClusterConfig";
-import type { HybridClusterConfig } from "./HybridClusterConfig";
-import type { LifecycleConfig } from "./LifecycleConfig";
-import type { MachineHealthCheckConfig } from "./MachineHealthCheckConfig";
-import type { MachineManagementConfig } from "./MachineManagementConfig";
+import type { ResourceReference } from "./resourceReference";
+import type { ClusterResources } from "./clusterResources";
+import type { HostClusterConfig } from "./hostClusterConfig";
+import type { HybridClusterConfig } from "./hybridClusterConfig";
+import type { LifecycleConfig } from "./lifecycleConfig";
+import type { MachineHealthCheckConfig } from "./machineHealthCheckConfig";
+import type { MachineManagementConfig } from "./machineManagementConfig";
 
 export interface ClusterConfig {
   /** ClusterMetaAttribute contains additional cluster metadata information. */

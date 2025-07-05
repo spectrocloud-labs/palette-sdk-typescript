@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanCost } from "./PlanCost";
-import type { DeveloperCredit } from "./DeveloperCredit";
-import type { Time } from "./Time";
-import type { PlanCredit } from "./PlanCredit";
-import type { PlanLimit } from "./PlanLimit";
-import type { PlanRenewal } from "./PlanRenewal";
-import type { TierPrice } from "./TierPrice";
-import type { PlanSpecType } from "./PlanSpecType";
+import type { PlanCost } from "./planCost";
+import type { DeveloperCredit } from "./developerCredit";
+import type { Time } from "./time";
+import type { PlanCredit } from "./planCredit";
+import type { PlanLimit } from "./planLimit";
+import type { PlanRenewal } from "./planRenewal";
+import type { TierPrice } from "./tierPrice";
+import type { PlanSpecType } from "./planSpecType";
 
 /**
  * Plan specifications

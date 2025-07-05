@@ -18,46 +18,46 @@ import type {
   ClusterGroupsHostClusterSummary,
   ClusterGroupsUidProfilesGetParams,
   ClusterGroupsValidateNameParams,
-  ObjectMetaBody,
   SpectroClusterProfileList,
-  SpectroClusterProfilesBody,
   SpectroClusterProfilesResolvedValues,
   Uid,
+  V1ObjectMetaBody,
+  V1SpectroClusterProfilesBody,
 } from ".././schemas";
 
 /**
  * @summary Create cluster groups
  */
-export type ClusterGroupsCreateResponse201 = {
+export type clusterGroupsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type ClusterGroupsCreateResponseComposite =
-  ClusterGroupsCreateResponse201;
+export type clusterGroupsCreateResponseComposite =
+  clusterGroupsCreateResponse201;
 
-export type ClusterGroupsCreateResponse =
-  ClusterGroupsCreateResponseComposite & {
+export type clusterGroupsCreateResponse =
+  clusterGroupsCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsCreateUrl = () => {
+export const getClusterGroupsCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/clustergroups`;
 };
 
-export const ClusterGroupsCreate = async (
-  ClusterGroupEntity: ClusterGroupEntity,
+export const clusterGroupsCreate = async (
+  clusterGroupEntity: ClusterGroupEntity,
   options?: RequestInit,
-): Promise<ClusterGroupsCreateResponse> => {
-  const res = await fetch(getV1ClusterGroupsCreateUrl(), {
+): Promise<clusterGroupsCreateResponse> => {
+  const res = await fetch(getClusterGroupsCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterGroupEntity),
+    body: JSON.stringify(clusterGroupEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsCreateResponse["data"] = body
+  const data: clusterGroupsCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -65,42 +65,42 @@ export const ClusterGroupsCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsCreateResponse;
+  } as clusterGroupsCreateResponse;
 };
 
 /**
  * @summary Get cluster group developer credit usage by scope
  */
-export type ClusterGroupsDeveloperCreditUsageGetResponse200 = {
+export type clusterGroupsDeveloperCreditUsageGetResponse200 = {
   data: ClusterGroupsDeveloperCreditUsage;
   status: 200;
 };
 
-export type ClusterGroupsDeveloperCreditUsageGetResponseComposite =
-  ClusterGroupsDeveloperCreditUsageGetResponse200;
+export type clusterGroupsDeveloperCreditUsageGetResponseComposite =
+  clusterGroupsDeveloperCreditUsageGetResponse200;
 
-export type ClusterGroupsDeveloperCreditUsageGetResponse =
-  ClusterGroupsDeveloperCreditUsageGetResponseComposite & {
+export type clusterGroupsDeveloperCreditUsageGetResponse =
+  clusterGroupsDeveloperCreditUsageGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsDeveloperCreditUsageGetUrl = (
+export const getClusterGroupsDeveloperCreditUsageGetUrl = (
   scope: "system" | "tenant",
 ) => {
   return `https://api.spectrocloud.com/v1/clustergroups/developerCredit/usage/${scope}`;
 };
 
-export const ClusterGroupsDeveloperCreditUsageGet = async (
+export const clusterGroupsDeveloperCreditUsageGet = async (
   scope: "system" | "tenant",
   options?: RequestInit,
-): Promise<ClusterGroupsDeveloperCreditUsageGetResponse> => {
-  const res = await fetch(getV1ClusterGroupsDeveloperCreditUsageGetUrl(scope), {
+): Promise<clusterGroupsDeveloperCreditUsageGetResponse> => {
+  const res = await fetch(getClusterGroupsDeveloperCreditUsageGetUrl(scope), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsDeveloperCreditUsageGetResponse["data"] = body
+  const data: clusterGroupsDeveloperCreditUsageGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -108,39 +108,39 @@ export const ClusterGroupsDeveloperCreditUsageGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsDeveloperCreditUsageGetResponse;
+  } as clusterGroupsDeveloperCreditUsageGetResponse;
 };
 
 /**
  * @summary Retrieves a list of cluster groups host cluster summary
  */
-export type ClusterGroupsHostClusterSummaryResponse200 = {
+export type clusterGroupsHostClusterSummaryResponse200 = {
   data: ClusterGroupsHostClusterSummary;
   status: 200;
 };
 
-export type ClusterGroupsHostClusterSummaryResponseComposite =
-  ClusterGroupsHostClusterSummaryResponse200;
+export type clusterGroupsHostClusterSummaryResponseComposite =
+  clusterGroupsHostClusterSummaryResponse200;
 
-export type ClusterGroupsHostClusterSummaryResponse =
-  ClusterGroupsHostClusterSummaryResponseComposite & {
+export type clusterGroupsHostClusterSummaryResponse =
+  clusterGroupsHostClusterSummaryResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsHostClusterSummaryUrl = () => {
+export const getClusterGroupsHostClusterSummaryUrl = () => {
   return `https://api.spectrocloud.com/v1/clustergroups/hostCluster`;
 };
 
-export const ClusterGroupsHostClusterSummary = async (
+export const clusterGroupsHostClusterSummary = async (
   options?: RequestInit,
-): Promise<ClusterGroupsHostClusterSummaryResponse> => {
-  const res = await fetch(getV1ClusterGroupsHostClusterSummaryUrl(), {
+): Promise<clusterGroupsHostClusterSummaryResponse> => {
+  const res = await fetch(getClusterGroupsHostClusterSummaryUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsHostClusterSummaryResponse["data"] = body
+  const data: clusterGroupsHostClusterSummaryResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -148,39 +148,39 @@ export const ClusterGroupsHostClusterSummary = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsHostClusterSummaryResponse;
+  } as clusterGroupsHostClusterSummaryResponse;
 };
 
 /**
  * @summary Retrieves a list of cluster groups host cluster metadata
  */
-export type ClusterGroupsHostClusterMetadataResponse200 = {
+export type clusterGroupsHostClusterMetadataResponse200 = {
   data: ClusterGroupsHostClusterMetadata;
   status: 200;
 };
 
-export type ClusterGroupsHostClusterMetadataResponseComposite =
-  ClusterGroupsHostClusterMetadataResponse200;
+export type clusterGroupsHostClusterMetadataResponseComposite =
+  clusterGroupsHostClusterMetadataResponse200;
 
-export type ClusterGroupsHostClusterMetadataResponse =
-  ClusterGroupsHostClusterMetadataResponseComposite & {
+export type clusterGroupsHostClusterMetadataResponse =
+  clusterGroupsHostClusterMetadataResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsHostClusterMetadataUrl = () => {
+export const getClusterGroupsHostClusterMetadataUrl = () => {
   return `https://api.spectrocloud.com/v1/clustergroups/hostCluster/metadata`;
 };
 
-export const ClusterGroupsHostClusterMetadata = async (
+export const clusterGroupsHostClusterMetadata = async (
   options?: RequestInit,
-): Promise<ClusterGroupsHostClusterMetadataResponse> => {
-  const res = await fetch(getV1ClusterGroupsHostClusterMetadataUrl(), {
+): Promise<clusterGroupsHostClusterMetadataResponse> => {
+  const res = await fetch(getClusterGroupsHostClusterMetadataUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsHostClusterMetadataResponse["data"] = body
+  const data: clusterGroupsHostClusterMetadataResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -188,26 +188,26 @@ export const ClusterGroupsHostClusterMetadata = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsHostClusterMetadataResponse;
+  } as clusterGroupsHostClusterMetadataResponse;
 };
 
 /**
  * @summary Validates the cluster groups name
  */
-export type ClusterGroupsValidateNameResponse204 = {
+export type clusterGroupsValidateNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterGroupsValidateNameResponseComposite =
-  ClusterGroupsValidateNameResponse204;
+export type clusterGroupsValidateNameResponseComposite =
+  clusterGroupsValidateNameResponse204;
 
-export type ClusterGroupsValidateNameResponse =
-  ClusterGroupsValidateNameResponseComposite & {
+export type clusterGroupsValidateNameResponse =
+  clusterGroupsValidateNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsValidateNameUrl = (
+export const getClusterGroupsValidateNameUrl = (
   params: ClusterGroupsValidateNameParams,
 ) => {
   const normalizedParams = new URLSearchParams();
@@ -225,17 +225,17 @@ export const getV1ClusterGroupsValidateNameUrl = (
     : `https://api.spectrocloud.com/v1/clustergroups/validate/name`;
 };
 
-export const ClusterGroupsValidateName = async (
+export const clusterGroupsValidateName = async (
   params: ClusterGroupsValidateNameParams,
   options?: RequestInit,
-): Promise<ClusterGroupsValidateNameResponse> => {
-  const res = await fetch(getV1ClusterGroupsValidateNameUrl(params), {
+): Promise<clusterGroupsValidateNameResponse> => {
+  const res = await fetch(getClusterGroupsValidateNameUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsValidateNameResponse["data"] = body
+  const data: clusterGroupsValidateNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -243,40 +243,40 @@ export const ClusterGroupsValidateName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsValidateNameResponse;
+  } as clusterGroupsValidateNameResponse;
 };
 
 /**
  * @summary Deletes the specified cluster group
  */
-export type ClusterGroupsUidDeleteResponse204 = {
+export type clusterGroupsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterGroupsUidDeleteResponseComposite =
-  ClusterGroupsUidDeleteResponse204;
+export type clusterGroupsUidDeleteResponseComposite =
+  clusterGroupsUidDeleteResponse204;
 
-export type ClusterGroupsUidDeleteResponse =
-  ClusterGroupsUidDeleteResponseComposite & {
+export type clusterGroupsUidDeleteResponse =
+  clusterGroupsUidDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidDeleteUrl = (uid: string) => {
+export const getClusterGroupsUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}`;
 };
 
-export const ClusterGroupsUidDelete = async (
+export const clusterGroupsUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterGroupsUidDeleteResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidDeleteUrl(uid), {
+): Promise<clusterGroupsUidDeleteResponse> => {
+  const res = await fetch(getClusterGroupsUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidDeleteResponse["data"] = body
+  const data: clusterGroupsUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -284,40 +284,40 @@ export const ClusterGroupsUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidDeleteResponse;
+  } as clusterGroupsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified cluster groups
  */
-export type ClusterGroupsUidGetResponse200 = {
+export type clusterGroupsUidGetResponse200 = {
   data: ClusterGroup;
   status: 200;
 };
 
-export type ClusterGroupsUidGetResponseComposite =
-  ClusterGroupsUidGetResponse200;
+export type clusterGroupsUidGetResponseComposite =
+  clusterGroupsUidGetResponse200;
 
-export type ClusterGroupsUidGetResponse =
-  ClusterGroupsUidGetResponseComposite & {
+export type clusterGroupsUidGetResponse =
+  clusterGroupsUidGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidGetUrl = (uid: string) => {
+export const getClusterGroupsUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}`;
 };
 
-export const ClusterGroupsUidGet = async (
+export const clusterGroupsUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterGroupsUidGetResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidGetUrl(uid), {
+): Promise<clusterGroupsUidGetResponse> => {
+  const res = await fetch(getClusterGroupsUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidGetResponse["data"] = body
+  const data: clusterGroupsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -325,43 +325,43 @@ export const ClusterGroupsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidGetResponse;
+  } as clusterGroupsUidGetResponse;
 };
 
 /**
  * @summary Updates cluster reference and host cluster config
  */
-export type ClusterGroupsUidHostClusterUpdateResponse204 = {
+export type clusterGroupsUidHostClusterUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterGroupsUidHostClusterUpdateResponseComposite =
-  ClusterGroupsUidHostClusterUpdateResponse204;
+export type clusterGroupsUidHostClusterUpdateResponseComposite =
+  clusterGroupsUidHostClusterUpdateResponse204;
 
-export type ClusterGroupsUidHostClusterUpdateResponse =
-  ClusterGroupsUidHostClusterUpdateResponseComposite & {
+export type clusterGroupsUidHostClusterUpdateResponse =
+  clusterGroupsUidHostClusterUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidHostClusterUpdateUrl = (uid: string) => {
+export const getClusterGroupsUidHostClusterUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}/hostCluster`;
 };
 
-export const ClusterGroupsUidHostClusterUpdate = async (
+export const clusterGroupsUidHostClusterUpdate = async (
   uid: string,
-  ClusterGroupHostClusterEntity: ClusterGroupHostClusterEntity,
+  clusterGroupHostClusterEntity: ClusterGroupHostClusterEntity,
   options?: RequestInit,
-): Promise<ClusterGroupsUidHostClusterUpdateResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidHostClusterUpdateUrl(uid), {
+): Promise<clusterGroupsUidHostClusterUpdateResponse> => {
+  const res = await fetch(getClusterGroupsUidHostClusterUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ClusterGroupHostClusterEntity),
+    body: JSON.stringify(clusterGroupHostClusterEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidHostClusterUpdateResponse["data"] = body
+  const data: clusterGroupsUidHostClusterUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -369,43 +369,43 @@ export const ClusterGroupsUidHostClusterUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidHostClusterUpdateResponse;
+  } as clusterGroupsUidHostClusterUpdateResponse;
 };
 
 /**
  * @summary Updates the specified cluster groups meta
  */
-export type ClusterGroupsUidMetaUpdateResponse204 = {
+export type clusterGroupsUidMetaUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterGroupsUidMetaUpdateResponseComposite =
-  ClusterGroupsUidMetaUpdateResponse204;
+export type clusterGroupsUidMetaUpdateResponseComposite =
+  clusterGroupsUidMetaUpdateResponse204;
 
-export type ClusterGroupsUidMetaUpdateResponse =
-  ClusterGroupsUidMetaUpdateResponseComposite & {
+export type clusterGroupsUidMetaUpdateResponse =
+  clusterGroupsUidMetaUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidMetaUpdateUrl = (uid: string) => {
+export const getClusterGroupsUidMetaUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}/meta`;
 };
 
-export const ClusterGroupsUidMetaUpdate = async (
+export const clusterGroupsUidMetaUpdate = async (
   uid: string,
-  ObjectMetaBody: ObjectMetaBody,
+  v1ObjectMetaBody: V1ObjectMetaBody,
   options?: RequestInit,
-): Promise<ClusterGroupsUidMetaUpdateResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidMetaUpdateUrl(uid), {
+): Promise<clusterGroupsUidMetaUpdateResponse> => {
+  const res = await fetch(getClusterGroupsUidMetaUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(ObjectMetaBody),
+    body: JSON.stringify(v1ObjectMetaBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidMetaUpdateResponse["data"] = body
+  const data: clusterGroupsUidMetaUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -413,40 +413,40 @@ export const ClusterGroupsUidMetaUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidMetaUpdateResponse;
+  } as clusterGroupsUidMetaUpdateResponse;
 };
 
 /**
  * @summary Returns the specified clustergroup's profile packs resolved values
  */
-export type ClusterGroupsUidPacksResolvedValuesGetResponse200 = {
+export type clusterGroupsUidPacksResolvedValuesGetResponse200 = {
   data: SpectroClusterProfilesResolvedValues;
   status: 200;
 };
 
-export type ClusterGroupsUidPacksResolvedValuesGetResponseComposite =
-  ClusterGroupsUidPacksResolvedValuesGetResponse200;
+export type clusterGroupsUidPacksResolvedValuesGetResponseComposite =
+  clusterGroupsUidPacksResolvedValuesGetResponse200;
 
-export type ClusterGroupsUidPacksResolvedValuesGetResponse =
-  ClusterGroupsUidPacksResolvedValuesGetResponseComposite & {
+export type clusterGroupsUidPacksResolvedValuesGetResponse =
+  clusterGroupsUidPacksResolvedValuesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidPacksResolvedValuesGetUrl = (uid: string) => {
+export const getClusterGroupsUidPacksResolvedValuesGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}/packs/resolvedValues`;
 };
 
-export const ClusterGroupsUidPacksResolvedValuesGet = async (
+export const clusterGroupsUidPacksResolvedValuesGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<ClusterGroupsUidPacksResolvedValuesGetResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidPacksResolvedValuesGetUrl(uid), {
+): Promise<clusterGroupsUidPacksResolvedValuesGetResponse> => {
+  const res = await fetch(getClusterGroupsUidPacksResolvedValuesGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidPacksResolvedValuesGetResponse["data"] = body
+  const data: clusterGroupsUidPacksResolvedValuesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -454,26 +454,26 @@ export const ClusterGroupsUidPacksResolvedValuesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidPacksResolvedValuesGetResponse;
+  } as clusterGroupsUidPacksResolvedValuesGetResponse;
 };
 
 /**
  * @summary Returns the associated profiles of a specified cluster group
  */
-export type ClusterGroupsUidProfilesGetResponse200 = {
+export type clusterGroupsUidProfilesGetResponse200 = {
   data: SpectroClusterProfileList;
   status: 200;
 };
 
-export type ClusterGroupsUidProfilesGetResponseComposite =
-  ClusterGroupsUidProfilesGetResponse200;
+export type clusterGroupsUidProfilesGetResponseComposite =
+  clusterGroupsUidProfilesGetResponse200;
 
-export type ClusterGroupsUidProfilesGetResponse =
-  ClusterGroupsUidProfilesGetResponseComposite & {
+export type clusterGroupsUidProfilesGetResponse =
+  clusterGroupsUidProfilesGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidProfilesGetUrl = (
+export const getClusterGroupsUidProfilesGetUrl = (
   uid: string,
   params?: ClusterGroupsUidProfilesGetParams,
 ) => {
@@ -492,18 +492,18 @@ export const getV1ClusterGroupsUidProfilesGetUrl = (
     : `https://api.spectrocloud.com/v1/clustergroups/${uid}/profiles`;
 };
 
-export const ClusterGroupsUidProfilesGet = async (
+export const clusterGroupsUidProfilesGet = async (
   uid: string,
   params?: ClusterGroupsUidProfilesGetParams,
   options?: RequestInit,
-): Promise<ClusterGroupsUidProfilesGetResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidProfilesGetUrl(uid, params), {
+): Promise<clusterGroupsUidProfilesGetResponse> => {
+  const res = await fetch(getClusterGroupsUidProfilesGetUrl(uid, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidProfilesGetResponse["data"] = body
+  const data: clusterGroupsUidProfilesGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -511,43 +511,43 @@ export const ClusterGroupsUidProfilesGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidProfilesGetResponse;
+  } as clusterGroupsUidProfilesGetResponse;
 };
 
 /**
  * @summary Updates the specified cluster groups profiles
  */
-export type ClusterGroupsUidProfilesUpdateResponse204 = {
+export type clusterGroupsUidProfilesUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type ClusterGroupsUidProfilesUpdateResponseComposite =
-  ClusterGroupsUidProfilesUpdateResponse204;
+export type clusterGroupsUidProfilesUpdateResponseComposite =
+  clusterGroupsUidProfilesUpdateResponse204;
 
-export type ClusterGroupsUidProfilesUpdateResponse =
-  ClusterGroupsUidProfilesUpdateResponseComposite & {
+export type clusterGroupsUidProfilesUpdateResponse =
+  clusterGroupsUidProfilesUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1ClusterGroupsUidProfilesUpdateUrl = (uid: string) => {
+export const getClusterGroupsUidProfilesUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/clustergroups/${uid}/profiles`;
 };
 
-export const ClusterGroupsUidProfilesUpdate = async (
+export const clusterGroupsUidProfilesUpdate = async (
   uid: string,
-  SpectroClusterProfilesBody: SpectroClusterProfilesBody,
+  v1SpectroClusterProfilesBody: V1SpectroClusterProfilesBody,
   options?: RequestInit,
-): Promise<ClusterGroupsUidProfilesUpdateResponse> => {
-  const res = await fetch(getV1ClusterGroupsUidProfilesUpdateUrl(uid), {
+): Promise<clusterGroupsUidProfilesUpdateResponse> => {
+  const res = await fetch(getClusterGroupsUidProfilesUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(SpectroClusterProfilesBody),
+    body: JSON.stringify(v1SpectroClusterProfilesBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ClusterGroupsUidProfilesUpdateResponse["data"] = body
+  const data: clusterGroupsUidProfilesUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -555,5 +555,5 @@ export const ClusterGroupsUidProfilesUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as ClusterGroupsUidProfilesUpdateResponse;
+  } as clusterGroupsUidProfilesUpdateResponse;
 };

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { ClusterNamespaceSpec } from "./ClusterNamespaceSpec";
-import type { ClusterNamespaceStatus } from "./ClusterNamespaceStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { ClusterNamespaceSpec } from "./clusterNamespaceSpec";
+import type { ClusterNamespaceStatus } from "./clusterNamespaceStatus";
 
 /**
  * Cluster Namespace resource defintion

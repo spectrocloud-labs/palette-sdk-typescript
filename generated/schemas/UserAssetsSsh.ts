@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserAssetSsh } from "./UserAssetSsh";
+import type { UserAssetSsh } from "./userAssetSsh";
 
 export interface UserAssetsSsh {
   /** List of SSH keys */

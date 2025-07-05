@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { ClusterLogFetcherSpec } from "./ClusterLogFetcherSpec";
-import type { ClusterLogFetcherStatus } from "./ClusterLogFetcherStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { ClusterLogFetcherSpec } from "./clusterLogFetcherSpec";
+import type { ClusterLogFetcherStatus } from "./clusterLogFetcherStatus";
 
 /**
  * Cluster Log Fetcher

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupStatusMeta } from "./WorkspaceBackupStatusMeta";
+import type { WorkspaceBackupStatusMeta } from "./workspaceBackupStatusMeta";
 
 /**
  * Workspace backup status

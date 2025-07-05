@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericInstanceType } from "./GenericInstanceType";
+import type { GenericInstanceType } from "./genericInstanceType";
 
 /**
  * Generic cluster config

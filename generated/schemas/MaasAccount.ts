@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { MaasCloudAccount } from "./MaasCloudAccount";
-import type { CloudAccountStatus } from "./CloudAccountStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { MaasCloudAccount } from "./maasCloudAccount";
+import type { CloudAccountStatus } from "./cloudAccountStatus";
 
 /**
  * Maas cloud account information

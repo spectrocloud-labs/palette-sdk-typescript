@@ -11,28 +11,28 @@
  */
 import type {
   Role,
-  RoleBody,
   RoleClone,
   Roles,
   RolesListParams,
   Uid,
+  V1RoleBody,
 } from ".././schemas";
 
 /**
  * @summary Retrieves a list of roles
  */
-export type RolesListResponse200 = {
+export type rolesListResponse200 = {
   data: Roles;
   status: 200;
 };
 
-export type RolesListResponseComposite = RolesListResponse200;
+export type rolesListResponseComposite = rolesListResponse200;
 
-export type RolesListResponse = RolesListResponseComposite & {
+export type rolesListResponse = rolesListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesListUrl = (params?: RolesListParams) => {
+export const getRolesListUrl = (params?: RolesListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -48,214 +48,214 @@ export const getV1RolesListUrl = (params?: RolesListParams) => {
     : `https://api.spectrocloud.com/v1/roles`;
 };
 
-export const RolesList = async (
+export const rolesList = async (
   params?: RolesListParams,
   options?: RequestInit,
-): Promise<RolesListResponse> => {
-  const res = await fetch(getV1RolesListUrl(params), {
+): Promise<rolesListResponse> => {
+  const res = await fetch(getRolesListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesListResponse;
+  } as rolesListResponse;
 };
 
 /**
  * @summary Creates a role with specified permissions
  */
-export type RolesCreateResponse201 = {
+export type rolesCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type RolesCreateResponseComposite = RolesCreateResponse201;
+export type rolesCreateResponseComposite = rolesCreateResponse201;
 
-export type RolesCreateResponse = RolesCreateResponseComposite & {
+export type rolesCreateResponse = rolesCreateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesCreateUrl = () => {
+export const getRolesCreateUrl = () => {
   return `https://api.spectrocloud.com/v1/roles`;
 };
 
-export const RolesCreate = async (
-  RoleBody: RoleBody,
+export const rolesCreate = async (
+  v1RoleBody: V1RoleBody,
   options?: RequestInit,
-): Promise<RolesCreateResponse> => {
-  const res = await fetch(getV1RolesCreateUrl(), {
+): Promise<rolesCreateResponse> => {
+  const res = await fetch(getRolesCreateUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(RoleBody),
+    body: JSON.stringify(v1RoleBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesCreateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesCreateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesCreateResponse;
+  } as rolesCreateResponse;
 };
 
 /**
  * @summary Deletes the specified role
  */
-export type RolesUidDeleteResponse204 = {
+export type rolesUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RolesUidDeleteResponseComposite = RolesUidDeleteResponse204;
+export type rolesUidDeleteResponseComposite = rolesUidDeleteResponse204;
 
-export type RolesUidDeleteResponse = RolesUidDeleteResponseComposite & {
+export type rolesUidDeleteResponse = rolesUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesUidDeleteUrl = (uid: string) => {
+export const getRolesUidDeleteUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/roles/${uid}`;
 };
 
-export const RolesUidDelete = async (
+export const rolesUidDelete = async (
   uid: string,
   options?: RequestInit,
-): Promise<RolesUidDeleteResponse> => {
-  const res = await fetch(getV1RolesUidDeleteUrl(uid), {
+): Promise<rolesUidDeleteResponse> => {
+  const res = await fetch(getRolesUidDeleteUrl(uid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesUidDeleteResponse;
+  } as rolesUidDeleteResponse;
 };
 
 /**
  * @summary Returns the specified role
  */
-export type RolesUidGetResponse200 = {
+export type rolesUidGetResponse200 = {
   data: Role;
   status: 200;
 };
 
-export type RolesUidGetResponseComposite = RolesUidGetResponse200;
+export type rolesUidGetResponseComposite = rolesUidGetResponse200;
 
-export type RolesUidGetResponse = RolesUidGetResponseComposite & {
+export type rolesUidGetResponse = rolesUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesUidGetUrl = (uid: string) => {
+export const getRolesUidGetUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/roles/${uid}`;
 };
 
-export const RolesUidGet = async (
+export const rolesUidGet = async (
   uid: string,
   options?: RequestInit,
-): Promise<RolesUidGetResponse> => {
-  const res = await fetch(getV1RolesUidGetUrl(uid), {
+): Promise<rolesUidGetResponse> => {
+  const res = await fetch(getRolesUidGetUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesUidGetResponse;
+  } as rolesUidGetResponse;
 };
 
 /**
  * @summary Updates the specified role
  */
-export type RolesUidUpdateResponse204 = {
+export type rolesUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RolesUidUpdateResponseComposite = RolesUidUpdateResponse204;
+export type rolesUidUpdateResponseComposite = rolesUidUpdateResponse204;
 
-export type RolesUidUpdateResponse = RolesUidUpdateResponseComposite & {
+export type rolesUidUpdateResponse = rolesUidUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesUidUpdateUrl = (uid: string) => {
+export const getRolesUidUpdateUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/roles/${uid}`;
 };
 
-export const RolesUidUpdate = async (
+export const rolesUidUpdate = async (
   uid: string,
-  RoleBody: RoleBody,
+  v1RoleBody: V1RoleBody,
   options?: RequestInit,
-): Promise<RolesUidUpdateResponse> => {
-  const res = await fetch(getV1RolesUidUpdateUrl(uid), {
+): Promise<rolesUidUpdateResponse> => {
+  const res = await fetch(getRolesUidUpdateUrl(uid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(RoleBody),
+    body: JSON.stringify(v1RoleBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesUidUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesUidUpdateResponse;
+  } as rolesUidUpdateResponse;
 };
 
 /**
  * @summary Clone the role
  */
-export type RolesCloneResponse201 = {
+export type rolesCloneResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type RolesCloneResponseComposite = RolesCloneResponse201;
+export type rolesCloneResponseComposite = rolesCloneResponse201;
 
-export type RolesCloneResponse = RolesCloneResponseComposite & {
+export type rolesCloneResponse = rolesCloneResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RolesCloneUrl = (uid: string) => {
+export const getRolesCloneUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/roles/${uid}/clone`;
 };
 
-export const RolesClone = async (
+export const rolesClone = async (
   uid: string,
-  RoleClone: RoleClone,
+  roleClone: RoleClone,
   options?: RequestInit,
-): Promise<RolesCloneResponse> => {
-  const res = await fetch(getV1RolesCloneUrl(uid), {
+): Promise<rolesCloneResponse> => {
+  const res = await fetch(getRolesCloneUrl(uid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(RoleClone),
+    body: JSON.stringify(roleClone),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RolesCloneResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rolesCloneResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RolesCloneResponse;
+  } as rolesCloneResponse;
 };

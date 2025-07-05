@@ -23,18 +23,18 @@ import type {
 /**
  * @summary Retrieves a list of packs
  */
-export type PacksSummaryListResponse200 = {
+export type packsSummaryListResponse200 = {
   data: PackSummaries;
   status: 200;
 };
 
-export type PacksSummaryListResponseComposite = PacksSummaryListResponse200;
+export type packsSummaryListResponseComposite = packsSummaryListResponse200;
 
-export type PacksSummaryListResponse = PacksSummaryListResponseComposite & {
+export type packsSummaryListResponse = packsSummaryListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PacksSummaryListUrl = (params?: PacksSummaryListParams) => {
+export const getPacksSummaryListUrl = (params?: PacksSummaryListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -50,40 +50,40 @@ export const getV1PacksSummaryListUrl = (params?: PacksSummaryListParams) => {
     : `https://api.spectrocloud.com/v1/packs`;
 };
 
-export const PacksSummaryList = async (
+export const packsSummaryList = async (
   params?: PacksSummaryListParams,
   options?: RequestInit,
-): Promise<PacksSummaryListResponse> => {
-  const res = await fetch(getV1PacksSummaryListUrl(params), {
+): Promise<packsSummaryListResponse> => {
+  const res = await fetch(getPacksSummaryListUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksSummaryListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: packsSummaryListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PacksSummaryListResponse;
+  } as packsSummaryListResponse;
 };
 
 /**
  * @summary Retrieves a list of packs based on filter
  */
-export type PacksSearchResponse200 = {
+export type packsSearchResponse200 = {
   data: PackMetadataList;
   status: 200;
 };
 
-export type PacksSearchResponseComposite = PacksSearchResponse200;
+export type packsSearchResponseComposite = packsSearchResponse200;
 
-export type PacksSearchResponse = PacksSearchResponseComposite & {
+export type packsSearchResponse = packsSearchResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PacksSearchUrl = (params?: PacksSearchParams) => {
+export const getPacksSearchUrl = (params?: PacksSearchParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -99,45 +99,45 @@ export const getV1PacksSearchUrl = (params?: PacksSearchParams) => {
     : `https://api.spectrocloud.com/v1/packs/search`;
 };
 
-export const PacksSearch = async (
-  PacksFilterSpec: PacksFilterSpec,
+export const packsSearch = async (
+  packsFilterSpec: PacksFilterSpec,
   params?: PacksSearchParams,
   options?: RequestInit,
-): Promise<PacksSearchResponse> => {
-  const res = await fetch(getV1PacksSearchUrl(params), {
+): Promise<packsSearchResponse> => {
+  const res = await fetch(getPacksSearchUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PacksFilterSpec),
+    body: JSON.stringify(packsFilterSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksSearchResponse["data"] = body ? JSON.parse(body) : {};
+  const data: packsSearchResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PacksSearchResponse;
+  } as packsSearchResponse;
 };
 
 /**
  * @summary Retrieves a list of packs
  */
-export type PacksNameRegistryUidListResponse200 = {
+export type packsNameRegistryUidListResponse200 = {
   data: PackTagEntity;
   status: 200;
 };
 
-export type PacksNameRegistryUidListResponseComposite =
-  PacksNameRegistryUidListResponse200;
+export type packsNameRegistryUidListResponseComposite =
+  packsNameRegistryUidListResponse200;
 
-export type PacksNameRegistryUidListResponse =
-  PacksNameRegistryUidListResponseComposite & {
+export type packsNameRegistryUidListResponse =
+  packsNameRegistryUidListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1PacksNameRegistryUidListUrl = (
+export const getPacksNameRegistryUidListUrl = (
   packName: string,
   registryUid: string,
   params?: PacksNameRegistryUidListParams,
@@ -153,14 +153,14 @@ export const getV1PacksNameRegistryUidListUrl = (
     : `https://api.spectrocloud.com/v1/packs/${packName}/registries/${registryUid}`;
 };
 
-export const PacksNameRegistryUidList = async (
+export const packsNameRegistryUidList = async (
   packName: string,
   registryUid: string,
   params?: PacksNameRegistryUidListParams,
   options?: RequestInit,
-): Promise<PacksNameRegistryUidListResponse> => {
+): Promise<packsNameRegistryUidListResponse> => {
   const res = await fetch(
-    getV1PacksNameRegistryUidListUrl(packName, registryUid, params),
+    getPacksNameRegistryUidListUrl(packName, registryUid, params),
     {
       ...options,
       method: "GET",
@@ -168,7 +168,7 @@ export const PacksNameRegistryUidList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksNameRegistryUidListResponse["data"] = body
+  const data: packsNameRegistryUidListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -176,112 +176,112 @@ export const PacksNameRegistryUidList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PacksNameRegistryUidListResponse;
+  } as packsNameRegistryUidListResponse;
 };
 
 /**
  * @summary Returns the logo for a specified pack
  */
-export type PacksPackUidLogoResponse200 = {
+export type packsPackUidLogoResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type PacksPackUidLogoResponseComposite = PacksPackUidLogoResponse200;
+export type packsPackUidLogoResponseComposite = packsPackUidLogoResponse200;
 
-export type PacksPackUidLogoResponse = PacksPackUidLogoResponseComposite & {
+export type packsPackUidLogoResponse = packsPackUidLogoResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PacksPackUidLogoUrl = (packUid: string) => {
+export const getPacksPackUidLogoUrl = (packUid: string) => {
   return `https://api.spectrocloud.com/v1/packs/${packUid}/logo`;
 };
 
-export const PacksPackUidLogo = async (
+export const packsPackUidLogo = async (
   packUid: string,
   options?: RequestInit,
-): Promise<PacksPackUidLogoResponse> => {
-  const res = await fetch(getV1PacksPackUidLogoUrl(packUid), {
+): Promise<packsPackUidLogoResponse> => {
+  const res = await fetch(getPacksPackUidLogoUrl(packUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksPackUidLogoResponse["data"] = body ? JSON.parse(body) : {};
+  const data: packsPackUidLogoResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PacksPackUidLogoResponse;
+  } as packsPackUidLogoResponse;
 };
 
 /**
  * @summary Returns the specified pack
  */
-export type PacksUidResponse200 = {
+export type packsUidResponse200 = {
   data: PackTagEntity;
   status: 200;
 };
 
-export type PacksUidResponseComposite = PacksUidResponse200;
+export type packsUidResponseComposite = packsUidResponse200;
 
-export type PacksUidResponse = PacksUidResponseComposite & {
+export type packsUidResponse = packsUidResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PacksUidUrl = (uid: string) => {
+export const getPacksUidUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/packs/${uid}`;
 };
 
-export const PacksUid = async (
+export const packsUid = async (
   uid: string,
   options?: RequestInit,
-): Promise<PacksUidResponse> => {
-  const res = await fetch(getV1PacksUidUrl(uid), {
+): Promise<packsUidResponse> => {
+  const res = await fetch(getPacksUidUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksUidResponse["data"] = body ? JSON.parse(body) : {};
+  const data: packsUidResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as PacksUidResponse;
+  return { data, status: res.status, headers: res.headers } as packsUidResponse;
 };
 
 /**
  * @summary Returns the readme of a specified pack
  */
-export type PacksUidReadmeResponse200 = {
+export type packsUidReadmeResponse200 = {
   data: PackReadme;
   status: 200;
 };
 
-export type PacksUidReadmeResponseComposite = PacksUidReadmeResponse200;
+export type packsUidReadmeResponseComposite = packsUidReadmeResponse200;
 
-export type PacksUidReadmeResponse = PacksUidReadmeResponseComposite & {
+export type packsUidReadmeResponse = packsUidReadmeResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PacksUidReadmeUrl = (uid: string) => {
+export const getPacksUidReadmeUrl = (uid: string) => {
   return `https://api.spectrocloud.com/v1/packs/${uid}/readme`;
 };
 
-export const PacksUidReadme = async (
+export const packsUidReadme = async (
   uid: string,
   options?: RequestInit,
-): Promise<PacksUidReadmeResponse> => {
-  const res = await fetch(getV1PacksUidReadmeUrl(uid), {
+): Promise<packsUidReadmeResponse> => {
+  const res = await fetch(getPacksUidReadmeUrl(uid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PacksUidReadmeResponse["data"] = body ? JSON.parse(body) : {};
+  const data: packsUidReadmeResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PacksUidReadmeResponse;
+  } as packsUidReadmeResponse;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierEntity } from "./AppTierEntity";
+import type { AppTierEntity } from "./appTierEntity";
 
 /**
  * Application profile template spec

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { ClusterProfileSummarySpecSummary } from "./ClusterProfileSummarySpecSummary";
-import type { ClusterProfileStatusSummary } from "./ClusterProfileStatusSummary";
+import type { ObjectMeta } from "./objectMeta";
+import type { ClusterProfileSummarySpecSummary } from "./clusterProfileSummarySpecSummary";
+import type { ClusterProfileStatusSummary } from "./clusterProfileStatusSummary";
 
 /**
  * Cluster profile summary

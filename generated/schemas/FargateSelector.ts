@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FargateSelectorLabels } from "./FargateSelectorLabels";
+import type { FargateSelectorLabels } from "./fargateSelectorLabels";
 
 /**
  * FargateSelector specifies a selector for pods that should run on this fargate pool

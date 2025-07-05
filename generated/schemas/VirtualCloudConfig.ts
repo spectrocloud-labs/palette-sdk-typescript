@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { VirtualCloudConfigSpec } from "./VirtualCloudConfigSpec";
-import type { NestedCloudConfigStatus } from "./NestedCloudConfigStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { VirtualCloudConfigSpec } from "./virtualCloudConfigSpec";
+import type { NestedCloudConfigStatus } from "./nestedCloudConfigStatus";
 
 /**
  * VirtualCloudConfig is the Schema for the virtual cloudconfigs API

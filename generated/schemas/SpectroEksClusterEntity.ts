@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { SpectroEksClusterEntitySpec } from "./SpectroEksClusterEntitySpec";
+import type { ObjectMeta } from "./objectMeta";
+import type { SpectroEksClusterEntitySpec } from "./spectroEksClusterEntitySpec";
 
 /**
  * Spectro EKS cluster request payload for create and update

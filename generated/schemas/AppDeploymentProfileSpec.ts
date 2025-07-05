@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentProfileMeta } from "./AppDeploymentProfileMeta";
-import type { AppProfileTemplateSpec } from "./AppProfileTemplateSpec";
+import type { AppDeploymentProfileMeta } from "./appDeploymentProfileMeta";
+import type { AppProfileTemplateSpec } from "./appProfileTemplateSpec";
 
 /**
  * Application deployment profile spec

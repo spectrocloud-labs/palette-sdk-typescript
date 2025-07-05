@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureStorageConfig } from "./AzureStorageConfig";
+import type { AzureStorageConfig } from "./azureStorageConfig";
 
 /**
  * Azure location specification

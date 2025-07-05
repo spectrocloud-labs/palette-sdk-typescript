@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereDatacenter } from "./VsphereDatacenter";
+import type { VsphereDatacenter } from "./vsphereDatacenter";
 
 /**
  * List of Datacenters with computeclusters

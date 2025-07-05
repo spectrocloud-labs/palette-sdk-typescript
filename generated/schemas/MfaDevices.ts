@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MfaDeviceMeta } from "./MfaDeviceMeta";
+import type { MfaDeviceMeta } from "./mfaDeviceMeta";
 
 export type MfaDevices = MfaDeviceMeta[];

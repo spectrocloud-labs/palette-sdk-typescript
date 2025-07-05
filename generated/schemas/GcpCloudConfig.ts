@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { GcpCloudConfigSpec } from "./GcpCloudConfigSpec";
-import type { GcpCloudConfigStatus } from "./GcpCloudConfigStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { GcpCloudConfigSpec } from "./gcpCloudConfigSpec";
+import type { GcpCloudConfigStatus } from "./gcpCloudConfigStatus";
 
 /**
  * GcpCloudConfig is the Schema for the gcpcloudconfigs API

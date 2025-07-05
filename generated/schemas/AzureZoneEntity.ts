@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ZoneEntity } from "./ZoneEntity";
+import type { ZoneEntity } from "./zoneEntity";
 
 /**
  * List of Azure zone

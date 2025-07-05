@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtBackupSpec } from "./MgmtBackupSpec";
-import type { MgmtFtpConfig } from "./MgmtFtpConfig";
+import type { MgmtBackupSpec } from "./mgmtBackupSpec";
+import type { MgmtFtpConfig } from "./mgmtFtpConfig";
 
 /**
  * file transfer details

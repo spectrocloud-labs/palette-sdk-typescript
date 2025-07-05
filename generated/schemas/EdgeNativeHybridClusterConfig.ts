@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeControlPlaneEndPoint } from "./EdgeNativeControlPlaneEndPoint";
+import type { EdgeNativeControlPlaneEndPoint } from "./edgeNativeControlPlaneEndPoint";
 
 /**
  * EdgeNativeHybridClusterConfig defines Edge Native Cluster specific specification

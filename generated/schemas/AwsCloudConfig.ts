@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { AwsCloudConfigSpec } from "./AwsCloudConfigSpec";
-import type { AwsCloudConfigStatus } from "./AwsCloudConfigStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { AwsCloudConfigSpec } from "./awsCloudConfigSpec";
+import type { AwsCloudConfigStatus } from "./awsCloudConfigStatus";
 
 /**
  * AwsCloudConfig is the Schema for the awscloudconfigs API

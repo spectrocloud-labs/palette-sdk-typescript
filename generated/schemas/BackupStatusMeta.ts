@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { BackupState } from "./BackupState";
-import type { Time } from "./Time";
+import type { BackupState } from "./backupState";
+import type { Time } from "./time";
 
 /**
  * Backup  status meta

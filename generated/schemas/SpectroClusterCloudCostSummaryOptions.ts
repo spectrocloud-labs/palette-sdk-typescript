@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterCloudCostSummaryOptionsGroupBy } from "./SpectroClusterCloudCostSummaryOptionsGroupBy";
+import type { SpectroClusterCloudCostSummaryOptionsGroupBy } from "./spectroClusterCloudCostSummaryOptionsGroupBy";
 
 /**
  * Spectro cluster cloud cost summary options

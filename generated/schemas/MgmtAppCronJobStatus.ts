@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./Time";
-import type { MgmtAppCronJobStatusPods } from "./MgmtAppCronJobStatusPods";
+import type { Time } from "./time";
+import type { MgmtAppCronJobStatusPods } from "./mgmtAppCronJobStatusPods";
 
 export interface MgmtAppCronJobStatus {
   isHealthy?: boolean;

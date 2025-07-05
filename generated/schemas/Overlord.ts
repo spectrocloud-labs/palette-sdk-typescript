@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { OverloadSpec } from "./OverloadSpec";
-import type { OverloadStatus } from "./OverloadStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { OverloadSpec } from "./overloadSpec";
+import type { OverloadStatus } from "./overloadStatus";
 
 /**
  * Overlord defintiion

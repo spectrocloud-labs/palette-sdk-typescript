@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./ObjectMeta";
-import type { UserSpec } from "./UserSpec";
-import type { UserStatus } from "./UserStatus";
+import type { ObjectMeta } from "./objectMeta";
+import type { UserSpec } from "./userSpec";
+import type { UserStatus } from "./userStatus";
 
 /**
  * User

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeHunterEntityReports } from "./KubeHunterEntityReports";
-import type { KubeHunterEntityStatus } from "./KubeHunterEntityStatus";
+import type { KubeHunterEntityReports } from "./kubeHunterEntityReports";
+import type { KubeHunterEntityStatus } from "./kubeHunterEntityStatus";
 
 /**
  * KubeHunter response

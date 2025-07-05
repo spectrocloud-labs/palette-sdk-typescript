@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeClusterConfig } from "./EdgeNativeClusterConfig";
+import type { EdgeNativeClusterConfig } from "./edgeNativeClusterConfig";
 
 /**
  * EdgeNative cloud cluster config entity

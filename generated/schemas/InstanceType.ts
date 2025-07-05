@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InstanceCost } from "./InstanceCost";
+import type { InstanceCost } from "./instanceCost";
 
 /**
  * Cloud Instance type details

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackAccount } from "./OpenStackAccount";
-import type { ListMetaData } from "./ListMetaData";
+import type { OpenStackAccount } from "./openStackAccount";
+import type { ListMetaData } from "./listMetaData";
 
 export interface OpenStackAccounts {
   items: OpenStackAccount[];

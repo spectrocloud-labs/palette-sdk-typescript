@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostsMetadataQuickFilterGetType } from "./EdgeHostsMetadataQuickFilterGetType";
-import type { EdgeHostsMetadataQuickFilterGetQuickFilter } from "./EdgeHostsMetadataQuickFilterGetQuickFilter";
+import type { EdgeHostsMetadataQuickFilterGetType } from "./edgeHostsMetadataQuickFilterGetType";
+import type { EdgeHostsMetadataQuickFilterGetQuickFilter } from "./edgeHostsMetadataQuickFilterGetQuickFilter";
 
 export type EdgeHostsMetadataQuickFilterGetParams = {
   type?: EdgeHostsMetadataQuickFilterGetType;

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./ArchType";
-import type { CloudConfigMeta } from "./CloudConfigMeta";
-import type { CloudAccountMeta } from "./CloudAccountMeta";
-import type { ClusterProfileTemplateMeta } from "./ClusterProfileTemplateMeta";
+import type { ArchType } from "./archType";
+import type { CloudConfigMeta } from "./cloudConfigMeta";
+import type { CloudAccountMeta } from "./cloudAccountMeta";
+import type { ClusterProfileTemplateMeta } from "./clusterProfileTemplateMeta";
 
 /**
  * Spectro cluster spec summary

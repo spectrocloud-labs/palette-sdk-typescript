@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackSummarySpecAnnotations } from "./PackSummarySpecAnnotations";
-import type { PackLayer } from "./PackLayer";
-import type { ObjectReference } from "./ObjectReference";
-import type { PackPreset } from "./PackPreset";
-import type { PackSchema } from "./PackSchema";
-import type { PackTemplate } from "./PackTemplate";
-import type { PackType } from "./PackType";
+import type { PackSummarySpecAnnotations } from "./packSummarySpecAnnotations";
+import type { PackLayer } from "./packLayer";
+import type { ObjectReference } from "./objectReference";
+import type { PackPreset } from "./packPreset";
+import type { PackSchema } from "./packSchema";
+import type { PackTemplate } from "./packTemplate";
+import type { PackType } from "./packType";
 
 /**
  * Pack object

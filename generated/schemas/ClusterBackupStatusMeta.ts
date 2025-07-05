@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./ClusterFeatureActor";
-import type { BackupStatusConfig } from "./BackupStatusConfig";
-import type { BackupLocationConfig } from "./BackupLocationConfig";
-import type { BackupStatusMeta } from "./BackupStatusMeta";
-import type { BackupRestoreStatusMeta } from "./BackupRestoreStatusMeta";
+import type { ClusterFeatureActor } from "./clusterFeatureActor";
+import type { BackupStatusConfig } from "./backupStatusConfig";
+import type { BackupLocationConfig } from "./backupLocationConfig";
+import type { BackupStatusMeta } from "./backupStatusMeta";
+import type { BackupRestoreStatusMeta } from "./backupRestoreStatusMeta";
 
 /**
  * Cluster Backup Status Meta

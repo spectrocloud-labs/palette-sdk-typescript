@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmInterfaceBridge } from "./VmInterfaceBridge";
-import type { VmDHCPOptions } from "./VmDHCPOptions";
-import type { VmInterfaceMacvtap } from "./VmInterfaceMacvtap";
-import type { VmInterfaceMasquerade } from "./VmInterfaceMasquerade";
-import type { VmInterfacePasst } from "./VmInterfacePasst";
-import type { VmPort } from "./VmPort";
-import type { VmInterfaceSlirp } from "./VmInterfaceSlirp";
-import type { VmInterfaceSRIOV } from "./VmInterfaceSRIOV";
+import type { VmInterfaceBridge } from "./vmInterfaceBridge";
+import type { VmDHCPOptions } from "./vmDHCPOptions";
+import type { VmInterfaceMacvtap } from "./vmInterfaceMacvtap";
+import type { VmInterfaceMasquerade } from "./vmInterfaceMasquerade";
+import type { VmInterfacePasst } from "./vmInterfacePasst";
+import type { VmPort } from "./vmPort";
+import type { VmInterfaceSlirp } from "./vmInterfaceSlirp";
+import type { VmInterfaceSRIOV } from "./vmInterfaceSRIOV";
 
 export interface VmInterface {
   /** If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1). */

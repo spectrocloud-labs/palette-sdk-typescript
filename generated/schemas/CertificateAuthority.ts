@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Certificate } from "./Certificate";
-import type { Time } from "./Time";
+import type { Certificate } from "./certificate";
+import type { Time } from "./time";
 
 /**
  * Certificate Authority

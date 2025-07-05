@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackRefSummaryAnnotations } from "./PackRefSummaryAnnotations";
-import type { PackLayer } from "./PackLayer";
+import type { PackRefSummaryAnnotations } from "./packRefSummaryAnnotations";
+import type { PackLayer } from "./packLayer";
 
 /**
  * Pack ref summary

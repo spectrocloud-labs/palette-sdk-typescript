@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistriesPackSummaryListScope } from "./RegistriesPackSummaryListScope";
+import type { RegistriesPackSummaryListScope } from "./registriesPackSummaryListScope";
 
 export type RegistriesPackSummaryListParams = {
   scope?: RegistriesPackSummaryListScope;

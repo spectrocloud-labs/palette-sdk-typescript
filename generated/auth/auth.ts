@@ -13,41 +13,41 @@ import type {
   AuthLogin,
   AuthOrgParams,
   AuthRefreshParams,
-  AuthUserOrgForgotParams,
   AuthenticateParams,
   IdentityProviders,
   LoginResponse,
-  OidcCallbackParams,
-  OidcLogoutParams,
   Organizations,
-  PasswordActivateBodyBody,
   PasswordResetRequestBody,
-  SamlCallbackBody,
-  SamlCallbackParams,
-  SamlLogoutBody,
-  SamlLogoutParams,
-  SsoCallbackParams,
   SsoLogins,
-  SsoLoginsParams,
   UserToken,
+  V1AuthUserOrgForgotParams,
+  V1OidcCallbackParams,
+  V1OidcLogoutParams,
+  V1PasswordActivateBodyBody,
+  V1SamlCallbackBody,
+  V1SamlCallbackParams,
+  V1SamlLogoutBody,
+  V1SamlLogoutParams,
+  V1SsoCallbackParams,
+  V1SsoLoginsParams,
 } from ".././schemas";
 
 /**
  * Creates a authentication request with the specified credentials
  * @summary Authenticates the user for the specified crendentials
  */
-export type AuthenticateResponse200 = {
+export type authenticateResponse200 = {
   data: UserToken;
   status: 200;
 };
 
-export type AuthenticateResponseComposite = AuthenticateResponse200;
+export type authenticateResponseComposite = authenticateResponse200;
 
-export type AuthenticateResponse = AuthenticateResponseComposite & {
+export type authenticateResponse = authenticateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuthenticateUrl = (params?: AuthenticateParams) => {
+export const getAuthenticateUrl = (params?: AuthenticateParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -63,44 +63,44 @@ export const getV1AuthenticateUrl = (params?: AuthenticateParams) => {
     : `https://api.spectrocloud.com/v1/auth/authenticate`;
 };
 
-export const Authenticate = async (
-  AuthLogin: AuthLogin,
+export const authenticate = async (
+  authLogin: AuthLogin,
   params?: AuthenticateParams,
   options?: RequestInit,
-): Promise<AuthenticateResponse> => {
-  const res = await fetch(getV1AuthenticateUrl(params), {
+): Promise<authenticateResponse> => {
+  const res = await fetch(getAuthenticateUrl(params), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AuthLogin),
+    body: JSON.stringify(authLogin),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthenticateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: authenticateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuthenticateResponse;
+  } as authenticateResponse;
 };
 
 /**
  * Returns the allowed login method and information with the organization details
  * @summary Returns the user organization details
  */
-export type AuthOrgResponse200 = {
+export type authOrgResponse200 = {
   data: LoginResponse;
   status: 200;
 };
 
-export type AuthOrgResponseComposite = AuthOrgResponse200;
+export type authOrgResponseComposite = authOrgResponse200;
 
-export type AuthOrgResponse = AuthOrgResponseComposite & {
+export type authOrgResponse = authOrgResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuthOrgUrl = (params?: AuthOrgParams) => {
+export const getAuthOrgUrl = (params?: AuthOrgParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -116,39 +116,39 @@ export const getV1AuthOrgUrl = (params?: AuthOrgParams) => {
     : `https://api.spectrocloud.com/v1/auth/org`;
 };
 
-export const AuthOrg = async (
+export const authOrg = async (
   params?: AuthOrgParams,
   options?: RequestInit,
-): Promise<AuthOrgResponse> => {
-  const res = await fetch(getV1AuthOrgUrl(params), {
+): Promise<authOrgResponse> => {
+  const res = await fetch(getAuthOrgUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthOrgResponse["data"] = body ? JSON.parse(body) : {};
+  const data: authOrgResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as AuthOrgResponse;
+  return { data, status: res.status, headers: res.headers } as authOrgResponse;
 };
 
 /**
  * Returns the Authorization token for the palette. This is called by the IDP as a callback url after IDP authenticates the user with its server.
  * @summary Idp authorization code callback
  */
-export type OidcCallbackResponse200 = {
+export type v1OidcCallbackResponse200 = {
   data: UserToken;
   status: 200;
 };
 
-export type OidcCallbackResponseComposite = OidcCallbackResponse200;
+export type v1OidcCallbackResponseComposite = v1OidcCallbackResponse200;
 
-export type OidcCallbackResponse = OidcCallbackResponseComposite & {
+export type v1OidcCallbackResponse = v1OidcCallbackResponseComposite & {
   headers: Headers;
 };
 
 export const getV1OidcCallbackUrl = (
   org: string,
-  params?: OidcCallbackParams,
+  params?: V1OidcCallbackParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -161,42 +161,45 @@ export const getV1OidcCallbackUrl = (
     : `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/callback`;
 };
 
-export const OidcCallback = async (
+export const v1OidcCallback = async (
   org: string,
-  params?: OidcCallbackParams,
+  params?: V1OidcCallbackParams,
   options?: RequestInit,
-): Promise<OidcCallbackResponse> => {
+): Promise<v1OidcCallbackResponse> => {
   const res = await fetch(getV1OidcCallbackUrl(org, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OidcCallbackResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1OidcCallbackResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OidcCallbackResponse;
+  } as v1OidcCallbackResponse;
 };
 
 /**
  * Returns No Content. Works as a callback url after the IDP logout from their server.
  * @summary Identity provider logout url for the Oidc
  */
-export type OidcLogoutResponse204 = {
+export type v1OidcLogoutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type OidcLogoutResponseComposite = OidcLogoutResponse204;
+export type v1OidcLogoutResponseComposite = v1OidcLogoutResponse204;
 
-export type OidcLogoutResponse = OidcLogoutResponseComposite & {
+export type v1OidcLogoutResponse = v1OidcLogoutResponseComposite & {
   headers: Headers;
 };
 
-export const getV1OidcLogoutUrl = (org: string, params?: OidcLogoutParams) => {
+export const getV1OidcLogoutUrl = (
+  org: string,
+  params?: V1OidcLogoutParams,
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {});
@@ -208,44 +211,44 @@ export const getV1OidcLogoutUrl = (org: string, params?: OidcLogoutParams) => {
     : `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/logout`;
 };
 
-export const OidcLogout = async (
+export const v1OidcLogout = async (
   org: string,
-  params?: OidcLogoutParams,
+  params?: V1OidcLogoutParams,
   options?: RequestInit,
-): Promise<OidcLogoutResponse> => {
+): Promise<v1OidcLogoutResponse> => {
   const res = await fetch(getV1OidcLogoutUrl(org, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: OidcLogoutResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1OidcLogoutResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as OidcLogoutResponse;
+  } as v1OidcLogoutResponse;
 };
 
 /**
  * Returns the Authorization token for the palette. This is called by the SAML based IDP as a callback url after IDP authenticates the user with its server.
  * @summary Identity provider callback url for the SMAL authentication
  */
-export type SamlCallbackResponse200 = {
+export type v1SamlCallbackResponse200 = {
   data: UserToken;
   status: 200;
 };
 
-export type SamlCallbackResponseComposite = SamlCallbackResponse200;
+export type v1SamlCallbackResponseComposite = v1SamlCallbackResponse200;
 
-export type SamlCallbackResponse = SamlCallbackResponseComposite & {
+export type v1SamlCallbackResponse = v1SamlCallbackResponseComposite & {
   headers: Headers;
 };
 
 export const getV1SamlCallbackUrl = (
   org: string,
-  params?: SamlCallbackParams,
+  params?: V1SamlCallbackParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -258,18 +261,18 @@ export const getV1SamlCallbackUrl = (
     : `https://api.spectrocloud.com/v1/auth/org/${org}/saml/callback`;
 };
 
-export const SamlCallback = async (
+export const v1SamlCallback = async (
   org: string,
-  SamlCallbackBody: SamlCallbackBody,
-  params?: SamlCallbackParams,
+  v1SamlCallbackBody: V1SamlCallbackBody,
+  params?: V1SamlCallbackParams,
   options?: RequestInit,
-): Promise<SamlCallbackResponse> => {
+): Promise<v1SamlCallbackResponse> => {
   const formUrlEncoded = new URLSearchParams();
-  if (SamlCallbackBody.SAMLResponse !== undefined) {
-    formUrlEncoded.append(`SAMLResponse`, SamlCallbackBody.SAMLResponse);
+  if (v1SamlCallbackBody.SAMLResponse !== undefined) {
+    formUrlEncoded.append(`SAMLResponse`, v1SamlCallbackBody.SAMLResponse);
   }
-  if (SamlCallbackBody.RelayState !== undefined) {
-    formUrlEncoded.append(`RelayState`, SamlCallbackBody.RelayState);
+  if (v1SamlCallbackBody.RelayState !== undefined) {
+    formUrlEncoded.append(`RelayState`, v1SamlCallbackBody.RelayState);
   }
 
   const res = await fetch(getV1SamlCallbackUrl(org, params), {
@@ -283,31 +286,34 @@ export const SamlCallback = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SamlCallbackResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1SamlCallbackResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SamlCallbackResponse;
+  } as v1SamlCallbackResponse;
 };
 
 /**
  * Returns No Content. Works as a callback url after the IDP logout from their server.
  * @summary Identity provider logout url for the SMAL
  */
-export type SamlLogoutResponse204 = {
+export type v1SamlLogoutResponse204 = {
   data: void;
   status: 204;
 };
 
-export type SamlLogoutResponseComposite = SamlLogoutResponse204;
+export type v1SamlLogoutResponseComposite = v1SamlLogoutResponse204;
 
-export type SamlLogoutResponse = SamlLogoutResponseComposite & {
+export type v1SamlLogoutResponse = v1SamlLogoutResponseComposite & {
   headers: Headers;
 };
 
-export const getV1SamlLogoutUrl = (org: string, params?: SamlLogoutParams) => {
+export const getV1SamlLogoutUrl = (
+  org: string,
+  params?: V1SamlLogoutParams,
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {});
@@ -319,15 +325,15 @@ export const getV1SamlLogoutUrl = (org: string, params?: SamlLogoutParams) => {
     : `https://api.spectrocloud.com/v1/auth/org/${org}/saml/logout`;
 };
 
-export const SamlLogout = async (
+export const v1SamlLogout = async (
   org: string,
-  SamlLogoutBody: SamlLogoutBody,
-  params?: SamlLogoutParams,
+  v1SamlLogoutBody: V1SamlLogoutBody,
+  params?: V1SamlLogoutParams,
   options?: RequestInit,
-): Promise<SamlLogoutResponse> => {
+): Promise<v1SamlLogoutResponse> => {
   const formUrlEncoded = new URLSearchParams();
-  if (SamlLogoutBody.SAMLResponse !== undefined) {
-    formUrlEncoded.append(`SAMLResponse`, SamlLogoutBody.SAMLResponse);
+  if (v1SamlLogoutBody.SAMLResponse !== undefined) {
+    formUrlEncoded.append(`SAMLResponse`, v1SamlLogoutBody.SAMLResponse);
   }
 
   const res = await fetch(getV1SamlLogoutUrl(org, params), {
@@ -341,27 +347,27 @@ export const SamlLogout = async (
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SamlLogoutResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1SamlLogoutResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SamlLogoutResponse;
+  } as v1SamlLogoutResponse;
 };
 
 /**
  * Returns a list of user's organizations details and login methods
  * @summary Returns a list of user's organizations
  */
-export type AuthOrgsResponse200 = {
+export type v1AuthOrgsResponse200 = {
   data: Organizations;
   status: 200;
 };
 
-export type AuthOrgsResponseComposite = AuthOrgsResponse200;
+export type v1AuthOrgsResponseComposite = v1AuthOrgsResponse200;
 
-export type AuthOrgsResponse = AuthOrgsResponseComposite & {
+export type v1AuthOrgsResponse = v1AuthOrgsResponseComposite & {
   headers: Headers;
 };
 
@@ -369,118 +375,122 @@ export const getV1AuthOrgsUrl = () => {
   return `https://api.spectrocloud.com/v1/auth/orgs`;
 };
 
-export const AuthOrgs = async (
+export const v1AuthOrgs = async (
   options?: RequestInit,
-): Promise<AuthOrgsResponse> => {
+): Promise<v1AuthOrgsResponse> => {
   const res = await fetch(getV1AuthOrgsUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthOrgsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AuthOrgsResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as AuthOrgsResponse;
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1AuthOrgsResponse;
 };
 
 /**
  * Updates and Activates user password with the help of password token
  * @summary Updates and Activates the specified user password using the password token
  */
-export type PasswordActivateResponse204 = {
+export type passwordActivateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PasswordActivateResponseComposite = PasswordActivateResponse204;
+export type passwordActivateResponseComposite = passwordActivateResponse204;
 
-export type PasswordActivateResponse = PasswordActivateResponseComposite & {
+export type passwordActivateResponse = passwordActivateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PasswordActivateUrl = (passwordToken: string) => {
+export const getPasswordActivateUrl = (passwordToken: string) => {
   return `https://api.spectrocloud.com/v1/auth/password/${passwordToken}/activate`;
 };
 
-export const PasswordActivate = async (
+export const passwordActivate = async (
   passwordToken: string,
-  PasswordActivateBodyBody: PasswordActivateBodyBody,
+  v1PasswordActivateBodyBody: V1PasswordActivateBodyBody,
   options?: RequestInit,
-): Promise<PasswordActivateResponse> => {
-  const res = await fetch(getV1PasswordActivateUrl(passwordToken), {
+): Promise<passwordActivateResponse> => {
+  const res = await fetch(getPasswordActivateUrl(passwordToken), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PasswordActivateBodyBody),
+    body: JSON.stringify(v1PasswordActivateBodyBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PasswordActivateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: passwordActivateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PasswordActivateResponse;
+  } as passwordActivateResponse;
 };
 
 /**
  * Updates the new user password with the help of password token
  * @summary Resets the user password using the password token
  */
-export type PasswordResetResponse204 = {
+export type passwordResetResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PasswordResetResponseComposite = PasswordResetResponse204;
+export type passwordResetResponseComposite = passwordResetResponse204;
 
-export type PasswordResetResponse = PasswordResetResponseComposite & {
+export type passwordResetResponse = passwordResetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PasswordResetUrl = (passwordToken: string) => {
+export const getPasswordResetUrl = (passwordToken: string) => {
   return `https://api.spectrocloud.com/v1/auth/password/${passwordToken}/reset`;
 };
 
-export const PasswordReset = async (
+export const passwordReset = async (
   passwordToken: string,
-  PasswordActivateBodyBody: PasswordActivateBodyBody,
+  v1PasswordActivateBodyBody: V1PasswordActivateBodyBody,
   options?: RequestInit,
-): Promise<PasswordResetResponse> => {
-  const res = await fetch(getV1PasswordResetUrl(passwordToken), {
+): Promise<passwordResetResponse> => {
+  const res = await fetch(getPasswordResetUrl(passwordToken), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PasswordActivateBodyBody),
+    body: JSON.stringify(v1PasswordActivateBodyBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PasswordResetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: passwordResetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PasswordResetResponse;
+  } as passwordResetResponse;
 };
 
 /**
  * Returns a new token within refresh timeout and same session id is maintained
  * @summary Refreshes authentication token
  */
-export type AuthRefreshResponse200 = {
+export type authRefreshResponse200 = {
   data: UserToken;
   status: 200;
 };
 
-export type AuthRefreshResponseComposite = AuthRefreshResponse200;
+export type authRefreshResponseComposite = authRefreshResponse200;
 
-export type AuthRefreshResponse = AuthRefreshResponseComposite & {
+export type authRefreshResponse = authRefreshResponseComposite & {
   headers: Headers;
 };
 
-export const getV1AuthRefreshUrl = (
+export const getAuthRefreshUrl = (
   token: string,
   params?: AuthRefreshParams,
 ) => {
@@ -495,38 +505,38 @@ export const getV1AuthRefreshUrl = (
     : `https://api.spectrocloud.com/v1/auth/refresh/${token}`;
 };
 
-export const AuthRefresh = async (
+export const authRefresh = async (
   token: string,
   params?: AuthRefreshParams,
   options?: RequestInit,
-): Promise<AuthRefreshResponse> => {
-  const res = await fetch(getV1AuthRefreshUrl(token, params), {
+): Promise<authRefreshResponse> => {
+  const res = await fetch(getAuthRefreshUrl(token, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthRefreshResponse["data"] = body ? JSON.parse(body) : {};
+  const data: authRefreshResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuthRefreshResponse;
+  } as authRefreshResponse;
 };
 
 /**
  * Returns a list of predefined Identity Provider (IDP)
  * @summary Returns a list of predefined Identity Provider (IDP)
  */
-export type SsoIdpsResponse200 = {
+export type v1SsoIdpsResponse200 = {
   data: IdentityProviders;
   status: 200;
 };
 
-export type SsoIdpsResponseComposite = SsoIdpsResponse200;
+export type v1SsoIdpsResponseComposite = v1SsoIdpsResponse200;
 
-export type SsoIdpsResponse = SsoIdpsResponseComposite & {
+export type v1SsoIdpsResponse = v1SsoIdpsResponseComposite & {
   headers: Headers;
 };
 
@@ -534,36 +544,40 @@ export const getV1SsoIdpsUrl = () => {
   return `https://api.spectrocloud.com/v1/auth/sso/idps`;
 };
 
-export const SsoIdps = async (
+export const v1SsoIdps = async (
   options?: RequestInit,
-): Promise<SsoIdpsResponse> => {
+): Promise<v1SsoIdpsResponse> => {
   const res = await fetch(getV1SsoIdpsUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SsoIdpsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1SsoIdpsResponse["data"] = body ? JSON.parse(body) : {};
 
-  return { data, status: res.status, headers: res.headers } as SsoIdpsResponse;
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as v1SsoIdpsResponse;
 };
 
 /**
  * Returns a list of supported sso logins and their authentication mechanism
  * @summary Returns a list of supported sso logins
  */
-export type SsoLoginsResponse200 = {
+export type v1SsoLoginsResponse200 = {
   data: SsoLogins;
   status: 200;
 };
 
-export type SsoLoginsResponseComposite = SsoLoginsResponse200;
+export type v1SsoLoginsResponseComposite = v1SsoLoginsResponse200;
 
-export type SsoLoginsResponse = SsoLoginsResponseComposite & {
+export type v1SsoLoginsResponse = v1SsoLoginsResponseComposite & {
   headers: Headers;
 };
 
-export const getV1SsoLoginsUrl = (params?: SsoLoginsParams) => {
+export const getV1SsoLoginsUrl = (params?: V1SsoLoginsParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -579,37 +593,37 @@ export const getV1SsoLoginsUrl = (params?: SsoLoginsParams) => {
     : `https://api.spectrocloud.com/v1/auth/sso/logins`;
 };
 
-export const SsoLogins = async (
-  params?: SsoLoginsParams,
+export const v1SsoLogins = async (
+  params?: V1SsoLoginsParams,
   options?: RequestInit,
-): Promise<SsoLoginsResponse> => {
+): Promise<v1SsoLoginsResponse> => {
   const res = await fetch(getV1SsoLoginsUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SsoLoginsResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1SsoLoginsResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SsoLoginsResponse;
+  } as v1SsoLoginsResponse;
 };
 
 /**
  * Returns a list of supported sso auth providers
  * @summary Returns a list of supported sso auth providers
  */
-export type AuthSsoProvidersResponse200 = {
+export type v1AuthSsoProvidersResponse200 = {
   data: SsoLogins;
   status: 200;
 };
 
-export type AuthSsoProvidersResponseComposite = AuthSsoProvidersResponse200;
+export type v1AuthSsoProvidersResponseComposite = v1AuthSsoProvidersResponse200;
 
-export type AuthSsoProvidersResponse = AuthSsoProvidersResponseComposite & {
+export type v1AuthSsoProvidersResponse = v1AuthSsoProvidersResponseComposite & {
   headers: Headers;
 };
 
@@ -617,42 +631,42 @@ export const getV1AuthSsoProvidersUrl = () => {
   return `https://api.spectrocloud.com/v1/auth/sso/providers`;
 };
 
-export const AuthSsoProviders = async (
+export const v1AuthSsoProviders = async (
   options?: RequestInit,
-): Promise<AuthSsoProvidersResponse> => {
+): Promise<v1AuthSsoProvidersResponse> => {
   const res = await fetch(getV1AuthSsoProvidersUrl(), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthSsoProvidersResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1AuthSsoProvidersResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as AuthSsoProvidersResponse;
+  } as v1AuthSsoProvidersResponse;
 };
 
 /**
  * Returns Authorization token. Works as a callback url for the system defined sso apps
  * @summary Returns Authorization token. Works as a callback url for the system defined sso apps
  */
-export type SsoCallbackResponse200 = {
+export type v1SsoCallbackResponse200 = {
   data: UserToken;
   status: 200;
 };
 
-export type SsoCallbackResponseComposite = SsoCallbackResponse200;
+export type v1SsoCallbackResponseComposite = v1SsoCallbackResponse200;
 
-export type SsoCallbackResponse = SsoCallbackResponseComposite & {
+export type v1SsoCallbackResponse = v1SsoCallbackResponseComposite & {
   headers: Headers;
 };
 
 export const getV1SsoCallbackUrl = (
   ssoApp: string,
-  params?: SsoCallbackParams,
+  params?: V1SsoCallbackParams,
 ) => {
   const normalizedParams = new URLSearchParams();
 
@@ -665,42 +679,46 @@ export const getV1SsoCallbackUrl = (
     : `https://api.spectrocloud.com/v1/auth/sso/${ssoApp}/callback`;
 };
 
-export const SsoCallback = async (
+export const v1SsoCallback = async (
   ssoApp: string,
-  params?: SsoCallbackParams,
+  params?: V1SsoCallbackParams,
   options?: RequestInit,
-): Promise<SsoCallbackResponse> => {
+): Promise<v1SsoCallbackResponse> => {
   const res = await fetch(getV1SsoCallbackUrl(ssoApp, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: SsoCallbackResponse["data"] = body ? JSON.parse(body) : {};
+  const data: v1SsoCallbackResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as SsoCallbackResponse;
+  } as v1SsoCallbackResponse;
 };
 
 /**
  * Returns No Content. Sends the user organization(s) information via email
  * @summary Returns No Content. Sends the user organization information via email
  */
-export type AuthUserOrgForgotResponse204 = {
+export type v1AuthUserOrgForgotResponse204 = {
   data: void;
   status: 204;
 };
 
-export type AuthUserOrgForgotResponseComposite = AuthUserOrgForgotResponse204;
+export type v1AuthUserOrgForgotResponseComposite =
+  v1AuthUserOrgForgotResponse204;
 
-export type AuthUserOrgForgotResponse = AuthUserOrgForgotResponseComposite & {
-  headers: Headers;
-};
+export type v1AuthUserOrgForgotResponse =
+  v1AuthUserOrgForgotResponseComposite & {
+    headers: Headers;
+  };
 
-export const getV1AuthUserOrgForgotUrl = (params: AuthUserOrgForgotParams) => {
+export const getV1AuthUserOrgForgotUrl = (
+  params: V1AuthUserOrgForgotParams,
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -716,59 +734,17 @@ export const getV1AuthUserOrgForgotUrl = (params: AuthUserOrgForgotParams) => {
     : `https://api.spectrocloud.com/v1/auth/user/org/forgot`;
 };
 
-export const AuthUserOrgForgot = async (
-  params: AuthUserOrgForgotParams,
+export const v1AuthUserOrgForgot = async (
+  params: V1AuthUserOrgForgotParams,
   options?: RequestInit,
-): Promise<AuthUserOrgForgotResponse> => {
+): Promise<v1AuthUserOrgForgotResponse> => {
   const res = await fetch(getV1AuthUserOrgForgotUrl(params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: AuthUserOrgForgotResponse["data"] = body ? JSON.parse(body) : {};
-
-  return {
-    data,
-    status: res.status,
-    headers: res.headers,
-  } as AuthUserOrgForgotResponse;
-};
-
-/**
- * Creates request to reset password via email. Password reset email will be sent to the user. Sends 204 No Content.
- * @summary Creates request to reset password via email
- */
-export type PasswordResetRequestResponse204 = {
-  data: void;
-  status: 204;
-};
-
-export type PasswordResetRequestResponseComposite =
-  PasswordResetRequestResponse204;
-
-export type PasswordResetRequestResponse =
-  PasswordResetRequestResponseComposite & {
-    headers: Headers;
-  };
-
-export const getV1PasswordResetRequestUrl = () => {
-  return `https://api.spectrocloud.com/v1/auth/user/password/reset`;
-};
-
-export const PasswordResetRequest = async (
-  PasswordResetRequestBody: PasswordResetRequestBody,
-  options?: RequestInit,
-): Promise<PasswordResetRequestResponse> => {
-  const res = await fetch(getV1PasswordResetRequestUrl(), {
-    ...options,
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(PasswordResetRequestBody),
-  });
-
-  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PasswordResetRequestResponse["data"] = body
+  const data: v1AuthUserOrgForgotResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -776,5 +752,49 @@ export const PasswordResetRequest = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as PasswordResetRequestResponse;
+  } as v1AuthUserOrgForgotResponse;
+};
+
+/**
+ * Creates request to reset password via email. Password reset email will be sent to the user. Sends 204 No Content.
+ * @summary Creates request to reset password via email
+ */
+export type passwordResetRequestResponse204 = {
+  data: void;
+  status: 204;
+};
+
+export type passwordResetRequestResponseComposite =
+  passwordResetRequestResponse204;
+
+export type passwordResetRequestResponse =
+  passwordResetRequestResponseComposite & {
+    headers: Headers;
+  };
+
+export const getPasswordResetRequestUrl = () => {
+  return `https://api.spectrocloud.com/v1/auth/user/password/reset`;
+};
+
+export const passwordResetRequest = async (
+  passwordResetRequestBody: PasswordResetRequestBody,
+  options?: RequestInit,
+): Promise<passwordResetRequestResponse> => {
+  const res = await fetch(getPasswordResetRequestUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(passwordResetRequestBody),
+  });
+
+  const body = [204, 205, 304].includes(res.status) ? null : await res.text();
+  const data: passwordResetRequestResponse["data"] = body
+    ? JSON.parse(body)
+    : {};
+
+  return {
+    data,
+    status: res.status,
+    headers: res.headers,
+  } as passwordResetRequestResponse;
 };

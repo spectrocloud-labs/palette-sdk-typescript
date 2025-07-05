@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureAccountEntitySpec } from "./AzureAccountEntitySpec";
+import type { V1AzureAccountEntitySpec } from "./v1AzureAccountEntitySpec";
 
 /**
  * Azure storage config object
@@ -17,7 +17,7 @@ import type { AzureAccountEntitySpec } from "./AzureAccountEntitySpec";
 export interface AzureStorageConfig {
   /** Azure container name */
   containerName: string;
-  credentials: AzureAccountEntitySpec;
+  credentials: V1AzureAccountEntitySpec;
   /** Azure resource group name, to which the storage account is mapped */
   resourceGroup: string;
   /** Azure sku */

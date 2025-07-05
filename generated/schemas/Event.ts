@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./ObjectReference";
-import type { ObjectMeta } from "./ObjectMeta";
-import type { EventRelatedObject } from "./EventRelatedObject";
-import type { EventSource } from "./EventSource";
+import type { ObjectReference } from "./objectReference";
+import type { ObjectMeta } from "./objectMeta";
+import type { EventRelatedObject } from "./eventRelatedObject";
+import type { EventSource } from "./eventSource";
 
 /**
  * Describes the component event details

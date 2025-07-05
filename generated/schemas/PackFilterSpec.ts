@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./FilterString";
-import type { PackLayer } from "./PackLayer";
-import type { PackType } from "./PackType";
+import type { FilterString } from "./filterString";
+import type { PackLayer } from "./packLayer";
+import type { PackType } from "./packType";
 
 /**
  * Packs filter spec

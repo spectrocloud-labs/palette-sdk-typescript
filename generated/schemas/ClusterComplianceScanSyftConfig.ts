@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterComplianceScanSyftDriverConfig } from "./ClusterComplianceScanSyftDriverConfig";
+import type { ClusterComplianceScanSyftDriverConfig } from "./clusterComplianceScanSyftDriverConfig";
 
 /**
  * Cluster compliance scan config for syft driver

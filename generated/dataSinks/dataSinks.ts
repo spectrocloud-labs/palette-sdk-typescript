@@ -9,22 +9,22 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DataSinkCloudWatchConfig } from ".././schemas";
+import type { V1DataSinkCloudWatchConfig } from ".././schemas";
 
 /**
  * Sync data to cloud watch
  * @summary sync data to cloud watch
  */
-export type DataSinksCloudWatchSinkResponse204 = {
+export type v1DataSinksCloudWatchSinkResponse204 = {
   data: void;
   status: 204;
 };
 
-export type DataSinksCloudWatchSinkResponseComposite =
-  DataSinksCloudWatchSinkResponse204;
+export type v1DataSinksCloudWatchSinkResponseComposite =
+  v1DataSinksCloudWatchSinkResponse204;
 
-export type DataSinksCloudWatchSinkResponse =
-  DataSinksCloudWatchSinkResponseComposite & {
+export type v1DataSinksCloudWatchSinkResponse =
+  v1DataSinksCloudWatchSinkResponseComposite & {
     headers: Headers;
   };
 
@@ -32,19 +32,19 @@ export const getV1DataSinksCloudWatchSinkUrl = () => {
   return `https://api.spectrocloud.com/v1/datasinks/cloudwatch`;
 };
 
-export const DataSinksCloudWatchSink = async (
-  DataSinkCloudWatchConfig: DataSinkCloudWatchConfig,
+export const v1DataSinksCloudWatchSink = async (
+  v1DataSinkCloudWatchConfig: V1DataSinkCloudWatchConfig,
   options?: RequestInit,
-): Promise<DataSinksCloudWatchSinkResponse> => {
+): Promise<v1DataSinksCloudWatchSinkResponse> => {
   const res = await fetch(getV1DataSinksCloudWatchSinkUrl(), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(DataSinkCloudWatchConfig),
+    body: JSON.stringify(v1DataSinkCloudWatchConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: DataSinksCloudWatchSinkResponse["data"] = body
+  const data: v1DataSinksCloudWatchSinkResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -52,5 +52,5 @@ export const DataSinksCloudWatchSink = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as DataSinksCloudWatchSinkResponse;
+  } as v1DataSinksCloudWatchSinkResponse;
 };

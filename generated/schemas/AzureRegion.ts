@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureAvailabilityZone } from "./AzureAvailabilityZone";
+import type { AzureAvailabilityZone } from "./azureAvailabilityZone";
 
 /**
  * Azure region entity

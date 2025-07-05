@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Overlord } from "./Overlord";
+import type { Overlord } from "./overlord";
 
 /**
  * Array of Overlords

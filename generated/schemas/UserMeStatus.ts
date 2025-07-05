@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserMeStatusProjectPermissions } from "./UserMeStatusProjectPermissions";
-import type { UserMeTenant } from "./UserMeTenant";
-import type { UserMeStatusTenantPermissions } from "./UserMeStatusTenantPermissions";
+import type { UserMeStatusProjectPermissions } from "./userMeStatusProjectPermissions";
+import type { UserMeTenant } from "./userMeTenant";
+import type { UserMeStatusTenantPermissions } from "./userMeStatusTenantPermissions";
 
 /**
  * User status with permissions

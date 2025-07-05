@@ -8,7 +8,7 @@
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { ClusterProfilesFilterSummary } from "../generated/index";
+import { clusterProfilesFilterSummary } from "../generated/index";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -38,14 +38,14 @@ async function testClusterProfilesSimple() {
 
     // Test that the function is importable and callable
     console.log(
-      `✅ ClusterProfilesFilterSummary type: ${typeof ClusterProfilesFilterSummary}`
+      `✅ clusterProfilesFilterSummary type: ${typeof clusterProfilesFilterSummary}`
     );
 
-    if (typeof ClusterProfilesFilterSummary === "function") {
-      console.log("✅ ClusterProfilesFilterSummary is available as a function");
+    if (typeof clusterProfilesFilterSummary === "function") {
+      console.log("✅ clusterProfilesFilterSummary is available as a function");
     } else {
       throw new Error(
-        "ClusterProfilesFilterSummary is not available as a function"
+        "clusterProfilesFilterSummary is not available as a function"
       );
     }
 
@@ -58,18 +58,17 @@ async function testClusterProfilesSimple() {
     console.log("🔍 Retrieving cluster profiles from Palette API...\n");
 
     // Configure the request
-    const config = {
-      baseURL: BASE_URL,
-      headers: {
-        ApiKey: API_KEY,
-        "Content-Type": "application/json",
-        // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
-      },
-      timeout: 10000,
-    };
-
-    // Get cluster profiles using the filter summary endpoint
-    const response = await ClusterProfilesFilterSummary({}, {}, config);
+    const response = await clusterProfilesFilterSummary(
+      {},
+      {},
+      {
+        headers: {
+          ApiKey: API_KEY,
+          "Content-Type": "application/json",
+          // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
+        },
+      }
+    );
 
     const profiles = response.data.items || [];
 

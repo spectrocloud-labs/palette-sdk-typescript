@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectRolesPatchProjectsItem } from "./ProjectRolesPatchProjectsItem";
+import type { ProjectRolesPatchProjectsItem } from "./projectRolesPatchProjectsItem";
 
 export interface ProjectRolesPatch {
   projects?: ProjectRolesPatchProjectsItem[];

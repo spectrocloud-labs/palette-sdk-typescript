@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClustersUidRatePeriodType } from "./SpectroClustersUidRatePeriodType";
+import type { SpectroClustersUidRatePeriodType } from "./spectroClustersUidRatePeriodType";
 
 export type SpectroClustersUidRateParams = {
   /**

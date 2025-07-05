@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PermissionsListScope } from "./PermissionsListScope";
+import type { PermissionsListScope } from "./permissionsListScope";
 
 export type PermissionsListParams = {
   scope?: PermissionsListScope;

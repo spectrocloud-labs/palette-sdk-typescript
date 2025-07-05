@@ -13,18 +13,14 @@ import type {
   AuthTokenSettings,
   AwsCreditAccountEntity,
   DataSinkConfig,
-  DataSinkConfigBody,
   DeveloperCredit,
   FipsSettings,
   Invoice,
   LoginBannerSettings,
   Macros,
-  MacrosBody,
-  NodesAutoRemediationSettingsBody,
   RateConfig,
   TenantAddressPatch,
   TenantAssetCert,
-  TenantAssetCertBody,
   TenantAssetCerts,
   TenantClusterSettings,
   TenantDomains,
@@ -41,61 +37,65 @@ import type {
   TenantSsoAuthProvidersEntity,
   TenantsCreditAccountDeleteParams,
   Uid,
+  V1DataSinkConfigBody,
+  V1MacrosBody,
+  V1NodesAutoRemediationSettingsBody,
+  V1TenantAssetCertBody,
 } from ".././schemas";
 
 /**
  * @summary Update tenant address
  */
-export type PatchTenantAddressResponse204 = {
+export type patchTenantAddressResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PatchTenantAddressResponseComposite = PatchTenantAddressResponse204;
+export type patchTenantAddressResponseComposite = patchTenantAddressResponse204;
 
-export type PatchTenantAddressResponse = PatchTenantAddressResponseComposite & {
+export type patchTenantAddressResponse = patchTenantAddressResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PatchTenantAddressUrl = (tenantUid: string) => {
+export const getPatchTenantAddressUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/address`;
 };
 
-export const PatchTenantAddress = async (
+export const patchTenantAddress = async (
   tenantUid: string,
-  TenantAddressPatch: TenantAddressPatch,
+  tenantAddressPatch: TenantAddressPatch,
   options?: RequestInit,
-): Promise<PatchTenantAddressResponse> => {
-  const res = await fetch(getV1PatchTenantAddressUrl(tenantUid), {
+): Promise<patchTenantAddressResponse> => {
+  const res = await fetch(getPatchTenantAddressUrl(tenantUid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantAddressPatch),
+    body: JSON.stringify(tenantAddressPatch),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PatchTenantAddressResponse["data"] = body ? JSON.parse(body) : {};
+  const data: patchTenantAddressResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PatchTenantAddressResponse;
+  } as patchTenantAddressResponse;
 };
 
 /**
  * @summary lists the certificates for the tenant
  */
-export type TenantUIdAssetsCertsListResponse200 = {
+export type v1TenantUIdAssetsCertsListResponse200 = {
   data: TenantAssetCerts;
   status: 200;
 };
 
-export type TenantUIdAssetsCertsListResponseComposite =
-  TenantUIdAssetsCertsListResponse200;
+export type v1TenantUIdAssetsCertsListResponseComposite =
+  v1TenantUIdAssetsCertsListResponse200;
 
-export type TenantUIdAssetsCertsListResponse =
-  TenantUIdAssetsCertsListResponseComposite & {
+export type v1TenantUIdAssetsCertsListResponse =
+  v1TenantUIdAssetsCertsListResponseComposite & {
     headers: Headers;
   };
 
@@ -103,17 +103,17 @@ export const getV1TenantUIdAssetsCertsListUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs`;
 };
 
-export const TenantUIdAssetsCertsList = async (
+export const v1TenantUIdAssetsCertsList = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUIdAssetsCertsListResponse> => {
+): Promise<v1TenantUIdAssetsCertsListResponse> => {
   const res = await fetch(getV1TenantUIdAssetsCertsListUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUIdAssetsCertsListResponse["data"] = body
+  const data: v1TenantUIdAssetsCertsListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -121,22 +121,22 @@ export const TenantUIdAssetsCertsList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUIdAssetsCertsListResponse;
+  } as v1TenantUIdAssetsCertsListResponse;
 };
 
 /**
  * @summary create the tenant certificate
  */
-export type TenantUidAssetsCertsCreateResponse201 = {
+export type v1TenantUidAssetsCertsCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type TenantUidAssetsCertsCreateResponseComposite =
-  TenantUidAssetsCertsCreateResponse201;
+export type v1TenantUidAssetsCertsCreateResponseComposite =
+  v1TenantUidAssetsCertsCreateResponse201;
 
-export type TenantUidAssetsCertsCreateResponse =
-  TenantUidAssetsCertsCreateResponseComposite & {
+export type v1TenantUidAssetsCertsCreateResponse =
+  v1TenantUidAssetsCertsCreateResponseComposite & {
     headers: Headers;
   };
 
@@ -144,20 +144,20 @@ export const getV1TenantUidAssetsCertsCreateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs`;
 };
 
-export const TenantUidAssetsCertsCreate = async (
+export const v1TenantUidAssetsCertsCreate = async (
   tenantUid: string,
-  TenantAssetCertBody: TenantAssetCertBody,
+  v1TenantAssetCertBody: V1TenantAssetCertBody,
   options?: RequestInit,
-): Promise<TenantUidAssetsCertsCreateResponse> => {
+): Promise<v1TenantUidAssetsCertsCreateResponse> => {
   const res = await fetch(getV1TenantUidAssetsCertsCreateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantAssetCertBody),
+    body: JSON.stringify(v1TenantAssetCertBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsCertsCreateResponse["data"] = body
+  const data: v1TenantUidAssetsCertsCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -165,22 +165,22 @@ export const TenantUidAssetsCertsCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsCertsCreateResponse;
+  } as v1TenantUidAssetsCertsCreateResponse;
 };
 
 /**
  * @summary deletes the tenant certificate
  */
-export type TenantUidAssetsCertsUidDeleteResponse204 = {
+export type v1TenantUidAssetsCertsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidAssetsCertsUidDeleteResponseComposite =
-  TenantUidAssetsCertsUidDeleteResponse204;
+export type v1TenantUidAssetsCertsUidDeleteResponseComposite =
+  v1TenantUidAssetsCertsUidDeleteResponse204;
 
-export type TenantUidAssetsCertsUidDeleteResponse =
-  TenantUidAssetsCertsUidDeleteResponseComposite & {
+export type v1TenantUidAssetsCertsUidDeleteResponse =
+  v1TenantUidAssetsCertsUidDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -191,11 +191,11 @@ export const getV1TenantUidAssetsCertsUidDeleteUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`;
 };
 
-export const TenantUidAssetsCertsUidDelete = async (
+export const v1TenantUidAssetsCertsUidDelete = async (
   tenantUid: string,
   certificateUid: string,
   options?: RequestInit,
-): Promise<TenantUidAssetsCertsUidDeleteResponse> => {
+): Promise<v1TenantUidAssetsCertsUidDeleteResponse> => {
   const res = await fetch(
     getV1TenantUidAssetsCertsUidDeleteUrl(tenantUid, certificateUid),
     {
@@ -205,7 +205,7 @@ export const TenantUidAssetsCertsUidDelete = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsCertsUidDeleteResponse["data"] = body
+  const data: v1TenantUidAssetsCertsUidDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -213,22 +213,22 @@ export const TenantUidAssetsCertsUidDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsCertsUidDeleteResponse;
+  } as v1TenantUidAssetsCertsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the ca certificate for the tenant
  */
-export type TenantUidAssetsCertsUidGetResponse200 = {
+export type v1TenantUidAssetsCertsUidGetResponse200 = {
   data: TenantAssetCert;
   status: 200;
 };
 
-export type TenantUidAssetsCertsUidGetResponseComposite =
-  TenantUidAssetsCertsUidGetResponse200;
+export type v1TenantUidAssetsCertsUidGetResponseComposite =
+  v1TenantUidAssetsCertsUidGetResponse200;
 
-export type TenantUidAssetsCertsUidGetResponse =
-  TenantUidAssetsCertsUidGetResponseComposite & {
+export type v1TenantUidAssetsCertsUidGetResponse =
+  v1TenantUidAssetsCertsUidGetResponseComposite & {
     headers: Headers;
   };
 
@@ -239,11 +239,11 @@ export const getV1TenantUidAssetsCertsUidGetUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`;
 };
 
-export const TenantUidAssetsCertsUidGet = async (
+export const v1TenantUidAssetsCertsUidGet = async (
   tenantUid: string,
   certificateUid: string,
   options?: RequestInit,
-): Promise<TenantUidAssetsCertsUidGetResponse> => {
+): Promise<v1TenantUidAssetsCertsUidGetResponse> => {
   const res = await fetch(
     getV1TenantUidAssetsCertsUidGetUrl(tenantUid, certificateUid),
     {
@@ -253,7 +253,7 @@ export const TenantUidAssetsCertsUidGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsCertsUidGetResponse["data"] = body
+  const data: v1TenantUidAssetsCertsUidGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -261,22 +261,22 @@ export const TenantUidAssetsCertsUidGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsCertsUidGetResponse;
+  } as v1TenantUidAssetsCertsUidGetResponse;
 };
 
 /**
  * @summary updates the tenant certificate
  */
-export type TenantUidAssetsCertsUidUpdateResponse204 = {
+export type v1TenantUidAssetsCertsUidUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidAssetsCertsUidUpdateResponseComposite =
-  TenantUidAssetsCertsUidUpdateResponse204;
+export type v1TenantUidAssetsCertsUidUpdateResponseComposite =
+  v1TenantUidAssetsCertsUidUpdateResponse204;
 
-export type TenantUidAssetsCertsUidUpdateResponse =
-  TenantUidAssetsCertsUidUpdateResponseComposite & {
+export type v1TenantUidAssetsCertsUidUpdateResponse =
+  v1TenantUidAssetsCertsUidUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -287,24 +287,24 @@ export const getV1TenantUidAssetsCertsUidUpdateUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`;
 };
 
-export const TenantUidAssetsCertsUidUpdate = async (
+export const v1TenantUidAssetsCertsUidUpdate = async (
   tenantUid: string,
   certificateUid: string,
-  TenantAssetCertBody: TenantAssetCertBody,
+  v1TenantAssetCertBody: V1TenantAssetCertBody,
   options?: RequestInit,
-): Promise<TenantUidAssetsCertsUidUpdateResponse> => {
+): Promise<v1TenantUidAssetsCertsUidUpdateResponse> => {
   const res = await fetch(
     getV1TenantUidAssetsCertsUidUpdateUrl(tenantUid, certificateUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(TenantAssetCertBody),
+      body: JSON.stringify(v1TenantAssetCertBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsCertsUidUpdateResponse["data"] = body
+  const data: v1TenantUidAssetsCertsUidUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -312,22 +312,22 @@ export const TenantUidAssetsCertsUidUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsCertsUidUpdateResponse;
+  } as v1TenantUidAssetsCertsUidUpdateResponse;
 };
 
 /**
  * @summary deletes the tenant data sink config
  */
-export type TenantUidAssetsDataSinksDeleteResponse204 = {
+export type v1TenantUidAssetsDataSinksDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidAssetsDataSinksDeleteResponseComposite =
-  TenantUidAssetsDataSinksDeleteResponse204;
+export type v1TenantUidAssetsDataSinksDeleteResponseComposite =
+  v1TenantUidAssetsDataSinksDeleteResponse204;
 
-export type TenantUidAssetsDataSinksDeleteResponse =
-  TenantUidAssetsDataSinksDeleteResponseComposite & {
+export type v1TenantUidAssetsDataSinksDeleteResponse =
+  v1TenantUidAssetsDataSinksDeleteResponseComposite & {
     headers: Headers;
   };
 
@@ -335,17 +335,17 @@ export const getV1TenantUidAssetsDataSinksDeleteUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`;
 };
 
-export const TenantUidAssetsDataSinksDelete = async (
+export const v1TenantUidAssetsDataSinksDelete = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidAssetsDataSinksDeleteResponse> => {
+): Promise<v1TenantUidAssetsDataSinksDeleteResponse> => {
   const res = await fetch(getV1TenantUidAssetsDataSinksDeleteUrl(tenantUid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsDataSinksDeleteResponse["data"] = body
+  const data: v1TenantUidAssetsDataSinksDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -353,22 +353,22 @@ export const TenantUidAssetsDataSinksDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsDataSinksDeleteResponse;
+  } as v1TenantUidAssetsDataSinksDeleteResponse;
 };
 
 /**
  * @summary Returns data sink config of tenant
  */
-export type TenantUidAssetsDataSinksGetResponse200 = {
+export type v1TenantUidAssetsDataSinksGetResponse200 = {
   data: DataSinkConfig;
   status: 200;
 };
 
-export type TenantUidAssetsDataSinksGetResponseComposite =
-  TenantUidAssetsDataSinksGetResponse200;
+export type v1TenantUidAssetsDataSinksGetResponseComposite =
+  v1TenantUidAssetsDataSinksGetResponse200;
 
-export type TenantUidAssetsDataSinksGetResponse =
-  TenantUidAssetsDataSinksGetResponseComposite & {
+export type v1TenantUidAssetsDataSinksGetResponse =
+  v1TenantUidAssetsDataSinksGetResponseComposite & {
     headers: Headers;
   };
 
@@ -376,17 +376,17 @@ export const getV1TenantUidAssetsDataSinksGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`;
 };
 
-export const TenantUidAssetsDataSinksGet = async (
+export const v1TenantUidAssetsDataSinksGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidAssetsDataSinksGetResponse> => {
+): Promise<v1TenantUidAssetsDataSinksGetResponse> => {
   const res = await fetch(getV1TenantUidAssetsDataSinksGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsDataSinksGetResponse["data"] = body
+  const data: v1TenantUidAssetsDataSinksGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -394,22 +394,22 @@ export const TenantUidAssetsDataSinksGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsDataSinksGetResponse;
+  } as v1TenantUidAssetsDataSinksGetResponse;
 };
 
 /**
  * @summary create data sink config
  */
-export type TenantUidAssetsDataSinksCreateResponse201 = {
+export type v1TenantUidAssetsDataSinksCreateResponse201 = {
   data: Uid;
   status: 201;
 };
 
-export type TenantUidAssetsDataSinksCreateResponseComposite =
-  TenantUidAssetsDataSinksCreateResponse201;
+export type v1TenantUidAssetsDataSinksCreateResponseComposite =
+  v1TenantUidAssetsDataSinksCreateResponse201;
 
-export type TenantUidAssetsDataSinksCreateResponse =
-  TenantUidAssetsDataSinksCreateResponseComposite & {
+export type v1TenantUidAssetsDataSinksCreateResponse =
+  v1TenantUidAssetsDataSinksCreateResponseComposite & {
     headers: Headers;
   };
 
@@ -417,20 +417,20 @@ export const getV1TenantUidAssetsDataSinksCreateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`;
 };
 
-export const TenantUidAssetsDataSinksCreate = async (
+export const v1TenantUidAssetsDataSinksCreate = async (
   tenantUid: string,
-  DataSinkConfigBody: DataSinkConfigBody,
+  v1DataSinkConfigBody: V1DataSinkConfigBody,
   options?: RequestInit,
-): Promise<TenantUidAssetsDataSinksCreateResponse> => {
+): Promise<v1TenantUidAssetsDataSinksCreateResponse> => {
   const res = await fetch(getV1TenantUidAssetsDataSinksCreateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(DataSinkConfigBody),
+    body: JSON.stringify(v1DataSinkConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsDataSinksCreateResponse["data"] = body
+  const data: v1TenantUidAssetsDataSinksCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -438,22 +438,22 @@ export const TenantUidAssetsDataSinksCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsDataSinksCreateResponse;
+  } as v1TenantUidAssetsDataSinksCreateResponse;
 };
 
 /**
  * @summary updates the tenant data sink config
  */
-export type TenantUidAssetsDataSinksUpdateResponse204 = {
+export type v1TenantUidAssetsDataSinksUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidAssetsDataSinksUpdateResponseComposite =
-  TenantUidAssetsDataSinksUpdateResponse204;
+export type v1TenantUidAssetsDataSinksUpdateResponseComposite =
+  v1TenantUidAssetsDataSinksUpdateResponse204;
 
-export type TenantUidAssetsDataSinksUpdateResponse =
-  TenantUidAssetsDataSinksUpdateResponseComposite & {
+export type v1TenantUidAssetsDataSinksUpdateResponse =
+  v1TenantUidAssetsDataSinksUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -461,20 +461,20 @@ export const getV1TenantUidAssetsDataSinksUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`;
 };
 
-export const TenantUidAssetsDataSinksUpdate = async (
+export const v1TenantUidAssetsDataSinksUpdate = async (
   tenantUid: string,
-  DataSinkConfigBody: DataSinkConfigBody,
+  v1DataSinkConfigBody: V1DataSinkConfigBody,
   options?: RequestInit,
-): Promise<TenantUidAssetsDataSinksUpdateResponse> => {
+): Promise<v1TenantUidAssetsDataSinksUpdateResponse> => {
   const res = await fetch(getV1TenantUidAssetsDataSinksUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(DataSinkConfigBody),
+    body: JSON.stringify(v1DataSinkConfigBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAssetsDataSinksUpdateResponse["data"] = body
+  const data: v1TenantUidAssetsDataSinksUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -482,40 +482,40 @@ export const TenantUidAssetsDataSinksUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAssetsDataSinksUpdateResponse;
+  } as v1TenantUidAssetsDataSinksUpdateResponse;
 };
 
 /**
  * @summary Get tenant auth token settings
  */
-export type TenantUidAuthTokenSettingsGetResponse200 = {
+export type tenantUidAuthTokenSettingsGetResponse200 = {
   data: AuthTokenSettings;
   status: 200;
 };
 
-export type TenantUidAuthTokenSettingsGetResponseComposite =
-  TenantUidAuthTokenSettingsGetResponse200;
+export type tenantUidAuthTokenSettingsGetResponseComposite =
+  tenantUidAuthTokenSettingsGetResponse200;
 
-export type TenantUidAuthTokenSettingsGetResponse =
-  TenantUidAuthTokenSettingsGetResponseComposite & {
+export type tenantUidAuthTokenSettingsGetResponse =
+  tenantUidAuthTokenSettingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantUidAuthTokenSettingsGetUrl = (tenantUid: string) => {
+export const getTenantUidAuthTokenSettingsGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/authTokenSettings`;
 };
 
-export const TenantUidAuthTokenSettingsGet = async (
+export const tenantUidAuthTokenSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidAuthTokenSettingsGetResponse> => {
-  const res = await fetch(getV1TenantUidAuthTokenSettingsGetUrl(tenantUid), {
+): Promise<tenantUidAuthTokenSettingsGetResponse> => {
+  const res = await fetch(getTenantUidAuthTokenSettingsGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAuthTokenSettingsGetResponse["data"] = body
+  const data: tenantUidAuthTokenSettingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -523,43 +523,43 @@ export const TenantUidAuthTokenSettingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAuthTokenSettingsGetResponse;
+  } as tenantUidAuthTokenSettingsGetResponse;
 };
 
 /**
  * @summary Update tenant auth token settings
  */
-export type TenantUidAuthTokenSettingsUpdateResponse204 = {
+export type tenantUidAuthTokenSettingsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidAuthTokenSettingsUpdateResponseComposite =
-  TenantUidAuthTokenSettingsUpdateResponse204;
+export type tenantUidAuthTokenSettingsUpdateResponseComposite =
+  tenantUidAuthTokenSettingsUpdateResponse204;
 
-export type TenantUidAuthTokenSettingsUpdateResponse =
-  TenantUidAuthTokenSettingsUpdateResponseComposite & {
+export type tenantUidAuthTokenSettingsUpdateResponse =
+  tenantUidAuthTokenSettingsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantUidAuthTokenSettingsUpdateUrl = (tenantUid: string) => {
+export const getTenantUidAuthTokenSettingsUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/authTokenSettings`;
 };
 
-export const TenantUidAuthTokenSettingsUpdate = async (
+export const tenantUidAuthTokenSettingsUpdate = async (
   tenantUid: string,
-  AuthTokenSettings: AuthTokenSettings,
+  authTokenSettings: AuthTokenSettings,
   options?: RequestInit,
-): Promise<TenantUidAuthTokenSettingsUpdateResponse> => {
-  const res = await fetch(getV1TenantUidAuthTokenSettingsUpdateUrl(tenantUid), {
+): Promise<tenantUidAuthTokenSettingsUpdateResponse> => {
+  const res = await fetch(getTenantUidAuthTokenSettingsUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(AuthTokenSettings),
+    body: JSON.stringify(authTokenSettings),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidAuthTokenSettingsUpdateResponse["data"] = body
+  const data: tenantUidAuthTokenSettingsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -567,40 +567,40 @@ export const TenantUidAuthTokenSettingsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidAuthTokenSettingsUpdateResponse;
+  } as tenantUidAuthTokenSettingsUpdateResponse;
 };
 
 /**
  * @summary Tenant to accept the contract agreement
  */
-export type TenantsUidContractAcceptResponse204 = {
+export type tenantsUidContractAcceptResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsUidContractAcceptResponseComposite =
-  TenantsUidContractAcceptResponse204;
+export type tenantsUidContractAcceptResponseComposite =
+  tenantsUidContractAcceptResponse204;
 
-export type TenantsUidContractAcceptResponse =
-  TenantsUidContractAcceptResponseComposite & {
+export type tenantsUidContractAcceptResponse =
+  tenantsUidContractAcceptResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidContractAcceptUrl = (tenantUid: string) => {
+export const getTenantsUidContractAcceptUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/contract/accept`;
 };
 
-export const TenantsUidContractAccept = async (
+export const tenantsUidContractAccept = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantsUidContractAcceptResponse> => {
-  const res = await fetch(getV1TenantsUidContractAcceptUrl(tenantUid), {
+): Promise<tenantsUidContractAcceptResponse> => {
+  const res = await fetch(getTenantsUidContractAcceptUrl(tenantUid), {
     ...options,
     method: "PATCH",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidContractAcceptResponse["data"] = body
+  const data: tenantsUidContractAcceptResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -608,26 +608,26 @@ export const TenantsUidContractAccept = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidContractAcceptResponse;
+  } as tenantsUidContractAcceptResponse;
 };
 
 /**
  * @summary Deletes the aws credit account for tenants
  */
-export type TenantsCreditAccountDeleteResponse204 = {
+export type tenantsCreditAccountDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsCreditAccountDeleteResponseComposite =
-  TenantsCreditAccountDeleteResponse204;
+export type tenantsCreditAccountDeleteResponseComposite =
+  tenantsCreditAccountDeleteResponse204;
 
-export type TenantsCreditAccountDeleteResponse =
-  TenantsCreditAccountDeleteResponseComposite & {
+export type tenantsCreditAccountDeleteResponse =
+  tenantsCreditAccountDeleteResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsCreditAccountDeleteUrl = (
+export const getTenantsCreditAccountDeleteUrl = (
   tenantUid: string,
   params?: TenantsCreditAccountDeleteParams,
 ) => {
@@ -646,21 +646,18 @@ export const getV1TenantsCreditAccountDeleteUrl = (
     : `https://api.spectrocloud.com/v1/tenants/${tenantUid}/creditAccount/aws`;
 };
 
-export const TenantsCreditAccountDelete = async (
+export const tenantsCreditAccountDelete = async (
   tenantUid: string,
   params?: TenantsCreditAccountDeleteParams,
   options?: RequestInit,
-): Promise<TenantsCreditAccountDeleteResponse> => {
-  const res = await fetch(
-    getV1TenantsCreditAccountDeleteUrl(tenantUid, params),
-    {
-      ...options,
-      method: "DELETE",
-    },
-  );
+): Promise<tenantsCreditAccountDeleteResponse> => {
+  const res = await fetch(getTenantsCreditAccountDeleteUrl(tenantUid, params), {
+    ...options,
+    method: "DELETE",
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsCreditAccountDeleteResponse["data"] = body
+  const data: tenantsCreditAccountDeleteResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -668,40 +665,40 @@ export const TenantsCreditAccountDelete = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsCreditAccountDeleteResponse;
+  } as tenantsCreditAccountDeleteResponse;
 };
 
 /**
  * @summary Get the credit accounts for the tenants with free tier access
  */
-export type TenantsCreditAccountGetResponse200 = {
+export type tenantsCreditAccountGetResponse200 = {
   data: AwsCreditAccountEntity;
   status: 200;
 };
 
-export type TenantsCreditAccountGetResponseComposite =
-  TenantsCreditAccountGetResponse200;
+export type tenantsCreditAccountGetResponseComposite =
+  tenantsCreditAccountGetResponse200;
 
-export type TenantsCreditAccountGetResponse =
-  TenantsCreditAccountGetResponseComposite & {
+export type tenantsCreditAccountGetResponse =
+  tenantsCreditAccountGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsCreditAccountGetUrl = (tenantUid: string) => {
+export const getTenantsCreditAccountGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/creditAccount/aws`;
 };
 
-export const TenantsCreditAccountGet = async (
+export const tenantsCreditAccountGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantsCreditAccountGetResponse> => {
-  const res = await fetch(getV1TenantsCreditAccountGetUrl(tenantUid), {
+): Promise<tenantsCreditAccountGetResponse> => {
+  const res = await fetch(getTenantsCreditAccountGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsCreditAccountGetResponse["data"] = body
+  const data: tenantsCreditAccountGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -709,22 +706,22 @@ export const TenantsCreditAccountGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsCreditAccountGetResponse;
+  } as tenantsCreditAccountGetResponse;
 };
 
 /**
  * @summary retrieves the domains for tenant
  */
-export type TenantUidDomainsGetResponse200 = {
+export type v1TenantUidDomainsGetResponse200 = {
   data: TenantDomains;
   status: 200;
 };
 
-export type TenantUidDomainsGetResponseComposite =
-  TenantUidDomainsGetResponse200;
+export type v1TenantUidDomainsGetResponseComposite =
+  v1TenantUidDomainsGetResponse200;
 
-export type TenantUidDomainsGetResponse =
-  TenantUidDomainsGetResponseComposite & {
+export type v1TenantUidDomainsGetResponse =
+  v1TenantUidDomainsGetResponseComposite & {
     headers: Headers;
   };
 
@@ -732,17 +729,17 @@ export const getV1TenantUidDomainsGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/domains`;
 };
 
-export const TenantUidDomainsGet = async (
+export const v1TenantUidDomainsGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidDomainsGetResponse> => {
+): Promise<v1TenantUidDomainsGetResponse> => {
   const res = await fetch(getV1TenantUidDomainsGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidDomainsGetResponse["data"] = body
+  const data: v1TenantUidDomainsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -750,22 +747,22 @@ export const TenantUidDomainsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidDomainsGetResponse;
+  } as v1TenantUidDomainsGetResponse;
 };
 
 /**
  * @summary creates or updates domains for tenant
  */
-export type TenantUidDomainsUpdateResponse204 = {
+export type v1TenantUidDomainsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidDomainsUpdateResponseComposite =
-  TenantUidDomainsUpdateResponse204;
+export type v1TenantUidDomainsUpdateResponseComposite =
+  v1TenantUidDomainsUpdateResponse204;
 
-export type TenantUidDomainsUpdateResponse =
-  TenantUidDomainsUpdateResponseComposite & {
+export type v1TenantUidDomainsUpdateResponse =
+  v1TenantUidDomainsUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -773,20 +770,20 @@ export const getV1TenantUidDomainsUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/domains`;
 };
 
-export const TenantUidDomainsUpdate = async (
+export const v1TenantUidDomainsUpdate = async (
   tenantUid: string,
-  TenantDomains: TenantDomains,
+  tenantDomains: TenantDomains,
   options?: RequestInit,
-): Promise<TenantUidDomainsUpdateResponse> => {
+): Promise<v1TenantUidDomainsUpdateResponse> => {
   const res = await fetch(getV1TenantUidDomainsUpdateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantDomains),
+    body: JSON.stringify(tenantDomains),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidDomainsUpdateResponse["data"] = body
+  const data: v1TenantUidDomainsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -794,120 +791,120 @@ export const TenantUidDomainsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidDomainsUpdateResponse;
+  } as v1TenantUidDomainsUpdateResponse;
 };
 
 /**
  * @summary Update tenant emailId
  */
-export type PatchTenantEmailIdResponse204 = {
+export type patchTenantEmailIdResponse204 = {
   data: void;
   status: 204;
 };
 
-export type PatchTenantEmailIdResponseComposite = PatchTenantEmailIdResponse204;
+export type patchTenantEmailIdResponseComposite = patchTenantEmailIdResponse204;
 
-export type PatchTenantEmailIdResponse = PatchTenantEmailIdResponseComposite & {
+export type patchTenantEmailIdResponse = patchTenantEmailIdResponseComposite & {
   headers: Headers;
 };
 
-export const getV1PatchTenantEmailIdUrl = (tenantUid: string) => {
+export const getPatchTenantEmailIdUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/emailId`;
 };
 
-export const PatchTenantEmailId = async (
+export const patchTenantEmailId = async (
   tenantUid: string,
-  TenantEmailPatch: TenantEmailPatch,
+  tenantEmailPatch: TenantEmailPatch,
   options?: RequestInit,
-): Promise<PatchTenantEmailIdResponse> => {
-  const res = await fetch(getV1PatchTenantEmailIdUrl(tenantUid), {
+): Promise<patchTenantEmailIdResponse> => {
+  const res = await fetch(getPatchTenantEmailIdUrl(tenantUid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantEmailPatch),
+    body: JSON.stringify(tenantEmailPatch),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: PatchTenantEmailIdResponse["data"] = body ? JSON.parse(body) : {};
+  const data: patchTenantEmailIdResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as PatchTenantEmailIdResponse;
+  } as patchTenantEmailIdResponse;
 };
 
 /**
  * @summary Get tenant level freemium configuration
  */
-export type TenantFreemiumGetResponse200 = {
+export type tenantFreemiumGetResponse200 = {
   data: TenantFreemium;
   status: 200;
 };
 
-export type TenantFreemiumGetResponseComposite = TenantFreemiumGetResponse200;
+export type tenantFreemiumGetResponseComposite = tenantFreemiumGetResponse200;
 
-export type TenantFreemiumGetResponse = TenantFreemiumGetResponseComposite & {
+export type tenantFreemiumGetResponse = tenantFreemiumGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1TenantFreemiumGetUrl = (tenantUid: string) => {
+export const getTenantFreemiumGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemium`;
 };
 
-export const TenantFreemiumGet = async (
+export const tenantFreemiumGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantFreemiumGetResponse> => {
-  const res = await fetch(getV1TenantFreemiumGetUrl(tenantUid), {
+): Promise<tenantFreemiumGetResponse> => {
+  const res = await fetch(getTenantFreemiumGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFreemiumGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: tenantFreemiumGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantFreemiumGetResponse;
+  } as tenantFreemiumGetResponse;
 };
 
 /**
  * @summary Update tenant freemium configuration
  */
-export type TenantFreemiumUpdateResponse204 = {
+export type tenantFreemiumUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantFreemiumUpdateResponseComposite =
-  TenantFreemiumUpdateResponse204;
+export type tenantFreemiumUpdateResponseComposite =
+  tenantFreemiumUpdateResponse204;
 
-export type TenantFreemiumUpdateResponse =
-  TenantFreemiumUpdateResponseComposite & {
+export type tenantFreemiumUpdateResponse =
+  tenantFreemiumUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantFreemiumUpdateUrl = (tenantUid: string) => {
+export const getTenantFreemiumUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemium`;
 };
 
-export const TenantFreemiumUpdate = async (
+export const tenantFreemiumUpdate = async (
   tenantUid: string,
-  TenantFreemium: TenantFreemium,
+  tenantFreemium: TenantFreemium,
   options?: RequestInit,
-): Promise<TenantFreemiumUpdateResponse> => {
-  const res = await fetch(getV1TenantFreemiumUpdateUrl(tenantUid), {
+): Promise<tenantFreemiumUpdateResponse> => {
+  const res = await fetch(getTenantFreemiumUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantFreemium),
+    body: JSON.stringify(tenantFreemium),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFreemiumUpdateResponse["data"] = body
+  const data: tenantFreemiumUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -915,40 +912,40 @@ export const TenantFreemiumUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantFreemiumUpdateResponse;
+  } as tenantFreemiumUpdateResponse;
 };
 
 /**
  * @summary Get tenant freemium usage
  */
-export type TenantFreemiumUsageGetResponse200 = {
+export type tenantFreemiumUsageGetResponse200 = {
   data: TenantFreemiumUsage;
   status: 200;
 };
 
-export type TenantFreemiumUsageGetResponseComposite =
-  TenantFreemiumUsageGetResponse200;
+export type tenantFreemiumUsageGetResponseComposite =
+  tenantFreemiumUsageGetResponse200;
 
-export type TenantFreemiumUsageGetResponse =
-  TenantFreemiumUsageGetResponseComposite & {
+export type tenantFreemiumUsageGetResponse =
+  tenantFreemiumUsageGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantFreemiumUsageGetUrl = (tenantUid: string) => {
+export const getTenantFreemiumUsageGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemiumUsage`;
 };
 
-export const TenantFreemiumUsageGet = async (
+export const tenantFreemiumUsageGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantFreemiumUsageGetResponse> => {
-  const res = await fetch(getV1TenantFreemiumUsageGetUrl(tenantUid), {
+): Promise<tenantFreemiumUsageGetResponse> => {
+  const res = await fetch(getTenantFreemiumUsageGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFreemiumUsageGetResponse["data"] = body
+  const data: tenantFreemiumUsageGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -956,63 +953,60 @@ export const TenantFreemiumUsageGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantFreemiumUsageGetResponse;
+  } as tenantFreemiumUsageGetResponse;
 };
 
 /**
  * @summary Returns a specified invoice
  */
-export type InvoicesUidGetResponse200 = {
+export type invoicesUidGetResponse200 = {
   data: Invoice;
   status: 200;
 };
 
-export type InvoicesUidGetResponseComposite = InvoicesUidGetResponse200;
+export type invoicesUidGetResponseComposite = invoicesUidGetResponse200;
 
-export type InvoicesUidGetResponse = InvoicesUidGetResponseComposite & {
+export type invoicesUidGetResponse = invoicesUidGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1InvoicesUidGetUrl = (
-  tenantUid: string,
-  invoiceUid: string,
-) => {
+export const getInvoicesUidGetUrl = (tenantUid: string, invoiceUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}`;
 };
 
-export const InvoicesUidGet = async (
+export const invoicesUidGet = async (
   tenantUid: string,
   invoiceUid: string,
   options?: RequestInit,
-): Promise<InvoicesUidGetResponse> => {
-  const res = await fetch(getV1InvoicesUidGetUrl(tenantUid, invoiceUid), {
+): Promise<invoicesUidGetResponse> => {
+  const res = await fetch(getInvoicesUidGetUrl(tenantUid, invoiceUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: InvoicesUidGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: invoicesUidGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as InvoicesUidGetResponse;
+  } as invoicesUidGetResponse;
 };
 
 /**
  * @summary Downloads the specified invoice report
  */
-export type InvoiceUidReportInvoicePdfResponse200 = {
+export type v1InvoiceUidReportInvoicePdfResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type InvoiceUidReportInvoicePdfResponseComposite =
-  InvoiceUidReportInvoicePdfResponse200;
+export type v1InvoiceUidReportInvoicePdfResponseComposite =
+  v1InvoiceUidReportInvoicePdfResponse200;
 
-export type InvoiceUidReportInvoicePdfResponse =
-  InvoiceUidReportInvoicePdfResponseComposite & {
+export type v1InvoiceUidReportInvoicePdfResponse =
+  v1InvoiceUidReportInvoicePdfResponseComposite & {
     headers: Headers;
   };
 
@@ -1023,11 +1017,11 @@ export const getV1InvoiceUidReportInvoicePdfUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/invoice/pdf`;
 };
 
-export const InvoiceUidReportInvoicePdf = async (
+export const v1InvoiceUidReportInvoicePdf = async (
   tenantUid: string,
   invoiceUid: string,
   options?: RequestInit,
-): Promise<InvoiceUidReportInvoicePdfResponse> => {
+): Promise<v1InvoiceUidReportInvoicePdfResponse> => {
   const res = await fetch(
     getV1InvoiceUidReportInvoicePdfUrl(tenantUid, invoiceUid),
     {
@@ -1037,7 +1031,7 @@ export const InvoiceUidReportInvoicePdf = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: InvoiceUidReportInvoicePdfResponse["data"] = body
+  const data: v1InvoiceUidReportInvoicePdfResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1045,22 +1039,22 @@ export const InvoiceUidReportInvoicePdf = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as InvoiceUidReportInvoicePdfResponse;
+  } as v1InvoiceUidReportInvoicePdfResponse;
 };
 
 /**
  * @summary Downloads the specified monthly invoice report
  */
-export type InvoiceUidReportPdfResponse200 = {
+export type v1InvoiceUidReportPdfResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type InvoiceUidReportPdfResponseComposite =
-  InvoiceUidReportPdfResponse200;
+export type v1InvoiceUidReportPdfResponseComposite =
+  v1InvoiceUidReportPdfResponse200;
 
-export type InvoiceUidReportPdfResponse =
-  InvoiceUidReportPdfResponseComposite & {
+export type v1InvoiceUidReportPdfResponse =
+  v1InvoiceUidReportPdfResponseComposite & {
     headers: Headers;
   };
 
@@ -1071,18 +1065,18 @@ export const getV1InvoiceUidReportPdfUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/pdf`;
 };
 
-export const InvoiceUidReportPdf = async (
+export const v1InvoiceUidReportPdf = async (
   tenantUid: string,
   invoiceUid: string,
   options?: RequestInit,
-): Promise<InvoiceUidReportPdfResponse> => {
+): Promise<v1InvoiceUidReportPdfResponse> => {
   const res = await fetch(getV1InvoiceUidReportPdfUrl(tenantUid, invoiceUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: InvoiceUidReportPdfResponse["data"] = body
+  const data: v1InvoiceUidReportPdfResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1090,22 +1084,22 @@ export const InvoiceUidReportPdf = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as InvoiceUidReportPdfResponse;
+  } as v1InvoiceUidReportPdfResponse;
 };
 
 /**
  * @summary Downloads the specified tenant usage
  */
-export type InvoiceUidReportUsagePdfResponse200 = {
+export type v1InvoiceUidReportUsagePdfResponse200 = {
   data: Blob;
   status: 200;
 };
 
-export type InvoiceUidReportUsagePdfResponseComposite =
-  InvoiceUidReportUsagePdfResponse200;
+export type v1InvoiceUidReportUsagePdfResponseComposite =
+  v1InvoiceUidReportUsagePdfResponse200;
 
-export type InvoiceUidReportUsagePdfResponse =
-  InvoiceUidReportUsagePdfResponseComposite & {
+export type v1InvoiceUidReportUsagePdfResponse =
+  v1InvoiceUidReportUsagePdfResponseComposite & {
     headers: Headers;
   };
 
@@ -1116,11 +1110,11 @@ export const getV1InvoiceUidReportUsagePdfUrl = (
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/usage/pdf`;
 };
 
-export const InvoiceUidReportUsagePdf = async (
+export const v1InvoiceUidReportUsagePdf = async (
   tenantUid: string,
   invoiceUid: string,
   options?: RequestInit,
-): Promise<InvoiceUidReportUsagePdfResponse> => {
+): Promise<v1InvoiceUidReportUsagePdfResponse> => {
   const res = await fetch(
     getV1InvoiceUidReportUsagePdfUrl(tenantUid, invoiceUid),
     {
@@ -1130,7 +1124,7 @@ export const InvoiceUidReportUsagePdf = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: InvoiceUidReportUsagePdfResponse["data"] = body
+  const data: v1InvoiceUidReportUsagePdfResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1138,40 +1132,40 @@ export const InvoiceUidReportUsagePdf = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as InvoiceUidReportUsagePdfResponse;
+  } as v1InvoiceUidReportUsagePdfResponse;
 };
 
 /**
  * @summary Get tenant login banner settings
  */
-export type TenantUidLoginBannerGetResponse200 = {
+export type tenantUidLoginBannerGetResponse200 = {
   data: LoginBannerSettings;
   status: 200;
 };
 
-export type TenantUidLoginBannerGetResponseComposite =
-  TenantUidLoginBannerGetResponse200;
+export type tenantUidLoginBannerGetResponseComposite =
+  tenantUidLoginBannerGetResponse200;
 
-export type TenantUidLoginBannerGetResponse =
-  TenantUidLoginBannerGetResponseComposite & {
+export type tenantUidLoginBannerGetResponse =
+  tenantUidLoginBannerGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantUidLoginBannerGetUrl = (tenantUid: string) => {
+export const getTenantUidLoginBannerGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/loginBanner`;
 };
 
-export const TenantUidLoginBannerGet = async (
+export const tenantUidLoginBannerGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidLoginBannerGetResponse> => {
-  const res = await fetch(getV1TenantUidLoginBannerGetUrl(tenantUid), {
+): Promise<tenantUidLoginBannerGetResponse> => {
+  const res = await fetch(getTenantUidLoginBannerGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidLoginBannerGetResponse["data"] = body
+  const data: tenantUidLoginBannerGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1179,43 +1173,43 @@ export const TenantUidLoginBannerGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidLoginBannerGetResponse;
+  } as tenantUidLoginBannerGetResponse;
 };
 
 /**
  * @summary Update tenant login banner settings
  */
-export type TenantUidLoginBannerUpdateResponse204 = {
+export type tenantUidLoginBannerUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidLoginBannerUpdateResponseComposite =
-  TenantUidLoginBannerUpdateResponse204;
+export type tenantUidLoginBannerUpdateResponseComposite =
+  tenantUidLoginBannerUpdateResponse204;
 
-export type TenantUidLoginBannerUpdateResponse =
-  TenantUidLoginBannerUpdateResponseComposite & {
+export type tenantUidLoginBannerUpdateResponse =
+  tenantUidLoginBannerUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantUidLoginBannerUpdateUrl = (tenantUid: string) => {
+export const getTenantUidLoginBannerUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/loginBanner`;
 };
 
-export const TenantUidLoginBannerUpdate = async (
+export const tenantUidLoginBannerUpdate = async (
   tenantUid: string,
-  LoginBannerSettings: LoginBannerSettings,
+  loginBannerSettings: LoginBannerSettings,
   options?: RequestInit,
-): Promise<TenantUidLoginBannerUpdateResponse> => {
-  const res = await fetch(getV1TenantUidLoginBannerUpdateUrl(tenantUid), {
+): Promise<tenantUidLoginBannerUpdateResponse> => {
+  const res = await fetch(getTenantUidLoginBannerUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(LoginBannerSettings),
+    body: JSON.stringify(loginBannerSettings),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidLoginBannerUpdateResponse["data"] = body
+  const data: tenantUidLoginBannerUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1223,48 +1217,43 @@ export const TenantUidLoginBannerUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidLoginBannerUpdateResponse;
+  } as tenantUidLoginBannerUpdateResponse;
 };
 
 /**
  * @summary Delete the macros for the specified tenant by given macro name
  */
-export type TenantsUidMacrosDeleteByMacroNameResponse204 = {
+export type tenantsUidMacrosDeleteByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsUidMacrosDeleteByMacroNameResponseComposite =
-  TenantsUidMacrosDeleteByMacroNameResponse204;
+export type tenantsUidMacrosDeleteByMacroNameResponseComposite =
+  tenantsUidMacrosDeleteByMacroNameResponse204;
 
-export type TenantsUidMacrosDeleteByMacroNameResponse =
-  TenantsUidMacrosDeleteByMacroNameResponseComposite & {
+export type tenantsUidMacrosDeleteByMacroNameResponse =
+  tenantsUidMacrosDeleteByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidMacrosDeleteByMacroNameUrl = (
-  tenantUid: string,
-) => {
+export const getTenantsUidMacrosDeleteByMacroNameUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`;
 };
 
-export const TenantsUidMacrosDeleteByMacroName = async (
+export const tenantsUidMacrosDeleteByMacroName = async (
   tenantUid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<TenantsUidMacrosDeleteByMacroNameResponse> => {
-  const res = await fetch(
-    getV1TenantsUidMacrosDeleteByMacroNameUrl(tenantUid),
-    {
-      ...options,
-      method: "DELETE",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(MacrosBody),
-    },
-  );
+): Promise<tenantsUidMacrosDeleteByMacroNameResponse> => {
+  const res = await fetch(getTenantsUidMacrosDeleteByMacroNameUrl(tenantUid), {
+    ...options,
+    method: "DELETE",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(v1MacrosBody),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidMacrosDeleteByMacroNameResponse["data"] = body
+  const data: tenantsUidMacrosDeleteByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1272,40 +1261,40 @@ export const TenantsUidMacrosDeleteByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidMacrosDeleteByMacroNameResponse;
+  } as tenantsUidMacrosDeleteByMacroNameResponse;
 };
 
 /**
  * @summary List the macros of the specified tenant
  */
-export type TenantsUidMacrosListResponse200 = {
+export type tenantsUidMacrosListResponse200 = {
   data: Macros;
   status: 200;
 };
 
-export type TenantsUidMacrosListResponseComposite =
-  TenantsUidMacrosListResponse200;
+export type tenantsUidMacrosListResponseComposite =
+  tenantsUidMacrosListResponse200;
 
-export type TenantsUidMacrosListResponse =
-  TenantsUidMacrosListResponseComposite & {
+export type tenantsUidMacrosListResponse =
+  tenantsUidMacrosListResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidMacrosListUrl = (tenantUid: string) => {
+export const getTenantsUidMacrosListUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`;
 };
 
-export const TenantsUidMacrosList = async (
+export const tenantsUidMacrosList = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantsUidMacrosListResponse> => {
-  const res = await fetch(getV1TenantsUidMacrosListUrl(tenantUid), {
+): Promise<tenantsUidMacrosListResponse> => {
+  const res = await fetch(getTenantsUidMacrosListUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidMacrosListResponse["data"] = body
+  const data: tenantsUidMacrosListResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1313,48 +1302,43 @@ export const TenantsUidMacrosList = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidMacrosListResponse;
+  } as tenantsUidMacrosListResponse;
 };
 
 /**
  * @summary Update the macros for the specified tenant by given macro name
  */
-export type TenantsUidMacrosUpdateByMacroNameResponse204 = {
+export type tenantsUidMacrosUpdateByMacroNameResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsUidMacrosUpdateByMacroNameResponseComposite =
-  TenantsUidMacrosUpdateByMacroNameResponse204;
+export type tenantsUidMacrosUpdateByMacroNameResponseComposite =
+  tenantsUidMacrosUpdateByMacroNameResponse204;
 
-export type TenantsUidMacrosUpdateByMacroNameResponse =
-  TenantsUidMacrosUpdateByMacroNameResponseComposite & {
+export type tenantsUidMacrosUpdateByMacroNameResponse =
+  tenantsUidMacrosUpdateByMacroNameResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidMacrosUpdateByMacroNameUrl = (
-  tenantUid: string,
-) => {
+export const getTenantsUidMacrosUpdateByMacroNameUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`;
 };
 
-export const TenantsUidMacrosUpdateByMacroName = async (
+export const tenantsUidMacrosUpdateByMacroName = async (
   tenantUid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<TenantsUidMacrosUpdateByMacroNameResponse> => {
-  const res = await fetch(
-    getV1TenantsUidMacrosUpdateByMacroNameUrl(tenantUid),
-    {
-      ...options,
-      method: "PATCH",
-      headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(MacrosBody),
-    },
-  );
+): Promise<tenantsUidMacrosUpdateByMacroNameResponse> => {
+  const res = await fetch(getTenantsUidMacrosUpdateByMacroNameUrl(tenantUid), {
+    ...options,
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(v1MacrosBody),
+  });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidMacrosUpdateByMacroNameResponse["data"] = body
+  const data: tenantsUidMacrosUpdateByMacroNameResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1362,43 +1346,43 @@ export const TenantsUidMacrosUpdateByMacroName = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidMacrosUpdateByMacroNameResponse;
+  } as tenantsUidMacrosUpdateByMacroNameResponse;
 };
 
 /**
  * @summary Create or add new macros for the specified tenant
  */
-export type TenantsUidMacrosCreateResponse204 = {
+export type tenantsUidMacrosCreateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsUidMacrosCreateResponseComposite =
-  TenantsUidMacrosCreateResponse204;
+export type tenantsUidMacrosCreateResponseComposite =
+  tenantsUidMacrosCreateResponse204;
 
-export type TenantsUidMacrosCreateResponse =
-  TenantsUidMacrosCreateResponseComposite & {
+export type tenantsUidMacrosCreateResponse =
+  tenantsUidMacrosCreateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidMacrosCreateUrl = (tenantUid: string) => {
+export const getTenantsUidMacrosCreateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`;
 };
 
-export const TenantsUidMacrosCreate = async (
+export const tenantsUidMacrosCreate = async (
   tenantUid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<TenantsUidMacrosCreateResponse> => {
-  const res = await fetch(getV1TenantsUidMacrosCreateUrl(tenantUid), {
+): Promise<tenantsUidMacrosCreateResponse> => {
+  const res = await fetch(getTenantsUidMacrosCreateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidMacrosCreateResponse["data"] = body
+  const data: tenantsUidMacrosCreateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1406,43 +1390,43 @@ export const TenantsUidMacrosCreate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidMacrosCreateResponse;
+  } as tenantsUidMacrosCreateResponse;
 };
 
 /**
  * @summary Update the macros of the specified tenant
  */
-export type TenantsUidMacrosUpdateResponse204 = {
+export type tenantsUidMacrosUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantsUidMacrosUpdateResponseComposite =
-  TenantsUidMacrosUpdateResponse204;
+export type tenantsUidMacrosUpdateResponseComposite =
+  tenantsUidMacrosUpdateResponse204;
 
-export type TenantsUidMacrosUpdateResponse =
-  TenantsUidMacrosUpdateResponseComposite & {
+export type tenantsUidMacrosUpdateResponse =
+  tenantsUidMacrosUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantsUidMacrosUpdateUrl = (tenantUid: string) => {
+export const getTenantsUidMacrosUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`;
 };
 
-export const TenantsUidMacrosUpdate = async (
+export const tenantsUidMacrosUpdate = async (
   tenantUid: string,
-  MacrosBody: MacrosBody,
+  v1MacrosBody: V1MacrosBody,
   options?: RequestInit,
-): Promise<TenantsUidMacrosUpdateResponse> => {
-  const res = await fetch(getV1TenantsUidMacrosUpdateUrl(tenantUid), {
+): Promise<tenantsUidMacrosUpdateResponse> => {
+  const res = await fetch(getTenantsUidMacrosUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(MacrosBody),
+    body: JSON.stringify(v1MacrosBody),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantsUidMacrosUpdateResponse["data"] = body
+  const data: tenantsUidMacrosUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1450,22 +1434,22 @@ export const TenantsUidMacrosUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantsUidMacrosUpdateResponse;
+  } as tenantsUidMacrosUpdateResponse;
 };
 
 /**
  * @summary Returns the oidc Spec for tenant
  */
-export type TenantUidOidcConfigGetResponse200 = {
+export type v1TenantUidOidcConfigGetResponse200 = {
   data: TenantOidcClientSpec;
   status: 200;
 };
 
-export type TenantUidOidcConfigGetResponseComposite =
-  TenantUidOidcConfigGetResponse200;
+export type v1TenantUidOidcConfigGetResponseComposite =
+  v1TenantUidOidcConfigGetResponse200;
 
-export type TenantUidOidcConfigGetResponse =
-  TenantUidOidcConfigGetResponseComposite & {
+export type v1TenantUidOidcConfigGetResponse =
+  v1TenantUidOidcConfigGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1473,17 +1457,17 @@ export const getV1TenantUidOidcConfigGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/oidc/config`;
 };
 
-export const TenantUidOidcConfigGet = async (
+export const v1TenantUidOidcConfigGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidOidcConfigGetResponse> => {
+): Promise<v1TenantUidOidcConfigGetResponse> => {
   const res = await fetch(getV1TenantUidOidcConfigGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidOidcConfigGetResponse["data"] = body
+  const data: v1TenantUidOidcConfigGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1491,22 +1475,22 @@ export const TenantUidOidcConfigGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidOidcConfigGetResponse;
+  } as v1TenantUidOidcConfigGetResponse;
 };
 
 /**
  * @summary Associates the  oidc Spec for the tenant
  */
-export type TenantUidOidcConfigUpdateResponse204 = {
+export type v1TenantUidOidcConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidOidcConfigUpdateResponseComposite =
-  TenantUidOidcConfigUpdateResponse204;
+export type v1TenantUidOidcConfigUpdateResponseComposite =
+  v1TenantUidOidcConfigUpdateResponse204;
 
-export type TenantUidOidcConfigUpdateResponse =
-  TenantUidOidcConfigUpdateResponseComposite & {
+export type v1TenantUidOidcConfigUpdateResponse =
+  v1TenantUidOidcConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -1514,20 +1498,20 @@ export const getV1TenantUidOidcConfigUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/oidc/config`;
 };
 
-export const TenantUidOidcConfigUpdate = async (
+export const v1TenantUidOidcConfigUpdate = async (
   tenantUid: string,
-  TenantOidcClientSpec: TenantOidcClientSpec,
+  tenantOidcClientSpec: TenantOidcClientSpec,
   options?: RequestInit,
-): Promise<TenantUidOidcConfigUpdateResponse> => {
+): Promise<v1TenantUidOidcConfigUpdateResponse> => {
   const res = await fetch(getV1TenantUidOidcConfigUpdateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantOidcClientSpec),
+    body: JSON.stringify(tenantOidcClientSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidOidcConfigUpdateResponse["data"] = body
+  const data: v1TenantUidOidcConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1535,22 +1519,22 @@ export const TenantUidOidcConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidOidcConfigUpdateResponse;
+  } as v1TenantUidOidcConfigUpdateResponse;
 };
 
 /**
  * @summary retrieves the password policy for tenant
  */
-export type TenantUidPasswordPolicyGetResponse200 = {
+export type v1TenantUidPasswordPolicyGetResponse200 = {
   data: TenantPasswordPolicyEntity;
   status: 200;
 };
 
-export type TenantUidPasswordPolicyGetResponseComposite =
-  TenantUidPasswordPolicyGetResponse200;
+export type v1TenantUidPasswordPolicyGetResponseComposite =
+  v1TenantUidPasswordPolicyGetResponse200;
 
-export type TenantUidPasswordPolicyGetResponse =
-  TenantUidPasswordPolicyGetResponseComposite & {
+export type v1TenantUidPasswordPolicyGetResponse =
+  v1TenantUidPasswordPolicyGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1558,17 +1542,17 @@ export const getV1TenantUidPasswordPolicyGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/password/policy`;
 };
 
-export const TenantUidPasswordPolicyGet = async (
+export const v1TenantUidPasswordPolicyGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidPasswordPolicyGetResponse> => {
+): Promise<v1TenantUidPasswordPolicyGetResponse> => {
   const res = await fetch(getV1TenantUidPasswordPolicyGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidPasswordPolicyGetResponse["data"] = body
+  const data: v1TenantUidPasswordPolicyGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1576,22 +1560,22 @@ export const TenantUidPasswordPolicyGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidPasswordPolicyGetResponse;
+  } as v1TenantUidPasswordPolicyGetResponse;
 };
 
 /**
  * @summary creates or updates a password policy for tenant
  */
-export type TenantUidPasswordPolicyUpdateResponse204 = {
+export type v1TenantUidPasswordPolicyUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidPasswordPolicyUpdateResponseComposite =
-  TenantUidPasswordPolicyUpdateResponse204;
+export type v1TenantUidPasswordPolicyUpdateResponseComposite =
+  v1TenantUidPasswordPolicyUpdateResponse204;
 
-export type TenantUidPasswordPolicyUpdateResponse =
-  TenantUidPasswordPolicyUpdateResponseComposite & {
+export type v1TenantUidPasswordPolicyUpdateResponse =
+  v1TenantUidPasswordPolicyUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -1599,20 +1583,20 @@ export const getV1TenantUidPasswordPolicyUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/password/policy`;
 };
 
-export const TenantUidPasswordPolicyUpdate = async (
+export const v1TenantUidPasswordPolicyUpdate = async (
   tenantUid: string,
-  TenantPasswordPolicyEntity: TenantPasswordPolicyEntity,
+  tenantPasswordPolicyEntity: TenantPasswordPolicyEntity,
   options?: RequestInit,
-): Promise<TenantUidPasswordPolicyUpdateResponse> => {
+): Promise<v1TenantUidPasswordPolicyUpdateResponse> => {
   const res = await fetch(getV1TenantUidPasswordPolicyUpdateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantPasswordPolicyEntity),
+    body: JSON.stringify(tenantPasswordPolicyEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidPasswordPolicyUpdateResponse["data"] = body
+  const data: v1TenantUidPasswordPolicyUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1620,22 +1604,22 @@ export const TenantUidPasswordPolicyUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidPasswordPolicyUpdateResponse;
+  } as v1TenantUidPasswordPolicyUpdateResponse;
 };
 
 /**
  * @summary Get is cluster group enabled for a specific tenant
  */
-export type TenantPrefClusterGroupGetResponse200 = {
+export type v1TenantPrefClusterGroupGetResponse200 = {
   data: TenantEnableClusterGroup;
   status: 200;
 };
 
-export type TenantPrefClusterGroupGetResponseComposite =
-  TenantPrefClusterGroupGetResponse200;
+export type v1TenantPrefClusterGroupGetResponseComposite =
+  v1TenantPrefClusterGroupGetResponse200;
 
-export type TenantPrefClusterGroupGetResponse =
-  TenantPrefClusterGroupGetResponseComposite & {
+export type v1TenantPrefClusterGroupGetResponse =
+  v1TenantPrefClusterGroupGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1643,17 +1627,17 @@ export const getV1TenantPrefClusterGroupGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterGroup`;
 };
 
-export const TenantPrefClusterGroupGet = async (
+export const v1TenantPrefClusterGroupGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantPrefClusterGroupGetResponse> => {
+): Promise<v1TenantPrefClusterGroupGetResponse> => {
   const res = await fetch(getV1TenantPrefClusterGroupGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantPrefClusterGroupGetResponse["data"] = body
+  const data: v1TenantPrefClusterGroupGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1661,22 +1645,22 @@ export const TenantPrefClusterGroupGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantPrefClusterGroupGetResponse;
+  } as v1TenantPrefClusterGroupGetResponse;
 };
 
 /**
  * @summary Enable or Disable cluster group for a specific tenant
  */
-export type TenantPrefClusterGroupUpdateResponse204 = {
+export type v1TenantPrefClusterGroupUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantPrefClusterGroupUpdateResponseComposite =
-  TenantPrefClusterGroupUpdateResponse204;
+export type v1TenantPrefClusterGroupUpdateResponseComposite =
+  v1TenantPrefClusterGroupUpdateResponse204;
 
-export type TenantPrefClusterGroupUpdateResponse =
-  TenantPrefClusterGroupUpdateResponseComposite & {
+export type v1TenantPrefClusterGroupUpdateResponse =
+  v1TenantPrefClusterGroupUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -1684,20 +1668,20 @@ export const getV1TenantPrefClusterGroupUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterGroup`;
 };
 
-export const TenantPrefClusterGroupUpdate = async (
+export const v1TenantPrefClusterGroupUpdate = async (
   tenantUid: string,
-  TenantEnableClusterGroup: TenantEnableClusterGroup,
+  tenantEnableClusterGroup: TenantEnableClusterGroup,
   options?: RequestInit,
-): Promise<TenantPrefClusterGroupUpdateResponse> => {
+): Promise<v1TenantPrefClusterGroupUpdateResponse> => {
   const res = await fetch(getV1TenantPrefClusterGroupUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantEnableClusterGroup),
+    body: JSON.stringify(tenantEnableClusterGroup),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantPrefClusterGroupUpdateResponse["data"] = body
+  const data: v1TenantPrefClusterGroupUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1705,40 +1689,40 @@ export const TenantPrefClusterGroupUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantPrefClusterGroupUpdateResponse;
+  } as v1TenantPrefClusterGroupUpdateResponse;
 };
 
 /**
  * @summary Get tenant cluster settings
  */
-export type TenantClusterSettingsGetResponse200 = {
+export type tenantClusterSettingsGetResponse200 = {
   data: TenantClusterSettings;
   status: 200;
 };
 
-export type TenantClusterSettingsGetResponseComposite =
-  TenantClusterSettingsGetResponse200;
+export type tenantClusterSettingsGetResponseComposite =
+  tenantClusterSettingsGetResponse200;
 
-export type TenantClusterSettingsGetResponse =
-  TenantClusterSettingsGetResponseComposite & {
+export type tenantClusterSettingsGetResponse =
+  tenantClusterSettingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantClusterSettingsGetUrl = (tenantUid: string) => {
+export const getTenantClusterSettingsGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterSettings`;
 };
 
-export const TenantClusterSettingsGet = async (
+export const tenantClusterSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantClusterSettingsGetResponse> => {
-  const res = await fetch(getV1TenantClusterSettingsGetUrl(tenantUid), {
+): Promise<tenantClusterSettingsGetResponse> => {
+  const res = await fetch(getTenantClusterSettingsGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantClusterSettingsGetResponse["data"] = body
+  const data: tenantClusterSettingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1746,70 +1730,70 @@ export const TenantClusterSettingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantClusterSettingsGetResponse;
+  } as tenantClusterSettingsGetResponse;
 };
 
 /**
  * @summary Update tenant clusters nodes auto remediation setting
  */
-export type TenantClustersNodesAutoRemediationSettingUpdateResponse204 = {
+export type tenantClustersNodesAutoRemediationSettingUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantClustersNodesAutoRemediationSettingUpdateResponseComposite =
-  TenantClustersNodesAutoRemediationSettingUpdateResponse204;
+export type tenantClustersNodesAutoRemediationSettingUpdateResponseComposite =
+  tenantClustersNodesAutoRemediationSettingUpdateResponse204;
 
-export type TenantClustersNodesAutoRemediationSettingUpdateResponse =
-  TenantClustersNodesAutoRemediationSettingUpdateResponseComposite & {
+export type tenantClustersNodesAutoRemediationSettingUpdateResponse =
+  tenantClustersNodesAutoRemediationSettingUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantClustersNodesAutoRemediationSettingUpdateUrl = (
+export const getTenantClustersNodesAutoRemediationSettingUpdateUrl = (
   tenantUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterSettings/nodesAutoRemediationSetting`;
 };
 
-export const TenantClustersNodesAutoRemediationSettingUpdate = async (
+export const tenantClustersNodesAutoRemediationSettingUpdate = async (
   tenantUid: string,
-  NodesAutoRemediationSettingsBody: NodesAutoRemediationSettingsBody,
+  v1NodesAutoRemediationSettingsBody: V1NodesAutoRemediationSettingsBody,
   options?: RequestInit,
-): Promise<TenantClustersNodesAutoRemediationSettingUpdateResponse> => {
+): Promise<tenantClustersNodesAutoRemediationSettingUpdateResponse> => {
   const res = await fetch(
-    getV1TenantClustersNodesAutoRemediationSettingUpdateUrl(tenantUid),
+    getTenantClustersNodesAutoRemediationSettingUpdateUrl(tenantUid),
     {
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(NodesAutoRemediationSettingsBody),
+      body: JSON.stringify(v1NodesAutoRemediationSettingsBody),
     },
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantClustersNodesAutoRemediationSettingUpdateResponse["data"] =
+  const data: tenantClustersNodesAutoRemediationSettingUpdateResponse["data"] =
     body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantClustersNodesAutoRemediationSettingUpdateResponse;
+  } as tenantClustersNodesAutoRemediationSettingUpdateResponse;
 };
 
 /**
  * @summary Get developer credit enabled for a specific tenant
  */
-export type TenantDeveloperCreditGetResponse200 = {
+export type v1TenantDeveloperCreditGetResponse200 = {
   data: DeveloperCredit;
   status: 200;
 };
 
-export type TenantDeveloperCreditGetResponseComposite =
-  TenantDeveloperCreditGetResponse200;
+export type v1TenantDeveloperCreditGetResponseComposite =
+  v1TenantDeveloperCreditGetResponse200;
 
-export type TenantDeveloperCreditGetResponse =
-  TenantDeveloperCreditGetResponseComposite & {
+export type v1TenantDeveloperCreditGetResponse =
+  v1TenantDeveloperCreditGetResponseComposite & {
     headers: Headers;
   };
 
@@ -1817,17 +1801,17 @@ export const getV1TenantDeveloperCreditGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/developerCredit`;
 };
 
-export const TenantDeveloperCreditGet = async (
+export const v1TenantDeveloperCreditGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantDeveloperCreditGetResponse> => {
+): Promise<v1TenantDeveloperCreditGetResponse> => {
   const res = await fetch(getV1TenantDeveloperCreditGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantDeveloperCreditGetResponse["data"] = body
+  const data: v1TenantDeveloperCreditGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1835,22 +1819,22 @@ export const TenantDeveloperCreditGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantDeveloperCreditGetResponse;
+  } as v1TenantDeveloperCreditGetResponse;
 };
 
 /**
  * @summary update developer credit for a specific tenant
  */
-export type TenantDeveloperCreditUpdateResponse204 = {
+export type v1TenantDeveloperCreditUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantDeveloperCreditUpdateResponseComposite =
-  TenantDeveloperCreditUpdateResponse204;
+export type v1TenantDeveloperCreditUpdateResponseComposite =
+  v1TenantDeveloperCreditUpdateResponse204;
 
-export type TenantDeveloperCreditUpdateResponse =
-  TenantDeveloperCreditUpdateResponseComposite & {
+export type v1TenantDeveloperCreditUpdateResponse =
+  v1TenantDeveloperCreditUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -1858,20 +1842,20 @@ export const getV1TenantDeveloperCreditUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/developerCredit`;
 };
 
-export const TenantDeveloperCreditUpdate = async (
+export const v1TenantDeveloperCreditUpdate = async (
   tenantUid: string,
-  DeveloperCredit: DeveloperCredit,
+  developerCredit: DeveloperCredit,
   options?: RequestInit,
-): Promise<TenantDeveloperCreditUpdateResponse> => {
+): Promise<v1TenantDeveloperCreditUpdateResponse> => {
   const res = await fetch(getV1TenantDeveloperCreditUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(DeveloperCredit),
+    body: JSON.stringify(developerCredit),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantDeveloperCreditUpdateResponse["data"] = body
+  const data: v1TenantDeveloperCreditUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1879,40 +1863,40 @@ export const TenantDeveloperCreditUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantDeveloperCreditUpdateResponse;
+  } as v1TenantDeveloperCreditUpdateResponse;
 };
 
 /**
  * @summary Get tenant fips settings
  */
-export type TenantFipsSettingsGetResponse200 = {
+export type tenantFipsSettingsGetResponse200 = {
   data: FipsSettings;
   status: 200;
 };
 
-export type TenantFipsSettingsGetResponseComposite =
-  TenantFipsSettingsGetResponse200;
+export type tenantFipsSettingsGetResponseComposite =
+  tenantFipsSettingsGetResponse200;
 
-export type TenantFipsSettingsGetResponse =
-  TenantFipsSettingsGetResponseComposite & {
+export type tenantFipsSettingsGetResponse =
+  tenantFipsSettingsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantFipsSettingsGetUrl = (tenantUid: string) => {
+export const getTenantFipsSettingsGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/fips`;
 };
 
-export const TenantFipsSettingsGet = async (
+export const tenantFipsSettingsGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantFipsSettingsGetResponse> => {
-  const res = await fetch(getV1TenantFipsSettingsGetUrl(tenantUid), {
+): Promise<tenantFipsSettingsGetResponse> => {
+  const res = await fetch(getTenantFipsSettingsGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFipsSettingsGetResponse["data"] = body
+  const data: tenantFipsSettingsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1920,43 +1904,43 @@ export const TenantFipsSettingsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantFipsSettingsGetResponse;
+  } as tenantFipsSettingsGetResponse;
 };
 
 /**
  * @summary Update tenant fips setting
  */
-export type TenantFipsSettingsUpdateResponse204 = {
+export type tenantFipsSettingsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantFipsSettingsUpdateResponseComposite =
-  TenantFipsSettingsUpdateResponse204;
+export type tenantFipsSettingsUpdateResponseComposite =
+  tenantFipsSettingsUpdateResponse204;
 
-export type TenantFipsSettingsUpdateResponse =
-  TenantFipsSettingsUpdateResponseComposite & {
+export type tenantFipsSettingsUpdateResponse =
+  tenantFipsSettingsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantFipsSettingsUpdateUrl = (tenantUid: string) => {
+export const getTenantFipsSettingsUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/fips`;
 };
 
-export const TenantFipsSettingsUpdate = async (
+export const tenantFipsSettingsUpdate = async (
   tenantUid: string,
-  FipsSettings: FipsSettings,
+  fipsSettings: FipsSettings,
   options?: RequestInit,
-): Promise<TenantFipsSettingsUpdateResponse> => {
-  const res = await fetch(getV1TenantFipsSettingsUpdateUrl(tenantUid), {
+): Promise<tenantFipsSettingsUpdateResponse> => {
+  const res = await fetch(getTenantFipsSettingsUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(FipsSettings),
+    body: JSON.stringify(fipsSettings),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantFipsSettingsUpdateResponse["data"] = body
+  const data: tenantFipsSettingsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -1964,117 +1948,117 @@ export const TenantFipsSettingsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantFipsSettingsUpdateResponse;
+  } as tenantFipsSettingsUpdateResponse;
 };
 
 /**
  * @summary Get all rate config for public and private cloud
  */
-export type RateConfigGetResponse200 = {
+export type rateConfigGetResponse200 = {
   data: RateConfig;
   status: 200;
 };
 
-export type RateConfigGetResponseComposite = RateConfigGetResponse200;
+export type rateConfigGetResponseComposite = rateConfigGetResponse200;
 
-export type RateConfigGetResponse = RateConfigGetResponseComposite & {
+export type rateConfigGetResponse = rateConfigGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RateConfigGetUrl = (tenantUid: string) => {
+export const getRateConfigGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/rateConfig`;
 };
 
-export const RateConfigGet = async (
+export const rateConfigGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<RateConfigGetResponse> => {
-  const res = await fetch(getV1RateConfigGetUrl(tenantUid), {
+): Promise<rateConfigGetResponse> => {
+  const res = await fetch(getRateConfigGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RateConfigGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rateConfigGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RateConfigGetResponse;
+  } as rateConfigGetResponse;
 };
 
 /**
  * @summary updates the rate config for public and private cloud
  */
-export type RateConfigUpdateResponse204 = {
+export type rateConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type RateConfigUpdateResponseComposite = RateConfigUpdateResponse204;
+export type rateConfigUpdateResponseComposite = rateConfigUpdateResponse204;
 
-export type RateConfigUpdateResponse = RateConfigUpdateResponseComposite & {
+export type rateConfigUpdateResponse = rateConfigUpdateResponseComposite & {
   headers: Headers;
 };
 
-export const getV1RateConfigUpdateUrl = (tenantUid: string) => {
+export const getRateConfigUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/rateConfig`;
 };
 
-export const RateConfigUpdate = async (
+export const rateConfigUpdate = async (
   tenantUid: string,
-  RateConfig: RateConfig,
+  rateConfig: RateConfig,
   options?: RequestInit,
-): Promise<RateConfigUpdateResponse> => {
-  const res = await fetch(getV1RateConfigUpdateUrl(tenantUid), {
+): Promise<rateConfigUpdateResponse> => {
+  const res = await fetch(getRateConfigUpdateUrl(tenantUid), {
     ...options,
     method: "PUT",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(RateConfig),
+    body: JSON.stringify(rateConfig),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: RateConfigUpdateResponse["data"] = body ? JSON.parse(body) : {};
+  const data: rateConfigUpdateResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as RateConfigUpdateResponse;
+  } as rateConfigUpdateResponse;
 };
 
 /**
  * @summary Get tenant level resource limits configuration
  */
-export type TenantResourceLimitsGetResponse200 = {
+export type tenantResourceLimitsGetResponse200 = {
   data: TenantResourceLimits;
   status: 200;
 };
 
-export type TenantResourceLimitsGetResponseComposite =
-  TenantResourceLimitsGetResponse200;
+export type tenantResourceLimitsGetResponseComposite =
+  tenantResourceLimitsGetResponse200;
 
-export type TenantResourceLimitsGetResponse =
-  TenantResourceLimitsGetResponseComposite & {
+export type tenantResourceLimitsGetResponse =
+  tenantResourceLimitsGetResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantResourceLimitsGetUrl = (tenantUid: string) => {
+export const getTenantResourceLimitsGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/resourceLimits`;
 };
 
-export const TenantResourceLimitsGet = async (
+export const tenantResourceLimitsGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantResourceLimitsGetResponse> => {
-  const res = await fetch(getV1TenantResourceLimitsGetUrl(tenantUid), {
+): Promise<tenantResourceLimitsGetResponse> => {
+  const res = await fetch(getTenantResourceLimitsGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantResourceLimitsGetResponse["data"] = body
+  const data: tenantResourceLimitsGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2082,43 +2066,43 @@ export const TenantResourceLimitsGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantResourceLimitsGetResponse;
+  } as tenantResourceLimitsGetResponse;
 };
 
 /**
  * @summary Update tenant resource limits configuration
  */
-export type TenantResourceLimitsUpdateResponse204 = {
+export type tenantResourceLimitsUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantResourceLimitsUpdateResponseComposite =
-  TenantResourceLimitsUpdateResponse204;
+export type tenantResourceLimitsUpdateResponseComposite =
+  tenantResourceLimitsUpdateResponse204;
 
-export type TenantResourceLimitsUpdateResponse =
-  TenantResourceLimitsUpdateResponseComposite & {
+export type tenantResourceLimitsUpdateResponse =
+  tenantResourceLimitsUpdateResponseComposite & {
     headers: Headers;
   };
 
-export const getV1TenantResourceLimitsUpdateUrl = (tenantUid: string) => {
+export const getTenantResourceLimitsUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/resourceLimits`;
 };
 
-export const TenantResourceLimitsUpdate = async (
+export const tenantResourceLimitsUpdate = async (
   tenantUid: string,
-  TenantResourceLimitsEntity: TenantResourceLimitsEntity,
+  tenantResourceLimitsEntity: TenantResourceLimitsEntity,
   options?: RequestInit,
-): Promise<TenantResourceLimitsUpdateResponse> => {
-  const res = await fetch(getV1TenantResourceLimitsUpdateUrl(tenantUid), {
+): Promise<tenantResourceLimitsUpdateResponse> => {
+  const res = await fetch(getTenantResourceLimitsUpdateUrl(tenantUid), {
     ...options,
     method: "PATCH",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantResourceLimitsEntity),
+    body: JSON.stringify(tenantResourceLimitsEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantResourceLimitsUpdateResponse["data"] = body
+  const data: tenantResourceLimitsUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2126,22 +2110,22 @@ export const TenantResourceLimitsUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantResourceLimitsUpdateResponse;
+  } as tenantResourceLimitsUpdateResponse;
 };
 
 /**
  * @summary Returns the specified service provider metadata and Saml Spec for tenant
  */
-export type TenantUidSamlConfigSpecGetResponse200 = {
+export type v1TenantUidSamlConfigSpecGetResponse200 = {
   data: TenantSamlSpec;
   status: 200;
 };
 
-export type TenantUidSamlConfigSpecGetResponseComposite =
-  TenantUidSamlConfigSpecGetResponse200;
+export type v1TenantUidSamlConfigSpecGetResponseComposite =
+  v1TenantUidSamlConfigSpecGetResponse200;
 
-export type TenantUidSamlConfigSpecGetResponse =
-  TenantUidSamlConfigSpecGetResponseComposite & {
+export type v1TenantUidSamlConfigSpecGetResponse =
+  v1TenantUidSamlConfigSpecGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2149,17 +2133,17 @@ export const getV1TenantUidSamlConfigSpecGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/saml/config`;
 };
 
-export const TenantUidSamlConfigSpecGet = async (
+export const v1TenantUidSamlConfigSpecGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidSamlConfigSpecGetResponse> => {
+): Promise<v1TenantUidSamlConfigSpecGetResponse> => {
   const res = await fetch(getV1TenantUidSamlConfigSpecGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidSamlConfigSpecGetResponse["data"] = body
+  const data: v1TenantUidSamlConfigSpecGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2167,22 +2151,22 @@ export const TenantUidSamlConfigSpecGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidSamlConfigSpecGetResponse;
+  } as v1TenantUidSamlConfigSpecGetResponse;
 };
 
 /**
  * @summary Associates the specified federation metadata for the tenant
  */
-export type TenantUidSamlConfigUpdateResponse204 = {
+export type v1TenantUidSamlConfigUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidSamlConfigUpdateResponseComposite =
-  TenantUidSamlConfigUpdateResponse204;
+export type v1TenantUidSamlConfigUpdateResponseComposite =
+  v1TenantUidSamlConfigUpdateResponse204;
 
-export type TenantUidSamlConfigUpdateResponse =
-  TenantUidSamlConfigUpdateResponseComposite & {
+export type v1TenantUidSamlConfigUpdateResponse =
+  v1TenantUidSamlConfigUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2190,20 +2174,20 @@ export const getV1TenantUidSamlConfigUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/saml/config`;
 };
 
-export const TenantUidSamlConfigUpdate = async (
+export const v1TenantUidSamlConfigUpdate = async (
   tenantUid: string,
-  TenantSamlRequestSpec: TenantSamlRequestSpec,
+  tenantSamlRequestSpec: TenantSamlRequestSpec,
   options?: RequestInit,
-): Promise<TenantUidSamlConfigUpdateResponse> => {
+): Promise<v1TenantUidSamlConfigUpdateResponse> => {
   const res = await fetch(getV1TenantUidSamlConfigUpdateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantSamlRequestSpec),
+    body: JSON.stringify(tenantSamlRequestSpec),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidSamlConfigUpdateResponse["data"] = body
+  const data: v1TenantUidSamlConfigUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2211,22 +2195,22 @@ export const TenantUidSamlConfigUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidSamlConfigUpdateResponse;
+  } as v1TenantUidSamlConfigUpdateResponse;
 };
 
 /**
  * @summary get sso logins for the tenants
  */
-export type TenantUidSsoAuthProvidersGetResponse200 = {
+export type v1TenantUidSsoAuthProvidersGetResponse200 = {
   data: TenantSsoAuthProvidersEntity;
   status: 200;
 };
 
-export type TenantUidSsoAuthProvidersGetResponseComposite =
-  TenantUidSsoAuthProvidersGetResponse200;
+export type v1TenantUidSsoAuthProvidersGetResponseComposite =
+  v1TenantUidSsoAuthProvidersGetResponse200;
 
-export type TenantUidSsoAuthProvidersGetResponse =
-  TenantUidSsoAuthProvidersGetResponseComposite & {
+export type v1TenantUidSsoAuthProvidersGetResponse =
+  v1TenantUidSsoAuthProvidersGetResponseComposite & {
     headers: Headers;
   };
 
@@ -2234,17 +2218,17 @@ export const getV1TenantUidSsoAuthProvidersGetUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/sso/auth/providers`;
 };
 
-export const TenantUidSsoAuthProvidersGet = async (
+export const v1TenantUidSsoAuthProvidersGet = async (
   tenantUid: string,
   options?: RequestInit,
-): Promise<TenantUidSsoAuthProvidersGetResponse> => {
+): Promise<v1TenantUidSsoAuthProvidersGetResponse> => {
   const res = await fetch(getV1TenantUidSsoAuthProvidersGetUrl(tenantUid), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidSsoAuthProvidersGetResponse["data"] = body
+  const data: v1TenantUidSsoAuthProvidersGetResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2252,22 +2236,22 @@ export const TenantUidSsoAuthProvidersGet = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidSsoAuthProvidersGetResponse;
+  } as v1TenantUidSsoAuthProvidersGetResponse;
 };
 
 /**
  * @summary enable sso logins for the tenants
  */
-export type TenantUidSsoAuthProvidersUpdateResponse204 = {
+export type v1TenantUidSsoAuthProvidersUpdateResponse204 = {
   data: void;
   status: 204;
 };
 
-export type TenantUidSsoAuthProvidersUpdateResponseComposite =
-  TenantUidSsoAuthProvidersUpdateResponse204;
+export type v1TenantUidSsoAuthProvidersUpdateResponseComposite =
+  v1TenantUidSsoAuthProvidersUpdateResponse204;
 
-export type TenantUidSsoAuthProvidersUpdateResponse =
-  TenantUidSsoAuthProvidersUpdateResponseComposite & {
+export type v1TenantUidSsoAuthProvidersUpdateResponse =
+  v1TenantUidSsoAuthProvidersUpdateResponseComposite & {
     headers: Headers;
   };
 
@@ -2275,20 +2259,20 @@ export const getV1TenantUidSsoAuthProvidersUpdateUrl = (tenantUid: string) => {
   return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/sso/auth/providers`;
 };
 
-export const TenantUidSsoAuthProvidersUpdate = async (
+export const v1TenantUidSsoAuthProvidersUpdate = async (
   tenantUid: string,
-  TenantSsoAuthProvidersEntity: TenantSsoAuthProvidersEntity,
+  tenantSsoAuthProvidersEntity: TenantSsoAuthProvidersEntity,
   options?: RequestInit,
-): Promise<TenantUidSsoAuthProvidersUpdateResponse> => {
+): Promise<v1TenantUidSsoAuthProvidersUpdateResponse> => {
   const res = await fetch(getV1TenantUidSsoAuthProvidersUpdateUrl(tenantUid), {
     ...options,
     method: "POST",
     headers: { "Content-Type": "application/json", ...options?.headers },
-    body: JSON.stringify(TenantSsoAuthProvidersEntity),
+    body: JSON.stringify(tenantSsoAuthProvidersEntity),
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: TenantUidSsoAuthProvidersUpdateResponse["data"] = body
+  const data: v1TenantUidSsoAuthProvidersUpdateResponse["data"] = body
     ? JSON.parse(body)
     : {};
 
@@ -2296,5 +2280,5 @@ export const TenantUidSsoAuthProvidersUpdate = async (
     data,
     status: res.status,
     headers: res.headers,
-  } as TenantUidSsoAuthProvidersUpdateResponse;
+  } as v1TenantUidSsoAuthProvidersUpdateResponse;
 };

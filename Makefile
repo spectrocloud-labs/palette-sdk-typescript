@@ -28,7 +28,7 @@ generate: install-dependencies ## Generate models with tags-split organization
 		-i /local/api/palette-apis-spec-tagged.json \
 		-o /local
 	npx orval
-	node api/post-processing-dup.js
+	node api/post-processing.js
 	@$(OK) "Code generation complete with tags-split organization"
 
 install-dependencies:

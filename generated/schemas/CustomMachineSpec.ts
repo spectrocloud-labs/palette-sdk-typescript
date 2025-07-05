@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomInstanceType } from "./CustomInstanceType";
-import type { CustomNic } from "./CustomNic";
+import type { CustomInstanceType } from "./customInstanceType";
+import type { CustomNic } from "./customNic";
 
 /**
  * Custom cloud VM definition spec

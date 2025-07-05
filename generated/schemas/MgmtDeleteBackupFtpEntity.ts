@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtFileTransferFtpEntity } from "./MgmtFileTransferFtpEntity";
+import type { MgmtFileTransferFtpEntity } from "./mgmtFileTransferFtpEntity";
 
 /**
  * delete backups based on retention period

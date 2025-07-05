@@ -20,18 +20,18 @@ import type {
  * Returns all the metrics for a given resource kind
  * @summary Retrieves the list of metrics for a specified resource kind
  */
-export type MetricsListResponse200 = {
+export type metricsListResponse200 = {
   data: MetricTimeSeriesList;
   status: 200;
 };
 
-export type MetricsListResponseComposite = MetricsListResponse200;
+export type metricsListResponseComposite = metricsListResponse200;
 
-export type MetricsListResponse = MetricsListResponseComposite & {
+export type metricsListResponse = metricsListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MetricsListUrl = (
+export const getMetricsListUrl = (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   params?: MetricsListParams,
 ) => {
@@ -50,82 +50,82 @@ export const getV1MetricsListUrl = (
     : `https://api.spectrocloud.com/v1/metrics/${resourceKind}/values`;
 };
 
-export const MetricsList = async (
+export const metricsList = async (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   params?: MetricsListParams,
   options?: RequestInit,
-): Promise<MetricsListResponse> => {
-  const res = await fetch(getV1MetricsListUrl(resourceKind, params), {
+): Promise<metricsListResponse> => {
+  const res = await fetch(getMetricsListUrl(resourceKind, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MetricsListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: metricsListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MetricsListResponse;
+  } as metricsListResponse;
 };
 
 /**
  * @summary Deletes the metrics of the specified resource
  */
-export type MetricsUidDeleteResponse204 = {
+export type metricsUidDeleteResponse204 = {
   data: void;
   status: 204;
 };
 
-export type MetricsUidDeleteResponseComposite = MetricsUidDeleteResponse204;
+export type metricsUidDeleteResponseComposite = metricsUidDeleteResponse204;
 
-export type MetricsUidDeleteResponse = MetricsUidDeleteResponseComposite & {
+export type metricsUidDeleteResponse = metricsUidDeleteResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MetricsUidDeleteUrl = (
+export const getMetricsUidDeleteUrl = (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   resourceUid: string,
 ) => {
   return `https://api.spectrocloud.com/v1/metrics/${resourceKind}/${resourceUid}/values`;
 };
 
-export const MetricsUidDelete = async (
+export const metricsUidDelete = async (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   resourceUid: string,
   options?: RequestInit,
-): Promise<MetricsUidDeleteResponse> => {
-  const res = await fetch(getV1MetricsUidDeleteUrl(resourceKind, resourceUid), {
+): Promise<metricsUidDeleteResponse> => {
+  const res = await fetch(getMetricsUidDeleteUrl(resourceKind, resourceUid), {
     ...options,
     method: "DELETE",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MetricsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
+  const data: metricsUidDeleteResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MetricsUidDeleteResponse;
+  } as metricsUidDeleteResponse;
 };
 
 /**
  * @summary Returns the metrics for a specified resource uid
  */
-export type MetricsUidListResponse200 = {
+export type metricsUidListResponse200 = {
   data: MetricTimeSeries;
   status: 200;
 };
 
-export type MetricsUidListResponseComposite = MetricsUidListResponse200;
+export type metricsUidListResponseComposite = metricsUidListResponse200;
 
-export type MetricsUidListResponse = MetricsUidListResponseComposite & {
+export type metricsUidListResponse = metricsUidListResponseComposite & {
   headers: Headers;
 };
 
-export const getV1MetricsUidListUrl = (
+export const getMetricsUidListUrl = (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   resourceUid: string,
   params?: MetricsUidListParams,
@@ -145,14 +145,14 @@ export const getV1MetricsUidListUrl = (
     : `https://api.spectrocloud.com/v1/metrics/${resourceKind}/${resourceUid}/values`;
 };
 
-export const MetricsUidList = async (
+export const metricsUidList = async (
   resourceKind: "pod" | "namespace" | "spectrocluster" | "machine" | "project",
   resourceUid: string,
   params?: MetricsUidListParams,
   options?: RequestInit,
-): Promise<MetricsUidListResponse> => {
+): Promise<metricsUidListResponse> => {
   const res = await fetch(
-    getV1MetricsUidListUrl(resourceKind, resourceUid, params),
+    getMetricsUidListUrl(resourceKind, resourceUid, params),
     {
       ...options,
       method: "GET",
@@ -160,11 +160,11 @@ export const MetricsUidList = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: MetricsUidListResponse["data"] = body ? JSON.parse(body) : {};
+  const data: metricsUidListResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as MetricsUidListResponse;
+  } as metricsUidListResponse;
 };

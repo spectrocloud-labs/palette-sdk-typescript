@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterGroupSummary } from "./ClusterGroupSummary";
+import type { ClusterGroupSummary } from "./clusterGroupSummary";
 
 export interface ClusterGroupsHostClusterSummary {
   summaries: ClusterGroupSummary[];

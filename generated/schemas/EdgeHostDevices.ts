@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostDevice } from "./EdgeHostDevice";
-import type { ListMetaData } from "./ListMetaData";
+import type { EdgeHostDevice } from "./edgeHostDevice";
+import type { ListMetaData } from "./listMetaData";
 
 export interface EdgeHostDevices {
   items: EdgeHostDevice[];

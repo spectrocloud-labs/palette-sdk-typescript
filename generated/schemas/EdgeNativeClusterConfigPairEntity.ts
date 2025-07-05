@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LifecycleConfig } from "./LifecycleConfig";
-import type { MachineManagementConfig } from "./MachineManagementConfig";
-import type { ClusterResourcesEntity } from "./ClusterResourcesEntity";
+import type { LifecycleConfig } from "./lifecycleConfig";
+import type { MachineManagementConfig } from "./machineManagementConfig";
+import type { ClusterResourcesEntity } from "./clusterResourcesEntity";
 
 export interface EdgeNativeClusterConfigPairEntity {
   controlPlaneHealthCheckTimeout?: string;

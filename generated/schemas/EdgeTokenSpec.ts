@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeTokenProject } from "./EdgeTokenProject";
-import type { Time } from "./Time";
+import type { EdgeTokenProject } from "./edgeTokenProject";
+import type { Time } from "./time";
 
 /**
  * Edge token specification

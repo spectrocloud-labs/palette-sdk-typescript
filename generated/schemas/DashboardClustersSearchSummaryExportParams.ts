@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardClustersSearchSummaryExportFormat } from "./DashboardClustersSearchSummaryExportFormat";
+import type { DashboardClustersSearchSummaryExportFormat } from "./dashboardClustersSearchSummaryExportFormat";
 
 export type DashboardClustersSearchSummaryExportParams = {
   format?: DashboardClustersSearchSummaryExportFormat;

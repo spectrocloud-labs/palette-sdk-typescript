@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackValuesEntity } from "./PackValuesEntity";
-import type { SpectroClusterVariable } from "./SpectroClusterVariable";
+import type { PackValuesEntity } from "./packValuesEntity";
+import type { SpectroClusterVariable } from "./spectroClusterVariable";
 
 /**
  * Cluster profile request payload

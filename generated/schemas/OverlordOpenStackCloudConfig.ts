@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackClusterConfig } from "./OpenStackClusterConfig";
-import type { SpectroClusterProfileEntity } from "./SpectroClusterProfileEntity";
-import type { ClusterConfigEntity } from "./ClusterConfigEntity";
-import type { OpenStackMachineConfigEntity } from "./OpenStackMachineConfigEntity";
+import type { OpenStackClusterConfig } from "./openStackClusterConfig";
+import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { ClusterConfigEntity } from "./clusterConfigEntity";
+import type { OpenStackMachineConfigEntity } from "./openStackMachineConfigEntity";
 
 export interface OverlordOpenStackCloudConfig {
   clusterConfig?: OpenStackClusterConfig;

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmObjectMetaAnnotations } from "./VmObjectMetaAnnotations";
-import type { VmObjectMetaLabels } from "./VmObjectMetaLabels";
-import type { VmManagedFieldsEntry } from "./VmManagedFieldsEntry";
-import type { VmOwnerReference } from "./VmOwnerReference";
+import type { VmObjectMetaAnnotations } from "./vmObjectMetaAnnotations";
+import type { VmObjectMetaLabels } from "./vmObjectMetaLabels";
+import type { VmManagedFieldsEntry } from "./vmManagedFieldsEntry";
+import type { VmOwnerReference } from "./vmOwnerReference";
 
 /**
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.

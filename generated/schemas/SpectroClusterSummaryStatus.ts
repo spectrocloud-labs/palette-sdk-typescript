@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterImport } from "./ClusterImport";
-import type { ResourceCost } from "./ResourceCost";
-import type { ClusterFips } from "./ClusterFips";
-import type { SpectroClusterHealthStatus } from "./SpectroClusterHealthStatus";
-import type { ClusterMetaSpecLocation } from "./ClusterMetaSpecLocation";
-import type { SpectroClusterMetrics } from "./SpectroClusterMetrics";
-import type { ClusterNotificationStatus } from "./ClusterNotificationStatus";
-import type { ClusterRepaveStatus } from "./ClusterRepaveStatus";
-import type { Virtual } from "./Virtual";
+import type { ClusterImport } from "./clusterImport";
+import type { ResourceCost } from "./resourceCost";
+import type { ClusterFips } from "./clusterFips";
+import type { SpectroClusterHealthStatus } from "./spectroClusterHealthStatus";
+import type { ClusterMetaSpecLocation } from "./clusterMetaSpecLocation";
+import type { SpectroClusterMetrics } from "./spectroClusterMetrics";
+import type { ClusterNotificationStatus } from "./clusterNotificationStatus";
+import type { ClusterRepaveStatus } from "./clusterRepaveStatus";
+import type { Virtual } from "./virtual";
 
 /**
  * Spectro cluster status summary

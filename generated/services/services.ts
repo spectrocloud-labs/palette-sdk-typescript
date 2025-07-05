@@ -19,18 +19,18 @@ import type {
 /**
  * @summary Returns a latest version for a given service name
  */
-export type ServiceVersionGetResponse200 = {
+export type serviceVersionGetResponse200 = {
   data: ServiceVersion;
   status: 200;
 };
 
-export type ServiceVersionGetResponseComposite = ServiceVersionGetResponse200;
+export type serviceVersionGetResponseComposite = serviceVersionGetResponse200;
 
-export type ServiceVersionGetResponse = ServiceVersionGetResponseComposite & {
+export type serviceVersionGetResponse = serviceVersionGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ServiceVersionGetUrl = (
+export const getServiceVersionGetUrl = (
   serviceName:
     | "ally"
     | "jet"
@@ -63,7 +63,7 @@ export const getV1ServiceVersionGetUrl = (
     : `https://api.spectrocloud.com/v1/services/${serviceName}/version`;
 };
 
-export const ServiceVersionGet = async (
+export const serviceVersionGet = async (
   serviceName:
     | "ally"
     | "jet"
@@ -81,37 +81,37 @@ export const ServiceVersionGet = async (
     | "stylus",
   params?: ServiceVersionGetParams,
   options?: RequestInit,
-): Promise<ServiceVersionGetResponse> => {
-  const res = await fetch(getV1ServiceVersionGetUrl(serviceName, params), {
+): Promise<serviceVersionGetResponse> => {
+  const res = await fetch(getServiceVersionGetUrl(serviceName, params), {
     ...options,
     method: "GET",
   });
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ServiceVersionGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: serviceVersionGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ServiceVersionGetResponse;
+  } as serviceVersionGetResponse;
 };
 
 /**
  * @summary Returns a service manifest for a given service name and version
  */
-export type ServiceManifestGetResponse200 = {
+export type serviceManifestGetResponse200 = {
   data: ServiceManifest;
   status: 200;
 };
 
-export type ServiceManifestGetResponseComposite = ServiceManifestGetResponse200;
+export type serviceManifestGetResponseComposite = serviceManifestGetResponse200;
 
-export type ServiceManifestGetResponse = ServiceManifestGetResponseComposite & {
+export type serviceManifestGetResponse = serviceManifestGetResponseComposite & {
   headers: Headers;
 };
 
-export const getV1ServiceManifestGetUrl = (
+export const getServiceManifestGetUrl = (
   serviceName:
     | "ally"
     | "jet"
@@ -145,7 +145,7 @@ export const getV1ServiceManifestGetUrl = (
     : `https://api.spectrocloud.com/v1/services/${serviceName}/versions/${version}/manifest`;
 };
 
-export const ServiceManifestGet = async (
+export const serviceManifestGet = async (
   serviceName:
     | "ally"
     | "jet"
@@ -164,9 +164,9 @@ export const ServiceManifestGet = async (
   version: string,
   params: ServiceManifestGetParams,
   options?: RequestInit,
-): Promise<ServiceManifestGetResponse> => {
+): Promise<serviceManifestGetResponse> => {
   const res = await fetch(
-    getV1ServiceManifestGetUrl(serviceName, version, params),
+    getServiceManifestGetUrl(serviceName, version, params),
     {
       ...options,
       method: "GET",
@@ -174,11 +174,11 @@ export const ServiceManifestGet = async (
   );
 
   const body = [204, 205, 304].includes(res.status) ? null : await res.text();
-  const data: ServiceManifestGetResponse["data"] = body ? JSON.parse(body) : {};
+  const data: serviceManifestGetResponse["data"] = body ? JSON.parse(body) : {};
 
   return {
     data,
     status: res.status,
     headers: res.headers,
-  } as ServiceManifestGetResponse;
+  } as serviceManifestGetResponse;
 };

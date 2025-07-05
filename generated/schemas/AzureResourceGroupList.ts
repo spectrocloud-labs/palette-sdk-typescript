@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceGroup } from "./ResourceGroup";
+import type { ResourceGroup } from "./resourceGroup";
 
 /**
  * List of Azure resource group

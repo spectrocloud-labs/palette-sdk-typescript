@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ApiKey } from "./ApiKey";
+import type { ApiKey } from "./apiKey";
 
 export interface ApiKeys {
   /** List of API keys */

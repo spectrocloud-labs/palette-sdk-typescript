@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GrpcServerMonitoringData } from "./GrpcServerMonitoringData";
+import type { GrpcServerMonitoringData } from "./grpcServerMonitoringData";
 
 export type GrpcServersMonitoringDataServers = {
   [key: string]: GrpcServerMonitoringData;

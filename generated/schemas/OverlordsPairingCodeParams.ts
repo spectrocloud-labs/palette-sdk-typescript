@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OverlordsPairingCodeCloudType } from "./OverlordsPairingCodeCloudType";
+import type { OverlordsPairingCodeCloudType } from "./overlordsPairingCodeCloudType";
 
 export type OverlordsPairingCodeParams = {
   cloudType?: OverlordsPairingCodeCloudType;
