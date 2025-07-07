@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 import type { MfaCredentialDescriptor } from "./mfaCredentialDescriptor";
-import type { UrlEncodedBase64 } from "./urlEncodedBase64";
+import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { MfaAuthenticationExtensions } from "./mfaAuthenticationExtensions";
 
 export interface MfaPublicKeyCredentialRequestOptions {
   allowCredentials?: MfaCredentialDescriptor[];
-  challenge?: UrlEncodedBase64;
+  challenge?: URLEncodedBase64;
   extensions?: MfaAuthenticationExtensions;
   rpId?: string;
   timeout?: number;

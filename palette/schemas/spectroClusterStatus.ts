@@ -11,7 +11,7 @@
  */
 import type { Time } from "./time";
 import type { SpectroClusterAddOnService } from "./spectroClusterAddOnService";
-import type { APIEndpoint } from "./aPIEndpoint";
+import type { ApiEndpoint } from "./aPIEndpoint";
 import type { ClusterImport } from "./clusterImport";
 import type { ClusterCondition } from "./clusterCondition";
 import type { ClusterFips } from "./clusterFips";
@@ -30,7 +30,7 @@ import type { Virtual } from "./virtual";
 export interface SpectroClusterStatus {
   abortTimestamp?: Time;
   addOnServices?: SpectroClusterAddOnService[];
-  apiEndpoints?: APIEndpoint[];
+  apiEndpoints?: ApiEndpoint[];
   clusterImport?: ClusterImport;
   conditions?: ClusterCondition[];
   fips?: ClusterFips;

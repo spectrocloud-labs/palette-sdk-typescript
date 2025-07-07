@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 import type { AuthMfaLoginFinishRequestClientExtensionResults } from "./authMfaLoginFinishRequestClientExtensionResults";
-import type { UrlEncodedBase64 } from "./urlEncodedBase64";
+import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { AuthMfaLoginFinishRequestResponse } from "./authMfaLoginFinishRequestResponse";
 
 export interface AuthMfaLoginFinishRequest {
@@ -19,6 +19,6 @@ export interface AuthMfaLoginFinishRequest {
   clientExtensionResults?: AuthMfaLoginFinishRequestClientExtensionResults;
   deviceName?: string;
   id?: string;
-  rawId?: UrlEncodedBase64;
+  rawId?: URLEncodedBase64;
   response?: AuthMfaLoginFinishRequestResponse;
 }

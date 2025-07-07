@@ -1,0 +1,17 @@
+{
+  "name": "palette-sdk-import-test",
+  "version": "1.0.0",
+  "description": "Test package to verify palette-sdk-typescript imports work correctly",
+  "main": "test-import.js",
+  "scripts": {
+    "test": "npx ts-node test-import.ts"
+  },
+  "dependencies": {
+    "palette-sdk-typescript": "file:../.."
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0",
+    "@dotenvx/dotenvx": "^1.45.2"
+  }
+}

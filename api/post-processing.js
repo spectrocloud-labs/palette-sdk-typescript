@@ -103,6 +103,47 @@ function fixSchemaFiles() {
       }
     }
 
+    // Fix type imports - need to match the actual export name
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
+                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+    
+    // Also fix any existing incorrect casing for the type name
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/urlEncodedBase64["']/g, 
+                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+
+    // Fix type usage in interface definitions and type annotations
+    // Replace UrlEncodedBase64 with URLEncodedBase64 in type positions
+    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': URLEncodedBase64$1');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: URLEncodedBase64$1');
+    
+    // Fix array type definitions
+    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': URLEncodedBase64[]');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: URLEncodedBase64[]');
+    
+    // Fix generic type parameters
+    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<URLEncodedBase64>');
+    
+    // Fix type aliases and other type definitions
+    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= URLEncodedBase64$1');
+
+    // Fix APIEndpoint casing issue - import should match export
+    content = content.replace(/import\s+type\s*{\s*APIEndpoint\s*}\s+from\s+["']\.\/aPIEndpoint["']/g, 
+                              'import type { ApiEndpoint } from "./aPIEndpoint"');
+    
+    // Fix APIEndpoint type usage to match the actual export
+    content = content.replace(/:\s*APIEndpoint(\s*[;,}|\]])/g, ': ApiEndpoint$1');
+    content = content.replace(/\?\s*:\s*APIEndpoint(\s*[;,}|\]])/g, '?: ApiEndpoint$1');
+    content = content.replace(/:\s*APIEndpoint\[\]/g, ': ApiEndpoint[]');
+    content = content.replace(/\?\s*:\s*APIEndpoint\[\]/g, '?: ApiEndpoint[]');
+    content = content.replace(/Array<APIEndpoint>/g, 'Array<ApiEndpoint>');
+
+    // Fix index signature compatibility with optional properties
+    // Fix the specific pattern that causes TS2411 errors
+    content = content.replace(
+      /\[key: string\]: \{ \[key: string\]: unknown \};/g,
+      '[key: string]: unknown;'
+    );
+
     // Write back if changes were made
     if (content !== originalContent) {
       fs.writeFileSync(filePath, content, "utf8");
@@ -478,6 +519,134 @@ ${paletteAPIObject}`
 }
 
 /**
+ * Fix file casing issues in schemas
+ * Some generated files have inconsistent casing which causes issues on case-sensitive systems
+ */
+function fixFileCasing() {
+  const schemasDir = path.join(__dirname, "../palette/schemas");
+  
+  if (!fs.existsSync(schemasDir)) {
+    console.log("⚠️  Schemas directory not found");
+    return true;
+  }
+
+  let fixedFiles = 0;
+  let fixedImports = 0;
+
+  // Get all TypeScript files in the schemas directory
+  const files = fs
+    .readdirSync(schemasDir)
+    .filter((file) => file.endsWith(".ts"));
+
+  // Check for specific casing issues
+  const casedFiles = files.filter(file => file.toLowerCase().includes('urlencodedbase64'));
+  
+  if (casedFiles.length > 0) {
+    console.log(`🔍 Found files with URL encoding casing: ${casedFiles.join(', ')}`);
+    
+    // Look for the incorrectly cased file
+    const incorrectFile = casedFiles.find(f => f.includes('uRLEncodedBase64.ts'));
+    const correctFile = casedFiles.find(f => f.includes('urlEncodedBase64.ts'));
+    
+    if (incorrectFile && correctFile) {
+      console.log(`🔧 Fixing casing issue: ${incorrectFile} -> ${correctFile}`);
+      
+      // Remove the incorrectly cased file
+      const incorrectPath = path.join(schemasDir, incorrectFile);
+      if (fs.existsSync(incorrectPath)) {
+        fs.unlinkSync(incorrectPath);
+        console.log(`🗑️  Removed incorrectly cased file: ${incorrectFile}`);
+        fixedFiles++;
+      }
+    }
+  }
+
+  // Fix import statements that reference the incorrect casing
+  files.forEach((filename) => {
+    if (filename === 'index.ts') return; // Skip index, we'll handle it separately
+    
+    const filePath = path.join(schemasDir, filename);
+    let content = fs.readFileSync(filePath, "utf8");
+    const originalContent = content;
+
+    // Fix imports from "./uRLEncodedBase64" to "./urlEncodedBase64"
+    content = content.replace(/from\s+["']\.\/uRLEncodedBase64["']/g, 'from "./urlEncodedBase64"');
+    
+    // Fix type imports - need to match the actual export name
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
+                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+
+    // Also fix any existing incorrect casing for the type name
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/urlEncodedBase64["']/g, 
+                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+
+    // Fix type usage in interface definitions and type annotations
+    // Replace UrlEncodedBase64 with URLEncodedBase64 in type positions
+    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': URLEncodedBase64$1');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: URLEncodedBase64$1');
+    
+    // Fix array type definitions
+    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': URLEncodedBase64[]');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: URLEncodedBase64[]');
+    
+    // Fix generic type parameters
+    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<URLEncodedBase64>');
+    
+    // Fix type aliases and other type definitions
+    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= URLEncodedBase64$1');
+
+    // Fix APIEndpoint casing issue - import should match export
+    content = content.replace(/import\s+type\s*{\s*APIEndpoint\s*}\s+from\s+["']\.\/aPIEndpoint["']/g, 
+                              'import type { ApiEndpoint } from "./aPIEndpoint"');
+    
+    // Fix APIEndpoint type usage to match the actual export
+    content = content.replace(/:\s*APIEndpoint(\s*[;,}|\]])/g, ': ApiEndpoint$1');
+    content = content.replace(/\?\s*:\s*APIEndpoint(\s*[;,}|\]])/g, '?: ApiEndpoint$1');
+    content = content.replace(/:\s*APIEndpoint\[\]/g, ': ApiEndpoint[]');
+    content = content.replace(/\?\s*:\s*APIEndpoint\[\]/g, '?: ApiEndpoint[]');
+    content = content.replace(/Array<APIEndpoint>/g, 'Array<ApiEndpoint>');
+
+    // Fix index signature compatibility with optional properties
+    // Fix the specific pattern that causes TS2411 errors
+    content = content.replace(
+      /\[key: string\]: \{ \[key: string\]: unknown \};/g,
+      '[key: string]: unknown;'
+    );
+
+    if (content !== originalContent) {
+      fs.writeFileSync(filePath, content, "utf8");
+      console.log(`✅ Fixed import casing in ${filename}`);
+      fixedImports++;
+    }
+  });
+
+  // Fix the schemas index.ts file
+  const schemasIndexPath = path.join(schemasDir, "index.ts");
+  if (fs.existsSync(schemasIndexPath)) {
+    let indexContent = fs.readFileSync(schemasIndexPath, "utf8");
+    const originalIndexContent = indexContent;
+
+    // Fix export statement
+    indexContent = indexContent.replace(/export\s+\*\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
+                                      'export * from "./urlEncodedBase64"');
+
+    if (indexContent !== originalIndexContent) {
+      fs.writeFileSync(schemasIndexPath, indexContent, "utf8");
+      console.log(`✅ Fixed export casing in schemas index.ts`);
+      fixedImports++;
+    }
+  }
+
+  if (fixedFiles > 0 || fixedImports > 0) {
+    console.log(`✅ Fixed ${fixedFiles} file casing issues and ${fixedImports} import references`);
+  } else {
+    console.log("✅ No file casing issues found");
+  }
+
+  return true;
+}
+
+/**
  * Main execution
  */
 function main() {
@@ -485,20 +654,21 @@ function main() {
     const success1 = fixSchemaFiles();
     const success2 = fixClientFiles();
     const success3 = fixDuplicateExports();
-    const success4 = addLicenseHeaders();
-    const success5 = createMainIndexFile();
-    const success6 = renameDirectoriesToCamelCase();
-    const success7 = fixMainIndexImports();
-    const success8 = fixCircularDependency();
-    const success9 = runEslint();
+    const success4 = fixFileCasing();
+    const success5 = addLicenseHeaders();
+    const success6 = createMainIndexFile();
+    const success7 = renameDirectoriesToCamelCase();
+    const success8 = fixMainIndexImports();
+    const success9 = fixCircularDependency();
+    const success10 = runEslint();
 
-    if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8 && success9) {
+    if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8 && success9 && success10) {
       console.log("\n🎉 Post-processing completed successfully!");
       console.log("License headers have been added to all files.");
       console.log("ESLint has validated all generated files for type errors.");
     } else {
       console.log("\n❌ Post-processing completed with some issues");
-      if (!success8) {
+      if (!success10) {
         console.log("⚠️  ESLint found type errors in generated files. Please review the output above.");
       }
       process.exit(1);

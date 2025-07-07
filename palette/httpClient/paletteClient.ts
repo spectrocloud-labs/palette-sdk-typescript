@@ -75,6 +75,9 @@ const PaletteAPI = {
   ...workspaces,
 };
 
+// Log function count for debugging during development
+// console.log("PaletteAPI keys count:", Object.keys(PaletteAPI).length);
+
 export interface PaletteClientConfig {
   baseURL: string;
   headers?: Record<string, string>;
@@ -102,6 +105,11 @@ class PaletteClientInternal {
   }
 
   private createProxy(): PaletteAPIFunctions {
+    // Get all function names from PaletteAPI
+    const functionNames = Object.keys(PaletteAPI).filter(
+      (key) => typeof (PaletteAPI as any)[key] === "function"
+    );
+
     // Create a proxy that intercepts all method calls
     const proxy = new Proxy({} as any, {
       get: (target, prop: string | symbol) => {
@@ -128,6 +136,20 @@ class PaletteClientInternal {
         }
 
         // Return undefined for non-existent properties
+        return undefined;
+      },
+      ownKeys: (target) => {
+        // Return all function names when Object.keys() is called
+        return functionNames;
+      },
+      getOwnPropertyDescriptor: (target, prop) => {
+        if (typeof prop === "string" && functionNames.includes(prop)) {
+          return {
+            enumerable: true,
+            configurable: true,
+            value: true,
+          };
+        }
         return undefined;
       },
     });

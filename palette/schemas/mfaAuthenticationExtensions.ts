@@ -11,5 +11,5 @@
  */
 
 export interface MfaAuthenticationExtensions {
-  [key: string]: { [key: string]: unknown };
+  [key: string]: unknown;
 }

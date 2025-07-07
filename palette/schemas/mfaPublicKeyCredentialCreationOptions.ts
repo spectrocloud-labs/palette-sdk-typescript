@@ -11,7 +11,7 @@
  */
 import type { MfaConveyancePreference } from "./mfaConveyancePreference";
 import type { MfaAuthenticatorSelection } from "./mfaAuthenticatorSelection";
-import type { URLEncodedBase64 } from "./uRLEncodedBase64";
+import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { MfaCredentialDescriptor } from "./mfaCredentialDescriptor";
 import type { MfaAuthenticationExtensions } from "./mfaAuthenticationExtensions";
 import type { MfaCredentialParameter } from "./mfaCredentialParameter";

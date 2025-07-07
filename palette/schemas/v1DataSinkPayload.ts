@@ -18,5 +18,5 @@ export interface V1DataSinkPayload {
   /** RefUid of the data sink payload */
   refUid?: string;
   timestamp?: Time;
-  [key: string]: { [key: string]: unknown };
+  [key: string]: unknown;
 }

@@ -19,7 +19,7 @@ if (result.error) {
   );
 } else {
   console.log(
-    `dotenvx loaded ${Object.keys(result.parsed || {}).length} environment variables successfully`
+    `Loaded ${Object.keys(result.parsed || {}).length} environment variables`
   );
 }
 
@@ -27,12 +27,12 @@ const API_KEY = process.env.PALETTE_API_KEY;
 const BASE_URL = process.env.PALETTE_BASE_URL || "https://api.spectrocloud.com";
 
 if (!API_KEY) {
-  console.error("❌ PALETTE_API_KEY environment variable is required");
+  console.error("PALETTE_API_KEY environment variable is required");
   process.exit(1);
 }
 
 async function testClientWrapper() {
-  console.log("🧪 Testing the setupConfig client pattern...");
+  console.log("Testing the setupConfig client pattern...");
 
   try {
     // Test the new client pattern
@@ -44,66 +44,61 @@ async function testClientWrapper() {
       },
     });
 
-    console.log("✅ Client created successfully");
+    console.log("PASS: Client created successfully");
 
     // Test that the client has the expected functions
-    console.log("🔍 Testing client function availability...");
+    console.log("Testing client function availability...");
 
     // Check if functions are available on the client
     if (typeof palette.clusterProfilesFilterSummary === "function") {
-      console.log("✅ clusterProfilesFilterSummary is available");
+      console.log("PASS: clusterProfilesFilterSummary is available");
     } else {
-      console.log("❌ clusterProfilesFilterSummary is not available");
+      console.log("FAIL: clusterProfilesFilterSummary is not available");
       return false;
     }
 
     // Test making an API call with the client
-    console.log("🔍 Testing API call with client...");
+    console.log("Testing API call with client...");
     const response = await palette.clusterProfilesFilterSummary(
       {
-        // Filter criteria
-        filter: {
-          // Optional filter properties
-        },
+        filter: {},
         sort: [],
       },
-      {
-        // Query parameters
-      }
+      {}
     );
 
     if (response && response.data && Array.isArray(response.data.items)) {
       console.log(
-        `✅ API call successful! Found ${response.data.items.length} cluster profiles`
+        `PASS: API call successful! Found ${response.data.items.length} cluster profiles`
       );
     } else {
-      console.log("❌ API call failed or returned unexpected data");
+      console.log("FAIL: API call failed or returned unexpected data");
       return false;
     }
 
     // Test another function to ensure the proxy works for multiple functions
-    console.log("🔍 Testing another function...");
+    console.log("Testing another function...");
 
     if (typeof palette.clusterProfilesMetadata === "function") {
-      console.log("✅ clusterProfilesMetadata is also available");
+      console.log("PASS: clusterProfilesMetadata is also available");
 
       // Test calling it
       const metadataResponse = await palette.clusterProfilesMetadata();
       if (metadataResponse && metadataResponse.data) {
-        console.log("✅ clusterProfilesMetadata call successful");
+        console.log("PASS: clusterProfilesMetadata call successful");
       } else {
-        console.log("❌ clusterProfilesMetadata call failed");
+        console.log("FAIL: clusterProfilesMetadata call failed");
         return false;
       }
     } else {
-      console.log("❌ clusterProfilesMetadata is not available");
+      console.log("FAIL: clusterProfilesMetadata is not available");
       return false;
     }
 
-    console.log("🎉 All client wrapper tests passed!");
+    console.log("All client wrapper tests passed!");
     return true;
   } catch (error) {
-    console.error("❌ Error testing client wrapper:", error);
+    console.error("FAIL: Error testing client wrapper:", error);
     return false;
   }
 }
@@ -115,15 +110,15 @@ if (require.main === module) {
   testClientWrapper()
     .then((success) => {
       if (success) {
-        console.log("✅ Client wrapper test completed successfully");
+        console.log("Client wrapper test completed successfully");
         process.exit(0);
       } else {
-        console.log("❌ Client wrapper test failed");
+        console.log("Client wrapper test failed");
         process.exit(1);
       }
     })
     .catch((error) => {
-      console.error("❌ Test failed:", error);
+      console.error("Test failed:", error);
       process.exit(1);
     });
 }

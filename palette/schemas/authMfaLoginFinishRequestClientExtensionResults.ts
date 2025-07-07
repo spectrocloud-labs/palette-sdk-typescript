@@ -11,5 +11,5 @@
  */
 
 export type AuthMfaLoginFinishRequestClientExtensionResults = {
-  [key: string]: { [key: string]: unknown };
+  [key: string]: unknown;
 };

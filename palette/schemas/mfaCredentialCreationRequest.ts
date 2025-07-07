@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 import type { MfaCredentialCreationRequestClientExtensionResults } from "./mfaCredentialCreationRequestClientExtensionResults";
-import type { URLEncodedBase64 } from "./uRLEncodedBase64";
+import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { MfaCredentialCreationRequestResponse } from "./mfaCredentialCreationRequestResponse";
 
 export interface MfaCredentialCreationRequest {

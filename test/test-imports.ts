@@ -21,10 +21,10 @@ import { setupConfig, type PaletteAPIFunctions } from "../palette";
 // Test importing types from local palette files
 import type { SpectroCluster, AwsAccount, AuthLogin } from "../palette/index";
 
-console.log("🚀 Running palette-sdk-typescript integration tests...\n");
+console.log("Running palette-sdk-typescript integration tests...");
 
 // Test that the main functions are available and working
-console.log("✅ Import successful!");
+console.log("PASS: Import successful!");
 console.log("spectroClustersGet type:", typeof spectroClustersGet);
 console.log("spectroClustersAwsCreate type:", typeof spectroClustersAwsCreate);
 console.log("cloudAccountsAwsList type:", typeof cloudAccountsAwsList);
@@ -32,15 +32,15 @@ console.log("apiKeysList type:", typeof apiKeysList);
 console.log("setupConfig type:", typeof setupConfig);
 
 // Test that types are available
-console.log("\n📋 Type imports:");
+console.log("\nType imports:");
 console.log("SpectroCluster type available:", typeof {} as SpectroCluster);
 console.log("AwsAccount type available:", typeof {} as AwsAccount);
 console.log("AuthLogin type available:", typeof {} as AuthLogin);
 
-console.log("\n🎉 All imports successful! SDK is working correctly.");
+console.log("\nAll imports successful! SDK is working correctly.");
 
 // Test the client wrapper
-console.log("\n🔧 Testing client wrapper...");
+console.log("\nTesting client wrapper...");
 try {
   const palette: PaletteAPIFunctions = setupConfig({
     baseURL: "https://api.spectrocloud.com",
@@ -50,7 +50,7 @@ try {
     },
   });
 
-  console.log("  ✅ Client wrapper created successfully");
+  console.log("PASS: Client wrapper created successfully");
 
   // Check that functions are available through the client
   const clientFunctions = [
@@ -62,27 +62,28 @@ try {
 
   clientFunctions.forEach((funcName) => {
     if (typeof palette[funcName as keyof PaletteAPIFunctions] === "function") {
-      console.log(`  ✅ ${funcName} is available through client`);
+      console.log(`PASS: ${funcName} is available through client`);
     } else {
-      console.log(`  ❌ ${funcName} is not available through client`);
+      console.log(`FAIL: ${funcName} is not available through client`);
     }
   });
 } catch (error) {
-  console.log("  ❌ Client wrapper error:", error);
+  console.log("FAIL: Client wrapper error:", error);
 }
 
-console.log("\n📁 Functions are organized in the following areas:");
-console.log("  • apiKeys - API key management");
-console.log("  • clusters - Cluster operations");
-console.log("  • cloudAccounts - Cloud account management");
-console.log("  • appDeployments - Application deployments");
-console.log("  • appProfiles - Application profiles");
-console.log("  • And 27 more functional areas...");
+console.log("\nFunctions are organized in the following areas:");
+console.log("• apiKeys - API key management");
+console.log("• clusters - Cluster operations");
+console.log("• cloudAccounts - Cloud account management");
+console.log("• appDeployments - Application deployments");
+console.log("• appProfiles - Application profiles");
+console.log("• And 27 more functional areas...");
 
-console.log("\n✨ Clean function names without v1 prefixes!");
-console.log("✨ CamelCase directory organization!");
-console.log("✨ Tags-split mode enabled!");
-console.log("✨ Client wrapper pattern available!");
+console.log("\nFeatures:");
+console.log("• Clean function names without v1 prefixes");
+console.log("• CamelCase directory organization");
+console.log("• Tags-split mode enabled");
+console.log("• Client wrapper pattern available");
 
 // Test that key functions are available
 const keyFunctions = [
@@ -92,18 +93,18 @@ const keyFunctions = [
   { name: "apiKeysList", func: apiKeysList },
 ];
 
-console.log("\n🔧 Testing key functions...");
+console.log("\nTesting key functions...");
 keyFunctions.forEach(({ name, func }) => {
   if (typeof func === "function") {
-    console.log(`  ✅ ${name} is available as a function`);
+    console.log(`PASS: ${name} is available as a function`);
   } else {
-    console.log(`  ❌ ${name} is not a function (type: ${typeof func})`);
+    console.log(`FAIL: ${name} is not a function (type: ${typeof func})`);
   }
 });
 
 // Test that types are working
 try {
-  console.log("\n🧪 Testing type definitions...");
+  console.log("\nTesting type definitions...");
 
   // This should compile without errors if types are working
   const mockCluster: Partial<SpectroCluster> = {
@@ -122,16 +123,16 @@ try {
     emailId: "test@example.com",
   };
 
-  console.log("  ✅ Type definitions are working correctly");
-  console.log("  ✅ Mock cluster created:", !!mockCluster);
-  console.log("  ✅ Mock account created:", !!mockAccount);
-  console.log("  ✅ Mock auth created:", !!mockAuth);
+  console.log("PASS: Type definitions are working correctly");
+  console.log("PASS: Mock cluster created:", !!mockCluster);
+  console.log("PASS: Mock account created:", !!mockAccount);
+  console.log("PASS: Mock auth created:", !!mockAuth);
 } catch (error) {
-  console.log("  ❌ Type definitions error:", error);
+  console.log("FAIL: Type definitions error:", error);
 }
 
-console.log("\n🎯 Integration test completed successfully!");
-console.log("\n📖 Usage examples:");
+console.log("\nIntegration test completed successfully!");
+console.log("\nUsage examples:");
 console.log("\n1. Individual function imports:");
 console.log("```typescript");
 console.log("import { spectroClustersGet } from 'palette-sdk-typescript';");

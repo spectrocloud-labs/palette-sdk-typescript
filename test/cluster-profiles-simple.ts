@@ -30,7 +30,7 @@ if (result.error) {
   );
 } else {
   console.log(
-    `dotenvx loaded ${Object.keys(result.parsed || {}).length} environment variables successfully`
+    `Loaded ${Object.keys(result.parsed || {}).length} environment variables`
   );
 }
 
@@ -39,12 +39,12 @@ const API_KEY = process.env.PALETTE_API_KEY;
 const BASE_URL = process.env.PALETTE_BASE_URL || "https://api.spectrocloud.com";
 
 if (!API_KEY) {
-  console.error("❌ PALETTE_API_KEY environment variable is required");
+  console.error("PALETTE_API_KEY environment variable is required");
   process.exit(1);
 }
 
 async function testClusterProfiles() {
-  console.log("🔍 Testing cluster profiles function availability...");
+  console.log("Testing cluster profiles function availability...");
 
   // Create a pre-configured client with full typing support
   const palette: PaletteAPIFunctions = setupConfig({
@@ -52,46 +52,35 @@ async function testClusterProfiles() {
     headers: {
       ApiKey: API_KEY,
       "Content-Type": "application/json",
-      // ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID,
     },
   });
 
   // Test that the function is available
   if (typeof palette.clusterProfilesFilterSummary === "function") {
-    console.log("✅ clusterProfilesFilterSummary is available as a function");
+    console.log("PASS: clusterProfilesFilterSummary is available");
   } else {
-    console.error(
-      "❌ clusterProfilesFilterSummary is not available as a function"
-    );
+    console.error("FAIL: clusterProfilesFilterSummary is not available");
     process.exit(1);
   }
 
-  console.log("🔍 Retrieving cluster profiles from Palette API...");
+  console.log("Retrieving cluster profiles from Palette API...");
 
   try {
     // Define the filter spec with proper typing
     const filterSpec: ClusterProfilesFilterSpec = {
-      // Filter criteria (empty filter means get all)
-      filter: {
-        // Optional filter properties can be added here
-      },
-      // Optional sort criteria
+      filter: {},
       sort: [],
     };
 
     // Define query parameters with proper typing
-    const queryParams: ClusterProfilesFilterSummaryParams = {
-      // Query parameters (empty object means use defaults)
-    };
+    const queryParams: ClusterProfilesFilterSummaryParams = {};
 
-    // Call the API using the client wrapper with full type safety - no casting needed!
+    // Call the API using the client wrapper with full type safety
     const response: clusterProfilesFilterSummaryResponse =
       await palette.clusterProfilesFilterSummary(filterSpec, queryParams);
 
     if (response && response.data && Array.isArray(response.data.items)) {
-      console.log(
-        `\n✅ Found ${response.data.items.length} cluster profiles:\n`
-      );
+      console.log(`Found ${response.data.items.length} cluster profiles`);
 
       // Display the cluster profiles
       response.data.items.forEach((profile, index) => {
@@ -101,17 +90,16 @@ async function testClusterProfiles() {
         console.log(
           `   Created: ${profile.metadata?.creationTimestamp || "Unknown"}`
         );
-        console.log("");
       });
 
-      console.log("✅ Cluster profiles test completed successfully");
+      console.log("PASS: Cluster profiles test completed successfully");
       return true;
     } else {
-      console.error("❌ Unexpected response format:", response);
+      console.error("FAIL: Unexpected response format:", response);
       return false;
     }
   } catch (error) {
-    console.error("❌ Error retrieving cluster profiles:", error);
+    console.error("FAIL: Error retrieving cluster profiles:", error);
     return false;
   }
 }
@@ -120,14 +108,14 @@ async function testClusterProfiles() {
 testClusterProfiles()
   .then((success) => {
     if (success) {
-      console.log("✅ Test completed successfully");
+      console.log("Test completed successfully");
       process.exit(0);
     } else {
-      console.log("❌ Test failed");
+      console.log("Test failed");
       process.exit(1);
     }
   })
   .catch((error) => {
-    console.error("❌ Test failed:", error);
+    console.error("Test failed:", error);
     process.exit(1);
   });
