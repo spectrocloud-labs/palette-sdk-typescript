@@ -5,7 +5,75 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import type { PaletteConfig } from "./customClient";
-import * as PaletteAPI from "../index";
+// Import API functions directly to avoid circular dependency
+import * as apiKeys from "../apiKeys/apiKeys";
+import * as appDeployments from "../appDeployments/appDeployments";
+import * as appProfiles from "../appProfiles/appProfiles";
+import * as audits from "../audits/audits";
+import * as auth from "../auth/auth";
+import * as cloudaccounts from "../cloudaccounts/cloudaccounts";
+import * as cloudconfigs from "../cloudconfigs/cloudconfigs";
+import * as clouds from "../clouds/clouds";
+import * as clustergroups from "../clustergroups/clustergroups";
+import * as clusterprofiles from "../clusterprofiles/clusterprofiles";
+import * as dashboard from "../dashboard/dashboard";
+import * as datasinks from "../datasinks/datasinks";
+import * as edgehosts from "../edgehosts/edgehosts";
+import * as events from "../events/events";
+import * as features from "../features/features";
+import * as filters from "../filters/filters";
+import * as metrics from "../metrics/metrics";
+import * as notifications from "../notifications/notifications";
+import * as overlords from "../overlords/overlords";
+import * as packs from "../packs/packs";
+import * as pcg from "../pcg/pcg";
+import * as permissions from "../permissions/permissions";
+import * as projects from "../projects/projects";
+import * as registries from "../registries/registries";
+import * as roles from "../roles/roles";
+import * as services from "../services/services";
+import * as spectroclusters from "../spectroclusters/spectroclusters";
+import * as system from "../system/system";
+import * as teams from "../teams/teams";
+import * as tenants from "../tenants/tenants";
+import * as users from "../users/users";
+import * as workspaces from "../workspaces/workspaces";
+
+// Combine all API modules
+const PaletteAPI = {
+  ...apiKeys,
+  ...appDeployments,
+  ...appProfiles,
+  ...audits,
+  ...auth,
+  ...cloudaccounts,
+  ...cloudconfigs,
+  ...clouds,
+  ...clustergroups,
+  ...clusterprofiles,
+  ...dashboard,
+  ...datasinks,
+  ...edgehosts,
+  ...events,
+  ...features,
+  ...filters,
+  ...metrics,
+  ...notifications,
+  ...overlords,
+  ...packs,
+  ...pcg,
+  ...permissions,
+  ...projects,
+  ...registries,
+  ...roles,
+  ...services,
+  ...spectroclusters,
+  ...system,
+  ...teams,
+  ...tenants,
+  ...users,
+  ...workspaces,
+};
 
 export interface PaletteClientConfig {
   baseURL: string;

@@ -1,12 +1,11 @@
 {
   "name": "palette-sdk-typescript",
-  "version": "4.6.41",
+  "version": "0.0.1-pre",
   "description": "TypeScript SDK for Spectro Cloud Palette API",
   "main": "palette/index.ts",
   "types": "palette/index.ts",
   "files": [
     "palette/**/*",
-    "test/**/*",
     "LICENSE",
     "README.md"
   ],

@@ -414,6 +414,70 @@ function fixMainIndexImports() {
 }
 
 /**
+ * Fix circular dependency in paletteClient.ts
+ * The generated paletteClient.ts imports from "../index" which creates a circular dependency
+ * since index.ts exports from paletteClient.ts. This function fixes it by importing directly
+ * from the individual API modules.
+ */
+function fixCircularDependency() {
+  const paletteClientPath = path.join(__dirname, "../palette/httpClient/paletteClient.ts");
+  
+  if (!fs.existsSync(paletteClientPath)) {
+    console.log("⚠️  paletteClient.ts not found");
+    return true;
+  }
+
+  let content = fs.readFileSync(paletteClientPath, "utf8");
+  const originalContent = content;
+
+  // Check if it already has the circular dependency issue
+  if (!content.includes('import * as PaletteAPI from "../index"')) {
+    console.log("✅ paletteClient.ts already has direct imports (no circular dependency)");
+    return true;
+  }
+
+  // Get all API directories (excluding schemas and httpClient)
+  const paletteDir = path.join(__dirname, "../palette");
+  const apiDirectories = fs
+    .readdirSync(paletteDir)
+    .filter((item) => {
+      const itemPath = path.join(paletteDir, item);
+      return fs.statSync(itemPath).isDirectory() && item !== "schemas" && item !== "httpClient";
+    })
+    .sort();
+
+  // Generate direct imports for each API module
+  const directImports = apiDirectories.map(dir => 
+    `import * as ${dir.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())} from "../${dir}/${dir}";`
+  ).join('\n');
+
+  // Generate the PaletteAPI object with all modules
+  const paletteAPIObject = `// Combine all API modules
+const PaletteAPI = {
+  ${apiDirectories.map(dir => 
+    `...${dir.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase())},`
+  ).join('\n  ')}
+};`;
+
+  // Replace the problematic import with direct imports
+  content = content.replace(
+    'import * as PaletteAPI from "../index";',
+    `// Import API functions directly to avoid circular dependency
+${directImports}
+
+${paletteAPIObject}`
+  );
+
+  // Write back if changes were made
+  if (content !== originalContent) {
+    fs.writeFileSync(paletteClientPath, content, "utf8");
+    console.log("✅ Fixed circular dependency in paletteClient.ts");
+  }
+
+  return true;
+}
+
+/**
  * Main execution
  */
 function main() {
@@ -425,9 +489,10 @@ function main() {
     const success5 = createMainIndexFile();
     const success6 = renameDirectoriesToCamelCase();
     const success7 = fixMainIndexImports();
-    const success8 = runEslint();
+    const success8 = fixCircularDependency();
+    const success9 = runEslint();
 
-    if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8) {
+    if (success1 && success2 && success3 && success4 && success5 && success6 && success7 && success8 && success9) {
       console.log("\n🎉 Post-processing completed successfully!");
       console.log("License headers have been added to all files.");
       console.log("ESLint has validated all generated files for type errors.");
