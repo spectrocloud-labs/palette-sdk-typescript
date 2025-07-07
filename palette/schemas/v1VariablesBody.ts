@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Variables } from "./variables";
+import type { Variables } from './variables';
 
 export type V1VariablesBody = Variables;

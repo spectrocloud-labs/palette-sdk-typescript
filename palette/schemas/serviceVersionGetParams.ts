@@ -11,12 +11,12 @@
  */
 
 export type ServiceVersionGetParams = {
-  /**
-   * spectro cluster uid
-   */
-  clusterUid?: string;
-  /**
-   * edge host uid
-   */
-  edgeHostUid?: string;
+/**
+ * spectro cluster uid
+ */
+clusterUid?: string;
+/**
+ * edge host uid
+ */
+edgeHostUid?: string;
 };

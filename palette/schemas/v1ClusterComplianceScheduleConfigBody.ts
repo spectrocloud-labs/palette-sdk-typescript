@@ -9,7 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterComplianceScheduleConfig } from "./clusterComplianceScheduleConfig";
+import type { ClusterComplianceScheduleConfig } from './clusterComplianceScheduleConfig';
 
-export type V1ClusterComplianceScheduleConfigBody =
-  ClusterComplianceScheduleConfig;
+export type V1ClusterComplianceScheduleConfigBody = ClusterComplianceScheduleConfig;

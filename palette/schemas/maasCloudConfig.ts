@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { MaasCloudConfigSpec } from "./maasCloudConfigSpec";
-import type { MaasCloudConfigStatus } from "./maasCloudConfigStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { MaasCloudConfigSpec } from './maasCloudConfigSpec';
+import type { MaasCloudConfigStatus } from './maasCloudConfigStatus';
 
 /**
  * MaasCloudConfig is the Schema for the maascloudconfigs API

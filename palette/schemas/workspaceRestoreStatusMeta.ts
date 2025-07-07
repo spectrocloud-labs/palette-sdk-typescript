@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { WorkspaceClusterRestoreConfig } from "./workspaceClusterRestoreConfig";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { WorkspaceClusterRestoreConfig } from './workspaceClusterRestoreConfig';
 
 /**
  * Workspace restore status meta

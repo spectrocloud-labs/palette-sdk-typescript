@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { OpenStackCloudConfigSpec } from "./openStackCloudConfigSpec";
-import type { OpenStackCloudConfigStatus } from "./openStackCloudConfigStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { OpenStackCloudConfigSpec } from './openStackCloudConfigSpec';
+import type { OpenStackCloudConfigStatus } from './openStackCloudConfigStatus';
 
 /**
  * OpenStackCloudConfig is the Schema for the OpenStackcloudconfigs API

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanLimit } from "./planLimit";
-import type { InvoiceBillingPeriod } from "./invoiceBillingPeriod";
-import type { YearlyUsage } from "./yearlyUsage";
+import type { PlanLimit } from './planLimit';
+import type { InvoiceBillingPeriod } from './invoiceBillingPeriod';
+import type { YearlyUsage } from './yearlyUsage';
 
 /**
  * System usage billing object

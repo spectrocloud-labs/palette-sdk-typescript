@@ -13,4 +13,4 @@
 /**
  * Labels specifies which pod labels this selector should match.
  */
-export type FargateSelectorLabels = { [key: string]: string };
+export type FargateSelectorLabels = {[key: string]: string};

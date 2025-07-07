@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemCertificatesSpec } from "./systemCertificatesSpec";
+import type { SystemCertificatesSpec } from './systemCertificatesSpec';
 
 /**
  * system domain and its certificate config spec

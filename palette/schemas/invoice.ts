@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { InvoiceSpec } from "./invoiceSpec";
-import type { InvoiceStatus } from "./invoiceStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { InvoiceSpec } from './invoiceSpec';
+import type { InvoiceStatus } from './invoiceStatus';
 
 /**
  * Invoice object

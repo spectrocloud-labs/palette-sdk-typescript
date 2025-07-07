@@ -13,4 +13,4 @@
 /**
  * message context data can be used as contextual information for the message exchange
  */
-export type BrokerTokenMsgCtxData = { [key: string]: string };
+export type BrokerTokenMsgCtxData = {[key: string]: string};

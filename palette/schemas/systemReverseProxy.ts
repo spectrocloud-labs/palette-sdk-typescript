@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemReverseProxyProtocol } from "./systemReverseProxyProtocol";
+import type { SystemReverseProxyProtocol } from './systemReverseProxyProtocol';
 
 /**
  * system config reverse proxy

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmPodAffinityTerm } from "./vmPodAffinityTerm";
+import type { VmPodAffinityTerm } from './vmPodAffinityTerm';
 
 /**
  * The weights of all of the matched WeightedPodAffinityTerm fields are added per-node to find the most preferred node(s)

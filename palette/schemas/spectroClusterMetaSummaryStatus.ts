@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterMetaStatusCost } from "./clusterMetaStatusCost";
-import type { ClusterFips } from "./clusterFips";
-import type { ClusterMetaStatusHealth } from "./clusterMetaStatusHealth";
-import type { ClusterMetaStatusUpdates } from "./clusterMetaStatusUpdates";
+import type { ClusterMetaStatusCost } from './clusterMetaStatusCost';
+import type { ClusterFips } from './clusterFips';
+import type { ClusterMetaStatusHealth } from './clusterMetaStatusHealth';
+import type { ClusterMetaStatusUpdates } from './clusterMetaStatusUpdates';
 
 /**
  * Spectro cluster meta status summary

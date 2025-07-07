@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type MgmtBackupSpecScheduleType =
-  (typeof MgmtBackupSpecScheduleType)[keyof typeof MgmtBackupSpecScheduleType];
+export type MgmtBackupSpecScheduleType = typeof MgmtBackupSpecScheduleType[keyof typeof MgmtBackupSpecScheduleType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MgmtBackupSpecScheduleType = {
-  OnDemand: "OnDemand",
-  Automated: "Automated",
+  OnDemand: 'OnDemand',
+  Automated: 'Automated',
 } as const;

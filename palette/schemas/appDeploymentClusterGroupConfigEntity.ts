@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterGroupTargetSpec } from "./appDeploymentClusterGroupTargetSpec";
+import type { AppDeploymentClusterGroupTargetSpec } from './appDeploymentClusterGroupTargetSpec';
 
 /**
  * Application deployment cluster group config

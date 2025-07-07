@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackValuesEntity } from "./packValuesEntity";
+import type { PackValuesEntity } from './packValuesEntity';
 
 /**
  * Cluster definition profile entity

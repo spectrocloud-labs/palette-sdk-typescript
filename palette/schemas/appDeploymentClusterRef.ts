@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterRefDeploymentClusterType } from "./appDeploymentClusterRefDeploymentClusterType";
+import type { AppDeploymentClusterRefDeploymentClusterType } from './appDeploymentClusterRefDeploymentClusterType';
 
 /**
  * Application deployment cluster reference

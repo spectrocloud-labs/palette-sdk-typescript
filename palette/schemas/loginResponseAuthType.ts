@@ -13,11 +13,11 @@
 /**
  * Describes the default mode of authentication. Possible values [password, sso]
  */
-export type LoginResponseAuthType =
-  (typeof LoginResponseAuthType)[keyof typeof LoginResponseAuthType];
+export type LoginResponseAuthType = typeof LoginResponseAuthType[keyof typeof LoginResponseAuthType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LoginResponseAuthType = {
-  password: "password",
-  sso: "sso",
+  password: 'password',
+  sso: 'sso',
 } as const;

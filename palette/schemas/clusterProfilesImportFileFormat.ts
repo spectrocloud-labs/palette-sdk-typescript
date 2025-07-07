@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterProfilesImportFileFormat =
-  (typeof ClusterProfilesImportFileFormat)[keyof typeof ClusterProfilesImportFileFormat];
+export type ClusterProfilesImportFileFormat = typeof ClusterProfilesImportFileFormat[keyof typeof ClusterProfilesImportFileFormat];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterProfilesImportFileFormat = {
-  yaml: "yaml",
-  json: "json",
+  yaml: 'yaml',
+  json: 'json',
 } as const;

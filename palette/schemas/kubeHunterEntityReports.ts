@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeHunterReportEntity } from "./kubeHunterReportEntity";
+import type { KubeHunterReportEntity } from './kubeHunterReportEntity';
 
-export type KubeHunterEntityReports = { [key: string]: KubeHunterReportEntity };
+export type KubeHunterEntityReports = {[key: string]: KubeHunterReportEntity};

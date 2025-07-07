@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentVirtualClusterTargetSpec } from "./appDeploymentVirtualClusterTargetSpec";
+import type { AppDeploymentVirtualClusterTargetSpec } from './appDeploymentVirtualClusterTargetSpec';
 
 /**
  * Application deployment virtual cluster config

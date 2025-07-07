@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./vmQuantity";
+import type { VmQuantity } from './vmQuantity';
 
 /**
  * Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
  */
-export type VmCoreResourceRequirementsLimits = { [key: string]: VmQuantity };
+export type VmCoreResourceRequirementsLimits = {[key: string]: VmQuantity};

@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type SystemPlanCreditType =
-  (typeof SystemPlanCreditType)[keyof typeof SystemPlanCreditType];
+export type SystemPlanCreditType = typeof SystemPlanCreditType[keyof typeof SystemPlanCreditType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SystemPlanCreditType = {
-  Pure: "Pure",
-  Alloy: "Alloy",
+  Pure: 'Pure',
+  Alloy: 'Alloy',
 } as const;

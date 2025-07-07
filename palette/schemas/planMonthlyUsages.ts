@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanMonthlyUsage } from "./planMonthlyUsage";
+import type { PlanMonthlyUsage } from './planMonthlyUsage';
 
 export type PlanMonthlyUsages = {
   items?: PlanMonthlyUsage[];

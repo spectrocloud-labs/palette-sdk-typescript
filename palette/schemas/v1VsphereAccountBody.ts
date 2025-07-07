@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereAccount } from "./vsphereAccount";
+import type { VsphereAccount } from './vsphereAccount';
 
 /**
  * Request payload to validate VSphere cloud account

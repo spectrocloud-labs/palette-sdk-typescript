@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterConjunctionOperator } from "./searchFilterConjunctionOperator";
-import type { SearchFilterGroup } from "./searchFilterGroup";
+import type { SearchFilterConjunctionOperator } from './searchFilterConjunctionOperator';
+import type { SearchFilterGroup } from './searchFilterGroup';
 
 export type SearchFilterSpec = {
   conjunction?: SearchFilterConjunctionOperator;

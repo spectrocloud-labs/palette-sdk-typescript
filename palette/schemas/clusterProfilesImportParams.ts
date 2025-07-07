@@ -11,8 +11,8 @@
  */
 
 export type ClusterProfilesImportParams = {
-  /**
-   * If true then cluster profile will be published post successful import
-   */
-  publish?: boolean;
+/**
+ * If true then cluster profile will be published post successful import
+ */
+publish?: boolean;
 };

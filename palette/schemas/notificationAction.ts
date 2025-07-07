@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { NotificationActionActionType } from "./notificationActionActionType";
-import type { NotificationActionEvents } from "./notificationActionEvents";
+import type { NotificationActionActionType } from './notificationActionActionType';
+import type { NotificationActionEvents } from './notificationActionEvents';
 
 /**
  * Describes actions for the notification

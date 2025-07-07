@@ -13,14 +13,13 @@
 /**
  * @nullable
  */
-export type EdgeHostsMetadataSortFields =
-  | (typeof EdgeHostsMetadataSortFields)[keyof typeof EdgeHostsMetadataSortFields]
-  | null;
+export type EdgeHostsMetadataSortFields = typeof EdgeHostsMetadataSortFields[keyof typeof EdgeHostsMetadataSortFields] | null;
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EdgeHostsMetadataSortFields = {
-  name: "name",
-  state: "state",
-  creationTimestamp: "creationTimestamp",
-  lastModifiedTimestamp: "lastModifiedTimestamp",
+  name: 'name',
+  state: 'state',
+  creationTimestamp: 'creationTimestamp',
+  lastModifiedTimestamp: 'lastModifiedTimestamp',
 } as const;

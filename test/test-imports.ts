@@ -9,14 +9,18 @@
 
 // Test importing individual functions from local palette files
 import {
-  spectroClustersGet,
-  spectroClustersAwsCreate,
+  spectroClustersMetadataGet,
+  spectroClustersFiltersWorkspace,
+  clusterProfilesFilterSummary,
   cloudAccountsAwsList,
   apiKeysList,
+  type SpectroClustersMetadata,
+  type SpectroClustersSummary,
+  type ClusterProfilesSummary,
+  type AwsAccounts,
+  type ApiKeys,
+  type ClusterProfilesFilterSpec,
 } from "../palette/index";
-
-// Test importing the client wrapper
-import { setupConfig, type PaletteAPIFunctions } from "../palette";
 
 // Test importing types from local palette files
 import type { SpectroCluster, AwsAccount, AuthLogin } from "../palette/index";
@@ -25,11 +29,20 @@ console.log("Running palette-sdk-typescript integration tests...");
 
 // Test that the main functions are available and working
 console.log("PASS: Import successful!");
-console.log("spectroClustersGet type:", typeof spectroClustersGet);
-console.log("spectroClustersAwsCreate type:", typeof spectroClustersAwsCreate);
+console.log(
+  "spectroClustersMetadataGet type:",
+  typeof spectroClustersMetadataGet
+);
+console.log(
+  "spectroClustersFiltersWorkspace type:",
+  typeof spectroClustersFiltersWorkspace
+);
+console.log(
+  "clusterProfilesFilterSummary type:",
+  typeof clusterProfilesFilterSummary
+);
 console.log("cloudAccountsAwsList type:", typeof cloudAccountsAwsList);
 console.log("apiKeysList type:", typeof apiKeysList);
-console.log("setupConfig type:", typeof setupConfig);
 
 // Test that types are available
 console.log("\nType imports:");
@@ -39,56 +52,62 @@ console.log("AuthLogin type available:", typeof {} as AuthLogin);
 
 console.log("\nAll imports successful! SDK is working correctly.");
 
-// Test the client wrapper
-console.log("\nTesting client wrapper...");
+// Test the individual function pattern
+console.log("\nTesting individual function pattern...");
 try {
-  const palette: PaletteAPIFunctions = setupConfig({
-    baseURL: "https://api.spectrocloud.com",
+  const config = {
     headers: {
       ApiKey: "test-key",
       "Content-Type": "application/json",
     },
-  });
+  };
 
-  console.log("PASS: Client wrapper created successfully");
+  console.log("PASS: Config created successfully");
 
-  // Check that functions are available through the client
-  const clientFunctions = [
-    "spectroClustersGet",
-    "spectroClustersAwsCreate",
-    "cloudAccountsAwsList",
-    "apiKeysList",
+  // Check that functions are available
+  const functions = [
+    { name: "spectroClustersMetadataGet", func: spectroClustersMetadataGet },
+    {
+      name: "spectroClustersFiltersWorkspace",
+      func: spectroClustersFiltersWorkspace,
+    },
+    {
+      name: "clusterProfilesFilterSummary",
+      func: clusterProfilesFilterSummary,
+    },
+    { name: "cloudAccountsAwsList", func: cloudAccountsAwsList },
+    { name: "apiKeysList", func: apiKeysList },
   ];
 
-  clientFunctions.forEach((funcName) => {
-    if (typeof palette[funcName as keyof PaletteAPIFunctions] === "function") {
-      console.log(`PASS: ${funcName} is available through client`);
+  functions.forEach(({ name, func }) => {
+    if (typeof func === "function") {
+      console.log(`PASS: ${name} is available as function`);
     } else {
-      console.log(`FAIL: ${funcName} is not available through client`);
+      console.log(`FAIL: ${name} is not available as function`);
     }
   });
 } catch (error) {
-  console.log("FAIL: Client wrapper error:", error);
+  console.log("FAIL: Function pattern error:", error);
 }
 
-console.log("\nFunctions are organized in the following areas:");
-console.log("• apiKeys - API key management");
-console.log("• clusters - Cluster operations");
-console.log("• cloudAccounts - Cloud account management");
-console.log("• appDeployments - Application deployments");
-console.log("• appProfiles - Application profiles");
-console.log("• And 27 more functional areas...");
+console.log("\nFunctions are available for direct import:");
+console.log("• spectroClustersMetadataGet - Get cluster metadata");
+console.log("• spectroClustersFiltersWorkspace - Get filtered clusters");
+console.log("• clusterProfilesFilterSummary - Get cluster profiles");
+console.log("• cloudAccountsAwsList - List AWS cloud accounts");
+console.log("• apiKeysList - List API keys");
+console.log("• And many more...");
 
 console.log("\nFeatures:");
-console.log("• Clean function names without v1 prefixes");
-console.log("• CamelCase directory organization");
-console.log("• Tags-split mode enabled");
-console.log("• Client wrapper pattern available");
+console.log("• Individual function imports");
+console.log("• Full TypeScript support");
+console.log("• Tree-shakable imports");
+console.log("• Direct API function calls");
 
 // Test that key functions are available
 const keyFunctions = [
-  { name: "spectroClustersGet", func: spectroClustersGet },
-  { name: "spectroClustersAwsCreate", func: spectroClustersAwsCreate },
+  { name: "spectroClustersMetadataGet", func: spectroClustersMetadataGet },
+  { name: "clusterProfilesFilterSummary", func: clusterProfilesFilterSummary },
   { name: "cloudAccountsAwsList", func: cloudAccountsAwsList },
   { name: "apiKeysList", func: apiKeysList },
 ];
@@ -123,26 +142,51 @@ try {
     emailId: "test@example.com",
   };
 
+  const mockFilterSpec: ClusterProfilesFilterSpec = {
+    filter: {},
+    sort: [],
+  };
+
   console.log("PASS: Type definitions are working correctly");
   console.log("PASS: Mock cluster created:", !!mockCluster);
   console.log("PASS: Mock account created:", !!mockAccount);
   console.log("PASS: Mock auth created:", !!mockAuth);
+  console.log("PASS: Mock filter spec created:", !!mockFilterSpec);
 } catch (error) {
   console.log("FAIL: Type definitions error:", error);
 }
 
 console.log("\nIntegration test completed successfully!");
 console.log("\nUsage examples:");
-console.log("\n1. Individual function imports:");
+console.log("\n1. Import specific functions:");
 console.log("```typescript");
-console.log("import { spectroClustersGet } from 'palette-sdk-typescript';");
 console.log(
-  "const clusters = await spectroClustersGet('', undefined, config);"
+  "import { spectroClustersMetadataGet } from 'palette-sdk-typescript';"
+);
+console.log("");
+console.log("const config = {");
+console.log("  headers: {");
+console.log("    ApiKey: process.env.PALETTE_API_KEY,");
+console.log("    'Content-Type': 'application/json',");
+console.log("  },");
+console.log("};");
+console.log("");
+console.log(
+  "const clusters = await spectroClustersMetadataGet(undefined, config);"
 );
 console.log("```");
-console.log("\n2. Client wrapper (recommended):");
+console.log("\n2. Import with types:");
 console.log("```typescript");
-console.log("import { setupConfig } from 'palette-sdk-typescript';");
-console.log("const palette = setupConfig({ baseURL: '...', headers: {...} });");
-console.log("const clusters = await palette.spectroClustersGet('');");
+console.log("import {");
+console.log("  clusterProfilesFilterSummary,");
+console.log("  type ClusterProfilesFilterSpec,");
+console.log("  type ClusterProfilesSummary");
+console.log("} from 'palette-sdk-typescript';");
+console.log("");
+console.log(
+  "const filterSpec: ClusterProfilesFilterSpec = { filter: {}, sort: [] };"
+);
+console.log(
+  "const profiles: ClusterProfilesSummary = await clusterProfilesFilterSummary(filterSpec, {}, config);"
+);
 console.log("```");

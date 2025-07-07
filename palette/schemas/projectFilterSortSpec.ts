@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectFilterSortFields } from "./projectFilterSortFields";
-import type { SortOrder } from "./sortOrder";
+import type { ProjectFilterSortFields } from './projectFilterSortFields';
+import type { SortOrder } from './sortOrder';
 
 export type ProjectFilterSortSpec = {
   field?: ProjectFilterSortFields;

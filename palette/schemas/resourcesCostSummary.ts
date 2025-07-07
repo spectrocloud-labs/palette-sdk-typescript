@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceCostSummary } from "./resourceCostSummary";
-import type { ResourceTotalCost } from "./resourceTotalCost";
+import type { ResourceCostSummary } from './resourceCostSummary';
+import type { ResourceTotalCost } from './resourceTotalCost';
 
 /**
  * Resources cost summary information

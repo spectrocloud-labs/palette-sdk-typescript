@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspacesRolesPatch } from "./workspacesRolesPatch";
+import type { WorkspacesRolesPatch } from './workspacesRolesPatch';
 
 export type V1WorkspacesRolesPatchBody = WorkspacesRolesPatch;

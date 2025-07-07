@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { PlanCreditType } from "./planCreditType";
+import type { Time } from './time';
+import type { PlanCreditType } from './planCreditType';
 
 /**
  * Plan Credit

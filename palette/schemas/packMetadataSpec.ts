@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackLayer } from "./packLayer";
-import type { RegistryPackMetadata } from "./registryPackMetadata";
-import type { PackType } from "./packType";
+import type { PackLayer } from './packLayer';
+import type { RegistryPackMetadata } from './registryPackMetadata';
+import type { PackType } from './packType';
 
 /**
  * Pack metadata spec

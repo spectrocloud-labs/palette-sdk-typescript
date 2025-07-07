@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersDeleteParams = {
-  /**
-   * If set to true the cluster will be force deleted and user has to manually clean up the provisioned cloud resources
-   */
-  forceDelete?: boolean;
+/**
+ * If set to true the cluster will be force deleted and user has to manually clean up the provisioned cloud resources
+ */
+forceDelete?: boolean;
 };

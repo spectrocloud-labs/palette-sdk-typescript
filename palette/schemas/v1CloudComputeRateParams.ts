@@ -11,8 +11,8 @@
  */
 
 export type V1CloudComputeRateParams = {
-  /**
-   * region for which compute rate is requested
-   */
-  region: string;
+/**
+ * region for which compute rate is requested
+ */
+region: string;
 };

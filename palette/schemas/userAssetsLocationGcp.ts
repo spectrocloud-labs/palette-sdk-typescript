@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { UserAssetsLocationGcpSpec } from "./userAssetsLocationGcpSpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { UserAssetsLocationGcpSpec } from './userAssetsLocationGcpSpec';
 
 /**
  * GCP location object

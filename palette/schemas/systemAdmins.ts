@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAdmin } from "./systemAdmin";
+import type { SystemAdmin } from './systemAdmin';
 
 /**
  * List of System Admin information's

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { ThemeSpec } from "./themeSpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { ThemeSpec } from './themeSpec';
 
 /**
  * Theme data create entity

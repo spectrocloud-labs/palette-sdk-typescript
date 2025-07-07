@@ -11,16 +11,16 @@
  */
 
 export type V1AwsSecurityGroupsParams = {
-  /**
-   * Uid for the specific AWS cloud account
-   */
-  cloudAccountUid?: string;
-  /**
-   * Region for which security groups are requested
-   */
-  region: string;
-  /**
-   * Vpc Id for which security groups are requested
-   */
-  vpcId: string;
+/**
+ * Uid for the specific AWS cloud account
+ */
+cloudAccountUid?: string;
+/**
+ * Region for which security groups are requested
+ */
+region: string;
+/**
+ * Vpc Id for which security groups are requested
+ */
+vpcId: string;
 };

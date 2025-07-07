@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRbacBinding } from "./clusterRbacBinding";
-import type { RelatedObject } from "./relatedObject";
+import type { ClusterRbacBinding } from './clusterRbacBinding';
+import type { RelatedObject } from './relatedObject';
 
 /**
  * Cluster RBAC spec

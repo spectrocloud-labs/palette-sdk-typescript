@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceConsumptionSpec } from "./resourceConsumptionSpec";
+import type { ResourceConsumptionSpec } from './resourceConsumptionSpec';
 
 export type V1ResourceConsumptionSpecBody = ResourceConsumptionSpec;

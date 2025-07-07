@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterBackupConfig } from "./clusterBackupConfig";
+import type { ClusterBackupConfig } from './clusterBackupConfig';
 
 export type V1ClusterBackupConfigBody = ClusterBackupConfig;

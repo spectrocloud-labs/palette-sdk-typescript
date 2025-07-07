@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasMachine } from "./maasMachine";
+import type { MaasMachine } from './maasMachine';
 
 export type V1MaasMachineBody = MaasMachine;

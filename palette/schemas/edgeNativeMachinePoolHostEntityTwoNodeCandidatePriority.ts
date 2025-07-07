@@ -13,11 +13,11 @@
 /**
  * Set the edgehost candidate priority as primary or secondary, if the edgehost is nominated as two node candidate
  */
-export type EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority =
-  (typeof EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority)[keyof typeof EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority];
+export type EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority = typeof EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority[keyof typeof EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority = {
-  primary: "primary",
-  secondary: "secondary",
+  primary: 'primary',
+  secondary: 'secondary',
 } as const;

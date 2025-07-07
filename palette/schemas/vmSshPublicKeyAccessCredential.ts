@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmSshPublicKeyAccessCredentialPropagationMethod } from "./vmSshPublicKeyAccessCredentialPropagationMethod";
-import type { VmSshPublicKeyAccessCredentialSource } from "./vmSshPublicKeyAccessCredentialSource";
+import type { VmSshPublicKeyAccessCredentialPropagationMethod } from './vmSshPublicKeyAccessCredentialPropagationMethod';
+import type { VmSshPublicKeyAccessCredentialSource } from './vmSshPublicKeyAccessCredentialSource';
 
 /**
  * SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest

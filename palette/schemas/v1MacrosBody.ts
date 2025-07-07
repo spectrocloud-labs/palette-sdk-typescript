@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Macros } from "./macros";
+import type { Macros } from './macros';
 
 export type V1MacrosBody = Macros;

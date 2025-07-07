@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
+import type { FilterString } from './filterString';
 
 /**
  * Spectro cluster filter spec

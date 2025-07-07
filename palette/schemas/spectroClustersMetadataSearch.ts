@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterMetaSummary } from "./spectroClusterMetaSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { SpectroClusterMetaSummary } from './spectroClusterMetaSummary';
+import type { ListMetaData } from './listMetaData';
 
 export type SpectroClustersMetadataSearch = {
   items: SpectroClusterMetaSummary[];

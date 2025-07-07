@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackCloudAccount } from "./openStackCloudAccount";
+import type { OpenStackCloudAccount } from './openStackCloudAccount';
 
 export type OverlordOpenStackAccountEntity = {
   account?: OpenStackCloudAccount;

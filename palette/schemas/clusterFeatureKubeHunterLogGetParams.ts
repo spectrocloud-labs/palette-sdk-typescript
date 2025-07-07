@@ -11,5 +11,5 @@
  */
 
 export type ClusterFeatureKubeHunterLogGetParams = {
-  reportId?: string;
+reportId?: string;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
+import type { ClusterFeatureSchedule } from './clusterFeatureSchedule';
 
 /**
  * Cluster compliance scan schedule config for kube hunter driver

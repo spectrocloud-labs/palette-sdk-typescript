@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereDnsMapping } from "./vsphereDnsMapping";
+import type { VsphereDnsMapping } from './vsphereDnsMapping';
 
 export type VsphereDnsMappings = {
   /** List of vSphere DNS mapping */

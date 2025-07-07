@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDataVolumeTemplateSpec } from "./vmDataVolumeTemplateSpec";
-import type { VmInstancetypeMatcher } from "./vmInstancetypeMatcher";
-import type { VmPreferenceMatcher } from "./vmPreferenceMatcher";
-import type { VmVirtualMachineInstanceTemplateSpec } from "./vmVirtualMachineInstanceTemplateSpec";
+import type { VmDataVolumeTemplateSpec } from './vmDataVolumeTemplateSpec';
+import type { VmInstancetypeMatcher } from './vmInstancetypeMatcher';
+import type { VmPreferenceMatcher } from './vmPreferenceMatcher';
+import type { VmVirtualMachineInstanceTemplateSpec } from './vmVirtualMachineInstanceTemplateSpec';
 
 /**
  * VirtualMachineSpec describes how the proper VirtualMachine should look like

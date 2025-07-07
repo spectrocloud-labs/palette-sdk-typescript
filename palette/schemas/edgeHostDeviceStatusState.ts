@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type EdgeHostDeviceStatusState =
-  (typeof EdgeHostDeviceStatusState)[keyof typeof EdgeHostDeviceStatusState];
+export type EdgeHostDeviceStatusState = typeof EdgeHostDeviceStatusState[keyof typeof EdgeHostDeviceStatusState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EdgeHostDeviceStatusState = {
-  ready: "ready",
-  unpaired: "unpaired",
-  "in-use": "in-use",
+  ready: 'ready',
+  unpaired: 'unpaired',
+  'in-use': 'in-use',
 } as const;

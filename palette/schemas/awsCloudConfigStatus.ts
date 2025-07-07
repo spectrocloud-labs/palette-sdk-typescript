@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./clusterCondition";
-import type { AwsAMI } from "./awsAMI";
-import type { AwsCloudConfigStatusRoleDigest } from "./awsCloudConfigStatusRoleDigest";
+import type { ClusterCondition } from './clusterCondition';
+import type { AwsAMI } from './awsAMI';
+import type { AwsCloudConfigStatusRoleDigest } from './awsCloudConfigStatusRoleDigest';
 
 /**
  * AwsCloudConfigStatus defines the observed state of AwsCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool

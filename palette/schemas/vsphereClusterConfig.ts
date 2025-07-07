@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ControlPlaneEndPoint } from "./controlPlaneEndPoint";
-import type { VspherePlacementConfig } from "./vspherePlacementConfig";
+import type { ControlPlaneEndPoint } from './controlPlaneEndPoint';
+import type { VspherePlacementConfig } from './vspherePlacementConfig';
 
 export type VsphereClusterConfig = {
   controlPlaneEndpoint?: ControlPlaneEndPoint;

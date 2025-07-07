@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersGetProfilesParams = {
-  /**
-   * includes pack meta such as schema, presets
-   */
-  includePackMeta?: string;
+/**
+ * includes pack meta such as schema, presets
+ */
+includePackMeta?: string;
 };

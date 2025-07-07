@@ -13,6 +13,4 @@
 /**
  * AdditionalLabels
  */
-export type EdgeNativeMachinePoolConfigAdditionalLabels = {
-  [key: string]: string;
-};
+export type EdgeNativeMachinePoolConfigAdditionalLabels = {[key: string]: string};

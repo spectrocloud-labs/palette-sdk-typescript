@@ -10,15 +10,16 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterState = (typeof ClusterState)[keyof typeof ClusterState];
+export type ClusterState = typeof ClusterState[keyof typeof ClusterState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterState = {
-  Pending: "Pending",
-  Provisioning: "Provisioning",
-  Running: "Running",
-  Deleting: "Deleting",
-  Deleted: "Deleted",
-  Error: "Error",
-  Importing: "Importing",
+  Pending: 'Pending',
+  Provisioning: 'Provisioning',
+  Running: 'Running',
+  Deleting: 'Deleting',
+  Deleted: 'Deleted',
+  Error: 'Error',
+  Importing: 'Importing',
 } as const;

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericMachine } from "./genericMachine";
+import type { GenericMachine } from './genericMachine';
 
 export type V1GenericMachineBody = GenericMachine;

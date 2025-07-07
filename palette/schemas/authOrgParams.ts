@@ -11,5 +11,5 @@
  */
 
 export type AuthOrgParams = {
-  orgName?: string;
+orgName?: string;
 };

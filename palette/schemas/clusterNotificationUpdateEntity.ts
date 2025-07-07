@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileNotificationUpdateEntity } from "./clusterProfileNotificationUpdateEntity";
-import type { SpcApplySettings } from "./spcApplySettings";
+import type { ClusterProfileNotificationUpdateEntity } from './clusterProfileNotificationUpdateEntity';
+import type { SpcApplySettings } from './spcApplySettings';
 
 /**
  * Cluster input for notification update

@@ -11,8 +11,8 @@
  */
 
 export type VMSnapshotUpdateParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

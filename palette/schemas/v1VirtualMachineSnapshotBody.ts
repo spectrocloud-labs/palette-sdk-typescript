@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualMachineSnapshot } from "./virtualMachineSnapshot";
+import type { VirtualMachineSnapshot } from './virtualMachineSnapshot';
 
 export type V1VirtualMachineSnapshotBody = VirtualMachineSnapshot;

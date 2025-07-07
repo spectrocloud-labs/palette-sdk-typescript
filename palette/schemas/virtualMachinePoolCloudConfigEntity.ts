@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualInstanceType } from "./virtualInstanceType";
+import type { VirtualInstanceType } from './virtualInstanceType';
 
 export type VirtualMachinePoolCloudConfigEntity = {
   instanceType: VirtualInstanceType;

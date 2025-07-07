@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMStartParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

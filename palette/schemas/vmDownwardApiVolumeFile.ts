@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmObjectFieldSelector } from "./vmObjectFieldSelector";
-import type { VmResourceFieldSelector } from "./vmResourceFieldSelector";
+import type { VmObjectFieldSelector } from './vmObjectFieldSelector';
+import type { VmResourceFieldSelector } from './vmResourceFieldSelector';
 
 /**
  * DownwardAPIVolumeFile represents information to create the file containing the pod field

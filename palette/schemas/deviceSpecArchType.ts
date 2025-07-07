@@ -13,11 +13,11 @@
 /**
  * Architecture type of the edge host
  */
-export type DeviceSpecArchType =
-  (typeof DeviceSpecArchType)[keyof typeof DeviceSpecArchType];
+export type DeviceSpecArchType = typeof DeviceSpecArchType[keyof typeof DeviceSpecArchType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const DeviceSpecArchType = {
-  arm64: "arm64",
-  amd64: "amd64",
+  arm64: 'arm64',
+  amd64: 'amd64',
 } as const;

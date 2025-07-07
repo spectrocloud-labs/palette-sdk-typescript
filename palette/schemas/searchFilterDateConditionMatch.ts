@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterConjunctionOperator } from "./searchFilterConjunctionOperator";
-import type { Time } from "./time";
+import type { SearchFilterConjunctionOperator } from './searchFilterConjunctionOperator';
+import type { Time } from './time';
 
 export type SearchFilterDateConditionMatch = {
   conjunction?: SearchFilterConjunctionOperator;

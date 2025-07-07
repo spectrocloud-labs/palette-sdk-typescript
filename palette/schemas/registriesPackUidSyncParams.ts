@@ -11,5 +11,5 @@
  */
 
 export type RegistriesPackUidSyncParams = {
-  forceSync?: boolean;
+forceSync?: boolean;
 };

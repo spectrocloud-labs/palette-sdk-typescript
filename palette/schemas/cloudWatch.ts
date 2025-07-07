@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
 export type CloudWatch = {
   credentials?: AwsCloudAccount;

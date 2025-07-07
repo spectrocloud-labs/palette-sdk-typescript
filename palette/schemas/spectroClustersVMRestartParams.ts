@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMRestartParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

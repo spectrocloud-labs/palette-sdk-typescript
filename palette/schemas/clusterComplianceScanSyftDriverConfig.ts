@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterComplianceScanSyftDriverConfigFormat } from "./clusterComplianceScanSyftDriverConfigFormat";
-import type { ObjectEntity } from "./objectEntity";
-import type { ClusterComplianceScanSyftDriverConfigScope } from "./clusterComplianceScanSyftDriverConfigScope";
+import type { ClusterComplianceScanSyftDriverConfigFormat } from './clusterComplianceScanSyftDriverConfigFormat';
+import type { ObjectEntity } from './objectEntity';
+import type { ClusterComplianceScanSyftDriverConfigScope } from './clusterComplianceScanSyftDriverConfigScope';
 
 /**
  * Cluster compliance scan specification

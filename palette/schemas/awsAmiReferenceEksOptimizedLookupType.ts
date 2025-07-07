@@ -13,11 +13,11 @@
 /**
  * EKSOptimizedLookupType If specified, will look up an EKS Optimized image in SSM Parameter store
  */
-export type AwsAmiReferenceEksOptimizedLookupType =
-  (typeof AwsAmiReferenceEksOptimizedLookupType)[keyof typeof AwsAmiReferenceEksOptimizedLookupType];
+export type AwsAmiReferenceEksOptimizedLookupType = typeof AwsAmiReferenceEksOptimizedLookupType[keyof typeof AwsAmiReferenceEksOptimizedLookupType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AwsAmiReferenceEksOptimizedLookupType = {
-  AmazonLinux: "AmazonLinux",
-  AmazonLinuxGPU: "AmazonLinuxGPU",
+  AmazonLinux: 'AmazonLinux',
+  AmazonLinuxGPU: 'AmazonLinuxGPU',
 } as const;

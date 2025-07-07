@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpClusterConfig } from "./gcpClusterConfig";
-import type { ClusterConfigEntity } from "./clusterConfigEntity";
-import type { GcpMachinePoolConfigEntity } from "./gcpMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { GcpClusterConfig } from './gcpClusterConfig';
+import type { ClusterConfigEntity } from './clusterConfigEntity';
+import type { GcpMachinePoolConfigEntity } from './gcpMachinePoolConfigEntity';
+import type { SpectroClusterPolicies } from './spectroClusterPolicies';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
 
 export type SpectroGcpClusterEntitySpec = {
   /** Cloud account uid to be used for cluster provisioning */

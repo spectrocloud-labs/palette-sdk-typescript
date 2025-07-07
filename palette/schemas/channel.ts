@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ChannelHttp } from "./channelHttp";
-import type { AlertNotificationStatus } from "./alertNotificationStatus";
-import type { ChannelType } from "./channelType";
+import type { ChannelHttp } from './channelHttp';
+import type { AlertNotificationStatus } from './alertNotificationStatus';
+import type { ChannelType } from './channelType';
 
 export type Channel = {
   alertAllUsers?: boolean;

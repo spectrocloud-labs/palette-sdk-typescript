@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackResolvedValuesResolved } from "./packResolvedValuesResolved";
+import type { PackResolvedValuesResolved } from './packResolvedValuesResolved';
 
 /**
  * Pack resolved values

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackSummary } from "./packSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { PackSummary } from './packSummary';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * List of packs

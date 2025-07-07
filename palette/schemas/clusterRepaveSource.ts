@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterRepaveSource =
-  (typeof ClusterRepaveSource)[keyof typeof ClusterRepaveSource];
+export type ClusterRepaveSource = typeof ClusterRepaveSource[keyof typeof ClusterRepaveSource];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterRepaveSource = {
-  user: "user",
-  hubble: "hubble",
-  palette: "palette",
-  stylus: "stylus",
+  user: 'user',
+  hubble: 'hubble',
+  palette: 'palette',
+  stylus: 'stylus',
 } as const;

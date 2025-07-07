@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachineCertificate } from "./machineCertificate";
+import type { MachineCertificate } from './machineCertificate';
 
 /**
  * K8 Certificates for all the cluster's control plane nodes

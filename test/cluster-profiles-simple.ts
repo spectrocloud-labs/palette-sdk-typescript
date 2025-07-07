@@ -9,11 +9,10 @@
 
 import dotenvx from "@dotenvx/dotenvx";
 import {
-  setupConfig,
-  type PaletteAPIFunctions,
+  clusterProfilesFilterSummary,
   type ClusterProfilesFilterSpec,
   type ClusterProfilesFilterSummaryParams,
-  type clusterProfilesFilterSummaryResponse,
+  type ClusterProfilesSummary,
 } from "../palette";
 
 // Load environment variables with expanded path handling
@@ -46,17 +45,8 @@ if (!API_KEY) {
 async function testClusterProfiles() {
   console.log("Testing cluster profiles function availability...");
 
-  // Create a pre-configured client with full typing support
-  const palette: PaletteAPIFunctions = setupConfig({
-    baseURL: BASE_URL,
-    headers: {
-      ApiKey: API_KEY,
-      "Content-Type": "application/json",
-    },
-  });
-
   // Test that the function is available
-  if (typeof palette.clusterProfilesFilterSummary === "function") {
+  if (typeof clusterProfilesFilterSummary === "function") {
     console.log("PASS: clusterProfilesFilterSummary is available");
   } else {
     console.error("FAIL: clusterProfilesFilterSummary is not available");
@@ -66,6 +56,14 @@ async function testClusterProfiles() {
   console.log("Retrieving cluster profiles from Palette API...");
 
   try {
+    // Create configuration object
+    const config = {
+      headers: {
+        ApiKey: API_KEY,
+        "Content-Type": "application/json",
+      },
+    };
+
     // Define the filter spec with proper typing
     const filterSpec: ClusterProfilesFilterSpec = {
       filter: {},
@@ -75,15 +73,18 @@ async function testClusterProfiles() {
     // Define query parameters with proper typing
     const queryParams: ClusterProfilesFilterSummaryParams = {};
 
-    // Call the API using the client wrapper with full type safety
-    const response: clusterProfilesFilterSummaryResponse =
-      await palette.clusterProfilesFilterSummary(filterSpec, queryParams);
+    // Call the API using individual function import with full type safety
+    const response: ClusterProfilesSummary = await clusterProfilesFilterSummary(
+      filterSpec,
+      queryParams,
+      config
+    );
 
-    if (response && response.data && Array.isArray(response.data.items)) {
-      console.log(`Found ${response.data.items.length} cluster profiles`);
+    if (response && response.items && Array.isArray(response.items)) {
+      console.log(`Found ${response.items.length} cluster profiles`);
 
       // Display the cluster profiles
-      response.data.items.forEach((profile, index) => {
+      response.items.forEach((profile, index) => {
         console.log(`${index + 1}. ${profile.metadata?.name || "Unknown"}`);
         console.log(`   UID: ${profile.metadata?.uid || "Unknown"}`);
         console.log(`   Version: ${profile.specSummary?.version || "N/A"}`);

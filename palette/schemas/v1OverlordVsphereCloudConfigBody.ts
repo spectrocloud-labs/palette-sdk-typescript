@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OverlordVsphereCloudConfig } from "./overlordVsphereCloudConfig";
+import type { OverlordVsphereCloudConfig } from './overlordVsphereCloudConfig';
 
 export type V1OverlordVsphereCloudConfigBody = OverlordVsphereCloudConfig;

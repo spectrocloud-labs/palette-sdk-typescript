@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostMeta } from "./edgeHostMeta";
+import type { EdgeHostMeta } from './edgeHostMeta';
 
 export type EdgeHostsMeta = {
   edgeHosts?: EdgeHostMeta[];

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceLimitType } from "./resourceLimitType";
+import type { ResourceLimitType } from './resourceLimitType';
 
 export type SystemResourceLimit = {
   kind?: ResourceLimitType;

@@ -11,5 +11,5 @@
  */
 
 export type EcrRegistriesUidSyncParams = {
-  forceSync?: boolean;
+forceSync?: boolean;
 };

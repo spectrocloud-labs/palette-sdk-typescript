@@ -9,8 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterSearchInputSpecProperty } from "./clusterSearchInputSpecProperty";
+import type { ClusterSearchInputSpecProperty } from './clusterSearchInputSpecProperty';
 
-export type ClusterSearchInputSpecInputs = {
-  [key: string]: ClusterSearchInputSpecProperty;
-};
+export type ClusterSearchInputSpecInputs = {[key: string]: ClusterSearchInputSpecProperty};

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmNUMAGuestMappingPassthrough } from "./vmNUMAGuestMappingPassthrough";
+import type { VmNUMAGuestMappingPassthrough } from './vmNUMAGuestMappingPassthrough';
 
 export type VmNUMA = {
   guestMappingPassthrough?: VmNUMAGuestMappingPassthrough;

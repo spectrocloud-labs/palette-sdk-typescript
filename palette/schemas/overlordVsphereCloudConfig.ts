@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereOverlordClusterConfigEntity } from "./vsphereOverlordClusterConfigEntity";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
-import type { ClusterConfigEntity } from "./clusterConfigEntity";
+import type { VsphereOverlordClusterConfigEntity } from './vsphereOverlordClusterConfigEntity';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
+import type { ClusterConfigEntity } from './clusterConfigEntity';
 
 export type OverlordVsphereCloudConfig = {
   clusterConfig?: VsphereOverlordClusterConfigEntity;

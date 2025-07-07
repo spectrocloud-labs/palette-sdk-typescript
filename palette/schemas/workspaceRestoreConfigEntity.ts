@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceRestoreConfig } from "./workspaceRestoreConfig";
+import type { WorkspaceRestoreConfig } from './workspaceRestoreConfig';
 
 /**
  * Cluster restore config

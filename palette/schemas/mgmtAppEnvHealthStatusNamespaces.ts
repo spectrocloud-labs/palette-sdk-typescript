@@ -9,8 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppNameSpaceStatus } from "./mgmtAppNameSpaceStatus";
+import type { MgmtAppNameSpaceStatus } from './mgmtAppNameSpaceStatus';
 
-export type MgmtAppEnvHealthStatusNamespaces = {
-  [key: string]: MgmtAppNameSpaceStatus;
-};
+export type MgmtAppEnvHealthStatusNamespaces = {[key: string]: MgmtAppNameSpaceStatus};

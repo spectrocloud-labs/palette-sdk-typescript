@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserAssetsLocationGcp } from "./userAssetsLocationGcp";
+import type { UserAssetsLocationGcp } from './userAssetsLocationGcp';
 
 export type V1UserAssetsLocationGcpBody = UserAssetsLocationGcp;

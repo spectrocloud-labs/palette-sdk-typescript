@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMResumeParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

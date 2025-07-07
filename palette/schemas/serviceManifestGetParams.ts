@@ -9,23 +9,23 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ServiceManifestGetAction } from "./serviceManifestGetAction";
+import type { ServiceManifestGetAction } from './serviceManifestGetAction';
 
 export type ServiceManifestGetParams = {
-  /**
-   * action type
-   */
-  action: ServiceManifestGetAction;
-  /**
-   * resource file name
-   */
-  resourceFilename?: string;
-  /**
-   * spectro cluster uid
-   */
-  clusterUid?: string;
-  /**
-   * edge host uid
-   */
-  edgeHostUid?: string;
+/**
+ * action type
+ */
+action: ServiceManifestGetAction;
+/**
+ * resource file name
+ */
+resourceFilename?: string;
+/**
+ * spectro cluster uid
+ */
+clusterUid?: string;
+/**
+ * edge host uid
+ */
+edgeHostUid?: string;
 };

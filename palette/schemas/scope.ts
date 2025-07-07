@@ -10,12 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type Scope = (typeof Scope)[keyof typeof Scope];
+export type Scope = typeof Scope[keyof typeof Scope];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const Scope = {
-  system: "system",
-  tenant: "tenant",
-  project: "project",
-  resource: "resource",
+  system: 'system',
+  tenant: 'tenant',
+  project: 'project',
+  resource: 'resource',
 } as const;

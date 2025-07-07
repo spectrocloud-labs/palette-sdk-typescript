@@ -11,8 +11,8 @@
  */
 
 export type V1GcpRegionsParams = {
-  /**
-   * Uid for the specific GCP cloud account
-   */
-  cloudAccountUid: string;
+/**
+ * Uid for the specific GCP cloud account
+ */
+cloudAccountUid: string;
 };

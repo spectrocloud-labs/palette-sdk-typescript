@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Role } from "./role";
-import type { ListMetaData } from "./listMetaData";
+import type { Role } from './role';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Array of Roles

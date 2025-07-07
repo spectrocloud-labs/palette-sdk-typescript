@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppNameSpaceStatusCronJobs } from "./mgmtAppNameSpaceStatusCronJobs";
-import type { MgmtAppNameSpaceStatusDeployments } from "./mgmtAppNameSpaceStatusDeployments";
-import type { MgmtAppNameSpaceStatusStatefulSets } from "./mgmtAppNameSpaceStatusStatefulSets";
+import type { MgmtAppNameSpaceStatusCronJobs } from './mgmtAppNameSpaceStatusCronJobs';
+import type { MgmtAppNameSpaceStatusDeployments } from './mgmtAppNameSpaceStatusDeployments';
+import type { MgmtAppNameSpaceStatusStatefulSets } from './mgmtAppNameSpaceStatusStatefulSets';
 
 export type MgmtAppNameSpaceStatus = {
   cronJobs?: MgmtAppNameSpaceStatusCronJobs;

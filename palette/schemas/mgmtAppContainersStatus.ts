@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppContainersState } from "./mgmtAppContainersState";
+import type { MgmtAppContainersState } from './mgmtAppContainersState';
 
 export type MgmtAppContainersStatus = {
   isHealthy?: boolean;

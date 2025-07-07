@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceUsage } from "./resourceUsage";
+import type { ResourceUsage } from './resourceUsage';
 
 export type PlanCpuCoreHoursUsages = {
   hourlyUsages?: ResourceUsage[];

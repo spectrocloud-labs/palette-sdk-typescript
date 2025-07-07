@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpCloudClusterConfigEntity } from "./gcpCloudClusterConfigEntity";
+import type { GcpCloudClusterConfigEntity } from './gcpCloudClusterConfigEntity';
 
 export type V1GcpCloudClusterConfigEntityBody = GcpCloudClusterConfigEntity;

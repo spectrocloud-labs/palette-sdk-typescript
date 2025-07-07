@@ -13,13 +13,13 @@
 /**
  * Contains configuration for Azure cloud
  */
-export type AzureCloudAccountAzureEnvironment =
-  (typeof AzureCloudAccountAzureEnvironment)[keyof typeof AzureCloudAccountAzureEnvironment];
+export type AzureCloudAccountAzureEnvironment = typeof AzureCloudAccountAzureEnvironment[keyof typeof AzureCloudAccountAzureEnvironment];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AzureCloudAccountAzureEnvironment = {
-  AzureChinaCloud: "AzureChinaCloud",
-  AzurePublicCloud: "AzurePublicCloud",
-  AzureUSGovernment: "AzureUSGovernment",
-  AzureUSGovernmentCloud: "AzureUSGovernmentCloud",
+  AzureChinaCloud: 'AzureChinaCloud',
+  AzurePublicCloud: 'AzurePublicCloud',
+  AzureUSGovernment: 'AzureUSGovernment',
+  AzureUSGovernmentCloud: 'AzureUSGovernmentCloud',
 } as const;

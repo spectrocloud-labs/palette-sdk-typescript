@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsResourceReference } from "./awsResourceReference";
-import type { AwsAmiReference } from "./awsAmiReference";
-import type { AwsRootVolume } from "./awsRootVolume";
+import type { AwsResourceReference } from './awsResourceReference';
+import type { AwsAmiReference } from './awsAmiReference';
+import type { AwsRootVolume } from './awsRootVolume';
 
 /**
  * AWSLaunchTemplate specifies the launch template to use to create the managed node group

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpAccountEntity } from "./gcpAccountEntity";
+import type { GcpAccountEntity } from './gcpAccountEntity';
 
 /**
  * Request payload to validate GCP cloud account

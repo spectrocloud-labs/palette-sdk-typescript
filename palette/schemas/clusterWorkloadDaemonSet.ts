@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadMetadata } from "./clusterWorkloadMetadata";
-import type { ClusterWorkloadDaemonSetStatus } from "./clusterWorkloadDaemonSetStatus";
+import type { ClusterWorkloadMetadata } from './clusterWorkloadMetadata';
+import type { ClusterWorkloadDaemonSetStatus } from './clusterWorkloadDaemonSetStatus';
 
 /**
  * Cluster workload daemonset summary

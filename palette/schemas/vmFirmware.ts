@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmBootloader } from "./vmBootloader";
-import type { VmKernelBoot } from "./vmKernelBoot";
+import type { VmBootloader } from './vmBootloader';
+import type { VmKernelBoot } from './vmKernelBoot';
 
 export type VmFirmware = {
   bootloader?: VmBootloader;

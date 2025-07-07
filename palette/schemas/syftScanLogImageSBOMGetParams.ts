@@ -11,5 +11,5 @@
  */
 
 export type SyftScanLogImageSBOMGetParams = {
-  image: string;
+image: string;
 };

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntityAnnotations } from "./objectMetaInputEntityAnnotations";
-import type { ObjectMetaInputEntityLabels } from "./objectMetaInputEntityLabels";
+import type { ObjectMetaInputEntityAnnotations } from './objectMetaInputEntityAnnotations';
+import type { ObjectMetaInputEntityLabels } from './objectMetaInputEntityLabels';
 
 /**
  * ObjectMeta input entity for object creation

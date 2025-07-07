@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InstancePrice } from "./instancePrice";
+import type { InstancePrice } from './instancePrice';
 
 /**
  * Instance cost entity

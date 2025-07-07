@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsSubnet } from "./awsSubnet";
+import type { AwsSubnet } from './awsSubnet';
 
 /**
  * A virtual network dedicated to a AWS account

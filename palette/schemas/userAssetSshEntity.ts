@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { UserAssetSshSpec } from "./userAssetSshSpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { UserAssetSshSpec } from './userAssetSshSpec';
 
 /**
  * SSH Key request payload

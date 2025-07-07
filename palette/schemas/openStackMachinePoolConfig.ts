@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackMachinePoolConfigAdditionalLabels } from "./openStackMachinePoolConfigAdditionalLabels";
-import type { OpenStackMachinePoolConfigAdditionalTags } from "./openStackMachinePoolConfigAdditionalTags";
-import type { OpenstackFlavorConfig } from "./openstackFlavorConfig";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { OpenStackResource } from "./openStackResource";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { OpenStackMachinePoolConfigAdditionalLabels } from './openStackMachinePoolConfigAdditionalLabels';
+import type { OpenStackMachinePoolConfigAdditionalTags } from './openStackMachinePoolConfigAdditionalTags';
+import type { OpenstackFlavorConfig } from './openstackFlavorConfig';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { OpenStackResource } from './openStackResource';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
 export type OpenStackMachinePoolConfig = {
   /** additionalLabels */

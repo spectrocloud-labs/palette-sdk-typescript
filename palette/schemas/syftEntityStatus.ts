@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type SyftEntityStatus =
-  (typeof SyftEntityStatus)[keyof typeof SyftEntityStatus];
+export type SyftEntityStatus = typeof SyftEntityStatus[keyof typeof SyftEntityStatus];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SyftEntityStatus = {
-  Completed: "Completed",
-  InProgress: "InProgress",
-  Failed: "Failed",
-  Initiated: "Initiated",
+  Completed: 'Completed',
+  InProgress: 'InProgress',
+  Failed: 'Failed',
+  Initiated: 'Initiated',
 } as const;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroEdgeNativeClusterPairSpec } from "./spectroEdgeNativeClusterPairSpec";
-import type { SpectroClusterPairStatus } from "./spectroClusterPairStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroEdgeNativeClusterPairSpec } from './spectroEdgeNativeClusterPairSpec';
+import type { SpectroClusterPairStatus } from './spectroClusterPairStatus';
 
 /**
  * EdgeNative cluster pair response

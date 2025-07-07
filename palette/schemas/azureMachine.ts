@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AzureMachineSpec } from "./azureMachineSpec";
-import type { CloudMachineStatus } from "./cloudMachineStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { AzureMachineSpec } from './azureMachineSpec';
+import type { CloudMachineStatus } from './cloudMachineStatus';
 
 /**
  * Azure cloud VM definition

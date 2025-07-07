@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroInstallerEntity } from "./spectroInstallerEntity";
-import type { ListMetaData } from "./listMetaData";
+import type { SpectroInstallerEntity } from './spectroInstallerEntity';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * List Spectro installers

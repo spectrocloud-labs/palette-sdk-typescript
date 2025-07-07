@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmAccessCredential } from "./vmAccessCredential";
-import type { VmAffinity } from "./vmAffinity";
-import type { VmPodDnsConfig } from "./vmPodDnsConfig";
-import type { VmDomainSpec } from "./vmDomainSpec";
-import type { VmProbe } from "./vmProbe";
-import type { VmNetwork } from "./vmNetwork";
-import type { VmVirtualMachineInstanceSpecNodeSelector } from "./vmVirtualMachineInstanceSpecNodeSelector";
-import type { VmToleration } from "./vmToleration";
-import type { VmTopologySpreadConstraint } from "./vmTopologySpreadConstraint";
-import type { VmVolume } from "./vmVolume";
+import type { VmAccessCredential } from './vmAccessCredential';
+import type { VmAffinity } from './vmAffinity';
+import type { VmPodDnsConfig } from './vmPodDnsConfig';
+import type { VmDomainSpec } from './vmDomainSpec';
+import type { VmProbe } from './vmProbe';
+import type { VmNetwork } from './vmNetwork';
+import type { VmVirtualMachineInstanceSpecNodeSelector } from './vmVirtualMachineInstanceSpecNodeSelector';
+import type { VmToleration } from './vmToleration';
+import type { VmTopologySpreadConstraint } from './vmTopologySpreadConstraint';
+import type { VmVolume } from './vmVolume';
 
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.

@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type AzureMachineSpecAdditionalTags = { [key: string]: string };
+export type AzureMachineSpecAdditionalTags = {[key: string]: string};

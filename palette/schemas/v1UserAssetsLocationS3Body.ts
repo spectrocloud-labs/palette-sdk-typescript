@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserAssetsLocationS3 } from "./userAssetsLocationS3";
+import type { UserAssetsLocationS3 } from './userAssetsLocationS3';
 
 export type V1UserAssetsLocationS3Body = UserAssetsLocationS3;

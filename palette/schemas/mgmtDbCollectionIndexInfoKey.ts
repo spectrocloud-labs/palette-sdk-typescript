@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type MgmtDbCollectionIndexInfoKey = { [key: string]: number };
+export type MgmtDbCollectionIndexInfoKey = {[key: string]: number};

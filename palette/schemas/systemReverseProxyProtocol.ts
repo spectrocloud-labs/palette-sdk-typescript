@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type SystemReverseProxyProtocol =
-  (typeof SystemReverseProxyProtocol)[keyof typeof SystemReverseProxyProtocol];
+export type SystemReverseProxyProtocol = typeof SystemReverseProxyProtocol[keyof typeof SystemReverseProxyProtocol];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SystemReverseProxyProtocol = {
-  http: "http",
-  https: "https",
+  http: 'http',
+  https: 'https',
 } as const;

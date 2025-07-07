@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ServicePort } from "./servicePort";
+import type { ServicePort } from './servicePort';
 
 export type LoadBalancerService = {
   /** IP or Host from svc.Status.LoadBalancerStatus.Ingress */

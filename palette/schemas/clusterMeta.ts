@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { ClusterState } from "./clusterState";
+import type { Time } from './time';
+import type { ClusterState } from './clusterState';
 
 /**
  * Active cluster meta

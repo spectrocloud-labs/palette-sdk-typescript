@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OciRegistry } from "./ociRegistry";
+import type { OciRegistry } from './ociRegistry';
 
 export type OciRegistries = {
   items: OciRegistry[];

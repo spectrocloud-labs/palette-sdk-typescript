@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileTemplateSummary } from "./appProfileTemplateSummary";
-import type { AppProfileVersion } from "./appProfileVersion";
+import type { AppProfileTemplateSummary } from './appProfileTemplateSummary';
+import type { AppProfileVersion } from './appProfileVersion';
 
 /**
  * Application profile spec summary

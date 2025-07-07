@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterRepaveState =
-  (typeof ClusterRepaveState)[keyof typeof ClusterRepaveState];
+export type ClusterRepaveState = typeof ClusterRepaveState[keyof typeof ClusterRepaveState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterRepaveState = {
-  Pending: "Pending",
-  Approved: "Approved",
-  Reverted: "Reverted",
+  Pending: 'Pending',
+  Approved: 'Approved',
+  Reverted: 'Reverted',
 } as const;

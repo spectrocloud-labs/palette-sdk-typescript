@@ -13,13 +13,14 @@
 /**
  * The operation to be performed
  */
-export type HttpPatchOp = (typeof HttpPatchOp)[keyof typeof HttpPatchOp];
+export type HttpPatchOp = typeof HttpPatchOp[keyof typeof HttpPatchOp];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const HttpPatchOp = {
-  add: "add",
-  remove: "remove",
-  replace: "replace",
-  move: "move",
-  copy: "copy",
+  add: 'add',
+  remove: 'remove',
+  replace: 'replace',
+  move: 'move',
+  copy: 'copy',
 } as const;

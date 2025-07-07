@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfilePacksEntity } from "./clusterProfilePacksEntity";
+import type { ClusterProfilePacksEntity } from './clusterProfilePacksEntity';
 
 /**
  * List of cluster profile packs

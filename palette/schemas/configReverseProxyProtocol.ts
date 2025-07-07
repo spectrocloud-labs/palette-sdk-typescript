@@ -13,11 +13,11 @@
 /**
  * Describes the system's reverse proxy server protocol. Possible values [https, http]
  */
-export type ConfigReverseProxyProtocol =
-  (typeof ConfigReverseProxyProtocol)[keyof typeof ConfigReverseProxyProtocol];
+export type ConfigReverseProxyProtocol = typeof ConfigReverseProxyProtocol[keyof typeof ConfigReverseProxyProtocol];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ConfigReverseProxyProtocol = {
-  http: "http",
-  https: "https",
+  http: 'http',
+  https: 'https',
 } as const;

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { SpectroGcpClusterImportEntitySpec } from "./spectroGcpClusterImportEntitySpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { SpectroGcpClusterImportEntitySpec } from './spectroGcpClusterImportEntitySpec';
 
 /**
  * Spectro GCP cluster import request payload

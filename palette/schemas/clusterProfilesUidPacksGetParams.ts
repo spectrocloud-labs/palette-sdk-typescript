@@ -11,8 +11,8 @@
  */
 
 export type ClusterProfilesUidPacksGetParams = {
-  /**
-   * Comma seperated pack meta such as schema, presets
-   */
-  includePackMeta?: string;
+/**
+ * Comma seperated pack meta such as schema, presets
+ */
+includePackMeta?: string;
 };

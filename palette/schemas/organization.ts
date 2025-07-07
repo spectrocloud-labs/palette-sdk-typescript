@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SsoLogins } from "./ssoLogins";
+import type { SsoLogins } from './ssoLogins';
 
 /**
  * Describes user's organization details

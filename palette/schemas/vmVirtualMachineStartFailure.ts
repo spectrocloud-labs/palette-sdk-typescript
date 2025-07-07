@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * VirtualMachineStartFailure tracks VMIs which failed to transition successfully to running using the VM status

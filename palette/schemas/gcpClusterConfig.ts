@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpManagedClusterConfig } from "./gcpManagedClusterConfig";
+import type { GcpManagedClusterConfig } from './gcpManagedClusterConfig';
 
 /**
  * Cluster level configuration for gcp cloud and applicable for all the machine pools

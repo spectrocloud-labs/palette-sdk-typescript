@@ -10,14 +10,14 @@
  * OpenAPI spec version: v1
  */
 
-export type SearchFilterIntegerOperator =
-  (typeof SearchFilterIntegerOperator)[keyof typeof SearchFilterIntegerOperator];
+export type SearchFilterIntegerOperator = typeof SearchFilterIntegerOperator[keyof typeof SearchFilterIntegerOperator];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SearchFilterIntegerOperator = {
-  eq: "eq",
-  gt: "gt",
-  gte: "gte",
-  lt: "lt",
-  lte: "lte",
+  eq: 'eq',
+  gt: 'gt',
+  gte: 'gte',
+  lt: 'lt',
+  lte: 'lte',
 } as const;

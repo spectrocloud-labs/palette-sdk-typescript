@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateUpdate } from "./clusterProfileTemplateUpdate";
+import type { ClusterProfileTemplateUpdate } from './clusterProfileTemplateUpdate';
 
 /**
  * Cluster profile update spec

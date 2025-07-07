@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadRoleBinding } from "./clusterWorkloadRoleBinding";
-import type { ClusterWorkloadCronJob } from "./clusterWorkloadCronJob";
-import type { ClusterWorkloadDaemonSet } from "./clusterWorkloadDaemonSet";
-import type { ClusterWorkloadDeployment } from "./clusterWorkloadDeployment";
-import type { ClusterWorkloadJob } from "./clusterWorkloadJob";
-import type { ClusterWorkloadPod } from "./clusterWorkloadPod";
-import type { ClusterWorkloadStatefulSet } from "./clusterWorkloadStatefulSet";
+import type { ClusterWorkloadRoleBinding } from './clusterWorkloadRoleBinding';
+import type { ClusterWorkloadCronJob } from './clusterWorkloadCronJob';
+import type { ClusterWorkloadDaemonSet } from './clusterWorkloadDaemonSet';
+import type { ClusterWorkloadDeployment } from './clusterWorkloadDeployment';
+import type { ClusterWorkloadJob } from './clusterWorkloadJob';
+import type { ClusterWorkloadPod } from './clusterWorkloadPod';
+import type { ClusterWorkloadStatefulSet } from './clusterWorkloadStatefulSet';
 
 /**
  * Cluster workload spec

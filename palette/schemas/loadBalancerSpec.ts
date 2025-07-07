@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LoadBalancerSpecIpAllocationMethod } from "./loadBalancerSpecIpAllocationMethod";
-import type { LoadBalancerSpecType } from "./loadBalancerSpecType";
+import type { LoadBalancerSpecIpAllocationMethod } from './loadBalancerSpecIpAllocationMethod';
+import type { LoadBalancerSpecType } from './loadBalancerSpecType';
 
 /**
  * LoadBalancerSpec defines an Azure load balancer.

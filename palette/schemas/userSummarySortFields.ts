@@ -13,12 +13,11 @@
 /**
  * @nullable
  */
-export type UserSummarySortFields =
-  | (typeof UserSummarySortFields)[keyof typeof UserSummarySortFields]
-  | null;
+export type UserSummarySortFields = typeof UserSummarySortFields[keyof typeof UserSummarySortFields] | null;
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UserSummarySortFields = {
-  name: "name",
-  creationTimestamp: "creationTimestamp",
+  name: 'name',
+  creationTimestamp: 'creationTimestamp',
 } as const;

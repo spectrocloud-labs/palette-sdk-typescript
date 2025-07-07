@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HttpPatch } from "./httpPatch";
+import type { HttpPatch } from './httpPatch';
 
 export type UserPatch = HttpPatch[];

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsClusterConfig } from "./awsClusterConfig";
-import type { AwsMachinePoolConfigEntity } from "./awsMachinePoolConfigEntity";
+import type { AwsClusterConfig } from './awsClusterConfig';
+import type { AwsMachinePoolConfigEntity } from './awsMachinePoolConfigEntity';
 
 /**
  * Spectro AWS cluster request payload for estimating rate

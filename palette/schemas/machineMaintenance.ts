@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachineMaintenanceAction } from "./machineMaintenanceAction";
+import type { MachineMaintenanceAction } from './machineMaintenanceAction';
 
 export type MachineMaintenance = {
   /** Machine maintenance mode action */

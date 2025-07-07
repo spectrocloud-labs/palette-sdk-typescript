@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Address } from "./address";
+import type { Address } from './address';
 
 /**
  * Tenant Address

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { BackupStatusMeta } from "./backupStatusMeta";
+import type { BackupStatusMeta } from './backupStatusMeta';
 
 /**
  * Workspace cluster backup response

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterNamespaceResource } from "./clusterNamespaceResource";
+import type { ClusterNamespaceResource } from './clusterNamespaceResource';
 
 export type ClusterNamespaceResources = {
   items: ClusterNamespaceResource[];

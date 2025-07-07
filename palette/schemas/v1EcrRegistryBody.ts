@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EcrRegistry } from "./ecrRegistry";
+import type { EcrRegistry } from './ecrRegistry';
 
 export type V1EcrRegistryBody = EcrRegistry;

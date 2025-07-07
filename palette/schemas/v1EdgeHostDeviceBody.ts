@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostDevice } from "./edgeHostDevice";
+import type { EdgeHostDevice } from './edgeHostDevice';
 
 export type V1EdgeHostDeviceBody = EdgeHostDevice;

@@ -13,4 +13,4 @@
 /**
  * this map will be for ansible roles present in each pack
  */
-export type GcpCloudConfigStatusRoleDigest = { [key: string]: string };
+export type GcpCloudConfigStatusRoleDigest = {[key: string]: string};

@@ -13,11 +13,11 @@
 /**
  * Deprecated.
  */
-export type AuthLoginsAuthType =
-  (typeof AuthLoginsAuthType)[keyof typeof AuthLoginsAuthType];
+export type AuthLoginsAuthType = typeof AuthLoginsAuthType[keyof typeof AuthLoginsAuthType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AuthLoginsAuthType = {
-  password: "password",
-  sso: "sso",
+  password: 'password',
+  sso: 'sso',
 } as const;

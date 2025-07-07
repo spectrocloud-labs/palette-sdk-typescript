@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentSortFields } from "./appDeploymentSortFields";
-import type { SortOrder } from "./sortOrder";
+import type { AppDeploymentSortFields } from './appDeploymentSortFields';
+import type { SortOrder } from './sortOrder';
 
 export type AppDeploymentSortSpec = {
   field?: AppDeploymentSortFields;

@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type MfaConveyancePreference =
-  (typeof MfaConveyancePreference)[keyof typeof MfaConveyancePreference];
+export type MfaConveyancePreference = typeof MfaConveyancePreference[keyof typeof MfaConveyancePreference];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const MfaConveyancePreference = {
-  none: "none",
-  indirect: "indirect",
-  direct: "direct",
-  enterprise: "enterprise",
+  none: 'none',
+  indirect: 'indirect',
+  direct: 'direct',
+  enterprise: 'enterprise',
 } as const;

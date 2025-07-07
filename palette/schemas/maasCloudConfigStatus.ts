@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./clusterCondition";
-import type { MaasImage } from "./maasImage";
-import type { MaasCloudConfigStatusRoleDigest } from "./maasCloudConfigStatusRoleDigest";
+import type { ClusterCondition } from './clusterCondition';
+import type { MaasImage } from './maasImage';
+import type { MaasCloudConfigStatusRoleDigest } from './maasCloudConfigStatusRoleDigest';
 
 /**
  * MaasCloudConfigStatus defines the observed state of MaasCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool

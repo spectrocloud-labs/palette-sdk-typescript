@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterBoolCondition } from "./searchFilterBoolCondition";
-import type { SearchFilterDateCondition } from "./searchFilterDateCondition";
-import type { SearchFilterFloatCondition } from "./searchFilterFloatCondition";
-import type { SearchFilterIntegerCondition } from "./searchFilterIntegerCondition";
-import type { SearchFilterKeyValueCondition } from "./searchFilterKeyValueCondition";
-import type { SearchFilterStringCondition } from "./searchFilterStringCondition";
+import type { SearchFilterBoolCondition } from './searchFilterBoolCondition';
+import type { SearchFilterDateCondition } from './searchFilterDateCondition';
+import type { SearchFilterFloatCondition } from './searchFilterFloatCondition';
+import type { SearchFilterIntegerCondition } from './searchFilterIntegerCondition';
+import type { SearchFilterKeyValueCondition } from './searchFilterKeyValueCondition';
+import type { SearchFilterStringCondition } from './searchFilterStringCondition';
 
 export type SearchFilterCondition = {
   bool?: SearchFilterBoolCondition;

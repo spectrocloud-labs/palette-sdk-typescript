@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmLocalObjectReference } from "./vmLocalObjectReference";
+import type { VmLocalObjectReference } from './vmLocalObjectReference';
 
 /**
  * Represents a cloud-init config drive user data source. More info: https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html

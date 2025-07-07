@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackRegistrySummary } from "./packRegistrySummary";
-import type { ListMetaData } from "./listMetaData";
+import type { PackRegistrySummary } from './packRegistrySummary';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Pack Registries Summary

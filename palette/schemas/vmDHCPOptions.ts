@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDHCPPrivateOptions } from "./vmDHCPPrivateOptions";
+import type { VmDHCPPrivateOptions } from './vmDHCPPrivateOptions';
 
 /**
  * Extra DHCP options to use in the interface.

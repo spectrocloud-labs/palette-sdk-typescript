@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemGcpSpec } from "./systemGcpSpec";
+import type { SystemGcpSpec } from './systemGcpSpec';
 
 /**
  * SystemAdmin

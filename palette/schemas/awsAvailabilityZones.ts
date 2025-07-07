@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsAvailabilityZone } from "./awsAvailabilityZone";
+import type { AwsAvailabilityZone } from './awsAvailabilityZone';
 
 export type AwsAvailabilityZones = {
   /** List of AWS Zones */

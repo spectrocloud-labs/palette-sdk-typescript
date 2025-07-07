@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterUpgradeSettingsEntity } from "./clusterUpgradeSettingsEntity";
+import type { ClusterUpgradeSettingsEntity } from './clusterUpgradeSettingsEntity';
 
 export type V1ClusterUpgradeSettingsEntityBody = ClusterUpgradeSettingsEntity;

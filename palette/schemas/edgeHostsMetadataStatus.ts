@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostHealth } from "./edgeHostHealth";
-import type { ObjectEntity } from "./objectEntity";
-import type { EdgeClusterObjectEntity } from "./edgeClusterObjectEntity";
-import type { EdgeHostState } from "./edgeHostState";
+import type { EdgeHostHealth } from './edgeHostHealth';
+import type { ObjectEntity } from './objectEntity';
+import type { EdgeClusterObjectEntity } from './edgeClusterObjectEntity';
+import type { EdgeHostState } from './edgeHostState';
 
 export type EdgeHostsMetadataStatus = {
   health?: EdgeHostHealth;

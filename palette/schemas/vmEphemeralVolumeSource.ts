@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmPersistentVolumeClaimVolumeSource } from "./vmPersistentVolumeClaimVolumeSource";
+import type { VmPersistentVolumeClaimVolumeSource } from './vmPersistentVolumeClaimVolumeSource';
 
 export type VmEphemeralVolumeSource = {
   persistentVolumeClaim?: VmPersistentVolumeClaimVolumeSource;

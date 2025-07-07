@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterComplianceScanSyftDriverConfigFormat =
-  (typeof ClusterComplianceScanSyftDriverConfigFormat)[keyof typeof ClusterComplianceScanSyftDriverConfigFormat];
+export type ClusterComplianceScanSyftDriverConfigFormat = typeof ClusterComplianceScanSyftDriverConfigFormat[keyof typeof ClusterComplianceScanSyftDriverConfigFormat];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterComplianceScanSyftDriverConfigFormat = {
-  "cyclonedx-json": "cyclonedx-json",
-  "github-json": "github-json",
-  "spdx-json": "spdx-json",
-  "syft-json": "syft-json",
+  'cyclonedx-json': 'cyclonedx-json',
+  'github-json': 'github-json',
+  'spdx-json': 'spdx-json',
+  'syft-json': 'syft-json',
 } as const;

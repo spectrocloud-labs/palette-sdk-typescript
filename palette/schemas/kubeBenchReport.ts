@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeBenchLog } from "./kubeBenchLog";
-import type { Time } from "./time";
+import type { KubeBenchLog } from './kubeBenchLog';
+import type { Time } from './time';
 
 /**
  * Compliance Scan KubeBench Report

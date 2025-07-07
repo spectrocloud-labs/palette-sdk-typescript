@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamRoleMap } from "./teamRoleMap";
+import type { TeamRoleMap } from './teamRoleMap';
 
 export type ProjectTeamsEntity = {
   teams?: TeamRoleMap[];

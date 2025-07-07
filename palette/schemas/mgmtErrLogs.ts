@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtErrLog } from "./mgmtErrLog";
+import type { MgmtErrLog } from './mgmtErrLog';
 
 export type MgmtErrLogs = MgmtErrLog[];

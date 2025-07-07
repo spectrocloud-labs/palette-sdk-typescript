@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AsyncResultData } from "./asyncResultData";
+import type { AsyncResultData } from './asyncResultData';
 
 export type AsyncResult = {
   data?: AsyncResultData;

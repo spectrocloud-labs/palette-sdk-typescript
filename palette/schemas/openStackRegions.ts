@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackDomain } from "./openStackDomain";
-import type { OpenStackRegion } from "./openStackRegion";
+import type { OpenStackDomain } from './openStackDomain';
+import type { OpenStackRegion } from './openStackRegion';
 
 /**
  * List of OpenStack regions and domains

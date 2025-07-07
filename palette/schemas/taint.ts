@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TaintEffect } from "./taintEffect";
-import type { Time } from "./time";
+import type { TaintEffect } from './taintEffect';
+import type { Time } from './time';
 
 /**
  * Taint

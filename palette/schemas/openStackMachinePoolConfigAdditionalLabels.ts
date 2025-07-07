@@ -13,6 +13,4 @@
 /**
  * additionalLabels
  */
-export type OpenStackMachinePoolConfigAdditionalLabels = {
-  [key: string]: string;
-};
+export type OpenStackMachinePoolConfigAdditionalLabels = {[key: string]: string};

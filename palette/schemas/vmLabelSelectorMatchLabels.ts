@@ -13,4 +13,4 @@
 /**
  * matchLabels is a map of key-value pairs. A single key-value in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
  */
-export type VmLabelSelectorMatchLabels = { [key: string]: string };
+export type VmLabelSelectorMatchLabels = {[key: string]: string};

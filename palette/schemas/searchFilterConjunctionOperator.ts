@@ -13,12 +13,11 @@
 /**
  * @nullable
  */
-export type SearchFilterConjunctionOperator =
-  | (typeof SearchFilterConjunctionOperator)[keyof typeof SearchFilterConjunctionOperator]
-  | null;
+export type SearchFilterConjunctionOperator = typeof SearchFilterConjunctionOperator[keyof typeof SearchFilterConjunctionOperator] | null;
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SearchFilterConjunctionOperator = {
-  and: "and",
-  or: "or",
+  and: 'and',
+  or: 'or',
 } as const;

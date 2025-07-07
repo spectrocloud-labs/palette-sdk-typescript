@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualClusterConfig } from "./virtualClusterConfig";
-import type { VirtualMachinePoolConfig } from "./virtualMachinePoolConfig";
+import type { VirtualClusterConfig } from './virtualClusterConfig';
+import type { VirtualMachinePoolConfig } from './virtualMachinePoolConfig';
 
 /**
  * VirtualCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec for cluster-api.

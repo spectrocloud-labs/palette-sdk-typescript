@@ -11,12 +11,12 @@
  */
 
 export type V1AzureZonesParams = {
-  /**
-   * Uid for the specific Azure cloud account
-   */
-  cloudAccountUid?: string;
-  /**
-   * subscriptionId of azure account
-   */
-  subscriptionId?: string;
+/**
+ * Uid for the specific Azure cloud account
+ */
+cloudAccountUid?: string;
+/**
+ * subscriptionId of azure account
+ */
+subscriptionId?: string;
 };

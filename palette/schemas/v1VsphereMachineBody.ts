@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereMachine } from "./vsphereMachine";
+import type { VsphereMachine } from './vsphereMachine';
 
 export type V1VsphereMachineBody = VsphereMachine;

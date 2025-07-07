@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasClusterConfig } from "./maasClusterConfig";
-import type { MaasMachinePoolConfigEntity } from "./maasMachinePoolConfigEntity";
+import type { MaasClusterConfig } from './maasClusterConfig';
+import type { MaasMachinePoolConfigEntity } from './maasMachinePoolConfigEntity';
 
 /**
  * Maas cluster request payload for estimating rate

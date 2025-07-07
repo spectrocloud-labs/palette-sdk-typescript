@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IncludeClusterResourceMode } from "./includeClusterResourceMode";
+import type { IncludeClusterResourceMode } from './includeClusterResourceMode';
 
 /**
  * Cluster restore config

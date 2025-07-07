@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeMachinePoolConfigAdditionalLabels } from "./edgeNativeMachinePoolConfigAdditionalLabels";
-import type { EdgeNativeMachinePoolConfigAdditionalTags } from "./edgeNativeMachinePoolConfigAdditionalTags";
-import type { EdgeNativeHost } from "./edgeNativeHost";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { EdgeNativeMachinePoolConfigAdditionalLabels } from './edgeNativeMachinePoolConfigAdditionalLabels';
+import type { EdgeNativeMachinePoolConfigAdditionalTags } from './edgeNativeMachinePoolConfigAdditionalTags';
+import type { EdgeNativeHost } from './edgeNativeHost';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
 export type EdgeNativeMachinePoolConfig = {
   /** AdditionalLabels */

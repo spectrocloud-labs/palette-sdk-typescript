@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroTunnelConfigRemoteSsh } from "./spectroTunnelConfigRemoteSsh";
-import type { SpectroTunnelConfigRemoteSshTempUser } from "./spectroTunnelConfigRemoteSshTempUser";
+import type { SpectroTunnelConfigRemoteSsh } from './spectroTunnelConfigRemoteSsh';
+import type { SpectroTunnelConfigRemoteSshTempUser } from './spectroTunnelConfigRemoteSshTempUser';
 
 /**
  * Spectro tunnel configuration

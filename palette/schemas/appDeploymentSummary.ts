@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AppDeploymentSummarySpec } from "./appDeploymentSummarySpec";
-import type { AppDeploymentStatusSummary } from "./appDeploymentStatusSummary";
+import type { ObjectMeta } from './objectMeta';
+import type { AppDeploymentSummarySpec } from './appDeploymentSummarySpec';
+import type { AppDeploymentStatusSummary } from './appDeploymentStatusSummary';
 
 /**
  * Application deployment summary

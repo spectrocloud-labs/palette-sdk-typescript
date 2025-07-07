@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpcApplyActionType } from "./spcApplyActionType";
-import type { Time } from "./time";
+import type { SpcApplyActionType } from './spcApplyActionType';
+import type { Time } from './time';
 
 export type SpcApply = {
   actionType?: SpcApplyActionType;

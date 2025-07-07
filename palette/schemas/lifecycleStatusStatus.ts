@@ -13,14 +13,14 @@
 /**
  * lifecycle status
  */
-export type LifecycleStatusStatus =
-  (typeof LifecycleStatusStatus)[keyof typeof LifecycleStatusStatus];
+export type LifecycleStatusStatus = typeof LifecycleStatusStatus[keyof typeof LifecycleStatusStatus];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const LifecycleStatusStatus = {
-  Pausing: "Pausing",
-  Paused: "Paused",
-  Resuming: "Resuming",
-  Running: "Running",
-  Error: "Error",
+  Pausing: 'Pausing',
+  Paused: 'Paused',
+  Resuming: 'Resuming',
+  Running: 'Running',
+  Error: 'Error',
 } as const;

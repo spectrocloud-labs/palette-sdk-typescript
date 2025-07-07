@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasMachinePoolConfigEntity } from "./maasMachinePoolConfigEntity";
+import type { MaasMachinePoolConfigEntity } from './maasMachinePoolConfigEntity';
 
 export type V1MaasMachinePoolConfigEntityBody = MaasMachinePoolConfigEntity;

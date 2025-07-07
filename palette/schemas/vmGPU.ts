@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmVGPUOptions } from "./vmVGPUOptions";
+import type { VmVGPUOptions } from './vmVGPUOptions';
 
 export type VmGPU = {
   deviceName: string;

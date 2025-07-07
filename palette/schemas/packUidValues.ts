@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackUidValuesAnnotations } from "./packUidValuesAnnotations";
-import type { PackDependencyMeta } from "./packDependencyMeta";
-import type { PackPreset } from "./packPreset";
-import type { PackSchema } from "./packSchema";
-import type { PackTemplate } from "./packTemplate";
+import type { PackUidValuesAnnotations } from './packUidValuesAnnotations';
+import type { PackDependencyMeta } from './packDependencyMeta';
+import type { PackPreset } from './packPreset';
+import type { PackSchema } from './packSchema';
+import type { PackTemplate } from './packTemplate';
 
 export type PackUidValues = {
   /** Pack annotations is used to allow pack to add more arbitrary configurations */

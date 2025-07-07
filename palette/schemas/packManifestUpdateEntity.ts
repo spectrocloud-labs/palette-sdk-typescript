@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestRefUpdateEntity } from "./manifestRefUpdateEntity";
-import type { PackType } from "./packType";
+import type { ManifestRefUpdateEntity } from './manifestRefUpdateEntity';
+import type { PackType } from './packType';
 
 /**
  * Pack input entity with values to overwrite and manifests for the intial creation

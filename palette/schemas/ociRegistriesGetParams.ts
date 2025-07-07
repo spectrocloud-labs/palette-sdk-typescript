@@ -11,5 +11,5 @@
  */
 
 export type OciRegistriesGetParams = {
-  clusterUid?: string;
+clusterUid?: string;
 };

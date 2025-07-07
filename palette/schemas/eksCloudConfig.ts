@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { EksCloudConfigSpec } from "./eksCloudConfigSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { EksCloudConfigSpec } from './eksCloudConfigSpec';
 
 /**
  * EksCloudConfig is the Schema for the ekscloudconfigs API

@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type GcpMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type GcpMachinePoolConfigAdditionalLabels = {[key: string]: string};

@@ -11,5 +11,5 @@
  */
 
 export type WorkspaceOpsRestoreGetParams = {
-  restoreRequestUid?: string;
+restoreRequestUid?: string;
 };

@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterPackConditionType } from "./spectroClusterPackConditionType";
+import type { SpectroClusterPackConditionType } from './spectroClusterPackConditionType';
 
 export type SpectroClusterPackCondition = {
   message?: string;

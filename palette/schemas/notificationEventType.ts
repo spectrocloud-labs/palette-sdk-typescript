@@ -13,11 +13,11 @@
 /**
  * Describes notification event type
  */
-export type NotificationEventType =
-  (typeof NotificationEventType)[keyof typeof NotificationEventType];
+export type NotificationEventType = typeof NotificationEventType[keyof typeof NotificationEventType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const NotificationEventType = {
-  NotificationPackSync: "NotificationPackSync",
-  NotificationClusterProfileSync: "NotificationClusterProfileSync",
+  NotificationPackSync: 'NotificationPackSync',
+  NotificationClusterProfileSync: 'NotificationClusterProfileSync',
 } as const;

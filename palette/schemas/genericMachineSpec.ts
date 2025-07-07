@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericInstanceType } from "./genericInstanceType";
-import type { GenericNic } from "./genericNic";
+import type { GenericInstanceType } from './genericInstanceType';
+import type { GenericNic } from './genericNic';
 
 /**
  * Generic cloud VM definition spec

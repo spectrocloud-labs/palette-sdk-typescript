@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureMachinePoolConfigEntity } from "./azureMachinePoolConfigEntity";
+import type { AzureMachinePoolConfigEntity } from './azureMachinePoolConfigEntity';
 
 export type V1AzureMachinePoolConfigEntityBody = AzureMachinePoolConfigEntity;

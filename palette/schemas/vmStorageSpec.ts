@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmTypedLocalObjectReference } from "./vmTypedLocalObjectReference";
-import type { VmCoreResourceRequirements } from "./vmCoreResourceRequirements";
-import type { VmLabelSelector } from "./vmLabelSelector";
+import type { VmTypedLocalObjectReference } from './vmTypedLocalObjectReference';
+import type { VmCoreResourceRequirements } from './vmCoreResourceRequirements';
+import type { VmLabelSelector } from './vmLabelSelector';
 
 /**
  * StorageSpec defines the Storage type specification

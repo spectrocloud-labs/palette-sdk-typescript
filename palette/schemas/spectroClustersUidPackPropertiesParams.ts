@@ -11,20 +11,20 @@
  */
 
 export type SpectroClustersUidPackPropertiesParams = {
-  /**
-   * Pack layer
-   */
-  layer: string;
-  /**
-   * Pack values yaml field path
-   */
-  fieldPath: string;
-  /**
-   * Pack name
-   */
-  name?: string;
-  /**
-   * Is the macros need to be resolved
-   */
-  resolveMacros?: boolean;
+/**
+ * Pack layer
+ */
+layer: string;
+/**
+ * Pack values yaml field path
+ */
+fieldPath: string;
+/**
+ * Pack name
+ */
+name?: string;
+/**
+ * Is the macros need to be resolved
+ */
+resolveMacros?: boolean;
 };

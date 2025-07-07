@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type SpectroClusterCloudCostSummaryOptionsGroupBy =
-  (typeof SpectroClusterCloudCostSummaryOptionsGroupBy)[keyof typeof SpectroClusterCloudCostSummaryOptionsGroupBy];
+export type SpectroClusterCloudCostSummaryOptionsGroupBy = typeof SpectroClusterCloudCostSummaryOptionsGroupBy[keyof typeof SpectroClusterCloudCostSummaryOptionsGroupBy];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SpectroClusterCloudCostSummaryOptionsGroupBy = {
-  tenant: "tenant",
-  project: "project",
-  cloud: "cloud",
-  cluster: "cluster",
+  tenant: 'tenant',
+  project: 'project',
+  cloud: 'cloud',
+  cluster: 'cluster',
 } as const;

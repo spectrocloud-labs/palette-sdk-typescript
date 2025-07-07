@@ -11,8 +11,8 @@
  */
 
 export type AuthRefreshParams = {
-  /**
-   * Describes a way to set cookie from backend.
-   */
-  setCookie?: boolean;
+/**
+ * Describes a way to set cookie from backend.
+ */
+setCookie?: boolean;
 };

@@ -13,13 +13,12 @@
 /**
  * @nullable
  */
-export type ClusterPairMetadataSortFields =
-  | (typeof ClusterPairMetadataSortFields)[keyof typeof ClusterPairMetadataSortFields]
-  | null;
+export type ClusterPairMetadataSortFields = typeof ClusterPairMetadataSortFields[keyof typeof ClusterPairMetadataSortFields] | null;
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterPairMetadataSortFields = {
-  name: "name",
-  state: "state",
-  creationTimestamp: "creationTimestamp",
+  name: 'name',
+  state: 'state',
+  creationTimestamp: 'creationTimestamp',
 } as const;

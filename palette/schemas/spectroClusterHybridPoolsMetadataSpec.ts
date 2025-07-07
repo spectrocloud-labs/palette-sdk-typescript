@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridMachinePool } from "./hybridMachinePool";
+import type { HybridMachinePool } from './hybridMachinePool';
 
 export type SpectroClusterHybridPoolsMetadataSpec = {
   /** Cluster's cloud type */

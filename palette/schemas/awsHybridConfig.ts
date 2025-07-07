@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IamRolesAnywhere } from "./iamRolesAnywhere";
-import type { SystemsManager } from "./systemsManager";
+import type { IamRolesAnywhere } from './iamRolesAnywhere';
+import type { SystemsManager } from './systemsManager';
 
 /**
  * AwsHybridConfig specifies the AWS Hybrid configuration for the cluster

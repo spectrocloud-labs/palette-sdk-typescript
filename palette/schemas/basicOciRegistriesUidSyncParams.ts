@@ -11,5 +11,5 @@
  */
 
 export type BasicOciRegistriesUidSyncParams = {
-  forceSync?: boolean;
+forceSync?: boolean;
 };

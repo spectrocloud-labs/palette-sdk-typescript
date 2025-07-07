@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ClusterComplianceScanSpec } from "./clusterComplianceScanSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { ClusterComplianceScanSpec } from './clusterComplianceScanSpec';
 
 /**
  * Cluster Compliance Scan

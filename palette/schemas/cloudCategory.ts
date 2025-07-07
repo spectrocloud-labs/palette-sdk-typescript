@@ -13,11 +13,12 @@
 /**
  * Cloud category description
  */
-export type CloudCategory = (typeof CloudCategory)[keyof typeof CloudCategory];
+export type CloudCategory = typeof CloudCategory[keyof typeof CloudCategory];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CloudCategory = {
-  datacenter: "datacenter",
-  cloud: "cloud",
-  edge: "edge",
+  datacenter: 'datacenter',
+  cloud: 'cloud',
+  edge: 'edge',
 } as const;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { PlanLimit } from "./planLimit";
-import type { PlanRenewalType } from "./planRenewalType";
+import type { Time } from './time';
+import type { PlanLimit } from './planLimit';
+import type { PlanRenewalType } from './planRenewalType';
 
 /**
  * Plan Renewal

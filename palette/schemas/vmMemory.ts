@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./vmQuantity";
-import type { VmHugepages } from "./vmHugepages";
+import type { VmQuantity } from './vmQuantity';
+import type { VmHugepages } from './vmHugepages';
 
 /**
  * Memory allows specifying the VirtualMachineInstance memory features.

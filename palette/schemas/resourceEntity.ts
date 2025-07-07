@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceEntityData } from "./resourceEntityData";
+import type { ResourceEntityData } from './resourceEntityData';
 
 export type ResourceEntity = {
   checks?: string[];

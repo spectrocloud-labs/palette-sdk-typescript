@@ -11,8 +11,8 @@
  */
 
 export type ClusterProfilesUidPacksConfigGetParams = {
-  /**
-   * Cluster profile pack uid
-   */
-  packUid: string;
+/**
+ * Cluster profile pack uid
+ */
+packUid: string;
 };

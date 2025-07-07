@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostNetworkNetworkType } from "./edgeHostNetworkNetworkType";
+import type { EdgeHostNetworkNetworkType } from './edgeHostNetworkNetworkType';
 
 /**
  * Network defines the network configuration for a virtual machine

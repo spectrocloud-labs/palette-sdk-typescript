@@ -9,7 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericMachinePoolConfigEntity } from "./genericMachinePoolConfigEntity";
+import type { GenericMachinePoolConfigEntity } from './genericMachinePoolConfigEntity';
 
-export type V1GenericMachinePoolConfigEntityBody =
-  GenericMachinePoolConfigEntity;
+export type V1GenericMachinePoolConfigEntityBody = GenericMachinePoolConfigEntity;

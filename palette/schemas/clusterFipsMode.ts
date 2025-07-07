@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterFipsMode =
-  (typeof ClusterFipsMode)[keyof typeof ClusterFipsMode];
+export type ClusterFipsMode = typeof ClusterFipsMode[keyof typeof ClusterFipsMode];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterFipsMode = {
-  full: "full",
-  none: "none",
-  partial: "partial",
-  unknown: "unknown",
+  full: 'full',
+  none: 'none',
+  partial: 'partial',
+  unknown: 'unknown',
 } as const;

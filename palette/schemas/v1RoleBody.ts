@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Role } from "./role";
+import type { Role } from './role';
 
 export type V1RoleBody = Role;

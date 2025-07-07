@@ -11,20 +11,20 @@
  */
 
 export type V1OpenStackAzsGetParams = {
-  /**
-   * Uid for the specific OpenStack cloud account
-   */
-  cloudAccountUid?: string;
-  /**
-   * project for which OpenStack azs are requested
-   */
-  project?: string;
-  /**
-   * region for which OpenStack azs are requested
-   */
-  region?: string;
-  /**
-   * domain for which OpenStack azs are requested
-   */
-  domain?: string;
+/**
+ * Uid for the specific OpenStack cloud account
+ */
+cloudAccountUid?: string;
+/**
+ * project for which OpenStack azs are requested
+ */
+project?: string;
+/**
+ * region for which OpenStack azs are requested
+ */
+region?: string;
+/**
+ * domain for which OpenStack azs are requested
+ */
+domain?: string;
 };

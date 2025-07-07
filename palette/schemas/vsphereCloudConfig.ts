@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { VsphereCloudConfigSpec } from "./vsphereCloudConfigSpec";
-import type { VsphereCloudConfigStatus } from "./vsphereCloudConfigStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { VsphereCloudConfigSpec } from './vsphereCloudConfigSpec';
+import type { VsphereCloudConfigStatus } from './vsphereCloudConfigStatus';
 
 /**
  * VsphereCloudConfig is the Schema for the vspherecloudconfigs API

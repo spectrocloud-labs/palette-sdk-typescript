@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtPodHealth } from "./mgmtPodHealth";
+import type { MgmtPodHealth } from './mgmtPodHealth';
 
 export type MgmtAppHealth = {
   isHealthy?: boolean;

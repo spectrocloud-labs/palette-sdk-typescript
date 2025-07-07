@@ -13,11 +13,11 @@
 /**
  * EC2 instance capacity type
  */
-export type EksMachineCloudConfigEntityCapacityType =
-  (typeof EksMachineCloudConfigEntityCapacityType)[keyof typeof EksMachineCloudConfigEntityCapacityType];
+export type EksMachineCloudConfigEntityCapacityType = typeof EksMachineCloudConfigEntityCapacityType[keyof typeof EksMachineCloudConfigEntityCapacityType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EksMachineCloudConfigEntityCapacityType = {
-  "on-demand": "on-demand",
-  spot: "spot",
+  'on-demand': 'on-demand',
+  spot: 'spot',
 } as const;

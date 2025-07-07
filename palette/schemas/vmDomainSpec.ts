@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmChassis } from "./vmChassis";
-import type { VmClock } from "./vmClock";
-import type { VmCpu } from "./vmCpu";
-import type { VmDevices } from "./vmDevices";
-import type { VmFeatures } from "./vmFeatures";
-import type { VmFirmware } from "./vmFirmware";
-import type { VmLaunchSecurity } from "./vmLaunchSecurity";
-import type { VmMachine } from "./vmMachine";
-import type { VmMemory } from "./vmMemory";
-import type { VmResourceRequirements } from "./vmResourceRequirements";
+import type { VmChassis } from './vmChassis';
+import type { VmClock } from './vmClock';
+import type { VmCpu } from './vmCpu';
+import type { VmDevices } from './vmDevices';
+import type { VmFeatures } from './vmFeatures';
+import type { VmFirmware } from './vmFirmware';
+import type { VmLaunchSecurity } from './vmLaunchSecurity';
+import type { VmMachine } from './vmMachine';
+import type { VmMemory } from './vmMemory';
+import type { VmResourceRequirements } from './vmResourceRequirements';
 
 export type VmDomainSpec = {
   chassis?: VmChassis;

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualMachine } from "./virtualMachine";
+import type { VirtualMachine } from './virtualMachine';
 
 export type V1VirtualMachineBody = VirtualMachine;

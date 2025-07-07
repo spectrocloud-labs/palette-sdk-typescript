@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryAuth } from "./registryAuth";
-import type { BasicOciRegistrySpecProviderType } from "./basicOciRegistrySpecProviderType";
+import type { RegistryAuth } from './registryAuth';
+import type { BasicOciRegistrySpecProviderType } from './basicOciRegistrySpecProviderType';
 
 /**
  * Basic oci registry spec

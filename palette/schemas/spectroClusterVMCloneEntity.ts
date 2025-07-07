@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterVMCloneEntityNewMacAddresses } from "./spectroClusterVMCloneEntityNewMacAddresses";
+import type { SpectroClusterVMCloneEntityNewMacAddresses } from './spectroClusterVMCloneEntityNewMacAddresses';
 
 export type SpectroClusterVMCloneEntity = {
   /** Annotation filters */

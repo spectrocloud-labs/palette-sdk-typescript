@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type CustomMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type CustomMachinePoolConfigAdditionalLabels = {[key: string]: string};

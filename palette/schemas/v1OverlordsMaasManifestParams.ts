@@ -11,5 +11,5 @@
  */
 
 export type V1OverlordsMaasManifestParams = {
-  pairingCode: string;
+pairingCode: string;
 };

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterCost } from "./spectroClusterCost";
-import type { Time } from "./time";
+import type { SpectroClusterCost } from './spectroClusterCost';
+import type { Time } from './time';
 
 export type SpectroClusterCostSummary = {
   cluster?: SpectroClusterCost;

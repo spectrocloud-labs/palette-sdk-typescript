@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileImportEntity } from "./clusterProfileImportEntity";
+import type { ClusterProfileImportEntity } from './clusterProfileImportEntity';
 
 export type V1ClusterProfileImportEntityBody = ClusterProfileImportEntity;

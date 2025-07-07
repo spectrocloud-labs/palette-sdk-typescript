@@ -13,4 +13,4 @@
 /**
  * Pack resolved values map
  */
-export type PackResolvedValuesResolved = { [key: string]: string };
+export type PackResolvedValuesResolved = {[key: string]: string};

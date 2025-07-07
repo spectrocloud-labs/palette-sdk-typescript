@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type SpectroTunnelConfigRemoteSsh =
-  (typeof SpectroTunnelConfigRemoteSsh)[keyof typeof SpectroTunnelConfigRemoteSsh];
+export type SpectroTunnelConfigRemoteSsh = typeof SpectroTunnelConfigRemoteSsh[keyof typeof SpectroTunnelConfigRemoteSsh];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SpectroTunnelConfigRemoteSsh = {
-  enabled: "enabled",
-  disabled: "disabled",
+  enabled: 'enabled',
+  disabled: 'disabled',
 } as const;

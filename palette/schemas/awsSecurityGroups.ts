@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsSecuritygroup } from "./awsSecuritygroup";
+import type { AwsSecuritygroup } from './awsSecuritygroup';
 
 export type AwsSecurityGroups = {
   groups: AwsSecuritygroup[];

@@ -13,4 +13,4 @@
 /**
  * Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
  */
-export type ObjectMetaInputEntityAnnotations = { [key: string]: string };
+export type ObjectMetaInputEntityAnnotations = {[key: string]: string};

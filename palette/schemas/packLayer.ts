@@ -10,14 +10,15 @@
  * OpenAPI spec version: v1
  */
 
-export type PackLayer = (typeof PackLayer)[keyof typeof PackLayer];
+export type PackLayer = typeof PackLayer[keyof typeof PackLayer];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PackLayer = {
-  kernel: "kernel",
-  os: "os",
-  k8s: "k8s",
-  cni: "cni",
-  csi: "csi",
-  addon: "addon",
+  kernel: 'kernel',
+  os: 'os',
+  k8s: 'k8s',
+  cni: 'cni',
+  csi: 'csi',
+  addon: 'addon',
 } as const;

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MfaConveyancePreference } from "./mfaConveyancePreference";
-import type { MfaAuthenticatorSelection } from "./mfaAuthenticatorSelection";
-import type { MfaCredentialDescriptor } from "./mfaCredentialDescriptor";
-import type { MfaAuthenticationExtensions } from "./mfaAuthenticationExtensions";
-import type { MfaCredentialParameter } from "./mfaCredentialParameter";
-import type { MfaRelyingPartyEntity } from "./mfaRelyingPartyEntity";
-import type { MfaUserEntity } from "./mfaUserEntity";
+import type { MfaConveyancePreference } from './mfaConveyancePreference';
+import type { MfaAuthenticatorSelection } from './mfaAuthenticatorSelection';
+import type { MfaCredentialDescriptor } from './mfaCredentialDescriptor';
+import type { MfaAuthenticationExtensions } from './mfaAuthenticationExtensions';
+import type { MfaCredentialParameter } from './mfaCredentialParameter';
+import type { MfaRelyingPartyEntity } from './mfaRelyingPartyEntity';
+import type { MfaUserEntity } from './mfaUserEntity';
 
 export type MfaPublicKeyCredentialCreationOptions = {
   attestation?: MfaConveyancePreference;

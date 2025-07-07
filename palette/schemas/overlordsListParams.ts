@@ -11,5 +11,5 @@
  */
 
 export type OverlordsListParams = {
-  name?: string;
+name?: string;
 };

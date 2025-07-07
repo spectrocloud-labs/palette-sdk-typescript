@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectTagsEntity } from "./objectTagsEntity";
-import type { EdgeHostDeviceSpecEntity } from "./edgeHostDeviceSpecEntity";
+import type { ObjectTagsEntity } from './objectTagsEntity';
+import type { EdgeHostDeviceSpecEntity } from './edgeHostDeviceSpecEntity';
 
 /**
  * Edge host device information

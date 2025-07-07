@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Audit } from "./audit";
-import type { ListMetaData } from "./listMetaData";
+import type { Audit } from './audit';
+import type { ListMetaData } from './listMetaData';
 
 export type Audits = {
   /** List of audit message */

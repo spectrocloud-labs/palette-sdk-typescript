@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppContainersStateRunning } from "./mgmtAppContainersStateRunning";
-import type { MgmtAppContainersStateTerminated } from "./mgmtAppContainersStateTerminated";
-import type { MgmtAppContainersStateWaiting } from "./mgmtAppContainersStateWaiting";
+import type { MgmtAppContainersStateRunning } from './mgmtAppContainersStateRunning';
+import type { MgmtAppContainersStateTerminated } from './mgmtAppContainersStateTerminated';
+import type { MgmtAppContainersStateWaiting } from './mgmtAppContainersStateWaiting';
 
 export type MgmtAppContainersState = {
   running?: MgmtAppContainersStateRunning;

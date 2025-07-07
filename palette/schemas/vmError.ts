@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Error is the last error encountered during the snapshot/restore

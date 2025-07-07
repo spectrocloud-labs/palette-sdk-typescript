@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
 
 export type EdgeNativeClusterPairSpcEntitySpec = {
   /** Pairing uid request */

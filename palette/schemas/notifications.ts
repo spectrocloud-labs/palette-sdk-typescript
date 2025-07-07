@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Notification } from "./notification";
-import type { ListMetaData } from "./listMetaData";
+import type { Notification } from './notification';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Describe a list of generated notifications

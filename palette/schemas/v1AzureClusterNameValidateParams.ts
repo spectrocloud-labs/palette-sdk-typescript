@@ -11,16 +11,16 @@
  */
 
 export type V1AzureClusterNameValidateParams = {
-  /**
-   * Uid for the specific Azure cloud account
-   */
-  cloudAccountUid: string;
-  /**
-   * cluster name to be validated
-   */
-  name: string;
-  /**
-   * resourceGroup in which cluster name is to be validated
-   */
-  resourceGroup: string;
+/**
+ * Uid for the specific Azure cloud account
+ */
+cloudAccountUid: string;
+/**
+ * cluster name to be validated
+ */
+name: string;
+/**
+ * resourceGroup in which cluster name is to be validated
+ */
+resourceGroup: string;
 };

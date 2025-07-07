@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemFeature } from "./systemFeature";
+import type { SystemFeature } from './systemFeature';
 
 export type SystemFeatures = {
   /** List of system features */

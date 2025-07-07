@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InstanceType } from "./instanceType";
+import type { InstanceType } from './instanceType';
 
 /**
  * List of AWS instance types

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { User } from "./user";
-import type { ListMetaData } from "./listMetaData";
+import type { User } from './user';
+import type { ListMetaData } from './listMetaData';
 
 export type Users = {
   items: User[];

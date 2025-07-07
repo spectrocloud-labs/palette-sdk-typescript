@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmCustomBlockSize } from "./vmCustomBlockSize";
-import type { VmFeatureState } from "./vmFeatureState";
+import type { VmCustomBlockSize } from './vmCustomBlockSize';
+import type { VmFeatureState } from './vmFeatureState';
 
 /**
  * BlockSize provides the option to change the block size presented to the VM for a disk. Only one of its members may be specified.

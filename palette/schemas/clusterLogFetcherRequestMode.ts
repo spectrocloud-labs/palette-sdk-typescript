@@ -13,11 +13,11 @@
 /**
  * Accepted Values - ["cluster", "app"]. if "app" then logs will be fetched from the virtual cluster
  */
-export type ClusterLogFetcherRequestMode =
-  (typeof ClusterLogFetcherRequestMode)[keyof typeof ClusterLogFetcherRequestMode];
+export type ClusterLogFetcherRequestMode = typeof ClusterLogFetcherRequestMode[keyof typeof ClusterLogFetcherRequestMode];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterLogFetcherRequestMode = {
-  cluster: "cluster",
-  app: "app",
+  cluster: 'cluster',
+  app: 'app',
 } as const;

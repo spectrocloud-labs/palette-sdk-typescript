@@ -13,16 +13,16 @@
 /**
  * Format type of the variable value
  */
-export type VariableFormat =
-  (typeof VariableFormat)[keyof typeof VariableFormat];
+export type VariableFormat = typeof VariableFormat[keyof typeof VariableFormat];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const VariableFormat = {
-  string: "string",
-  number: "number",
-  boolean: "boolean",
-  ipv4: "ipv4",
-  ipv4cidr: "ipv4cidr",
-  ipv6: "ipv6",
-  version: "version",
+  string: 'string',
+  number: 'number',
+  boolean: 'boolean',
+  ipv4: 'ipv4',
+  ipv4cidr: 'ipv4cidr',
+  ipv6: 'ipv6',
+  version: 'version',
 } as const;

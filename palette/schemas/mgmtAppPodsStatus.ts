@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppPodsStatusContainers } from "./mgmtAppPodsStatusContainers";
-import type { MgmtAppPodsStatusPvcs } from "./mgmtAppPodsStatusPvcs";
-import type { Time } from "./time";
+import type { MgmtAppPodsStatusContainers } from './mgmtAppPodsStatusContainers';
+import type { MgmtAppPodsStatusPvcs } from './mgmtAppPodsStatusPvcs';
+import type { Time } from './time';
 
 export type MgmtAppPodsStatus = {
   containers?: MgmtAppPodsStatusContainers;

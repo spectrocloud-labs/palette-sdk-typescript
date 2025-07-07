@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PrivateCloudRateConfig } from "./privateCloudRateConfig";
+import type { PrivateCloudRateConfig } from './privateCloudRateConfig';
 
 /**
  * Private cloud rate config

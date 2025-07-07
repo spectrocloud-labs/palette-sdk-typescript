@@ -11,12 +11,12 @@
  */
 
 export type V1AzureStorageContainersParams = {
-  /**
-   * Uid for the specific Azure cloud account
-   */
-  cloudAccountUid?: string;
-  /**
-   * subscriptionId for which Azure storage accounts are requested
-   */
-  subscriptionId: string;
+/**
+ * Uid for the specific Azure cloud account
+ */
+cloudAccountUid?: string;
+/**
+ * subscriptionId for which Azure storage accounts are requested
+ */
+subscriptionId: string;
 };

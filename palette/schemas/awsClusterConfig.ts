@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsHybridConfig } from "./awsHybridConfig";
+import type { AwsHybridConfig } from './awsHybridConfig';
 
 /**
  * Cluster level configuration for aws cloud and applicable for all the machine pools

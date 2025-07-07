@@ -11,5 +11,5 @@
  */
 
 export type WorkspacesValidateNameParams = {
-  name: string;
+name: string;
 };

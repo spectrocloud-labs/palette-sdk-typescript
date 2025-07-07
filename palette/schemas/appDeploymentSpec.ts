@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentConfig } from "./appDeploymentConfig";
-import type { AppDeploymentProfile } from "./appDeploymentProfile";
+import type { AppDeploymentConfig } from './appDeploymentConfig';
+import type { AppDeploymentProfile } from './appDeploymentProfile';
 
 /**
  * Application deployment spec

@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtMigrationStatuses } from "./mgmtMigrationStatuses";
-import type { SpectroTenantMigration } from "./spectroTenantMigration";
+import type { MgmtMigrationStatuses } from './mgmtMigrationStatuses';
+import type { SpectroTenantMigration } from './spectroTenantMigration';
 
 /**
  * Spectro cluster migration status

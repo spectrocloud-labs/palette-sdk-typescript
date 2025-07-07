@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterUpgradeSettingsEntitySpectroComponents =
-  (typeof ClusterUpgradeSettingsEntitySpectroComponents)[keyof typeof ClusterUpgradeSettingsEntitySpectroComponents];
+export type ClusterUpgradeSettingsEntitySpectroComponents = typeof ClusterUpgradeSettingsEntitySpectroComponents[keyof typeof ClusterUpgradeSettingsEntitySpectroComponents];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterUpgradeSettingsEntitySpectroComponents = {
-  lock: "lock",
-  unlock: "unlock",
+  lock: 'lock',
+  unlock: 'unlock',
 } as const;

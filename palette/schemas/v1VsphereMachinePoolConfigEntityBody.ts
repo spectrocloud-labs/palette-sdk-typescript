@@ -9,7 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereMachinePoolConfigEntity } from "./vsphereMachinePoolConfigEntity";
+import type { VsphereMachinePoolConfigEntity } from './vsphereMachinePoolConfigEntity';
 
-export type V1VsphereMachinePoolConfigEntityBody =
-  VsphereMachinePoolConfigEntity;
+export type V1VsphereMachinePoolConfigEntityBody = VsphereMachinePoolConfigEntity;

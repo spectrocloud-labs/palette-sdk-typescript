@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpMachinePoolConfigEntity } from "./gcpMachinePoolConfigEntity";
+import type { GcpMachinePoolConfigEntity } from './gcpMachinePoolConfigEntity';
 
 export type V1GcpMachinePoolConfigEntityBody = GcpMachinePoolConfigEntity;

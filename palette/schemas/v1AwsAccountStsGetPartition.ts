@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type V1AwsAccountStsGetPartition =
-  (typeof V1AwsAccountStsGetPartition)[keyof typeof V1AwsAccountStsGetPartition];
+export type V1AwsAccountStsGetPartition = typeof V1AwsAccountStsGetPartition[keyof typeof V1AwsAccountStsGetPartition];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const V1AwsAccountStsGetPartition = {
-  aws: "aws",
-  "aws-us-gov": "aws-us-gov",
+  aws: 'aws',
+  'aws-us-gov': 'aws-us-gov',
 } as const;

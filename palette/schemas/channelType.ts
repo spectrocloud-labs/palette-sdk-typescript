@@ -10,11 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+export type ChannelType = typeof ChannelType[keyof typeof ChannelType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ChannelType = {
-  email: "email",
-  app: "app",
-  http: "http",
+  email: 'email',
+  app: 'app',
+  http: 'http',
 } as const;

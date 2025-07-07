@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureCloudClusterConfigEntity } from "./azureCloudClusterConfigEntity";
+import type { AzureCloudClusterConfigEntity } from './azureCloudClusterConfigEntity';
 
 export type V1AzureCloudClusterConfigEntityBody = AzureCloudClusterConfigEntity;

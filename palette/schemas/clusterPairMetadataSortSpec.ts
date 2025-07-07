@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterPairMetadataSortFields } from "./clusterPairMetadataSortFields";
-import type { SortOrder } from "./sortOrder";
+import type { ClusterPairMetadataSortFields } from './clusterPairMetadataSortFields';
+import type { SortOrder } from './sortOrder';
 
 export type ClusterPairMetadataSortSpec = {
   field?: ClusterPairMetadataSortFields;

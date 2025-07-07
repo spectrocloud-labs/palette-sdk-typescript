@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TagFilter } from "./tagFilter";
+import type { TagFilter } from './tagFilter';
 
 export type V1TagFilterBody = TagFilter;

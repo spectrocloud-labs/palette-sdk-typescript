@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ErrorDetails } from "./errorDetails";
+import type { ErrorDetails } from './errorDetails';
 
 export type Error = {
   code?: string;

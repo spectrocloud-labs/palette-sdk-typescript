@@ -13,4 +13,4 @@
 /**
  * this map will be for ansible roles present in eack pack
  */
-export type MaasCloudConfigStatusRoleDigest = { [key: string]: string };
+export type MaasCloudConfigStatusRoleDigest = {[key: string]: string};

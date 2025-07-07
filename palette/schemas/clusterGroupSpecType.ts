@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterGroupSpecType =
-  (typeof ClusterGroupSpecType)[keyof typeof ClusterGroupSpecType];
+export type ClusterGroupSpecType = typeof ClusterGroupSpecType[keyof typeof ClusterGroupSpecType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterGroupSpecType = {
-  hostCluster: "hostCluster",
+  hostCluster: 'hostCluster',
 } as const;

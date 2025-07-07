@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmSEV } from "./vmSEV";
+import type { VmSEV } from './vmSEV';
 
 export type VmLaunchSecurity = {
   sev?: VmSEV;

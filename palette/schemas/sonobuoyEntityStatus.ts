@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type SonobuoyEntityStatus =
-  (typeof SonobuoyEntityStatus)[keyof typeof SonobuoyEntityStatus];
+export type SonobuoyEntityStatus = typeof SonobuoyEntityStatus[keyof typeof SonobuoyEntityStatus];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SonobuoyEntityStatus = {
-  Completed: "Completed",
-  InProgress: "InProgress",
-  Failed: "Failed",
-  Initiated: "Initiated",
+  Completed: 'Completed',
+  InProgress: 'InProgress',
+  Failed: 'Failed',
+  Initiated: 'Initiated',
 } as const;

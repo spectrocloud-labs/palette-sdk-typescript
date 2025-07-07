@@ -11,7 +11,7 @@
  */
 
 export type OpenstackAccountsUidNetworksParams = {
-  project?: string;
-  region?: string;
-  domain?: string;
+project?: string;
+region?: string;
+domain?: string;
 };

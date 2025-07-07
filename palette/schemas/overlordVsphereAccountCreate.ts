@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereCloudAccount } from "./vsphereCloudAccount";
+import type { VsphereCloudAccount } from './vsphereCloudAccount';
 
 export type OverlordVsphereAccountCreate = {
   account?: VsphereCloudAccount;

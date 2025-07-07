@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ImportClusterConfigImportMode } from "./importClusterConfigImportMode";
-import type { ClusterProxySpec } from "./clusterProxySpec";
+import type { ImportClusterConfigImportMode } from './importClusterConfigImportMode';
+import type { ClusterProxySpec } from './clusterProxySpec';
 
 export type ImportClusterConfig = {
   /** If the importMode is empty then cluster is imported with full permission mode. By default importMode is empty and cluster is imported in full permission mode. */

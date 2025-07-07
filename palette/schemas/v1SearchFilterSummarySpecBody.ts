@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterSummarySpec } from "./searchFilterSummarySpec";
+import type { SearchFilterSummarySpec } from './searchFilterSummarySpec';
 
 export type V1SearchFilterSummarySpecBody = SearchFilterSummarySpec;

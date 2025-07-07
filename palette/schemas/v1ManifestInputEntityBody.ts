@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestInputEntity } from "./manifestInputEntity";
+import type { ManifestInputEntity } from './manifestInputEntity';
 
 export type V1ManifestInputEntityBody = ManifestInputEntity;

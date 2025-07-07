@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VariableFormat } from "./variableFormat";
+import type { VariableFormat } from './variableFormat';
 
 /**
  * Unique variable field with schema definition

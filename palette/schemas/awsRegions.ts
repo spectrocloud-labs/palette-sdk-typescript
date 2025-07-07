@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsRegion } from "./awsRegion";
+import type { AwsRegion } from './awsRegion';
 
 export type AwsRegions = {
   /** List of AWS regions */

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccountCredentialType } from "./awsCloudAccountCredentialType";
-import type { AwsCloudAccountPartition } from "./awsCloudAccountPartition";
-import type { AwsSecretSpec } from "./awsSecretSpec";
-import type { AwsStsCredentials } from "./awsStsCredentials";
+import type { AwsCloudAccountCredentialType } from './awsCloudAccountCredentialType';
+import type { AwsCloudAccountPartition } from './awsCloudAccountPartition';
+import type { AwsSecretSpec } from './awsSecretSpec';
+import type { AwsStsCredentials } from './awsStsCredentials';
 
 /**
  * AWS cloud account which includes access key and secret key in case of 'secret' credentials type. It includes policyARNS, ARN and externalId in case of sts. Partition is a group of AWS Region and Service objects

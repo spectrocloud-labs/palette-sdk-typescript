@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserSummary } from "./userSummary";
+import type { UserSummary } from './userSummary';
 
 export type UsersSummaryList = {
   items: UserSummary[];

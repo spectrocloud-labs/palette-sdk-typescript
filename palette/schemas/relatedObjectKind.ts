@@ -10,17 +10,17 @@
  * OpenAPI spec version: v1
  */
 
-export type RelatedObjectKind =
-  (typeof RelatedObjectKind)[keyof typeof RelatedObjectKind];
+export type RelatedObjectKind = typeof RelatedObjectKind[keyof typeof RelatedObjectKind];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const RelatedObjectKind = {
-  spectrocluster: "spectrocluster",
-  machine: "machine",
-  cloudconfig: "cloudconfig",
-  clusterprofile: "clusterprofile",
-  pack: "pack",
-  appprofile: "appprofile",
-  appdeployment: "appdeployment",
-  edgehost: "edgehost",
+  spectrocluster: 'spectrocluster',
+  machine: 'machine',
+  cloudconfig: 'cloudconfig',
+  clusterprofile: 'clusterprofile',
+  pack: 'pack',
+  appprofile: 'appprofile',
+  appdeployment: 'appdeployment',
+  edgehost: 'edgehost',
 } as const;

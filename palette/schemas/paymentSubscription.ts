@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PaymentIntent } from "./paymentIntent";
+import type { PaymentIntent } from './paymentIntent';
 
 /**
  * Payment subscription object

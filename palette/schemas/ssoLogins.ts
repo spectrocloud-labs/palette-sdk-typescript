@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SsoLogin } from "./ssoLogin";
+import type { SsoLogin } from './ssoLogin';
 
 /**
  * Describes the allowed sso logins

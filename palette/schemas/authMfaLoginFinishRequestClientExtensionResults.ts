@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type AuthMfaLoginFinishRequestClientExtensionResults = {
-  [key: string]: unknown;
-};
+export type AuthMfaLoginFinishRequestClientExtensionResults = {[key: string]: { [key: string]: unknown }};

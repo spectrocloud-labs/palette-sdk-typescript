@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type EdgeHostHealthState =
-  (typeof EdgeHostHealthState)[keyof typeof EdgeHostHealthState];
+export type EdgeHostHealthState = typeof EdgeHostHealthState[keyof typeof EdgeHostHealthState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EdgeHostHealthState = {
-  healthy: "healthy",
-  unhealthy: "unhealthy",
+  healthy: 'healthy',
+  unhealthy: 'unhealthy',
 } as const;

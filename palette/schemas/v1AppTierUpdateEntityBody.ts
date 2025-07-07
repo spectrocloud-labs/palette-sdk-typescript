@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierUpdateEntity } from "./appTierUpdateEntity";
+import type { AppTierUpdateEntity } from './appTierUpdateEntity';
 
 export type V1AppTierUpdateEntityBody = AppTierUpdateEntity;

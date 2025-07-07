@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmAddVolumeOptions } from "./vmAddVolumeOptions";
-import type { VmDataVolumeTemplateSpec } from "./vmDataVolumeTemplateSpec";
+import type { VmAddVolumeOptions } from './vmAddVolumeOptions';
+import type { VmDataVolumeTemplateSpec } from './vmDataVolumeTemplateSpec';
 
 export type VMAddVolumeEntity = {
   addVolumeOptions: VmAddVolumeOptions;

@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type RegistriesPackListScope =
-  (typeof RegistriesPackListScope)[keyof typeof RegistriesPackListScope];
+export type RegistriesPackListScope = typeof RegistriesPackListScope[keyof typeof RegistriesPackListScope];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const RegistriesPackListScope = {
-  system: "system",
-  tenant: "tenant",
-  all: "all",
+  system: 'system',
+  tenant: 'tenant',
+  all: 'all',
 } as const;

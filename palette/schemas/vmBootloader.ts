@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmBIOS } from "./vmBIOS";
-import type { VmEFI } from "./vmEFI";
+import type { VmBIOS } from './vmBIOS';
+import type { VmEFI } from './vmEFI';
 
 /**
  * Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.

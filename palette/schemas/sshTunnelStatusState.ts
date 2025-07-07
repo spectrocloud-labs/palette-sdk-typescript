@@ -13,14 +13,14 @@
 /**
  * State is the state of the SSH tunnel
  */
-export type SshTunnelStatusState =
-  (typeof SshTunnelStatusState)[keyof typeof SshTunnelStatusState];
+export type SshTunnelStatusState = typeof SshTunnelStatusState[keyof typeof SshTunnelStatusState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SshTunnelStatusState = {
-  Initiating: "Initiating",
-  Created: "Created",
-  Deleting: "Deleting",
-  Deleted: "Deleted",
-  Failed: "Failed",
+  Initiating: 'Initiating',
+  Created: 'Created',
+  Deleting: 'Deleting',
+  Deleted: 'Deleted',
+  Failed: 'Failed',
 } as const;

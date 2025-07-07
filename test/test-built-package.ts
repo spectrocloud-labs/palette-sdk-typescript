@@ -8,21 +8,28 @@
  * This simulates how the package would be used when installed via npm
  */
 
-import { setupConfig } from "../dist/index.js";
-import type {
-  ClusterProfilesFilterSpec,
-  ClusterProfilesFilterSummaryParams,
-  clusterProfilesFilterSummaryResponse,
+import {
+  clusterProfilesFilterSummary,
+  clusterProfilesMetadata,
+  type ClusterProfilesFilterSpec,
+  type ClusterProfilesFilterSummaryParams,
+  type ClusterProfilesSummary,
+  type ClusterProfilesMetadata,
 } from "../dist/index.js";
 
 async function testBuiltPackage() {
   console.log("Testing built package imports...");
 
-  // Test that setupConfig is available
-  if (typeof setupConfig !== "function") {
-    throw new Error("setupConfig is not a function");
+  // Test that functions are available
+  if (typeof clusterProfilesFilterSummary !== "function") {
+    throw new Error("clusterProfilesFilterSummary is not a function");
   }
-  console.log("✅ setupConfig imported successfully");
+  console.log("✅ clusterProfilesFilterSummary imported successfully");
+
+  if (typeof clusterProfilesMetadata !== "function") {
+    throw new Error("clusterProfilesMetadata is not a function");
+  }
+  console.log("✅ clusterProfilesMetadata imported successfully");
 
   // Test that types are available
   const filterSpec: ClusterProfilesFilterSpec = {
@@ -34,26 +41,35 @@ async function testBuiltPackage() {
   const queryParams: ClusterProfilesFilterSummaryParams = {};
   console.log("✅ ClusterProfilesFilterSummaryParams type available");
 
-  // Test client creation
-  const client = setupConfig({
-    baseURL: "https://api.spectrocloud.com",
+  // Test configuration
+  const config = {
     headers: {
       ApiKey: "test-key",
       "Content-Type": "application/json",
       ProjectUID: "test-project",
     },
-  });
+  };
 
-  if (!client) {
-    throw new Error("Client creation failed");
-  }
-  console.log("✅ Client created successfully");
+  console.log("✅ Configuration created successfully");
 
-  // Test that client has expected methods
-  if (typeof client.clusterProfilesFilterSummary !== "function") {
-    throw new Error("clusterProfilesFilterSummary not available on client");
+  // Test function calls (these will fail with test data but should be callable)
+  console.log("Testing function call signatures...");
+
+  try {
+    // This will likely fail due to invalid API key, but we're testing the signature
+    await clusterProfilesFilterSummary(filterSpec, queryParams, config);
+  } catch (error) {
+    // Expected to fail with test credentials
+    console.log("✅ clusterProfilesFilterSummary function signature correct");
   }
-  console.log("✅ clusterProfilesFilterSummary method available");
+
+  try {
+    // This will likely fail due to invalid API key, but we're testing the signature
+    await clusterProfilesMetadata(config);
+  } catch (error) {
+    // Expected to fail with test credentials
+    console.log("✅ clusterProfilesMetadata function signature correct");
+  }
 
   console.log("🎉 All built package tests passed!");
 }

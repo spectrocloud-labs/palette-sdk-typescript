@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type EventRelatedObjectKind =
-  (typeof EventRelatedObjectKind)[keyof typeof EventRelatedObjectKind];
+export type EventRelatedObjectKind = typeof EventRelatedObjectKind[keyof typeof EventRelatedObjectKind];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const EventRelatedObjectKind = {
-  spectrocluster: "spectrocluster",
-  edgehost: "edgehost",
+  spectrocluster: 'spectrocluster',
+  edgehost: 'edgehost',
 } as const;

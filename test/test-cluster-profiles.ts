@@ -4,11 +4,18 @@
  */
 
 /**
- * Test to verify cluster profile functions using the Palette SDK client wrapper
+ * Test to verify cluster profile functions using individual function imports
  */
 
 import dotenvx from "@dotenvx/dotenvx";
-import { setupConfig, type PaletteAPIFunctions } from "../palette";
+import {
+  clusterProfilesFilterSummary,
+  clusterProfilesMetadata,
+  type ClusterProfilesFilterSpec,
+  type ClusterProfilesFilterSummaryParams,
+  type ClusterProfilesSummary,
+  type ClusterProfilesMetadata,
+} from "../palette";
 
 // Load environment variables with expanded path handling
 const result = dotenvx.config({
@@ -42,46 +49,74 @@ async function testClusterProfiles() {
   console.log("Starting cluster profiles test...");
 
   try {
-    // Create a pre-configured client
-    const palette: PaletteAPIFunctions = setupConfig({
-      baseURL: BASE_URL,
+    // Create configuration object
+    const config = {
       headers: {
         ApiKey: API_KEY,
         "Content-Type": "application/json",
       },
-    });
+    };
 
-    console.log("PASS: Client created successfully");
+    console.log("PASS: Config created successfully");
 
-    // Test that cluster profile functions are available through the client
+    // Test that cluster profile functions are available
     const functions = [
-      "clusterProfilesFilterSummary",
-      "clusterProfilesMetadata",
-      "clusterProfilesCreate",
-      "clusterProfilesBulkDelete",
+      {
+        name: "clusterProfilesFilterSummary",
+        func: clusterProfilesFilterSummary,
+      },
+      { name: "clusterProfilesMetadata", func: clusterProfilesMetadata },
     ];
 
-    for (const funcName of functions) {
-      if (
-        typeof palette[funcName as keyof PaletteAPIFunctions] === "function"
-      ) {
-        console.log(`PASS: ${funcName} is available through client`);
+    for (const { name, func } of functions) {
+      if (typeof func === "function") {
+        console.log(`PASS: ${name} is available as function`);
       } else {
-        throw new Error(`${funcName} is not available through client`);
+        throw new Error(`${name} is not available as function`);
       }
     }
 
-    // Test a simple API call to verify the client works
-    console.log("Testing API call through client...");
+    // Test a simple API call to verify the functions work
+    console.log("Testing API call...");
 
-    const metadataResponse = await palette.clusterProfilesMetadata();
-    if (metadataResponse && metadataResponse.data) {
+    const metadataResponse: ClusterProfilesMetadata =
+      await clusterProfilesMetadata(config);
+    if (metadataResponse && Object.keys(metadataResponse).length > 0) {
       console.log("PASS: clusterProfilesMetadata call successful");
       console.log(
-        `Response contains: ${Object.keys(metadataResponse.data).join(", ")}`
+        `Response contains: ${Object.keys(metadataResponse).join(", ")}`
       );
     } else {
       throw new Error("clusterProfilesMetadata call failed");
+    }
+
+    // Test cluster profiles filter summary
+    console.log("Testing cluster profiles filter summary...");
+    const filterSpec: ClusterProfilesFilterSpec = {
+      filter: {},
+      sort: [],
+    };
+
+    const summaryResponse: ClusterProfilesSummary =
+      await clusterProfilesFilterSummary(filterSpec, {}, config);
+
+    if (
+      summaryResponse &&
+      summaryResponse.items &&
+      Array.isArray(summaryResponse.items)
+    ) {
+      console.log(
+        `PASS: Found ${summaryResponse.items.length} cluster profiles`
+      );
+
+      // Display first few cluster profiles
+      summaryResponse.items.slice(0, 3).forEach((profile, index) => {
+        console.log(`  ${index + 1}. ${profile.metadata?.name || "Unknown"}`);
+        console.log(`     UID: ${profile.metadata?.uid || "Unknown"}`);
+        console.log(`     Version: ${profile.specSummary?.version || "N/A"}`);
+      });
+    } else {
+      throw new Error("clusterProfilesFilterSummary call failed");
     }
 
     console.log("Cluster profiles test completed successfully!");

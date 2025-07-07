@@ -9,7 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualMachinePoolConfigEntity } from "./virtualMachinePoolConfigEntity";
+import type { VirtualMachinePoolConfigEntity } from './virtualMachinePoolConfigEntity';
 
-export type V1VirtualMachinePoolConfigEntityBody =
-  VirtualMachinePoolConfigEntity;
+export type V1VirtualMachinePoolConfigEntityBody = VirtualMachinePoolConfigEntity;

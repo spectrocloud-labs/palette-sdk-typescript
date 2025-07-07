@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { StorageType } from "./storageType";
+import type { StorageType } from './storageType';
 
 /**
  * List of Azure storage types

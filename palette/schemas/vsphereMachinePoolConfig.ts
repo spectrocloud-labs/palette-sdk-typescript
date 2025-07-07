@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereMachinePoolConfigAdditionalLabels } from "./vsphereMachinePoolConfigAdditionalLabels";
-import type { VsphereMachinePoolConfigAdditionalTags } from "./vsphereMachinePoolConfigAdditionalTags";
-import type { VsphereInstanceType } from "./vsphereInstanceType";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { VspherePlacementConfig } from "./vspherePlacementConfig";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { VsphereMachinePoolConfigAdditionalLabels } from './vsphereMachinePoolConfigAdditionalLabels';
+import type { VsphereMachinePoolConfigAdditionalTags } from './vsphereMachinePoolConfigAdditionalTags';
+import type { VsphereInstanceType } from './vsphereInstanceType';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { VspherePlacementConfig } from './vspherePlacementConfig';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
 export type VsphereMachinePoolConfig = {
   /** additionalLabels */

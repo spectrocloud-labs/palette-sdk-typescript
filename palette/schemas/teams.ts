@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Team } from "./team";
-import type { ListMetaData } from "./listMetaData";
+import type { Team } from './team';
+import type { ListMetaData } from './listMetaData';
 
 export type Teams = {
   items: Team[];

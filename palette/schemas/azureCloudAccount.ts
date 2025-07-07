@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureCloudAccountAzureEnvironment } from "./azureCloudAccountAzureEnvironment";
-import type { CloudAccountSettings } from "./cloudAccountSettings";
+import type { AzureCloudAccountAzureEnvironment } from './azureCloudAccountAzureEnvironment';
+import type { CloudAccountSettings } from './cloudAccountSettings';
 
 export type AzureCloudAccount = {
   /** Contains configuration for Azure cloud */

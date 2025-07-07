@@ -11,12 +11,12 @@
  */
 
 export type V1AwsClusterNameValidateParams = {
-  /**
-   * Uid for the specific AWS cloud account
-   */
-  cloudAccountUid: string;
-  /**
-   * cluster name to be validated
-   */
-  name: string;
+/**
+ * Uid for the specific AWS cloud account
+ */
+cloudAccountUid: string;
+/**
+ * cluster name to be validated
+ */
+name: string;
 };

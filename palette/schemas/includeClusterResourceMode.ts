@@ -17,12 +17,12 @@
 - "Never": --include-cluster-resources=false, exclude all cluster-wide resources, including PersistentVolumes.
 
  */
-export type IncludeClusterResourceMode =
-  (typeof IncludeClusterResourceMode)[keyof typeof IncludeClusterResourceMode];
+export type IncludeClusterResourceMode = typeof IncludeClusterResourceMode[keyof typeof IncludeClusterResourceMode];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const IncludeClusterResourceMode = {
-  Always: "Always",
-  Auto: "Auto",
-  Never: "Never",
+  Always: 'Always',
+  Auto: 'Auto',
+  Never: 'Never',
 } as const;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileFips } from "./clusterProfileFips";
-import type { ObjectEntity } from "./objectEntity";
-import type { ClusterProfilePackSummary } from "./clusterProfilePackSummary";
+import type { ClusterProfileFips } from './clusterProfileFips';
+import type { ObjectEntity } from './objectEntity';
+import type { ClusterProfilePackSummary } from './clusterProfilePackSummary';
 
 /**
  * ClusterProfileStatusSummary defines the observed state of ClusterProfile

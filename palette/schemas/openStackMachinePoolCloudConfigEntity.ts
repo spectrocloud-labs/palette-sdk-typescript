@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenstackFlavorConfig } from "./openstackFlavorConfig";
-import type { OpenStackResource } from "./openStackResource";
+import type { OpenstackFlavorConfig } from './openstackFlavorConfig';
+import type { OpenStackResource } from './openStackResource';
 
 export type OpenStackMachinePoolCloudConfigEntity = {
   /** for control plane pool, this will be the failure domains for kcp */

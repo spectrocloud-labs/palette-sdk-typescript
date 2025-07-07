@@ -11,5 +11,5 @@
  */
 
 export type EcrRegistriesCreateParams = {
-  skipPackSync?: boolean;
+skipPackSync?: boolean;
 };

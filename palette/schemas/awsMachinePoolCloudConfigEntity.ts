@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsResourceReference } from "./awsResourceReference";
-import type { AwsMachinePoolCloudConfigEntityCapacityType } from "./awsMachinePoolCloudConfigEntityCapacityType";
-import type { SpotMarketOptions } from "./spotMarketOptions";
-import type { AwsSubnetEntity } from "./awsSubnetEntity";
+import type { AwsResourceReference } from './awsResourceReference';
+import type { AwsMachinePoolCloudConfigEntityCapacityType } from './awsMachinePoolCloudConfigEntityCapacityType';
+import type { SpotMarketOptions } from './spotMarketOptions';
+import type { AwsSubnetEntity } from './awsSubnetEntity';
 
 export type AwsMachinePoolCloudConfigEntity = {
   /** Additional Security groups */

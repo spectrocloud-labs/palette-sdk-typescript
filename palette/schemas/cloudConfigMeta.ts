@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachinePoolMeta } from "./machinePoolMeta";
+import type { MachinePoolMeta } from './machinePoolMeta';
 
 export type CloudConfigMeta = {
   cloudType?: string;

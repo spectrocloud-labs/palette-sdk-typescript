@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./archType";
-import type { ClusterMetaSpecLocation } from "./clusterMetaSpecLocation";
+import type { ArchType } from './archType';
+import type { ClusterMetaSpecLocation } from './clusterMetaSpecLocation';
 
 /**
  * Spectro cluster meta summary

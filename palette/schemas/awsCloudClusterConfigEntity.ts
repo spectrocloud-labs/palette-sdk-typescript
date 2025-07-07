@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsClusterConfig } from "./awsClusterConfig";
+import type { AwsClusterConfig } from './awsClusterConfig';
 
 /**
  * AWS cloud cluster config entity

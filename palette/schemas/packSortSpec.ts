@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackSortFields } from "./packSortFields";
-import type { SortOrder } from "./sortOrder";
+import type { PackSortFields } from './packSortFields';
+import type { SortOrder } from './sortOrder';
 
 /**
  * Packs sort spec
