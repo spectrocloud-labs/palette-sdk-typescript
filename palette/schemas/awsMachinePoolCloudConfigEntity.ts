@@ -14,7 +14,7 @@ import type { AwsMachinePoolCloudConfigEntityCapacityType } from "./awsMachinePo
 import type { SpotMarketOptions } from "./spotMarketOptions";
 import type { AwsSubnetEntity } from "./awsSubnetEntity";
 
-export interface AwsMachinePoolCloudConfigEntity {
+export type AwsMachinePoolCloudConfigEntity = {
   /** Additional Security groups */
   additionalSecurityGroups?: AwsResourceReference[];
   azs?: string[];
@@ -30,4 +30,4 @@ export interface AwsMachinePoolCloudConfigEntity {
   rootDeviceSize?: number;
   spotMarketOptions?: SpotMarketOptions;
   subnets?: AwsSubnetEntity[];
-}
+};

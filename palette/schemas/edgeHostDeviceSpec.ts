@@ -21,7 +21,7 @@ import type { EdgeHostDeviceSpecType } from "./edgeHostDeviceSpecType";
 /**
  * EdgeHostDeviceSpec defines the desired state of EdgeHostDevice
  */
-export interface EdgeHostDeviceSpec {
+export type EdgeHostDeviceSpec = {
   cloudProperties?: EdgeHostCloudProperties;
   clusterProfileTemplates?: ClusterProfileTemplate[];
   device?: DeviceSpec;
@@ -32,4 +32,4 @@ export interface EdgeHostDeviceSpec {
   /** Deprecated. Cloudtype of the provisioned edge host */
   type?: EdgeHostDeviceSpecType;
   version?: string;
-}
+};

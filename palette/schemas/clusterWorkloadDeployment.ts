@@ -15,7 +15,7 @@ import type { ClusterWorkloadDeploymentStatus } from "./clusterWorkloadDeploymen
 /**
  * Cluster workload deployment summary
  */
-export interface ClusterWorkloadDeployment {
+export type ClusterWorkloadDeployment = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadDeploymentStatus;
-}
+};

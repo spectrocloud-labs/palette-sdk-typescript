@@ -16,10 +16,10 @@ import type { GenericMachinePoolConfig } from "./genericMachinePoolConfig";
 /**
  * Generic CloudConfig spec for all cloud types
  */
-export interface GenericCloudConfigSpec {
+export type GenericCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: GenericClusterConfig;
   /** Appliances (Edge Host) uids */
   edgeHostRefs?: ObjectReference[];
   machinePoolConfig?: GenericMachinePoolConfig[];
-}
+};

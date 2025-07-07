@@ -13,7 +13,7 @@
 /**
  * SystemAdmin
  */
-export interface SystemCryptoData {
+export type SystemCryptoData = {
   input?: string;
   result?: string;
-}
+};

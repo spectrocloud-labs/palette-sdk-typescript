@@ -12,7 +12,7 @@
 import type { ProjectFilterSortFields } from "./projectFilterSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface ProjectFilterSortSpec {
+export type ProjectFilterSortSpec = {
   field?: ProjectFilterSortFields;
   order?: SortOrder;
-}
+};

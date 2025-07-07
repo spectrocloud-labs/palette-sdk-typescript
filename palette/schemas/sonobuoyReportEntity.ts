@@ -14,7 +14,7 @@ import type { SonobuoyLogEntity } from "./sonobuoyLogEntity";
 /**
  * Sonobuoy report
  */
-export interface SonobuoyReportEntity {
+export type SonobuoyReportEntity = {
   fail?: number;
   logs?: SonobuoyLogEntity[];
   node?: string;
@@ -22,4 +22,4 @@ export interface SonobuoyReportEntity {
   plugin?: string;
   status?: string;
   total?: number;
-}
+};

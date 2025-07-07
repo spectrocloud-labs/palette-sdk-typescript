@@ -14,7 +14,7 @@ import type { VmQuantity } from "./vmQuantity";
 /**
  * Represents a disk created on the cluster level
  */
-export interface VmHostDisk {
+export type VmHostDisk = {
   capacity?: VmQuantity;
   /** The path to HostDisk image located on the cluster */
   path: string;
@@ -22,4 +22,4 @@ export interface VmHostDisk {
   shared?: boolean;
   /** Contains information if disk.img exists or should be created allowed options are 'Disk' and 'DiskOrCreate' */
   type: string;
-}
+};

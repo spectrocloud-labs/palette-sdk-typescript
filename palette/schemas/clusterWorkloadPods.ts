@@ -14,6 +14,6 @@ import type { ClusterWorkloadPod } from "./clusterWorkloadPod";
 /**
  * Cluster workload pods summary
  */
-export interface ClusterWorkloadPods {
+export type ClusterWorkloadPods = {
   pods?: ClusterWorkloadPod[];
-}
+};

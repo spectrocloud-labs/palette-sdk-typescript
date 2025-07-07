@@ -16,7 +16,7 @@ import type { AuditResourceReference } from "./auditResourceReference";
 /**
  * Audit specifications
  */
-export interface AuditSpec {
+export type AuditSpec = {
   /** Audit action message */
   actionMsg?: string;
   actionType?: AuditSpecActionType;
@@ -26,4 +26,4 @@ export interface AuditSpec {
   resource?: AuditResourceReference;
   /** Audit user message */
   userMsg?: string;
-}
+};

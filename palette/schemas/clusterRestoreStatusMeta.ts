@@ -16,7 +16,7 @@ import type { ResourceReference } from "./resourceReference";
 /**
  * Cluster Restore Status Meta
  */
-export interface ClusterRestoreStatusMeta {
+export type ClusterRestoreStatusMeta = {
   actor?: ClusterFeatureActor;
   backupName?: string;
   backupRequestUid?: string;
@@ -24,4 +24,4 @@ export interface ClusterRestoreStatusMeta {
   restoreStatusMeta?: RestoreStatusMeta;
   sourceClusterRef?: ResourceReference;
   state?: string;
-}
+};

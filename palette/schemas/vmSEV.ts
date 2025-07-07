@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmSEV {
-  [key: string]: unknown;
-}
+export type VmSEV = { [key: string]: unknown };

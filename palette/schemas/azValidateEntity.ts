@@ -13,7 +13,7 @@
 /**
  * Az validate entity
  */
-export interface AzValidateEntity {
+export type AzValidateEntity = {
   /** Gcp Azs */
   azs?: string[];
   /** Gcp project */
@@ -22,4 +22,4 @@ export interface AzValidateEntity {
   region?: string;
   /** Cloud account uid */
   uid?: string;
-}
+};

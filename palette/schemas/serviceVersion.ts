@@ -15,9 +15,9 @@ import type { ServiceVersionSpec } from "./serviceVersionSpec";
 /**
  * Service version information
  */
-export interface ServiceVersion {
+export type ServiceVersion = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: ServiceVersionSpec;
-}
+};

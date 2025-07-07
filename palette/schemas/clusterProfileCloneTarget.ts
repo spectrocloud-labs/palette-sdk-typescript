@@ -14,8 +14,8 @@ import type { Scope } from "./scope";
 /**
  * Cluster profile clone meta input entity
  */
-export interface ClusterProfileCloneTarget {
+export type ClusterProfileCloneTarget = {
   /** Cloned cluster profile project uid */
   projectUid?: string;
   scope: Scope;
-}
+};

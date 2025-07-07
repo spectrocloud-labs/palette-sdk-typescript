@@ -13,11 +13,11 @@
 /**
  * Manifest update request payload
  */
-export interface ManifestRefUpdateEntity {
+export type ManifestRefUpdateEntity = {
   /** Manifest content in yaml */
   content?: string;
   /** Manifest name */
   name: string;
   /** Manifest uid */
   uid?: string;
-}
+};

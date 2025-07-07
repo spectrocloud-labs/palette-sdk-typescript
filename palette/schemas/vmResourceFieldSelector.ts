@@ -14,10 +14,10 @@ import type { VmQuantity } from "./vmQuantity";
 /**
  * ResourceFieldSelector represents container resources (cpu, memory) and their output format
  */
-export interface VmResourceFieldSelector {
+export type VmResourceFieldSelector = {
   /** Container name: required for volumes, optional for env vars */
   containerName?: string;
   divisor?: VmQuantity;
   /** Required: resource to select */
   resource: string;
-}
+};

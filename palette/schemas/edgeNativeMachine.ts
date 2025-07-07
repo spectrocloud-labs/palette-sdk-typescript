@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * EdgeNative cloud VM definition
  */
-export interface EdgeNativeMachine {
+export type EdgeNativeMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: EdgeNativeMachineSpec;
   status?: CloudMachineStatus;
-}
+};

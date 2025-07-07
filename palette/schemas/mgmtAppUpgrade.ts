@@ -12,7 +12,7 @@
 import type { MgmtAppUpgradeSpec } from "./mgmtAppUpgradeSpec";
 import type { MgmtAppUpgradeStatus } from "./mgmtAppUpgradeStatus";
 
-export interface MgmtAppUpgrade {
+export type MgmtAppUpgrade = {
   spec?: MgmtAppUpgradeSpec;
   status?: MgmtAppUpgradeStatus;
-}
+};

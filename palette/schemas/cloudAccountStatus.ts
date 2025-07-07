@@ -14,9 +14,9 @@ import type { Time } from "./time";
 /**
  * Status of the account
  */
-export interface CloudAccountStatus {
+export type CloudAccountStatus = {
   /** Cloud account status */
   state?: string;
   tokenExpiry?: Time;
   tokenGenerationTime?: Time;
-}
+};

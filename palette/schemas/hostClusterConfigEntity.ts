@@ -11,6 +11,6 @@
  */
 import type { HostClusterConfig } from "./hostClusterConfig";
 
-export interface HostClusterConfigEntity {
+export type HostClusterConfigEntity = {
   hostClusterConfig?: HostClusterConfig;
-}
+};

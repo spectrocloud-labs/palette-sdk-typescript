@@ -13,7 +13,7 @@
 /**
  * Cluster group limit config
  */
-export interface ClusterGroupLimitConfig {
+export type ClusterGroupLimitConfig = {
   /** Deprecated. Use field cpuMilliCore */
   cpu?: number;
   /** CPU in milli cores */
@@ -26,4 +26,4 @@ export interface ClusterGroupLimitConfig {
   overSubscription?: number;
   /** Storage in GiB */
   storageGiB?: number;
-}
+};

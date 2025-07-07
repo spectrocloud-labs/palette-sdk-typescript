@@ -13,7 +13,7 @@
 /**
  * Pack dependency metadata
  */
-export interface PackDependencyMeta {
+export type PackDependencyMeta = {
   /** Pack display name */
   displayName?: string;
   /** Pack logo url */
@@ -26,4 +26,4 @@ export interface PackDependencyMeta {
   uid?: string;
   /** Pack version */
   version?: string;
-}
+};

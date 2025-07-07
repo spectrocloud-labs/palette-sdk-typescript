@@ -13,7 +13,7 @@
 /**
  * AWS Volume Type entity
  */
-export interface AwsVolumeType {
+export type AwsVolumeType = {
   /** AWS volume type id */
   id?: string;
   /** Iops through put of volume type */
@@ -22,4 +22,4 @@ export interface AwsVolumeType {
   maxThroughPut?: string;
   /** AWS Volume Type Name */
   name?: string;
-}
+};

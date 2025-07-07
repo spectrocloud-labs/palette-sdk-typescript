@@ -14,7 +14,7 @@ import type { ProjectUsage } from "./projectUsage";
 /**
  * Invoice project object
  */
-export interface InvoiceProject {
+export type InvoiceProject = {
   /** Billing amount for the project */
   amount?: number;
   /** Name of the project */
@@ -22,4 +22,4 @@ export interface InvoiceProject {
   /** Project identifier */
   projectUid?: string;
   usage?: ProjectUsage;
-}
+};

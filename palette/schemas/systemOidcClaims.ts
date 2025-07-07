@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface SystemOidcClaims {
+export type SystemOidcClaims = {
   Email?: string;
   FirstName?: string;
   LastName?: string;
   SpectroTeam?: string;
-}
+};

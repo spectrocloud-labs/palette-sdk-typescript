@@ -14,8 +14,8 @@ import type { Time } from "./time";
 /**
  * API key specification
  */
-export interface ApiKeySpecEntity {
+export type ApiKeySpecEntity = {
   expiry?: Time;
   /** User to whom the API key has to be created */
   userUid?: string;
-}
+};

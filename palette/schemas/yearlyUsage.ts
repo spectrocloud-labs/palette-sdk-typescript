@@ -16,9 +16,9 @@ import type { ProductUsage } from "./productUsage";
 /**
  * Yearly usage object
  */
-export interface YearlyUsage {
+export type YearlyUsage = {
   billingPeriod?: InvoiceBillingPeriod;
   /** List of monthly usages */
   monthlyUsages?: MonthlyUsage[];
   productUsages?: ProductUsage;
-}
+};

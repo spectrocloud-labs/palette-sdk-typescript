@@ -14,6 +14,6 @@ import type { InstanceType } from "./instanceType";
 /**
  * List of AWS instance types
  */
-export interface AwsInstanceTypes {
+export type AwsInstanceTypes = {
   instanceTypes?: InstanceType[];
-}
+};

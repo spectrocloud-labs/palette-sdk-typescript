@@ -11,21 +11,20 @@
  */
 import type { MfaConveyancePreference } from "./mfaConveyancePreference";
 import type { MfaAuthenticatorSelection } from "./mfaAuthenticatorSelection";
-import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { MfaCredentialDescriptor } from "./mfaCredentialDescriptor";
 import type { MfaAuthenticationExtensions } from "./mfaAuthenticationExtensions";
 import type { MfaCredentialParameter } from "./mfaCredentialParameter";
 import type { MfaRelyingPartyEntity } from "./mfaRelyingPartyEntity";
 import type { MfaUserEntity } from "./mfaUserEntity";
 
-export interface MfaPublicKeyCredentialCreationOptions {
+export type MfaPublicKeyCredentialCreationOptions = {
   attestation?: MfaConveyancePreference;
   authenticatorSelection?: MfaAuthenticatorSelection;
-  challenge?: URLEncodedBase64;
+  challenge?: string;
   excludeCredentials?: MfaCredentialDescriptor[];
   extensions?: MfaAuthenticationExtensions;
   pubKeyCredParams?: MfaCredentialParameter[];
   rp?: MfaRelyingPartyEntity;
   timeout?: number;
   user?: MfaUserEntity;
-}
+};

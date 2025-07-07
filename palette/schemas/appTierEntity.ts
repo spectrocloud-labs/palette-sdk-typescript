@@ -16,7 +16,7 @@ import type { AppTierType } from "./appTierType";
 /**
  * Application tier request payload
  */
-export interface AppTierEntity {
+export type AppTierEntity = {
   /** Application tier container registry uid */
   containerRegistryUid?: string;
   /** Application tier installation order */
@@ -36,4 +36,4 @@ export interface AppTierEntity {
   values?: string;
   /** Application tier version */
   version?: string;
-}
+};

@@ -14,6 +14,6 @@ import type { VmAccessCredentialSecretSource } from "./vmAccessCredentialSecretS
 /**
  * UserPasswordAccessCredentialSource represents where to retrieve the user password credentials Only one of its members may be specified.
  */
-export interface VmUserPasswordAccessCredentialSource {
+export type VmUserPasswordAccessCredentialSource = {
   secret?: VmAccessCredentialSecretSource;
-}
+};

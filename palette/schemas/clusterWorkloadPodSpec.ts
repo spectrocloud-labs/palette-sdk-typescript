@@ -15,7 +15,7 @@ import type { ClusterWorkloadPodVolume } from "./clusterWorkloadPodVolume";
 /**
  * Cluster workload pod spec
  */
-export interface ClusterWorkloadPodSpec {
+export type ClusterWorkloadPodSpec = {
   containers?: ClusterWorkloadPodContainer[];
   volumes?: ClusterWorkloadPodVolume[];
-}
+};

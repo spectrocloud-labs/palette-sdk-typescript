@@ -15,9 +15,9 @@ import type { Time } from "./time";
 /**
  * Spectro cluster health status
  */
-export interface SpectroClusterHealthStatus {
+export type SpectroClusterHealthStatus = {
   agentVersion?: string;
   conditions?: SpectroClusterHealthCondition[];
   lastHeartBeatTimestamp?: Time;
   state?: string;
-}
+};

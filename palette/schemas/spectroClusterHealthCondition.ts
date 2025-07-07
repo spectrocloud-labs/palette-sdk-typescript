@@ -14,8 +14,8 @@ import type { RelatedObject } from "./relatedObject";
 /**
  * Spectro cluster health condition
  */
-export interface SpectroClusterHealthCondition {
+export type SpectroClusterHealthCondition = {
   message?: string;
   relatedObject?: RelatedObject;
   type?: string;
-}
+};

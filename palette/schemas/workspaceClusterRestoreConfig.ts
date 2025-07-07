@@ -16,9 +16,9 @@ import type { Time } from "./time";
 /**
  * Workspace cluster restore config
  */
-export interface WorkspaceClusterRestoreConfig {
+export type WorkspaceClusterRestoreConfig = {
   backupName?: string;
   clusterRestoreRefs?: WorkspaceClusterRestoreResponse[];
   restoreState?: WorkspaceRestoreState;
   restoreTime?: Time;
-}
+};

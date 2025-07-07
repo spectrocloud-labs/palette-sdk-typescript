@@ -16,8 +16,8 @@ import type { ClusterRbacStatus } from "./clusterRbacStatus";
 /**
  * Cluster RBAC role binding defintion
  */
-export interface ClusterRbac {
+export type ClusterRbac = {
   metadata?: ObjectMeta;
   spec?: ClusterRbacSpec;
   status?: ClusterRbacStatus;
-}
+};

@@ -15,7 +15,7 @@ import type { ObjectEntity } from "./objectEntity";
 /**
  * EdgeHost is the underlying appliance
  */
-export interface EdgeHost {
+export type EdgeHost = {
   /** Set to true if auto register is disabled for the device */
   disableAutoRegister?: boolean;
   /** HostAddress is a FQDN or IP address of the Host */
@@ -32,4 +32,4 @@ export interface EdgeHost {
   /** Mac address of edgehost */
   macAddress?: string;
   project?: ObjectEntity;
-}
+};

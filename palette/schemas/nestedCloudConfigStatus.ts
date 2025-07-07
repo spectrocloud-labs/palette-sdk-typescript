@@ -14,8 +14,8 @@ import type { ClusterCondition } from "./clusterCondition";
 /**
  * Defines the status of virtual cloud config
  */
-export interface NestedCloudConfigStatus {
+export type NestedCloudConfigStatus = {
   conditions?: ClusterCondition[];
   /** addon layers present in spc */
   isAddonLayer?: boolean;
-}
+};

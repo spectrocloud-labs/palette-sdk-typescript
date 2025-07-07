@@ -14,6 +14,6 @@ import type { MaasDomain } from "./maasDomain";
 /**
  * List of Maas domains
  */
-export interface MaasDomains {
+export type MaasDomains = {
   items: MaasDomain[];
-}
+};

@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface HybridCluster {
+export type HybridCluster = {
   /** Cloud config uid */
   cloudConfigUid?: string;
   /** Cluster name */
   name?: string;
   /** Cluster uid */
   uid?: string;
-}
+};

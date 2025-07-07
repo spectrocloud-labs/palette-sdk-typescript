@@ -12,7 +12,7 @@
 import type { GcpAccount } from "./gcpAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface GcpAccounts {
+export type GcpAccounts = {
   items: GcpAccount[];
   listmeta?: ListMetaData;
-}
+};

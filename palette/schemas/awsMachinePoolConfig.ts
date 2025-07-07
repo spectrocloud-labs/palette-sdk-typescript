@@ -20,7 +20,7 @@ import type { AwsMachinePoolConfigSubnetIds } from "./awsMachinePoolConfigSubnet
 import type { Taint } from "./taint";
 import type { UpdateStrategy } from "./updateStrategy";
 
-export interface AwsMachinePoolConfig {
+export type AwsMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: AwsMachinePoolConfigAdditionalLabels;
   /** Additional Security groups */
@@ -58,4 +58,4 @@ export interface AwsMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

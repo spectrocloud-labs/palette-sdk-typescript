@@ -18,11 +18,11 @@ import type { TotalResourceUsage } from "./totalResourceUsage";
 /**
  * Plan monthly usage entity
  */
-export interface PlanMonthlyUsage {
+export type PlanMonthlyUsage = {
   dailyUsages?: ResourceUsage[];
   month?: Time;
   planLimit?: PlanLimit;
   planType?: PlanMonthlyUsagePlanType;
   planUid?: string;
   totalMonthlyUsage?: TotalResourceUsage;
-}
+};

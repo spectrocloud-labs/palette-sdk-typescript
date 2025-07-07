@@ -14,6 +14,6 @@ import type { OpenStackNetwork } from "./openStackNetwork";
 /**
  * List of OpenStack networks
  */
-export interface OpenStackNetworks {
+export type OpenStackNetworks = {
   items: OpenStackNetwork[];
-}
+};

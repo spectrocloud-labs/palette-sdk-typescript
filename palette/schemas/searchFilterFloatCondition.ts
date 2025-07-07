@@ -12,8 +12,8 @@
 import type { SearchFilterFloatConditionMatch } from "./searchFilterFloatConditionMatch";
 import type { SearchFilterIntegerOperator } from "./searchFilterIntegerOperator";
 
-export interface SearchFilterFloatCondition {
+export type SearchFilterFloatCondition = {
   match?: SearchFilterFloatConditionMatch;
   negation?: boolean;
   operator?: SearchFilterIntegerOperator;
-}
+};

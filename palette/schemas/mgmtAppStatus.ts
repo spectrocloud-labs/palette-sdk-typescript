@@ -15,11 +15,11 @@ import type { SpectroMgmtUpgrade } from "./spectroMgmtUpgrade";
 /**
  * spectro application management status
  */
-export interface MgmtAppStatus {
+export type MgmtAppStatus = {
   appVersions?: AppVersion[];
   isFailed?: boolean;
   message?: string;
   messageLogs?: string[];
   state?: string;
   upgradeHistory?: SpectroMgmtUpgrade[];
-}
+};

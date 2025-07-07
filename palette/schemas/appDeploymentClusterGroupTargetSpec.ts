@@ -14,10 +14,10 @@ import type { AppDeploymentTargetClusterLimits } from "./appDeploymentTargetClus
 /**
  * Application deployment cluster group target spec
  */
-export interface AppDeploymentClusterGroupTargetSpec {
+export type AppDeploymentClusterGroupTargetSpec = {
   /** Application deployment cluster group uid */
   clusterGroupUid: string;
   clusterLimits?: AppDeploymentTargetClusterLimits;
   /** Application deployment virtual cluster name */
   clusterName: string;
-}
+};

@@ -14,9 +14,9 @@ import type { MgmtDbCollectionIndexInfoKey } from "./mgmtDbCollectionIndexInfoKe
 /**
  * Database info
  */
-export interface MgmtDbCollectionIndexInfo {
+export type MgmtDbCollectionIndexInfo = {
   key?: MgmtDbCollectionIndexInfoKey;
   name?: string;
   size?: number;
   version?: string;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * AWS Volume Size entity
  */
-export interface AwsVolumeSize {
+export type AwsVolumeSize = {
   /** AWS volume size */
   sizeGB?: number;
-}
+};

@@ -15,8 +15,8 @@ import type { SpectroClusterMetadataSpecSort } from "./spectroClusterMetadataSpe
 /**
  * Spectro cluster metadata spec
  */
-export interface SpectroClusterMetadataSpec {
+export type SpectroClusterMetadataSpec = {
   filter?: SpectroClusterMetadataFilterSpec;
   /** @nullable */
   sort?: SpectroClusterMetadataSpecSort;
-}
+};

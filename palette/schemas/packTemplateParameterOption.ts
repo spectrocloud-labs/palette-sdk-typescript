@@ -14,11 +14,11 @@ import type { PackDependency } from "./packDependency";
 /**
  * Pack template parameter option
  */
-export interface PackTemplateParameterOption {
+export type PackTemplateParameterOption = {
   /** Pack template parameter dependencies */
   dependencies?: PackDependency[];
   /** Pack template parameter description */
   description?: string;
   /** Pack template parameter label */
   label?: string;
-}
+};

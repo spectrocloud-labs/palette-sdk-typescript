@@ -15,7 +15,7 @@ import type { NotificationEventType } from "./notificationEventType";
 /**
  * Describes notification event details
  */
-export interface NotificationEvent {
+export type NotificationEvent = {
   /** Describes component of notification event */
   component?: string;
   /** Describes notification event digest */
@@ -26,4 +26,4 @@ export interface NotificationEvent {
   meta?: NotificationEventMeta;
   /** Describes notification event type */
   type?: NotificationEventType;
-}
+};

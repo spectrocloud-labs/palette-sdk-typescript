@@ -11,6 +11,6 @@
  */
 import type { SpcApplySettingsActionType } from "./spcApplySettingsActionType";
 
-export interface SpcApplySettings {
+export type SpcApplySettings = {
   actionType?: SpcApplySettingsActionType;
-}
+};

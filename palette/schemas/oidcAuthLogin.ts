@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface OidcAuthLogin {
+export type OidcAuthLogin = {
   emailId?: string;
   password?: string;
-}
+};

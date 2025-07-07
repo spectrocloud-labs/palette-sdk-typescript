@@ -14,7 +14,7 @@ import type { VmLocalObjectReference } from "./vmLocalObjectReference";
 /**
  * Represents a cloud-init nocloud user data source. More info: http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html
  */
-export interface VmCloudInitNoCloudSource {
+export type VmCloudInitNoCloudSource = {
   /** NetworkData contains NoCloud inline cloud-init networkdata. */
   networkData?: string;
   /** NetworkDataBase64 contains NoCloud cloud-init networkdata as a base64 encoded string. */
@@ -25,4 +25,4 @@ export interface VmCloudInitNoCloudSource {
   userData?: string;
   /** UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string. */
   userDataBase64?: string;
-}
+};

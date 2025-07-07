@@ -15,7 +15,7 @@ import type { UserAssetsLocationS3Spec } from "./userAssetsLocationS3Spec";
 /**
  * S3 location object
  */
-export interface UserAssetsLocationS3 {
+export type UserAssetsLocationS3 = {
   metadata?: ObjectMetaInputEntity;
   spec?: UserAssetsLocationS3Spec;
-}
+};

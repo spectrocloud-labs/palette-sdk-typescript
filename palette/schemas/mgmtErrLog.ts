@@ -11,7 +11,7 @@
  */
 import type { MgmtErrSpec } from "./mgmtErrSpec";
 
-export interface MgmtErrLog {
+export type MgmtErrLog = {
   ref?: string;
   spec?: MgmtErrSpec;
-}
+};

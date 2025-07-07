@@ -14,7 +14,7 @@ import type { RegistryPackMetadataAnnotations } from "./registryPackMetadataAnno
 /**
  * Registry metadata information
  */
-export interface RegistryPackMetadata {
+export type RegistryPackMetadata = {
   /** Pack annotations is used to allow pack to add more arbitrary configurations */
   annotations?: RegistryPackMetadataAnnotations;
   /** Latest pack uid */
@@ -29,4 +29,4 @@ export interface RegistryPackMetadata {
   scope?: string;
   /** Pack registry uid */
   uid?: string;
-}
+};

@@ -13,11 +13,11 @@
 /**
  * System auth token settings
  */
-export interface AuthTokenSettings {
+export type AuthTokenSettings = {
   /**
    * Auth token expiry time in minutes
    * @minimum 15
    * @maximum 1440
    */
   expiryTimeMinutes?: number;
-}
+};

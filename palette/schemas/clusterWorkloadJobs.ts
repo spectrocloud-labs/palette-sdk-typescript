@@ -14,6 +14,6 @@ import type { ClusterWorkloadJob } from "./clusterWorkloadJob";
 /**
  * Cluster workload jobs summary
  */
-export interface ClusterWorkloadJobs {
+export type ClusterWorkloadJobs = {
   jobs?: ClusterWorkloadJob[];
-}
+};

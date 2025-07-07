@@ -12,7 +12,7 @@
 import type { VmAddVolumeOptions } from "./vmAddVolumeOptions";
 import type { VmRemoveVolumeOptions } from "./vmRemoveVolumeOptions";
 
-export interface VmVirtualMachineVolumeRequest {
+export type VmVirtualMachineVolumeRequest = {
   addVolumeOptions?: VmAddVolumeOptions;
   removeVolumeOptions?: VmRemoveVolumeOptions;
-}
+};

@@ -11,9 +11,9 @@
  */
 import type { BulkDeleteFailure } from "./bulkDeleteFailure";
 
-export interface BulkDeleteResponse {
+export type BulkDeleteResponse = {
   deletedCount?: number;
   failures?: BulkDeleteFailure[];
   isSucceeded?: boolean;
   message?: string;
-}
+};

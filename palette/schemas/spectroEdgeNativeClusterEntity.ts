@@ -15,7 +15,7 @@ import type { SpectroEdgeNativeClusterEntitySpec } from "./spectroEdgeNativeClus
 /**
  * EdgeNative cluster create or update request payload
  */
-export interface SpectroEdgeNativeClusterEntity {
+export type SpectroEdgeNativeClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroEdgeNativeClusterEntitySpec;
-}
+};

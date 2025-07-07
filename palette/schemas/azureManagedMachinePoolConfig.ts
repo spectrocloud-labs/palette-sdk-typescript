@@ -11,8 +11,8 @@
  */
 import type { OsType } from "./osType";
 
-export interface AzureManagedMachinePoolConfig {
+export type AzureManagedMachinePoolConfig = {
   /** whether this pool is for system node Pool */
   isSystemNodePool?: boolean;
   osType?: OsType;
-}
+};

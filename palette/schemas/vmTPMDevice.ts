@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmTPMDevice {
-  [key: string]: unknown;
-}
+export type VmTPMDevice = { [key: string]: unknown };

@@ -14,6 +14,6 @@ import type { OpenStackClusterConfig } from "./openStackClusterConfig";
 /**
  * Openstack cloud cluster config entity
  */
-export interface OpenStackCloudClusterConfigEntity {
+export type OpenStackCloudClusterConfigEntity = {
   clusterConfig?: OpenStackClusterConfig;
-}
+};

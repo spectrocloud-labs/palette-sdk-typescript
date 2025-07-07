@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface MgmtHash {
+export type MgmtHash = {
   hash: string;
-}
+};

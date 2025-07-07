@@ -15,7 +15,7 @@ import type { TagFilterSpec } from "./tagFilterSpec";
 /**
  * Filter summary object
  */
-export interface TagFilterSummary {
+export type TagFilterSummary = {
   metadata?: ObjectMeta;
   spec?: TagFilterSpec;
-}
+};

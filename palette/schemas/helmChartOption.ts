@@ -13,7 +13,7 @@
 /**
  * If chart options are provided then the specified chart is validated first and synced immediately. If the specified chart is not found in the specified registry then creation is cancelled.
  */
-export interface HelmChartOption {
+export type HelmChartOption = {
   name?: string;
   version?: string;
-}
+};

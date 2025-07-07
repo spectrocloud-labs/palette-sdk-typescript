@@ -16,9 +16,9 @@ import type { CloudResourceMetadata } from "./cloudResourceMetadata";
 /**
  * Cluster estimated rate information
  */
-export interface SpectroClusterRate {
+export type SpectroClusterRate = {
   machinePools?: MachinePoolRate[];
   name?: string;
   rate?: TotalClusterRate;
   resourceMetadata?: CloudResourceMetadata;
-}
+};

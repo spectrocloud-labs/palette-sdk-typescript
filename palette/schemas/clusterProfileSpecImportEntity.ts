@@ -15,10 +15,10 @@ import type { Variable } from "./variable";
 /**
  * Cluster profile import spec
  */
-export interface ClusterProfileSpecImportEntity {
+export type ClusterProfileSpecImportEntity = {
   template?: ClusterProfileTemplateImportEntity;
   /** List of unique variable fields defined for a cluster profile with schema constraints */
   variables?: Variable[];
   /** Cluster profile version */
   version?: string;
-}
+};

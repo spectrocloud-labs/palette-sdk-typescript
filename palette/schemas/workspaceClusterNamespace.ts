@@ -15,9 +15,9 @@ import type { WorkspaceNamespaceResourceAllocation } from "./workspaceNamespaceR
 /**
  * Workspace cluster namespace
  */
-export interface WorkspaceClusterNamespace {
+export type WorkspaceClusterNamespace = {
   image?: WorkspaceNamespaceImage;
   isRegex?: boolean;
   name?: string;
   namespaceResourceAllocation?: WorkspaceNamespaceResourceAllocation;
-}
+};

@@ -14,6 +14,6 @@ import type { ConstraintValidatorResponse } from "./constraintValidatorResponse"
 /**
  * Cluster profile validator response
  */
-export interface ClusterProfileValidatorResponse {
+export type ClusterProfileValidatorResponse = {
   packs?: ConstraintValidatorResponse;
-}
+};

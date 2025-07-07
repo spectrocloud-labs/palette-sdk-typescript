@@ -9,11 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { URLEncodedBase64 } from "./urlEncodedBase64";
 
-export interface MfaCredentialDescriptor {
+export type MfaCredentialDescriptor = {
   attestationType?: string;
-  id?: URLEncodedBase64;
+  id?: string;
   transports?: string[];
   type?: string;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Service version information
  */
-export interface SectroClusterK8sDashboardUrl {
+export type SectroClusterK8sDashboardUrl = {
   url?: string;
-}
+};

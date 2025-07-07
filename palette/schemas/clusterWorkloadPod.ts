@@ -16,8 +16,8 @@ import type { ClusterWorkloadPodStatus } from "./clusterWorkloadPodStatus";
 /**
  * Cluster workload pod summary
  */
-export interface ClusterWorkloadPod {
+export type ClusterWorkloadPod = {
   metadata?: ClusterWorkloadPodMetadata;
   spec?: ClusterWorkloadPodSpec;
   status?: ClusterWorkloadPodStatus;
-}
+};

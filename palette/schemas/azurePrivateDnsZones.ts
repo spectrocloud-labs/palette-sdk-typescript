@@ -14,6 +14,6 @@ import type { AzurePrivateDnsZone } from "./azurePrivateDnsZone";
 /**
  * List of Azure storage accounts
  */
-export interface AzurePrivateDnsZones {
+export type AzurePrivateDnsZones = {
   privateDnsZones?: AzurePrivateDnsZone[];
-}
+};

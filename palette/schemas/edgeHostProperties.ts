@@ -15,7 +15,7 @@ import type { EdgeHostStoragePool } from "./edgeHostStoragePool";
 /**
  * Additional properties of edge host
  */
-export interface EdgeHostProperties {
+export type EdgeHostProperties = {
   networks?: EdgeHostNetwork[];
   storagePools?: EdgeHostStoragePool[];
-}
+};

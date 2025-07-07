@@ -11,6 +11,6 @@
  */
 import type { TenantAssetCert } from "./tenantAssetCert";
 
-export interface TenantAssetCerts {
+export type TenantAssetCerts = {
   items: TenantAssetCert[];
-}
+};

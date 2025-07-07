@@ -15,7 +15,7 @@ import type { PackType } from "./packType";
 /**
  * Pack input entity with values to overwrite and manifests for the intial creation
  */
-export interface PackManifestUpdateEntity {
+export type PackManifestUpdateEntity = {
   /** Pack layer */
   layer?: string;
   /** Pack manifests are additional content as part of the profile */
@@ -31,4 +31,4 @@ export interface PackManifestUpdateEntity {
   uid?: string;
   /** Pack values represents the values.yaml used as input parameters either Params OR Values should be used, not both If both applied at the same time, will only use Values */
   values?: string;
-}
+};

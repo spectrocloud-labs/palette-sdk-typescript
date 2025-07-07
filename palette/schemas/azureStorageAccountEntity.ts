@@ -14,6 +14,6 @@ import type { StorageAccountEntity } from "./storageAccountEntity";
 /**
  * Azure Storage Account Entity
  */
-export interface AzureStorageAccountEntity {
+export type AzureStorageAccountEntity = {
   storageAccountTypes?: StorageAccountEntity[];
-}
+};

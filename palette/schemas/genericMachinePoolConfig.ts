@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface GenericMachinePoolConfig {
+export type GenericMachinePoolConfig = {
   instanceType?: string;
   /** whether this pool is for control plane */
   isControlPlane: boolean;
@@ -23,4 +23,4 @@ export interface GenericMachinePoolConfig {
   size?: number;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

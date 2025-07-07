@@ -14,6 +14,6 @@ import type { Time } from "./time";
 /**
  * API key update request specification
  */
-export interface ApiKeySpecUpdate {
+export type ApiKeySpecUpdate = {
   expiry?: Time;
-}
+};

@@ -14,8 +14,8 @@ import type { ProjectResourceUsage } from "./projectResourceUsage";
 /**
  * Total Resource Usage
  */
-export interface TotalResourceUsage {
+export type TotalResourceUsage = {
   projects?: ProjectResourceUsage[];
   totalAlloyCpuCoreHours?: number;
   totalPureCpuCoreHours?: number;
-}
+};

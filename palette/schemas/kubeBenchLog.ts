@@ -13,11 +13,11 @@
 /**
  * Compliance Scan KubeBench Log
  */
-export interface KubeBenchLog {
+export type KubeBenchLog = {
   description?: string;
   expected?: string;
   remediation?: string;
   state?: string;
   testId?: string;
   value?: string;
-}
+};

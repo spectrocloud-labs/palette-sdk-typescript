@@ -14,7 +14,7 @@ import type { TunnelEndpoint } from "./tunnelEndpoint";
 /**
  * Describes the response that contains the tunnel configuration to establish connection
  */
-export interface TunnelConfiguration {
+export type TunnelConfiguration = {
   preferredServer?: TunnelEndpoint;
   servers?: TunnelEndpoint[];
-}
+};

@@ -14,7 +14,7 @@ import type { PriceRange } from "./priceRange";
 /**
  * tier price
  */
-export interface TierPrice {
+export type TierPrice = {
   alloyPricing?: PriceRange[];
   purePricing?: PriceRange[];
-}
+};

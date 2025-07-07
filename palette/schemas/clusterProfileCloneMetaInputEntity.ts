@@ -14,10 +14,10 @@ import type { ClusterProfileCloneTarget } from "./clusterProfileCloneTarget";
 /**
  * Cluster profile clone metadata
  */
-export interface ClusterProfileCloneMetaInputEntity {
+export type ClusterProfileCloneMetaInputEntity = {
   /** Cloned cluster profile name */
   name: string;
   target?: ClusterProfileCloneTarget;
   /** Cloned cluster profile version */
   version?: string;
-}
+};

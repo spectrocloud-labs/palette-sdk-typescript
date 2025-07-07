@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface ResourceRolesUpdateEntity {
+export type ResourceRolesUpdateEntity = {
   filterRefs?: string[];
   projectUids?: string[];
   roles?: string[];
-}
+};

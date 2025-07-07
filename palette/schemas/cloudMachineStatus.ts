@@ -16,8 +16,8 @@ import type { MachineMaintenanceStatus } from "./machineMaintenanceStatus";
 /**
  * cloud machine status
  */
-export interface CloudMachineStatus {
+export type CloudMachineStatus = {
   health?: MachineHealth;
   instanceState?: CloudMachineStatusInstanceState;
   maintenanceStatus?: MachineMaintenanceStatus;
-}
+};

@@ -16,9 +16,9 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * Virtual cloud machine definition
  */
-export interface VirtualMachine {
+export type VirtualMachine = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: VirtualMachineSpec;
   status?: CloudMachineStatus;
-}
+};

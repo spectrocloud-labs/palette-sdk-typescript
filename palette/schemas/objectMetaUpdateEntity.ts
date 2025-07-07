@@ -15,9 +15,9 @@ import type { ObjectMetaUpdateEntityLabels } from "./objectMetaUpdateEntityLabel
 /**
  * ObjectMeta update entity with uid as input
  */
-export interface ObjectMetaUpdateEntity {
+export type ObjectMetaUpdateEntity = {
   annotations?: ObjectMetaUpdateEntityAnnotations;
   labels?: ObjectMetaUpdateEntityLabels;
   name?: string;
   uid?: string;
-}
+};

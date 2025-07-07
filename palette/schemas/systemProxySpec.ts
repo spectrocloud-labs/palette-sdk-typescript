@@ -13,8 +13,8 @@
 /**
  * system proxy config spec
  */
-export interface SystemProxySpec {
+export type SystemProxySpec = {
   httpProxy?: string;
   httpsProxy?: string;
   noProxy?: string;
-}
+};

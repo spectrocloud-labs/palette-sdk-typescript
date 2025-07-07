@@ -11,6 +11,6 @@
  */
 import type { ClusterFipsMode } from "./clusterFipsMode";
 
-export interface ClusterFips {
+export type ClusterFips = {
   mode?: ClusterFipsMode;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Describes origin info for the notification
  */
-export interface NotificationSource {
+export type NotificationSource = {
   /** Describes component where notification originated */
   component?: string;
-}
+};

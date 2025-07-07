@@ -14,6 +14,6 @@ import type { ClusterWorkloadNamespace } from "./clusterWorkloadNamespace";
 /**
  * Cluster workload namespaces summary
  */
-export interface ClusterWorkloadNamespaces {
+export type ClusterWorkloadNamespaces = {
   namespaces?: ClusterWorkloadNamespace[];
-}
+};

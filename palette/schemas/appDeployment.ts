@@ -16,8 +16,8 @@ import type { AppDeploymentStatus } from "./appDeploymentStatus";
 /**
  * Application deployment response
  */
-export interface AppDeployment {
+export type AppDeployment = {
   metadata?: ObjectMeta;
   spec?: AppDeploymentSpec;
   status?: AppDeploymentStatus;
-}
+};

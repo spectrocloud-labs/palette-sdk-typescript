@@ -14,7 +14,7 @@ import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity"
 import type { ClusterConfigEntity } from "./clusterConfigEntity";
 import type { OpenStackMachineConfigEntity } from "./openStackMachineConfigEntity";
 
-export interface OverlordOpenStackCloudConfig {
+export type OverlordOpenStackCloudConfig = {
   clusterConfig?: OpenStackClusterConfig;
   /** Cluster profiles pack configuration for private gateway cluster */
   clusterProfiles?: SpectroClusterProfileEntity[];
@@ -22,4 +22,4 @@ export interface OverlordOpenStackCloudConfig {
   machineConfig?: OpenStackMachineConfigEntity;
   /** size of the pool, number of machines */
   size?: number;
-}
+};

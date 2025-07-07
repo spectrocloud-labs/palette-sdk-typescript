@@ -15,7 +15,7 @@ import type { RelatedObject } from "./relatedObject";
 /**
  * Cluster RBAC spec
  */
-export interface ClusterRbacSpec {
+export type ClusterRbacSpec = {
   bindings?: ClusterRbacBinding[];
   relatedObject?: RelatedObject;
-}
+};

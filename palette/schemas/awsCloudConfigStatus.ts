@@ -16,7 +16,7 @@ import type { AwsCloudConfigStatusRoleDigest } from "./awsCloudConfigStatusRoleD
 /**
  * AwsCloudConfigStatus defines the observed state of AwsCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool
  */
-export interface AwsCloudConfigStatus {
+export type AwsCloudConfigStatus = {
   /** For mold controller to identify if is there any changes in Pack */
   ansibleRoleDigest?: string;
   conditions?: ClusterCondition[];
@@ -30,4 +30,4 @@ export interface AwsCloudConfigStatus {
   sourceImageId?: string;
   /** PackerVariableDigest string `json:"packerDigest,omitempty"` If no ansible roles found in Packs then Mold should tell Drive to use capi image and not create custom image, because there is nothing to add */
   useCapiImage?: boolean;
-}
+};

@@ -15,7 +15,7 @@ import type { Cert } from "./cert";
 /**
  * tenant cert
  */
-export interface TenantAssetCert {
+export type TenantAssetCert = {
   metadata?: ObjectMeta;
   spec?: Cert;
-}
+};

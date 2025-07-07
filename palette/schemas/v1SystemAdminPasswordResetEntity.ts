@@ -13,8 +13,8 @@
 /**
  * SystemAdmin
  */
-export interface V1SystemAdminPasswordResetEntity {
+export type V1SystemAdminPasswordResetEntity = {
   email?: string;
   newPassword?: string;
   oldPassword?: string;
-}
+};

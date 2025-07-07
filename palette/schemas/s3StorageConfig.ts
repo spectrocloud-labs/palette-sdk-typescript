@@ -14,7 +14,7 @@ import type { AwsCloudAccount } from "./awsCloudAccount";
 /**
  * S3 storage config object
  */
-export interface S3StorageConfig {
+export type S3StorageConfig = {
   /** S3 storage bucket name */
   bucketName: string;
   /** CA Certificate */
@@ -27,4 +27,4 @@ export interface S3StorageConfig {
   s3Url?: string;
   /** Set to 'true', to use Restic plugin for the backup */
   useRestic?: boolean;
-}
+};

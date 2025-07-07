@@ -28,7 +28,7 @@ import type { VmSysprepSource } from "./vmSysprepSource";
 /**
  * Volume represents a named volume in a vmi.
  */
-export interface VmVolume {
+export type VmVolume = {
   cloudInitConfigDrive?: VmCloudInitConfigDriveSource;
   cloudInitNoCloud?: VmCloudInitNoCloudSource;
   configMap?: VmConfigMapVolumeSource;
@@ -46,4 +46,4 @@ export interface VmVolume {
   secret?: VmSecretVolumeSource;
   serviceAccount?: VmServiceAccountVolumeSource;
   sysprep?: VmSysprepSource;
-}
+};

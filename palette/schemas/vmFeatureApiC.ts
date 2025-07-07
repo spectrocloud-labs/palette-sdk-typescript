@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmFeatureApiC {
+export type VmFeatureApiC = {
   /** Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true. */
   enabled?: boolean;
   /** EndOfInterrupt enables the end of interrupt notification in the guest. Defaults to false. */
   endOfInterrupt?: boolean;
-}
+};

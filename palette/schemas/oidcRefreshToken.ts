@@ -13,6 +13,6 @@
 /**
  * oidc request with token
  */
-export interface OidcRefreshToken {
+export type OidcRefreshToken = {
   token?: string;
-}
+};

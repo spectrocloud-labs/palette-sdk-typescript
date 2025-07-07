@@ -14,7 +14,7 @@ import type { Card } from "./card";
 /**
  * Payment method object
  */
-export interface PaymentMethod {
+export type PaymentMethod = {
   card?: Card;
   /** Customer uid */
   customerId?: string;
@@ -24,4 +24,4 @@ export interface PaymentMethod {
   lastName?: string;
   /** Payment method uid */
   paymentMethodId?: string;
-}
+};

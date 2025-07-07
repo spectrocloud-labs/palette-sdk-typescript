@@ -14,7 +14,7 @@ import type { AwsHybridConfig } from "./awsHybridConfig";
 /**
  * Cluster level configuration for aws cloud and applicable for all the machine pools
  */
-export interface AwsClusterConfig {
+export type AwsClusterConfig = {
   /** Create bastion node option we have earlier supported creation of bastion by default capa seems to favour session manager against bastion node https://github.com/kubernetes-sigs/cluster-api-provider-aws/issues/947 */
   bastionDisabled?: boolean;
   /** ControlPlaneLoadBalancer specifies how API server elb will be configured, this field is optional, not provided, "", default => "Internet-facing" "Internet-facing" => "Internet-facing" "internal" => "internal" For spectro saas setup we require to talk to the apiserver from our cluster so ControlPlaneLoadBalancer should be "", not provided or "Internet-facing" */
@@ -24,4 +24,4 @@ export interface AwsClusterConfig {
   sshKeyName?: string;
   /** VPC Id to deploy cluster into should have one public and one private subnet for the the cluster creation, this field is optional, If VPC Id is not provided a fully managed VPC will be created */
   vpcId?: string;
-}
+};

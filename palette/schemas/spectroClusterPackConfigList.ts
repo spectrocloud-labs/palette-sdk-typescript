@@ -11,6 +11,6 @@
  */
 import type { PackConfig } from "./packConfig";
 
-export interface SpectroClusterPackConfigList {
+export type SpectroClusterPackConfigList = {
   items: PackConfig[];
-}
+};

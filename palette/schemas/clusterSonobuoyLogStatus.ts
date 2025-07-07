@@ -16,11 +16,11 @@ import type { ClusterScanTime } from "./clusterScanTime";
 /**
  * Cluster compliance scan Sonobuoy Log Status
  */
-export interface ClusterSonobuoyLogStatus {
+export type ClusterSonobuoyLogStatus = {
   actor?: ClusterFeatureActor;
   message?: string;
   reports?: ClusterSonobuoyLogStatusReports;
   requestUid?: string;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

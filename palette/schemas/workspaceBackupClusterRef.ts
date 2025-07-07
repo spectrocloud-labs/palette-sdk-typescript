@@ -13,7 +13,7 @@
 /**
  * Workspace backup cluster ref
  */
-export interface WorkspaceBackupClusterRef {
+export type WorkspaceBackupClusterRef = {
   backupName?: string;
   clusterUid?: string;
-}
+};

@@ -12,7 +12,7 @@
 import type { UserProfile } from "./userProfile";
 import type { ListMetaData } from "./listMetaData";
 
-export interface UserProfiles {
+export type UserProfiles = {
   items: UserProfile[];
   listmeta?: ListMetaData;
-}
+};

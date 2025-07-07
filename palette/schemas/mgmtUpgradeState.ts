@@ -11,11 +11,11 @@
  */
 import type { Time } from "./time";
 
-export interface MgmtUpgradeState {
+export type MgmtUpgradeState = {
   description?: string;
   details?: string[];
   endTimestamp?: Time;
   isCompleted?: boolean;
   message?: string;
   startTimestamp?: Time;
-}
+};

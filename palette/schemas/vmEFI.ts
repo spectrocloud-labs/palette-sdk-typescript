@@ -13,7 +13,7 @@
 /**
  * If set, EFI will be used instead of BIOS.
  */
-export interface VmEFI {
+export type VmEFI = {
   /** If set, SecureBoot will be enabled and the OVMF roms will be swapped for SecureBoot-enabled ones. Requires SMM to be enabled. Defaults to true */
   secureBoot?: boolean;
-}
+};

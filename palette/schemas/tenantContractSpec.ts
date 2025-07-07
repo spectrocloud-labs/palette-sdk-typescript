@@ -14,10 +14,10 @@ import type { Time } from "./time";
 /**
  * Tenant contract settings
  */
-export interface TenantContractSpec {
+export type TenantContractSpec = {
   acceptedTime?: Time;
   /** If the contract is accepted offline, then set this field to true */
   isAccepted: boolean;
   /** Is the contract required, for on-prem installation it will be false */
   isRequired: boolean;
-}
+};

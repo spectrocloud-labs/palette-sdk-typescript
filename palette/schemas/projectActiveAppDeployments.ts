@@ -14,7 +14,7 @@ import type { ProjectActiveAppDeployment } from "./projectActiveAppDeployment";
 /**
  * Active app deployment
  */
-export interface ProjectActiveAppDeployments {
+export type ProjectActiveAppDeployments = {
   apps?: ProjectActiveAppDeployment[];
   count?: number;
-}
+};

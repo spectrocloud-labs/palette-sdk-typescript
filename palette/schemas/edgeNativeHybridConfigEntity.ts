@@ -16,9 +16,9 @@ import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity"
 /**
  * EdgeNativeHybridMachineConfigEntity defines Edge Native machine configuration
  */
-export interface EdgeNativeHybridConfigEntity {
+export type EdgeNativeHybridConfigEntity = {
   clusterConfig?: EdgeNativeHybridClusterConfig;
   machineCloudConfig?: EdgeNativeHybridMachineConfigEntity;
   /** Cluster profile templates for edge-native machine pool */
   profiles?: SpectroClusterProfileEntity[];
-}
+};

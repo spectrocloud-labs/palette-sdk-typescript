@@ -12,7 +12,7 @@
 import type { ObjectMeta } from "./objectMeta";
 import type { AppTierSpec } from "./appTierSpec";
 
-export interface AppTier {
+export type AppTier = {
   metadata?: ObjectMeta;
   spec?: AppTierSpec;
-}
+};

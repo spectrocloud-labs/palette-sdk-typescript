@@ -14,9 +14,9 @@ import type { PackValuesEntity } from "./packValuesEntity";
 /**
  * Cluster definition profile entity
  */
-export interface ClusterDefinitionProfileEntity {
+export type ClusterDefinitionProfileEntity = {
   /** Cluster profile packs array */
   packs?: PackValuesEntity[];
   /** Cluster profile uid */
   uid: string;
-}
+};

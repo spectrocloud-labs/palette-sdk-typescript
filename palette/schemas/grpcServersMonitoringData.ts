@@ -11,6 +11,6 @@
  */
 import type { GrpcServersMonitoringDataServers } from "./grpcServersMonitoringDataServers";
 
-export interface GrpcServersMonitoringData {
+export type GrpcServersMonitoringData = {
   servers?: GrpcServersMonitoringDataServers;
-}
+};

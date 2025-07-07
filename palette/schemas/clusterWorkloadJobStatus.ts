@@ -15,9 +15,9 @@ import type { ClusterWorkloadCondition } from "./clusterWorkloadCondition";
 /**
  * Cluster workload job status
  */
-export interface ClusterWorkloadJobStatus {
+export type ClusterWorkloadJobStatus = {
   completionTime?: Time;
   conditions?: ClusterWorkloadCondition[];
   startTime?: Time;
   succeeded?: number;
-}
+};

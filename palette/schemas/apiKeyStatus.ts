@@ -13,7 +13,7 @@
 /**
  * API key status
  */
-export interface ApiKeyStatus {
+export type ApiKeyStatus = {
   /** API key active state */
   isActive?: boolean;
-}
+};

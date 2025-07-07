@@ -13,9 +13,9 @@
 /**
  * SystemsManager specifies the Systems Manager configuration for the AWS/EKS cluster
  */
-export interface SystemsManager {
+export type SystemsManager = {
   /** ActivationCode specifies the Systems Manager activation code */
   activationCode?: string;
   /** ActivationID specifies the Systems Manager activation ID */
   activationId?: string;
-}
+};

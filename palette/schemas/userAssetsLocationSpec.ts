@@ -14,8 +14,8 @@ import type { LocationType } from "./locationType";
 /**
  * Location specification
  */
-export interface UserAssetsLocationSpec {
+export type UserAssetsLocationSpec = {
   isDefault?: boolean;
   storage?: LocationType;
   type?: string;
-}
+};

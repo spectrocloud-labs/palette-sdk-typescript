@@ -16,8 +16,8 @@ import type { ClusterWorkloadCronJobStatus } from "./clusterWorkloadCronJobStatu
 /**
  * Cluster workload cronjob summary
  */
-export interface ClusterWorkloadCronJob {
+export type ClusterWorkloadCronJob = {
   metadata?: ClusterWorkloadMetadata;
   spec?: ClusterWorkloadCronJobSpec;
   status?: ClusterWorkloadCronJobStatus;
-}
+};

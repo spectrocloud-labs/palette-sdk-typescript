@@ -13,9 +13,9 @@
 /**
  * Custom network interface
  */
-export interface CustomNic {
+export type CustomNic = {
   index?: number;
   networkName?: string;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

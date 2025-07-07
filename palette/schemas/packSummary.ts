@@ -16,7 +16,7 @@ import type { PackSummaryStatus } from "./packSummaryStatus";
 /**
  * Pack summary object
  */
-export interface PackSummary {
+export type PackSummary = {
   /** Pack api version */
   apiVersion?: string;
   /** Pack kind */
@@ -24,4 +24,4 @@ export interface PackSummary {
   metadata?: ObjectMeta;
   spec?: PackSummarySpec;
   status?: PackSummaryStatus;
-}
+};

@@ -14,11 +14,11 @@ import type { SystemSsoAuthSpec } from "./systemSsoAuthSpec";
 /**
  * system sso config spec
  */
-export interface SystemSsoSpec {
+export type SystemSsoSpec = {
   acsUrlRoot?: string;
   acsUrlScheme?: string;
   apiVersion?: string;
   audienceUrl?: string;
   authSpec?: SystemSsoAuthSpec;
   entityId?: string;
-}
+};

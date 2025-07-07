@@ -15,7 +15,7 @@ import type { RelatedObject } from "./relatedObject";
 /**
  * Workspace cluster workload daemonsets summary
  */
-export interface WorkspaceClusterWorkloadDaemonSets {
+export type WorkspaceClusterWorkloadDaemonSets = {
   daemonSets?: ClusterWorkloadDaemonSet[];
   metadata?: RelatedObject;
-}
+};

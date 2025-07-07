@@ -13,7 +13,7 @@
 /**
  * Project represents an OpenStack Identity Project
  */
-export interface OpenStackProject {
+export type OpenStackProject = {
   /** Description is the description of the project */
   description?: string;
   /** DomainID is the domain ID the project belongs to */
@@ -24,4 +24,4 @@ export interface OpenStackProject {
   name?: string;
   /** ParentID is the parent_id of the project */
   parentProjectId?: string;
-}
+};

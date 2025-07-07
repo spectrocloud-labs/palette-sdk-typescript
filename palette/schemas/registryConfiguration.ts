@@ -14,8 +14,8 @@ import type { RegistryAuth } from "./registryAuth";
 /**
  * Registry configuration
  */
-export interface RegistryConfiguration {
+export type RegistryConfiguration = {
   auth?: RegistryAuth;
   endpoint?: string;
   name?: string;
-}
+};

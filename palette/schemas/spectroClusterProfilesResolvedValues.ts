@@ -14,6 +14,6 @@ import type { ProfileResolvedValues } from "./profileResolvedValues";
 /**
  * Cluster profiles resolved values response
  */
-export interface SpectroClusterProfilesResolvedValues {
+export type SpectroClusterProfilesResolvedValues = {
   profiles?: ProfileResolvedValues[];
-}
+};

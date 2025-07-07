@@ -15,7 +15,7 @@ import type { ClusterProfileMetadataSpec } from "./clusterProfileMetadataSpec";
 /**
  * Cluster profile filter spec
  */
-export interface ClusterProfileMetadata {
+export type ClusterProfileMetadata = {
   metadata?: ObjectEntity;
   spec?: ClusterProfileMetadataSpec;
-}
+};

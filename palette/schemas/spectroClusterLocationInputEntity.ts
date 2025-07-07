@@ -14,6 +14,6 @@ import type { ClusterLocation } from "./clusterLocation";
 /**
  * Cluster location
  */
-export interface SpectroClusterLocationInputEntity {
+export type SpectroClusterLocationInputEntity = {
   location?: ClusterLocation;
-}
+};

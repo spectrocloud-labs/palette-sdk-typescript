@@ -14,9 +14,9 @@ import type { BackupStatusMeta } from "./backupStatusMeta";
 /**
  * Workspace cluster backup response
  */
-export interface WorkspaceClusterBackupResponse {
+export type WorkspaceClusterBackupResponse = {
   backupStatusMeta?: BackupStatusMeta;
   backupUid?: string;
   clusterName?: string;
   clusterUid?: string;
-}
+};

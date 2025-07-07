@@ -13,6 +13,6 @@
 /**
  * update domain host for application. RootDomain gets dervied from domain host url
  */
-export interface DomainHost {
+export type DomainHost = {
   host?: string;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface FilterString {
+export type FilterString = {
   /** @nullable */
   beginsWith?: string | null;
   /** @nullable */
@@ -20,4 +20,4 @@ export interface FilterString {
   ignoreCase?: boolean;
   /** @nullable */
   ne?: string | null;
-}
+};

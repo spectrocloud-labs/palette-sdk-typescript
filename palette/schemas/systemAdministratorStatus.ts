@@ -15,10 +15,10 @@ import type { Time } from "./time";
 /**
  * System Administrator Status
  */
-export interface SystemAdministratorStatus {
+export type SystemAdministratorStatus = {
   activation?: SystemAdminActivation;
   createdBy?: string;
   lastPasswordUpdate?: Time;
   lastSignIn?: Time;
   state?: string;
-}
+};

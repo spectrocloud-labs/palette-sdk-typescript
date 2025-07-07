@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface ManagedDisk {
+export type ManagedDisk = {
   storageAccountType?: string;
-}
+};

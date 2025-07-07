@@ -16,8 +16,8 @@ import type { KubeHunterVulnerabilityDataEntity } from "./kubeHunterVulnerabilit
 /**
  * KubeHunter report
  */
-export interface KubeHunterReportEntity {
+export type KubeHunterReportEntity = {
   logs?: KubeHunterLogEntity[];
   time?: Time;
   vulnerabilities?: KubeHunterVulnerabilityDataEntity;
-}
+};

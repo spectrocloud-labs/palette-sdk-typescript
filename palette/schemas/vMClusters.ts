@@ -11,6 +11,6 @@
  */
 import type { VMCluster } from "./vMCluster";
 
-export interface VMClusters {
+export type VMClusters = {
   items: VMCluster[];
-}
+};

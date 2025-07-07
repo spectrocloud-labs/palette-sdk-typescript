@@ -15,7 +15,7 @@ import type { VmSshPublicKeyAccessCredentialSource } from "./vmSshPublicKeyAcces
 /**
  * SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest
  */
-export interface VmSshPublicKeyAccessCredential {
+export type VmSshPublicKeyAccessCredential = {
   propagationMethod: VmSshPublicKeyAccessCredentialPropagationMethod;
   source: VmSshPublicKeyAccessCredentialSource;
-}
+};

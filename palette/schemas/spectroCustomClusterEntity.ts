@@ -15,7 +15,7 @@ import type { SpectroCustomClusterEntitySpec } from "./spectroCustomClusterEntit
 /**
  * Custom cluster request payload for create and update
  */
-export interface SpectroCustomClusterEntity {
+export type SpectroCustomClusterEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroCustomClusterEntitySpec;
-}
+};

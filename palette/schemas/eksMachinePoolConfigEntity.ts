@@ -12,7 +12,7 @@
 import type { EksMachineCloudConfigEntity } from "./eksMachineCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface EksMachinePoolConfigEntity {
+export type EksMachinePoolConfigEntity = {
   cloudConfig?: EksMachineCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

@@ -14,6 +14,6 @@ import type { AwsVpc } from "./awsVpc";
 /**
  * List of AWS VPCs
  */
-export interface AwsVpcs {
+export type AwsVpcs = {
   vpcs: AwsVpc[];
-}
+};

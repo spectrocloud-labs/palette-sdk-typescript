@@ -14,6 +14,6 @@ import type { FilterString } from "./filterString";
 /**
  * Teams filter spec
  */
-export interface TeamsFilterSpec {
+export type TeamsFilterSpec = {
   name?: FilterString;
-}
+};

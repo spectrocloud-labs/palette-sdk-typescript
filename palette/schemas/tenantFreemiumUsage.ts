@@ -12,9 +12,9 @@
 import type { FreemiumUsageLimit } from "./freemiumUsageLimit";
 import type { FreemiumUsage } from "./freemiumUsage";
 
-export interface TenantFreemiumUsage {
+export type TenantFreemiumUsage = {
   isFreemium?: boolean;
   isUnlimited?: boolean;
   limit?: FreemiumUsageLimit;
   usage?: FreemiumUsage;
-}
+};

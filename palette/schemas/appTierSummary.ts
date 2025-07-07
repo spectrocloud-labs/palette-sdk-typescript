@@ -14,10 +14,10 @@ import type { AppTierSourceSummary } from "./appTierSourceSummary";
 /**
  * Application profile's tier summary
  */
-export interface AppTierSummary {
+export type AppTierSummary = {
   name?: string;
   source?: AppTierSourceSummary;
   type?: string;
   uid?: string;
   version?: string;
-}
+};

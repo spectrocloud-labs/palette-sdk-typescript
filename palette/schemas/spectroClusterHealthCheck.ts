@@ -12,7 +12,7 @@
 import type { SpectroClusterHealthCheckSpec } from "./spectroClusterHealthCheckSpec";
 import type { SpectroClusterHealthCheckStatus } from "./spectroClusterHealthCheckStatus";
 
-export interface SpectroClusterHealthCheck {
+export type SpectroClusterHealthCheck = {
   spec?: SpectroClusterHealthCheckSpec;
   status?: SpectroClusterHealthCheckStatus;
-}
+};

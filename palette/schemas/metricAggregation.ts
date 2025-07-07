@@ -13,10 +13,10 @@
 /**
  * Aggregation values
  */
-export interface MetricAggregation {
+export type MetricAggregation = {
   avg?: number;
   count?: number;
   max?: number;
   min?: number;
   sum?: number;
-}
+};

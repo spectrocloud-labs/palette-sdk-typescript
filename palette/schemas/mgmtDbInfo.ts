@@ -14,10 +14,10 @@ import type { MgmtDbCollectionInfo } from "./mgmtDbCollectionInfo";
 /**
  * Database info
  */
-export interface MgmtDbInfo {
+export type MgmtDbInfo = {
   collections?: MgmtDbCollectionInfo[];
   isEmpty?: boolean;
   name?: string;
   size?: number;
   totalIndexSize?: number;
-}
+};

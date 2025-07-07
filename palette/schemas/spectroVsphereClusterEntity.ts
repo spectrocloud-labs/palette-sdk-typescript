@@ -15,7 +15,7 @@ import type { SpectroVsphereClusterEntitySpec } from "./spectroVsphereClusterEnt
 /**
  * vSphere cluster request payload for create and update
  */
-export interface SpectroVsphereClusterEntity {
+export type SpectroVsphereClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroVsphereClusterEntitySpec;
-}
+};

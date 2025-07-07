@@ -9,11 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { URLEncodedBase64 } from "./urlEncodedBase64";
 
 export type AuthMfaLoginFinishRequestResponse = {
-  authenticatorData?: URLEncodedBase64;
-  clientDataJSON?: URLEncodedBase64;
-  signature?: URLEncodedBase64;
-  userHandle?: URLEncodedBase64;
+  authenticatorData?: string;
+  clientDataJSON?: string;
+  signature?: string;
+  userHandle?: string;
 };

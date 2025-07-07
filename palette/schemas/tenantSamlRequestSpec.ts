@@ -14,7 +14,7 @@ import type { TenantSamlSpecAttribute } from "./tenantSamlSpecAttribute";
 /**
  * Tenant
  */
-export interface TenantSamlRequestSpec {
+export type TenantSamlRequestSpec = {
   attributes?: TenantSamlSpecAttribute[];
   defaultTeams?: string[];
   federationMetadata?: string;
@@ -24,4 +24,4 @@ export interface TenantSamlRequestSpec {
   nameIdFormat?: string;
   /** When syncSsoTeams is set to true, all the teams from the OIDC configuration are pulled and saved in palette whereas when set to false, only the teams which are part of palette are pulled and saved */
   syncSsoTeams?: boolean;
-}
+};

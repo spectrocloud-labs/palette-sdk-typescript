@@ -14,9 +14,9 @@ import type { StoragePrice } from "./storagePrice";
 /**
  * Cloud storage cost
  */
-export interface StorageCost {
+export type StorageCost = {
   /** Cloud storage upper limit which is free. */
   discountedUsage?: string;
   /** Array of cloud storage range prices */
   price?: StoragePrice[];
-}
+};

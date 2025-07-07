@@ -13,6 +13,6 @@
 /**
  * Application deployment cluster health status
  */
-export interface AppDeploymentClusterHealth {
+export type AppDeploymentClusterHealth = {
   state?: string;
-}
+};

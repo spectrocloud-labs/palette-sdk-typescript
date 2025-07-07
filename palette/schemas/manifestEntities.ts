@@ -11,7 +11,7 @@
  */
 import type { ManifestEntity } from "./manifestEntity";
 
-export interface ManifestEntities {
+export type ManifestEntities = {
   /** Manifests array */
   items: ManifestEntity[];
-}
+};

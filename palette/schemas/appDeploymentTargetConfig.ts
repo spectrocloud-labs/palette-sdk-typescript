@@ -15,7 +15,7 @@ import type { AppDeploymentTargetEnvironmentRef } from "./appDeploymentTargetEnv
 /**
  * Application deployment target config response
  */
-export interface AppDeploymentTargetConfig {
+export type AppDeploymentTargetConfig = {
   clusterRef?: AppDeploymentClusterRef;
   envRef?: AppDeploymentTargetEnvironmentRef;
-}
+};

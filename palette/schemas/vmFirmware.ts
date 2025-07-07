@@ -12,11 +12,11 @@
 import type { VmBootloader } from "./vmBootloader";
 import type { VmKernelBoot } from "./vmKernelBoot";
 
-export interface VmFirmware {
+export type VmFirmware = {
   bootloader?: VmBootloader;
   kernelBoot?: VmKernelBoot;
   /** The system-serial-number in SMBIOS */
   serial?: string;
   /** UUID reported by the vmi bios. Defaults to a random generated uid. */
   uuid?: string;
-}
+};

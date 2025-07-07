@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of invoices
  */
-export interface Invoices {
+export type Invoices = {
   invoices: Invoice[];
   listmeta?: ListMetaData;
-}
+};

@@ -16,8 +16,8 @@ import type { TeamStatus } from "./teamStatus";
 /**
  * Team summary
  */
-export interface TeamSummary {
+export type TeamSummary = {
   metadata?: ObjectMeta;
   spec?: TeamSpecSummary;
   status?: TeamStatus;
-}
+};

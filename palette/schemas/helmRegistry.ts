@@ -16,10 +16,10 @@ import type { HelmRegistryStatus } from "./helmRegistryStatus";
 /**
  * Helm registry information
  */
-export interface HelmRegistry {
+export type HelmRegistry = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: HelmRegistrySpec;
   status?: HelmRegistryStatus;
-}
+};

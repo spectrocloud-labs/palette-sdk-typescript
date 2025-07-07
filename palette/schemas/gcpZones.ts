@@ -14,6 +14,6 @@ import type { GcpZone } from "./gcpZone";
 /**
  * List of GCP zones
  */
-export interface GcpZones {
+export type GcpZones = {
   zones?: GcpZone[];
-}
+};

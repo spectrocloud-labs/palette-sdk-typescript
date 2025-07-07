@@ -13,7 +13,7 @@ import type { ChannelHttp } from "./channelHttp";
 import type { AlertNotificationStatus } from "./alertNotificationStatus";
 import type { ChannelType } from "./channelType";
 
-export interface Channel {
+export type Channel = {
   alertAllUsers?: boolean;
   createdBy?: string;
   http?: ChannelHttp;
@@ -22,4 +22,4 @@ export interface Channel {
   status?: AlertNotificationStatus;
   type?: ChannelType;
   uid?: string;
-}
+};

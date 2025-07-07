@@ -15,7 +15,7 @@ import type { SpectroAzureClusterEntitySpec } from "./spectroAzureClusterEntityS
 /**
  * Azure cluster request payload for create and update
  */
-export interface SpectroAzureClusterEntity {
+export type SpectroAzureClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroAzureClusterEntitySpec;
-}
+};

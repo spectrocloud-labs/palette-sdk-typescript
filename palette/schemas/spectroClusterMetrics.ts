@@ -14,7 +14,7 @@ import type { ComputeMetrics } from "./computeMetrics";
 /**
  * Spectro cluster metrics
  */
-export interface SpectroClusterMetrics {
+export type SpectroClusterMetrics = {
   cpu?: ComputeMetrics;
   memory?: ComputeMetrics;
-}
+};

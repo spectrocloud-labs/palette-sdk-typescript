@@ -11,7 +11,7 @@
  */
 import type { AwsAvailabilityZone } from "./awsAvailabilityZone";
 
-export interface AwsAvailabilityZones {
+export type AwsAvailabilityZones = {
   /** List of AWS Zones */
   zones: AwsAvailabilityZone[];
-}
+};

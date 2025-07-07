@@ -11,8 +11,8 @@
  */
 import type { HybridPoolClusterCloudType } from "./hybridPoolClusterCloudType";
 
-export interface HybridPoolClusterRef {
+export type HybridPoolClusterRef = {
   cloudType?: HybridPoolClusterCloudType;
   /** Cluster uid */
   uid?: string;
-}
+};

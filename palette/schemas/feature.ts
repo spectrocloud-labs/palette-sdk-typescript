@@ -15,7 +15,7 @@ import type { FeatureSpec } from "./featureSpec";
 /**
  * Feature response
  */
-export interface Feature {
+export type Feature = {
   metadata?: ObjectMeta;
   spec?: FeatureSpec;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { Time } from "./time";
 import type { SpectroClusterAddOnServiceSummary } from "./spectroClusterAddOnServiceSummary";
-import type { ApiEndpoint } from "./aPIEndpoint";
+import type { APIEndpoint } from "./aPIEndpoint";
 import type { ClusterImport } from "./clusterImport";
 import type { ClusterCondition } from "./clusterCondition";
 import type { ResourceCost } from "./resourceCost";
@@ -31,10 +31,10 @@ import type { ResourceReference } from "./resourceReference";
 /**
  * Spectro cluster status summary
  */
-export interface SpectroClusterUidStatusSummary {
+export type SpectroClusterUidStatusSummary = {
   abortTimestamp?: Time;
   addOnServices?: SpectroClusterAddOnServiceSummary[];
-  apiEndpoints?: ApiEndpoint[];
+  apiEndpoints?: APIEndpoint[];
   clusterImport?: ClusterImport;
   conditions?: ClusterCondition[];
   cost?: ResourceCost;
@@ -53,4 +53,4 @@ export interface SpectroClusterUidStatusSummary {
   upgrades?: Upgrades[];
   virtual?: Virtual;
   workspaces?: ResourceReference[];
-}
+};

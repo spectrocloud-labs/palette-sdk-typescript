@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface GcpSubnetEntity {
+export type GcpSubnetEntity = {
   az?: string;
   id?: string;
-}
+};

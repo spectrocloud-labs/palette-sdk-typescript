@@ -12,9 +12,9 @@
 import type { SearchFilterStringConditionMatch } from "./searchFilterStringConditionMatch";
 import type { SearchFilterStringOperator } from "./searchFilterStringOperator";
 
-export interface SearchFilterStringCondition {
+export type SearchFilterStringCondition = {
   ignoreCase?: boolean;
   match?: SearchFilterStringConditionMatch;
   negation?: boolean;
   operator?: SearchFilterStringOperator;
-}
+};

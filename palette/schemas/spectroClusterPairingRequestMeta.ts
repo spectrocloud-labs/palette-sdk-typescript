@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Returns spectro cluster pair meta
  */
-export interface SpectroClusterPairingRequestMeta {
+export type SpectroClusterPairingRequestMeta = {
   /** Cluster cloud type */
   cloudType?: string;
   /** Spectro cluster uid */
@@ -28,4 +28,4 @@ export interface SpectroClusterPairingRequestMeta {
   pairingUid?: string;
   /** State of the spectro cluster pairing request */
   state?: string;
-}
+};

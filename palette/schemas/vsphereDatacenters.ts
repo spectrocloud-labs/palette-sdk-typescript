@@ -14,7 +14,7 @@ import type { VsphereDatacenter } from "./vsphereDatacenter";
 /**
  * List of Datacenters with computeclusters
  */
-export interface VsphereDatacenters {
+export type VsphereDatacenters = {
   /** List of associated datacenters */
   items: VsphereDatacenter[];
-}
+};

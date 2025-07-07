@@ -15,7 +15,7 @@ import type { ClusterMetaSpecLocation } from "./clusterMetaSpecLocation";
 /**
  * Spectro cluster meta summary
  */
-export interface SpectroClusterMetaSpec {
+export type SpectroClusterMetaSpec = {
   /** Architecture type of the cluster */
   archType?: ArchType[];
   /** Unique identifier for the cloud account used by this cluster */
@@ -29,4 +29,4 @@ export interface SpectroClusterMetaSpec {
   location?: ClusterMetaSpecLocation;
   /** User-defined labels associated with this cluster */
   tags?: string[];
-}
+};

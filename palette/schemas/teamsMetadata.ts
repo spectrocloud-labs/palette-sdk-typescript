@@ -11,6 +11,6 @@
  */
 import type { ObjectEntity } from "./objectEntity";
 
-export interface TeamsMetadata {
+export type TeamsMetadata = {
   items: ObjectEntity[];
-}
+};

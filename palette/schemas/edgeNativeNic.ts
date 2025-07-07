@@ -13,9 +13,9 @@
 /**
  * Generic network interface
  */
-export interface EdgeNativeNic {
+export type EdgeNativeNic = {
   index?: number;
   networkName?: string;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

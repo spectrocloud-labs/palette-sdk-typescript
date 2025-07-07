@@ -15,7 +15,7 @@ import type { FeatureUpdateSpec } from "./featureUpdateSpec";
 /**
  * Feature update spec
  */
-export interface FeatureUpdate {
+export type FeatureUpdate = {
   metadata?: ObjectMetaInputEntity;
   spec?: FeatureUpdateSpec;
-}
+};

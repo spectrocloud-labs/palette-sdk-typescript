@@ -13,7 +13,7 @@
 /**
  * Azure availability zone entity
  */
-export interface ZoneEntity {
+export type ZoneEntity = {
   /** Azure availability zone id */
   id?: string;
-}
+};

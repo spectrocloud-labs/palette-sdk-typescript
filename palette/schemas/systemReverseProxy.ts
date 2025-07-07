@@ -14,7 +14,7 @@ import type { SystemReverseProxyProtocol } from "./systemReverseProxyProtocol";
 /**
  * system config reverse proxy
  */
-export interface SystemReverseProxy {
+export type SystemReverseProxy = {
   caCert?: string;
   clientCert?: string;
   clientKey?: string;
@@ -22,4 +22,4 @@ export interface SystemReverseProxy {
   protocol?: SystemReverseProxyProtocol;
   server?: string;
   vHostPort?: number;
-}
+};

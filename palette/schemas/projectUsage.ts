@@ -14,7 +14,7 @@ import type { ProjectUsageData } from "./projectUsageData";
 /**
  * Project usage object
  */
-export interface ProjectUsage {
+export type ProjectUsage = {
   alloy?: ProjectUsageData;
   pure?: ProjectUsageData;
-}
+};

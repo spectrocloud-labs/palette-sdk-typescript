@@ -4,17 +4,54 @@
  */
 
 /**
- * Removes duplicate urlEncodedBase64 schema from the OpenAPI specification
+ * Removes duplicate urlEncodedBase64 schema and replaces its references with string type
  * @param {Object} spec - The OpenAPI specification object
  * @returns {number} - Number of changes made
  */
 function removeDuplicateUrlEncodedBase64Schema(spec) {
+  let changes = 0;
+  
+  // Remove the schema definition
   if (spec.components && spec.components.schemas && spec.components.schemas.urlEncodedBase64) {
     console.log('🔧 Removing duplicate urlEncodedBase64 schema from OpenAPI spec');
     delete spec.components.schemas.urlEncodedBase64;
-    return 1;
+    changes++;
   }
-  return 0;
+  
+  // Replace all references to urlEncodedBase64 with inline string type
+  changes += replaceUrlEncodedBase64References(spec);
+  
+  return changes;
+}
+
+/**
+ * Recursively replaces $ref references to urlEncodedBase64 with inline string type
+ * @param {Object} obj - The object to clean references in
+ * @param {string} path - Current path for debugging (optional)
+ * @returns {number} - Number of references replaced
+ */
+function replaceUrlEncodedBase64References(obj, path = '') {
+  let changesCount = 0;
+  
+  if (typeof obj === 'object' && obj !== null) {
+    for (const [key, value] of Object.entries(obj)) {
+      if (key === '$ref' && typeof value === 'string') {
+        // Replace urlEncodedBase64 references with inline string type
+        if (value === '#/components/schemas/urlEncodedBase64' || value === '#/definitions/urlEncodedBase64') {
+          // Replace the $ref with an inline string type
+          delete obj[key];
+          obj.type = 'string';
+          obj.format = 'byte';
+          changesCount++;
+          console.log(`    ✅ Replaced urlEncodedBase64 reference with string type at ${path}`);
+        }
+      } else if (typeof value === 'object') {
+        changesCount += replaceUrlEncodedBase64References(value, `${path}.${key}`);
+      }
+    }
+  }
+  
+  return changesCount;
 }
 
 /**

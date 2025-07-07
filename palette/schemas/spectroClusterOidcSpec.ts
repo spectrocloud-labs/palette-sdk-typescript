@@ -12,7 +12,7 @@
 import type { SpectroClusterOidcIssuerTlsSpec } from "./spectroClusterOidcIssuerTlsSpec";
 import type { SpectroClusterOidcClaims } from "./spectroClusterOidcClaims";
 
-export interface SpectroClusterOidcSpec {
+export type SpectroClusterOidcSpec = {
   clientId?: string;
   clientSecret?: string;
   issuerTls?: SpectroClusterOidcIssuerTlsSpec;
@@ -20,4 +20,4 @@ export interface SpectroClusterOidcSpec {
   issuerUrl?: string;
   requiredClaims?: SpectroClusterOidcClaims;
   scopes?: string[];
-}
+};

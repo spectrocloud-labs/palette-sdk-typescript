@@ -13,7 +13,7 @@
 /**
  * Cloud instance rate config
  */
-export interface CloudInstanceRateConfig {
+export type CloudInstanceRateConfig = {
   computeRateProportion?: number;
   memoryRateProportion?: number;
-}
+};

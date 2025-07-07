@@ -14,7 +14,7 @@ import type { WorkspaceBackupClusterRef } from "./workspaceBackupClusterRef";
 /**
  * Cluster backup delete config
  */
-export interface WorkspaceBackupDeleteEntity {
+export type WorkspaceBackupDeleteEntity = {
   clusterConfigs?: WorkspaceBackupClusterRef[];
   requestUid?: string;
-}
+};

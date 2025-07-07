@@ -16,7 +16,7 @@ import type { InvoiceState } from "./invoiceState";
 /**
  * Invoice Status
  */
-export interface InvoiceStatus {
+export type InvoiceStatus = {
   /** Total billable amount */
   billableAmount?: number;
   productInvoice?: InvoiceProduct;
@@ -26,4 +26,4 @@ export interface InvoiceStatus {
   states?: InvoiceState[];
   /** Stripe invoice uid */
   stripeInvoiceId?: string;
-}
+};

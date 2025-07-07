@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface PlanStatus {
+export type PlanStatus = {
   changeLogs?: string[];
-}
+};

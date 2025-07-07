@@ -15,7 +15,7 @@ import type { AppDeploymentSortSpec } from "./appDeploymentSortSpec";
 /**
  * Application deployment filter summary spec
  */
-export interface AppDeploymentsFilterSpec {
+export type AppDeploymentsFilterSpec = {
   filter?: AppDeploymentFilterSpec;
   sort?: AppDeploymentSortSpec[];
-}
+};

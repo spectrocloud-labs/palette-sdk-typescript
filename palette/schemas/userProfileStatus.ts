@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * User Profile status
  */
-export interface UserProfileStatus {
+export type UserProfileStatus = {
   lastPasswordPolicyMail?: Time;
   lastPasswordUpdate?: Time;
-}
+};

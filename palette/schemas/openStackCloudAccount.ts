@@ -13,7 +13,7 @@
 /**
  * auth-url,project,username,password,domain,cacert etc
  */
-export interface OpenStackCloudAccount {
+export type OpenStackCloudAccount = {
   /** Ca cert for OpenStack */
   caCert?: string;
   /** Default Domain name */
@@ -30,4 +30,4 @@ export interface OpenStackCloudAccount {
   password: string;
   /** Username of OpenStack account */
   username: string;
-}
+};

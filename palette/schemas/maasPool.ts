@@ -13,9 +13,9 @@
 /**
  * Maas pool
  */
-export interface MaasPool {
+export type MaasPool = {
   /** Description of Maas domain */
   description?: string;
   /** Name of Maas pool */
   name?: string;
-}
+};

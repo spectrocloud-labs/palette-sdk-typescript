@@ -16,8 +16,8 @@ import type { WorkspaceStatus } from "./workspaceStatus";
 /**
  * Workspace information
  */
-export interface Workspace {
+export type Workspace = {
   metadata?: ObjectMeta;
   spec?: WorkspaceSpec;
   status?: WorkspaceStatus;
-}
+};

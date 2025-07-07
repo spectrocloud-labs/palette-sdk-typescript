@@ -16,8 +16,8 @@ import type { ClusterGroupStatus } from "./clusterGroupStatus";
 /**
  * Cluster group information
  */
-export interface ClusterGroup {
+export type ClusterGroup = {
   metadata?: ObjectMeta;
   spec?: ClusterGroupSpec;
   status?: ClusterGroupStatus;
-}
+};

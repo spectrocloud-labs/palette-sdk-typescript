@@ -15,7 +15,7 @@ import type { SpcApplySettings } from "./spcApplySettings";
 /**
  * Cluster input for notification update
  */
-export interface ClusterNotificationUpdateEntity {
+export type ClusterNotificationUpdateEntity = {
   profiles?: ClusterProfileNotificationUpdateEntity[];
   spcApplySettings?: SpcApplySettings;
-}
+};

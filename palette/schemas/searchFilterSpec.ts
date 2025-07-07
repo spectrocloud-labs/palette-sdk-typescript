@@ -12,7 +12,7 @@
 import type { SearchFilterConjunctionOperator } from "./searchFilterConjunctionOperator";
 import type { SearchFilterGroup } from "./searchFilterGroup";
 
-export interface SearchFilterSpec {
+export type SearchFilterSpec = {
   conjunction?: SearchFilterConjunctionOperator;
   filterGroups?: SearchFilterGroup[];
-}
+};

@@ -12,7 +12,7 @@
 import type { EdgeNativeMachinePoolCloudConfigEntity } from "./edgeNativeMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface EdgeNativeMachinePoolConfigEntity {
+export type EdgeNativeMachinePoolConfigEntity = {
   cloudConfig?: EdgeNativeMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

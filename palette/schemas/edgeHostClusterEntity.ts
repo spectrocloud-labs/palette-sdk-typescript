@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeHostClusterEntity {
+export type EdgeHostClusterEntity = {
   clusterUid?: string;
-}
+};

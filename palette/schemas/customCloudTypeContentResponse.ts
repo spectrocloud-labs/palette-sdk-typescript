@@ -13,7 +13,7 @@
 /**
  * Custom cloudType content response
  */
-export interface CustomCloudTypeContentResponse {
+export type CustomCloudTypeContentResponse = {
   /** custom cloud type content */
   yaml?: string;
-}
+};

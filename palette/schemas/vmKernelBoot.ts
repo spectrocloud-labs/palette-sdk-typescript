@@ -14,8 +14,8 @@ import type { VmKernelBootContainer } from "./vmKernelBootContainer";
 /**
  * Represents the firmware blob used to assist in the kernel boot process. Used for setting the kernel, initrd and command line arguments
  */
-export interface VmKernelBoot {
+export type VmKernelBoot = {
   container?: VmKernelBootContainer;
   /** Arguments to be passed to the kernel at boot time */
   kernelArgs?: string;
-}
+};

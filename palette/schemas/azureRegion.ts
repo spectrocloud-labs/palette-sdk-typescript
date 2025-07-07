@@ -14,11 +14,11 @@ import type { AzureAvailabilityZone } from "./azureAvailabilityZone";
 /**
  * Azure region entity
  */
-export interface AzureRegion {
+export type AzureRegion = {
   /** Azure region displayname */
   displayName?: string;
   /** Azure region name */
   name?: string;
   /** List of zones associated to a particular Azure region */
   zones?: AzureAvailabilityZone[];
-}
+};

@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserActivateInfo {
+export type UserActivateInfo = {
   passwordToken?: string;
-}
+};

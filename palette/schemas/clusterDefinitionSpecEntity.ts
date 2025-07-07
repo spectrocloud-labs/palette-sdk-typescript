@@ -14,8 +14,8 @@ import type { ClusterDefinitionProfileEntity } from "./clusterDefinitionProfileE
 /**
  * Cluster definition spec entity
  */
-export interface ClusterDefinitionSpecEntity {
+export type ClusterDefinitionSpecEntity = {
   cloudType: string;
   /** Cluster definition profiles */
   profiles: ClusterDefinitionProfileEntity[];
-}
+};

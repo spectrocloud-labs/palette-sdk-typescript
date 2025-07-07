@@ -14,8 +14,8 @@ import type { Time } from "./time";
 /**
  * Edge token specification
  */
-export interface EdgeTokenSpecEntity {
+export type EdgeTokenSpecEntity = {
   /** Default project where the edgehost will be placed on the token authorization */
   defaultProjectUid?: string;
   expiry?: Time;
-}
+};

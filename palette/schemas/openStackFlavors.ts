@@ -14,6 +14,6 @@ import type { OpenStackFlavor } from "./openStackFlavor";
 /**
  * List of OpenStack flavours
  */
-export interface OpenStackFlavors {
+export type OpenStackFlavors = {
   items: OpenStackFlavor[];
-}
+};

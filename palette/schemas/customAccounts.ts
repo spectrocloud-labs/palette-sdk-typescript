@@ -12,7 +12,7 @@
 import type { CustomAccount } from "./customAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface CustomAccounts {
+export type CustomAccounts = {
   items: CustomAccount[];
   listmeta?: ListMetaData;
-}
+};

@@ -18,7 +18,7 @@ import type { AzureOSDisk } from "./azureOSDisk";
 /**
  * Azure cloud VM definition spec
  */
-export interface AzureMachineSpec {
+export type AzureMachineSpec = {
   additionalTags?: AzureMachineSpecAdditionalTags;
   allocatePublicIP?: boolean;
   availabilityZone?: AzureMachineSpecAvailabilityZone;
@@ -28,4 +28,4 @@ export interface AzureMachineSpec {
   nics?: AzureNic[];
   osDisk: AzureOSDisk;
   sshPublicKey?: string;
-}
+};

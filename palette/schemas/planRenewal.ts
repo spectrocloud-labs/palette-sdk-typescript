@@ -16,9 +16,9 @@ import type { PlanRenewalType } from "./planRenewalType";
 /**
  * Plan Renewal
  */
-export interface PlanRenewal {
+export type PlanRenewal = {
   expiry: Time;
   planLimit?: PlanLimit;
   start: Time;
   type: PlanRenewalType;
-}
+};

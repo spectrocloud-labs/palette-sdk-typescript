@@ -14,7 +14,7 @@ import type { BrokerTokenMsgCtxData } from "./brokerTokenMsgCtxData";
 /**
  * Response for broker login request
  */
-export interface BrokerToken {
+export type BrokerToken = {
   /** clientType indicates the type of the client making the request */
   clientType?: string;
   /** maximum number of clients that can subscribe to the subject */
@@ -25,4 +25,4 @@ export interface BrokerToken {
   publisherSubjects?: string[];
   /** subjects that client has subscribed */
   subscriberSubjects?: string[];
-}
+};

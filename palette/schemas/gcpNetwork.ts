@@ -14,9 +14,9 @@ import type { GcpSubnet } from "./gcpSubnet";
 /**
  * GCP network enity is a virtual version of a physical network
  */
-export interface GcpNetwork {
+export type GcpNetwork = {
   /** GCP network name */
   name?: string;
   /** List of GCP subnet */
   subnets?: GcpSubnet[];
-}
+};

@@ -16,9 +16,9 @@ import type { SpectroClusterUidStatusSummary } from "./spectroClusterUidStatusSu
 /**
  * Spectro cluster summary
  */
-export interface SpectroClusterUidSummary {
+export type SpectroClusterUidSummary = {
   metadata?: ObjectMeta;
   /** Spectro cluster spec summary */
   spec?: SpectroClusterUidSummarySpec;
   status?: SpectroClusterUidStatusSummary;
-}
+};

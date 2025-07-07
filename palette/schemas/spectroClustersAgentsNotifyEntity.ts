@@ -13,7 +13,7 @@
 /**
  * SpectroClusters for which agents has to be notified
  */
-export interface SpectroClustersAgentsNotifyEntity {
+export type SpectroClustersAgentsNotifyEntity = {
   clusterUids?: string[];
   notifyAllClusters?: boolean;
-}
+};

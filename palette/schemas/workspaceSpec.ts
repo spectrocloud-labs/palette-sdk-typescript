@@ -18,10 +18,10 @@ import type { WorkspaceQuota } from "./workspaceQuota";
 /**
  * Workspace specifications
  */
-export interface WorkspaceSpec {
+export type WorkspaceSpec = {
   clusterNamespaces?: WorkspaceClusterNamespace[];
   clusterRbacs?: ClusterRbac[];
   clusterRefs?: WorkspaceClusterRef[];
   policies?: WorkspacePolicies;
   quota?: WorkspaceQuota;
-}
+};

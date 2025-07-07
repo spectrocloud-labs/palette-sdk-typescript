@@ -15,7 +15,7 @@ import type { HelmRegistrySpecEntity } from "./helmRegistrySpecEntity";
 /**
  * Helm registry information
  */
-export interface HelmRegistryEntity {
+export type HelmRegistryEntity = {
   metadata?: ObjectMeta;
   spec?: HelmRegistrySpecEntity;
-}
+};

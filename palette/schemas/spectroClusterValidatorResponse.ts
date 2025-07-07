@@ -15,7 +15,7 @@ import type { SpectroClusterProfileValidatorResponse } from "./spectroClusterPro
 /**
  * Cluster validator response
  */
-export interface SpectroClusterValidatorResponse {
+export type SpectroClusterValidatorResponse = {
   machinePools?: ConstraintValidatorResponse;
   profiles?: SpectroClusterProfileValidatorResponse[];
-}
+};

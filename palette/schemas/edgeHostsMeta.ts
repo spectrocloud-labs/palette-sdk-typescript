@@ -11,6 +11,6 @@
  */
 import type { EdgeHostMeta } from "./edgeHostMeta";
 
-export interface EdgeHostsMeta {
+export type EdgeHostsMeta = {
   edgeHosts?: EdgeHostMeta[];
-}
+};

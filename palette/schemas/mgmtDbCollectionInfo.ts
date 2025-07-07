@@ -14,7 +14,7 @@ import type { MgmtDbCollectionIndexInfo } from "./mgmtDbCollectionIndexInfo";
 /**
  * Database info
  */
-export interface MgmtDbCollectionInfo {
+export type MgmtDbCollectionInfo = {
   count?: number;
   indexes?: MgmtDbCollectionIndexInfo[];
   isCapped?: boolean;
@@ -23,4 +23,4 @@ export interface MgmtDbCollectionInfo {
   size?: number;
   storageSize?: number;
   totalIndexSize?: number;
-}
+};

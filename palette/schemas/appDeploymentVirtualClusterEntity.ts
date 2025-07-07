@@ -15,7 +15,7 @@ import type { AppDeploymentVirtualClusterSpec } from "./appDeploymentVirtualClus
 /**
  * Application deployment virtual cluster request payload
  */
-export interface AppDeploymentVirtualClusterEntity {
+export type AppDeploymentVirtualClusterEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: AppDeploymentVirtualClusterSpec;
-}
+};

@@ -18,10 +18,10 @@ import type { VmRTCTimer } from "./vmRTCTimer";
 /**
  * Represents all available timers in a vmi.
  */
-export interface VmTimer {
+export type VmTimer = {
   hpet?: VmHPETTimer;
   hyperv?: VmHypervTimer;
   kvm?: VmKVmTimer;
   pit?: VmPITTimer;
   rtc?: VmRTCTimer;
-}
+};

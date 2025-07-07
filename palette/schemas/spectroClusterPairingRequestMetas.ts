@@ -14,6 +14,6 @@ import type { SpectroClusterPairingRequestMeta } from "./spectroClusterPairingRe
 /**
  * Spectro cluster pairing request meta
  */
-export interface SpectroClusterPairingRequestMetas {
+export type SpectroClusterPairingRequestMetas = {
   items: SpectroClusterPairingRequestMeta[];
-}
+};

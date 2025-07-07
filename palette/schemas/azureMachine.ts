@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * Azure cloud VM definition
  */
-export interface AzureMachine {
+export type AzureMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: AzureMachineSpec;
   status?: CloudMachineStatus;
-}
+};

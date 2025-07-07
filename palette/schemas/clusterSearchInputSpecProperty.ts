@@ -11,6 +11,6 @@
  */
 import type { ObjectEntity } from "./objectEntity";
 
-export interface ClusterSearchInputSpecProperty {
+export type ClusterSearchInputSpecProperty = {
   values?: ObjectEntity[];
-}
+};

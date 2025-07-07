@@ -14,7 +14,7 @@ import type { CloudInstanceRateConfig } from "./cloudInstanceRateConfig";
 /**
  * Public cloud rate config
  */
-export interface PublicCloudRateConfig {
+export type PublicCloudRateConfig = {
   computeOptimized?: CloudInstanceRateConfig;
   memoryOptimized?: CloudInstanceRateConfig;
-}
+};

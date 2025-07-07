@@ -14,6 +14,6 @@ import type { TagFilterGroup } from "./tagFilterGroup";
 /**
  * Filter create spec
  */
-export interface TagFilterSpec {
+export type TagFilterSpec = {
   filterGroup?: TagFilterGroup;
-}
+};

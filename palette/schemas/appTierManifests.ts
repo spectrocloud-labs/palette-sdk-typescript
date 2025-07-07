@@ -14,7 +14,7 @@ import type { Manifest } from "./manifest";
 /**
  * Application tier manifests data
  */
-export interface AppTierManifests {
+export type AppTierManifests = {
   /** Application tier manifests array */
   manifests?: Manifest[];
-}
+};

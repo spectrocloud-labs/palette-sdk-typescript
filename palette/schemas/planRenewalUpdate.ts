@@ -14,6 +14,6 @@ import type { PlanRenewal } from "./planRenewal";
 /**
  * Plan add renawal update entity
  */
-export interface PlanRenewalUpdate {
+export type PlanRenewalUpdate = {
   renewal?: PlanRenewal;
-}
+};

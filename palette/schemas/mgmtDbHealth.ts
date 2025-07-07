@@ -11,8 +11,8 @@
  */
 import type { MgmtDbInfo } from "./mgmtDbInfo";
 
-export interface MgmtDbHealth {
+export type MgmtDbHealth = {
   databases?: MgmtDbInfo[];
   totalIndexSize?: number;
   totalSize?: number;
-}
+};

@@ -12,7 +12,7 @@
 import type { SearchFilterConjunctionOperator } from "./searchFilterConjunctionOperator";
 import type { Time } from "./time";
 
-export interface SearchFilterDateConditionMatch {
+export type SearchFilterDateConditionMatch = {
   conjunction?: SearchFilterConjunctionOperator;
   values?: Time[];
-}
+};

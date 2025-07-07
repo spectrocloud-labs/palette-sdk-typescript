@@ -17,7 +17,7 @@ import type { VmTcpSocketAction } from "./vmTcpSocketAction";
 /**
  * Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.
  */
-export interface VmProbe {
+export type VmProbe = {
   exec?: VmExecAction;
   /** Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1. */
   failureThreshold?: number;
@@ -32,4 +32,4 @@ export interface VmProbe {
   tcpSocket?: VmTcpSocketAction;
   /** Number of seconds after which the probe times out. For exec probes the timeout fails the probe but does not terminate the command running on the guest. This means a blocking command can result in an increasing load on the guest. A small buffer will be added to the resulting workload exec probe to compensate for delays caused by the qemu guest exec mechanism. Defaults to 1 second. Minimum value is 1. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes */
   timeoutSeconds?: number;
-}
+};

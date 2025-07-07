@@ -14,6 +14,6 @@ import type { OpenStackProject } from "./openStackProject";
 /**
  * Array of OpenStack projects
  */
-export interface OpenStackProjects {
+export type OpenStackProjects = {
   items: OpenStackProject[];
-}
+};

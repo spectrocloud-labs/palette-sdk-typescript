@@ -15,7 +15,7 @@ import type { UserAssetSshSpec } from "./userAssetSshSpec";
 /**
  * SSH key information
  */
-export interface UserAssetSsh {
+export type UserAssetSsh = {
   metadata?: ObjectMeta;
   spec?: UserAssetSshSpec;
-}
+};

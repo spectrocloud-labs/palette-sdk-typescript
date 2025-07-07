@@ -14,6 +14,6 @@ import type { RoleCloneMetadata } from "./roleCloneMetadata";
 /**
  * Role clone specifications
  */
-export interface RoleClone {
+export type RoleClone = {
   metadata?: RoleCloneMetadata;
-}
+};

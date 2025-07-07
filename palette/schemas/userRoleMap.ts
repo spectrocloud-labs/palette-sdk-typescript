@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserRoleMap {
+export type UserRoleMap = {
   roles?: string[];
   userId?: string;
-}
+};

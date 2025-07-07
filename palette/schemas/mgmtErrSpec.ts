@@ -12,7 +12,7 @@
 import type { MgmtErrSpecDebug } from "./mgmtErrSpecDebug";
 import type { MgmtErrSpecUserCtx } from "./mgmtErrSpecUserCtx";
 
-export interface MgmtErrSpec {
+export type MgmtErrSpec = {
   causes?: string[];
   data?: string;
   debug?: MgmtErrSpecDebug;
@@ -20,4 +20,4 @@ export interface MgmtErrSpec {
   errMsg?: string;
   stackTraces?: string[];
   userCtx?: MgmtErrSpecUserCtx;
-}
+};

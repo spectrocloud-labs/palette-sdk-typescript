@@ -15,8 +15,8 @@ import type { SonobuoyEntityStatus } from "./sonobuoyEntityStatus";
 /**
  * Sonobuoy response
  */
-export interface SonobuoyEntity {
+export type SonobuoyEntity = {
   reports: SonobuoyEntityReports;
   requestUid: string;
   status: SonobuoyEntityStatus;
-}
+};

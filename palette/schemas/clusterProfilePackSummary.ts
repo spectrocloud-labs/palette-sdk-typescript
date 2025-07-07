@@ -13,11 +13,11 @@
 /**
  * Cluster profile packs summary about the deprecated, disabled, deleted packs count
  */
-export interface ClusterProfilePackSummary {
+export type ClusterProfilePackSummary = {
   /** Total count of deleted packs in a cluster profile */
   deleted?: number;
   /** Total count of deprecated packs in a cluster profile */
   deprecated?: number;
   /** Total count of disabled packs in a cluster profile */
   disabled?: number;
-}
+};

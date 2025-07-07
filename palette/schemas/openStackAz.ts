@@ -13,7 +13,7 @@
 /**
  * OpenStack az entity
  */
-export interface OpenStackAz {
+export type OpenStackAz = {
   /** Name of OpenStack az */
   name?: string;
-}
+};

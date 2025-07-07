@@ -15,7 +15,7 @@ import type { EdgeHostDeviceSpecEntity } from "./edgeHostDeviceSpecEntity";
 /**
  * Edge host device information
  */
-export interface EdgeHostDeviceEntity {
+export type EdgeHostDeviceEntity = {
   metadata?: ObjectTagsEntity;
   spec?: EdgeHostDeviceSpecEntity;
-}
+};

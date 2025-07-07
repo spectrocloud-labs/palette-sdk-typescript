@@ -15,7 +15,7 @@ import type { CloudCostDataPoint } from "./cloudCostDataPoint";
 /**
  * Spectro cluster cloud cost information
  */
-export interface SpectroClusterCloudCost {
+export type SpectroClusterCloudCost = {
   cost?: ResourceCost;
   data?: CloudCostDataPoint[];
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Compliance Scan actor
  */
-export interface ClusterFeatureActor {
+export type ClusterFeatureActor = {
   actorType?: string;
   uid?: string;
-}
+};

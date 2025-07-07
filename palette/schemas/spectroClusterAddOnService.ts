@@ -13,7 +13,7 @@
 /**
  * Spectro cluster addon service
  */
-export interface SpectroClusterAddOnService {
+export type SpectroClusterAddOnService = {
   endpoint?: string;
   name?: string;
-}
+};

@@ -12,7 +12,7 @@
 import type { VmObjectMeta } from "./vmObjectMeta";
 import type { VmVirtualMachineInstanceSpec } from "./vmVirtualMachineInstanceSpec";
 
-export interface VmVirtualMachineInstanceTemplateSpec {
+export type VmVirtualMachineInstanceTemplateSpec = {
   metadata?: VmObjectMeta;
   spec?: VmVirtualMachineInstanceSpec;
-}
+};

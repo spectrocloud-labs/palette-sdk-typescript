@@ -13,7 +13,7 @@
 /**
  * Audit resource reference object
  */
-export interface AuditResourceReference {
+export type AuditResourceReference = {
   /** Audit resource type */
   kind?: string;
   /** Audit resource label */
@@ -22,4 +22,4 @@ export interface AuditResourceReference {
   name?: string;
   /** Audit resource uid */
   uid: string;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { VmPersistentVolumeClaimVolumeSource } from "./vmPersistentVolumeClaimVolumeSource";
 
-export interface VmEphemeralVolumeSource {
+export type VmEphemeralVolumeSource = {
   persistentVolumeClaim?: VmPersistentVolumeClaimVolumeSource;
-}
+};

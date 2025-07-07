@@ -14,6 +14,6 @@ import type { Upgrades } from "./upgrades";
 /**
  * Cluster status upgrades
  */
-export interface SpectroClusterUidUpgrades {
+export type SpectroClusterUidUpgrades = {
   upgrades?: Upgrades[];
-}
+};

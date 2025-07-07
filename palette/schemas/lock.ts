@@ -12,7 +12,7 @@
 import type { ObjectMeta } from "./objectMeta";
 import type { LockSpec } from "./lockSpec";
 
-export interface Lock {
+export type Lock = {
   metadata?: ObjectMeta;
   spec?: LockSpec;
-}
+};

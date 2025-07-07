@@ -13,9 +13,9 @@
 /**
  * Filter is a filter used to identify an AWS resource
  */
-export interface AwsResourceFilter {
+export type AwsResourceFilter = {
   /** Name of the filter. Filter names are case-sensitive */
   name?: string;
   /** Values includes one or more filter values. Filter values are case-sensitive */
   values?: string[];
-}
+};

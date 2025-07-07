@@ -11,9 +11,9 @@
  */
 import type { TunnelEndpointTls } from "./tunnelEndpointTls";
 
-export interface TunnelEndpoint {
+export type TunnelEndpoint = {
   /** Describes the URL where the client has to connect to the tunnel server */
   endpoint?: string;
   /** Describes the Tunnel tls config which client will use to make a request to the tunnel server */
   tls?: TunnelEndpointTls;
-}
+};

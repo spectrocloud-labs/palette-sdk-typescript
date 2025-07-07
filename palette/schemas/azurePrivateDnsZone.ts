@@ -13,11 +13,11 @@
 /**
  * Azure Private DNS zone entity
  */
-export interface AzurePrivateDnsZone {
+export type AzurePrivateDnsZone = {
   /** Fully qualified resource Id for the resource */
   id?: string;
   /** The Azure Region where the resource lives */
   location?: string;
   /** The name of the resource */
   name?: string;
-}
+};

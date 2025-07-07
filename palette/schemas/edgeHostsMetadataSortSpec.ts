@@ -12,7 +12,7 @@
 import type { EdgeHostsMetadataSortFields } from "./edgeHostsMetadataSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface EdgeHostsMetadataSortSpec {
+export type EdgeHostsMetadataSortSpec = {
   field?: EdgeHostsMetadataSortFields;
   order?: SortOrder;
-}
+};

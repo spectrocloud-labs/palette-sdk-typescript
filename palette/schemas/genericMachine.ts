@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * Generic cloud VM definition
  */
-export interface GenericMachine {
+export type GenericMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: GenericMachineSpec;
   status?: CloudMachineStatus;
-}
+};

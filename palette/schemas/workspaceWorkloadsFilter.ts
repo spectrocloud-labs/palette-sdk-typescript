@@ -13,7 +13,7 @@
 /**
  * Workspace workloads filter
  */
-export interface WorkspaceWorkloadsFilter {
+export type WorkspaceWorkloadsFilter = {
   clusters?: string[];
   namespaces?: string[];
-}
+};

@@ -15,7 +15,7 @@ import type { ProjectFilterSortSpec } from "./projectFilterSortSpec";
 /**
  * Project filter summary spec
  */
-export interface ProjectsFilterSpec {
+export type ProjectsFilterSpec = {
   filter?: ProjectFilterSpec;
   sort?: ProjectFilterSortSpec[];
-}
+};

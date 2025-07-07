@@ -13,6 +13,6 @@
 /**
  * StoragePool is the storage pool for the vm image
  */
-export interface EdgeHostStoragePool {
+export type EdgeHostStoragePool = {
   name?: string;
-}
+};

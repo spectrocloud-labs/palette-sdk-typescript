@@ -14,8 +14,8 @@ import type { AuthLoginEntityAuthType } from "./authLoginEntityAuthType";
 /**
  * Auth login entity
  */
-export interface AuthLoginEntity {
+export type AuthLoginEntity = {
   authType?: AuthLoginEntityAuthType;
   orgName?: string;
   redirectUrl?: string;
-}
+};

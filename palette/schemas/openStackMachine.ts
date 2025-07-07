@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * OpenStack cloud VM definition
  */
-export interface OpenStackMachine {
+export type OpenStackMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: OpenStackMachineSpec;
   status?: CloudMachineStatus;
-}
+};

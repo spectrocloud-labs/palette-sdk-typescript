@@ -14,6 +14,6 @@ import type { Time } from "./time";
 /**
  * system start date
  */
-export interface SystemStartDate {
+export type SystemStartDate = {
   systemStartDate?: Time;
-}
+};

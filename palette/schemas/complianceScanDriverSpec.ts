@@ -14,7 +14,7 @@ import type { ComplianceScanConfig } from "./complianceScanConfig";
 /**
  * Compliance Scan driver spec
  */
-export interface ComplianceScanDriverSpec {
+export type ComplianceScanDriverSpec = {
   config?: ComplianceScanConfig;
   isClusterConfig?: boolean;
-}
+};

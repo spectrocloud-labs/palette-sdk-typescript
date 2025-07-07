@@ -15,7 +15,7 @@ import type { AwsNic } from "./awsNic";
 /**
  * AWS cloud VM definition spec
  */
-export interface AwsMachineSpec {
+export type AwsMachineSpec = {
   /** Additional Security groups */
   additionalSecurityGroups?: AwsResourceReference[];
   ami: string;
@@ -29,4 +29,4 @@ export interface AwsMachineSpec {
   subnetId?: string;
   type?: string;
   vpcId: string;
-}
+};

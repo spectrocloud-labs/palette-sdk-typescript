@@ -14,6 +14,6 @@ import type { AzureClusterConfig } from "./azureClusterConfig";
 /**
  * Azure cloud cluster config entity
  */
-export interface AzureCloudClusterConfigEntity {
+export type AzureCloudClusterConfigEntity = {
   clusterConfig?: AzureClusterConfig;
-}
+};

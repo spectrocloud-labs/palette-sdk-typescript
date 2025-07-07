@@ -14,7 +14,7 @@ import type { ManifestRefInputEntity } from "./manifestRefInputEntity";
 /**
  * Pack manifests input params
  */
-export interface ManifestRefInputEntities {
+export type ManifestRefInputEntities = {
   /** Pack manifests array */
   manifests?: ManifestRefInputEntity[];
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { ProjectMetadata } from "./projectMetadata";
 
-export interface ProjectsMetadata {
+export type ProjectsMetadata = {
   items: ProjectMetadata[];
-}
+};

@@ -12,7 +12,7 @@
 import type { UserSummarySortFields } from "./userSummarySortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface UserSummarySortSpec {
+export type UserSummarySortSpec = {
   field?: UserSummarySortFields;
   order?: SortOrder;
-}
+};

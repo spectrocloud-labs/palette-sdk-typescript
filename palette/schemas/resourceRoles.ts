@@ -11,6 +11,6 @@
  */
 import type { ResourceRolesEntity } from "./resourceRolesEntity";
 
-export interface ResourceRoles {
+export type ResourceRoles = {
   resourceRoles?: ResourceRolesEntity[];
-}
+};

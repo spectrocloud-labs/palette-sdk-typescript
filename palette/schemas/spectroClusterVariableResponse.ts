@@ -14,7 +14,7 @@ import type { VariableFormat } from "./variableFormat";
 /**
  * Unique variable field with schema definition
  */
-export interface SpectroClusterVariableResponse {
+export type SpectroClusterVariableResponse = {
   /** The default value of the variable */
   defaultValue?: string;
   /** Variable description */
@@ -36,4 +36,4 @@ export interface SpectroClusterVariableResponse {
   required?: boolean;
   /** The user specified value of the variable */
   value?: string;
-}
+};

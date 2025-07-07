@@ -121,11 +121,12 @@ class PaletteClientInternal {
               // All generated functions have RequestInit options as the last parameter
               // We need to ensure the paletteConfig is injected into the options parameter
 
-              // Clone the arguments array and add our paletteConfig to the options
+              // Clone the arguments array
               const newArgs = [...args];
 
-              // Add the options parameter with paletteConfig
-              // The options parameter is always the last parameter
+              // Always add the options parameter with paletteConfig as the last argument
+              // This ensures the paletteConfig is always available to the generated functions
+              // The generated functions expect RequestInit as the last optional parameter
               newArgs.push({
                 paletteConfig: this.config,
               });
@@ -176,6 +177,7 @@ class PaletteClientInternal {
  *   headers: {
  *     ApiKey: process.env.PALETTE_API_KEY,
  *     "Content-Type": "application/json",
+ *     ProjectUID: "2344859345934",
  *   },
  * });
  *

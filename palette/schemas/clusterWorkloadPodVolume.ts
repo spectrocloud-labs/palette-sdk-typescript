@@ -13,6 +13,6 @@
 /**
  * Cluster workload pod volume
  */
-export interface ClusterWorkloadPodVolume {
+export type ClusterWorkloadPodVolume = {
   name?: string;
-}
+};

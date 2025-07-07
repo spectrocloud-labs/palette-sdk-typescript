@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Cluster's cost compute spec
  */
-export interface SpectroClustersCostComputeSpec {
+export type SpectroClustersCostComputeSpec = {
   clusterUids?: string[];
   startTime?: Time;
-}
+};

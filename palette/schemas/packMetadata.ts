@@ -15,11 +15,11 @@ import type { PackMetadataSpec } from "./packMetadataSpec";
 /**
  * Pack metadata object
  */
-export interface PackMetadata {
+export type PackMetadata = {
   /** Pack api version */
   apiVersion?: string;
   /** Pack kind */
   kind?: string;
   metadata?: ObjectMeta;
   spec?: PackMetadataSpec;
-}
+};

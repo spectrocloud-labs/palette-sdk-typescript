@@ -15,7 +15,7 @@ import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
 /**
  * Workspace clusters workload statefulsets summary
  */
-export interface WorkspaceClustersWorkloadDaemonSets {
+export type WorkspaceClustersWorkloadDaemonSets = {
   clusters?: WorkspaceClusterWorkloadDaemonSets[];
   metadata?: ObjectMetaInputEntity;
-}
+};

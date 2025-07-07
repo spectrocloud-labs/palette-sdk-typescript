@@ -15,7 +15,7 @@ import type { ClusterComplianceScheduleConfig } from "./clusterComplianceSchedul
 /**
  * Cluster policies
  */
-export interface SpectroClusterPolicies {
+export type SpectroClusterPolicies = {
   backupPolicy?: ClusterBackupConfig;
   scanPolicy?: ClusterComplianceScheduleConfig;
-}
+};

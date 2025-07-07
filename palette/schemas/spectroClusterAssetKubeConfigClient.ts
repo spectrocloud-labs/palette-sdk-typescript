@@ -13,6 +13,6 @@
 /**
  * Cluster asset Kube Config Client
  */
-export interface SpectroClusterAssetKubeConfigClient {
+export type SpectroClusterAssetKubeConfigClient = {
   kubeconfigclient?: string;
-}
+};

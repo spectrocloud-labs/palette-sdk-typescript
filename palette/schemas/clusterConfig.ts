@@ -17,7 +17,7 @@ import type { LifecycleConfig } from "./lifecycleConfig";
 import type { MachineHealthCheckConfig } from "./machineHealthCheckConfig";
 import type { MachineManagementConfig } from "./machineManagementConfig";
 
-export interface ClusterConfig {
+export type ClusterConfig = {
   /** ClusterMetaAttribute contains additional cluster metadata information. */
   clusterMetaAttribute?: string;
   /** Deprecated. Use clusterResources */
@@ -32,4 +32,4 @@ export interface ClusterConfig {
   machineManagementConfig?: MachineManagementConfig;
   /** UpdateWorkerPoolsInParallel is used to decide if the update of workerpools happen in parallel. When this flag is false, the workerpools are updated sequentially. */
   updateWorkerPoolsInParallel?: boolean;
-}
+};

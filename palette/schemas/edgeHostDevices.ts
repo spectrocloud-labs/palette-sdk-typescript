@@ -12,7 +12,7 @@
 import type { EdgeHostDevice } from "./edgeHostDevice";
 import type { ListMetaData } from "./listMetaData";
 
-export interface EdgeHostDevices {
+export type EdgeHostDevices = {
   items: EdgeHostDevice[];
   listmeta?: ListMetaData;
-}
+};

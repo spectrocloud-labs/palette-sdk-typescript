@@ -16,8 +16,8 @@ import type { ThemeStatus } from "./themeStatus";
 /**
  * Theme data entity
  */
-export interface Theme {
+export type Theme = {
   metadata?: ObjectMeta;
   spec?: ThemeSpec;
   status?: ThemeStatus;
-}
+};

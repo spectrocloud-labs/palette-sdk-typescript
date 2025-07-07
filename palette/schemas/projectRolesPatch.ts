@@ -11,6 +11,6 @@
  */
 import type { ProjectRolesPatchProjectsItem } from "./projectRolesPatchProjectsItem";
 
-export interface ProjectRolesPatch {
+export type ProjectRolesPatch = {
   projects?: ProjectRolesPatchProjectsItem[];
-}
+};

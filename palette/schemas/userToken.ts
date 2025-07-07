@@ -13,9 +13,9 @@
 /**
  * Returns the Authorization token. To be used for further api calls
  */
-export interface UserToken {
+export type UserToken = {
   /** Describes the authentication token in jwt format. */
   Authorization?: string;
   /** Indicates the authentication flow using MFA */
   isMfa?: boolean;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Application profile clone target
  */
-export interface AppProfileCloneTarget {
+export type AppProfileCloneTarget = {
   /** Application profile clone target project uid */
   projectUid?: string;
-}
+};

@@ -17,9 +17,9 @@ import type { ClusterGroupSpecEntityType } from "./clusterGroupSpecEntityType";
 /**
  * Cluster group specifications request entity
  */
-export interface ClusterGroupSpecEntity {
+export type ClusterGroupSpecEntity = {
   clusterRefs?: ClusterGroupClusterRef[];
   clustersConfig?: ClusterGroupClustersConfig;
   profiles?: SpectroClusterProfileEntity[];
   type?: ClusterGroupSpecEntityType;
-}
+};

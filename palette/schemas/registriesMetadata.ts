@@ -14,6 +14,6 @@ import type { RegistryMetadata } from "./registryMetadata";
 /**
  * Pack Registries Metadata
  */
-export interface RegistriesMetadata {
+export type RegistriesMetadata = {
   items: RegistryMetadata[];
-}
+};

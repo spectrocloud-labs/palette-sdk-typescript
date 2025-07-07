@@ -12,8 +12,8 @@
 import type { VsphereInstanceType } from "./vsphereInstanceType";
 import type { VspherePlacementConfigEntity } from "./vspherePlacementConfigEntity";
 
-export interface VsphereMachinePoolCloudConfigEntity {
+export type VsphereMachinePoolCloudConfigEntity = {
   instanceType?: VsphereInstanceType;
   /** Placements configuration Placements If defined, will replace default values defined in VsphereClusterConfig Array means one MachinePool can span across multiple vsphere compute cluster */
   placements?: VspherePlacementConfigEntity[];
-}
+};

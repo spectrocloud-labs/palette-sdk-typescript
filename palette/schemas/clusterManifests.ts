@@ -14,6 +14,6 @@ import type { ClusterManifest } from "./clusterManifest";
 /**
  * Cluster manifests information
  */
-export interface ClusterManifests {
+export type ClusterManifests = {
   manifests?: ClusterManifest[];
-}
+};

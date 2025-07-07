@@ -11,11 +11,11 @@
  */
 import type { Time } from "./time";
 
-export interface MgmtAppPvcStatus {
+export type MgmtAppPvcStatus = {
   claimName?: string;
   creationTime?: Time;
   isHealthy?: boolean;
   message?: string;
   name?: string;
   state?: string;
-}
+};

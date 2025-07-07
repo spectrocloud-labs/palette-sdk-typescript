@@ -15,8 +15,8 @@ import type { AppProfileSummarySpec } from "./appProfileSummarySpec";
 /**
  * Application profile summary
  */
-export interface AppProfileSummary {
+export type AppProfileSummary = {
   metadata?: ObjectMeta;
   /** Application profile spec summary */
   spec?: AppProfileSummarySpec;
-}
+};

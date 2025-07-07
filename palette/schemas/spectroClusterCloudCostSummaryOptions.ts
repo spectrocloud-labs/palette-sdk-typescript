@@ -14,7 +14,7 @@ import type { SpectroClusterCloudCostSummaryOptionsGroupBy } from "./spectroClus
 /**
  * Spectro cluster cloud cost summary options
  */
-export interface SpectroClusterCloudCostSummaryOptions {
+export type SpectroClusterCloudCostSummaryOptions = {
   groupBy?: SpectroClusterCloudCostSummaryOptionsGroupBy;
   period?: number;
-}
+};

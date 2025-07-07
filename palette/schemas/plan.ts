@@ -16,8 +16,8 @@ import type { PlanStatus } from "./planStatus";
 /**
  * Plan
  */
-export interface Plan {
+export type Plan = {
   metadata?: ObjectMeta;
   spec?: PlanSpec;
   status?: PlanStatus;
-}
+};

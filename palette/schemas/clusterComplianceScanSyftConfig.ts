@@ -14,7 +14,7 @@ import type { ClusterComplianceScanSyftDriverConfig } from "./clusterComplianceS
 /**
  * Cluster compliance scan config for syft driver
  */
-export interface ClusterComplianceScanSyftConfig {
+export type ClusterComplianceScanSyftConfig = {
   config?: ClusterComplianceScanSyftDriverConfig;
   runScan?: boolean;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { ClusterUpgradeSettingsEntitySpectroComponents } from "./clusterUpgradeSettingsEntitySpectroComponents";
 
-export interface ClusterUpgradeSettingsEntity {
+export type ClusterUpgradeSettingsEntity = {
   spectroComponents?: ClusterUpgradeSettingsEntitySpectroComponents;
-}
+};

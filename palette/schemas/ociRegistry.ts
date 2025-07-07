@@ -16,8 +16,8 @@ import type { OciRegistryStatusSummary } from "./ociRegistryStatusSummary";
 /**
  * Oci registry information
  */
-export interface OciRegistry {
+export type OciRegistry = {
   metadata?: ObjectMeta;
   spec?: OciRegistrySpec;
   status?: OciRegistryStatusSummary;
-}
+};

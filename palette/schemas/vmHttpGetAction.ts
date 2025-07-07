@@ -14,7 +14,7 @@ import type { VmHttpHeader } from "./vmHttpHeader";
 /**
  * HTTPGetAction describes an action based on HTTP Get requests.
  */
-export interface VmHttpGetAction {
+export type VmHttpGetAction = {
   /** Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead. */
   host?: string;
   /** Custom headers to set in the request. HTTP allows repeated headers. */
@@ -25,4 +25,4 @@ export interface VmHttpGetAction {
   port: string;
   /** Scheme to use for connecting to the host. Defaults to HTTP. */
   scheme?: string;
-}
+};

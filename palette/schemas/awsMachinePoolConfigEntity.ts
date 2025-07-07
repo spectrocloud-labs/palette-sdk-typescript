@@ -12,7 +12,7 @@
 import type { AwsMachinePoolCloudConfigEntity } from "./awsMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface AwsMachinePoolConfigEntity {
+export type AwsMachinePoolConfigEntity = {
   cloudConfig: AwsMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

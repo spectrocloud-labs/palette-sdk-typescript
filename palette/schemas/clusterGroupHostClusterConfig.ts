@@ -11,7 +11,7 @@
  */
 import type { HostClusterEndpointConfig } from "./hostClusterEndpointConfig";
 
-export interface ClusterGroupHostClusterConfig {
+export type ClusterGroupHostClusterConfig = {
   clusterUid?: string;
   endpointConfig?: HostClusterEndpointConfig;
-}
+};

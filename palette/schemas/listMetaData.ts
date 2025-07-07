@@ -13,7 +13,7 @@
 /**
  * ListMeta describes metadata for the resource listing
  */
-export interface ListMetaData {
+export type ListMetaData = {
   /** Next token for the pagination. Next token is equal to empty string indicates end of result set. */
   continue?: string;
   /** Total count of the resources which might change during pagination based on the resources addition or deletion */
@@ -22,4 +22,4 @@ export interface ListMetaData {
   limit?: number;
   /** The next offset for the pagination. Starting index for which next request will be placed. */
   offset?: number;
-}
+};

@@ -12,7 +12,7 @@
 import type { OpenStackAccount } from "./openStackAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface OpenStackAccounts {
+export type OpenStackAccounts = {
   items: OpenStackAccount[];
   listmeta?: ListMetaData;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Azure Machine Spec Availability zone
  */
-export interface AzureMachineSpecAvailabilityZone {
+export type AzureMachineSpecAvailabilityZone = {
   enabled?: boolean;
   id?: string;
-}
+};

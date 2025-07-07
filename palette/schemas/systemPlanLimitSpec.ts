@@ -13,11 +13,11 @@
 /**
  * Monthly Plan Limit spec
  */
-export interface SystemPlanLimitSpec {
+export type SystemPlanLimitSpec = {
   /** cpu cores hours */
   cpuCoreHours?: number;
   /** overage limit in percentage */
   overageLimitPercentage?: number;
   /** warning limit in percentage */
   warnLimitPercentage?: number;
-}
+};

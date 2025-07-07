@@ -15,7 +15,7 @@ import type { ClusterRbacSpec } from "./clusterRbacSpec";
 /**
  * Cluster RBAC role binding defintion
  */
-export interface ClusterRbacInputEntity {
+export type ClusterRbacInputEntity = {
   metadata?: ObjectMetaUpdateEntity;
   spec?: ClusterRbacSpec;
-}
+};

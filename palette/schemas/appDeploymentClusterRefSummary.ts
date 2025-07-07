@@ -14,11 +14,11 @@ import type { AppDeploymentClusterRefSummaryDeploymentClusterType } from "./appD
 /**
  * Application deployment cluster reference
  */
-export interface AppDeploymentClusterRefSummary {
+export type AppDeploymentClusterRefSummary = {
   /** Application deployment source cluster type[ "virtualCluster", "hostCluster" ] */
   deploymentClusterType?: AppDeploymentClusterRefSummaryDeploymentClusterType;
   /** Application deployment source cluster name */
   name?: string;
   /** Application deployment source cluster uid */
   uid?: string;
-}
+};

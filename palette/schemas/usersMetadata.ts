@@ -11,6 +11,6 @@
  */
 import type { UserMetaEntity } from "./userMetaEntity";
 
-export interface UsersMetadata {
+export type UsersMetadata = {
   items: UserMetaEntity[];
-}
+};

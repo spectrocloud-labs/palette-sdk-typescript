@@ -16,8 +16,8 @@ import type { ProjectStatusSummary } from "./projectStatusSummary";
 /**
  * Project summary
  */
-export interface ProjectSummary {
+export type ProjectSummary = {
   metadata?: ObjectMeta;
   specSummary?: ProjectSpecSummary;
   status?: ProjectStatusSummary;
-}
+};

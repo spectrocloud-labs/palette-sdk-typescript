@@ -15,7 +15,7 @@ import type { ResourceCostSummaryOptions } from "./resourceCostSummaryOptions";
 /**
  * Resource cost summary spec
  */
-export interface ResourceCostSummarySpec {
+export type ResourceCostSummarySpec = {
   filter?: ResourceCostSummaryFilter;
   options?: ResourceCostSummaryOptions;
-}
+};

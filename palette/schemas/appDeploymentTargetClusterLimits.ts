@@ -13,11 +13,11 @@
 /**
  * Application deployment target cluster limits
  */
-export interface AppDeploymentTargetClusterLimits {
+export type AppDeploymentTargetClusterLimits = {
   /** CPU cores */
   cpu?: number;
   /** Memory in MiB */
   memoryMiB?: number;
   /** Storage in GiB */
   storageGiB?: number;
-}
+};

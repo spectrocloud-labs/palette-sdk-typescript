@@ -14,6 +14,6 @@ import type { MaasSubnet } from "./maasSubnet";
 /**
  * List of Maas subnets
  */
-export interface MaasSubnets {
+export type MaasSubnets = {
   items: MaasSubnet[];
-}
+};

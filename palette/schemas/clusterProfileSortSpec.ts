@@ -12,7 +12,7 @@
 import type { ClusterProfileSortFields } from "./clusterProfileSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface ClusterProfileSortSpec {
+export type ClusterProfileSortSpec = {
   field?: ClusterProfileSortFields;
   order?: SortOrder;
-}
+};

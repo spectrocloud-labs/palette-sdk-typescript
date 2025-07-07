@@ -13,7 +13,7 @@
 /**
  * SystemAdmin
  */
-export interface MgmtPodHealth {
+export type MgmtPodHealth = {
   isHealthy?: boolean;
   name?: string;
-}
+};

@@ -16,8 +16,8 @@ import type { ClusterSonobuoyLogStatus } from "./clusterSonobuoyLogStatus";
 /**
  * Cluster compliance scan Sonobuoy Log
  */
-export interface ClusterScanLogSonobuoy {
+export type ClusterScanLogSonobuoy = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanLogSpec;
   status?: ClusterSonobuoyLogStatus;
-}
+};

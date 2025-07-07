@@ -14,6 +14,6 @@ import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
 /**
  * Spectro installer entity for create
  */
-export interface SpectroInstallerInputEntity {
+export type SpectroInstallerInputEntity = {
   metadata?: ObjectMetaInputEntity;
-}
+};

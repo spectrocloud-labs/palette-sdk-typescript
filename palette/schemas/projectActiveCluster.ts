@@ -14,7 +14,7 @@ import type { ObjectEntity } from "./objectEntity";
 /**
  * Active clusters
  */
-export interface ProjectActiveCluster {
+export type ProjectActiveCluster = {
   clusterRef?: ObjectEntity;
   state?: string;
-}
+};

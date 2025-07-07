@@ -16,11 +16,11 @@ import type { ClusterScanTime } from "./clusterScanTime";
 /**
  * Cluster compliance scan KubeHunter Log Status
  */
-export interface ClusterKubeHunterLogStatus {
+export type ClusterKubeHunterLogStatus = {
   actor?: ClusterFeatureActor;
   message?: string;
   reports?: ClusterKubeHunterLogStatusReports;
   requestUid?: string;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

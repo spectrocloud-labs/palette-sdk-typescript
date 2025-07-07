@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Helm Registries Summary
  */
-export interface HelmRegistriesSummary {
+export type HelmRegistriesSummary = {
   items: HelmRegistrySummary[];
   listmeta?: ListMetaData;
-}
+};

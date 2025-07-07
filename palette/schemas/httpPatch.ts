@@ -12,7 +12,7 @@
 import type { HttpPatchOp } from "./httpPatchOp";
 import type { HttpPatchValue } from "./httpPatchValue";
 
-export interface HttpPatch {
+export type HttpPatch = {
   /** A path to the pointer from which reference will be taken */
   from?: string;
   /** The operation to be performed */
@@ -21,4 +21,4 @@ export interface HttpPatch {
   path: string;
   /** The value to be used within the operations. */
   value?: HttpPatchValue;
-}
+};

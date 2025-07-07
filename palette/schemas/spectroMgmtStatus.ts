@@ -16,7 +16,7 @@ import type { SpectroMgmtUpgrade } from "./spectroMgmtUpgrade";
 /**
  * spectro management status information
  */
-export interface SpectroMgmtStatus {
+export type SpectroMgmtStatus = {
   appVersions?: AppVersion[];
   isFailed?: boolean;
   lastUpdatedTime?: Time;
@@ -24,4 +24,4 @@ export interface SpectroMgmtStatus {
   messageLogs?: string[];
   state?: string;
   upgradeHistory?: SpectroMgmtUpgrade[];
-}
+};

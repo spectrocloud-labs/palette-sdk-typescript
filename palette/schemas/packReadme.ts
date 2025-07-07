@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface PackReadme {
+export type PackReadme = {
   /** Readme describes the documentation of the specified pack */
   readme?: string;
-}
+};

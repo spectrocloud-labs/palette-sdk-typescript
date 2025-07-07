@@ -14,7 +14,7 @@ import type { FilterString } from "./filterString";
 /**
  * Users filter spec
  */
-export interface UsersFilterSpec {
+export type UsersFilterSpec = {
   emailId?: FilterString;
   name?: FilterString;
-}
+};

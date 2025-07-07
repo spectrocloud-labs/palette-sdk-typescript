@@ -14,6 +14,6 @@ import type { InstanceType } from "./instanceType";
 /**
  * List of Azure instance types
  */
-export interface AzureInstanceTypes {
+export type AzureInstanceTypes = {
   instanceTypes?: InstanceType[];
-}
+};

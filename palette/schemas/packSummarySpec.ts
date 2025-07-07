@@ -20,7 +20,7 @@ import type { PackType } from "./packType";
 /**
  * Pack object
  */
-export interface PackSummarySpec {
+export type PackSummarySpec = {
   /** Pack add-on sub type such as monitoring, db etc */
   addonSubType?: string;
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -56,4 +56,4 @@ export interface PackSummarySpec {
   values?: string;
   /** Pack version */
   version?: string;
-}
+};

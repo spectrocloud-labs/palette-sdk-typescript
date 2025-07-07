@@ -14,9 +14,9 @@ import type { Time } from "./time";
 /**
  * Backup state
  */
-export interface BackupState {
+export type BackupState = {
   backupTime?: Time;
   deleteState?: string;
   msg?: string;
   state?: string;
-}
+};

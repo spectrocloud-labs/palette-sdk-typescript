@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface VirtualInstanceType {
+export type VirtualInstanceType = {
   /** Maximum CPU cores */
   maxCPU?: number;
   /** Maximum memory in MiB */
@@ -23,4 +23,4 @@ export interface VirtualInstanceType {
   minMemInMiB?: number;
   /** Minimum storage in GiB */
   minStorageGiB?: number;
-}
+};

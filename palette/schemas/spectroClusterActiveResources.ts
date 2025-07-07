@@ -15,8 +15,8 @@ import type { SpectroClusterActiveCluster } from "./spectroClusterActiveCluster"
 /**
  * Active cluster resources
  */
-export interface SpectroClusterActiveResources {
+export type SpectroClusterActiveResources = {
   appDeployments?: SpectroClusterActiveAppDeployment[];
   clusters?: SpectroClusterActiveCluster[];
   virtualClusters?: SpectroClusterActiveCluster[];
-}
+};

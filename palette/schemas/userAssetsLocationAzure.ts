@@ -15,7 +15,7 @@ import type { UserAssetsLocationAzureSpec } from "./userAssetsLocationAzureSpec"
 /**
  * Azure location object
  */
-export interface UserAssetsLocationAzure {
+export type UserAssetsLocationAzure = {
   metadata?: ObjectMetaInputEntity;
   spec?: UserAssetsLocationAzureSpec;
-}
+};

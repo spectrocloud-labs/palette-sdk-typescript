@@ -11,6 +11,6 @@
  */
 import type { AppProfileMetadata } from "./appProfileMetadata";
 
-export interface AppProfilesMetadata {
+export type AppProfilesMetadata = {
   appProfiles?: AppProfileMetadata[];
-}
+};

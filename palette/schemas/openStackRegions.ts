@@ -15,9 +15,9 @@ import type { OpenStackRegion } from "./openStackRegion";
 /**
  * List of OpenStack regions and domains
  */
-export interface OpenStackRegions {
+export type OpenStackRegions = {
   /** List of OpenStack domains */
   domains: OpenStackDomain[];
   /** List of OpenStack regions */
   regions: OpenStackRegion[];
-}
+};

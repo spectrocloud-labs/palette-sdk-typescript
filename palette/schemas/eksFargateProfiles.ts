@@ -14,6 +14,6 @@ import type { FargateProfile } from "./fargateProfile";
 /**
  * Fargate profiles
  */
-export interface EksFargateProfiles {
+export type EksFargateProfiles = {
   fargateProfiles?: FargateProfile[];
-}
+};

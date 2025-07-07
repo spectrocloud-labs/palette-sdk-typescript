@@ -15,7 +15,7 @@ import type { AppProfileSortSpec } from "./appProfileSortSpec";
 /**
  * Application profile filter summary spec
  */
-export interface AppProfilesFilterSpec {
+export type AppProfilesFilterSpec = {
   filter?: AppProfileFilterSpec;
   sort?: AppProfileSortSpec[];
-}
+};

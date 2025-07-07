@@ -14,6 +14,6 @@ import type { AppDeploymentVirtualClusterTargetSpec } from "./appDeploymentVirtu
 /**
  * Application deployment virtual cluster config
  */
-export interface AppDeploymentVirtualClusterConfigEntity {
+export type AppDeploymentVirtualClusterConfigEntity = {
   targetSpec?: AppDeploymentVirtualClusterTargetSpec;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface OidcIssuerTls {
+export type OidcIssuerTls = {
   caCertificateBase64?: string;
   insecureSkipVerify?: boolean;
-}
+};

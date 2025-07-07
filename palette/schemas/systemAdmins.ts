@@ -14,6 +14,6 @@ import type { SystemAdmin } from "./systemAdmin";
 /**
  * List of System Admin information's
  */
-export interface SystemAdmins {
+export type SystemAdmins = {
   items: SystemAdmin[];
-}
+};

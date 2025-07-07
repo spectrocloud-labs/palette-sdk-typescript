@@ -15,10 +15,10 @@ import type { AppDeploymentProfileMeta } from "./appDeploymentProfileMeta";
 /**
  * Application deployment profile versions
  */
-export interface AppDeploymentProfileVersions {
+export type AppDeploymentProfileVersions = {
   /** Application deployment profile available versions */
   availableVersions?: AppDeploymentProfileVersion[];
   /** Application deployment profile latest versions */
   latestVersions?: AppDeploymentProfileVersion[];
   metadata?: AppDeploymentProfileMeta;
-}
+};

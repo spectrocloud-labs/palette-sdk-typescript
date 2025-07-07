@@ -12,7 +12,7 @@
 import type { VsphereAccount } from "./vsphereAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface VsphereAccounts {
+export type VsphereAccounts = {
   items: VsphereAccount[];
   listmeta?: ListMetaData;
-}
+};

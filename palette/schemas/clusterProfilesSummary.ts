@@ -12,7 +12,7 @@
 import type { ClusterProfileSummary } from "./clusterProfileSummary";
 import type { ListMetaData } from "./listMetaData";
 
-export interface ClusterProfilesSummary {
+export type ClusterProfilesSummary = {
   items: ClusterProfileSummary[];
   listmeta?: ListMetaData;
-}
+};

@@ -13,10 +13,10 @@
 /**
  * Tenant freemium configuration
  */
-export interface TenantFreemium {
+export type TenantFreemium = {
   activeClustersLimit?: number;
   isFreemium?: boolean;
   isUnlimited?: boolean;
   overageUsageLimit?: number;
   totalUsageLimit?: number;
-}
+};

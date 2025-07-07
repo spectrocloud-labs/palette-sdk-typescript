@@ -15,7 +15,7 @@ import type { AuthLoginEntity } from "./authLoginEntity";
 /**
  * Deprecated. Applicable auth logins with multiple orgs
  */
-export interface AuthLogins {
+export type AuthLogins = {
   appEnv?: string;
   /** Deprecated. */
   authType?: AuthLoginsAuthType;
@@ -24,4 +24,4 @@ export interface AuthLogins {
   orgs?: AuthLoginEntity[];
   /** Deprecated. */
   redirectUrl?: string;
-}
+};

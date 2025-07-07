@@ -14,6 +14,6 @@ import type { ObjectTagsEntity } from "./objectTagsEntity";
 /**
  * Edge host device uid and name
  */
-export interface EdgeHostDeviceMetaUpdateEntity {
+export type EdgeHostDeviceMetaUpdateEntity = {
   metadata?: ObjectTagsEntity;
-}
+};

@@ -15,10 +15,10 @@ import type { GenericNic } from "./genericNic";
 /**
  * Generic cloud VM definition spec
  */
-export interface GenericMachineSpec {
+export type GenericMachineSpec = {
   hostName?: string;
   imageId?: string;
   instanceType?: GenericInstanceType;
   nics?: GenericNic[];
   sshKeyName?: string;
-}
+};

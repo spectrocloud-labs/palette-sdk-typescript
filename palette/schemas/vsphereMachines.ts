@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * vSphere machine list
  */
-export interface VsphereMachines {
+export type VsphereMachines = {
   items: VsphereMachine[];
   listmeta?: ListMetaData;
-}
+};

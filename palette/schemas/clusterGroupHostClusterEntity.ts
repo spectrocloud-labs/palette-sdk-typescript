@@ -15,7 +15,7 @@ import type { ClusterGroupClustersConfig } from "./clusterGroupClustersConfig";
 /**
  * Clusters and clusters config of cluster group
  */
-export interface ClusterGroupHostClusterEntity {
+export type ClusterGroupHostClusterEntity = {
   clusterRefs?: ClusterGroupClusterRef[];
   clustersConfig?: ClusterGroupClustersConfig;
-}
+};

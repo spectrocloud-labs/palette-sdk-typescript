@@ -15,7 +15,7 @@ import type { AppProfileMetadataSpec } from "./appProfileMetadataSpec";
 /**
  * Application profile metadata summary
  */
-export interface AppProfileMetadata {
+export type AppProfileMetadata = {
   metadata?: ObjectEntity;
   spec?: AppProfileMetadataSpec;
-}
+};

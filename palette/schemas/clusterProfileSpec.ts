@@ -15,10 +15,10 @@ import type { ClusterProfileVersion } from "./clusterProfileVersion";
 /**
  * ClusterProfileTemplate can be in draft mode, or published mode User only see the latest published template, and (or) the draft template User can apply either the draft version or the latest published version to a cluster when user create a draft version, just copy the Published template, increment the version, and keep changing the draft template without increment the draft version when user publish a draft, the version is fixed, and won't be able to make any modification on published template For each clusterprofile that has a published version, there will be a ClusterProfileArchive automatically created when user publish a draft, the published version will also be copied over to the corresponding ClusterProfileArchive it is just in case in the future for whatever reason we may want to expose earlier versions
  */
-export interface ClusterProfileSpec {
+export type ClusterProfileSpec = {
   draft?: ClusterProfileTemplate;
   published?: ClusterProfileTemplate;
   version?: string;
   /** Cluster profile's list of all the versions */
   versions?: ClusterProfileVersion[];
-}
+};

@@ -14,6 +14,6 @@ import type { AppDeploymentTargetConfig } from "./appDeploymentTargetConfig";
 /**
  * Application deployment config response
  */
-export interface AppDeploymentConfig {
+export type AppDeploymentConfig = {
   target?: AppDeploymentTargetConfig;
-}
+};

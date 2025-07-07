@@ -14,8 +14,8 @@ import type { Time } from "./time";
 /**
  * Revision spec uid along with the creationTimestamp for the revision
  */
-export interface SpectroClusterRevisionMeta {
+export type SpectroClusterRevisionMeta = {
   creationTimestamp?: Time;
   /** The unique id of the spc revision document */
   uid?: string;
-}
+};

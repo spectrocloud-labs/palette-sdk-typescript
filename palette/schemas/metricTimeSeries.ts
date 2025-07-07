@@ -11,6 +11,6 @@
  */
 import type { Metrics } from "./metrics";
 
-export interface MetricTimeSeries {
+export type MetricTimeSeries = {
   items: Metrics[];
-}
+};

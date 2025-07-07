@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * Maas cloud VM definition
  */
-export interface MaasMachine {
+export type MaasMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: MaasMachineSpec;
   status?: CloudMachineStatus;
-}
+};

@@ -15,7 +15,7 @@ import type { ThemeSpec } from "./themeSpec";
 /**
  * Theme data create entity
  */
-export interface ThemeCreateEntity {
+export type ThemeCreateEntity = {
   metadata: ObjectMetaInputEntity;
   spec: ThemeSpec;
-}
+};

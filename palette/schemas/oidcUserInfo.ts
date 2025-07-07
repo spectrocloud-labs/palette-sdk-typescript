@@ -11,7 +11,7 @@
  */
 import type { TenantOidcClaims } from "./tenantOidcClaims";
 
-export interface OidcUserInfo {
+export type OidcUserInfo = {
   claims?: TenantOidcClaims;
   useUserInfo?: boolean;
-}
+};

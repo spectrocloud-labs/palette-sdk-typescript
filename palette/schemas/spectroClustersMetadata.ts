@@ -11,6 +11,6 @@
  */
 import type { ObjectMeta } from "./objectMeta";
 
-export interface SpectroClustersMetadata {
+export type SpectroClustersMetadata = {
   items: ObjectMeta[];
-}
+};

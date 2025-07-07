@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface FilterArray {
+export type FilterArray = {
   /** @nullable */
   beginsWith?: string[] | null;
   /** @nullable */
@@ -18,4 +18,4 @@ export interface FilterArray {
   ignoreCase?: boolean;
   /** @nullable */
   ne?: string[] | null;
-}
+};

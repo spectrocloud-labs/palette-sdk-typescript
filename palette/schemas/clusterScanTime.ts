@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Cluster compliance scan Time
  */
-export interface ClusterScanTime {
+export type ClusterScanTime = {
   endTime?: Time;
   startTime?: Time;
-}
+};

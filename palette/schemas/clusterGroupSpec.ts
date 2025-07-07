@@ -17,10 +17,10 @@ import type { ClusterGroupSpecType } from "./clusterGroupSpecType";
 /**
  * Cluster group specifications
  */
-export interface ClusterGroupSpec {
+export type ClusterGroupSpec = {
   /** ClusterProfileTemplate is a copy of the draft version or latest published version of the clusterprofileSpec. It consists of list of add on profiles at a cluster group level which will be enforced on all virtual cluster. ClusterProfileTemplate will be updated from the clusterprofile pointed by ClusterProfileRef */
   clusterProfileTemplates?: ClusterProfileTemplate[];
   clusterRefs?: ClusterGroupClusterRef[];
   clustersConfig?: ClusterGroupClustersConfig;
   type?: ClusterGroupSpecType;
-}
+};

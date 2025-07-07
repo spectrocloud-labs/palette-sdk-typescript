@@ -11,6 +11,6 @@
  */
 import type { ResourcesResources } from "./resourcesResources";
 
-export interface Resources {
+export type Resources = {
   resources?: ResourcesResources;
-}
+};

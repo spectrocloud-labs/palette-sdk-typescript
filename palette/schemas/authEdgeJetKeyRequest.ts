@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthEdgeJetKeyRequest {
+export type AuthEdgeJetKeyRequest = {
   edgeAuthToken: string;
   edgeHostUid: string;
   spectroClusterUid?: string;
-}
+};

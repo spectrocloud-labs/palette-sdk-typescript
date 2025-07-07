@@ -14,8 +14,8 @@ import type { GenericInstanceType } from "./genericInstanceType";
 /**
  * Generic cluster config
  */
-export interface GenericClusterConfig {
+export type GenericClusterConfig = {
   instanceType?: GenericInstanceType;
   /** cluster region information */
   region?: string;
-}
+};

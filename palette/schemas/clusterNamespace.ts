@@ -13,7 +13,7 @@
 /**
  * Cluster's namespace
  */
-export interface ClusterNamespace {
+export type ClusterNamespace = {
   namespace?: string;
   pvcCount?: number;
-}
+};

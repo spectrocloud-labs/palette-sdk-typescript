@@ -15,7 +15,7 @@ import type { ClusterWorkloadStatefulSetStatus } from "./clusterWorkloadStateful
 /**
  * Cluster workload statefulset summary
  */
-export interface ClusterWorkloadStatefulSet {
+export type ClusterWorkloadStatefulSet = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadStatefulSetStatus;
-}
+};

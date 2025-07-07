@@ -16,8 +16,8 @@ import type { WorkspaceRestoreStatus } from "./workspaceRestoreStatus";
 /**
  * Workspace restore
  */
-export interface WorkspaceRestore {
+export type WorkspaceRestore = {
   metadata?: ObjectMeta;
   spec?: WorkspaceRestoreSpec;
   status?: WorkspaceRestoreStatus;
-}
+};

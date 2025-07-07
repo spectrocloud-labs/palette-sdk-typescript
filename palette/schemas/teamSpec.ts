@@ -13,8 +13,8 @@
 /**
  * Team specifications
  */
-export interface TeamSpec {
+export type TeamSpec = {
   roles?: string[];
   sources?: string[];
   users?: string[];
-}
+};

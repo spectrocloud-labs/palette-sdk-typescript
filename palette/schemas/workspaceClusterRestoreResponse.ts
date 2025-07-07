@@ -14,10 +14,10 @@ import type { WorkspaceClusterRestoreState } from "./workspaceClusterRestoreStat
 /**
  * Workspace cluster restore response
  */
-export interface WorkspaceClusterRestoreResponse {
+export type WorkspaceClusterRestoreResponse = {
   backupName?: string;
   clusterName?: string;
   clusterUid?: string;
   restoreStatusMeta?: WorkspaceClusterRestoreState;
   restoreUid?: string;
-}
+};

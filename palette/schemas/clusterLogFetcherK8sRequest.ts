@@ -13,7 +13,7 @@
 /**
  * Cluster Log Fetcher K8s
  */
-export interface ClusterLogFetcherK8sRequest {
+export type ClusterLogFetcherK8sRequest = {
   labelSelector?: string[];
   namespaces?: string[];
-}
+};

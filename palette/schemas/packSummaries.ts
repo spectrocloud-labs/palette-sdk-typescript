@@ -15,8 +15,8 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of packs
  */
-export interface PackSummaries {
+export type PackSummaries = {
   /** Packs array */
   items: PackSummary[];
   listmeta?: ListMetaData;
-}
+};

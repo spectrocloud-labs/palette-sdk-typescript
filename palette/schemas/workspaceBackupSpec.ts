@@ -14,7 +14,7 @@ import type { WorkspaceBackupConfig } from "./workspaceBackupConfig";
 /**
  * Workspace backup spec
  */
-export interface WorkspaceBackupSpec {
+export type WorkspaceBackupSpec = {
   config?: WorkspaceBackupConfig;
   workspaceUid?: string;
-}
+};

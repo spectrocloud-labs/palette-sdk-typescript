@@ -13,11 +13,11 @@
 /**
  * DataVolumeSourceS3 provides the parameters to create a Data Volume from an S3 source
  */
-export interface VmDataVolumeSourceS3 {
+export type VmDataVolumeSourceS3 = {
   /** CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate */
   certConfigMap?: string;
   /** SecretRef provides the secret reference needed to access the S3 source */
   secretRef?: string;
   /** URL is the url of the S3 source */
   url: string;
-}
+};

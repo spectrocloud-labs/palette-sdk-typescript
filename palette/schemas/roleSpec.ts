@@ -15,8 +15,8 @@ import type { RoleSpecType } from "./roleSpecType";
 /**
  * Role specifications
  */
-export interface RoleSpec {
+export type RoleSpec = {
   permissions?: string[];
   scope?: Scope;
   type?: RoleSpecType;
-}
+};

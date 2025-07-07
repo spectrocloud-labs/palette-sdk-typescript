@@ -15,7 +15,7 @@ import type { ClusterGroupSpecEntity } from "./clusterGroupSpecEntity";
 /**
  * Cluster group information
  */
-export interface ClusterGroupEntity {
+export type ClusterGroupEntity = {
   metadata?: ObjectMeta;
   spec?: ClusterGroupSpecEntity;
-}
+};

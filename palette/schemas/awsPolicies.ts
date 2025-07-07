@@ -11,6 +11,6 @@
  */
 import type { AwsIamPolicy } from "./awsIamPolicy";
 
-export interface AwsPolicies {
+export type AwsPolicies = {
   policies: AwsIamPolicy[];
-}
+};

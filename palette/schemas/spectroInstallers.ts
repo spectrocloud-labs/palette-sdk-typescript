@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List Spectro installers
  */
-export interface SpectroInstallers {
+export type SpectroInstallers = {
   items?: SpectroInstallerEntity[];
   listmeta?: ListMetaData;
-}
+};

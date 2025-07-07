@@ -15,8 +15,8 @@ import type { ResourceUsageDataPoint } from "./resourceUsageDataPoint";
 /**
  * Resource usage summary information
  */
-export interface ResourceUsageSummary {
+export type ResourceUsageSummary = {
   associatedResources?: ResourceReference[];
   data?: ResourceUsageDataPoint[];
   entity?: ResourceReference;
-}
+};

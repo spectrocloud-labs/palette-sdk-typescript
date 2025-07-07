@@ -16,7 +16,7 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * OpenStack account information
  */
-export interface OpenStackAccount {
+export type OpenStackAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface OpenStackAccount {
   metadata?: ObjectMeta;
   spec?: OpenStackCloudAccount;
   status?: CloudAccountStatus;
-}
+};

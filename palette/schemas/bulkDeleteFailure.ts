@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface BulkDeleteFailure {
+export type BulkDeleteFailure = {
   errMsg?: string;
   name?: string;
   uid?: string;
-}
+};

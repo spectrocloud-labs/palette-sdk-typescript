@@ -14,6 +14,6 @@ import type { MaasClusterConfig } from "./maasClusterConfig";
 /**
  * Maas cloud cluster config entity
  */
-export interface MaasCloudClusterConfigEntity {
+export type MaasCloudClusterConfigEntity = {
   clusterConfig?: MaasClusterConfig;
-}
+};

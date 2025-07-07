@@ -14,9 +14,9 @@ import type { ResourceUsageSummaryOptionsGroupBy } from "./resourceUsageSummaryO
 /**
  * Resource usage summary options
  */
-export interface ResourceUsageSummaryOptions {
+export type ResourceUsageSummaryOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceUsageSummaryOptionsGroupBy;
   includeMeteringInfo?: boolean;
   period?: number;
-}
+};

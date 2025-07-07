@@ -14,6 +14,6 @@ import type { CustomClusterConfig } from "./customClusterConfig";
 /**
  * Custom cloud cluster config entity
  */
-export interface CustomCloudClusterConfigEntity {
+export type CustomCloudClusterConfigEntity = {
   clusterConfig?: CustomClusterConfig;
-}
+};

@@ -14,6 +14,6 @@ import type { Subscription } from "./subscription";
 /**
  * List of Azure subscription
  */
-export interface AzureSubscriptionList {
+export type AzureSubscriptionList = {
   subscriptionList?: Subscription[];
-}
+};

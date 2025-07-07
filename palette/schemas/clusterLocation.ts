@@ -14,7 +14,7 @@ import type { GeolocationLatlong } from "./geolocationLatlong";
 /**
  * Cluster location information
  */
-export interface ClusterLocation {
+export type ClusterLocation = {
   /** country code for cluster location */
   countryCode?: string;
   /** country name for cluster location */
@@ -24,4 +24,4 @@ export interface ClusterLocation {
   regionCode?: string;
   /** region name for cluster location */
   regionName?: string;
-}
+};

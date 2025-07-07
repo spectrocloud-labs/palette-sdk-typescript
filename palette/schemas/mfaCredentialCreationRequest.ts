@@ -10,16 +10,15 @@
  * OpenAPI spec version: v1
  */
 import type { MfaCredentialCreationRequestClientExtensionResults } from "./mfaCredentialCreationRequestClientExtensionResults";
-import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { MfaCredentialCreationRequestResponse } from "./mfaCredentialCreationRequestResponse";
 
-export interface MfaCredentialCreationRequest {
+export type MfaCredentialCreationRequest = {
   _type?: string;
   authenticatorAttachment?: string;
   clientExtensionResults?: MfaCredentialCreationRequestClientExtensionResults;
   deviceName?: string;
   id?: string;
-  rawId?: URLEncodedBase64;
+  rawId?: string;
   response?: MfaCredentialCreationRequestResponse;
   transports?: string[];
-}
+};

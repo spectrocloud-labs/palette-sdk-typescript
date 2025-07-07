@@ -16,8 +16,8 @@ import type { ClusterNamespaceStatus } from "./clusterNamespaceStatus";
 /**
  * Cluster Namespace resource defintion
  */
-export interface ClusterNamespaceResource {
+export type ClusterNamespaceResource = {
   metadata?: ObjectMeta;
   spec?: ClusterNamespaceSpec;
   status?: ClusterNamespaceStatus;
-}
+};

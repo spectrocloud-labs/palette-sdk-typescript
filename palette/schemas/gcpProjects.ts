@@ -14,7 +14,7 @@ import type { GcpProject } from "./gcpProject";
 /**
  * List of GCP Projects
  */
-export interface GcpProjects {
+export type GcpProjects = {
   /** List of GCP Projects */
   projects?: GcpProject[];
-}
+};

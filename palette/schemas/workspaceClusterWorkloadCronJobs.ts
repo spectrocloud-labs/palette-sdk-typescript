@@ -15,7 +15,7 @@ import type { RelatedObject } from "./relatedObject";
 /**
  * Workspace cluster workload cronjobs summary
  */
-export interface WorkspaceClusterWorkloadCronJobs {
+export type WorkspaceClusterWorkloadCronJobs = {
   cronjobs?: ClusterWorkloadCronJob[];
   metadata?: RelatedObject;
-}
+};

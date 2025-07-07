@@ -13,9 +13,9 @@
 /**
  * Azure storage account entity
  */
-export interface StorageAccountEntity {
+export type StorageAccountEntity = {
   /** Azure storage account id */
   id?: string;
   /** Azure storage account name */
   name?: string;
-}
+};

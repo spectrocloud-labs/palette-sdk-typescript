@@ -11,9 +11,9 @@
  */
 import type { ResourceReference } from "./resourceReference";
 
-export interface ClusterResources {
+export type ClusterResources = {
   /** Cluster namespaces */
   namespaces?: ResourceReference[];
   /** Cluster RBAC role bindings */
   rbacs?: ResourceReference[];
-}
+};

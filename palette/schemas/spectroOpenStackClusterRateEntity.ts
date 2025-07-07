@@ -15,7 +15,7 @@ import type { OpenStackMachinePoolConfigEntity } from "./openStackMachinePoolCon
 /**
  * Openstack cluster request payload for estimating rate
  */
-export interface SpectroOpenStackClusterRateEntity {
+export type SpectroOpenStackClusterRateEntity = {
   cloudConfig?: OpenStackClusterConfig;
   machinepoolconfig?: OpenStackMachinePoolConfigEntity[];
-}
+};

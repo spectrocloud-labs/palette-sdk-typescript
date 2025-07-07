@@ -11,6 +11,6 @@
  */
 import type { ClusterEdgeInstallerConfigInstallerDownloadLinks } from "./clusterEdgeInstallerConfigInstallerDownloadLinks";
 
-export interface ClusterEdgeInstallerConfig {
+export type ClusterEdgeInstallerConfig = {
   installerDownloadLinks?: ClusterEdgeInstallerConfigInstallerDownloadLinks;
-}
+};

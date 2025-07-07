@@ -15,8 +15,8 @@ import type { EdgeNativeHybridMachinePoolHost } from "./edgeNativeHybridMachineP
 /**
  * EdgeNativeHybridMachineConfigEntity defines Edge Native machine configuration
  */
-export interface EdgeNativeHybridMachineConfigEntity {
+export type EdgeNativeHybridMachineConfigEntity = {
   archType: ArchType;
   /** Edge hosts configurations */
   edgeHosts: EdgeNativeHybridMachinePoolHost[];
-}
+};

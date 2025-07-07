@@ -15,8 +15,8 @@ import type { ProfileType } from "./profileType";
 /**
  * Cluster profile template update spec
  */
-export interface ClusterProfileTemplateUpdate {
+export type ClusterProfileTemplateUpdate = {
   /** Cluster profile packs array */
   packs?: PackManifestUpdateEntity[];
   type?: ProfileType;
-}
+};

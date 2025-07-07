@@ -15,9 +15,9 @@ import type { ReleaseDescription } from "./releaseDescription";
 /**
  * spectro application management release version information
  */
-export interface ReleaseVersion {
+export type ReleaseVersion = {
   date?: Time;
   description?: string;
   releaseNotes?: ReleaseDescription[];
   version?: string;
-}
+};

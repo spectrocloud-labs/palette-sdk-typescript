@@ -15,7 +15,7 @@ import type { SystemAdminProfileSpec } from "./systemAdminProfileSpec";
 /**
  * System Administrator Profile Entity
  */
-export interface SystemAdminProfile {
+export type SystemAdminProfile = {
   metadata?: ObjectMetaInputEntity;
   spec?: SystemAdminProfileSpec;
-}
+};

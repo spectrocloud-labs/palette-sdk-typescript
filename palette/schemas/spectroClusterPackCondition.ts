@@ -11,9 +11,9 @@
  */
 import type { SpectroClusterPackConditionType } from "./spectroClusterPackConditionType";
 
-export interface SpectroClusterPackCondition {
+export type SpectroClusterPackCondition = {
   message?: string;
   reason?: string;
   status?: string;
   type?: SpectroClusterPackConditionType;
-}
+};

@@ -15,7 +15,7 @@ import type { TenantCleanUpStatus } from "./tenantCleanUpStatus";
 /**
  * Resources of tenant
  */
-export interface CleanUpResource {
+export type CleanUpResource = {
   activeResources?: ActiveTenantResources;
   tenantStatus?: TenantCleanUpStatus;
-}
+};

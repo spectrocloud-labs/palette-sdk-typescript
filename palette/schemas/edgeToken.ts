@@ -16,8 +16,8 @@ import type { EdgeTokenStatus } from "./edgeTokenStatus";
 /**
  * Edge token information
  */
-export interface EdgeToken {
+export type EdgeToken = {
   metadata?: ObjectMeta;
   spec?: EdgeTokenSpec;
   status?: EdgeTokenStatus;
-}
+};

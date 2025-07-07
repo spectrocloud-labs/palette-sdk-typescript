@@ -13,7 +13,7 @@
 /**
  * payment secrets
  */
-export interface PaymentSecrets {
+export type PaymentSecrets = {
   publishableKey?: string;
   secretKey?: string;
-}
+};

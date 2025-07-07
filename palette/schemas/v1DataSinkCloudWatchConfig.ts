@@ -15,7 +15,7 @@ import type { V1CloudWatchConfig } from "./v1CloudWatchConfig";
 /**
  * Data sink cloud watch config
  */
-export interface V1DataSinkCloudWatchConfig {
+export type V1DataSinkCloudWatchConfig = {
   payload?: V1DataSinkPayloads;
   spec?: V1CloudWatchConfig;
-}
+};

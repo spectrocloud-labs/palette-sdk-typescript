@@ -15,7 +15,7 @@ import type { PackLayer } from "./packLayer";
 /**
  * Pack ref summary
  */
-export interface PackRefSummary {
+export type PackRefSummary = {
   addonType?: string;
   annotations?: PackRefSummaryAnnotations;
   displayName?: string;
@@ -26,4 +26,4 @@ export interface PackRefSummary {
   tag?: string;
   type?: string;
   version?: string;
-}
+};

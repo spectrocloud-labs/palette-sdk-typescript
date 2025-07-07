@@ -15,7 +15,7 @@ import type { SortOrder } from "./sortOrder";
 /**
  * Packs sort spec
  */
-export interface PackSortSpec {
+export type PackSortSpec = {
   field?: PackSortFields;
   order?: SortOrder;
-}
+};

@@ -21,7 +21,7 @@ import type { VmDataVolumeSourceVDDK } from "./vmDataVolumeSourceVDDK";
 /**
  * DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC
  */
-export interface VmDataVolumeSource {
+export type VmDataVolumeSource = {
   blank?: VmDataVolumeBlankImage;
   http?: VmDataVolumeSourceHttp;
   imageio?: VmDataVolumeSourceImageIO;
@@ -30,4 +30,4 @@ export interface VmDataVolumeSource {
   s3?: VmDataVolumeSourceS3;
   upload?: VmDataVolumeSourceUpload;
   vddk?: VmDataVolumeSourceVDDK;
-}
+};

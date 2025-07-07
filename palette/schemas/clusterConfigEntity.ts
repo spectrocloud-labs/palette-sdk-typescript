@@ -15,7 +15,7 @@ import type { ClusterLocation } from "./clusterLocation";
 import type { MachineManagementConfig } from "./machineManagementConfig";
 import type { ClusterResourcesEntity } from "./clusterResourcesEntity";
 
-export interface ClusterConfigEntity {
+export type ClusterConfigEntity = {
   /** ClusterMetaAttribute can be used to set additional cluster metadata information. */
   clusterMetaAttribute?: string;
   controlPlaneHealthCheckTimeout?: string;
@@ -25,4 +25,4 @@ export interface ClusterConfigEntity {
   machineManagementConfig?: MachineManagementConfig;
   resources?: ClusterResourcesEntity;
   updateWorkerPoolsInParallel?: boolean;
-}
+};

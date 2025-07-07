@@ -14,7 +14,7 @@ import type { ClusterBackupConfig } from "./clusterBackupConfig";
 /**
  * Cluster Backup Spec
  */
-export interface ClusterBackupSpec {
+export type ClusterBackupSpec = {
   clusterUid?: string;
   config?: ClusterBackupConfig;
-}
+};

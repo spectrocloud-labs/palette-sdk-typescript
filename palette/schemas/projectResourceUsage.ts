@@ -14,8 +14,8 @@ import type { ProjectMeta } from "./projectMeta";
 /**
  * project resource usage
  */
-export interface ProjectResourceUsage {
+export type ProjectResourceUsage = {
   alloyCpuCoreHours?: number;
   project?: ProjectMeta;
   pureCpuCoreHours?: number;
-}
+};

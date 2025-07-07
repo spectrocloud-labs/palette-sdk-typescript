@@ -14,7 +14,7 @@ import type { PaymentPlan } from "./paymentPlan";
 /**
  * Payment plan object model
  */
-export interface PaymentPlans {
+export type PaymentPlans = {
   /** List of Stripe plan details */
   stripePlanDetails: PaymentPlan[];
-}
+};

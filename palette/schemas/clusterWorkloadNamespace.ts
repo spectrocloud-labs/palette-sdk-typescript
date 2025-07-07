@@ -15,7 +15,7 @@ import type { ClusterWorkloadNamespaceStatus } from "./clusterWorkloadNamespaceS
 /**
  * Cluster workload namespace summary
  */
-export interface ClusterWorkloadNamespace {
+export type ClusterWorkloadNamespace = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadNamespaceStatus;
-}
+};

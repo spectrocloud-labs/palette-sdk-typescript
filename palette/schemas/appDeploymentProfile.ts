@@ -15,7 +15,7 @@ import type { AppProfileTemplate } from "./appProfileTemplate";
 /**
  * Application deployment profile
  */
-export interface AppDeploymentProfile {
+export type AppDeploymentProfile = {
   metadata?: AppDeploymentProfileMeta;
   template?: AppProfileTemplate;
-}
+};

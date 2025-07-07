@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface ApiProfiler {
+export type ApiProfiler = {
   api?: string;
   endTime?: string;
   ops?: string[];
   requestUid?: string;
   startTime?: string;
   timeTaken?: number;
-}
+};

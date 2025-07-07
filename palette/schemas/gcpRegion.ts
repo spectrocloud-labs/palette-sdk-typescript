@@ -13,9 +13,9 @@
 /**
  * Geographical region made up of zones where you can host your GCP resources
  */
-export interface GcpRegion {
+export type GcpRegion = {
   /** GCP region name */
   name?: string;
   /** GCP region status */
   status?: string;
-}
+};

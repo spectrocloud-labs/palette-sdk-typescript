@@ -15,8 +15,8 @@ import type { ClusterNamespaceResourceAllocation } from "./clusterNamespaceResou
 /**
  * Cluster namespace spec
  */
-export interface ClusterNamespaceSpec {
+export type ClusterNamespaceSpec = {
   isRegex?: boolean;
   relatedObject?: RelatedObject;
   resourceAllocation?: ClusterNamespaceResourceAllocation;
-}
+};

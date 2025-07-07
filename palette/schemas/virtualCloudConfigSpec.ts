@@ -15,8 +15,8 @@ import type { VirtualMachinePoolConfig } from "./virtualMachinePoolConfig";
 /**
  * VirtualCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec for cluster-api.
  */
-export interface VirtualCloudConfigSpec {
+export type VirtualCloudConfigSpec = {
   clusterConfig: VirtualClusterConfig;
   hostClusterUid: string;
   machinePoolConfig: VirtualMachinePoolConfig[];
-}
+};

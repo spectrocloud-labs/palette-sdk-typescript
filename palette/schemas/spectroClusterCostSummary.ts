@@ -12,9 +12,9 @@
 import type { SpectroClusterCost } from "./spectroClusterCost";
 import type { Time } from "./time";
 
-export interface SpectroClusterCostSummary {
+export type SpectroClusterCostSummary = {
   cluster?: SpectroClusterCost;
   endTime?: Time;
   period?: number;
   startTime?: Time;
-}
+};

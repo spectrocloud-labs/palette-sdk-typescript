@@ -15,7 +15,7 @@ import type { SpectroTunnelConfigRemoteSshTempUser } from "./spectroTunnelConfig
 /**
  * Spectro tunnel configuration
  */
-export interface SpectroTunnelConfig {
+export type SpectroTunnelConfig = {
   remoteSsh?: SpectroTunnelConfigRemoteSsh;
   remoteSshTempUser?: SpectroTunnelConfigRemoteSshTempUser;
-}
+};

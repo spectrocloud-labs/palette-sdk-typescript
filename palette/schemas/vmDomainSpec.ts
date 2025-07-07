@@ -20,7 +20,7 @@ import type { VmMachine } from "./vmMachine";
 import type { VmMemory } from "./vmMemory";
 import type { VmResourceRequirements } from "./vmResourceRequirements";
 
-export interface VmDomainSpec {
+export type VmDomainSpec = {
   chassis?: VmChassis;
   clock?: VmClock;
   cpu?: VmCpu;
@@ -33,4 +33,4 @@ export interface VmDomainSpec {
   machine?: VmMachine;
   memory?: VmMemory;
   resources?: VmResourceRequirements;
-}
+};

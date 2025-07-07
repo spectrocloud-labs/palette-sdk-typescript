@@ -14,8 +14,8 @@ import type { PlanCredit } from "./planCredit";
 /**
  * Invoice plan credit object
  */
-export interface InvoicePlanCredit {
+export type InvoicePlanCredit = {
   planCredit?: PlanCredit;
   /** Total used cpu core hours */
   totalCpuCoreHours?: number;
-}
+};

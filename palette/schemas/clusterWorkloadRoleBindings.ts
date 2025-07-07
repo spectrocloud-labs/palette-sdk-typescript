@@ -14,6 +14,6 @@ import type { ClusterWorkloadRoleBinding } from "./clusterWorkloadRoleBinding";
 /**
  * Cluster workload rbac bindings summary
  */
-export interface ClusterWorkloadRoleBindings {
+export type ClusterWorkloadRoleBindings = {
   bindings?: ClusterWorkloadRoleBinding[];
-}
+};

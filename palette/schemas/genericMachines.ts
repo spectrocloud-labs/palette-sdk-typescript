@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Generic machine list
  */
-export interface GenericMachines {
+export type GenericMachines = {
   items: GenericMachine[];
   listmeta?: ListMetaData;
-}
+};

@@ -14,7 +14,7 @@ import type { ClusterRoleRefKind } from "./clusterRoleRefKind";
 /**
  * Cluster role ref
  */
-export interface ClusterRoleRef {
+export type ClusterRoleRef = {
   kind?: ClusterRoleRefKind;
   name?: string;
-}
+};

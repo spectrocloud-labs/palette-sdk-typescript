@@ -13,9 +13,9 @@
 /**
  * Cluster heartbeat message
  */
-export interface SpectroClusterHeartbeat {
+export type SpectroClusterHeartbeat = {
   /** Version of the agent */
   agentVersion: string;
   /** Heartbeat message */
   message?: string;
-}
+};

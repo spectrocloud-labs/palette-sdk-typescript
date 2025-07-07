@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface MaasCloudAccount {
+export type MaasCloudAccount = {
   apiEndpoint: string;
   apiKey: string;
   /** list of preferred subnets order in the list reflects order in which subnets will be selected for ip address selection in apiserver dns endpoint this way user can specify external or preferable subnet "10.11.130.0/24,10.10.10.0/24" */
   preferredSubnets?: string[];
-}
+};

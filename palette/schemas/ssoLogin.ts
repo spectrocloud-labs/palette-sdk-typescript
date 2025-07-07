@@ -13,7 +13,7 @@
 /**
  * Describes the allowed sso login details
  */
-export interface SsoLogin {
+export type SsoLogin = {
   /** Describes the display name for the sso login */
   displayName?: string;
   /** Describes the url path for the sso login */
@@ -22,4 +22,4 @@ export interface SsoLogin {
   name?: string;
   /** Describes the sso login url for the authentication */
   redirectUri?: string;
-}
+};

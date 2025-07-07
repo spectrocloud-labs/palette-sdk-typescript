@@ -17,9 +17,9 @@ import type { DashboardWorkspaceStatus } from "./dashboardWorkspaceStatus";
 /**
  * Workspace information
  */
-export interface DashboardWorkspace {
+export type DashboardWorkspace = {
   meta?: DashboardWorkspaceMeta;
   metadata?: ObjectMeta;
   spec?: DashboardWorkspaceSpec;
   status?: DashboardWorkspaceStatus;
-}
+};

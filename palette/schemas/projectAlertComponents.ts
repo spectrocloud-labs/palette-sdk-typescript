@@ -14,6 +14,6 @@ import type { ProjectAlertComponent } from "./projectAlertComponent";
 /**
  * Supported project alerts component
  */
-export interface ProjectAlertComponents {
+export type ProjectAlertComponents = {
   components?: ProjectAlertComponent[];
-}
+};

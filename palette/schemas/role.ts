@@ -16,8 +16,8 @@ import type { RoleStatus } from "./roleStatus";
 /**
  * Role
  */
-export interface Role {
+export type Role = {
   metadata?: ObjectMeta;
   spec?: RoleSpec;
   status?: RoleStatus;
-}
+};

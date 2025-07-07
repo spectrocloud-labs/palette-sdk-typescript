@@ -12,11 +12,11 @@
 import type { OpenstackFlavorConfig } from "./openstackFlavorConfig";
 import type { OpenStackResource } from "./openStackResource";
 
-export interface OpenStackMachinePoolCloudConfigEntity {
+export type OpenStackMachinePoolCloudConfigEntity = {
   /** for control plane pool, this will be the failure domains for kcp */
   azs?: string[];
   /** Root disk size */
   diskGiB?: number;
   flavorConfig: OpenstackFlavorConfig;
   subnet?: OpenStackResource;
-}
+};

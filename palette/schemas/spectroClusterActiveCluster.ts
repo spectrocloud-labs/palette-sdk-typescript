@@ -14,7 +14,7 @@ import type { ObjectEntity } from "./objectEntity";
 /**
  * Active clusters
  */
-export interface SpectroClusterActiveCluster {
+export type SpectroClusterActiveCluster = {
   clusterRef?: ObjectEntity;
   state?: string;
-}
+};

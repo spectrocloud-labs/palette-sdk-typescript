@@ -14,6 +14,6 @@ import type { OpenStackMachine } from "./openStackMachine";
 /**
  * OpenStack machine list
  */
-export interface OpenStackMachines {
+export type OpenStackMachines = {
   items: OpenStackMachine[];
-}
+};

@@ -14,7 +14,7 @@ import type { FilterString } from "./filterString";
 /**
  * Spectro cluster filter spec
  */
-export interface SpectroClusterMetadataFilterSpec {
+export type SpectroClusterMetadataFilterSpec = {
   environment?: string;
   includeVirtual?: boolean;
   /** isAlloy is renamed to isImported */
@@ -23,4 +23,4 @@ export interface SpectroClusterMetadataFilterSpec {
   isImported?: boolean;
   name?: FilterString;
   state?: string;
-}
+};

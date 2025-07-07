@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeHostDeviceHostPairingKey {
+export type EdgeHostDeviceHostPairingKey = {
   hostPairingKey?: string;
-}
+};

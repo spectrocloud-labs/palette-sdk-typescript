@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface AwsCloudCostSummaryMonthlyCost {
+export type AwsCloudCostSummaryMonthlyCost = {
   /** Amount for aws cloud cost */
   amount?: number;
   /** Time duration for aws cloud cost */
   timestamp?: number;
-}
+};

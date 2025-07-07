@@ -19,7 +19,7 @@ import type { InvoicePlan } from "./invoicePlan";
 /**
  * Invoice specification
  */
-export interface InvoiceSpec {
+export type InvoiceSpec = {
   address?: Address;
   billingPeriod?: InvoiceBillingPeriod;
   credits?: InvoiceCredits;
@@ -28,4 +28,4 @@ export interface InvoiceSpec {
   month?: Time;
   paymentUnit?: InvoiceSpecPaymentUnit;
   plan?: InvoicePlan;
-}
+};

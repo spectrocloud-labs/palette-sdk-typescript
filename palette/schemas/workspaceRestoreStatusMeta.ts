@@ -15,8 +15,8 @@ import type { WorkspaceClusterRestoreConfig } from "./workspaceClusterRestoreCon
 /**
  * Workspace restore status meta
  */
-export interface WorkspaceRestoreStatusMeta {
+export type WorkspaceRestoreStatusMeta = {
   actor?: ClusterFeatureActor;
   requestUid?: string;
   workspaceRestoreConfig?: WorkspaceClusterRestoreConfig;
-}
+};

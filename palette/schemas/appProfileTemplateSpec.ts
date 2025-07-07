@@ -15,9 +15,9 @@ import type { ObjectReference } from "./objectReference";
 /**
  * Application profile template specs
  */
-export interface AppProfileTemplateSpec {
+export type AppProfileTemplateSpec = {
   /** Application profile tiers */
   appTiers?: AppTier[];
   /** Application profile registries reference */
   registryRefs?: ObjectReference[];
-}
+};

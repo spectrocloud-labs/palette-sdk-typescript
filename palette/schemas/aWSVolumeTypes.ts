@@ -14,6 +14,6 @@ import type { AwsVolumeType } from "./awsVolumeType";
 /**
  * AWS Volume Types
  */
-export interface AWSVolumeTypes {
+export type AWSVolumeTypes = {
   volumeTypes?: AwsVolumeType[];
-}
+};

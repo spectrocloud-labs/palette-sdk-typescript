@@ -13,9 +13,9 @@
 /**
  * Aws sts credentials
  */
-export interface AwsStsCredentials {
+export type AwsStsCredentials = {
   /** Arn for the aws sts credentials in cloud account */
   arn?: string;
   /** ExternalId for the aws sts credentials in cloud account */
   externalId?: string;
-}
+};

@@ -13,9 +13,9 @@
 /**
  * Response of create API key
  */
-export interface ApiKeyCreateResponse {
+export type ApiKeyCreateResponse = {
   /** Api key is used for authentication */
   apiKey?: string;
   /** User uid */
   uid?: string;
-}
+};

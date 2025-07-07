@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthShellyLoginRequest {
+export type AuthShellyLoginRequest = {
   secret?: string;
-}
+};

@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface ResourceReference {
+export type ResourceReference = {
   kind?: string;
   name?: string;
   uid: string;
-}
+};

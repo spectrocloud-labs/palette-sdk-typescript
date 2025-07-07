@@ -15,9 +15,9 @@ import type { ServiceManifestSpec } from "./serviceManifestSpec";
 /**
  * Service manifest information
  */
-export interface ServiceManifest {
+export type ServiceManifest = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: ServiceManifestSpec;
-}
+};

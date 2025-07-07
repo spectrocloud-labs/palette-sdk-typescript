@@ -15,7 +15,7 @@ import type { CustomCloudAccount } from "./customCloudAccount";
 /**
  * Custom account information
  */
-export interface CustomAccountEntity {
+export type CustomAccountEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: CustomCloudAccount;
-}
+};

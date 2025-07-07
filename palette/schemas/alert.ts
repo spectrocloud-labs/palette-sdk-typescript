@@ -11,7 +11,7 @@
  */
 import type { Channel } from "./channel";
 
-export interface Alert {
+export type Alert = {
   channels?: Channel[];
   component?: string;
-}
+};

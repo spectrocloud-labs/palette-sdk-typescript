@@ -14,6 +14,6 @@ import type { VmQuantity } from "./vmQuantity";
 /**
  * EmptyDisk represents a temporary disk which shares the vmis lifecycle.
  */
-export interface VmEmptyDiskSource {
+export type VmEmptyDiskSource = {
   capacity: VmQuantity;
-}
+};

@@ -15,7 +15,7 @@ import type { SpectroClusterCloudCostSummaryOptions } from "./spectroClusterClou
 /**
  * Spectro cluster cloud cost summary spec
  */
-export interface SpectroClusterCloudCostSummarySpec {
+export type SpectroClusterCloudCostSummarySpec = {
   filter?: SpectroClusterCloudCostSummaryFilter;
   options?: SpectroClusterCloudCostSummaryOptions;
-}
+};

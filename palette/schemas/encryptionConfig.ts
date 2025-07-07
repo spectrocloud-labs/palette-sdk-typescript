@@ -13,11 +13,11 @@
 /**
  * EncryptionConfig specifies the encryption configuration for the EKS clsuter.
  */
-export interface EncryptionConfig {
+export type EncryptionConfig = {
   /** Is encryption configuration enabled for the cluster */
   isEnabled?: boolean;
   /** Provider specifies the ARN or alias of the CMK (in AWS KMS) */
   provider?: string;
   /** Resources specifies the resources to be encrypted */
   resources?: string[];
-}
+};

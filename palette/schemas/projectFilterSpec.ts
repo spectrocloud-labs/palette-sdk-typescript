@@ -14,6 +14,6 @@ import type { FilterString } from "./filterString";
 /**
  * Project filter spec
  */
-export interface ProjectFilterSpec {
+export type ProjectFilterSpec = {
   name?: FilterString;
-}
+};

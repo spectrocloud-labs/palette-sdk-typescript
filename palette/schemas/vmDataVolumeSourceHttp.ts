@@ -13,7 +13,7 @@
 /**
  * DataVolumeSourceHTTP can be either an http or https endpoint, with an optional basic auth user name and password, and an optional configmap containing additional CAs
  */
-export interface VmDataVolumeSourceHttp {
+export type VmDataVolumeSourceHttp = {
   /** CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate */
   certConfigMap?: string;
   /** ExtraHeaders is a list of strings containing extra headers to include with HTTP transfer requests */
@@ -24,4 +24,4 @@ export interface VmDataVolumeSourceHttp {
   secretRef?: string;
   /** URL is the URL of the http(s) endpoint */
   url: string;
-}
+};

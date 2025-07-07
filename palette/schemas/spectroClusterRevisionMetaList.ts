@@ -11,6 +11,6 @@
  */
 import type { SpectroClusterRevisionMeta } from "./spectroClusterRevisionMeta";
 
-export interface SpectroClusterRevisionMetaList {
+export type SpectroClusterRevisionMetaList = {
   spcRevisions?: SpectroClusterRevisionMeta[];
-}
+};

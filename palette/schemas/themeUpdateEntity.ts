@@ -15,7 +15,7 @@ import type { ThemeSpec } from "./themeSpec";
 /**
  * Theme data update entity
  */
-export interface ThemeUpdateEntity {
+export type ThemeUpdateEntity = {
   metadata?: ObjectMetaUpdateEntity;
   spec?: ThemeSpec;
-}
+};

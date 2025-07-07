@@ -13,7 +13,7 @@
 /**
  * Maas domain
  */
-export interface MaasDomain {
+export type MaasDomain = {
   /** Name of Maas domain */
   name?: string;
-}
+};

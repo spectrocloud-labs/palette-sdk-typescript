@@ -11,6 +11,6 @@
  */
 import type { ClusterRbacInputEntity } from "./clusterRbacInputEntity";
 
-export interface ClusterRbacResourcesUpdateEntity {
+export type ClusterRbacResourcesUpdateEntity = {
   rbacs?: ClusterRbacInputEntity[];
-}
+};

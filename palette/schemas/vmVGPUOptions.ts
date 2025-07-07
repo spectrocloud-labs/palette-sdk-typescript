@@ -11,6 +11,6 @@
  */
 import type { VmVGPUDisplayOptions } from "./vmVGPUDisplayOptions";
 
-export interface VmVGPUOptions {
+export type VmVGPUOptions = {
   display?: VmVGPUDisplayOptions;
-}
+};

@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * User status
  */
-export interface UserStatus {
+export type UserStatus = {
   /** provides the link to activate or reset the user password */
   activationLink?: string;
   /** Specifies if user account is active/disabled */
@@ -22,4 +22,4 @@ export interface UserStatus {
   /** Specifies if user in multi org requested password reset */
   isPasswordResetting?: boolean;
   lastSignIn?: Time;
-}
+};

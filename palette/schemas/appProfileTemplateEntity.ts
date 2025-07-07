@@ -14,7 +14,7 @@ import type { AppTierEntity } from "./appTierEntity";
 /**
  * Application profile template spec
  */
-export interface AppProfileTemplateEntity {
+export type AppProfileTemplateEntity = {
   /** Application profile tiers */
   appTiers?: AppTierEntity[];
-}
+};

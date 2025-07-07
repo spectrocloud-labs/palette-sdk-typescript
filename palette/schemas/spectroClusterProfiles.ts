@@ -12,7 +12,7 @@
 import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
 import type { SpcApplySettings } from "./spcApplySettings";
 
-export interface SpectroClusterProfiles {
+export type SpectroClusterProfiles = {
   profiles: SpectroClusterProfileEntity[];
   spcApplySettings?: SpcApplySettings;
-}
+};

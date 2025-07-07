@@ -14,6 +14,6 @@ import type { EdgeNativeMachine } from "./edgeNativeMachine";
 /**
  * EdgeNative machine list
  */
-export interface EdgeNativeMachines {
+export type EdgeNativeMachines = {
   items: EdgeNativeMachine[];
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 import type {
-  ApiEndpoint,
+  APIEndpoint,
   ClusterBackup,
   ClusterBackupLocationType,
   ClusterComplianceOnDemandConfig,
@@ -6035,7 +6035,7 @@ export const getSpectroClustersUpdateStatusEndpointsUrl = (uid: string) => {
 
 export const spectroClustersUpdateStatusEndpoints = async (
   uid: string,
-  apiEndpoint: ApiEndpoint[],
+  aPIEndpoint: APIEndpoint[],
   options?: RequestInit,
 ): Promise<spectroClustersUpdateStatusEndpointsResponse> => {
   return customInstance<spectroClustersUpdateStatusEndpointsResponse>(
@@ -6044,7 +6044,7 @@ export const spectroClustersUpdateStatusEndpoints = async (
       ...options,
       method: "PUT",
       headers: { "Content-Type": "application/json", ...options?.headers },
-      body: JSON.stringify(apiEndpoint),
+      body: JSON.stringify(aPIEndpoint),
     },
   );
 };

@@ -14,6 +14,6 @@ import type { SystemPlanLimit } from "./systemPlanLimit";
 /**
  * System Plan limit change update entity
  */
-export interface SystemPlanLimitUpdate {
+export type SystemPlanLimitUpdate = {
   planLimit?: SystemPlanLimit;
-}
+};

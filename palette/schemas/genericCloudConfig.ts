@@ -15,8 +15,8 @@ import type { GenericCloudConfigSpec } from "./genericCloudConfigSpec";
 /**
  * Generic CloudConfig for all cloud types
  */
-export interface GenericCloudConfig {
+export type GenericCloudConfig = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: GenericCloudConfigSpec;
-}
+};

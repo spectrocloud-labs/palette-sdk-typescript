@@ -15,8 +15,8 @@ import type { FilterArray } from "./filterArray";
 /**
  * Application deployment filter spec
  */
-export interface AppDeploymentFilterSpec {
+export type AppDeploymentFilterSpec = {
   appDeploymentName?: FilterString;
   clusterUids?: FilterArray;
   tags?: FilterArray;
-}
+};

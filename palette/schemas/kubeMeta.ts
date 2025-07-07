@@ -13,9 +13,9 @@
 /**
  * Spectro cluster kube meta
  */
-export interface KubeMeta {
+export type KubeMeta = {
   hasKubeConfig?: boolean;
   hasKubeConfigClient?: boolean;
   hasManifest?: boolean;
   kubernetesVersion?: string;
-}
+};

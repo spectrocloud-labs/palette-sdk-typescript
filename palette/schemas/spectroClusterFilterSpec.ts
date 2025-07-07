@@ -19,7 +19,7 @@ import type { FilterArray } from "./filterArray";
 /**
  * Spectro cluster filter spec
  */
-export interface SpectroClusterFilterSpec {
+export type SpectroClusterFilterSpec = {
   cloudAccounts?: string[];
   clusterName?: FilterString;
   clusterProfiles?: string[];
@@ -37,4 +37,4 @@ export interface SpectroClusterFilterSpec {
   metricPeriod?: number;
   projectUids?: string[];
   tags?: FilterArray;
-}
+};

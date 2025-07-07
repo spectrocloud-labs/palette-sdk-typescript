@@ -16,7 +16,7 @@ import type { TlsConfiguration } from "./tlsConfiguration";
 /**
  * Ecr registry spec
  */
-export interface EcrRegistrySpec {
+export type EcrRegistrySpec = {
   /** OCI ecr registry content base path */
   baseContentPath?: string;
   containsSpectroManifest?: boolean;
@@ -30,4 +30,4 @@ export interface EcrRegistrySpec {
   registryUid?: string;
   scope?: string;
   tls?: TlsConfiguration;
-}
+};

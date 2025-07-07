@@ -11,6 +11,6 @@
  */
 import type { ActivationsSystemResponseStatus } from "./activationsSystemResponseStatus";
 
-export interface ActivationsSystemResponse {
+export type ActivationsSystemResponse = {
   status?: ActivationsSystemResponseStatus;
-}
+};

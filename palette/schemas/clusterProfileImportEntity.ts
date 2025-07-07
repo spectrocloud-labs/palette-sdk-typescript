@@ -15,7 +15,7 @@ import type { ClusterProfileSpecImportEntity } from "./clusterProfileSpecImportE
 /**
  * Cluster profile import request payload
  */
-export interface ClusterProfileImportEntity {
+export type ClusterProfileImportEntity = {
   metadata?: ClusterProfileMetadataImportEntity;
   spec?: ClusterProfileSpecImportEntity;
-}
+};

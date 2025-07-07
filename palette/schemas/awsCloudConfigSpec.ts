@@ -17,9 +17,9 @@ import type { AwsMachinePoolConfig } from "./awsMachinePoolConfig";
 /**
  * AwsCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api
  */
-export interface AwsCloudConfigSpec {
+export type AwsCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: AwsClusterConfig;
   hybridMachinePools?: AwsHybridMachinePool[];
   machinePoolConfig?: AwsMachinePoolConfig[];
-}
+};

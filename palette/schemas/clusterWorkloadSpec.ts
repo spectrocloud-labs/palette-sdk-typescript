@@ -20,7 +20,7 @@ import type { ClusterWorkloadStatefulSet } from "./clusterWorkloadStatefulSet";
 /**
  * Cluster workload spec
  */
-export interface ClusterWorkloadSpec {
+export type ClusterWorkloadSpec = {
   clusterroleBindings?: ClusterWorkloadRoleBinding[];
   cronJobs?: ClusterWorkloadCronJob[];
   daemonSets?: ClusterWorkloadDaemonSet[];
@@ -29,4 +29,4 @@ export interface ClusterWorkloadSpec {
   pods?: ClusterWorkloadPod[];
   roleBindings?: ClusterWorkloadRoleBinding[];
   statefulSets?: ClusterWorkloadStatefulSet[];
-}
+};

@@ -16,7 +16,7 @@ import type { MaasCloudConfigStatusRoleDigest } from "./maasCloudConfigStatusRol
 /**
  * MaasCloudConfigStatus defines the observed state of MaasCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool
  */
-export interface MaasCloudConfigStatus {
+export type MaasCloudConfigStatus = {
   /** For mold controller to identify if is there any changes in Pack */
   ansibleRoleDigest?: string;
   conditions?: ClusterCondition[];
@@ -29,4 +29,4 @@ export interface MaasCloudConfigStatus {
   sourceImageId?: string;
   /** PackerVariableDigest string `json:"packerDigest,omitempty"` If no ansible roles found in Packs then Mold should tell Drive to use capi image and not create custom image, because there is nothing to add */
   useCapiImage?: boolean;
-}
+};

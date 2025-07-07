@@ -13,7 +13,7 @@
 /**
  * If set (default), BIOS will be used.
  */
-export interface VmBIOS {
+export type VmBIOS = {
   /** If set, the BIOS output will be transmitted over serial */
   useSerial?: boolean;
-}
+};

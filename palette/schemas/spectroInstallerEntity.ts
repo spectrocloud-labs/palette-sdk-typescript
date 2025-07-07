@@ -16,8 +16,8 @@ import type { InstallerStatus } from "./installerStatus";
 /**
  * Spectro installer entity for create
  */
-export interface SpectroInstallerEntity {
+export type SpectroInstallerEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroInstallerEntitySpec;
   status?: InstallerStatus;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Custom cloudType custom cloud account keys
  */
-export interface CustomCloudTypeCloudAccountKeys {
+export type CustomCloudTypeCloudAccountKeys = {
   /** Array of custom cloud type cloud account keys */
   keys?: string[];
-}
+};

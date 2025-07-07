@@ -14,7 +14,7 @@ import type { Organization } from "./organization";
 /**
  * Returns a list of user's organizations details and login methods
  */
-export interface Organizations {
+export type Organizations = {
   /** Describes a list of user's organization */
   organizations?: Organization[];
-}
+};

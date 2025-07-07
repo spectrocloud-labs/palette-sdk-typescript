@@ -15,7 +15,7 @@ import type { TenantUsage } from "./tenantUsage";
 /**
  * Monthly usage object
  */
-export interface MonthlyUsage {
+export type MonthlyUsage = {
   month?: Time;
   /** List of tenants usage */
   tenantUsages?: TenantUsage[];
@@ -23,4 +23,4 @@ export interface MonthlyUsage {
   usedAlloyCredits?: number;
   /** Credits used by managed clusters */
   usedPureCredits?: number;
-}
+};

@@ -14,7 +14,7 @@ import type { AppDeploymentClusterHealth } from "./appDeploymentClusterHealth";
 /**
  * Application deployment cluster status
  */
-export interface AppDeploymentClusterStatus {
+export type AppDeploymentClusterStatus = {
   health?: AppDeploymentClusterHealth;
   state?: string;
-}
+};

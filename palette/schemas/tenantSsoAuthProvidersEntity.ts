@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface TenantSsoAuthProvidersEntity {
+export type TenantSsoAuthProvidersEntity = {
   isEnabled?: boolean;
   ssoLogins?: string[];
-}
+};

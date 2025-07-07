@@ -14,7 +14,7 @@ import type { InstanceCost } from "./instanceCost";
 /**
  * Cloud Instance type details
  */
-export interface InstanceType {
+export type InstanceType = {
   /** Category of instance type */
   category?: string;
   cost?: InstanceCost;
@@ -32,4 +32,4 @@ export interface InstanceType {
   supportedArchitectures?: string[];
   /** Type of instance type */
   type?: string;
-}
+};

@@ -15,7 +15,7 @@ import type { ClusterRbacBinding } from "./clusterRbacBinding";
 /**
  * Cluster workload rbac binding summary
  */
-export interface ClusterWorkloadRoleBinding {
+export type ClusterWorkloadRoleBinding = {
   metadata?: ClusterWorkloadMetadata;
   spec?: ClusterRbacBinding;
-}
+};

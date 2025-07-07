@@ -14,7 +14,7 @@ import type { WorkspaceRestoreConfig } from "./workspaceRestoreConfig";
 /**
  * Cluster restore config
  */
-export interface WorkspaceRestoreConfigEntity {
+export type WorkspaceRestoreConfigEntity = {
   backupRequestUid: string;
   restoreConfigs?: WorkspaceRestoreConfig[];
-}
+};

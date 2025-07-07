@@ -13,11 +13,11 @@
 /**
  * Feature spec
  */
-export interface FeatureSpec {
+export type FeatureSpec = {
   /** Feature description */
   description?: string;
   /** Feature doc link */
   docLink?: string;
   /** Feature key */
   key?: string;
-}
+};

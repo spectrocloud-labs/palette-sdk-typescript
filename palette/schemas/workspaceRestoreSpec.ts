@@ -13,6 +13,6 @@
 /**
  * Workspace restore spec
  */
-export interface WorkspaceRestoreSpec {
+export type WorkspaceRestoreSpec = {
   workspaceUid?: string;
-}
+};

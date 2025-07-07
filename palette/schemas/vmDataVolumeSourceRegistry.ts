@@ -13,7 +13,7 @@
 /**
  * DataVolumeSourceRegistry provides the parameters to create a Data Volume from an registry source
  */
-export interface VmDataVolumeSourceRegistry {
+export type VmDataVolumeSourceRegistry = {
   /** CertConfigMap provides a reference to the Registry certs */
   certConfigMap?: string;
   /** ImageStream is the name of image stream for import */
@@ -24,4 +24,4 @@ export interface VmDataVolumeSourceRegistry {
   secretRef?: string;
   /** URL is the url of the registry source (starting with the scheme: docker, oci-archive) */
   url?: string;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { SpectroTunnelConfig } from "./spectroTunnelConfig";
 
-export interface EdgeHostConfig {
+export type EdgeHostConfig = {
   clusterUids?: string[];
   tunnelConfig?: SpectroTunnelConfig;
-}
+};

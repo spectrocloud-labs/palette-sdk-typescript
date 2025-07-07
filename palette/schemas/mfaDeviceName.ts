@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface MfaDeviceName {
+export type MfaDeviceName = {
   deviceName?: string;
-}
+};

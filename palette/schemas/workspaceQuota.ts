@@ -14,6 +14,6 @@ import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation"
 /**
  * Workspace resource quota
  */
-export interface WorkspaceQuota {
+export type WorkspaceQuota = {
   resourceAllocation?: WorkspaceResourceAllocation;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster notifications status
  */
-export interface ClusterNotificationStatus {
+export type ClusterNotificationStatus = {
   isAvailable?: boolean;
-}
+};

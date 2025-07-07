@@ -14,11 +14,11 @@ import type { ClusterMeta } from "./clusterMeta";
 /**
  * Active clusters information
  */
-export interface ClustersInfo {
+export type ClustersInfo = {
   clustersMeta?: ClusterMeta[];
   totalActiveClusters?: number;
   totalActiveGreenFieldClusters?: number;
   totalActiveImportedClusters?: number;
   totalClustersDeleted?: number;
   totalClustersDeployed?: number;
-}
+};

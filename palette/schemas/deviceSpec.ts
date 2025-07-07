@@ -22,7 +22,7 @@ import type { Os } from "./os";
 /**
  * DeviceSpec defines the desired state of Device
  */
-export interface DeviceSpec {
+export type DeviceSpec = {
   /** Architecture type of the edge host */
   archType?: DeviceSpecArchType;
   cpu?: Cpu;
@@ -37,4 +37,4 @@ export interface DeviceSpec {
   os?: Os;
   /** Secure boot configuration */
   secureBoot?: boolean;
-}
+};

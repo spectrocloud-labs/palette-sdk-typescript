@@ -15,8 +15,8 @@ import type { StorageRate } from "./storageRate";
 /**
  * Cloud estimated rate information
  */
-export interface CloudRate {
+export type CloudRate = {
   compute?: ComputeRate;
   storage?: StorageRate[];
   total?: number;
-}
+};

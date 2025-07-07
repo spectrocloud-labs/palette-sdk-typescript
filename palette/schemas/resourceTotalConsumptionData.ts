@@ -14,7 +14,7 @@ import type { ResourceConsumptionData } from "./resourceConsumptionData";
 /**
  * Resource total cosumption data
  */
-export interface ResourceTotalConsumptionData {
+export type ResourceTotalConsumptionData = {
   allotted?: ResourceConsumptionData;
   usage?: ResourceConsumptionData;
-}
+};

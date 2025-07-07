@@ -14,6 +14,6 @@ import type { SystemAzureSpec } from "./systemAzureSpec";
 /**
  * SystemAdmin
  */
-export interface SystemAzureAccount {
+export type SystemAzureAccount = {
   spec?: SystemAzureSpec;
-}
+};

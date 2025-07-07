@@ -11,6 +11,6 @@
  */
 import type { ServiceImage } from "./serviceImage";
 
-export interface ServicesImages {
+export type ServicesImages = {
   serviceImages?: ServiceImage[];
-}
+};

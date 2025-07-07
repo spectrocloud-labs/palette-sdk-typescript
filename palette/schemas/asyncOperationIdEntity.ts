@@ -13,7 +13,7 @@
 /**
  * Async operation id
  */
-export interface AsyncOperationIdEntity {
+export type AsyncOperationIdEntity = {
   /** OperationId for a particular sync operation id */
   operationId?: string;
-}
+};

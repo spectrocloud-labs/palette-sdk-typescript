@@ -12,8 +12,8 @@
 import type { HostClusterEndpointConfig } from "./hostClusterEndpointConfig";
 import type { HostClusterEndpointType } from "./hostClusterEndpointType";
 
-export interface HostClusterEndpoint {
+export type HostClusterEndpoint = {
   config?: HostClusterEndpointConfig;
   /** is enabled as host cluster */
   type?: HostClusterEndpointType;
-}
+};

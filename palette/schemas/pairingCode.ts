@@ -13,6 +13,6 @@
 /**
  * Pairing code response
  */
-export interface PairingCode {
+export type PairingCode = {
   pairingCode?: string;
-}
+};

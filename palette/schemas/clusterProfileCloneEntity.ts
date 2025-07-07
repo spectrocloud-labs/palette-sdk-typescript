@@ -14,6 +14,6 @@ import type { ClusterProfileCloneMetaInputEntity } from "./clusterProfileCloneMe
 /**
  * Cluster profile clone request payload
  */
-export interface ClusterProfileCloneEntity {
+export type ClusterProfileCloneEntity = {
   metadata?: ClusterProfileCloneMetaInputEntity;
-}
+};

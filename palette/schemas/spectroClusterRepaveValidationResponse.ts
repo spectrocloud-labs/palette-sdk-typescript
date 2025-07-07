@@ -14,8 +14,8 @@ import type { SpectroClusterRepaveReason } from "./spectroClusterRepaveReason";
 /**
  * Cluster repave validation response
  */
-export interface SpectroClusterRepaveValidationResponse {
+export type SpectroClusterRepaveValidationResponse = {
   /** If true then the pack changes can cause cluster repave */
   isRepaveRequired?: boolean;
   reasons?: SpectroClusterRepaveReason[];
-}
+};

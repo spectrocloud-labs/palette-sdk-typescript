@@ -13,11 +13,11 @@
 /**
  * Eks properties validate spec
  */
-export interface EksPropertiesValidateSpec {
+export type EksPropertiesValidateSpec = {
   cloudAccountUid?: string;
   name?: string;
   region?: string;
   sshKeyName?: string;
   subnets?: string[];
   vpcId?: string;
-}
+};

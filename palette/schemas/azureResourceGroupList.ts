@@ -14,6 +14,6 @@ import type { ResourceGroup } from "./resourceGroup";
 /**
  * List of Azure resource group
  */
-export interface AzureResourceGroupList {
+export type AzureResourceGroupList = {
   resourceGroupList?: ResourceGroup[];
-}
+};

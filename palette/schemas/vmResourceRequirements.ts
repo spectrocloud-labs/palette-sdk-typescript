@@ -12,11 +12,11 @@
 import type { VmResourceRequirementsLimits } from "./vmResourceRequirementsLimits";
 import type { VmResourceRequirementsRequests } from "./vmResourceRequirementsRequests";
 
-export interface VmResourceRequirements {
+export type VmResourceRequirements = {
   /** Limits describes the maximum amount of compute resources allowed. Valid resource keys are "memory" and "cpu". */
   limits?: VmResourceRequirementsLimits;
   /** Don't ask the scheduler to take the guest-management overhead into account. Instead put the overhead only into the container's memory limit. This can lead to crashes if all memory is in use on a node. Defaults to false. */
   overcommitGuestOverhead?: boolean;
   /** Requests is a description of the initial vmi resources. Valid resource keys are "memory" and "cpu". */
   requests?: VmResourceRequirementsRequests;
-}
+};

@@ -14,6 +14,6 @@ import type { MgmtAppVersionVersion } from "./mgmtAppVersionVersion";
 /**
  * spectro application management version
  */
-export interface MgmtAppVersion {
+export type MgmtAppVersion = {
   version?: MgmtAppVersionVersion;
-}
+};

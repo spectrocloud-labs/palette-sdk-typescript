@@ -11,6 +11,6 @@
  */
 import type { ClusterProfilePacksManifests } from "./clusterProfilePacksManifests";
 
-export interface SpectroClusterProfilesPacksManifests {
+export type SpectroClusterProfilesPacksManifests = {
   profiles: ClusterProfilePacksManifests[];
-}
+};

@@ -11,9 +11,9 @@
  */
 import type { ErrorDetails } from "./errorDetails";
 
-export interface Error {
+export type Error = {
   code?: string;
   details?: ErrorDetails;
   message?: string;
   ref?: string;
-}
+};

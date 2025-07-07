@@ -15,7 +15,7 @@ import type { ClusterProfilePacksManifestsSpec } from "./clusterProfilePacksMani
 /**
  * Cluster profile pack manifests
  */
-export interface ClusterProfilePacksManifests {
+export type ClusterProfilePacksManifests = {
   metadata?: ObjectMeta;
   spec?: ClusterProfilePacksManifestsSpec;
-}
+};

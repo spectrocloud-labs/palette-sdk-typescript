@@ -2074,7 +2074,6 @@ export * from "./transferJob";
 export * from "./tunnelConfiguration";
 export * from "./tunnelEndpoint";
 export * from "./tunnelEndpointTls";
-export * from "./urlEncodedBase64";
 export * from "./uid";
 export * from "./uidRoleSummary";
 export * from "./uidSummary";

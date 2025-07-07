@@ -15,10 +15,10 @@ import type { SystemAdminMfa } from "./systemAdminMfa";
 /**
  * System Administrator Entity Specification
  */
-export interface SystemAdministratorSpec {
+export type SystemAdministratorSpec = {
   adminType: SystemAdministratorSpecAdminType;
   emailId: string;
   firstName: string;
   lastName: string;
   mfa?: SystemAdminMfa;
-}
+};

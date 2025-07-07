@@ -15,7 +15,7 @@ import type { SpectroEksClusterEntitySpec } from "./spectroEksClusterEntitySpec"
 /**
  * Spectro EKS cluster request payload for create and update
  */
-export interface SpectroEksClusterEntity {
+export type SpectroEksClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroEksClusterEntitySpec;
-}
+};

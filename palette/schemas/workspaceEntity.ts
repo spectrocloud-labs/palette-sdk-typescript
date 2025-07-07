@@ -15,7 +15,7 @@ import type { WorkspaceSpec } from "./workspaceSpec";
 /**
  * Workspace information
  */
-export interface WorkspaceEntity {
+export type WorkspaceEntity = {
   metadata?: ObjectMeta;
   spec?: WorkspaceSpec;
-}
+};

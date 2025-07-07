@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of virtual machines
  */
-export interface VirtualMachines {
+export type VirtualMachines = {
   items: VirtualMachine[];
   listmeta?: ListMetaData;
-}
+};

@@ -16,7 +16,7 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * VSphere account information
  */
-export interface VsphereAccount {
+export type VsphereAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface VsphereAccount {
   metadata?: ObjectMeta;
   spec?: VsphereCloudAccount;
   status?: CloudAccountStatus;
-}
+};

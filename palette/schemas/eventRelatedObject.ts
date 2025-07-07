@@ -14,8 +14,8 @@ import type { EventRelatedObjectKind } from "./eventRelatedObjectKind";
 /**
  * Object for which the event is related
  */
-export interface EventRelatedObject {
+export type EventRelatedObject = {
   kind?: EventRelatedObjectKind;
   name?: string;
   uid?: string;
-}
+};

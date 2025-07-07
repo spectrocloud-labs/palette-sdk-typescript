@@ -13,8 +13,8 @@
 /**
  * Enable or Disable cluster group for a tenant
  */
-export interface TenantEnableClusterGroup {
+export type TenantEnableClusterGroup = {
   hideSystemClusterGroups?: boolean;
   /** Deprecated. Use hideSystemClusterGroups field */
   isClusterGroupEnabled?: boolean;
-}
+};

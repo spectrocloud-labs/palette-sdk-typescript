@@ -14,6 +14,6 @@ import type { GcpNetwork } from "./gcpNetwork";
 /**
  * List of GCP networks
  */
-export interface GcpNetworks {
+export type GcpNetworks = {
   networks?: GcpNetwork[];
-}
+};

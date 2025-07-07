@@ -13,8 +13,8 @@
 /**
  * Cluster total estimated rate information
  */
-export interface TotalClusterRate {
+export type TotalClusterRate = {
   compute?: number;
   storage?: number;
   total?: number;
-}
+};

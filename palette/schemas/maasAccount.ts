@@ -16,10 +16,10 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * Maas cloud account information
  */
-export interface MaasAccount {
+export type MaasAccount = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: MaasCloudAccount;
   status?: CloudAccountStatus;
-}
+};

@@ -14,7 +14,7 @@ import type { IncludeClusterResourceMode } from "./includeClusterResourceMode";
 /**
  * Cluster restore config
  */
-export interface ClusterRestoreConfig {
+export type ClusterRestoreConfig = {
   backupName: string;
   backupRequestUid: string;
   destinationClusterUid: string;
@@ -24,4 +24,4 @@ export interface ClusterRestoreConfig {
   includeNamespaces?: string[];
   preserveNodePorts?: boolean;
   restorePVs?: boolean;
-}
+};

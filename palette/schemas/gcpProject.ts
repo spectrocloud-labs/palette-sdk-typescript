@@ -13,9 +13,9 @@
 /**
  * GCP project organizes all Google Cloud resources
  */
-export interface GcpProject {
+export type GcpProject = {
   /** GCP project id */
   id?: string;
   /** GCP project name */
   name?: string;
-}
+};

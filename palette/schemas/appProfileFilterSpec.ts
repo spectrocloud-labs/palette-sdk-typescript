@@ -16,8 +16,8 @@ import type { FilterVersionString } from "./filterVersionString";
 /**
  * Application profile filter spec
  */
-export interface AppProfileFilterSpec {
+export type AppProfileFilterSpec = {
   profileName?: FilterString;
   tags?: FilterArray;
   version?: FilterVersionString;
-}
+};

@@ -14,6 +14,6 @@ import type { ClusterWorkloadReplicaStatus } from "./clusterWorkloadReplicaStatu
 /**
  * Cluster workload deployment status
  */
-export interface ClusterWorkloadDeploymentStatus {
+export type ClusterWorkloadDeploymentStatus = {
   replicas?: ClusterWorkloadReplicaStatus;
-}
+};

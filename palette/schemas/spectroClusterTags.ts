@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterTags {
+export type SpectroClusterTags = {
   tags?: string[];
-}
+};

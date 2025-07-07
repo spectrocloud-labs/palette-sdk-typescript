@@ -13,11 +13,11 @@
 /**
  * API key user information
  */
-export interface ApiKeyUser {
+export type ApiKeyUser = {
   /** First name of user */
   firstName?: string;
   /** Last name of user */
   lastName?: string;
   /** User uid */
   uid?: string;
-}
+};

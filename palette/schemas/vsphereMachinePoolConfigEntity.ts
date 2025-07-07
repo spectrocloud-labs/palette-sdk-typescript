@@ -12,7 +12,7 @@
 import type { VsphereMachinePoolCloudConfigEntity } from "./vsphereMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface VsphereMachinePoolConfigEntity {
+export type VsphereMachinePoolConfigEntity = {
   cloudConfig: VsphereMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

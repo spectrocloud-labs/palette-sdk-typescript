@@ -11,6 +11,6 @@
  */
 import type { UidRoleSummary } from "./uidRoleSummary";
 
-export interface ProjectRolesEntity {
+export type ProjectRolesEntity = {
   projects?: UidRoleSummary[];
-}
+};

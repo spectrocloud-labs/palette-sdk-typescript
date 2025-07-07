@@ -14,6 +14,6 @@ import type { StorageType } from "./storageType";
 /**
  * List of GCP storage types
  */
-export interface GcpStorageTypes {
+export type GcpStorageTypes = {
   storageTypes?: StorageType[];
-}
+};

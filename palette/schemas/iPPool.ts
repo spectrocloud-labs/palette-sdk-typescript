@@ -15,7 +15,7 @@ import type { Pool } from "./pool";
 /**
  * IPPool defines static IPs available. Gateway, Prefix, Nameserver, if defined, will be default values for all Pools
  */
-export interface IPPool {
+export type IPPool = {
   /** Gateway is the gateway ip address */
   gateway?: string;
   nameserver?: Nameserver;
@@ -25,4 +25,4 @@ export interface IPPool {
   prefix?: number;
   /** UID is the UID of this IPPool, used by Hubble */
   uid?: string;
-}
+};

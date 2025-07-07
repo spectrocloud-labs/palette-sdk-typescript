@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmQemuGuestAgentUserPasswordAccessCredentialPropagation {
+export type VmQemuGuestAgentUserPasswordAccessCredentialPropagation = {
   [key: string]: unknown;
-}
+};

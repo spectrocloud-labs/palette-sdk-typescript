@@ -14,6 +14,6 @@ import type { Overlord } from "./overlord";
 /**
  * Array of Overlords
  */
-export interface Overlords {
+export type Overlords = {
   items: Overlord[];
-}
+};

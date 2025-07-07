@@ -13,7 +13,7 @@
 /**
  * Application tier property object
  */
-export interface AppTierProperty {
+export type AppTierProperty = {
   /** Application tier property format */
   format?: string;
   /** Application tier property name */
@@ -22,4 +22,4 @@ export interface AppTierProperty {
   type?: string;
   /** Application tier property value */
   value?: string;
-}
+};

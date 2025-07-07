@@ -14,6 +14,6 @@ import type { SystemVsphereImageSpec } from "./systemVsphereImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemVsphereImage {
+export type SystemVsphereImage = {
   spec?: SystemVsphereImageSpec;
-}
+};

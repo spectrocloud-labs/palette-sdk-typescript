@@ -15,9 +15,9 @@ import type { AwsCloudCostSpecFilter } from "./awsCloudCostSpecFilter";
 /**
  * Aws cloud account usage cost payload spec
  */
-export interface AwsCloudCostSpec {
+export type AwsCloudCostSpec = {
   /** AccountId of AWS cloud cost */
   accountId?: string;
   credentials: AwsCloudAccount;
   filter?: AwsCloudCostSpecFilter;
-}
+};

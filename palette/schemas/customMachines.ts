@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of Custom machines
  */
-export interface CustomMachines {
+export type CustomMachines = {
   items: CustomMachine[];
   listmeta?: ListMetaData;
-}
+};

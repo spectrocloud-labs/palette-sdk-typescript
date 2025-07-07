@@ -15,7 +15,7 @@ import type { ClusterProfileSortSpec } from "./clusterProfileSortSpec";
 /**
  * Spectro cluster filter summary spec
  */
-export interface ClusterProfilesFilterSpec {
+export type ClusterProfilesFilterSpec = {
   filter?: ClusterProfileFilterSpec;
   sort?: ClusterProfileSortSpec[];
-}
+};

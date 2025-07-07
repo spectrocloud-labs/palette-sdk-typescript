@@ -16,8 +16,8 @@ import type { PackSummaryStatus } from "./packSummaryStatus";
 /**
  * Cluster profile packs object
  */
-export interface ClusterProfilePacksEntity {
+export type ClusterProfilePacksEntity = {
   metadata?: ObjectMeta;
   spec?: PackSummarySpec;
   status?: PackSummaryStatus;
-}
+};

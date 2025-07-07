@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmInput {
+export type VmInput = {
   /** Bus indicates the bus of input device to emulate. Supported values: virtio, usb. */
   bus?: string;
   /** Name is the device name */
   name: string;
   /** Type indicated the type of input device. Supported values: tablet. */
   type: string;
-}
+};

@@ -14,9 +14,9 @@ import type { ProfileResolvedValuesResolved } from "./profileResolvedValuesResol
 /**
  * Cluster profile resolved pack values
  */
-export interface ProfileResolvedValues {
+export type ProfileResolvedValues = {
   /** Cluster profile pack resolved values */
   resolved?: ProfileResolvedValuesResolved;
   /** Cluster profile uid */
   uid?: string;
-}
+};

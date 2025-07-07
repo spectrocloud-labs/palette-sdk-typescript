@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterOidcIssuerTlsSpec {
+export type SpectroClusterOidcIssuerTlsSpec = {
   caCertificateBase64?: string;
   insecureSkipVerify?: boolean;
-}
+};

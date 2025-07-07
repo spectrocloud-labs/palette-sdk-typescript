@@ -14,6 +14,6 @@ import type { MachineCertificate } from "./machineCertificate";
 /**
  * K8 Certificates for all the cluster's control plane nodes
  */
-export interface MachineCertificates {
+export type MachineCertificates = {
   machineCertificates?: MachineCertificate[];
-}
+};

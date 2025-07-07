@@ -11,6 +11,6 @@
  */
 import type { OsPatchConfig } from "./osPatchConfig";
 
-export interface MachineManagementConfig {
+export type MachineManagementConfig = {
   osPatchConfig?: OsPatchConfig;
-}
+};

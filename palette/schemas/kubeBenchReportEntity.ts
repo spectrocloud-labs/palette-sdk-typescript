@@ -15,7 +15,7 @@ import type { Time } from "./time";
 /**
  * KubeBench report
  */
-export interface KubeBenchReportEntity {
+export type KubeBenchReportEntity = {
   fail?: number;
   info?: number;
   logs?: KubeBenchLogEntity[];
@@ -24,4 +24,4 @@ export interface KubeBenchReportEntity {
   time?: Time;
   type?: string;
   warn?: number;
-}
+};

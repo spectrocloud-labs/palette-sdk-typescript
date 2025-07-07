@@ -11,7 +11,7 @@
  */
 import type { Variable } from "./variable";
 
-export interface Variables {
+export type Variables = {
   /** List of unique variable fields with schema constraints */
   variables?: Variable[];
-}
+};

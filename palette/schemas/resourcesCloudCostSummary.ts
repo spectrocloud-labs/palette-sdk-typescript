@@ -15,7 +15,7 @@ import type { ResourceTotalCloudCost } from "./resourceTotalCloudCost";
 /**
  * Resources cloud cost summary information
  */
-export interface ResourcesCloudCostSummary {
+export type ResourcesCloudCostSummary = {
   resources?: ResourceCloudCostSummary[];
   total?: ResourceTotalCloudCost;
-}
+};

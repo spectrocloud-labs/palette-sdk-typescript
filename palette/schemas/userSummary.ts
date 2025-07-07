@@ -16,8 +16,8 @@ import type { UserStatus } from "./userStatus";
 /**
  * User summary
  */
-export interface UserSummary {
+export type UserSummary = {
   metadata?: ObjectMeta;
   spec?: UserSpecSummary;
   status?: UserStatus;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { HostClusterConfigResponse } from "./hostClusterConfigResponse";
 
-export interface ClusterConfigResponse {
+export type ClusterConfigResponse = {
   hostClusterConfig?: HostClusterConfigResponse;
-}
+};

@@ -10,15 +10,14 @@
  * OpenAPI spec version: v1
  */
 import type { AuthMfaLoginFinishRequestClientExtensionResults } from "./authMfaLoginFinishRequestClientExtensionResults";
-import type { URLEncodedBase64 } from "./urlEncodedBase64";
 import type { AuthMfaLoginFinishRequestResponse } from "./authMfaLoginFinishRequestResponse";
 
-export interface AuthMfaLoginFinishRequest {
+export type AuthMfaLoginFinishRequest = {
   _type?: string;
   authenticatorAttachment?: string;
   clientExtensionResults?: AuthMfaLoginFinishRequestClientExtensionResults;
   deviceName?: string;
   id?: string;
-  rawId?: URLEncodedBase64;
+  rawId?: string;
   response?: AuthMfaLoginFinishRequestResponse;
-}
+};

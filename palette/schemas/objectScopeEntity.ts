@@ -13,8 +13,8 @@
 /**
  * Object scope identity meta
  */
-export interface ObjectScopeEntity {
+export type ObjectScopeEntity = {
   name?: string;
   scope?: string;
   uid?: string;
-}
+};

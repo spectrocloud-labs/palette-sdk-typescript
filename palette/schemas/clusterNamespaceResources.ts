@@ -11,6 +11,6 @@
  */
 import type { ClusterNamespaceResource } from "./clusterNamespaceResource";
 
-export interface ClusterNamespaceResources {
+export type ClusterNamespaceResources = {
   items: ClusterNamespaceResource[];
-}
+};

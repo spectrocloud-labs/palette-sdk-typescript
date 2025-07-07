@@ -16,8 +16,8 @@ import type { WorkspaceQuota } from "./workspaceQuota";
 /**
  * Workspace cluster namespaces update entity
  */
-export interface WorkspaceClusterNamespacesEntity {
+export type WorkspaceClusterNamespacesEntity = {
   clusterNamespaces?: WorkspaceClusterNamespace[];
   clusterRefs?: WorkspaceClusterRef[];
   quota?: WorkspaceQuota;
-}
+};

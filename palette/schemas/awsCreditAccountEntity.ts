@@ -12,9 +12,9 @@
 import type { AwsLoginCredentials } from "./awsLoginCredentials";
 import type { AwsUserCloudAccount } from "./awsUserCloudAccount";
 
-export interface AwsCreditAccountEntity {
+export type AwsCreditAccountEntity = {
   creditLimitInDollars?: number;
   creditUsedInDollars?: number;
   loginCredentials?: AwsLoginCredentials;
   userCloudAccount?: AwsUserCloudAccount;
-}
+};

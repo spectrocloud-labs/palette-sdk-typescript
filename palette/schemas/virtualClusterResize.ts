@@ -11,6 +11,6 @@
  */
 import type { VirtualInstanceType } from "./virtualInstanceType";
 
-export interface VirtualClusterResize {
+export type VirtualClusterResize = {
   instanceType: VirtualInstanceType;
-}
+};

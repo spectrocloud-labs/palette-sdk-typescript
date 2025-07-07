@@ -13,7 +13,7 @@
 /**
  * system aws account specifications
  */
-export interface SystemAwsImageSpec {
+export type SystemAwsImageSpec = {
   accountId?: string;
   goldenImageRegion?: string;
-}
+};

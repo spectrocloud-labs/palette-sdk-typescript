@@ -13,7 +13,7 @@
 /**
  * OpenStack flavor entity. Flavor represent (virtual) hardware configurations for server resources
  */
-export interface OpenStackFlavor {
+export type OpenStackFlavor = {
   /** Disk is the amount of root disk, measured in GB */
   disk?: number;
   /** Ephemeral is the amount of ephemeral disk space, measured in GB */
@@ -26,4 +26,4 @@ export interface OpenStackFlavor {
   name?: string;
   /** VCPUs indicates how many (virtual) CPUs are available for this flavor */
   vcpus?: number;
-}
+};

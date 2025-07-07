@@ -16,9 +16,9 @@ import type { AppProfileStatus } from "./appProfileStatus";
 /**
  * Application profile response
  */
-export interface AppProfile {
+export type AppProfile = {
   metadata?: ObjectMeta;
   spec?: AppProfileSpec;
   /** Application profile status */
   status?: AppProfileStatus;
-}
+};

@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Tenants list
  */
-export interface Tenants {
+export type Tenants = {
   items: Tenant[];
   listmeta?: ListMetaData;
-}
+};

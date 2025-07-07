@@ -13,11 +13,11 @@
 /**
  * Manifest object
  */
-export interface ManifestSummary {
+export type ManifestSummary = {
   /** Manifest content in yaml */
   content?: string;
   /** Manifest name */
   name?: string;
   /** Manifest uid */
   uid?: string;
-}
+};

@@ -16,8 +16,8 @@ import type { InvoiceStatus } from "./invoiceStatus";
 /**
  * Invoice object
  */
-export interface Invoice {
+export type Invoice = {
   metadata?: ObjectMeta;
   spec?: InvoiceSpec;
   status?: InvoiceStatus;
-}
+};

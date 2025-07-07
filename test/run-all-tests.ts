@@ -15,7 +15,7 @@ const testFiles = [
   "test-cluster-profiles.ts",
   "test-client-wrapper.ts",
   "cluster-profiles-simple.ts",
-  "test-package-import-simulation.ts",
+  "test-built-package.ts",
 ];
 
 console.log("Running palette-sdk-typescript integration tests...");
@@ -39,6 +39,29 @@ for (const testFile of testFiles) {
     console.error(`FAIL: ${testFile}`);
     allPassed = false;
   }
+}
+
+// Run package usage test
+console.log(`\nRunning package import usage test...`);
+try {
+  const testPackageUsageDir = path.join(__dirname, "test-package-usage");
+
+  console.log("Installing dependencies in test-package-usage...");
+  execSync("npm install", {
+    stdio: "inherit",
+    cwd: testPackageUsageDir,
+  });
+
+  console.log("Running test in test-package-usage...");
+  execSync("npm run test", {
+    stdio: "inherit",
+    cwd: testPackageUsageDir,
+  });
+
+  console.log("PASS: package usage test");
+} catch (error) {
+  console.error("FAIL: package usage test");
+  allPassed = false;
 }
 
 console.log("\n" + "=".repeat(50));

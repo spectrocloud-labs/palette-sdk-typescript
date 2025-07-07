@@ -14,10 +14,10 @@ import type { Time } from "./time";
 /**
  * Status of the registry sync
  */
-export interface RegistrySyncStatus {
+export type RegistrySyncStatus = {
   isSyncSupported?: boolean;
   lastRunTime?: Time;
   lastSyncedTime?: Time;
   message?: string;
   status?: string;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { Lock } from "./lock";
 
-export interface HealthLocks {
+export type HealthLocks = {
   expiredLocks?: Lock[];
-}
+};

@@ -16,8 +16,8 @@ import type { PodAntiAffinity } from "./podAntiAffinity";
 /**
  * Affinity is a group of affinity scheduling rules.
  */
-export interface VmAffinity {
+export type VmAffinity = {
   nodeAffinity?: VmNodeAffinity;
   podAffinity?: VmPodAffinity;
   podAntiAffinity?: PodAntiAffinity;
-}
+};

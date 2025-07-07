@@ -11,7 +11,7 @@
  */
 import type { GcpSubnetEntity } from "./gcpSubnetEntity";
 
-export interface GcpMachinePoolCloudConfigEntity {
+export type GcpMachinePoolCloudConfigEntity = {
   azs?: string[];
   instanceType: string;
   /** Size of root volume in GB. Default is 30GB */
@@ -19,4 +19,4 @@ export interface GcpMachinePoolCloudConfigEntity {
   /** Subnet specifies the subnetwork to use for given instance. If not specified, the first subnet from the cluster region and network is used */
   subnet?: string;
   subnets?: GcpSubnetEntity[];
-}
+};

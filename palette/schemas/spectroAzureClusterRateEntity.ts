@@ -15,7 +15,7 @@ import type { AzureMachinePoolConfigEntity } from "./azureMachinePoolConfigEntit
 /**
  * Spectro Azure cluster request payload for estimating rate
  */
-export interface SpectroAzureClusterRateEntity {
+export type SpectroAzureClusterRateEntity = {
   cloudConfig?: AzureClusterConfig;
   machinepoolconfig?: AzureMachinePoolConfigEntity[];
-}
+};

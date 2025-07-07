@@ -13,8 +13,8 @@
 /**
  * A generated Image should always be a template which resides inside vsphere Will not generate a OVA file out of the image OVA can be used as a base input of the os pack, that's internal to the pack
  */
-export interface VsphereImage {
+export type VsphereImage = {
   /** full path of the image template location it contains datacenter/folder/templatename etc eg: /mydc/vm/template/spectro/workerpool-1-centos */
   fullPath?: string;
   state?: string;
-}
+};

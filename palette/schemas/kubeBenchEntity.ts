@@ -15,8 +15,8 @@ import type { KubeBenchEntityStatus } from "./kubeBenchEntityStatus";
 /**
  * KubeBench response
  */
-export interface KubeBenchEntity {
+export type KubeBenchEntity = {
   reports: KubeBenchEntityReports;
   requestUid: string;
   status: KubeBenchEntityStatus;
-}
+};

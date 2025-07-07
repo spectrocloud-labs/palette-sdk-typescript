@@ -15,7 +15,7 @@ import type { AppDeploymentProfileEntity } from "./appDeploymentProfileEntity";
 /**
  * Application deployment virtual cluster spec
  */
-export interface AppDeploymentVirtualClusterSpec {
+export type AppDeploymentVirtualClusterSpec = {
   config?: AppDeploymentVirtualClusterConfigEntity;
   profile?: AppDeploymentProfileEntity;
-}
+};

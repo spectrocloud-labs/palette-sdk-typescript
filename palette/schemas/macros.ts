@@ -11,6 +11,6 @@
  */
 import type { Macro } from "./macro";
 
-export interface Macros {
+export type Macros = {
   macros?: Macro[];
-}
+};

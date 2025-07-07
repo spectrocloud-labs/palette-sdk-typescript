@@ -13,7 +13,7 @@ import type { SpectroClusterPackCondition } from "./spectroClusterPackCondition"
 import type { Time } from "./time";
 import type { PackType } from "./packType";
 
-export interface SpectroClusterPackStatusEntity {
+export type SpectroClusterPackStatusEntity = {
   condition?: SpectroClusterPackCondition;
   endTime?: Time;
   /** Pack name */
@@ -24,4 +24,4 @@ export interface SpectroClusterPackStatusEntity {
   type?: PackType;
   /** pack version */
   version?: string;
-}
+};

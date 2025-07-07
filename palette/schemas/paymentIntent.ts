@@ -13,11 +13,11 @@
 /**
  * Payment setup object
  */
-export interface PaymentIntent {
+export type PaymentIntent = {
   /** Payment client secret */
   clientSecret?: string;
   /** Payment intent id */
   paymentIntentId?: string;
   /** Status of payment intent */
   status?: string;
-}
+};

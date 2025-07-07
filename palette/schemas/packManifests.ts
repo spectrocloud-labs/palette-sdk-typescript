@@ -11,7 +11,7 @@
  */
 import type { Manifest } from "./manifest";
 
-export interface PackManifests {
+export type PackManifests = {
   /** Manifests array */
   items: Manifest[];
-}
+};

@@ -13,11 +13,11 @@
 /**
  * KubeBench log
  */
-export interface KubeBenchLogEntity {
+export type KubeBenchLogEntity = {
   description?: string;
   expected?: string;
   remediation?: string;
   state?: string;
   testId?: string;
   value?: string;
-}
+};

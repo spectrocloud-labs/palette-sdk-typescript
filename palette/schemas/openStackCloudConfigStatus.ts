@@ -14,10 +14,10 @@ import type { ClusterCondition } from "./clusterCondition";
 /**
  * OpenStackCloudConfigStatus defines the observed state of OpenStackCloudConfig The cloudimage info built by Mold is stored here image should be mapped to a specific machinepool
  */
-export interface OpenStackCloudConfigStatus {
+export type OpenStackCloudConfigStatus = {
   conditions?: ClusterCondition[];
   nodeImage?: string;
   /** sourceImageId, it can be from packref's annotations or from pack.json */
   sourceImageId?: string;
   useCapiImage?: boolean;
-}
+};

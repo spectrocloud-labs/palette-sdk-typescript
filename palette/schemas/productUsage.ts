@@ -14,7 +14,7 @@ import type { SystemProductUsage } from "./systemProductUsage";
 /**
  * Product usage
  */
-export interface ProductUsage {
+export type ProductUsage = {
   alloyUsage?: SystemProductUsage;
   pureUsage?: SystemProductUsage;
-}
+};

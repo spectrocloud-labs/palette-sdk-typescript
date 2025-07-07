@@ -16,8 +16,8 @@ import type { ClusterSyftLogStatus } from "./clusterSyftLogStatus";
 /**
  * Cluster Compliance Scan Syft Log
  */
-export interface ClusterScanLogSyft {
+export type ClusterScanLogSyft = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanLogSpec;
   status?: ClusterSyftLogStatus;
-}
+};

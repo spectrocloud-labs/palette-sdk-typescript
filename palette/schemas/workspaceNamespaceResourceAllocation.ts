@@ -15,7 +15,7 @@ import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation"
 /**
  * Workspace namespace resource allocation
  */
-export interface WorkspaceNamespaceResourceAllocation {
+export type WorkspaceNamespaceResourceAllocation = {
   clusterResourceAllocations?: ClusterResourceAllocation[];
   defaultResourceAllocation?: WorkspaceResourceAllocation;
-}
+};

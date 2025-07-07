@@ -13,11 +13,11 @@
 /**
  * Registry meta
  */
-export interface RegistryMetadata {
+export type RegistryMetadata = {
   isDefault?: boolean;
   isPrivate?: boolean;
   kind?: string;
   name?: string;
   scope?: string;
   uid?: string;
-}
+};

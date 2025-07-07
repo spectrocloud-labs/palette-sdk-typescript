@@ -15,7 +15,7 @@ import type { SystemSsoAuthSpecOidcAuthSpecs } from "./systemSsoAuthSpecOidcAuth
 /**
  * system sso config spec
  */
-export interface SystemSsoAuthSpec {
+export type SystemSsoAuthSpec = {
   github?: SystemGithubSsoSpec;
   oidcAuthSpecs?: SystemSsoAuthSpecOidcAuthSpecs;
-}
+};

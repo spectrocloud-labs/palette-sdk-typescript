@@ -16,7 +16,7 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * GCP account information
  */
-export interface GcpAccount {
+export type GcpAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface GcpAccount {
   metadata?: ObjectMeta;
   spec?: GcpAccountSpec;
   status?: CloudAccountStatus;
-}
+};

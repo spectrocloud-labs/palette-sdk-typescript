@@ -15,8 +15,8 @@ import type { Time } from "./time";
 /**
  * K8 Certificate Authority
  */
-export interface V1k8CertificateAuthority {
+export type V1k8CertificateAuthority = {
   certificates?: Certificate[];
   expiry?: Time;
   name?: string;
-}
+};

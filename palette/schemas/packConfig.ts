@@ -14,6 +14,6 @@ import type { PackConfigSpec } from "./packConfigSpec";
 /**
  * Pack configuration
  */
-export interface PackConfig {
+export type PackConfig = {
   spec?: PackConfigSpec;
-}
+};

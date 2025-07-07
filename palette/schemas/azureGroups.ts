@@ -14,6 +14,6 @@ import type { AzureGroup } from "./azureGroup";
 /**
  * List of Azure groups
  */
-export interface AzureGroups {
+export type AzureGroups = {
   groups: AzureGroup[];
-}
+};

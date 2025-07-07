@@ -15,7 +15,7 @@ import type { SpectroMaasClusterEntitySpec } from "./spectroMaasClusterEntitySpe
 /**
  * Spectro Maas cluster request payload for create and update
  */
-export interface SpectroMaasClusterEntity {
+export type SpectroMaasClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroMaasClusterEntitySpec;
-}
+};

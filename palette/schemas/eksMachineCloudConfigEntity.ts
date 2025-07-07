@@ -14,7 +14,7 @@ import type { EksMachineCloudConfigEntityCapacityType } from "./eksMachineCloudC
 import type { SpotMarketOptions } from "./spotMarketOptions";
 import type { EksSubnetEntity } from "./eksSubnetEntity";
 
-export interface EksMachineCloudConfigEntity {
+export type EksMachineCloudConfigEntity = {
   /** ami type */
   amiType?: string;
   awsLaunchTemplate?: AwsLaunchTemplate;
@@ -33,4 +33,4 @@ export interface EksMachineCloudConfigEntity {
   rootDeviceSize?: number;
   spotMarketOptions?: SpotMarketOptions;
   subnets?: EksSubnetEntity[];
-}
+};

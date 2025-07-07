@@ -11,6 +11,6 @@
  */
 import type { OciRegistry } from "./ociRegistry";
 
-export interface OciRegistries {
+export type OciRegistries = {
   items: OciRegistry[];
-}
+};

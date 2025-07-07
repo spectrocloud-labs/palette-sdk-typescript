@@ -14,7 +14,7 @@ import type { SsoLogins } from "./ssoLogins";
 /**
  * Describes user's organization details
  */
-export interface Organization {
+export type Organization = {
   /** Describes user's enabled authorization mode */
   authType?: string;
   /** Describes user's organization name */
@@ -22,4 +22,4 @@ export interface Organization {
   /** Describes user's organization authentication url */
   redirectUrl?: string;
   ssoLogins?: SsoLogins;
-}
+};

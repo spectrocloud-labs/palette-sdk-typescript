@@ -11,6 +11,6 @@
  */
 import type { FilterMetadata } from "./filterMetadata";
 
-export interface FiltersMetadata {
+export type FiltersMetadata = {
   items: FilterMetadata[];
-}
+};

@@ -14,9 +14,9 @@ import type { ObjectMeta } from "./objectMeta";
 import type { EdgeHostDeviceSpec } from "./edgeHostDeviceSpec";
 import type { EdgeHostDeviceStatus } from "./edgeHostDeviceStatus";
 
-export interface EdgeHostDevice {
+export type EdgeHostDevice = {
   aclmeta?: AclMeta;
   metadata?: ObjectMeta;
   spec?: EdgeHostDeviceSpec;
   status?: EdgeHostDeviceStatus;
-}
+};

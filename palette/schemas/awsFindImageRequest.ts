@@ -14,8 +14,8 @@ import type { AwsCloudAccount } from "./awsCloudAccount";
 /**
  * AWS image name and credentials
  */
-export interface AwsFindImageRequest {
+export type AwsFindImageRequest = {
   /** AWS image ami name */
   amiName?: string;
   awsAccount?: AwsCloudAccount;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { UserStatusLoginModeLoginMode } from "./userStatusLoginModeLoginMode";
 
-export interface UserStatusLoginMode {
+export type UserStatusLoginMode = {
   loginMode?: UserStatusLoginModeLoginMode;
-}
+};

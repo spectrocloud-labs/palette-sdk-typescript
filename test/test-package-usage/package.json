@@ -1,0 +1,22 @@
+{
+  "name": "sdk-examples",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "scripts": {
+    "test": "tsx test.ts",
+    "start": "tsx test.ts"
+  },
+  "dependencies": {
+    "palette-sdk-typescript": "file:../../"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "@dotenvx/dotenvx": "^1.45.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}

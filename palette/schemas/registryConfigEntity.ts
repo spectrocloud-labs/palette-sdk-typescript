@@ -14,6 +14,6 @@ import type { RegistryConfiguration } from "./registryConfiguration";
 /**
  * Registry configuration entity
  */
-export interface RegistryConfigEntity {
+export type RegistryConfigEntity = {
   config?: RegistryConfiguration;
-}
+};

@@ -16,8 +16,8 @@ import type { SpectroMgmtStatus } from "./spectroMgmtStatus";
 /**
  * Spectro management data
  */
-export interface SpectroMgmt {
+export type SpectroMgmt = {
   metadata?: ObjectMeta;
   spec?: SpectroMgmtSpec;
   status?: SpectroMgmtStatus;
-}
+};

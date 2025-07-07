@@ -14,7 +14,7 @@ import type { MaasVlan } from "./maasVlan";
 /**
  * Maas subnet
  */
-export interface MaasSubnet {
+export type MaasSubnet = {
   /** Id of Maas subnet */
   id?: number;
   /** Name of Maas subnet */
@@ -22,4 +22,4 @@ export interface MaasSubnet {
   /** Space associated with Maas subnet */
   space?: string;
   vlans?: MaasVlan;
-}
+};

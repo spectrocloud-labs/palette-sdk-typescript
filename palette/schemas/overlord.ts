@@ -16,9 +16,9 @@ import type { OverloadStatus } from "./overloadStatus";
 /**
  * Overlord defintiion
  */
-export interface Overlord {
+export type Overlord = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: OverloadSpec;
   status?: OverloadStatus;
-}
+};

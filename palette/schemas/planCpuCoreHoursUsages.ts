@@ -11,6 +11,6 @@
  */
 import type { ResourceUsage } from "./resourceUsage";
 
-export interface PlanCpuCoreHoursUsages {
+export type PlanCpuCoreHoursUsages = {
   hourlyUsages?: ResourceUsage[];
-}
+};

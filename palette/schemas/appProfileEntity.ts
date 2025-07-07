@@ -15,8 +15,8 @@ import type { AppProfileEntitySpec } from "./appProfileEntitySpec";
 /**
  * Application profile request payload
  */
-export interface AppProfileEntity {
+export type AppProfileEntity = {
   metadata?: ObjectMetaInputEntity;
   /** Application profile spec */
   spec?: AppProfileEntitySpec;
-}
+};

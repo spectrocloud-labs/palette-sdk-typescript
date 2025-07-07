@@ -15,7 +15,7 @@ import type { PackRefSummarySpec } from "./packRefSummarySpec";
 /**
  * Pack summary response
  */
-export interface PackRefSummaryResponse {
+export type PackRefSummaryResponse = {
   metadata?: ObjectMeta;
   spec?: PackRefSummarySpec;
-}
+};

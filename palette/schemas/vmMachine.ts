@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmMachine {
+export type VmMachine = {
   /** QEMU machine type is the actual chipset of the VirtualMachineInstance. */
   type?: string;
-}
+};

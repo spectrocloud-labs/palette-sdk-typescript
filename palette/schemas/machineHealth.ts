@@ -15,8 +15,8 @@ import type { Time } from "./time";
 /**
  * Machine health state
  */
-export interface MachineHealth {
+export type MachineHealth = {
   conditions?: MachineHealthCondition[];
   lastHeartBeatTimestamp?: Time;
   state?: string;
-}
+};

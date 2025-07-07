@@ -11,7 +11,7 @@
  */
 import type { VirtualClusterHelmChart } from "./virtualClusterHelmChart";
 
-export interface VirtualClusterHelmRelease {
+export type VirtualClusterHelmRelease = {
   chart?: VirtualClusterHelmChart;
   values?: string;
-}
+};

@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmCoreDataVolumeSource {
+export type VmCoreDataVolumeSource = {
   /** Hotpluggable indicates whether the volume can be hotplugged and hotunplugged. */
   hotpluggable?: boolean;
   /** Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default. */
   name: string;
-}
+};

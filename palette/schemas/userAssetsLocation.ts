@@ -15,7 +15,7 @@ import type { UserAssetsLocationSpec } from "./userAssetsLocationSpec";
 /**
  * Location object
  */
-export interface UserAssetsLocation {
+export type UserAssetsLocation = {
   metadata?: ObjectMeta;
   spec?: UserAssetsLocationSpec;
-}
+};

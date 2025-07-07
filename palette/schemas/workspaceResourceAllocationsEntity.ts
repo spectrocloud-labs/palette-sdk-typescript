@@ -16,8 +16,8 @@ import type { WorkspaceQuota } from "./workspaceQuota";
 /**
  * Workspace resource allocation update entity
  */
-export interface WorkspaceResourceAllocationsEntity {
+export type WorkspaceResourceAllocationsEntity = {
   clusterNamespaces?: WorkspaceClusterNamespace[];
   clusterRefs?: WorkspaceClusterRef[];
   quota?: WorkspaceQuota;
-}
+};

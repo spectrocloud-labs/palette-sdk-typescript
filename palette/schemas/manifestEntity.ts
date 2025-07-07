@@ -15,7 +15,7 @@ import type { ManifestSpec } from "./manifestSpec";
 /**
  * Manifest object
  */
-export interface ManifestEntity {
+export type ManifestEntity = {
   metadata?: ObjectMeta;
   spec?: ManifestSpec;
-}
+};

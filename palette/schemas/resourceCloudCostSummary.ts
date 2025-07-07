@@ -16,8 +16,8 @@ import type { ResourceTotalCloudCost } from "./resourceTotalCloudCost";
 /**
  * Resource cloud cost summary information
  */
-export interface ResourceCloudCostSummary {
+export type ResourceCloudCostSummary = {
   data?: CloudCostDataPoint[];
   entity?: ResourceReference;
   total?: ResourceTotalCloudCost;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { SystemFeature } from "./systemFeature";
 
-export interface SystemFeatures {
+export type SystemFeatures = {
   /** List of system features */
   items: SystemFeature[];
-}
+};

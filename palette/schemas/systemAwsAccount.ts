@@ -14,6 +14,6 @@ import type { SystemAwsSpec } from "./systemAwsSpec";
 /**
  * SystemAdmin
  */
-export interface SystemAwsAccount {
+export type SystemAwsAccount = {
   spec?: SystemAwsSpec;
-}
+};

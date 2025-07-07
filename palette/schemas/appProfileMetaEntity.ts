@@ -14,8 +14,8 @@ import type { AppProfileMetaUpdateEntity } from "./appProfileMetaUpdateEntity";
 /**
  * Application profile metadata request payload
  */
-export interface AppProfileMetaEntity {
+export type AppProfileMetaEntity = {
   metadata: AppProfileMetaUpdateEntity;
   /** Application profile version */
   version?: string;
-}
+};

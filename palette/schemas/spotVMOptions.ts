@@ -13,7 +13,7 @@
 /**
  * SpotVMOptions defines the options relevant to running the Machine on Spot VMs
  */
-export interface SpotVMOptions {
+export type SpotVMOptions = {
   /** MaxPrice defines the maximum price the user is willing to pay for Spot VM instances */
   maxPrice?: string;
-}
+};

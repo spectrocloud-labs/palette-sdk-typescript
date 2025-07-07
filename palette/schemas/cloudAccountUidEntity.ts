@@ -13,7 +13,7 @@
 /**
  * Cloud account uid entity
  */
-export interface CloudAccountUidEntity {
+export type CloudAccountUidEntity = {
   /** Cloud account uid */
   uid?: string;
-}
+};

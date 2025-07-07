@@ -14,6 +14,6 @@ import type { AppTierSummary } from "./appTierSummary";
 /**
  * Application profile template summary
  */
-export interface AppProfileTemplateSummary {
+export type AppProfileTemplateSummary = {
   appTiers?: AppTierSummary[];
-}
+};

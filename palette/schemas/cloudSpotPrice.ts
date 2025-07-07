@@ -13,7 +13,7 @@
 /**
  * Spot price entity of a particular cloud type
  */
-export interface CloudSpotPrice {
+export type CloudSpotPrice = {
   /** Spot price of a resource for a particular cloud */
   spotPrice?: number;
-}
+};

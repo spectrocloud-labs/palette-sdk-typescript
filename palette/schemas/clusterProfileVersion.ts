@@ -13,7 +13,7 @@
 /**
  * Cluster profile with version
  */
-export interface ClusterProfileVersion {
+export type ClusterProfileVersion = {
   uid?: string;
   version?: string;
-}
+};

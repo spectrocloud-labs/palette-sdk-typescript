@@ -14,8 +14,8 @@ import type { ClusterBackupConfig } from "./clusterBackupConfig";
 /**
  * Cluster backup config
  */
-export interface WorkspaceBackupConfigEntity {
+export type WorkspaceBackupConfigEntity = {
   backupConfig?: ClusterBackupConfig;
   clusterUids?: string[];
   includeAllClusters?: boolean;
-}
+};

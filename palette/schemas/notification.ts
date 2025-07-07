@@ -18,11 +18,11 @@ import type { NotificationType } from "./notificationType";
 /**
  * Describes event notification and action definition
  */
-export interface Notification {
+export type Notification = {
   action?: NotificationAction;
   metadata?: ObjectMeta;
   relatedObject?: RelatedObject;
   source?: NotificationSource;
   /** Describes type of notification. Possible values [NotificationPackUpdate, NotificationPackRegistryUpdate, NotificationNone] */
   type?: NotificationType;
-}
+};

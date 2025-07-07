@@ -15,8 +15,8 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * An array of component events items
  */
-export interface Events {
+export type Events = {
   /** Describes a list of returned component events */
   items: Event[];
   listmeta?: ListMetaData;
-}
+};

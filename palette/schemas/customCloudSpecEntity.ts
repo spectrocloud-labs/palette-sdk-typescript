@@ -14,7 +14,7 @@ import type { CloudCategory } from "./cloudCategory";
 /**
  * Custom cloud request entity spec
  */
-export interface CustomCloudSpecEntity {
+export type CustomCloudSpecEntity = {
   cloudCategory?: CloudCategory;
   /** Custom cloud displayName */
   displayName?: string;
@@ -22,4 +22,4 @@ export interface CustomCloudSpecEntity {
   isControlPlaneManaged?: boolean;
   /** Custom cloud logo */
   logo?: string;
-}
+};

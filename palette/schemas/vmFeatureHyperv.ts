@@ -17,7 +17,7 @@ import type { VmFeatureVendorId } from "./vmFeatureVendorId";
 /**
  * Hyperv specific features.
  */
-export interface VmFeatureHyperv {
+export type VmFeatureHyperv = {
   evmcs?: VmFeatureState;
   frequencies?: VmFeatureState;
   ipi?: VmFeatureState;
@@ -32,4 +32,4 @@ export interface VmFeatureHyperv {
   vapic?: VmFeatureState;
   vendorid?: VmFeatureVendorId;
   vpindex?: VmFeatureState;
-}
+};

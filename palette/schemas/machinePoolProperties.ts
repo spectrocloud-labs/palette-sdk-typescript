@@ -14,6 +14,6 @@ import type { ArchType } from "./archType";
 /**
  * Machine pool specific properties
  */
-export interface MachinePoolProperties {
+export type MachinePoolProperties = {
   archType?: ArchType;
-}
+};

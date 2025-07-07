@@ -13,9 +13,9 @@
 /**
  * OpenStack keypair. KeyPair is an SSH key known to the OpenStack Cloud that is available to be injected into servers
  */
-export interface OpenStackKeypair {
+export type OpenStackKeypair = {
   /** Name is used to refer to this keypair from other services within this region */
   name?: string;
   /** PublicKey is the public key from this pair, in OpenSSH format */
   publicKey?: string;
-}
+};

@@ -14,9 +14,9 @@ import type { EdgeHostNetworkNetworkType } from "./edgeHostNetworkNetworkType";
 /**
  * Network defines the network configuration for a virtual machine
  */
-export interface EdgeHostNetwork {
+export type EdgeHostNetwork = {
   /** NetworkName of the network where this machine will be connected */
   networkName: string;
   /** NetworkType  specifies the type of network */
   networkType: EdgeHostNetworkNetworkType;
-}
+};

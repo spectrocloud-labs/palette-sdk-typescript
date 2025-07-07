@@ -13,7 +13,7 @@
 /**
  * Workspace resource allocation
  */
-export interface DashboardWorkspaceResourceAllocation {
+export type DashboardWorkspaceResourceAllocation = {
   allocated?: number;
   usage?: number;
-}
+};

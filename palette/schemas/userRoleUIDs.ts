@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserRoleUIDs {
+export type UserRoleUIDs = {
   roles?: string[];
-}
+};

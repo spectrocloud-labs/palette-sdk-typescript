@@ -14,6 +14,6 @@ import type { SystemAzureStorageSpec } from "./systemAzureStorageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemAzureStorage {
+export type SystemAzureStorage = {
   spec?: SystemAzureStorageSpec;
-}
+};

@@ -15,7 +15,7 @@ import type { EdgeNativeClusterPairSpcEntitySpec } from "./edgeNativeClusterPair
 /**
  * EdgeNative cluster pair payload
  */
-export interface EdgeNativeClusterPairSpcEntity {
+export type EdgeNativeClusterPairSpcEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: EdgeNativeClusterPairSpcEntitySpec;
-}
+};

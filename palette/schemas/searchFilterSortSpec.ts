@@ -12,7 +12,7 @@
 import type { SearchSortFields } from "./searchSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface SearchFilterSortSpec {
+export type SearchFilterSortSpec = {
   field?: SearchSortFields;
   order?: SortOrder;
-}
+};

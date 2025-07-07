@@ -16,8 +16,8 @@ import type { ProjectUsageSummary } from "./projectUsageSummary";
 /**
  * Project status summary
  */
-export interface ProjectStatusSummary {
+export type ProjectStatusSummary = {
   clustersHealth?: SpectroClustersHealth;
   status?: ProjectStatus;
   usage?: ProjectUsageSummary;
-}
+};

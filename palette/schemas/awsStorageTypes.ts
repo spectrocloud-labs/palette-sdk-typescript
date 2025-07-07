@@ -11,7 +11,7 @@
  */
 import type { StorageType } from "./storageType";
 
-export interface AwsStorageTypes {
+export type AwsStorageTypes = {
   /** List of AWS storage types */
   storageTypes?: StorageType[];
-}
+};

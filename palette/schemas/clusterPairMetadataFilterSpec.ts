@@ -14,7 +14,7 @@ import type { FilterString } from "./filterString";
 /**
  * Edge hosts pair metadata filter spec
  */
-export interface ClusterPairMetadataFilterSpec {
+export type ClusterPairMetadataFilterSpec = {
   localClusterUid?: FilterString;
   state?: FilterString;
-}
+};

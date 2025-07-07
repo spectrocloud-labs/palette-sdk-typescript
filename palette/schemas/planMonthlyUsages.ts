@@ -11,6 +11,6 @@
  */
 import type { PlanMonthlyUsage } from "./planMonthlyUsage";
 
-export interface PlanMonthlyUsages {
+export type PlanMonthlyUsages = {
   items?: PlanMonthlyUsage[];
-}
+};

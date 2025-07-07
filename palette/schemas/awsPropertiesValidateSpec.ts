@@ -13,7 +13,7 @@
 /**
  * AWS properties validate spec
  */
-export interface AwsPropertiesValidateSpec {
+export type AwsPropertiesValidateSpec = {
   region?: string;
   sshKeyName?: string;
-}
+};

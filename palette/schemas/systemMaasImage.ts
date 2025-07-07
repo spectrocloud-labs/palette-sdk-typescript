@@ -14,6 +14,6 @@ import type { SystemMaasImageSpec } from "./systemMaasImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemMaasImage {
+export type SystemMaasImage = {
   spec?: SystemMaasImageSpec;
-}
+};

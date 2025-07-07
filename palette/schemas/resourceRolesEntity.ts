@@ -11,9 +11,9 @@
  */
 import type { UidSummary } from "./uidSummary";
 
-export interface ResourceRolesEntity {
+export type ResourceRolesEntity = {
   filterRefs?: UidSummary[];
   projectUids?: UidSummary[];
   roles?: UidSummary[];
   uid?: string;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { EdgeHostsMetadata } from "./edgeHostsMetadata";
 
-export interface EdgeHostsMetadataSummary {
+export type EdgeHostsMetadataSummary = {
   items: EdgeHostsMetadata[];
-}
+};

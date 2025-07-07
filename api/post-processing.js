@@ -44,7 +44,10 @@ function fixDuplicateExports() {
   const nonExportLines = content.split('\n').filter(line => !line.trim().startsWith('export * from'));
   
   // Create new export lines only for files that actually exist
-  const validExports = actualFiles.map(fileName => `export * from "./${fileName}";`);
+  // Sort them for consistent output
+  const validExports = actualFiles
+    .sort()
+    .map(fileName => `export * from "./${fileName}";`);
   
   // Combine non-export lines with valid export lines
   const newContent = [...nonExportLines, ...validExports].join('\n');
@@ -103,39 +106,19 @@ function fixSchemaFiles() {
       }
     }
 
-    // Fix type imports - need to match the actual export name
-    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
-                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+    // Fix UrlEncodedBase64 imports - this is a simple string type that doesn't generate a separate file
+    // Remove the import statement
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+[\"']\.\/urlEncodedBase64[\"'];\s*\n/g, '');
     
-    // Also fix any existing incorrect casing for the type name
-    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/urlEncodedBase64["']/g, 
-                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+    // Replace UrlEncodedBase64 type usage with string
+    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': string$1');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: string$1');
+    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': string[]');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: string[]');
+    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<string>');
+    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= string$1');
 
-    // Fix type usage in interface definitions and type annotations
-    // Replace UrlEncodedBase64 with URLEncodedBase64 in type positions
-    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': URLEncodedBase64$1');
-    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: URLEncodedBase64$1');
-    
-    // Fix array type definitions
-    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': URLEncodedBase64[]');
-    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: URLEncodedBase64[]');
-    
-    // Fix generic type parameters
-    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<URLEncodedBase64>');
-    
-    // Fix type aliases and other type definitions
-    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= URLEncodedBase64$1');
-
-    // Fix APIEndpoint casing issue - import should match export
-    content = content.replace(/import\s+type\s*{\s*APIEndpoint\s*}\s+from\s+["']\.\/aPIEndpoint["']/g, 
-                              'import type { ApiEndpoint } from "./aPIEndpoint"');
-    
-    // Fix APIEndpoint type usage to match the actual export
-    content = content.replace(/:\s*APIEndpoint(\s*[;,}|\]])/g, ': ApiEndpoint$1');
-    content = content.replace(/\?\s*:\s*APIEndpoint(\s*[;,}|\]])/g, '?: ApiEndpoint$1');
-    content = content.replace(/:\s*APIEndpoint\[\]/g, ': ApiEndpoint[]');
-    content = content.replace(/\?\s*:\s*APIEndpoint\[\]/g, '?: ApiEndpoint[]');
-    content = content.replace(/Array<APIEndpoint>/g, 'Array<ApiEndpoint>');
+    // APIEndpoint is correctly exported as APIEndpoint from aPIEndpoint.ts - no changes needed
 
     // Fix index signature compatibility with optional properties
     // Fix the specific pattern that causes TS2411 errors
@@ -538,28 +521,40 @@ function fixFileCasing() {
     .readdirSync(schemasDir)
     .filter((file) => file.endsWith(".ts"));
 
-  // Check for specific casing issues
-  const casedFiles = files.filter(file => file.toLowerCase().includes('urlencodedbase64'));
-  
-  if (casedFiles.length > 0) {
-    console.log(`🔍 Found files with URL encoding casing: ${casedFiles.join(', ')}`);
+  // Define known file casing issues and their correct forms
+  const casingFixes = [
+    // URLEncodedBase64 is a simple string type that doesn't generate a separate file
+    // No file casing fixes needed currently
+  ];
+
+  // Check for and fix file casing issues
+  casingFixes.forEach(fix => {
+    const incorrectFiles = files.filter(file => fix.pattern.test(file));
     
-    // Look for the incorrectly cased file
-    const incorrectFile = casedFiles.find(f => f.includes('uRLEncodedBase64.ts'));
-    const correctFile = casedFiles.find(f => f.includes('urlEncodedBase64.ts'));
-    
-    if (incorrectFile && correctFile) {
-      console.log(`🔧 Fixing casing issue: ${incorrectFile} -> ${correctFile}`);
+    incorrectFiles.forEach(incorrectFile => {
+      const correctFile = files.find(f => f === fix.correctName);
       
-      // Remove the incorrectly cased file
-      const incorrectPath = path.join(schemasDir, incorrectFile);
-      if (fs.existsSync(incorrectPath)) {
-        fs.unlinkSync(incorrectPath);
-        console.log(`🗑️  Removed incorrectly cased file: ${incorrectFile}`);
-        fixedFiles++;
+      if (!correctFile) {
+        // Rename the incorrectly cased file to correct casing
+        const incorrectPath = path.join(schemasDir, incorrectFile);
+        const correctPath = path.join(schemasDir, fix.correctName);
+        
+        if (fs.existsSync(incorrectPath)) {
+          fs.renameSync(incorrectPath, correctPath);
+          console.log(`🔧 Renamed ${fix.description}: ${incorrectFile} -> ${fix.correctName}`);
+          fixedFiles++;
+        }
+      } else {
+        // Remove the incorrectly cased file (correct one already exists)
+        const incorrectPath = path.join(schemasDir, incorrectFile);
+        if (fs.existsSync(incorrectPath)) {
+          fs.unlinkSync(incorrectPath);
+          console.log(`🗑️  Removed duplicate ${fix.description}: ${incorrectFile} (keeping ${fix.correctName})`);
+          fixedFiles++;
+        }
       }
-    }
-  }
+    });
+  });
 
   // Fix import statements that reference the incorrect casing
   files.forEach((filename) => {
@@ -569,42 +564,19 @@ function fixFileCasing() {
     let content = fs.readFileSync(filePath, "utf8");
     const originalContent = content;
 
-    // Fix imports from "./uRLEncodedBase64" to "./urlEncodedBase64"
-    content = content.replace(/from\s+["']\.\/uRLEncodedBase64["']/g, 'from "./urlEncodedBase64"');
+    // Fix UrlEncodedBase64 imports - this is a simple string type that doesn't generate a separate file
+    // Remove the import statement
+    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+[\"']\.\/urlEncodedBase64[\"'];\s*\n/g, '');
     
-    // Fix type imports - need to match the actual export name
-    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
-                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
+    // Replace UrlEncodedBase64 type usage with string
+    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': string$1');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: string$1');
+    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': string[]');
+    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: string[]');
+    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<string>');
+    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= string$1');
 
-    // Also fix any existing incorrect casing for the type name
-    content = content.replace(/import\s+type\s*{\s*UrlEncodedBase64\s*}\s+from\s+["']\.\/urlEncodedBase64["']/g, 
-                              'import type { URLEncodedBase64 } from "./urlEncodedBase64"');
-
-    // Fix type usage in interface definitions and type annotations
-    // Replace UrlEncodedBase64 with URLEncodedBase64 in type positions
-    content = content.replace(/:\s*UrlEncodedBase64(\s*[;,}|\]])/g, ': URLEncodedBase64$1');
-    content = content.replace(/\?\s*:\s*UrlEncodedBase64(\s*[;,}|\]])/g, '?: URLEncodedBase64$1');
-    
-    // Fix array type definitions
-    content = content.replace(/:\s*UrlEncodedBase64\[\]/g, ': URLEncodedBase64[]');
-    content = content.replace(/\?\s*:\s*UrlEncodedBase64\[\]/g, '?: URLEncodedBase64[]');
-    
-    // Fix generic type parameters
-    content = content.replace(/Array<UrlEncodedBase64>/g, 'Array<URLEncodedBase64>');
-    
-    // Fix type aliases and other type definitions
-    content = content.replace(/=\s*UrlEncodedBase64(\s*[;,}|\]])/g, '= URLEncodedBase64$1');
-
-    // Fix APIEndpoint casing issue - import should match export
-    content = content.replace(/import\s+type\s*{\s*APIEndpoint\s*}\s+from\s+["']\.\/aPIEndpoint["']/g, 
-                              'import type { ApiEndpoint } from "./aPIEndpoint"');
-    
-    // Fix APIEndpoint type usage to match the actual export
-    content = content.replace(/:\s*APIEndpoint(\s*[;,}|\]])/g, ': ApiEndpoint$1');
-    content = content.replace(/\?\s*:\s*APIEndpoint(\s*[;,}|\]])/g, '?: ApiEndpoint$1');
-    content = content.replace(/:\s*APIEndpoint\[\]/g, ': ApiEndpoint[]');
-    content = content.replace(/\?\s*:\s*APIEndpoint\[\]/g, '?: ApiEndpoint[]');
-    content = content.replace(/Array<APIEndpoint>/g, 'Array<ApiEndpoint>');
+    // APIEndpoint is correctly exported as APIEndpoint from aPIEndpoint.ts - no changes needed
 
     // Fix index signature compatibility with optional properties
     // Fix the specific pattern that causes TS2411 errors
@@ -620,20 +592,27 @@ function fixFileCasing() {
     }
   });
 
-  // Fix the schemas index.ts file
+  // Fix the schemas index.ts file exports
   const schemasIndexPath = path.join(schemasDir, "index.ts");
   if (fs.existsSync(schemasIndexPath)) {
     let indexContent = fs.readFileSync(schemasIndexPath, "utf8");
     const originalIndexContent = indexContent;
 
-    // Fix export statement
-    indexContent = indexContent.replace(/export\s+\*\s+from\s+["']\.\/uRLEncodedBase64["']/g, 
-                                      'export * from "./urlEncodedBase64"');
+    // Fix export statements for renamed files
+    casingFixes.forEach(fix => {
+      const incorrectExportPattern = new RegExp(`export\\s+\\*\\s+from\\s+["']\\.\\/` + fix.pattern.source.replace(/\\\./g, '\\.').replace(/\\\$/g, '').replace(/\^/g, '').replace(/\\.ts/g, '') + `["']`, 'g');
+      const correctExport = `export * from "./${fix.correctName.replace('.ts', '')}"`;
+      
+      if (incorrectExportPattern.test(indexContent)) {
+        indexContent = indexContent.replace(incorrectExportPattern, correctExport);
+        console.log(`🔧 Fixed export in schemas index: ${fix.description}`);
+        fixedImports++;
+      }
+    });
 
     if (indexContent !== originalIndexContent) {
       fs.writeFileSync(schemasIndexPath, indexContent, "utf8");
-      console.log(`✅ Fixed export casing in schemas index.ts`);
-      fixedImports++;
+      console.log(`✅ Updated schemas index.ts exports`);
     }
   }
 

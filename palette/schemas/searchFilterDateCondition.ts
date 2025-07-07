@@ -12,8 +12,8 @@
 import type { SearchFilterDateConditionMatch } from "./searchFilterDateConditionMatch";
 import type { SearchFilterDateOperator } from "./searchFilterDateOperator";
 
-export interface SearchFilterDateCondition {
+export type SearchFilterDateCondition = {
   match?: SearchFilterDateConditionMatch;
   negation?: boolean;
   operator?: SearchFilterDateOperator;
-}
+};

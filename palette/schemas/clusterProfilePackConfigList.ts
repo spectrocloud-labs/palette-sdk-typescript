@@ -11,7 +11,7 @@
  */
 import type { PackConfig } from "./packConfig";
 
-export interface ClusterProfilePackConfigList {
+export type ClusterProfilePackConfigList = {
   /** Cluster profile packs array */
   items: PackConfig[];
-}
+};

@@ -14,6 +14,6 @@ import type { EdgeNativeClusterConfig } from "./edgeNativeClusterConfig";
 /**
  * EdgeNative cloud cluster config entity
  */
-export interface EdgeNativeCloudClusterConfigEntity {
+export type EdgeNativeCloudClusterConfigEntity = {
   clusterConfig?: EdgeNativeClusterConfig;
-}
+};

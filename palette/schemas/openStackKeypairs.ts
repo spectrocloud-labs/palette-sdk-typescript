@@ -14,6 +14,6 @@ import type { OpenStackKeypair } from "./openStackKeypair";
 /**
  * List of OpenStack keypairs
  */
-export interface OpenStackKeypairs {
+export type OpenStackKeypairs = {
   items: OpenStackKeypair[];
-}
+};

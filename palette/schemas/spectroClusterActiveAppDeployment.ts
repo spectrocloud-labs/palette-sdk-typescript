@@ -14,7 +14,7 @@ import type { ObjectEntity } from "./objectEntity";
 /**
  * Active app deployment
  */
-export interface SpectroClusterActiveAppDeployment {
+export type SpectroClusterActiveAppDeployment = {
   appRef?: ObjectEntity;
   state?: string;
-}
+};

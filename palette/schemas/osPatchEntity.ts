@@ -11,6 +11,6 @@
  */
 import type { OsPatchConfig } from "./osPatchConfig";
 
-export interface OsPatchEntity {
+export type OsPatchEntity = {
   osPatchConfig?: OsPatchConfig;
-}
+};

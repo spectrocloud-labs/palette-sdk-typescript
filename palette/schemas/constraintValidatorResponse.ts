@@ -14,6 +14,6 @@ import type { ConstraintValidatorResult } from "./constraintValidatorResult";
 /**
  * Constraint validator response
  */
-export interface ConstraintValidatorResponse {
+export type ConstraintValidatorResponse = {
   results?: ConstraintValidatorResult[];
-}
+};

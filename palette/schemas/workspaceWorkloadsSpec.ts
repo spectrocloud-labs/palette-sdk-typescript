@@ -14,6 +14,6 @@ import type { WorkspaceWorkloadsFilter } from "./workspaceWorkloadsFilter";
 /**
  * Workspace workloads spec
  */
-export interface WorkspaceWorkloadsSpec {
+export type WorkspaceWorkloadsSpec = {
   filter?: WorkspaceWorkloadsFilter;
-}
+};

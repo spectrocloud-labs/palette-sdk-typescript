@@ -14,6 +14,6 @@ import type { AppDeploymentClusterGroupTargetSpec } from "./appDeploymentCluster
 /**
  * Application deployment cluster group config
  */
-export interface AppDeploymentClusterGroupConfigEntity {
+export type AppDeploymentClusterGroupConfigEntity = {
   targetSpec?: AppDeploymentClusterGroupTargetSpec;
-}
+};

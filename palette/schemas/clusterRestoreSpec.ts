@@ -13,6 +13,6 @@
 /**
  * Cluster Restore Spec
  */
-export interface ClusterRestoreSpec {
+export type ClusterRestoreSpec = {
   clusterUid?: string;
-}
+};

@@ -14,7 +14,7 @@ import type { AppTierResolvedValuesResolved } from "./appTierResolvedValuesResol
 /**
  * Application tier resolved macro values
  */
-export interface AppTierResolvedValues {
+export type AppTierResolvedValues = {
   /** Application tier resolved macro values map */
   resolved?: AppTierResolvedValuesResolved;
-}
+};

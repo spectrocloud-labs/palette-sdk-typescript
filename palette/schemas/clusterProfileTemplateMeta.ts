@@ -14,7 +14,7 @@ import type { PackRef } from "./packRef";
 /**
  * Cluster profile template meta information
  */
-export interface ClusterProfileTemplateMeta {
+export type ClusterProfileTemplateMeta = {
   cloudType?: string;
   /** Cluster profile name */
   name?: string;
@@ -27,4 +27,4 @@ export interface ClusterProfileTemplateMeta {
   /** Cluster profile uid */
   uid?: string;
   version?: number;
-}
+};

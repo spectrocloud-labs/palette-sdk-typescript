@@ -11,9 +11,9 @@
  */
 import type { LifecycleStatusStatus } from "./lifecycleStatusStatus";
 
-export interface LifecycleStatus {
+export type LifecycleStatus = {
   /** error or success msg of lifecycle */
   msg?: string;
   /** lifecycle status */
   status?: LifecycleStatusStatus;
-}
+};

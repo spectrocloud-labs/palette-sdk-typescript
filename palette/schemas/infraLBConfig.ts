@@ -11,6 +11,6 @@
  */
 import type { LoadBalancerSpec } from "./loadBalancerSpec";
 
-export interface InfraLBConfig {
+export type InfraLBConfig = {
   apiServerLB?: LoadBalancerSpec;
-}
+};

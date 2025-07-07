@@ -15,7 +15,7 @@ import type { VsphereMachinePoolConfigEntity } from "./vsphereMachinePoolConfigE
 /**
  * Vsphere cluster request payload for estimating rate
  */
-export interface SpectroVsphereClusterRateEntity {
+export type SpectroVsphereClusterRateEntity = {
   cloudConfig?: VsphereClusterConfigEntity;
   machinepoolconfig?: VsphereMachinePoolConfigEntity[];
-}
+};

@@ -14,8 +14,8 @@ import type { RelatedObjectKind } from "./relatedObjectKind";
 /**
  * Object for which the resource is related
  */
-export interface RelatedObject {
+export type RelatedObject = {
   kind?: RelatedObjectKind;
   name?: string;
   uid?: string;
-}
+};

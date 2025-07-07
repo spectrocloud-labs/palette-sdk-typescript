@@ -13,7 +13,7 @@
 /**
  * Edge token status
  */
-export interface EdgeTokenStatus {
+export type EdgeTokenStatus = {
   /** Set to 'true', if the token is active */
   isActive?: boolean;
-}
+};

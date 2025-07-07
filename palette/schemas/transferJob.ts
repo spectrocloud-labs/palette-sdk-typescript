@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * transfer job details
  */
-export interface TransferJob {
+export type TransferJob = {
   finishTime?: Time;
   folder?: string;
   isCompleted?: boolean;
@@ -22,4 +22,4 @@ export interface TransferJob {
   startTime?: Time;
   state?: string;
   status?: string[];
-}
+};

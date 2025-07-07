@@ -11,6 +11,6 @@
  */
 import type { TeamRoleMap } from "./teamRoleMap";
 
-export interface ProjectTeamsEntity {
+export type ProjectTeamsEntity = {
   teams?: TeamRoleMap[];
-}
+};

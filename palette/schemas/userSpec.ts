@@ -13,10 +13,10 @@
 /**
  * User specifications
  */
-export interface UserSpec {
+export type UserSpec = {
   /** User's email id */
   emailId?: string;
   firstName?: string;
   lastName?: string;
   roles?: string[];
-}
+};

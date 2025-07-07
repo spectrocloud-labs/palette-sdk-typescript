@@ -17,6 +17,6 @@ Each key is either a '.' representing the field itself, and will always map to a
 
 The exact format is defined in sigs.k8s.io/structured-merge-diff
  */
-export interface VmFieldsV1 {
+export type VmFieldsV1 = {
   Raw?: string[];
-}
+};

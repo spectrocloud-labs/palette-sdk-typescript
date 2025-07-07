@@ -11,7 +11,7 @@
  */
 import type { Time } from "./time";
 
-export interface MfaDeviceMeta {
+export type MfaDeviceMeta = {
   creationTimestamp?: Time;
   deviceName?: string;
-}
+};

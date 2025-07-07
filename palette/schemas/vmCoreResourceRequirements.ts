@@ -15,9 +15,9 @@ import type { VmCoreResourceRequirementsRequests } from "./vmCoreResourceRequire
 /**
  * ResourceRequirements describes the compute resource requirements.
  */
-export interface VmCoreResourceRequirements {
+export type VmCoreResourceRequirements = {
   /** Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ */
   limits?: VmCoreResourceRequirementsLimits;
   /** Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ */
   requests?: VmCoreResourceRequirementsRequests;
-}
+};

@@ -15,7 +15,7 @@ import type { EdgeHostState } from "./edgeHostState";
 /**
  * Edge hosts metadata filter spec
  */
-export interface EdgeHostsMetadataFilterSpec {
+export type EdgeHostsMetadataFilterSpec = {
   name?: FilterString;
   states?: EdgeHostState[];
-}
+};

@@ -14,9 +14,9 @@ import type { PackManifestUpdateEntity } from "./packManifestUpdateEntity";
 /**
  * Cluster profile notification update request payload
  */
-export interface ClusterProfileNotificationUpdateEntity {
+export type ClusterProfileNotificationUpdateEntity = {
   /** Cluster profile packs array */
   packs?: PackManifestUpdateEntity[];
   /** Cluster profile uid */
   uid?: string;
-}
+};

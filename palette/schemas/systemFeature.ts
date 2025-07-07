@@ -12,7 +12,7 @@
 import type { ObjectMeta } from "./objectMeta";
 import type { SystemFeaturesSpec } from "./systemFeaturesSpec";
 
-export interface SystemFeature {
+export type SystemFeature = {
   metadata?: ObjectMeta;
   spec?: SystemFeaturesSpec;
-}
+};

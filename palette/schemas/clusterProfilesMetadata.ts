@@ -11,6 +11,6 @@
  */
 import type { ClusterProfileMetadata } from "./clusterProfileMetadata";
 
-export interface ClusterProfilesMetadata {
+export type ClusterProfilesMetadata = {
   items: ClusterProfileMetadata[];
-}
+};

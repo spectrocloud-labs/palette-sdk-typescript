@@ -14,6 +14,6 @@ import type { MgmtFileTransferFtpEntity } from "./mgmtFileTransferFtpEntity";
 /**
  * list ftp backups
  */
-export interface MgmtListBackupFtpEntity {
+export type MgmtListBackupFtpEntity = {
   fileTransferConfig?: MgmtFileTransferFtpEntity;
-}
+};

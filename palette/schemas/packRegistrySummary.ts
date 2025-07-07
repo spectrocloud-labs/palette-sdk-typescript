@@ -16,8 +16,8 @@ import type { PackRegistryStatusSummary } from "./packRegistryStatusSummary";
 /**
  * Pack Registry summary
  */
-export interface PackRegistrySummary {
+export type PackRegistrySummary = {
   metadata?: ObjectMeta;
   spec?: PackRegistrySpecSummary;
   status?: PackRegistryStatusSummary;
-}
+};

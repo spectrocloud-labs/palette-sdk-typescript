@@ -13,8 +13,8 @@
 /**
  * Update tenant status
  */
-export interface UpdateTenantStatus {
+export type UpdateTenantStatus = {
   errorMessage?: string;
   kind?: string;
   stage?: string;
-}
+};

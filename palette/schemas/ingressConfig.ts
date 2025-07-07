@@ -13,7 +13,7 @@
 /**
  * Ingress configuration for exposing the virtual cluster's kube-apiserver
  */
-export interface IngressConfig {
+export type IngressConfig = {
   host?: string;
   port?: number;
-}
+};

@@ -12,7 +12,7 @@
 import type { ObjectMeta } from "./objectMeta";
 import type { SystemSysplanSpec } from "./systemSysplanSpec";
 
-export interface SystemSysplan {
+export type SystemSysplan = {
   metadata?: ObjectMeta;
   spec?: SystemSysplanSpec;
-}
+};

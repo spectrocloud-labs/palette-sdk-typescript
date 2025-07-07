@@ -14,6 +14,6 @@ import type { PasswordsBlockListEntity } from "./passwordsBlockListEntity";
 /**
  * List of blocklisted passwords
  */
-export interface PasswordsBlockList {
+export type PasswordsBlockList = {
   spec?: PasswordsBlockListEntity;
-}
+};

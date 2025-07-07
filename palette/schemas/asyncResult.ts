@@ -11,8 +11,8 @@
  */
 import type { AsyncResultData } from "./asyncResultData";
 
-export interface AsyncResult {
+export type AsyncResult = {
   data?: AsyncResultData;
   error?: string;
   isSuccess?: boolean;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface JWKResponse {
+export type JWKResponse = {
   /** The "alg" (algorithm) parameter identifies the algorithm intended for use with the key */
   alg?: string;
   e?: string;
@@ -23,4 +23,4 @@ export interface JWKResponse {
   n?: string;
   /** The "use" (public key use) parameter identifies the intended use of the public key */
   use?: string;
-}
+};

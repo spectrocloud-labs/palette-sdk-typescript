@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface TenantOidcClaims {
+export type TenantOidcClaims = {
   Email?: string;
   FirstName?: string;
   LastName?: string;
   SpectroTeam?: string;
-}
+};

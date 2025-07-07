@@ -13,8 +13,8 @@
 /**
  * Host specifications
  */
-export interface EdgeHostSpecHost {
+export type EdgeHostSpecHost = {
   /** HostAddress is a FQDN or IP address of the Host */
   hostAddress?: string;
   macAddress?: string;
-}
+};

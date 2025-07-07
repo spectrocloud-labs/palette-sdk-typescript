@@ -13,7 +13,7 @@
 /**
  * cluster preference
  */
-export interface ClusterPreference {
+export type ClusterPreference = {
   /** clusters cleanup interval post deletion */
   archivalIntervalInHour?: number;
   /** clusters deleted before delete period are eligible for cleanup */
@@ -26,4 +26,4 @@ export interface ClusterPreference {
   healthPollIntervalInMinutes?: number;
   /** clusters state and consistency monitor */
   monitorIntervalInMinutes?: number;
-}
+};

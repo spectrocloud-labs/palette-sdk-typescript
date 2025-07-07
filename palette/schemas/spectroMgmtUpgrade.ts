@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * spectro management upgrade logs
  */
-export interface SpectroMgmtUpgrade {
+export type SpectroMgmtUpgrade = {
   upgradeTime?: Time;
   version?: string;
-}
+};

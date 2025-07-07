@@ -15,7 +15,7 @@ import type { AppProfileTemplateSummary } from "./appProfileTemplateSummary";
 /**
  * Application deployment profile summary
  */
-export interface AppDeploymentProfileSummary {
+export type AppDeploymentProfileSummary = {
   metadata?: AppDeploymentProfileMetadataSummary;
   template?: AppProfileTemplateSummary;
-}
+};

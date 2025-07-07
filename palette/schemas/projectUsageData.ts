@@ -13,11 +13,11 @@
 /**
  * Project usage data object
  */
-export interface ProjectUsageData {
+export type ProjectUsageData = {
   /** Billing amount for the project */
   amount?: number;
   /** Tier price based on the usage */
   tierPrice?: number;
   /** Project used credits */
   usedCredits?: number;
-}
+};

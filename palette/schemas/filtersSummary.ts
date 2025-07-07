@@ -12,7 +12,7 @@
 import type { FilterSummary } from "./filterSummary";
 import type { ListMetaData } from "./listMetaData";
 
-export interface FiltersSummary {
+export type FiltersSummary = {
   items: FilterSummary[];
   listmeta?: ListMetaData;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster workload namespace status
  */
-export interface ClusterWorkloadNamespaceStatus {
+export type ClusterWorkloadNamespaceStatus = {
   phase?: string;
-}
+};

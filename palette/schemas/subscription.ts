@@ -13,7 +13,7 @@
 /**
  * Azure Subscription Type
  */
-export interface Subscription {
+export type Subscription = {
   /** The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management */
   authorizationSource?: string;
   /** The subscription display name */
@@ -22,4 +22,4 @@ export interface Subscription {
   state?: string;
   /** The subscription ID */
   subscriptionId?: string;
-}
+};

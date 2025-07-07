@@ -15,7 +15,7 @@ import type { VmUserPasswordAccessCredential } from "./vmUserPasswordAccessCrede
 /**
  * AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.
  */
-export interface VmAccessCredential {
+export type VmAccessCredential = {
   sshPublicKey?: VmSshPublicKeyAccessCredential;
   userPassword?: VmUserPasswordAccessCredential;
-}
+};

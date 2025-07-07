@@ -15,7 +15,7 @@ import type { EdgeTokenSpecUpdate } from "./edgeTokenSpecUpdate";
 /**
  * Edge token update request payload
  */
-export interface EdgeTokenUpdate {
+export type EdgeTokenUpdate = {
   metadata?: ObjectMeta;
   spec?: EdgeTokenSpecUpdate;
-}
+};

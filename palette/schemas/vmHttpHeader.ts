@@ -13,9 +13,9 @@
 /**
  * HTTPHeader describes a custom header to be used in HTTP probes
  */
-export interface VmHttpHeader {
+export type VmHttpHeader = {
   /** The header field name */
   name: string;
   /** The header field value */
   value: string;
-}
+};

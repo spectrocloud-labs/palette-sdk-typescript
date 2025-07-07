@@ -13,11 +13,11 @@
 /**
  * User Entity input
  */
-export interface UserSpecEntity {
+export type UserSpecEntity = {
   emailId?: string;
   firstName?: string;
   lastName?: string;
   loginMode?: string;
   roles?: string[];
   teams?: string[];
-}
+};

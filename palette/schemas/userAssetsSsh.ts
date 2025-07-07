@@ -11,7 +11,7 @@
  */
 import type { UserAssetSsh } from "./userAssetSsh";
 
-export interface UserAssetsSsh {
+export type UserAssetsSsh = {
   /** List of SSH keys */
   items: UserAssetSsh[];
-}
+};

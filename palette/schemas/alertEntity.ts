@@ -11,6 +11,6 @@
  */
 import type { Channel } from "./channel";
 
-export interface AlertEntity {
+export type AlertEntity = {
   channels?: Channel[];
-}
+};

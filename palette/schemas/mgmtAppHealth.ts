@@ -11,7 +11,7 @@
  */
 import type { MgmtPodHealth } from "./mgmtPodHealth";
 
-export interface MgmtAppHealth {
+export type MgmtAppHealth = {
   isHealthy?: boolean;
   podHealth?: MgmtPodHealth[];
-}
+};

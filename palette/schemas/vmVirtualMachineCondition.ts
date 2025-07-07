@@ -13,11 +13,11 @@
 /**
  * VirtualMachineCondition represents the state of VirtualMachine
  */
-export interface VmVirtualMachineCondition {
+export type VmVirtualMachineCondition = {
   lastProbeTime?: string;
   lastTransitionTime?: string;
   message?: string;
   reason?: string;
   status: string;
   type: string;
-}
+};

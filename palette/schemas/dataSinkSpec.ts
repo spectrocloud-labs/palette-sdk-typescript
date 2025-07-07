@@ -11,6 +11,6 @@
  */
 import type { DataSinkableSpec } from "./dataSinkableSpec";
 
-export interface DataSinkSpec {
+export type DataSinkSpec = {
   auditDataSinks?: DataSinkableSpec[];
-}
+};

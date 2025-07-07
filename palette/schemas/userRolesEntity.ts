@@ -11,7 +11,7 @@
  */
 import type { UidSummary } from "./uidSummary";
 
-export interface UserRolesEntity {
+export type UserRolesEntity = {
   inheritedRoles?: UidSummary[];
   roles?: UidSummary[];
-}
+};

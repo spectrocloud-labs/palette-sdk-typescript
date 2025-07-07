@@ -15,7 +15,7 @@ import type { DataSinkSpec } from "./dataSinkSpec";
 /**
  * Data sink
  */
-export interface DataSinkConfig {
+export type DataSinkConfig = {
   metadata?: ObjectMeta;
   spec?: DataSinkSpec;
-}
+};

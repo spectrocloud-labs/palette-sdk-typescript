@@ -14,6 +14,6 @@ import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
 /**
  * Cluster compliance scan schedule config for kube bench driver
  */
-export interface ClusterComplianceScanKubeBenchScheduleConfig {
+export type ClusterComplianceScanKubeBenchScheduleConfig = {
   schedule?: ClusterFeatureSchedule;
-}
+};

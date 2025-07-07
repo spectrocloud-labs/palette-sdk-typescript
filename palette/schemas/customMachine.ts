@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * Custom cloud VM definition
  */
-export interface CustomMachine {
+export type CustomMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: CustomMachineSpec;
   status?: CloudMachineStatus;
-}
+};

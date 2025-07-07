@@ -14,7 +14,7 @@ import type { ProjectActiveCluster } from "./projectActiveCluster";
 /**
  * Active clusters
  */
-export interface ProjectActiveClusters {
+export type ProjectActiveClusters = {
   clusters?: ProjectActiveCluster[];
   count?: number;
-}
+};

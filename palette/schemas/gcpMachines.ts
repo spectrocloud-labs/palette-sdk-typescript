@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * GCP machine list
  */
-export interface GcpMachines {
+export type GcpMachines = {
   items: GcpMachine[];
   listmeta?: ListMetaData;
-}
+};

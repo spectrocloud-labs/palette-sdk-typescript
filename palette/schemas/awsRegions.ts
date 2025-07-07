@@ -11,7 +11,7 @@
  */
 import type { AwsRegion } from "./awsRegion";
 
-export interface AwsRegions {
+export type AwsRegions = {
   /** List of AWS regions */
   regions: AwsRegion[];
-}
+};

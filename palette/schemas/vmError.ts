@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Error is the last error encountered during the snapshot/restore
  */
-export interface VmError {
+export type VmError = {
   message?: string;
   time?: Time;
-}
+};

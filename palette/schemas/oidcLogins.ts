@@ -15,7 +15,7 @@ import type { OidcLoginsTenantLogin } from "./oidcLoginsTenantLogin";
 /**
  * loginsDetails
  */
-export interface OidcLogins {
+export type OidcLogins = {
   systemLogins?: SsoLogin[];
   tenantLogin?: OidcLoginsTenantLogin;
-}
+};

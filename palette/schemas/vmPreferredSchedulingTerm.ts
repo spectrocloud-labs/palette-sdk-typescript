@@ -14,8 +14,8 @@ import type { VmNodeSelectorTerm } from "./vmNodeSelectorTerm";
 /**
  * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
  */
-export interface VmPreferredSchedulingTerm {
+export type VmPreferredSchedulingTerm = {
   preference: VmNodeSelectorTerm;
   /** Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100. */
   weight: number;
-}
+};

@@ -12,7 +12,7 @@
 import type { ControlPlaneEndPoint } from "./controlPlaneEndPoint";
 import type { VspherePlacementConfigEntity } from "./vspherePlacementConfigEntity";
 
-export interface VsphereOverlordClusterConfigEntity {
+export type VsphereOverlordClusterConfigEntity = {
   controlPlaneEndpoint?: ControlPlaneEndPoint;
   /** NTPServers is a list of NTP servers to use instead of the machine image's default NTP server list. */
   ntpServers?: string[];
@@ -22,4 +22,4 @@ export interface VsphereOverlordClusterConfigEntity {
   sshKeys?: string[];
   /** whether this cluster should use dhcp or static IP, if false, use DHCP if this is set, then all machinepools should have staticIP with provided IPPool adding this as an additional standalone flag without relating to placement.Nework main reason is to enable more validation for placement.Network.StaticIP which should come together with valid Network.IPPool and Network.Name */
   staticIp?: boolean;
-}
+};

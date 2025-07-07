@@ -13,7 +13,7 @@
 /**
  * UTC sets the guest clock to UTC on each boot.
  */
-export interface VmClockOffsetUTC {
+export type VmClockOffsetUTC = {
   /** OffsetSeconds specifies an offset in seconds, relative to UTC. If set, guest changes to the clock will be kept during reboots and not reset. */
   offsetSeconds?: number;
-}
+};

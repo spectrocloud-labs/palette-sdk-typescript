@@ -12,7 +12,7 @@
 import type { AppProfileSortFields } from "./appProfileSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface AppProfileSortSpec {
+export type AppProfileSortSpec = {
   field?: AppProfileSortFields;
   order?: SortOrder;
-}
+};

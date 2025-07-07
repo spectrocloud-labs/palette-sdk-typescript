@@ -13,11 +13,11 @@
 /**
  * AWS region which represents separate geographic area.
  */
-export interface AwsRegion {
+export type AwsRegion = {
   /** AWS offer a regional endpoint that can used to make requests */
   endpoint?: string;
   /** Name of the AWS region */
   name?: string;
   /** Enable your account to operate in the particular regions */
   optInStatus?: string;
-}
+};

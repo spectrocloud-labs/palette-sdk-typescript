@@ -13,7 +13,7 @@
 /**
  * EdgeNativeInstanceType defines the instance configuration for a docker container node
  */
-export interface EdgeNativeInstanceType {
+export type EdgeNativeInstanceType = {
   /** DiskGiB is the size of a virtual machine's disk */
   diskGiB?: number;
   /** MemoryMiB is the size of a virtual machine's memory, in MiB */
@@ -22,4 +22,4 @@ export interface EdgeNativeInstanceType {
   name?: string;
   /** NumCPUs is the number of CPUs */
   numCPUs?: number;
-}
+};

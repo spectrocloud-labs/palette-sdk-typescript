@@ -12,7 +12,7 @@
 import type { CustomMachinePoolCloudConfigEntity } from "./customMachinePoolCloudConfigEntity";
 import type { CustomMachinePoolBaseConfigEntity } from "./customMachinePoolBaseConfigEntity";
 
-export interface CustomMachinePoolConfigEntity {
+export type CustomMachinePoolConfigEntity = {
   cloudConfig: CustomMachinePoolCloudConfigEntity;
   poolConfig?: CustomMachinePoolBaseConfigEntity;
-}
+};

@@ -14,6 +14,6 @@ import type { SystemGcpImageSpec } from "./systemGcpImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemGcpImage {
+export type SystemGcpImage = {
   spec?: SystemGcpImageSpec;
-}
+};

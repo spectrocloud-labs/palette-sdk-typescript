@@ -14,6 +14,6 @@ import type { AwsKmsKey } from "./awsKmsKey";
 /**
  * List of AWS Keys
  */
-export interface AwsKmsKeys {
+export type AwsKmsKeys = {
   kmsKeys: AwsKmsKey[];
-}
+};

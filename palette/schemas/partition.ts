@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface Partition {
+export type Partition = {
   fileSystemType?: string;
   freeSpace?: number;
   mountPoint?: string;
   totalSpace?: number;
   usedSpace?: number;
-}
+};

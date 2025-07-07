@@ -13,7 +13,7 @@
 /**
  * Compute estimated rate information
  */
-export interface ComputeRate {
+export type ComputeRate = {
   rate?: number;
   type?: string;
-}
+};

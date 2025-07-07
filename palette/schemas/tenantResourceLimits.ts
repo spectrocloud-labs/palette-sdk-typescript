@@ -14,6 +14,6 @@ import type { TenantResourceLimit } from "./tenantResourceLimit";
 /**
  * Tenant resource limits
  */
-export interface TenantResourceLimits {
+export type TenantResourceLimits = {
   resources?: TenantResourceLimit[];
-}
+};

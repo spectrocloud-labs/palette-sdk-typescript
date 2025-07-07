@@ -15,7 +15,7 @@ import type { SystemFtpSpec } from "./systemFtpSpec";
 /**
  * system backup config spec
  */
-export interface SystemBackupFtpConfigSpec {
+export type SystemBackupFtpConfigSpec = {
   backupSpec?: SystemBackupSpec;
   ftp?: SystemFtpSpec;
-}
+};

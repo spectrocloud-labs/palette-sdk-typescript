@@ -15,7 +15,7 @@ import type { SpectroAwsClusterImportEntitySpec } from "./spectroAwsClusterImpor
 /**
  * Spectro AWS cluster import request payload
  */
-export interface SpectroAwsClusterImportEntity {
+export type SpectroAwsClusterImportEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroAwsClusterImportEntitySpec;
-}
+};

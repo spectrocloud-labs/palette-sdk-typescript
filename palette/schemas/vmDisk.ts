@@ -14,7 +14,7 @@ import type { VmCDRomTarget } from "./vmCDRomTarget";
 import type { VmDiskTarget } from "./vmDiskTarget";
 import type { VmLunTarget } from "./vmLunTarget";
 
-export interface VmDisk {
+export type VmDisk = {
   blockSize?: VmBlockSize;
   /** BootOrder is an integer value > 0, used to determine ordering of boot devices. Lower values take precedence. Each disk or interface that has a boot order must have a unique value. Disks without a boot order are not tried if a disk with a boot order exists. */
   bootOrder?: number;
@@ -35,4 +35,4 @@ export interface VmDisk {
   shareable?: boolean;
   /** If specified, disk address and its tag will be provided to the guest via config drive metadata */
   tag?: string;
-}
+};

@@ -13,8 +13,8 @@
 /**
  * Aws security group
  */
-export interface AwsSecuritygroup {
+export type AwsSecuritygroup = {
   groupId?: string;
   groupName?: string;
   ownerId?: string;
-}
+};

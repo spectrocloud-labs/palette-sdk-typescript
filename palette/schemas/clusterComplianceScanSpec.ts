@@ -14,7 +14,7 @@ import type { ClusterComplianceScanSpecDriverSpec } from "./clusterComplianceSca
 /**
  * Cluster compliance scan Spec
  */
-export interface ClusterComplianceScanSpec {
+export type ClusterComplianceScanSpec = {
   clusterUid?: string;
   driverSpec?: ClusterComplianceScanSpecDriverSpec;
-}
+};

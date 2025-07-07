@@ -15,7 +15,7 @@ import type { UserSummarySortSpec } from "./userSummarySortSpec";
 /**
  * Users filter summary spec
  */
-export interface UsersSummarySpec {
+export type UsersSummarySpec = {
   filter?: UsersFilterSpec;
   sort?: UserSummarySortSpec[];
-}
+};

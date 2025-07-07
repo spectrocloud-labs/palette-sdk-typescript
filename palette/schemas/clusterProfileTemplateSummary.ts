@@ -14,8 +14,8 @@ import type { PackRefSummary } from "./packRefSummary";
 /**
  * Cluster profile template summary
  */
-export interface ClusterProfileTemplateSummary {
+export type ClusterProfileTemplateSummary = {
   cloudType?: string;
   packs?: PackRefSummary[];
   type?: string;
-}
+};

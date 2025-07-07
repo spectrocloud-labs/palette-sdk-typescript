@@ -16,8 +16,8 @@ import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 /**
  * Hybrid Edge-Native cluster's machine-pool configuration update request payload
  */
-export interface HybridEdgeNativeMachinePoolConfigUpdateEntity {
+export type HybridEdgeNativeMachinePoolConfigUpdateEntity = {
   cloudConfig?: EdgeNativeHybridMachineConfigEntity;
   clusterConfig?: EdgeNativeHybridClusterConfig;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

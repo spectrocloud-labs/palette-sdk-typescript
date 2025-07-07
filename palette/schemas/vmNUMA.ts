@@ -11,6 +11,6 @@
  */
 import type { VmNUMAGuestMappingPassthrough } from "./vmNUMAGuestMappingPassthrough";
 
-export interface VmNUMA {
+export type VmNUMA = {
   guestMappingPassthrough?: VmNUMAGuestMappingPassthrough;
-}
+};

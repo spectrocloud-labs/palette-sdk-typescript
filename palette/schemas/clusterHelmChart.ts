@@ -14,10 +14,10 @@ import type { ClusterHelmRegistry } from "./clusterHelmRegistry";
 /**
  * Cluster helm chart metadata
  */
-export interface ClusterHelmChart {
+export type ClusterHelmChart = {
   localName?: string;
   matchedRegistries?: ClusterHelmRegistry[];
   name?: string;
   values?: string;
   version?: string;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster additional metadata entity
  */
-export interface ClusterMetaAttributeEntity {
+export type ClusterMetaAttributeEntity = {
   clusterMetaAttribute?: string;
-}
+};

@@ -13,11 +13,11 @@
 /**
  * system smtp config spec
  */
-export interface SystemSmtpSpec {
+export type SystemSmtpSpec = {
   fromEmailId?: string;
   insecureSkipVerifyTls?: boolean;
   password?: string;
   smtpPort?: number;
   smtpServer?: string;
   userName?: string;
-}
+};

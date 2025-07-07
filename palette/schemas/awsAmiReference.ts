@@ -14,9 +14,9 @@ import type { AwsAmiReferenceEksOptimizedLookupType } from "./awsAmiReferenceEks
 /**
  * AMI is the reference to the AMI from which to create the machine instance
  */
-export interface AwsAmiReference {
+export type AwsAmiReference = {
   /** EKSOptimizedLookupType If specified, will look up an EKS Optimized image in SSM Parameter store */
   eksOptimizedLookupType?: AwsAmiReferenceEksOptimizedLookupType;
   /** ID of resource */
   id?: string;
-}
+};

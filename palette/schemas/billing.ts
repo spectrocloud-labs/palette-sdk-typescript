@@ -14,7 +14,7 @@ import type { TierPrice } from "./tierPrice";
 /**
  * billing preference
  */
-export interface Billing {
+export type Billing = {
   billingDay?: number;
   tierPricing?: TierPrice;
-}
+};

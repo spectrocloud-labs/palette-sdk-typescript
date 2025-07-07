@@ -11,6 +11,6 @@
  */
 import type { UserRoleMap } from "./userRoleMap";
 
-export interface ProjectUsersEntity {
+export type ProjectUsersEntity = {
   users?: UserRoleMap[];
-}
+};

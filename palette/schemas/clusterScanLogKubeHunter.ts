@@ -16,8 +16,8 @@ import type { ClusterKubeHunterLogStatus } from "./clusterKubeHunterLogStatus";
 /**
  * Cluster compliance scan KubeHunter Log
  */
-export interface ClusterScanLogKubeHunter {
+export type ClusterScanLogKubeHunter = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanLogSpec;
   status?: ClusterKubeHunterLogStatus;
-}
+};

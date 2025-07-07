@@ -14,6 +14,6 @@ import type { K8MachineCertificate } from "./k8MachineCertificate";
 /**
  * K8 Certificates for all the cluster's control plane nodes
  */
-export interface SpectroClusterK8sCertificate {
+export type SpectroClusterK8sCertificate = {
   machineCertificates?: K8MachineCertificate[];
-}
+};

@@ -13,10 +13,10 @@
 /**
  * Mold always create VHD image for custom image, and this can be use as golden images
  */
-export interface AzureVHDImage {
+export type AzureVHDImage = {
   id?: string;
   name?: string;
   os?: string;
   region?: string;
   state?: string;
-}
+};

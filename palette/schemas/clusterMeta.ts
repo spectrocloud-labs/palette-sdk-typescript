@@ -15,7 +15,7 @@ import type { ClusterState } from "./clusterState";
 /**
  * Active cluster meta
  */
-export interface ClusterMeta {
+export type ClusterMeta = {
   cloudType?: string;
   clusterType?: string;
   creationTimestamp?: Time;
@@ -24,4 +24,4 @@ export interface ClusterMeta {
   projectName?: string;
   state?: ClusterState;
   uid?: string;
-}
+};

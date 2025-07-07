@@ -15,11 +15,11 @@ import type { CustomNic } from "./customNic";
 /**
  * Custom cloud VM definition spec
  */
-export interface CustomMachineSpec {
+export type CustomMachineSpec = {
   cloudType?: string;
   hostName?: string;
   imageId?: string;
   instanceType?: CustomInstanceType;
   nics?: CustomNic[];
   sshKeyName?: string;
-}
+};

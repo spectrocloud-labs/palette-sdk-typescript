@@ -15,7 +15,7 @@ import type { EksMachinePoolConfigEntity } from "./eksMachinePoolConfigEntity";
 /**
  * Spectro EKS cluster request payload for estimating rate
  */
-export interface SpectroEksClusterRateEntity {
+export type SpectroEksClusterRateEntity = {
   cloudConfig?: EksClusterConfig;
   machinepoolconfig?: EksMachinePoolConfigEntity[];
-}
+};

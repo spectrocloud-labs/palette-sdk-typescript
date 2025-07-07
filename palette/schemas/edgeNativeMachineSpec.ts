@@ -15,8 +15,8 @@ import type { EdgeNativeNic } from "./edgeNativeNic";
 /**
  * EdgeNative cloud VM definition spec
  */
-export interface EdgeNativeMachineSpec {
+export type EdgeNativeMachineSpec = {
   edgeHostUid?: string;
   instanceType?: EdgeNativeInstanceType;
   nics?: EdgeNativeNic[];
-}
+};

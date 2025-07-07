@@ -14,10 +14,10 @@ import type { DeviceSpec } from "./deviceSpec";
 import type { EdgeHostSpecHost } from "./edgeHostSpecHost";
 import type { ProjectMeta } from "./projectMeta";
 
-export interface EdgeHostsMetadataSpec {
+export type EdgeHostsMetadataSpec = {
   clusterProfileTemplates?: ProfileTemplateSummary[];
   device?: DeviceSpec;
   host?: EdgeHostSpecHost;
   projectMeta?: ProjectMeta;
   type?: string;
-}
+};

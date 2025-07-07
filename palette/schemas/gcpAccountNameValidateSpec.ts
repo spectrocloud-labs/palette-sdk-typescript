@@ -14,10 +14,10 @@ import type { GcpAccountValidateSpec } from "./gcpAccountValidateSpec";
 /**
  * Gcp cloud account name validate spec
  */
-export interface GcpAccountNameValidateSpec {
+export type GcpAccountNameValidateSpec = {
   /** Bucket name in the GCP */
   bucketName: string;
   credentials: GcpAccountValidateSpec;
   /** ProjectId in the GCP */
   projectId?: string;
-}
+};

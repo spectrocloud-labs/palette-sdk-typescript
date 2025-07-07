@@ -14,6 +14,6 @@ import type { SystemGcpSpec } from "./systemGcpSpec";
 /**
  * SystemAdmin
  */
-export interface SystemGcpAccount {
+export type SystemGcpAccount = {
   spec?: SystemGcpSpec;
-}
+};

@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterOidcClaims {
+export type SpectroClusterOidcClaims = {
   Email?: string;
   FirstName?: string;
   LastName?: string;
   SpectroTeam?: string;
-}
+};

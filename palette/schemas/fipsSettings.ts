@@ -14,8 +14,8 @@ import type { NonFipsConfig } from "./nonFipsConfig";
 /**
  * FIPS configuration
  */
-export interface FipsSettings {
+export type FipsSettings = {
   fipsClusterFeatureConfig?: NonFipsConfig;
   fipsClusterImportConfig?: NonFipsConfig;
   fipsPackConfig?: NonFipsConfig;
-}
+};

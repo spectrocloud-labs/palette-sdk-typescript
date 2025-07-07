@@ -13,9 +13,9 @@
 /**
  * AADProfile - AAD integration is managed by AKS.
  */
-export interface AADProfile {
+export type AADProfile = {
   /** AdminGroupObjectIDs - AAD group object IDs that will have admin role of the cluster. */
   adminGroupObjectIDs: string[];
   /** Managed - Whether to enable managed AAD. */
   managed: boolean;
-}
+};

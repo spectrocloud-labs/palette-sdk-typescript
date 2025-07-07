@@ -14,6 +14,6 @@ import type { SystemAwsImageSpec } from "./systemAwsImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemAwsImage {
+export type SystemAwsImage = {
   spec?: SystemAwsImageSpec;
-}
+};

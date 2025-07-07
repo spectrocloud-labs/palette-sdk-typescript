@@ -14,6 +14,6 @@ import type { VsphereClusterConfigEntity } from "./vsphereClusterConfigEntity";
 /**
  * vSphere cloud cluster config entity
  */
-export interface VsphereCloudClusterConfigEntity {
+export type VsphereCloudClusterConfigEntity = {
   clusterConfig?: VsphereClusterConfigEntity;
-}
+};

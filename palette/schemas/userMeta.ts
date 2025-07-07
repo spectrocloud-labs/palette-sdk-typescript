@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserMeta {
+export type UserMeta = {
   emailId?: string;
   firstName?: string;
   lastName?: string;
   org?: string;
   uid?: string;
-}
+};

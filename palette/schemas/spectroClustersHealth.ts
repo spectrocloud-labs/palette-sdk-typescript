@@ -13,9 +13,9 @@
 /**
  * Spectro Clusters health data
  */
-export interface SpectroClustersHealth {
+export type SpectroClustersHealth = {
   errored?: number;
   healthy?: number;
   running?: number;
   unhealthy?: number;
-}
+};

@@ -14,6 +14,6 @@ import type { PlanCreditEntity } from "./planCreditEntity";
 /**
  * Plan credit update entity
  */
-export interface PlanCreditUpdate {
+export type PlanCreditUpdate = {
   credit?: PlanCreditEntity;
-}
+};

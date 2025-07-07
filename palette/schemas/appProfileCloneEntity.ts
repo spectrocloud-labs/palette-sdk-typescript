@@ -14,6 +14,6 @@ import type { AppProfileCloneMetaInputEntity } from "./appProfileCloneMetaInputE
 /**
  * Application profile clone request payload
  */
-export interface AppProfileCloneEntity {
+export type AppProfileCloneEntity = {
   metadata?: AppProfileCloneMetaInputEntity;
-}
+};

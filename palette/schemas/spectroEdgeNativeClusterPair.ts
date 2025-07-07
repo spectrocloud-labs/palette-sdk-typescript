@@ -16,8 +16,8 @@ import type { SpectroClusterPairStatus } from "./spectroClusterPairStatus";
 /**
  * EdgeNative cluster pair response
  */
-export interface SpectroEdgeNativeClusterPair {
+export type SpectroEdgeNativeClusterPair = {
   metadata?: ObjectMeta;
   spec?: SpectroEdgeNativeClusterPairSpec;
   status?: SpectroClusterPairStatus;
-}
+};

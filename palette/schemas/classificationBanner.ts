@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ClassificationBanner {
+export type ClassificationBanner = {
   /** JSON-formatted string containing classification banner configuration data */
   config?: string;
-}
+};

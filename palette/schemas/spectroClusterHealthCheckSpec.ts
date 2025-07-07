@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterHealthCheckSpec {
+export type SpectroClusterHealthCheckSpec = {
   name?: string;
   orgName?: string;
   ownerName?: string;
   ownerUid?: string;
   tenantUid?: string;
-}
+};

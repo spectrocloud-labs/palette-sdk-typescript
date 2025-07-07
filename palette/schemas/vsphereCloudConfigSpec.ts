@@ -16,9 +16,9 @@ import type { VsphereMachinePoolConfig } from "./vsphereMachinePoolConfig";
 /**
  * VsphereCloudConfigSpec defines the desired state of VsphereCloudConfig
  */
-export interface VsphereCloudConfigSpec {
+export type VsphereCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig: VsphereClusterConfig;
   edgeHostRef?: ObjectReference;
   machinePoolConfig: VsphereMachinePoolConfig[];
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { UserAssetsLocation } from "./userAssetsLocation";
 
-export interface UserAssetsLocations {
+export type UserAssetsLocations = {
   /** List of locations */
   items: UserAssetsLocation[];
-}
+};

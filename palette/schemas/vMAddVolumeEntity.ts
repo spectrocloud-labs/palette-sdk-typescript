@@ -12,9 +12,9 @@
 import type { VmAddVolumeOptions } from "./vmAddVolumeOptions";
 import type { VmDataVolumeTemplateSpec } from "./vmDataVolumeTemplateSpec";
 
-export interface VMAddVolumeEntity {
+export type VMAddVolumeEntity = {
   addVolumeOptions: VmAddVolumeOptions;
   dataVolumeTemplate?: VmDataVolumeTemplateSpec;
   /** If 'true' add the disk to the Virtual Machine & Virtual Machine Instance, else add the disk to the Virtual Machine Instance only */
   persist?: boolean;
-}
+};

@@ -14,8 +14,8 @@ import type { ClusterRbacSubjectsType } from "./clusterRbacSubjectsType";
 /**
  * Cluster role ref
  */
-export interface ClusterRbacSubjects {
+export type ClusterRbacSubjects = {
   name?: string;
   namespace?: string;
   type?: ClusterRbacSubjectsType;
-}
+};

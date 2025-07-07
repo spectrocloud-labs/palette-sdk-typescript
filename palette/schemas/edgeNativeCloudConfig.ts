@@ -16,8 +16,8 @@ import type { EdgeNativeCloudConfigStatus } from "./edgeNativeCloudConfigStatus"
 /**
  * EdgeNativeCloudConfig is the Schema for the edgenativecloudconfigs API
  */
-export interface EdgeNativeCloudConfig {
+export type EdgeNativeCloudConfig = {
   metadata?: ObjectMeta;
   spec?: EdgeNativeCloudConfigSpec;
   status?: EdgeNativeCloudConfigStatus;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { ResourceLimitType } from "./resourceLimitType";
 
-export interface TenantResourceLimitEntity {
+export type TenantResourceLimitEntity = {
   kind?: ResourceLimitType;
   limit?: number;
-}
+};

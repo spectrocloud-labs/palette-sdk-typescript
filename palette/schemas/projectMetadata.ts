@@ -14,6 +14,6 @@ import type { ObjectEntity } from "./objectEntity";
 /**
  * Project metadata
  */
-export interface ProjectMetadata {
+export type ProjectMetadata = {
   metadata?: ObjectEntity;
-}
+};

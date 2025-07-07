@@ -11,7 +11,7 @@
  */
 import type { AwsCloudAccount } from "./awsCloudAccount";
 
-export interface AwsUserCloudAccount {
+export type AwsUserCloudAccount = {
   accountId?: string;
   cloudAccount?: AwsCloudAccount;
-}
+};

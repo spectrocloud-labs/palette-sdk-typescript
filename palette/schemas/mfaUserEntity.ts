@@ -11,8 +11,8 @@
  */
 import type { MfaUserEntityId } from "./mfaUserEntityId";
 
-export interface MfaUserEntity {
+export type MfaUserEntity = {
   displayName?: string;
   id?: MfaUserEntityId;
   name?: string;
-}
+};

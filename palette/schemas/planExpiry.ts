@@ -14,6 +14,6 @@ import type { Time } from "./time";
 /**
  * Plan expiry
  */
-export interface PlanExpiry {
+export type PlanExpiry = {
   expiry: Time;
-}
+};

@@ -14,7 +14,7 @@ import type { AwsSubnet } from "./awsSubnet";
 /**
  * A virtual network dedicated to a AWS account
  */
-export interface AwsVpc {
+export type AwsVpc = {
   cidrBlock?: string;
   /** Name of the virtual network */
   name?: string;
@@ -22,4 +22,4 @@ export interface AwsVpc {
   subnets?: AwsSubnet[];
   /** Id of the virtual network */
   vpcId: string;
-}
+};

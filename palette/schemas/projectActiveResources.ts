@@ -15,8 +15,8 @@ import type { ProjectActiveClusters } from "./projectActiveClusters";
 /**
  * Active project resources
  */
-export interface ProjectActiveResources {
+export type ProjectActiveResources = {
   appDeployments?: ProjectActiveAppDeployments;
   clusters?: ProjectActiveClusters;
   virtualClusters?: ProjectActiveClusters;
-}
+};

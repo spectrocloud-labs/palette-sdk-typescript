@@ -14,9 +14,9 @@ import type { Time } from "./time";
 /**
  * Active user data
  */
-export interface UserActivityInfo {
+export type UserActivityInfo = {
   lastLogin?: string;
   lastLoginTimestamp?: Time;
   name?: string;
   uid?: string;
-}
+};

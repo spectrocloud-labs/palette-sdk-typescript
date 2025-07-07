@@ -15,8 +15,8 @@ import type { DashboardWorkspaceQuota } from "./dashboardWorkspaceQuota";
 /**
  * Workspace spec summary
  */
-export interface DashboardWorkspaceSpec {
+export type DashboardWorkspaceSpec = {
   clusterRefs?: DashboardWorkspaceClusterRef[];
   namespaces?: string[];
   quota?: DashboardWorkspaceQuota;
-}
+};

@@ -11,8 +11,8 @@
  */
 import type { Time } from "./time";
 
-export interface AlertNotificationStatus {
+export type AlertNotificationStatus = {
   isSucceeded?: boolean;
   message?: string;
   time?: Time;
-}
+};

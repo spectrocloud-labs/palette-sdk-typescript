@@ -14,7 +14,7 @@ import type { HelmChartOption } from "./helmChartOption";
 /**
  * Helm registry create options
  */
-export interface HelmRegistryCreateOption {
+export type HelmRegistryCreateOption = {
   charts?: HelmChartOption[];
   skipSync?: boolean;
-}
+};

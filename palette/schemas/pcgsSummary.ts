@@ -12,7 +12,7 @@
 import type { Overlord } from "./overlord";
 import type { ListMetaData } from "./listMetaData";
 
-export interface PcgsSummary {
+export type PcgsSummary = {
   items: Overlord[];
   listmeta?: ListMetaData;
-}
+};

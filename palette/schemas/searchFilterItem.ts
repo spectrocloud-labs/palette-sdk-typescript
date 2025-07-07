@@ -12,8 +12,8 @@
 import type { SearchFilterCondition } from "./searchFilterCondition";
 import type { SearchFilterPropertyType } from "./searchFilterPropertyType";
 
-export interface SearchFilterItem {
+export type SearchFilterItem = {
   condition?: SearchFilterCondition;
   property?: string;
   type?: SearchFilterPropertyType;
-}
+};

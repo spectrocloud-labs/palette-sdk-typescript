@@ -15,7 +15,7 @@ import type { UserUpdateSpecEntity } from "./userUpdateSpecEntity";
 /**
  * User
  */
-export interface UserUpdateEntity {
+export type UserUpdateEntity = {
   metadata?: ObjectMeta;
   spec?: UserUpdateSpecEntity;
-}
+};

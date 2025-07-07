@@ -13,8 +13,8 @@
 /**
  * Project cleanup status
  */
-export interface ProjectCleanUpStatus {
+export type ProjectCleanUpStatus = {
   cleanedResources?: string[];
   msg?: string;
   state?: string;
-}
+};

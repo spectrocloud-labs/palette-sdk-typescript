@@ -14,10 +14,10 @@ import type { PackTemplateParameters } from "./packTemplateParameters";
 /**
  * Pack template configuration
  */
-export interface PackTemplate {
+export type PackTemplate = {
   /** Pack template manifest content */
   manifest?: string;
   parameters?: PackTemplateParameters;
   /** Pack template values */
   values?: string;
-}
+};

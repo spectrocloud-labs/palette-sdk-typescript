@@ -13,11 +13,11 @@ import type { VsphereOverlordClusterConfigEntity } from "./vsphereOverlordCluste
 import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
 import type { ClusterConfigEntity } from "./clusterConfigEntity";
 
-export interface OverlordVsphereCloudConfig {
+export type OverlordVsphereCloudConfig = {
   clusterConfig?: VsphereOverlordClusterConfigEntity;
   /** Cluster profiles pack configuration for private gateway cluster */
   clusterProfiles?: SpectroClusterProfileEntity[];
   clusterSettings?: ClusterConfigEntity;
   /** size of the pool, number of machines */
   size?: number;
-}
+};

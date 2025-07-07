@@ -14,7 +14,7 @@ import type { PackTemplateParameterOptions } from "./packTemplateParameterOption
 /**
  * Pack template parameter
  */
-export interface PackTemplateParameter {
+export type PackTemplateParameter = {
   /** Pack template parameter description */
   description?: string;
   /** Pack template parameter display name */
@@ -41,4 +41,4 @@ export interface PackTemplateParameter {
   type?: string;
   /** Pack template parameter value */
   value?: string;
-}
+};

@@ -15,8 +15,8 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Describe a list of generated notifications
  */
-export interface Notifications {
+export type Notifications = {
   /** Describe a list of generated notifications */
   items: Notification[];
   listmeta?: ListMetaData;
-}
+};

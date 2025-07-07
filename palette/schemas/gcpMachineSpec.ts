@@ -15,7 +15,7 @@ import type { GcpNic } from "./gcpNic";
 /**
  * GCP cloud VM definition spec
  */
-export interface GcpMachineSpec {
+export type GcpMachineSpec = {
   image?: string;
   instanceConfig?: InstanceConfig;
   instanceType: string;
@@ -24,4 +24,4 @@ export interface GcpMachineSpec {
   region?: string;
   rootDeviceSize?: number;
   zone?: string;
-}
+};

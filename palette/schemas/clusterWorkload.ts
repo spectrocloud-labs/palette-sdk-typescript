@@ -15,7 +15,7 @@ import type { ClusterWorkloadSpec } from "./clusterWorkloadSpec";
 /**
  * Cluster workload summary
  */
-export interface ClusterWorkload {
+export type ClusterWorkload = {
   metadata?: ObjectMetaInputEntity;
   spec?: ClusterWorkloadSpec;
-}
+};

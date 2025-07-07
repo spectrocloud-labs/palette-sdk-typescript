@@ -14,6 +14,6 @@ import type { SystemEdgeNativeImageSpec } from "./systemEdgeNativeImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemEdgeNativeImage {
+export type SystemEdgeNativeImage = {
   spec?: SystemEdgeNativeImageSpec;
-}
+};

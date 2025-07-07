@@ -14,6 +14,6 @@ import type { AwsCloudCostSummaryCloudCost } from "./awsCloudCostSummaryCloudCos
 /**
  * AWS cloud account usage cost summary response data
  */
-export interface AwsCloudCostSummary {
+export type AwsCloudCostSummary = {
   cost?: AwsCloudCostSummaryCloudCost;
-}
+};

@@ -13,8 +13,8 @@
 /**
  * Virtual cluster packs value
  */
-export interface ClusterVirtualPacksValue {
+export type ClusterVirtualPacksValue = {
   distroType?: string;
   layer?: string;
   values?: string;
-}
+};

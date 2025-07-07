@@ -14,7 +14,7 @@ import type { UpdateStrategyType } from "./updateStrategyType";
 /**
  * UpdatesStrategy will be used to translate to RollingUpdateStrategy of a MachineDeployment We'll start with default values for the translation, can expose more details later Following is details of parameters translated from the type ScaleOut => maxSurge=1, maxUnavailable=0 ScaleIn => maxSurge=0, maxUnavailable=1
  */
-export interface UpdateStrategy {
+export type UpdateStrategy = {
   /** update strategy, either ScaleOut or ScaleIn if empty, will default to RollingUpdateScaleOut */
   type?: UpdateStrategyType;
-}
+};

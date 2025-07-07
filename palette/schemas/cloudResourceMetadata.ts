@@ -15,7 +15,7 @@ import type { CloudResourceMetadataStorageTypes } from "./cloudResourceMetadataS
 /**
  * Cloud resource metadata
  */
-export interface CloudResourceMetadata {
+export type CloudResourceMetadata = {
   instanceTypes?: CloudResourceMetadataInstanceTypes;
   storageTypes?: CloudResourceMetadataStorageTypes;
-}
+};

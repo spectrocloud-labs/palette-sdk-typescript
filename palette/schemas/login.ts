@@ -13,6 +13,6 @@
 /**
  * Login input
  */
-export interface Login {
+export type Login = {
   emailId?: string;
-}
+};

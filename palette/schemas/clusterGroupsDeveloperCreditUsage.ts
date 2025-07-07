@@ -14,7 +14,7 @@ import type { DeveloperCredit } from "./developerCredit";
 /**
  * Cluster group resource allocated and usage information
  */
-export interface ClusterGroupsDeveloperCreditUsage {
+export type ClusterGroupsDeveloperCreditUsage = {
   allocatedCredit?: DeveloperCredit;
   usedCredit?: DeveloperCredit;
-}
+};

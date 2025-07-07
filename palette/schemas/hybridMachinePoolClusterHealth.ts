@@ -13,7 +13,7 @@
 /**
  * Machine pool cluster meta health information
  */
-export interface HybridMachinePoolClusterHealth {
+export type HybridMachinePoolClusterHealth = {
   isHeartBeatFailed?: boolean;
   state?: string;
-}
+};

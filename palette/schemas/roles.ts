@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Array of Roles
  */
-export interface Roles {
+export type Roles = {
   items: Role[];
   listmeta?: ListMetaData;
-}
+};

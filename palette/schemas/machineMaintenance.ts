@@ -11,7 +11,7 @@
  */
 import type { MachineMaintenanceAction } from "./machineMaintenanceAction";
 
-export interface MachineMaintenance {
+export type MachineMaintenance = {
   /** Machine maintenance mode action */
   action?: MachineMaintenanceAction;
-}
+};

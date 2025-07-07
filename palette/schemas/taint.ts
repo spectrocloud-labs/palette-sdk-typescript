@@ -15,11 +15,11 @@ import type { Time } from "./time";
 /**
  * Taint
  */
-export interface Taint {
+export type Taint = {
   effect?: TaintEffect;
   /** The taint key to be applied to a node */
   key?: string;
   timeAdded?: Time;
   /** The taint value corresponding to the taint key. */
   value?: string;
-}
+};

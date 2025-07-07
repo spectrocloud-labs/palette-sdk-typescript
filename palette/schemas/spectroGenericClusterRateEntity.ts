@@ -15,7 +15,7 @@ import type { GenericMachinePoolConfigEntity } from "./genericMachinePoolConfigE
 /**
  * Generic cluster request payload for estimating rate
  */
-export interface SpectroGenericClusterRateEntity {
+export type SpectroGenericClusterRateEntity = {
   cloudConfig?: GenericClusterConfig;
   machinepoolconfig?: GenericMachinePoolConfigEntity[];
-}
+};

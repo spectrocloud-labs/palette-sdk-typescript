@@ -11,7 +11,7 @@
  */
 import type { Time } from "./time";
 
-export interface SpcPatchTimeEntity {
+export type SpcPatchTimeEntity = {
   clusterHash?: string;
   patchTime?: Time;
-}
+};

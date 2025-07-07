@@ -14,7 +14,7 @@ import type { InstanceType } from "./instanceType";
 /**
  * Retrieves a list of GCP instance types
  */
-export interface GcpInstanceTypes {
+export type GcpInstanceTypes = {
   /** List of GCP instance types */
   instanceTypes?: InstanceType[];
-}
+};

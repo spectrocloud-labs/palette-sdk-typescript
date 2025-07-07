@@ -14,6 +14,6 @@ import type { MaasZone } from "./maasZone";
 /**
  * List of Maas zones
  */
-export interface MaasZones {
+export type MaasZones = {
   items: MaasZone[];
-}
+};

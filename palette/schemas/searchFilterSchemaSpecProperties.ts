@@ -11,6 +11,6 @@
  */
 import type { SearchFilterSchemaSpecProperty } from "./searchFilterSchemaSpecProperty";
 
-export interface SearchFilterSchemaSpecProperties {
+export type SearchFilterSchemaSpecProperties = {
   properties?: SearchFilterSchemaSpecProperty[];
-}
+};

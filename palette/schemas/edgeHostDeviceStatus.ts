@@ -20,7 +20,7 @@ import type { SpectroTunnelStatus } from "./spectroTunnelStatus";
 /**
  * EdgeHostDeviceStatus defines the observed state of EdgeHostDevice
  */
-export interface EdgeHostDeviceStatus {
+export type EdgeHostDeviceStatus = {
   health?: EdgeHostHealth;
   /** Deprecated. Use inUseClustersRef */
   inUseClusters?: ObjectEntity[];
@@ -30,4 +30,4 @@ export interface EdgeHostDeviceStatus {
   serviceAuthToken?: string;
   state?: EdgeHostDeviceStatusState;
   tunnelStatus?: SpectroTunnelStatus;
-}
+};

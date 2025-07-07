@@ -14,6 +14,6 @@ import type { ClusterWorkloadCronJob } from "./clusterWorkloadCronJob";
 /**
  * Cluster workload cronjobs summary
  */
-export interface ClusterWorkloadCronJobs {
+export type ClusterWorkloadCronJobs = {
   cronJobs?: ClusterWorkloadCronJob[];
-}
+};

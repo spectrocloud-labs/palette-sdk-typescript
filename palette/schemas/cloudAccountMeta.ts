@@ -13,7 +13,7 @@
 /**
  * Cloud account meta information
  */
-export interface CloudAccountMeta {
+export type CloudAccountMeta = {
   name?: string;
   uid?: string;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * If set, the VM will be booted from the defined kernel / initrd.
  */
-export interface VmKernelBootContainer {
+export type VmKernelBootContainer = {
   /** Image that contains initrd / kernel files. */
   image: string;
   /** Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images */
@@ -24,4 +24,4 @@ export interface VmKernelBootContainer {
   initrdPath?: string;
   /** The fully-qualified path to the kernel image in the host OS */
   kernelPath?: string;
-}
+};

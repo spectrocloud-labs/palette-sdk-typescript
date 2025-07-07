@@ -14,7 +14,7 @@ import type { AwsCloudAccount } from "./awsCloudAccount";
 /**
  * AWS S3 Bucket credentials
  */
-export interface AwsS3BucketCredentials {
+export type AwsS3BucketCredentials = {
   /** Name of AWS S3 bucket */
   bucket: string;
   credentials: AwsCloudAccount;
@@ -22,4 +22,4 @@ export interface AwsS3BucketCredentials {
   folder?: string;
   /** Name of the available AWS region. */
   region: string;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster Log Fetcher Status
  */
-export interface ClusterLogFetcherStatus {
+export type ClusterLogFetcherStatus = {
   state?: string;
-}
+};

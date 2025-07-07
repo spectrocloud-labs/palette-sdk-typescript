@@ -14,10 +14,10 @@ import type { AppProfileCloneTarget } from "./appProfileCloneTarget";
 /**
  * Application profile clone metadata
  */
-export interface AppProfileCloneMetaInputEntity {
+export type AppProfileCloneMetaInputEntity = {
   /** Application profile name */
   name: string;
   target?: AppProfileCloneTarget;
   /** Application profile version */
   version?: string;
-}
+};

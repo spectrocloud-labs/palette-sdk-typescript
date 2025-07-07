@@ -12,7 +12,7 @@
 import type { ClusterPairMetadataSortFields } from "./clusterPairMetadataSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface ClusterPairMetadataSortSpec {
+export type ClusterPairMetadataSortSpec = {
   field?: ClusterPairMetadataSortFields;
   order?: SortOrder;
-}
+};

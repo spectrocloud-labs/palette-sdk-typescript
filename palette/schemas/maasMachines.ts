@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of MAAS machines
  */
-export interface MaasMachines {
+export type MaasMachines = {
   items: MaasMachine[];
   listmeta?: ListMetaData;
-}
+};

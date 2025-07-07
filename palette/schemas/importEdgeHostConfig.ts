@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface ImportEdgeHostConfig {
+export type ImportEdgeHostConfig = {
   /** Deprecated. Use 'edgeHostUids' field */
   edgeHostUid?: string;
   edgeHostUids?: string[];
-}
+};

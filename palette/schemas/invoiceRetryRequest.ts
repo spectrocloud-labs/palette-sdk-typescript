@@ -13,11 +13,11 @@
 /**
  * Retry invoice request object
  */
-export interface InvoiceRetryRequest {
+export type InvoiceRetryRequest = {
   /** Customer invoice uid */
   customerId?: string;
   /** Invoice uid */
   invoiceUid?: string;
   /** Payment method uid */
   paymentMethodId?: string;
-}
+};

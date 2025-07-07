@@ -14,7 +14,7 @@ import type { DashboardWorkspaceResourceAllocation } from "./dashboardWorkspaceR
 /**
  * Workspace allocation
  */
-export interface DashboardWorkspaceAllocation {
+export type DashboardWorkspaceAllocation = {
   cpu?: DashboardWorkspaceResourceAllocation;
   memory?: DashboardWorkspaceResourceAllocation;
-}
+};

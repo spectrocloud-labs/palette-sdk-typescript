@@ -11,8 +11,8 @@
  */
 import type { UidSummary } from "./uidSummary";
 
-export interface ProjectSpecSummary {
+export type ProjectSpecSummary = {
   logoUrl?: string;
   teams?: UidSummary[];
   users?: UidSummary[];
-}
+};

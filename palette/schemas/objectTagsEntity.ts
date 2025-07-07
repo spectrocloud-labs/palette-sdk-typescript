@@ -14,8 +14,8 @@ import type { ObjectTagsEntityLabels } from "./objectTagsEntityLabels";
 /**
  * Object identity meta with tags
  */
-export interface ObjectTagsEntity {
+export type ObjectTagsEntity = {
   labels?: ObjectTagsEntityLabels;
   name?: string;
   uid?: string;
-}
+};

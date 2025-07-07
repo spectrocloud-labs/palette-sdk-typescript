@@ -15,7 +15,7 @@ import type { ApiKeySpecUpdate } from "./apiKeySpecUpdate";
 /**
  * API key update request payload
  */
-export interface ApiKeyUpdate {
+export type ApiKeyUpdate = {
   metadata?: ObjectMeta;
   spec?: ApiKeySpecUpdate;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * System service login input
  */
-export interface EdgeServiceLogin {
+export type EdgeServiceLogin = {
   /** authToken helps in two step verification for the authorization. */
   authToken?: string;
   edgeHostUid?: string;
@@ -21,4 +21,4 @@ export interface EdgeServiceLogin {
   serviceVersion?: string;
   spectroClusterUid?: string;
   tenantUid?: string;
-}
+};

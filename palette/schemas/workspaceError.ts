@@ -13,9 +13,9 @@
 /**
  * Workspace error
  */
-export interface WorkspaceError {
+export type WorkspaceError = {
   clusterUid?: string;
   msg?: string;
   name?: string;
   resourceType?: string;
-}
+};

@@ -14,6 +14,6 @@ import type { VmAccessCredentialSecretSource } from "./vmAccessCredentialSecretS
 /**
  * SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.
  */
-export interface VmSshPublicKeyAccessCredentialSource {
+export type VmSshPublicKeyAccessCredentialSource = {
   secret?: VmAccessCredentialSecretSource;
-}
+};

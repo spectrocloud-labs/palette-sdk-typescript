@@ -14,6 +14,6 @@ import type { ProjectsWorkspaces } from "./projectsWorkspaces";
 /**
  * List all workspaces with the roles assigned to the users
  */
-export interface WorkspaceScopeRoles {
+export type WorkspaceScopeRoles = {
   projects?: ProjectsWorkspaces[];
-}
+};

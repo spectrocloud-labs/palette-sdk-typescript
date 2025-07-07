@@ -16,9 +16,9 @@ import type { ClusterProfileStatusSummary } from "./clusterProfileStatusSummary"
 /**
  * Cluster profile summary
  */
-export interface ClusterProfileSummary {
+export type ClusterProfileSummary = {
   metadata?: ObjectMeta;
   /** Cluster profile spec summary */
   specSummary?: ClusterProfileSummarySpecSummary;
   status?: ClusterProfileStatusSummary;
-}
+};

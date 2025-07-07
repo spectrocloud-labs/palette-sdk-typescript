@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface JetAuthKey {
+export type JetAuthKey = {
   authKey?: string;
-}
+};

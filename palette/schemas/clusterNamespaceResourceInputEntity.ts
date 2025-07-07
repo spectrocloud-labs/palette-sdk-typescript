@@ -15,7 +15,7 @@ import type { ClusterNamespaceSpec } from "./clusterNamespaceSpec";
 /**
  * Cluster Namespace resource defintion
  */
-export interface ClusterNamespaceResourceInputEntity {
+export type ClusterNamespaceResourceInputEntity = {
   metadata?: ObjectMetaUpdateEntity;
   spec?: ClusterNamespaceSpec;
-}
+};

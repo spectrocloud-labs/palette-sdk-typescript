@@ -19,7 +19,7 @@ import type { FilterVersionString } from "./filterVersionString";
 /**
  * Cluster profile filter spec
  */
-export interface ClusterProfileFilterSpec {
+export type ClusterProfileFilterSpec = {
   environment?: string[];
   fips?: ClusterFipsMode;
   profileName?: FilterString;
@@ -27,4 +27,4 @@ export interface ClusterProfileFilterSpec {
   scope?: ClusterProfileScope;
   tags?: FilterArray;
   version?: FilterVersionString;
-}
+};

@@ -14,6 +14,6 @@ import type { VirtualNetwork } from "./virtualNetwork";
 /**
  * List of Azure virtual network
  */
-export interface AzureVirtualNetworkList {
+export type AzureVirtualNetworkList = {
   virtualNetworkList?: VirtualNetwork[];
-}
+};

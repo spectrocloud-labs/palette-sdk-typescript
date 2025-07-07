@@ -14,11 +14,11 @@ import type { InstancePriceOs } from "./instancePriceOs";
 /**
  * Cloud instance price
  */
-export interface InstancePrice {
+export type InstancePrice = {
   /** OnDemand price of instance */
   onDemand?: number;
   /** Os associated with instance price. Allowed values - [linux, windows] */
   os?: InstancePriceOs;
   /** Spot price of instance */
   spot?: number;
-}
+};

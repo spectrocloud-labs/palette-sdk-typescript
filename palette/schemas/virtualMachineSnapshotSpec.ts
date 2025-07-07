@@ -15,8 +15,8 @@ import type { VmTypedLocalObjectReference } from "./vmTypedLocalObjectReference"
 /**
  * VirtualMachineSnapshotSpec is the spec for a VirtualMachineSnapshot resource
  */
-export interface VirtualMachineSnapshotSpec {
+export type VirtualMachineSnapshotSpec = {
   deletionPolicy?: string;
   failureDeadline?: VmDuration;
   source: VmTypedLocalObjectReference;
-}
+};

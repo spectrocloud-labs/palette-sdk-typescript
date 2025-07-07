@@ -13,9 +13,9 @@
 /**
  * Machine health condition
  */
-export interface MachineHealthCondition {
+export type MachineHealthCondition = {
   message?: string;
   reason?: string;
   status?: string;
   type?: string;
-}
+};

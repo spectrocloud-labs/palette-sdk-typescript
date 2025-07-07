@@ -13,7 +13,7 @@
 /**
  * Cluster namespace resource allocation
  */
-export interface ClusterNamespaceResourceAllocation {
+export type ClusterNamespaceResourceAllocation = {
   /**
    * @minimum 0
    * @exclusiveMinimum
@@ -24,4 +24,4 @@ export interface ClusterNamespaceResourceAllocation {
    * @exclusiveMinimum
    */
   memoryMiB?: number;
-}
+};

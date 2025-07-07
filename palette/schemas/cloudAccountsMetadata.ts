@@ -11,6 +11,6 @@
  */
 import type { CloudAccountMetadata } from "./cloudAccountMetadata";
 
-export interface CloudAccountsMetadata {
+export type CloudAccountsMetadata = {
   items: CloudAccountMetadata[];
-}
+};

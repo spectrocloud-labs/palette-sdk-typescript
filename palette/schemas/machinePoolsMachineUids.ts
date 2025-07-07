@@ -11,6 +11,6 @@
  */
 import type { MachinePoolsMachineUidsMachinePools } from "./machinePoolsMachineUidsMachinePools";
 
-export interface MachinePoolsMachineUids {
+export type MachinePoolsMachineUids = {
   machinePools?: MachinePoolsMachineUidsMachinePools;
-}
+};

@@ -12,7 +12,7 @@
 import type { OpenStackMachinePoolCloudConfigEntity } from "./openStackMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface OpenStackMachinePoolConfigEntity {
+export type OpenStackMachinePoolConfigEntity = {
   cloudConfig: OpenStackMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

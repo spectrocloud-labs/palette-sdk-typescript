@@ -16,7 +16,7 @@ import type { PackTags } from "./packTags";
 /**
  * Pack object
  */
-export interface PackTagEntity {
+export type PackTagEntity = {
   /** Pack add-on sub type such as monitoring, db etc */
   addonSubType?: string;
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -36,4 +36,4 @@ export interface PackTagEntity {
   registryUid?: string;
   /** Pack version tags array */
   tags?: PackTags[];
-}
+};

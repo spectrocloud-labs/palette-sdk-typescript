@@ -15,7 +15,7 @@ import type { PackPreset } from "./packPreset";
 import type { PackSchema } from "./packSchema";
 import type { PackTemplate } from "./packTemplate";
 
-export interface PackUidValues {
+export type PackUidValues = {
   /** Pack annotations is used to allow pack to add more arbitrary configurations */
   annotations?: PackUidValuesAnnotations;
   /** Pack dependencies array */
@@ -31,4 +31,4 @@ export interface PackUidValues {
   template?: PackTemplate;
   /** Pack values represents the values.yaml used as input parameters */
   values?: string;
-}
+};

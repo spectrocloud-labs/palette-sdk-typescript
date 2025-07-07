@@ -11,6 +11,6 @@
  */
 import type { MfaPublicKeyCredentialRequestOptions } from "./mfaPublicKeyCredentialRequestOptions";
 
-export interface MfaLoginStart {
+export type MfaLoginStart = {
   publicKey?: MfaPublicKeyCredentialRequestOptions;
-}
+};

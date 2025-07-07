@@ -14,8 +14,8 @@ import type { AppTierEntity } from "./appTierEntity";
 /**
  * Application tier patch request payload
  */
-export interface AppTierPatchEntity {
+export type AppTierPatchEntity = {
   appTier?: AppTierEntity;
   /** Application tier UID to be replaced with new tier */
   replaceWithAppTier?: string;
-}
+};

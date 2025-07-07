@@ -15,7 +15,7 @@ import type { EdgeNativeOverlayNetworkConfiguration } from "./edgeNativeOverlayN
 /**
  * EdgeNativeClusterConfig definnes Edge Native Cluster specific Spec
  */
-export interface EdgeNativeClusterConfig {
+export type EdgeNativeClusterConfig = {
   controlPlaneEndpoint?: EdgeNativeControlPlaneEndPoint;
   /** IsTwoNodeCluster is to enable two node cluster support in the control-plane */
   isTwoNodeCluster?: boolean;
@@ -26,4 +26,4 @@ export interface EdgeNativeClusterConfig {
   sshKeys?: string[];
   /** StaticIP indicates if IP allocation type is static IP. DHCP is the default allocation type */
   staticIp?: boolean;
-}
+};

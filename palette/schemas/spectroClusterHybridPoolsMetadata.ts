@@ -16,8 +16,8 @@ import type { SpectroClusterStatus } from "./spectroClusterStatus";
 /**
  * Metadata of clusters launched as hybrid machine pools
  */
-export interface SpectroClusterHybridPoolsMetadata {
+export type SpectroClusterHybridPoolsMetadata = {
   metadata?: ObjectMeta;
   spec?: SpectroClusterHybridPoolsMetadataSpec;
   status?: SpectroClusterStatus;
-}
+};

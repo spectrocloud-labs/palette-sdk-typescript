@@ -16,8 +16,8 @@ import type { KubeHunterVulnerabilities } from "./kubeHunterVulnerabilities";
 /**
  * Compliance Scan KubeHunter Report
  */
-export interface KubeHunterReport {
+export type KubeHunterReport = {
   logs?: KubeHunterLog[];
   time?: Time;
   vulnerabilites?: KubeHunterVulnerabilities;
-}
+};

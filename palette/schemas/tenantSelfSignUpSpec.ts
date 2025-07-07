@@ -14,11 +14,11 @@ import type { TenantSelfSignUpSpecLoginMode } from "./tenantSelfSignUpSpecLoginM
 /**
  * Tenant sign up data
  */
-export interface TenantSelfSignUpSpec {
+export type TenantSelfSignUpSpec = {
   emailId: string;
   firstName: string;
   lastName: string;
   loginMode?: TenantSelfSignUpSpecLoginMode;
   notifyTenantAdmin?: boolean;
   orgName: string;
-}
+};

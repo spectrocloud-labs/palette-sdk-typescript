@@ -13,11 +13,11 @@
 /**
  * TLS configuration for the AWS secret
  */
-export interface AwsSecretTlsConfig {
+export type AwsSecretTlsConfig = {
   /** CA certificate */
   ca?: string;
   /** Certificate */
   cert?: string;
   /** Key */
   key?: string;
-}
+};

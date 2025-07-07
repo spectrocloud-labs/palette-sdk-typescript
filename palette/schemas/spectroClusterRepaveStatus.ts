@@ -12,8 +12,8 @@
 import type { Time } from "./time";
 import type { ClusterRepaveState } from "./clusterRepaveState";
 
-export interface SpectroClusterRepaveStatus {
+export type SpectroClusterRepaveStatus = {
   message?: string;
   repaveTransitionTime?: Time;
   state?: ClusterRepaveState;
-}
+};

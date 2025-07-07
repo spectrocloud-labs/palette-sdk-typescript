@@ -15,7 +15,7 @@ import type { ClusterGroupSummarySpec } from "./clusterGroupSummarySpec";
 /**
  * Cluster group summay
  */
-export interface ClusterGroupSummary {
+export type ClusterGroupSummary = {
   metadata?: ObjectMeta;
   spec?: ClusterGroupSummarySpec;
-}
+};

@@ -14,6 +14,6 @@ import type { VirtualClusterConfig } from "./virtualClusterConfig";
 /**
  * Virtual cloud cluster config entity
  */
-export interface VirtualCloudClusterConfigEntity {
+export type VirtualCloudClusterConfigEntity = {
   clusterConfig?: VirtualClusterConfig;
-}
+};

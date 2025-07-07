@@ -14,10 +14,10 @@ import type { ResourceUsageMeteringDataPoint } from "./resourceUsageMeteringData
 /**
  * Resource usage data point
  */
-export interface ResourceUsageDataPoint {
+export type ResourceUsageDataPoint = {
   baremetal?: ResourceUsageMeteringDataPoint;
   cpu?: number;
   edgehost?: ResourceUsageMeteringDataPoint;
   memory?: number;
   timestamp?: number;
-}
+};

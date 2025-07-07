@@ -13,7 +13,7 @@
 /**
  * Stripe price detail object
  */
-export interface PaymentPlan {
+export type PaymentPlan = {
   /** Billing scheme */
   billingScheme?: string;
   /** Unit of currency */
@@ -28,4 +28,4 @@ export interface PaymentPlan {
   type?: string;
   /** Unit amount for the product */
   unitAmount?: number;
-}
+};

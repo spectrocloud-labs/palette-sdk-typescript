@@ -13,7 +13,7 @@
 /**
  * Application profile version
  */
-export interface AppProfileVersion {
+export type AppProfileVersion = {
   uid?: string;
   version?: string;
-}
+};

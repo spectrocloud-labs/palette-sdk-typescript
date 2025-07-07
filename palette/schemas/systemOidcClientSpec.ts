@@ -14,7 +14,7 @@ import type { SystemOidcClaims } from "./systemOidcClaims";
 /**
  * system sso oidc config spec
  */
-export interface SystemOidcClientSpec {
+export type SystemOidcClientSpec = {
   callbackUrl?: string;
   clientId?: string;
   clientSecret?: string;
@@ -24,4 +24,4 @@ export interface SystemOidcClientSpec {
   logoUrl?: string;
   requiredClaims?: SystemOidcClaims;
   scopes?: string[];
-}
+};

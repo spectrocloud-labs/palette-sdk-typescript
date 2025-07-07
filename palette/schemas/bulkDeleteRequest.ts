@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface BulkDeleteRequest {
+export type BulkDeleteRequest = {
   uids: string[];
-}
+};

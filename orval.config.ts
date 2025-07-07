@@ -36,6 +36,8 @@ export default defineConfig({
           path: "./palette/httpClient/customClient.ts",
           name: "customInstance",
         },
+        // Use TypeScript type aliases instead of interfaces for simple types
+        useTypeOverInterfaces: true,
       },
     },
   },

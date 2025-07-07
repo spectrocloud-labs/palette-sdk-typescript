@@ -16,8 +16,8 @@ import type { HelmRegistryStatusSummary } from "./helmRegistryStatusSummary";
 /**
  * Helm Registry summary
  */
-export interface HelmRegistrySummary {
+export type HelmRegistrySummary = {
   metadata?: ObjectMeta;
   spec?: HelmRegistrySpecSummary;
   status?: HelmRegistryStatusSummary;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * EndpointAccess specifies how control plane endpoints are accessible
  */
-export interface EksClusterConfigEndpointAccess {
+export type EksClusterConfigEndpointAccess = {
   /** Private points VPC-internal control plane access to the private endpoint */
   private?: boolean;
   /** PrivateCIDRs specifies which blocks can access the private endpoint */
@@ -22,4 +22,4 @@ export interface EksClusterConfigEndpointAccess {
   public?: boolean;
   /** PublicCIDRs specifies which blocks can access the public endpoint */
   publicCIDRs?: string[];
-}
+};

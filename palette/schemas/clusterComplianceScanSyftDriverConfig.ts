@@ -16,11 +16,11 @@ import type { ClusterComplianceScanSyftDriverConfigScope } from "./clusterCompli
 /**
  * Cluster compliance scan specification
  */
-export interface ClusterComplianceScanSyftDriverConfig {
+export type ClusterComplianceScanSyftDriverConfig = {
   format?: ClusterComplianceScanSyftDriverConfigFormat;
   labelSelector?: string;
   location?: ObjectEntity;
   namespace?: string;
   podName?: string;
   scope?: ClusterComplianceScanSyftDriverConfigScope;
-}
+};

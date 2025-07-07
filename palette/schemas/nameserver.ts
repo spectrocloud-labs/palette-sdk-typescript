@@ -13,7 +13,7 @@
 /**
  * Nameserver define search domains and nameserver addresses
  */
-export interface Nameserver {
+export type Nameserver = {
   addresses?: string[];
   search?: string[];
-}
+};

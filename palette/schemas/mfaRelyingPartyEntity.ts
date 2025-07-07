@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface MfaRelyingPartyEntity {
+export type MfaRelyingPartyEntity = {
   id?: string;
   name?: string;
-}
+};

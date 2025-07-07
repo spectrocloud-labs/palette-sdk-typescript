@@ -16,10 +16,10 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * Aws cloud account information
  */
-export interface AwsAccount {
+export type AwsAccount = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: AwsCloudAccount;
   status?: CloudAccountStatus;
-}
+};

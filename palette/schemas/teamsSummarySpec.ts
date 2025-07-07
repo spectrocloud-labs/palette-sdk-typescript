@@ -15,7 +15,7 @@ import type { TeamSummarySortSpec } from "./teamSummarySortSpec";
 /**
  * Teams filter summary spec
  */
-export interface TeamsSummarySpec {
+export type TeamsSummarySpec = {
   filter?: TeamsFilterSpec;
   sort?: TeamSummarySortSpec[];
-}
+};

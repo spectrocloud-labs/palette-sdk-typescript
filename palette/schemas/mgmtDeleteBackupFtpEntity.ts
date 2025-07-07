@@ -14,7 +14,7 @@ import type { MgmtFileTransferFtpEntity } from "./mgmtFileTransferFtpEntity";
 /**
  * delete backups based on retention period
  */
-export interface MgmtDeleteBackupFtpEntity {
+export type MgmtDeleteBackupFtpEntity = {
   fileTransferConfig?: MgmtFileTransferFtpEntity;
   retentionPeriod?: number;
-}
+};

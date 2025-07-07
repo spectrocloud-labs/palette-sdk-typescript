@@ -14,8 +14,8 @@ import type { ResourceConsumptionOptionsGroupBy } from "./resourceConsumptionOpt
 /**
  * Resource consumption options
  */
-export interface ResourceConsumptionOptions {
+export type ResourceConsumptionOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceConsumptionOptionsGroupBy;
   period?: number;
-}
+};

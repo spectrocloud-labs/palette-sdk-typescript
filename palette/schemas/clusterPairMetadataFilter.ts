@@ -15,7 +15,7 @@ import type { ClusterPairMetadataSortSpec } from "./clusterPairMetadataSortSpec"
 /**
  * Cluster pair metadata filter spec
  */
-export interface ClusterPairMetadataFilter {
+export type ClusterPairMetadataFilter = {
   filter?: ClusterPairMetadataFilterSpec;
   sort?: ClusterPairMetadataSortSpec[];
-}
+};

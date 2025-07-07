@@ -13,11 +13,11 @@ import type { SshUserCredentials } from "./sshUserCredentials";
 import type { Time } from "./time";
 import type { SshUserStatusState } from "./sshUserStatusState";
 
-export interface SshUserStatus {
+export type SshUserStatus = {
   credentials?: SshUserCredentials;
   lastModifiedTime?: Time;
   /** Message is the status message of the SSH tunnel */
   message?: string;
   /** State is the state of the SSH tunnel */
   state?: SshUserStatusState;
-}
+};

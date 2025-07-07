@@ -13,8 +13,8 @@
 /**
  * system edge account specifications
  */
-export interface SystemEdgeImageSpec {
+export type SystemEdgeImageSpec = {
   caCert?: string;
   imagesHostEndpoint?: string;
   insecureSkipVerify?: boolean;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Stripe key object
  */
-export interface StripeKey {
+export type StripeKey = {
   /** Publish stripe key */
   publishKey?: string;
-}
+};

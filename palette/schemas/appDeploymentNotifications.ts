@@ -13,6 +13,6 @@
 /**
  * Application deployment notifications
  */
-export interface AppDeploymentNotifications {
+export type AppDeploymentNotifications = {
   isAvailable?: boolean;
-}
+};

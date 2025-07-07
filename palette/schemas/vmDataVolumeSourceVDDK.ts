@@ -13,7 +13,7 @@
 /**
  * DataVolumeSourceVDDK provides the parameters to create a Data Volume from a Vmware source
  */
-export interface VmDataVolumeSourceVDDK {
+export type VmDataVolumeSourceVDDK = {
   /** BackingFile is the path to the virtual hard disk to migrate from vCenter/ESXi */
   backingFile?: string;
   /** InitImageURL is an optional URL to an image containing an extracted VDDK library, overrides v2v-vmware config map */
@@ -26,4 +26,4 @@ export interface VmDataVolumeSourceVDDK {
   url?: string;
   /** UUID is the UUID of the virtual machine that the backing file is attached to in vCenter/ESXi */
   uuid?: string;
-}
+};

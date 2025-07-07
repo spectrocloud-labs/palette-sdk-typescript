@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Deprecated, Use v1UsersSummaryList - Returns User summary
  */
-export interface UsersSummary {
+export type UsersSummary = {
   items: UserSummary[];
   listmeta?: ListMetaData;
-}
+};

@@ -14,7 +14,7 @@ import type { CustomCloudType } from "./customCloudType";
 /**
  * Custom cloudType content response
  */
-export interface CustomCloudTypes {
+export type CustomCloudTypes = {
   /** Array of custom cloud types */
   cloudTypes?: CustomCloudType[];
-}
+};

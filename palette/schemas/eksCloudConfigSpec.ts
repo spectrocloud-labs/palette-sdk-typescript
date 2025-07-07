@@ -17,9 +17,9 @@ import type { EksMachinePoolConfig } from "./eksMachinePoolConfig";
 /**
  * EksCloudConfigSpec defines the cloud configuration input by user
  */
-export interface EksCloudConfigSpec {
+export type EksCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: EksClusterConfig;
   fargateProfiles?: FargateProfile[];
   machinePoolConfig?: EksMachinePoolConfig[];
-}
+};

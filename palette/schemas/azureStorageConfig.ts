@@ -14,7 +14,7 @@ import type { V1AzureAccountEntitySpec } from "./v1AzureAccountEntitySpec";
 /**
  * Azure storage config object
  */
-export interface AzureStorageConfig {
+export type AzureStorageConfig = {
   /** Azure container name */
   containerName: string;
   credentials: V1AzureAccountEntitySpec;
@@ -24,4 +24,4 @@ export interface AzureStorageConfig {
   sku?: string;
   /** Azure storage name */
   storageName: string;
-}
+};

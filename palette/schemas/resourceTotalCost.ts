@@ -13,9 +13,9 @@
 /**
  * Resource total cost information
  */
-export interface ResourceTotalCost {
+export type ResourceTotalCost = {
   cpu?: number;
   memory?: number;
   storage?: number;
   total?: number;
-}
+};

@@ -16,8 +16,8 @@ import type { ApiKeyStatus } from "./apiKeyStatus";
 /**
  * API key information
  */
-export interface ApiKey {
+export type ApiKey = {
   metadata?: ObjectMeta;
   spec?: ApiKeySpec;
   status?: ApiKeyStatus;
-}
+};

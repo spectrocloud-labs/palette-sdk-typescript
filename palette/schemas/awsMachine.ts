@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * AWS cloud VM definition
  */
-export interface AwsMachine {
+export type AwsMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: AwsMachineSpec;
   status?: CloudMachineStatus;
-}
+};

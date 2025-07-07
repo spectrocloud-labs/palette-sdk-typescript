@@ -11,9 +11,9 @@
  */
 import type { OpenStackCloudAccount } from "./openStackCloudAccount";
 
-export interface OverlordOpenStackAccountCreate {
+export type OverlordOpenStackAccountCreate = {
   account?: OpenStackCloudAccount;
   /** Name for the private gateway & cloud account */
   name?: string;
   shareWithProjects?: boolean;
-}
+};

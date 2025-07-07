@@ -18,7 +18,7 @@ import type { SyftVulnerabilitySummary } from "./syftVulnerabilitySummary";
 /**
  * Compliance Scan Syft Report
  */
-export interface SyftReport {
+export type SyftReport = {
   dependencies?: SyftDependency[];
   image?: string;
   imageContexts?: SyftImageContext[];
@@ -27,4 +27,4 @@ export interface SyftReport {
   time?: Time;
   vulnerabilities?: SyftVulnerability[];
   vulnerabilitySummary?: SyftVulnerabilitySummary;
-}
+};

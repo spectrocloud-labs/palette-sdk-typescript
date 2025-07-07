@@ -14,6 +14,6 @@ import type { EksClusterConfig } from "./eksClusterConfig";
 /**
  * EKS cloud cluster config entity
  */
-export interface EksCloudClusterConfigEntity {
+export type EksCloudClusterConfigEntity = {
   clusterConfig?: EksClusterConfig;
-}
+};

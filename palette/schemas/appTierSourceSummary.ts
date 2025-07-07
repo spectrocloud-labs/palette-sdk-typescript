@@ -13,11 +13,11 @@
 /**
  * Application profile's tier source information
  */
-export interface AppTierSourceSummary {
+export type AppTierSourceSummary = {
   addonSubType?: string;
   addonType?: string;
   logoUrl?: string;
   name?: string;
   type?: string;
   uid?: string;
-}
+};

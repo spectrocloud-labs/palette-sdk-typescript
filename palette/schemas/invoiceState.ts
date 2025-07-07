@@ -15,9 +15,9 @@ import type { Time } from "./time";
 /**
  * Invoice state object
  */
-export interface InvoiceState {
+export type InvoiceState = {
   /** Payment status message */
   paymentMsg?: string;
   state?: InvoiceStateState;
   timestamp?: Time;
-}
+};

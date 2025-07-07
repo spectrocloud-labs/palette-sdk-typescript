@@ -13,9 +13,9 @@
 /**
  * Generic network interface
  */
-export interface GenericNic {
+export type GenericNic = {
   index?: number;
   networkName?: string;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

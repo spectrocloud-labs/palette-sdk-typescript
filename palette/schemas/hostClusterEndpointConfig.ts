@@ -12,7 +12,7 @@
 import type { IngressConfig } from "./ingressConfig";
 import type { LoadBalancerConfig } from "./loadBalancerConfig";
 
-export interface HostClusterEndpointConfig {
+export type HostClusterEndpointConfig = {
   ingressConfig?: IngressConfig;
   loadBalancerConfig?: LoadBalancerConfig;
-}
+};

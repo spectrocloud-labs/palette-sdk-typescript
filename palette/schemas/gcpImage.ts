@@ -13,9 +13,9 @@
 /**
  * Refers to GCP image
  */
-export interface GcpImage {
+export type GcpImage = {
   name?: string;
   os?: string;
   region?: string;
   state?: string;
-}
+};

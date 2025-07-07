@@ -16,9 +16,9 @@ import type { ResourceTotalCost } from "./resourceTotalCost";
 /**
  * Resource cost summary information
  */
-export interface ResourceCostSummary {
+export type ResourceCostSummary = {
   associatedResources?: ResourceReference[];
   data?: ResourceCostDataPoint[];
   entity?: ResourceReference;
   total?: ResourceTotalCost;
-}
+};

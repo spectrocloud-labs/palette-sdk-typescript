@@ -14,9 +14,9 @@ import type { VmDownwardApiVolumeFile } from "./vmDownwardApiVolumeFile";
 /**
  * DownwardAPIVolumeSource represents a volume containing downward API info.
  */
-export interface VmDownwardApiVolumeSource {
+export type VmDownwardApiVolumeSource = {
   /** Fields is a list of downward API volume file */
   fields?: VmDownwardApiVolumeFile[];
   /** The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart). */
   volumeLabel?: string;
-}
+};

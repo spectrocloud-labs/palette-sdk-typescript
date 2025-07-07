@@ -12,10 +12,10 @@
 import type { HostClusterEndpoint } from "./hostClusterEndpoint";
 import type { ObjectReference } from "./objectReference";
 
-export interface HostClusterConfig {
+export type HostClusterConfig = {
   clusterEndpoint?: HostClusterEndpoint;
   clusterGroup?: ObjectReference;
   hostCluster?: ObjectReference;
   /** is enabled as host cluster */
   isHostCluster?: boolean;
-}
+};

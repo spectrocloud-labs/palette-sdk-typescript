@@ -14,8 +14,8 @@ import type { MaasNic } from "./maasNic";
 /**
  * Maas cloud VM definition spec
  */
-export interface MaasMachineSpec {
+export type MaasMachineSpec = {
   az?: string;
   hostname?: string;
   nics?: MaasNic[];
-}
+};

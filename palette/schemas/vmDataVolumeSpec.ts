@@ -18,7 +18,7 @@ import type { VmStorageSpec } from "./vmStorageSpec";
 /**
  * DataVolumeSpec defines the DataVolume type specification
  */
-export interface VmDataVolumeSpec {
+export type VmDataVolumeSpec = {
   /** Checkpoints is a list of DataVolumeCheckpoints, representing stages in a multistage import. */
   checkpoints?: VmDataVolumeCheckpoint[];
   /** DataVolumeContentType options: "kubevirt", "archive" */
@@ -33,4 +33,4 @@ export interface VmDataVolumeSpec {
   source?: VmDataVolumeSource;
   sourceRef?: VmDataVolumeSourceRef;
   storage?: VmStorageSpec;
-}
+};

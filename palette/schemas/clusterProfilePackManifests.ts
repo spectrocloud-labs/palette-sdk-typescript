@@ -16,8 +16,8 @@ import type { PackSummaryStatus } from "./packSummaryStatus";
 /**
  * Cluster profile pack manifests
  */
-export interface ClusterProfilePackManifests {
+export type ClusterProfilePackManifests = {
   metadata?: ObjectMeta;
   spec?: PackManifestsSpec;
   status?: PackSummaryStatus;
-}
+};

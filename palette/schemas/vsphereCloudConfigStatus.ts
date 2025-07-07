@@ -16,7 +16,7 @@ import type { VsphereCloudConfigStatusRoleDigest } from "./vsphereCloudConfigSta
 /**
  * VsphereCloudConfigStatus defines the observed state of VsphereCloudConfig
  */
-export interface VsphereCloudConfigStatus {
+export type VsphereCloudConfigStatus = {
   ansibleDigest?: string;
   conditions?: ClusterCondition[];
   /** addon layers present in spc */
@@ -32,4 +32,4 @@ export interface VsphereCloudConfigStatus {
   uploadOvaS3?: string;
   /** If no ansible roles found in Packs then Mold should tell Drive to use capi image and not create custom image, because there is nothing to add */
   useCapiImage?: boolean;
-}
+};

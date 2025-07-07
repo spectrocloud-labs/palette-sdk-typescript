@@ -15,9 +15,9 @@ import type { ResourceCost } from "./resourceCost";
 /**
  * Spectro cluster cost information
  */
-export interface SpectroClusterCost {
+export type SpectroClusterCost = {
   cloud?: SpectroClusterCloudCost;
   cost?: ResourceCost;
   name?: string;
   uid?: string;
-}
+};

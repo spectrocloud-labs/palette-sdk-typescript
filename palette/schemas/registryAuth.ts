@@ -15,10 +15,10 @@ import type { RegistryAuthType } from "./registryAuthType";
 /**
  * Auth credentials of the registry
  */
-export interface RegistryAuth {
+export type RegistryAuth = {
   password?: string;
   tls?: TlsConfiguration;
   token?: string;
   type?: RegistryAuthType;
   username?: string;
-}
+};

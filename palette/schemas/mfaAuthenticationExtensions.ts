@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface MfaAuthenticationExtensions {
+export type MfaAuthenticationExtensions = {
   [key: string]: unknown;
-}
+};

@@ -13,9 +13,9 @@
 /**
  * system certificate in base64 format
  */
-export interface SystemCertificatesSpec {
+export type SystemCertificatesSpec = {
   caCertificateBase64?: string;
   certificateBase64?: string;
   insecureSkipVerify?: boolean;
   keyBase64?: string;
-}
+};

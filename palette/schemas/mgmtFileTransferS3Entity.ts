@@ -15,7 +15,7 @@ import type { MgmtS3Config } from "./mgmtS3Config";
 /**
  * file transfer details
  */
-export interface MgmtFileTransferS3Entity {
+export type MgmtFileTransferS3Entity = {
   backupSpec?: MgmtBackupSpec;
   s3?: MgmtS3Config;
-}
+};

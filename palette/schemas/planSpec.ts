@@ -21,7 +21,7 @@ import type { PlanSpecType } from "./planSpecType";
 /**
  * Plan specifications
  */
-export interface PlanSpec {
+export type PlanSpec = {
   cost?: PlanCost;
   developerCredits?: DeveloperCredit;
   expiry: Time;
@@ -32,4 +32,4 @@ export interface PlanSpec {
   start: Time;
   tierPricing?: TierPrice;
   type: PlanSpecType;
-}
+};

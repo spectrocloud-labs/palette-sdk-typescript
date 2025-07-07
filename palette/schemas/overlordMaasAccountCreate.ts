@@ -11,9 +11,9 @@
  */
 import type { MaasCloudAccount } from "./maasCloudAccount";
 
-export interface OverlordMaasAccountCreate {
+export type OverlordMaasAccountCreate = {
   account?: MaasCloudAccount;
   /** Name for the private gateway & cloud account */
   name?: string;
   shareWithProjects?: boolean;
-}
+};

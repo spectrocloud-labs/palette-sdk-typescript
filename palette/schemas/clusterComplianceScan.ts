@@ -15,7 +15,7 @@ import type { ClusterComplianceScanSpec } from "./clusterComplianceScanSpec";
 /**
  * Cluster Compliance Scan
  */
-export interface ClusterComplianceScan {
+export type ClusterComplianceScan = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanSpec;
-}
+};

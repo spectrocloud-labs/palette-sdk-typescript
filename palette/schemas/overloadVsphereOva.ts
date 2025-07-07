@@ -13,6 +13,6 @@
 /**
  * Overload ova details
  */
-export interface OverloadVsphereOva {
+export type OverloadVsphereOva = {
   location?: string;
-}
+};

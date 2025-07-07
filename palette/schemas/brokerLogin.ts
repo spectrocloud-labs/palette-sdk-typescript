@@ -13,7 +13,7 @@
 /**
  * Request for broker login request
  */
-export interface BrokerLogin {
+export type BrokerLogin = {
   /** subjects that client need to subscribe */
   subscriberSubjects?: string[];
-}
+};

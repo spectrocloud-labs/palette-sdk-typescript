@@ -13,7 +13,7 @@
 /**
  * A zone is a deployment area for Google Cloud resources within a region
  */
-export interface GcpZone {
+export type GcpZone = {
   /** GCP zone name */
   name?: string;
-}
+};

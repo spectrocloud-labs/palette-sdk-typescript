@@ -15,7 +15,7 @@ import type { MaasMachinePoolConfigEntity } from "./maasMachinePoolConfigEntity"
 /**
  * Maas cluster request payload for estimating rate
  */
-export interface SpectroMaasClusterRateEntity {
+export type SpectroMaasClusterRateEntity = {
   cloudConfig?: MaasClusterConfig;
   machinepoolconfig?: MaasMachinePoolConfigEntity[];
-}
+};

@@ -11,9 +11,9 @@
  */
 import type { AwsCloudAccount } from "./awsCloudAccount";
 
-export interface CloudWatch {
+export type CloudWatch = {
   credentials?: AwsCloudAccount;
   group?: string;
   region?: string;
   stream?: string;
-}
+};

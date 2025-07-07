@@ -14,8 +14,8 @@ import type { VsphereComputeCluster } from "./vsphereComputeCluster";
 /**
  * Vsphere datacenter
  */
-export interface VsphereCloudDatacenter {
+export type VsphereCloudDatacenter = {
   computeClusters?: VsphereComputeCluster[];
   folders?: string[];
   name?: string;
-}
+};

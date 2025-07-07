@@ -14,8 +14,8 @@ import type { TenantCleanUpStatus } from "./tenantCleanUpStatus";
 /**
  * Tenant Status
  */
-export interface TenantStatus {
+export type TenantStatus = {
   cleanUpStatus?: TenantCleanUpStatus;
   isActive?: boolean;
   toBeDeleted?: boolean;
-}
+};

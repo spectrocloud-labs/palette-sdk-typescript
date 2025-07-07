@@ -14,6 +14,6 @@ import type { VmQemuGuestAgentUserPasswordAccessCredentialPropagation } from "./
 /**
  * UserPasswordAccessCredentialPropagationMethod represents the method used to inject a user passwords into the vm guest. Only one of its members may be specified.
  */
-export interface VmUserPasswordAccessCredentialPropagationMethod {
+export type VmUserPasswordAccessCredentialPropagationMethod = {
   qemuGuestAgent?: VmQemuGuestAgentUserPasswordAccessCredentialPropagation;
-}
+};

@@ -14,6 +14,6 @@ import type { TenantsActivitiesTenants } from "./tenantsActivitiesTenants";
 /**
  * Active tenants and clusters data
  */
-export interface TenantsActivities {
+export type TenantsActivities = {
   tenants?: TenantsActivitiesTenants;
-}
+};

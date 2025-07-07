@@ -14,6 +14,6 @@ import type { ClusterWorkloadDaemonSet } from "./clusterWorkloadDaemonSet";
 /**
  * Cluster workload daemonset summary
  */
-export interface ClusterWorkloadDaemonSets {
+export type ClusterWorkloadDaemonSets = {
   daemonSets?: ClusterWorkloadDaemonSet[];
-}
+};

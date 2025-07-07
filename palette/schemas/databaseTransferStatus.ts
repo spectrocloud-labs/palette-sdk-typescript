@@ -14,7 +14,7 @@ import type { DatabaseTransferJob } from "./databaseTransferJob";
 /**
  * database transfer status
  */
-export interface DatabaseTransferStatus {
+export type DatabaseTransferStatus = {
   backups?: DatabaseTransferJob[];
   isActive?: boolean;
-}
+};

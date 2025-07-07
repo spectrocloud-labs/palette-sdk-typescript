@@ -15,7 +15,7 @@ import type { AppProfileTiersSpec } from "./appProfileTiersSpec";
 /**
  * Application profile tiers information
  */
-export interface AppProfileTiers {
+export type AppProfileTiers = {
   metadata?: ObjectMeta;
   spec?: AppProfileTiersSpec;
-}
+};

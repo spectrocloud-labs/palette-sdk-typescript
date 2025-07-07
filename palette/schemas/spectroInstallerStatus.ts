@@ -14,6 +14,6 @@ import type { InstallerStatus } from "./installerStatus";
 /**
  * spectro installer status
  */
-export interface SpectroInstallerStatus {
+export type SpectroInstallerStatus = {
   status?: InstallerStatus;
-}
+};

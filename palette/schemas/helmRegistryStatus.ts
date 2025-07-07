@@ -14,6 +14,6 @@ import type { RegistrySyncStatus } from "./registrySyncStatus";
 /**
  * Status of the helm registry
  */
-export interface HelmRegistryStatus {
+export type HelmRegistryStatus = {
   helmSyncStatus?: RegistrySyncStatus;
-}
+};

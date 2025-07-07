@@ -15,7 +15,7 @@ import type { OpenStackNic } from "./openStackNic";
 /**
  * OpenStack cloud VM definition spec
  */
-export interface OpenStackMachineSpec {
+export type OpenStackMachineSpec = {
   az?: string;
   image?: string;
   instanceType: GenericInstanceType;
@@ -23,4 +23,4 @@ export interface OpenStackMachineSpec {
   projectId?: string;
   securityGroups?: string[];
   sshKeyName?: string;
-}
+};

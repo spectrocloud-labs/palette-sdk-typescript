@@ -12,7 +12,7 @@
 import type { MaasAccount } from "./maasAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface MaasAccounts {
+export type MaasAccounts = {
   items: MaasAccount[];
   listmeta?: ListMetaData;
-}
+};

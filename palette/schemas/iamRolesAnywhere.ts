@@ -13,7 +13,7 @@
 /**
  * IamRolesAnywhere specifies the IAM Roles Anywhere configuration for the AWS/EKS cluster
  */
-export interface IamRolesAnywhere {
+export type IamRolesAnywhere = {
   /** ProfileARN specifies the IAM profile ARN */
   profileArn?: string;
   /** RoleARN specifies the IAM role ARN to use */
@@ -24,4 +24,4 @@ export interface IamRolesAnywhere {
   rootCaPrivateKey?: string;
   /** TrustAnchorARN specifies the trust anchor ARN */
   trustAnchorArn?: string;
-}
+};

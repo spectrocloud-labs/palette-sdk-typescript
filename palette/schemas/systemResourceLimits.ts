@@ -14,6 +14,6 @@ import type { SystemResourceLimit } from "./systemResourceLimit";
 /**
  * System resource limits. Supported resources keys are 'user','project','apiKey','team','role','cloudaccount','clusterprofile','workspace','registry','privategateway','location','certificate','macro','sshkey','alert','spectrocluster','edgehost'.
  */
-export interface SystemResourceLimits {
+export type SystemResourceLimits = {
   resources?: SystemResourceLimit[];
-}
+};

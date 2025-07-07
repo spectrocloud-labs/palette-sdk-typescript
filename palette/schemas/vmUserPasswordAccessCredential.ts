@@ -15,7 +15,7 @@ import type { VmUserPasswordAccessCredentialSource } from "./vmUserPasswordAcces
 /**
  * UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.
  */
-export interface VmUserPasswordAccessCredential {
+export type VmUserPasswordAccessCredential = {
   propagationMethod: VmUserPasswordAccessCredentialPropagationMethod;
   source: VmUserPasswordAccessCredentialSource;
-}
+};

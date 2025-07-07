@@ -16,8 +16,8 @@ import type { ClusterLogFetcherStatus } from "./clusterLogFetcherStatus";
 /**
  * Cluster Log Fetcher
  */
-export interface ClusterLogFetcher {
+export type ClusterLogFetcher = {
   metadata?: ObjectMeta;
   spec?: ClusterLogFetcherSpec;
   status?: ClusterLogFetcherStatus;
-}
+};

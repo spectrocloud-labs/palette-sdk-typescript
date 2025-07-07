@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * system password policy
  */
-export interface SystemPasswordPolicySpec {
+export type SystemPasswordPolicySpec = {
   creationTimestamp?: Time;
   expiryDurationInDays?: number;
   firstReminderInDays?: number;
@@ -27,4 +27,4 @@ export interface SystemPasswordPolicySpec {
   regex?: string;
   reminderFrequency?: number;
   updateTimestamp?: Time;
-}
+};

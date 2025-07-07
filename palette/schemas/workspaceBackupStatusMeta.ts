@@ -15,8 +15,8 @@ import type { WorkspaceClusterBackupConfig } from "./workspaceClusterBackupConfi
 /**
  * Workspace backup status meta
  */
-export interface WorkspaceBackupStatusMeta {
+export type WorkspaceBackupStatusMeta = {
   actor?: ClusterFeatureActor;
   requestUid?: string;
   workspaceBackupConfig?: WorkspaceClusterBackupConfig;
-}
+};

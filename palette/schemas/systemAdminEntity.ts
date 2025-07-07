@@ -15,7 +15,7 @@ import type { SystemAdministratorSpec } from "./systemAdministratorSpec";
 /**
  * System Admin information
  */
-export interface SystemAdminEntity {
+export type SystemAdminEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SystemAdministratorSpec;
-}
+};

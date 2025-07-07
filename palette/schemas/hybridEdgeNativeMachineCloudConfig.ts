@@ -16,9 +16,9 @@ import type { HybridCluster } from "./hybridCluster";
 /**
  * HybridEdgeNativeMachineCloudConfig defines hybrid Edge-Native cluster's machine configurations
  */
-export interface HybridEdgeNativeMachineCloudConfig {
+export type HybridEdgeNativeMachineCloudConfig = {
   archType: ArchType;
   /** Edge host's configuration */
   edgeHosts: EdgeNativeHybridMachinePoolHost[];
   hybridCluster?: HybridCluster;
-}
+};

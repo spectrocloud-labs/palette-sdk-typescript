@@ -14,6 +14,6 @@ import type { GcpClusterConfig } from "./gcpClusterConfig";
 /**
  * Gcp cloud cluster config entity
  */
-export interface GcpCloudClusterConfigEntity {
+export type GcpCloudClusterConfigEntity = {
   clusterConfig?: GcpClusterConfig;
-}
+};

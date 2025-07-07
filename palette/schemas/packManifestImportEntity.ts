@@ -13,9 +13,9 @@
 /**
  * Pack manifest import objct
  */
-export interface PackManifestImportEntity {
+export type PackManifestImportEntity = {
   /** Pack manifest content in yaml */
   content?: string;
   /** Pack manifest name */
   name?: string;
-}
+};

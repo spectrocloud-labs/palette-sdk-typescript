@@ -14,6 +14,6 @@ import type { MaasPool } from "./maasPool";
 /**
  * List of Maas pools
  */
-export interface MaasPools {
+export type MaasPools = {
   items: MaasPool[];
-}
+};

@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Upgrades represent the reason of the last upgrade that took place
  */
-export interface Upgrades {
+export type Upgrades = {
   reason?: string[];
   timestamp?: Time;
-}
+};

@@ -12,7 +12,7 @@
 import type { CloudWatch } from "./cloudWatch";
 import type { DataSinkableSpecType } from "./dataSinkableSpecType";
 
-export interface DataSinkableSpec {
+export type DataSinkableSpec = {
   cloudWatch?: CloudWatch;
   type?: DataSinkableSpecType;
-}
+};

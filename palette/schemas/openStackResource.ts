@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface OpenStackResource {
+export type OpenStackResource = {
   id?: string;
   name?: string;
-}
+};

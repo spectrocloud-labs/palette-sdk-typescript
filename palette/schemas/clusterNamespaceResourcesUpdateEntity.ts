@@ -11,6 +11,6 @@
  */
 import type { ClusterNamespaceResourceInputEntity } from "./clusterNamespaceResourceInputEntity";
 
-export interface ClusterNamespaceResourcesUpdateEntity {
+export type ClusterNamespaceResourcesUpdateEntity = {
   namespaces?: ClusterNamespaceResourceInputEntity[];
-}
+};

@@ -15,7 +15,7 @@ import type { GcpMachinePoolConfigEntity } from "./gcpMachinePoolConfigEntity";
 /**
  * Gcp cluster request payload for estimating rate
  */
-export interface SpectroGcpClusterRateEntity {
+export type SpectroGcpClusterRateEntity = {
   cloudConfig?: GcpClusterConfig;
   machinepoolconfig?: GcpMachinePoolConfigEntity[];
-}
+};

@@ -13,9 +13,9 @@
 /**
  * system azure account specifications
  */
-export interface SystemAzureSpec {
+export type SystemAzureSpec = {
   clientId?: string;
   clientSecret?: string;
   subscriptionId?: string;
   tenantId?: string;
-}
+};

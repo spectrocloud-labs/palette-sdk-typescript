@@ -12,7 +12,7 @@
 import type { HelmRegistry } from "./helmRegistry";
 import type { ListMetaData } from "./listMetaData";
 
-export interface HelmRegistries {
+export type HelmRegistries = {
   items: HelmRegistry[];
   listmeta?: ListMetaData;
-}
+};

@@ -14,6 +14,6 @@ import type { ClusterHelmChart } from "./clusterHelmChart";
 /**
  * Cluster helm charts metadata
  */
-export interface ClusterHelmCharts {
+export type ClusterHelmCharts = {
   charts?: ClusterHelmChart[];
-}
+};

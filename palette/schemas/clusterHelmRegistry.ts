@@ -13,7 +13,7 @@
 /**
  * Cluster helm registry information
  */
-export interface ClusterHelmRegistry {
+export type ClusterHelmRegistry = {
   name?: string;
   uid?: string;
-}
+};

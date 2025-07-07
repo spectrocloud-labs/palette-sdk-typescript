@@ -16,8 +16,8 @@ import type { GcpMachinePoolConfig } from "./gcpMachinePoolConfig";
 /**
  * GcpCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api
  */
-export interface GcpCloudConfigSpec {
+export type GcpCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: GcpClusterConfig;
   machinePoolConfig?: GcpMachinePoolConfig[];
-}
+};

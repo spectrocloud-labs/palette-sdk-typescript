@@ -15,7 +15,7 @@ import type { ClusterWorkloadStatefulSet } from "./clusterWorkloadStatefulSet";
 /**
  * Workspace cluster workload statefulsets summary
  */
-export interface WorkspaceClusterWorkloadStatefulSets {
+export type WorkspaceClusterWorkloadStatefulSets = {
   metadata?: RelatedObject;
   statefulSets?: ClusterWorkloadStatefulSet[];
-}
+};

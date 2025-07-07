@@ -11,7 +11,7 @@
  */
 import type { ApiKey } from "./apiKey";
 
-export interface ApiKeys {
+export type ApiKeys = {
   /** List of API keys */
   items: ApiKey[];
-}
+};

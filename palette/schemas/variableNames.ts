@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface VariableNames {
+export type VariableNames = {
   /** Array of variable names */
   variables: string[];
-}
+};

@@ -13,10 +13,10 @@
 /**
  * Storage estimated rate information
  */
-export interface StorageRate {
+export type StorageRate = {
   iops?: number;
   rate?: number;
   sizeGB?: number;
   throughput?: number;
   type?: string;
-}
+};

@@ -16,8 +16,8 @@ import type { SystemUserMeStatus } from "./systemUserMeStatus";
 /**
  * User information wrt permissions
  */
-export interface SystemUserMe {
+export type SystemUserMe = {
   metadata?: ObjectMeta;
   spec?: SystemUserSpec;
   status?: SystemUserMeStatus;
-}
+};

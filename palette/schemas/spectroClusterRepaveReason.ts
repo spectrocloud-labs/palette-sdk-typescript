@@ -14,8 +14,8 @@ import type { SpectroClusterPackDiff } from "./spectroClusterPackDiff";
 /**
  * Cluster repave reason description
  */
-export interface SpectroClusterRepaveReason {
+export type SpectroClusterRepaveReason = {
   code?: string;
   message?: string;
   pack?: SpectroClusterPackDiff;
-}
+};

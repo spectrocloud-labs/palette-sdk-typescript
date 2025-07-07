@@ -20,7 +20,7 @@ The VirtualMachine contains the template to create the
 VirtualMachineInstance. It also mirrors the running state of the created
 VirtualMachineInstance in its status.
  */
-export interface ClusterVirtualMachine {
+export type ClusterVirtualMachine = {
   /** APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. */
   apiVersion?: string;
   /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. */
@@ -28,4 +28,4 @@ export interface ClusterVirtualMachine {
   metadata?: VmObjectMeta;
   spec: ClusterVirtualMachineSpec;
   status?: ClusterVirtualMachineStatus;
-}
+};

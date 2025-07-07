@@ -14,10 +14,10 @@ import type { Time } from "./time";
 /**
  * Cluster workload pod container state
  */
-export interface ClusterWorkloadPodContainerState {
+export type ClusterWorkloadPodContainerState = {
   exitCode?: number;
   finishedAt?: Time;
   reason?: string;
   startedAt?: Time;
   state?: string;
-}
+};

@@ -13,10 +13,10 @@
 /**
  * User Entity input
  */
-export interface UserUpdateSpecEntity {
+export type UserUpdateSpecEntity = {
   emailId?: string;
   firstName?: string;
   lastName?: string;
   /** Deprecated. Use 'v1/users/{uid}/roles' API to assign roles. */
   roles?: string[];
-}
+};

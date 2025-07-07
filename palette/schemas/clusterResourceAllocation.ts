@@ -14,7 +14,7 @@ import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation"
 /**
  * Workspace resource allocation
  */
-export interface ClusterResourceAllocation {
+export type ClusterResourceAllocation = {
   clusterUid?: string;
   resourceAllocation?: WorkspaceResourceAllocation;
-}
+};

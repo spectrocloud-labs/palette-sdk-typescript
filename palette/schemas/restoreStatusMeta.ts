@@ -14,8 +14,8 @@ import type { Time } from "./time";
 /**
  * Restore  status meta
  */
-export interface RestoreStatusMeta {
+export type RestoreStatusMeta = {
   isSucceeded?: boolean;
   msg?: string;
   restoreTime?: Time;
-}
+};

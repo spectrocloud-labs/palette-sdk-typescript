@@ -14,7 +14,7 @@ import type { ReleaseVersion } from "./releaseVersion";
 /**
  * spectro application management app version information
  */
-export interface AppVersion {
+export type AppVersion = {
   intermediateVersions?: ReleaseVersion[];
   latestVerson?: ReleaseVersion;
-}
+};

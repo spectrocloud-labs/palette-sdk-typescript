@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface EventsObjectsEntity {
+export type EventsObjectsEntity = {
   resourceType: string;
   resourceUid: string;
-}
+};

@@ -15,11 +15,11 @@ import type { ClusterNotificationStatus } from "./clusterNotificationStatus";
 /**
  * Overload status
  */
-export interface OverloadStatus {
+export type OverloadStatus = {
   health?: SpectroClusterHealthStatus;
   isActive?: boolean;
   isReady?: boolean;
   kubectlCommands?: string[];
   notifications?: ClusterNotificationStatus;
   state?: string;
-}
+};

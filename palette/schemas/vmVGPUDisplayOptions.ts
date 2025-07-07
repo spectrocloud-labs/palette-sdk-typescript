@@ -11,8 +11,8 @@
  */
 import type { VmFeatureState } from "./vmFeatureState";
 
-export interface VmVGPUDisplayOptions {
+export type VmVGPUDisplayOptions = {
   /** Enabled determines if a display addapter backed by a vGPU should be enabled or disabled on the guest. Defaults to true. */
   enabled?: boolean;
   ramFB?: VmFeatureState;
-}
+};

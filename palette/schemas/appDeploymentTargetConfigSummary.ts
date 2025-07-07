@@ -14,6 +14,6 @@ import type { AppDeploymentClusterRefSummary } from "./appDeploymentClusterRefSu
 /**
  * Application deployment target config summary
  */
-export interface AppDeploymentTargetConfigSummary {
+export type AppDeploymentTargetConfigSummary = {
   clusterRef?: AppDeploymentClusterRefSummary;
-}
+};

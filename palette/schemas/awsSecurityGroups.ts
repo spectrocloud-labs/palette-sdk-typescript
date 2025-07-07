@@ -11,6 +11,6 @@
  */
 import type { AwsSecuritygroup } from "./awsSecuritygroup";
 
-export interface AwsSecurityGroups {
+export type AwsSecurityGroups = {
   groups: AwsSecuritygroup[];
-}
+};

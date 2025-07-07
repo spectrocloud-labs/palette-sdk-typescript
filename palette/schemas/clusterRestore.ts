@@ -16,8 +16,8 @@ import type { ClusterRestoreStatus } from "./clusterRestoreStatus";
 /**
  * Cluster Restore
  */
-export interface ClusterRestore {
+export type ClusterRestore = {
   metadata?: ObjectMeta;
   spec?: ClusterRestoreSpec;
   status?: ClusterRestoreStatus;
-}
+};

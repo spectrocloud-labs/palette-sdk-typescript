@@ -15,8 +15,8 @@ import type { AppFeatureFreemium } from "./appFeatureFreemium";
 /**
  * System app features
  */
-export interface AppFeatures {
+export type AppFeatures = {
   developerCredit?: DeveloperCredit;
   freeCloudCredit?: boolean;
   freemium?: AppFeatureFreemium;
-}
+};

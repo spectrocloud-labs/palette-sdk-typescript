@@ -14,6 +14,6 @@ import type { ClusterRepaveState } from "./clusterRepaveState";
 /**
  * Cluster repave status
  */
-export interface ClusterRepaveStatus {
+export type ClusterRepaveStatus = {
   state?: ClusterRepaveState;
-}
+};

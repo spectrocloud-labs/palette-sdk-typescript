@@ -12,7 +12,7 @@
 import type { AzureAccount } from "./azureAccount";
 import type { ListMetaData } from "./listMetaData";
 
-export interface AzureAccounts {
+export type AzureAccounts = {
   items: AzureAccount[];
   listmeta?: ListMetaData;
-}
+};

@@ -14,11 +14,11 @@ import type { Time } from "./time";
 /**
  * Cluster workload condition
  */
-export interface ClusterWorkloadCondition {
+export type ClusterWorkloadCondition = {
   lastTransitionTime?: Time;
   lastUpdateTime?: Time;
   message?: string;
   reason?: string;
   status?: string;
   type?: string;
-}
+};

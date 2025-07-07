@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Pack Registries Summary
  */
-export interface PackRegistriesSummary {
+export type PackRegistriesSummary = {
   items: PackRegistrySummary[];
   listmeta?: ListMetaData;
-}
+};

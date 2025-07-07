@@ -13,7 +13,7 @@
 /**
  * Tenant Basic param
  */
-export interface TenantBasicEntity {
+export type TenantBasicEntity = {
   emailId?: string;
   orgName?: string;
-}
+};

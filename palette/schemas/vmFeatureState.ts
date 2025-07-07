@@ -13,7 +13,7 @@
 /**
  * Represents if a feature is enabled or disabled.
  */
-export interface VmFeatureState {
+export type VmFeatureState = {
   /** Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true. */
   enabled?: boolean;
-}
+};

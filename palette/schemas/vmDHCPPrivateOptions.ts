@@ -13,9 +13,9 @@
 /**
  * DHCPExtraOptions defines Extra DHCP options for a VM.
  */
-export interface VmDHCPPrivateOptions {
+export type VmDHCPPrivateOptions = {
   /** Option is an Integer value from 224-254 Required. */
   option: number;
   /** Value is a String value for the Option provided Required. */
   value: string;
-}
+};

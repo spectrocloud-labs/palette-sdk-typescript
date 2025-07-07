@@ -14,7 +14,7 @@ import type { StorageCost } from "./storageCost";
 /**
  * Cloud cloud Storage type details
  */
-export interface StorageType {
+export type StorageType = {
   cost?: StorageCost;
   iopsCost?: StorageCost;
   /** kind of storage type */
@@ -22,4 +22,4 @@ export interface StorageType {
   /** Name of the storage type */
   name?: string;
   throughputCost?: StorageCost;
-}
+};

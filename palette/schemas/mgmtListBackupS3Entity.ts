@@ -14,6 +14,6 @@ import type { MgmtFileTransferS3Entity } from "./mgmtFileTransferS3Entity";
 /**
  * list s3 backups
  */
-export interface MgmtListBackupS3Entity {
+export type MgmtListBackupS3Entity = {
   fileTransferConfig?: MgmtFileTransferS3Entity;
-}
+};

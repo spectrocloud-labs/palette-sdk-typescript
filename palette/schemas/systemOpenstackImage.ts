@@ -14,6 +14,6 @@ import type { SystemOpenstackImageSpec } from "./systemOpenstackImageSpec";
 /**
  * SystemAdmin
  */
-export interface SystemOpenstackImage {
+export type SystemOpenstackImage = {
   spec?: SystemOpenstackImageSpec;
-}
+};

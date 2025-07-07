@@ -13,9 +13,9 @@
 /**
  * Invoice credits object
  */
-export interface InvoiceCredits {
+export type InvoiceCredits = {
   /** Credits allocated for import clusters */
   alloyFreeCredits?: number;
   /** Credits allocated for managed clusters */
   pureFreeCredits?: number;
-}
+};

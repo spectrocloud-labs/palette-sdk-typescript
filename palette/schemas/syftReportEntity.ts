@@ -18,7 +18,7 @@ import type { SyftVulnerabilitySummaryEntity } from "./syftVulnerabilitySummaryE
 /**
  * Syft report
  */
-export interface SyftReportEntity {
+export type SyftReportEntity = {
   batchNo?: number;
   batchSize?: number;
   dependencies?: SyftDependencyEntity[];
@@ -28,4 +28,4 @@ export interface SyftReportEntity {
   time?: Time;
   vulnerabilities?: SyftVulnerabilityEntity[];
   vulnerabilitySummary?: SyftVulnerabilitySummaryEntity;
-}
+};

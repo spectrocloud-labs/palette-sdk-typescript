@@ -13,8 +13,8 @@
 /**
  * Cloud cost information
  */
-export interface CloudCost {
+export type CloudCost = {
   compute?: number;
   storage?: number;
   total?: number;
-}
+};

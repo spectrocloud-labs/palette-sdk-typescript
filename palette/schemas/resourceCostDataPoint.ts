@@ -13,10 +13,10 @@
 /**
  * Resource cost data point
  */
-export interface ResourceCostDataPoint {
+export type ResourceCostDataPoint = {
   cpu?: number;
   memory?: number;
   storage?: number;
   timestamp?: number;
   total?: number;
-}
+};

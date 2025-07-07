@@ -17,11 +17,11 @@ import type { PlanChangeUpdateType } from "./planChangeUpdateType";
 /**
  * Plan change update entity
  */
-export interface PlanChangeUpdate {
+export type PlanChangeUpdate = {
   expiry: Time;
   isPaymentGateway?: boolean;
   planLimit?: PlanLimit;
   start: Time;
   tierPrice?: TierPrice;
   type: PlanChangeUpdateType;
-}
+};

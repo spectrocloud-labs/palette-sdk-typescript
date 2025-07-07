@@ -14,9 +14,9 @@ import type { Time } from "./time";
 /**
  * Data sink payload entity
  */
-export interface V1DataSinkPayload {
+export type V1DataSinkPayload = {
   /** RefUid of the data sink payload */
   refUid?: string;
   timestamp?: Time;
   [key: string]: unknown;
-}
+};

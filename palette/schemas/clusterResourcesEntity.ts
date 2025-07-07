@@ -12,7 +12,7 @@
 import type { ClusterNamespaceResourceInputEntity } from "./clusterNamespaceResourceInputEntity";
 import type { ClusterRbacInputEntity } from "./clusterRbacInputEntity";
 
-export interface ClusterResourcesEntity {
+export type ClusterResourcesEntity = {
   namespaces?: ClusterNamespaceResourceInputEntity[];
   rbacs?: ClusterRbacInputEntity[];
-}
+};

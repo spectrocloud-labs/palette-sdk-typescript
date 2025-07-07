@@ -11,7 +11,7 @@
  */
 import type { JWKResponse } from "./jWKResponse";
 
-export interface JWKSetResponse {
+export type JWKSetResponse = {
   /** The value of the "keys" parameter is an array of JWK values */
   keys?: JWKResponse[];
-}
+};

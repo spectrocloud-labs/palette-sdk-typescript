@@ -14,8 +14,8 @@ import type { PackRef } from "./packRef";
 /**
  * Cluster pack difference
  */
-export interface SpectroClusterPackDiff {
+export type SpectroClusterPackDiff = {
   current?: PackRef;
   diffConfigKeys?: string[];
   target?: PackRef;
-}
+};

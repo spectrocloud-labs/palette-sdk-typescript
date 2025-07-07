@@ -11,7 +11,7 @@
  */
 import type { Feature } from "./feature";
 
-export interface Features {
+export type Features = {
   /** List of features */
   items: Feature[];
-}
+};

@@ -14,6 +14,6 @@ import type { ActiveTenantResourcesActiveResources } from "./activeTenantResourc
 /**
  * Active resources of tenant
  */
-export interface ActiveTenantResources {
+export type ActiveTenantResources = {
   activeResources?: ActiveTenantResourcesActiveResources;
-}
+};

@@ -13,11 +13,11 @@
 /**
  * Refers to Azure Shared Gallery image
  */
-export interface AzureImage {
+export type AzureImage = {
   gallery?: string;
   name?: string;
   resourceGroup?: string;
   state?: string;
   subscriptionID?: string;
   version?: string;
-}
+};

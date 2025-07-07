@@ -14,11 +14,11 @@ import type { ClusterWorkloadPodContainerState } from "./clusterWorkloadPodConta
 /**
  * Cluster workload pod container status
  */
-export interface ClusterWorkloadPodContainerStatus {
+export type ClusterWorkloadPodContainerStatus = {
   image?: string;
   name?: string;
   ready?: boolean;
   restartCount?: number;
   started?: boolean;
   state?: ClusterWorkloadPodContainerState;
-}
+};

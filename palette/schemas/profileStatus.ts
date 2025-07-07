@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ProfileStatus {
+export type ProfileStatus = {
   /** If it is true then profile pack values has a reference to user defined macros */
   hasUserMacros?: boolean;
-}
+};

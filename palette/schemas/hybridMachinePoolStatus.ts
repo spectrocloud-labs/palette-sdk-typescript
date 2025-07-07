@@ -14,8 +14,8 @@ import type { HybridMachinePoolClusterHealth } from "./hybridMachinePoolClusterH
 /**
  * Get the hybrid machine pool's cluster status
  */
-export interface HybridMachinePoolStatus {
+export type HybridMachinePoolStatus = {
   health?: HybridMachinePoolClusterHealth;
   /** State of the hybrid machine pool */
   state?: string;
-}
+};

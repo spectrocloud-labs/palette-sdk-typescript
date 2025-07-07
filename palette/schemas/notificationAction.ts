@@ -15,7 +15,7 @@ import type { NotificationActionEvents } from "./notificationActionEvents";
 /**
  * Describes actions for the notification
  */
-export interface NotificationAction {
+export type NotificationAction = {
   /** Describes the acknowledgement status for the notification */
   ack?: boolean;
   /** Describes information related to notification action */
@@ -29,4 +29,4 @@ export interface NotificationAction {
   /** Describes the notification as a information */
   isInfo?: boolean;
   link?: string;
-}
+};

@@ -14,7 +14,7 @@ import type { SystemTimeseriesMetrics } from "./systemTimeseriesMetrics";
 /**
  * system timeseries config spec
  */
-export interface SystemTimeseriesSpec {
+export type SystemTimeseriesSpec = {
   machine?: SystemTimeseriesMetrics;
   pod?: SystemTimeseriesMetrics;
-}
+};

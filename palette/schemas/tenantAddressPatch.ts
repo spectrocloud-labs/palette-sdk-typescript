@@ -14,6 +14,6 @@ import type { Address } from "./address";
 /**
  * Tenant Address
  */
-export interface TenantAddressPatch {
+export type TenantAddressPatch = {
   address?: Address;
-}
+};

@@ -14,10 +14,10 @@ import type { GcpAccountEntitySpec } from "./gcpAccountEntitySpec";
 /**
  * GCP storage config object
  */
-export interface GcpStorageConfig {
+export type GcpStorageConfig = {
   /** GCP storage bucket name */
   bucketName: string;
   credentials: GcpAccountEntitySpec;
   /** GCP project id */
   projectId?: string;
-}
+};

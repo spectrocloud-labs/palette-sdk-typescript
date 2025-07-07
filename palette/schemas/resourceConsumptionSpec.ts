@@ -15,7 +15,7 @@ import type { ResourceConsumptionOptions } from "./resourceConsumptionOptions";
 /**
  * Resource consumption spec
  */
-export interface ResourceConsumptionSpec {
+export type ResourceConsumptionSpec = {
   filter?: ResourceConsumptionFilter;
   options?: ResourceConsumptionOptions;
-}
+};

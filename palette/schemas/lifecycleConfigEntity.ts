@@ -11,6 +11,6 @@
  */
 import type { LifecycleConfig } from "./lifecycleConfig";
 
-export interface LifecycleConfigEntity {
+export type LifecycleConfigEntity = {
   lifecycleConfig?: LifecycleConfig;
-}
+};

@@ -14,8 +14,8 @@ import type { VmI6300ESBWatchdog } from "./vmI6300ESBWatchdog";
 /**
  * Named watchdog device.
  */
-export interface VmWatchdog {
+export type VmWatchdog = {
   i6300esb?: VmI6300ESBWatchdog;
   /** Name of the watchdog. */
   name: string;
-}
+};

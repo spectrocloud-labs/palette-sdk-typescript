@@ -15,11 +15,11 @@ import type { PlanCreditType } from "./planCreditType";
 /**
  * Plan Credit
  */
-export interface PlanCredit {
+export type PlanCredit = {
   cpuCoreHours?: number;
   creditUid?: string;
   expiry?: Time;
   name?: string;
   start?: Time;
   type: PlanCreditType;
-}
+};

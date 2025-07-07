@@ -15,7 +15,7 @@ import type { EdgeNativeMachinePoolConfig } from "./edgeNativeMachinePoolConfig"
 /**
  * EdgeNativeCloudConfigSpec defines the desired state of EdgeNativeCloudConfig
  */
-export interface EdgeNativeCloudConfigSpec {
+export type EdgeNativeCloudConfigSpec = {
   clusterConfig: EdgeNativeClusterConfig;
   machinePoolConfig: EdgeNativeMachinePoolConfig[];
-}
+};

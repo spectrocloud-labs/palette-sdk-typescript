@@ -14,7 +14,7 @@ import type { PackRegistryMetadata } from "./packRegistryMetadata";
 /**
  * Pack registry import entity
  */
-export interface PackRegistryImportEntity {
+export type PackRegistryImportEntity = {
   matchingRegistries?: PackRegistryMetadata[];
   metadata?: PackRegistryMetadata;
-}
+};

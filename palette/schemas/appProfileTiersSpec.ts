@@ -14,7 +14,7 @@ import type { AppTier } from "./appTier";
 /**
  * Application profile tiers information
  */
-export interface AppProfileTiersSpec {
+export type AppProfileTiersSpec = {
   /** Application profile tiers */
   appTiers?: AppTier[];
-}
+};

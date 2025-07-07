@@ -13,7 +13,7 @@
 /**
  * List of AWS keypairs
  */
-export interface AwsKeyPairs {
+export type AwsKeyPairs = {
   /** Array of Aws Keypair names */
   keyNames?: string[];
-}
+};

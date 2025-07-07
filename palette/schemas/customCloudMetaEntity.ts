@@ -15,7 +15,7 @@ import type { CustomCloudMetaSpecEntity } from "./customCloudMetaSpecEntity";
 /**
  * Custom cloud meta entity
  */
-export interface CustomCloudMetaEntity {
+export type CustomCloudMetaEntity = {
   metadata?: ObjectMeta;
   spec?: CustomCloudMetaSpecEntity;
-}
+};

@@ -15,9 +15,9 @@ import type { Time } from "./time";
 /**
  * Edge token specification
  */
-export interface EdgeTokenSpec {
+export type EdgeTokenSpec = {
   defaultProject?: EdgeTokenProject;
   expiry?: Time;
   /** Edge token */
   token?: string;
-}
+};

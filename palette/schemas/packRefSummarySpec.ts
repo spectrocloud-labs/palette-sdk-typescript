@@ -16,8 +16,8 @@ import type { RegistryMetadata } from "./registryMetadata";
 /**
  * Pack summary spec
  */
-export interface PackRefSummarySpec {
+export type PackRefSummarySpec = {
   macros?: PackResolvedValues;
   pack?: PackSummarySpec;
   registry?: RegistryMetadata;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { ResourceEntityData } from "./resourceEntityData";
 
-export interface ResourceEntity {
+export type ResourceEntity = {
   checks?: string[];
   data?: ResourceEntityData;
-}
+};

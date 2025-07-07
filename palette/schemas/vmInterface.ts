@@ -18,7 +18,7 @@ import type { VmPort } from "./vmPort";
 import type { VmInterfaceSlirp } from "./vmInterfaceSlirp";
 import type { VmInterfaceSRIOV } from "./vmInterfaceSRIOV";
 
-export interface VmInterface {
+export type VmInterface = {
   /** If specified, the ACPI index is used to provide network interface device naming, that is stable across changes in PCI addresses assigned to the device. This value is required to be unique across all devices and be between 1 and (16*1024-1). */
   acpiIndex?: number;
   /** BootOrder is an integer value > 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried. */
@@ -42,4 +42,4 @@ export interface VmInterface {
   sriov?: VmInterfaceSRIOV;
   /** If specified, the virtual network interface address and its tag will be provided to the guest via config drive */
   tag?: string;
-}
+};

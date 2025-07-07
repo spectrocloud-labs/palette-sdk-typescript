@@ -16,9 +16,9 @@ import type { Time } from "./time";
 /**
  * system plan
  */
-export interface SystemPlan {
+export type SystemPlan = {
   freeCredits?: SystemPlanCredit[];
   planLimit?: SystemPlanLimit;
   slaCredits?: SystemPlanCredit[];
   systemStartDate?: Time;
-}
+};

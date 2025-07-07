@@ -14,7 +14,7 @@ import type { HybridMachinePoolStatus } from "./hybridMachinePoolStatus";
 /**
  * Metadata information related to a hybrid machine pool launched as part of an hybrid cluster
  */
-export interface HybridMachinePool {
+export type HybridMachinePool = {
   /** Cloud config uid associated with the hybrid machine pool */
   cloudConfigUid?: string;
   /** Cloud type of the hybrid machine pool */
@@ -26,4 +26,4 @@ export interface HybridMachinePool {
   status?: HybridMachinePoolStatus;
   /** Uid of the hybrid machine pool */
   uid?: string;
-}
+};

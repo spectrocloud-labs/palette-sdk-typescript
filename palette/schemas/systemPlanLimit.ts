@@ -14,9 +14,9 @@ import type { SystemPlanLimitSpec } from "./systemPlanLimitSpec";
 /**
  * System Monthly Plan Limit
  */
-export interface SystemPlanLimit {
+export type SystemPlanLimit = {
   alloy?: SystemPlanLimitSpec;
   /** is unlimited cpu core hours */
   isUnlimited?: boolean;
   pure?: SystemPlanLimitSpec;
-}
+};

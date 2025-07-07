@@ -15,7 +15,7 @@ import type { UserActivityInfo } from "./userActivityInfo";
 /**
  * Active tenant and clusters data
  */
-export interface TenantActivity {
+export type TenantActivity = {
   clustersInfo?: ClustersInfo;
   org?: string;
   planType?: string;
@@ -23,4 +23,4 @@ export interface TenantActivity {
   totalUsers?: number;
   uid?: string;
   users?: UserActivityInfo[];
-}
+};

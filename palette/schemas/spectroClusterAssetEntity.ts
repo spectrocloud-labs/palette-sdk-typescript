@@ -14,6 +14,6 @@ import type { SpectroClusterAssetEntitySpec } from "./spectroClusterAssetEntityS
 /**
  * Cluster asset
  */
-export interface SpectroClusterAssetEntity {
+export type SpectroClusterAssetEntity = {
   spec?: SpectroClusterAssetEntitySpec;
-}
+};

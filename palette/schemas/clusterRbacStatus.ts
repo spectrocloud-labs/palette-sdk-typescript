@@ -14,6 +14,6 @@ import type { ClusterResourceError } from "./clusterResourceError";
 /**
  * Cluster rbac status
  */
-export interface ClusterRbacStatus {
+export type ClusterRbacStatus = {
   errors?: ClusterResourceError[];
-}
+};

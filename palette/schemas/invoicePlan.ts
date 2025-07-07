@@ -15,10 +15,10 @@ import type { InvoicePlanPlantype } from "./invoicePlanPlantype";
 /**
  * Invoice plan object
  */
-export interface InvoicePlan {
+export type InvoicePlan = {
   /** List of free credits */
   freeCredits?: InvoicePlanCredit[];
   plantype?: InvoicePlanPlantype;
   /** List of SLA credits */
   slaCredits?: InvoicePlanCredit[];
-}
+};

@@ -12,7 +12,7 @@
 import type { AppDeploymentSortFields } from "./appDeploymentSortFields";
 import type { SortOrder } from "./sortOrder";
 
-export interface AppDeploymentSortSpec {
+export type AppDeploymentSortSpec = {
   field?: AppDeploymentSortFields;
   order?: SortOrder;
-}
+};

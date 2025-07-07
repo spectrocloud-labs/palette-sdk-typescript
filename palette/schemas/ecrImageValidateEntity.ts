@@ -15,7 +15,7 @@ import type { EcrImageEntity } from "./ecrImageEntity";
 /**
  * Ecr registry image meta
  */
-export interface EcrImageValidateEntity {
+export type EcrImageValidateEntity = {
   authEntity?: EcrAuthorizationRequestEntity;
   /** Name of the image tag */
   imageTag?: string;
@@ -23,4 +23,4 @@ export interface EcrImageValidateEntity {
   images?: EcrImageEntity[];
   /** Name of the repo */
   repoName?: string;
-}
+};

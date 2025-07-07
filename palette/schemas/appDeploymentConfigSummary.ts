@@ -14,6 +14,6 @@ import type { AppDeploymentTargetConfigSummary } from "./appDeploymentTargetConf
 /**
  * Application deployment config summary
  */
-export interface AppDeploymentConfigSummary {
+export type AppDeploymentConfigSummary = {
   target?: AppDeploymentTargetConfigSummary;
-}
+};

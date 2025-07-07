@@ -12,11 +12,11 @@
 import type { ArchType } from "./archType";
 import type { EdgeHostMetaEdgeHostType } from "./edgeHostMetaEdgeHostType";
 
-export interface EdgeHostMeta {
+export type EdgeHostMeta = {
   archType?: ArchType;
   edgeHostType?: EdgeHostMetaEdgeHostType;
   healthState?: string;
   name?: string;
   state?: string;
   uid?: string;
-}
+};

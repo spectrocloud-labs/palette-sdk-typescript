@@ -13,7 +13,7 @@
 /**
  * Workspace cluster reference
  */
-export interface DashboardWorkspaceClusterRef {
+export type DashboardWorkspaceClusterRef = {
   name?: string;
   uid?: string;
-}
+};

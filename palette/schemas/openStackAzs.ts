@@ -14,6 +14,6 @@ import type { OpenStackAz } from "./openStackAz";
 /**
  * List of OpenStack azs
  */
-export interface OpenStackAzs {
+export type OpenStackAzs = {
   azs: OpenStackAz[];
-}
+};

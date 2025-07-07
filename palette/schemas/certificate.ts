@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Certificate details
  */
-export interface Certificate {
+export type Certificate = {
   expiry?: Time;
   name?: string;
-}
+};

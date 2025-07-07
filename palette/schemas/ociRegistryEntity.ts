@@ -14,11 +14,11 @@ import type { RegistryAuth } from "./registryAuth";
 /**
  * Oci registry credentials
  */
-export interface OciRegistryEntity {
+export type OciRegistryEntity = {
   auth?: RegistryAuth;
   defaultRegion?: string;
   endpoint?: string;
   providerType?: string;
   scope?: string;
   type?: string;
-}
+};

@@ -14,10 +14,10 @@ import type { GcpStorageConfig } from "./gcpStorageConfig";
 /**
  * GCP location specification
  */
-export interface UserAssetsLocationGcpSpec {
+export type UserAssetsLocationGcpSpec = {
   config: GcpStorageConfig;
   /** Set to 'true', if location has to be set as default */
   isDefault?: boolean;
   /** GCP location type [gcp] */
   type?: string;
-}
+};

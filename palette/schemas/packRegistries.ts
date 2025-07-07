@@ -12,7 +12,7 @@
 import type { PackRegistry } from "./packRegistry";
 import type { ListMetaData } from "./listMetaData";
 
-export interface PackRegistries {
+export type PackRegistries = {
   items: PackRegistry[];
   listmeta?: ListMetaData;
-}
+};

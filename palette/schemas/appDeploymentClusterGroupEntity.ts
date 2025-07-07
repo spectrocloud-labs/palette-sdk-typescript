@@ -15,7 +15,7 @@ import type { AppDeploymentClusterGroupSpec } from "./appDeploymentClusterGroupS
 /**
  * Application deployment cluster group request payload
  */
-export interface AppDeploymentClusterGroupEntity {
+export type AppDeploymentClusterGroupEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: AppDeploymentClusterGroupSpec;
-}
+};

@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface MaasInstanceType {
+export type MaasInstanceType = {
   /** Minimum CPU cores */
   minCPU?: number;
   /** Minimum memory in MiB */
   minMemInMB?: number;
-}
+};

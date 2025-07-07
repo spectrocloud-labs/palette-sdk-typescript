@@ -11,6 +11,6 @@
  */
 import type { WorkspaceRolesPatch } from "./workspaceRolesPatch";
 
-export interface WorkspacesRolesPatch {
+export type WorkspacesRolesPatch = {
   workspaces?: WorkspaceRolesPatch[];
-}
+};

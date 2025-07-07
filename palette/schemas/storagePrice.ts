@@ -13,9 +13,9 @@
 /**
  * Cloud storage price within an upper limit.
  */
-export interface StoragePrice {
+export type StoragePrice = {
   /** Upper limit of cloud storage usage */
   limit?: string;
   /** Price of cloud storage type */
   price?: string;
-}
+};

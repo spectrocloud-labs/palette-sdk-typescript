@@ -11,7 +11,7 @@
  */
 import type { CustomCloudAccountCredentials } from "./customCloudAccountCredentials";
 
-export interface CustomCloudAccount {
+export type CustomCloudAccount = {
   /** Cloud account credentials */
   credentials: CustomCloudAccountCredentials;
-}
+};

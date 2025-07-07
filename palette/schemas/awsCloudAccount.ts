@@ -17,7 +17,7 @@ import type { AwsStsCredentials } from "./awsStsCredentials";
 /**
  * AWS cloud account which includes access key and secret key in case of 'secret' credentials type. It includes policyARNS, ARN and externalId in case of sts. Partition is a group of AWS Region and Service objects
  */
-export interface AwsCloudAccount {
+export type AwsCloudAccount = {
   /** AWS account access key */
   accessKey?: string;
   credentialType?: AwsCloudAccountCredentialType;
@@ -31,4 +31,4 @@ export interface AwsCloudAccount {
   /** AWS account secret token; in case of aws-iso and aws-iso-b */
   secretToken?: string;
   sts?: AwsStsCredentials;
-}
+};

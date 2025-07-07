@@ -13,6 +13,6 @@
 /**
  * Cluster asset
  */
-export interface SpectroClusterAssetManifest {
+export type SpectroClusterAssetManifest = {
   manifest?: string;
-}
+};

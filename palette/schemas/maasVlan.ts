@@ -13,11 +13,11 @@
 /**
  * Maas vlan entity
  */
-export interface MaasVlan {
+export type MaasVlan = {
   /** Fabric associated with Maas Vlan */
   fabric?: string;
   /** Id of Maas Vlan */
   id?: number;
   /** Name of Maas Vlan */
   name?: string;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { MfaPublicKeyCredentialCreationOptions } from "./mfaPublicKeyCredentialCreationOptions";
 
-export interface MfaRegistrationStart {
+export type MfaRegistrationStart = {
   publicKey?: MfaPublicKeyCredentialCreationOptions;
-}
+};

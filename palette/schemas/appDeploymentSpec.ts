@@ -15,7 +15,7 @@ import type { AppDeploymentProfile } from "./appDeploymentProfile";
 /**
  * Application deployment spec
  */
-export interface AppDeploymentSpec {
+export type AppDeploymentSpec = {
   config?: AppDeploymentConfig;
   profile?: AppDeploymentProfile;
-}
+};

@@ -15,7 +15,7 @@ import type { VmEFI } from "./vmEFI";
 /**
  * Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.
  */
-export interface VmBootloader {
+export type VmBootloader = {
   bios?: VmBIOS;
   efi?: VmEFI;
-}
+};

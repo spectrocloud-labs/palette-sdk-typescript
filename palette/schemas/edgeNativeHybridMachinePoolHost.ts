@@ -15,7 +15,7 @@ import type { EdgeNativeHybridMachinePoolHostTwoNodeCandidatePriority } from "./
 /**
  * v1EdgeNativeHybridMachinePoolHostEntity defines Edge Native machine pool's host configuration
  */
-export interface EdgeNativeHybridMachinePoolHost {
+export type EdgeNativeHybridMachinePoolHost = {
   /** Edge host name */
   hostName?: string;
   /** Edge host id */
@@ -25,4 +25,4 @@ export interface EdgeNativeHybridMachinePoolHost {
   twoNodeCandidatePriority?: EdgeNativeHybridMachinePoolHostTwoNodeCandidatePriority;
   /** Vpn server IP */
   vpnServerIp?: string;
-}
+};

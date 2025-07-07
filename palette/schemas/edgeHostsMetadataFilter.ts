@@ -15,7 +15,7 @@ import type { EdgeHostsMetadataSortSpec } from "./edgeHostsMetadataSortSpec";
 /**
  * Edge host metadata spec
  */
-export interface EdgeHostsMetadataFilter {
+export type EdgeHostsMetadataFilter = {
   filter?: EdgeHostsMetadataFilterSpec;
   sort?: EdgeHostsMetadataSortSpec[];
-}
+};

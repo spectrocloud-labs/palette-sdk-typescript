@@ -14,11 +14,11 @@ import type { PackRefSummary } from "./packRefSummary";
 /**
  * Edge host clusterprofile template summary
  */
-export interface ProfileTemplateSummary {
+export type ProfileTemplateSummary = {
   cloudType?: string;
   name?: string;
   packs?: PackRefSummary[];
   type?: string;
   uid?: string;
   version?: string;
-}
+};

@@ -13,9 +13,9 @@
 /**
  * Spectro tenant cluster migration status
  */
-export interface SpectroTenantClusterMigration {
+export type SpectroTenantClusterMigration = {
   message?: string;
   name?: string;
   state?: string;
   uid?: string;
-}
+};

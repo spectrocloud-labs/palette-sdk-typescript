@@ -13,7 +13,7 @@
 /**
  * Spectro application management cluster upgrade pack information
  */
-export interface SpectroMgmtUpgradePack {
+export type SpectroMgmtUpgradePack = {
   /** Spectro application management cluster pack difference message */
   diffMessage?: string;
   /** Spectro application management cluster pack layer type */
@@ -30,4 +30,4 @@ export interface SpectroMgmtUpgradePack {
   values?: string;
   /** Spectro application management cluster pack version */
   version?: string;
-}
+};

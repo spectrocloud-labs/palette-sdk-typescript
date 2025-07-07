@@ -15,7 +15,7 @@ import type { PackSortSpec } from "./packSortSpec";
 /**
  * Packs filter spec
  */
-export interface PacksFilterSpec {
+export type PacksFilterSpec = {
   filter?: PackFilterSpec;
   sort?: PackSortSpec[];
-}
+};

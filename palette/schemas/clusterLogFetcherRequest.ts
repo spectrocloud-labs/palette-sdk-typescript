@@ -16,7 +16,7 @@ import type { ClusterLogFetcherNodeRequest } from "./clusterLogFetcherNodeReques
 /**
  * Cluster Log Fetcher Request
  */
-export interface ClusterLogFetcherRequest {
+export type ClusterLogFetcherRequest = {
   /** Duration for which log is requested */
   duration?: number;
   k8s?: ClusterLogFetcherK8sRequest;
@@ -25,4 +25,4 @@ export interface ClusterLogFetcherRequest {
   /** No of lines of logs requested */
   noOfLines?: number;
   node?: ClusterLogFetcherNodeRequest;
-}
+};

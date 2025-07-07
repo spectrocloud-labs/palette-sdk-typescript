@@ -13,6 +13,6 @@
 /**
  * Cluster asset admin token Kube Config
  */
-export interface SpectroClusterAssetTokenKubeConfig {
+export type SpectroClusterAssetTokenKubeConfig = {
   tokenkubeconfig?: string;
-}
+};

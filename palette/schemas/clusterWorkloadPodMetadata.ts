@@ -16,7 +16,7 @@ import type { ClusterWorkloadPodMetadataLabels } from "./clusterWorkloadPodMetad
 /**
  * Cluster workload pod metadata
  */
-export interface ClusterWorkloadPodMetadata {
+export type ClusterWorkloadPodMetadata = {
   associatedRefs?: ClusterWorkloadRef[];
   creationTimestamp?: Time;
   entity?: ClusterWorkloadRef;
@@ -24,4 +24,4 @@ export interface ClusterWorkloadPodMetadata {
   machineUid?: string;
   namespace?: string;
   nodename?: string;
-}
+};

@@ -14,11 +14,11 @@ import type { Time } from "./time";
 /**
  * Tenant CleanUp Status
  */
-export interface TenantCleanUpStatus {
+export type TenantCleanUpStatus = {
   cleanUpError?: string;
   cleanUpStages?: string;
   cleanUpTimestamp?: Time;
   cleanedResources?: string[];
   isCompleted?: boolean;
   isInProgress?: boolean;
-}
+};

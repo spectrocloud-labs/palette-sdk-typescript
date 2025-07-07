@@ -15,7 +15,7 @@ import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
 /**
  * Workspace clusters workload deployments summary
  */
-export interface WorkspaceClustersWorkloadDeployments {
+export type WorkspaceClustersWorkloadDeployments = {
   clusters?: WorkspaceClusterWorkloadDeployments[];
   metadata?: ObjectMetaInputEntity;
-}
+};

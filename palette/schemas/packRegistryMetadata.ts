@@ -13,7 +13,7 @@
 /**
  * Pack registry metadata
  */
-export interface PackRegistryMetadata {
+export type PackRegistryMetadata = {
   /** If true then helm registry is private and is not accessible for the content sync */
   isPrivate?: boolean;
   /** If true the registry sync is supported */
@@ -26,4 +26,4 @@ export interface PackRegistryMetadata {
   providerType?: string;
   /** Pack registry uid */
   uid?: string;
-}
+};

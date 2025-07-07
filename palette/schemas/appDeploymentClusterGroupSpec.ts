@@ -15,7 +15,7 @@ import type { AppDeploymentProfileEntity } from "./appDeploymentProfileEntity";
 /**
  * Application deployment cluster group spec
  */
-export interface AppDeploymentClusterGroupSpec {
+export type AppDeploymentClusterGroupSpec = {
   config?: AppDeploymentClusterGroupConfigEntity;
   profile?: AppDeploymentProfileEntity;
-}
+};

@@ -14,7 +14,7 @@ import type { ClusterProfilePacksEntity } from "./clusterProfilePacksEntity";
 /**
  * List of cluster profile packs
  */
-export interface ClusterProfilePacksEntities {
+export type ClusterProfilePacksEntities = {
   /** Cluster profile packs array */
   items: ClusterProfilePacksEntity[];
-}
+};

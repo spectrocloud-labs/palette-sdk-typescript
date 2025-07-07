@@ -11,6 +11,6 @@
  */
 import type { IpPoolEntity } from "./ipPoolEntity";
 
-export interface IpPools {
+export type IpPools = {
   items: IpPoolEntity[];
-}
+};

@@ -14,8 +14,8 @@ import type { ConstraintError } from "./constraintError";
 /**
  * Constraint validator result
  */
-export interface ConstraintValidatorResult {
+export type ConstraintValidatorResult = {
   displayName?: string;
   errors?: ConstraintError[];
   name?: string;
-}
+};

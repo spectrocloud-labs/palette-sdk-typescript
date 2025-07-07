@@ -14,6 +14,6 @@ import type { ClusterWorkloadsFilter } from "./clusterWorkloadsFilter";
 /**
  * Cluster workloads spec
  */
-export interface ClusterWorkloadsSpec {
+export type ClusterWorkloadsSpec = {
   filter?: ClusterWorkloadsFilter;
-}
+};

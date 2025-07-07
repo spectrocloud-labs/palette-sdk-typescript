@@ -11,8 +11,8 @@
  */
 import type { HealthCheck } from "./healthCheck";
 
-export interface SpectroClusterHealthCheckStatus {
+export type SpectroClusterHealthCheckStatus = {
   machineHealthChecks?: HealthCheck[];
   msgBrokerHealthChecks?: HealthCheck[];
   spectroClusterHealthChecks?: HealthCheck[];
-}
+};

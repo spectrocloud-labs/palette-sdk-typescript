@@ -15,7 +15,7 @@ import type { VsphereDnsMappingSpec } from "./vsphereDnsMappingSpec";
 /**
  * VSphere DNS Mapping
  */
-export interface VsphereDnsMapping {
+export type VsphereDnsMapping = {
   metadata?: ObjectMeta;
   spec?: VsphereDnsMappingSpec;
-}
+};

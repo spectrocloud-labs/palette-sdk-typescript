@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * System Administrator Activation Specification
  */
-export interface SystemAdminActivation {
+export type SystemAdminActivation = {
   expiry?: Time;
   link?: string;
-}
+};

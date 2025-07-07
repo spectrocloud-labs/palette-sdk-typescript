@@ -15,7 +15,7 @@ import type { SpectroVirtualClusterEntitySpec } from "./spectroVirtualClusterEnt
 /**
  * Spectro virtual cluster request payload for create and update
  */
-export interface SpectroVirtualClusterEntity {
+export type SpectroVirtualClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroVirtualClusterEntitySpec;
-}
+};

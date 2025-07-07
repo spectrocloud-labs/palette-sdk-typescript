@@ -11,7 +11,7 @@
  */
 import type { VsphereDnsMapping } from "./vsphereDnsMapping";
 
-export interface VsphereDnsMappings {
+export type VsphereDnsMappings = {
   /** List of vSphere DNS mapping */
   items: VsphereDnsMapping[];
-}
+};

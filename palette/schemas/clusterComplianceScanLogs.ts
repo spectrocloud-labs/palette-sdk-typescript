@@ -17,9 +17,9 @@ import type { ClusterScanLogSyft } from "./clusterScanLogSyft";
 /**
  * Cluster compliance scan Logs
  */
-export interface ClusterComplianceScanLogs {
+export type ClusterComplianceScanLogs = {
   kubeBenchLogs?: ClusterScanLogKubeBench[];
   kubeHunterLogs?: ClusterScanLogKubeHunter[];
   sonobuoyLogs?: ClusterScanLogSonobuoy[];
   syftLogs?: ClusterScanLogSyft[];
-}
+};

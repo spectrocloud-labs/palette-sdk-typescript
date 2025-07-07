@@ -14,10 +14,10 @@ import type { ObjectEntity } from "./objectEntity";
 import type { EdgeClusterObjectEntity } from "./edgeClusterObjectEntity";
 import type { EdgeHostState } from "./edgeHostState";
 
-export interface EdgeHostsMetadataStatus {
+export type EdgeHostsMetadataStatus = {
   health?: EdgeHostHealth;
   /** Deprecated. Use inUseClustersRef */
   inUseClusters?: ObjectEntity[];
   inUseClustersRef?: EdgeClusterObjectEntity[];
   state?: EdgeHostState;
-}
+};

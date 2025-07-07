@@ -16,8 +16,8 @@ import type { ClusterBackupStatus } from "./clusterBackupStatus";
 /**
  * Cluster Backup
  */
-export interface ClusterBackup {
+export type ClusterBackup = {
   metadata?: ObjectMeta;
   spec?: ClusterBackupSpec;
   status?: ClusterBackupStatus;
-}
+};

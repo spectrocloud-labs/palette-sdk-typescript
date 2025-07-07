@@ -14,9 +14,9 @@ import type { ClusterWorkloadPodContainerStatus } from "./clusterWorkloadPodCont
 /**
  * Cluster workload pod status
  */
-export interface ClusterWorkloadPodStatus {
+export type ClusterWorkloadPodStatus = {
   containers?: ClusterWorkloadPodContainerStatus[];
   phase?: string;
   podIp?: string;
   qosClass?: string;
-}
+};

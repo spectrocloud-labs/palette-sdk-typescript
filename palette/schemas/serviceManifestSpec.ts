@@ -11,8 +11,8 @@
  */
 import type { GitRepoFileContent } from "./gitRepoFileContent";
 
-export interface ServiceManifestSpec {
+export type ServiceManifestSpec = {
   manifests?: GitRepoFileContent[];
   name?: string;
   version?: string;
-}
+};

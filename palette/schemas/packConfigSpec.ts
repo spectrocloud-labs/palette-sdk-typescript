@@ -11,7 +11,7 @@
  */
 import type { PackManifestRef } from "./packManifestRef";
 
-export interface PackConfigSpec {
+export type PackConfigSpec = {
   associatedObject?: string;
   isValuesOverridden?: boolean;
   manifests?: PackManifestRef[];
@@ -22,4 +22,4 @@ export interface PackConfigSpec {
   type?: string;
   values?: string;
   version?: string;
-}
+};

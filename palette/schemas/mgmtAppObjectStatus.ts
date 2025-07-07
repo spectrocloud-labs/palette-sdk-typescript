@@ -12,7 +12,7 @@
 import type { Time } from "./time";
 import type { MgmtAppObjectStatusPods } from "./mgmtAppObjectStatusPods";
 
-export interface MgmtAppObjectStatus {
+export type MgmtAppObjectStatus = {
   availableReplicas?: number;
   creationTime?: Time;
   desiredReplicaCount?: number;
@@ -20,4 +20,4 @@ export interface MgmtAppObjectStatus {
   messages?: string[];
   name?: string;
   pods?: MgmtAppObjectStatusPods;
-}
+};

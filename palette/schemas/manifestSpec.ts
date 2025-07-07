@@ -14,7 +14,7 @@ import type { ManifestData } from "./manifestData";
 /**
  * Manifest spec
  */
-export interface ManifestSpec {
+export type ManifestSpec = {
   draft?: ManifestData;
   published?: ManifestData;
-}
+};

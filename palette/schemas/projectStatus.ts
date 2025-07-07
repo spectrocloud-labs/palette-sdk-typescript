@@ -14,7 +14,7 @@ import type { ProjectCleanUpStatus } from "./projectCleanUpStatus";
 /**
  * Project status
  */
-export interface ProjectStatus {
+export type ProjectStatus = {
   cleanUpStatus?: ProjectCleanUpStatus;
   isDisabled?: boolean;
-}
+};

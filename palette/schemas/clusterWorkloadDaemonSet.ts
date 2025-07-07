@@ -15,7 +15,7 @@ import type { ClusterWorkloadDaemonSetStatus } from "./clusterWorkloadDaemonSetS
 /**
  * Cluster workload daemonset summary
  */
-export interface ClusterWorkloadDaemonSet {
+export type ClusterWorkloadDaemonSet = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadDaemonSetStatus;
-}
+};

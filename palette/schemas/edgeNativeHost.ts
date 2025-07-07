@@ -15,7 +15,7 @@ import type { EdgeNativeHostTwoNodeCandidatePriority } from "./edgeNativeHostTwo
 /**
  * EdgeNativeHost is the underlying appliance
  */
-export interface EdgeNativeHost {
+export type EdgeNativeHost = {
   /** Is Edge host nominated as candidate */
   IsCandidateCaption?: boolean;
   /** CACert for TLS connections */
@@ -33,4 +33,4 @@ export interface EdgeNativeHost {
   staticIP?: string;
   /** Set the edgehost candidate priority as primary or secondary, if the edgehost is nominated as two node candidate */
   twoNodeCandidatePriority?: EdgeNativeHostTwoNodeCandidatePriority;
-}
+};

@@ -14,7 +14,7 @@ import type { VmDHCPPrivateOptions } from "./vmDHCPPrivateOptions";
 /**
  * Extra DHCP options to use in the interface.
  */
-export interface VmDHCPOptions {
+export type VmDHCPOptions = {
   /** If specified will pass option 67 to interface's DHCP server */
   bootFileName?: string;
   /** If specified will pass the configured NTP server to the VM via DHCP option 042. */
@@ -23,4 +23,4 @@ export interface VmDHCPOptions {
   privateOptions?: VmDHCPPrivateOptions[];
   /** If specified will pass option 66 to interface's DHCP server */
   tftpServerName?: string;
-}
+};

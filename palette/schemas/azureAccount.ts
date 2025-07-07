@@ -16,7 +16,7 @@ import type { CloudAccountStatus } from "./cloudAccountStatus";
 /**
  * Azure account information
  */
-export interface AzureAccount {
+export type AzureAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface AzureAccount {
   metadata?: ObjectMeta;
   spec?: AzureCloudAccount;
   status?: CloudAccountStatus;
-}
+};

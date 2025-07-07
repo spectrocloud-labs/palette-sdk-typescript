@@ -16,10 +16,10 @@ import type { PackRegistryStatus } from "./packRegistryStatus";
 /**
  * Pack registry information
  */
-export interface PackRegistry {
+export type PackRegistry = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: PackRegistrySpec;
   status?: PackRegistryStatus;
-}
+};

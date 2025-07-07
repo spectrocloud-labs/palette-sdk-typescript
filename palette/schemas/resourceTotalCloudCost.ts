@@ -13,8 +13,8 @@
 /**
  * Resource total cloud cost information
  */
-export interface ResourceTotalCloudCost {
+export type ResourceTotalCloudCost = {
   compute?: number;
   storage?: number;
   total?: number;
-}
+};

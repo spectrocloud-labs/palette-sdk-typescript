@@ -15,7 +15,7 @@ import type { SpectroClusterVariable } from "./spectroClusterVariable";
 /**
  * Cluster profile request payload
  */
-export interface SpectroClusterProfileEntity {
+export type SpectroClusterProfileEntity = {
   /** Cluster profile packs array */
   packValues?: PackValuesEntity[];
   /** Cluster profile uid to be replaced with new profile */
@@ -23,4 +23,4 @@ export interface SpectroClusterProfileEntity {
   /** Cluster profile uid */
   uid?: string;
   variables?: SpectroClusterVariable[];
-}
+};

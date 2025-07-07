@@ -13,6 +13,6 @@
 /**
  * Tenant EmailId
  */
-export interface TenantEmailPatch {
+export type TenantEmailPatch = {
   emailId?: string;
-}
+};

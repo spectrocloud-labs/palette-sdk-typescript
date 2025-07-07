@@ -13,7 +13,7 @@
 /**
  * Workspace quota resource allocation
  */
-export interface DashboardWorkspaceQuotaResourceAllocation {
+export type DashboardWorkspaceQuotaResourceAllocation = {
   /**
    * @minimum 0
    * @exclusiveMinimum
@@ -24,4 +24,4 @@ export interface DashboardWorkspaceQuotaResourceAllocation {
    * @exclusiveMinimum
    */
   memory?: number;
-}
+};

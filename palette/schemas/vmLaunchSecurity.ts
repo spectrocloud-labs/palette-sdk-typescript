@@ -11,6 +11,6 @@
  */
 import type { VmSEV } from "./vmSEV";
 
-export interface VmLaunchSecurity {
+export type VmLaunchSecurity = {
   sev?: VmSEV;
-}
+};

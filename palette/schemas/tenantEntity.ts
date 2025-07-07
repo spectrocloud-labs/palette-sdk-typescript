@@ -15,7 +15,7 @@ import type { TenantSpecEntity } from "./tenantSpecEntity";
 /**
  * Tenant Entity
  */
-export interface TenantEntity {
+export type TenantEntity = {
   metadata?: ObjectMeta;
   spec?: TenantSpecEntity;
-}
+};

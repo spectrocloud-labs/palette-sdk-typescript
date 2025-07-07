@@ -14,7 +14,7 @@ import type { ResourceWorkloadFilterType } from "./resourceWorkloadFilterType";
 /**
  * Workload resource filter
  */
-export interface ResourceWorkloadFilter {
+export type ResourceWorkloadFilter = {
   names?: string[];
   type?: ResourceWorkloadFilterType;
-}
+};

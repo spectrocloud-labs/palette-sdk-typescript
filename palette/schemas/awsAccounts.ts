@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * List of AWS accounts
  */
-export interface AwsAccounts {
+export type AwsAccounts = {
   items: AwsAccount[];
   listmeta?: ListMetaData;
-}
+};

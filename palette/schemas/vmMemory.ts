@@ -15,7 +15,7 @@ import type { VmHugepages } from "./vmHugepages";
 /**
  * Memory allows specifying the VirtualMachineInstance memory features.
  */
-export interface VmMemory {
+export type VmMemory = {
   guest?: VmQuantity;
   hugepages?: VmHugepages;
-}
+};

@@ -17,9 +17,9 @@ import type { ClusterComplianceScanSyftConfig } from "./clusterComplianceScanSyf
 /**
  * Cluster compliance scan on demand configuration
  */
-export interface ClusterComplianceOnDemandConfig {
+export type ClusterComplianceOnDemandConfig = {
   kubeBench?: ClusterComplianceScanKubeBenchConfig;
   kubeHunter?: ClusterComplianceScanKubeHunterConfig;
   sonobuoy?: ClusterComplianceScanSonobuoyConfig;
   syft?: ClusterComplianceScanSyftConfig;
-}
+};

@@ -17,7 +17,7 @@ import type { VspherePlacementConfig } from "./vspherePlacementConfig";
 import type { Taint } from "./taint";
 import type { UpdateStrategy } from "./updateStrategy";
 
-export interface VsphereMachinePoolConfig {
+export type VsphereMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: VsphereMachinePoolConfigAdditionalLabels;
   /** AdditionalTags is an optional set of tags to add to resources managed by the provider, in addition to the ones added by default. For eg., tags for EKS nodeGroup or EKS NodegroupIAMRole */
@@ -44,4 +44,4 @@ export interface VsphereMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

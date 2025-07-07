@@ -15,7 +15,7 @@ import type { PackRegistryImportEntity } from "./packRegistryImportEntity";
 /**
  * Pack import request payload
  */
-export interface PackImportEntity {
+export type PackImportEntity = {
   /** Pack layer [ "os", "k8s", "cni", "csi", "addon" ] */
   layer?: string;
   /** Pack manifests array */
@@ -31,4 +31,4 @@ export interface PackImportEntity {
   values?: string;
   /** Pack version */
   version?: string;
-}
+};

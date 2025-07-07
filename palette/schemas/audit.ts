@@ -15,7 +15,7 @@ import type { AuditSpec } from "./auditSpec";
 /**
  * Audit response payload
  */
-export interface Audit {
+export type Audit = {
   metadata?: ObjectMeta;
   spec?: AuditSpec;
-}
+};

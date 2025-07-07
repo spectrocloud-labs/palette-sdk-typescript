@@ -14,7 +14,7 @@ import type { ObjectMeta } from "./objectMeta";
 /**
  * Cloud account metadata summary
  */
-export interface CloudAccountMetadata {
+export type CloudAccountMetadata = {
   kind?: string;
   metadata?: ObjectMeta;
-}
+};

@@ -14,9 +14,9 @@ import type { WorkspaceRolesUidSummary } from "./workspaceRolesUidSummary";
 /**
  * Workspace users and their roles
  */
-export interface WorkspacesRoles {
+export type WorkspacesRoles = {
   inheritedRoles?: WorkspaceRolesUidSummary[];
   name?: string;
   roles?: WorkspaceRolesUidSummary[];
   uid?: string;
-}
+};

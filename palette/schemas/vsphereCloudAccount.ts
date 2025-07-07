@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface VsphereCloudAccount {
+export type VsphereCloudAccount = {
   /** Insecure is a flag that controls whether or not to validate the vSphere server's certificate. */
   insecure?: boolean;
   password: string;
   username: string;
   /** VcenterServer is the address of the vSphere endpoint */
   vcenterServer: string;
-}
+};

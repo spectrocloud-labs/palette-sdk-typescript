@@ -15,11 +15,11 @@ import type { HelmRegistryCreateOption } from "./helmRegistryCreateOption";
 /**
  * Helm registry credentials spec
  */
-export interface HelmRegistrySpecEntity {
+export type HelmRegistrySpecEntity = {
   auth: RegistryAuth;
   createOption?: HelmRegistryCreateOption;
   endpoint: string;
   isPrivate?: boolean;
   name?: string;
   scope?: string;
-}
+};

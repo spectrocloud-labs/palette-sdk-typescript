@@ -11,8 +11,8 @@
  */
 import type { DashboardWorkspace } from "./dashboardWorkspace";
 
-export interface DashboardWorkspaces {
+export type DashboardWorkspaces = {
   cpuUnit?: string;
   items: DashboardWorkspace[];
   memoryUnit?: string;
-}
+};

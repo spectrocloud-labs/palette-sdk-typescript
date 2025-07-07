@@ -13,8 +13,8 @@
 /**
  * Compliance Scan Syft Dependency
  */
-export interface SyftDependency {
+export type SyftDependency = {
   name?: string;
   type?: string;
   version?: string;
-}
+};

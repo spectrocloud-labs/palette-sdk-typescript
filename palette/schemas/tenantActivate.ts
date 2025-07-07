@@ -13,6 +13,6 @@
 /**
  * Activate/Deactivate tenant
  */
-export interface TenantActivate {
+export type TenantActivate = {
   isActive?: boolean;
-}
+};

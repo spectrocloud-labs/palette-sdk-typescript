@@ -14,8 +14,8 @@ import type { ResourceCostSummaryOptionsGroupBy } from "./resourceCostSummaryOpt
 /**
  * Resource cost summary options
  */
-export interface ResourceCostSummaryOptions {
+export type ResourceCostSummaryOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceCostSummaryOptionsGroupBy;
   period?: number;
-}
+};

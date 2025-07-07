@@ -14,6 +14,6 @@ import type { RegistrySyncStatus } from "./registrySyncStatus";
 /**
  * Status of the oci registry
  */
-export interface OciRegistryStatus {
+export type OciRegistryStatus = {
   syncStatus?: RegistrySyncStatus;
-}
+};

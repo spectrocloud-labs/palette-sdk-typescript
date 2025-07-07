@@ -13,6 +13,6 @@
 /**
  * Workspace namespace image information
  */
-export interface WorkspaceNamespaceImage {
+export type WorkspaceNamespaceImage = {
   blackListedImages?: string[];
-}
+};

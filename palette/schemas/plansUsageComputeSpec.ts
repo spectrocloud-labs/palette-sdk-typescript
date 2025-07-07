@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * Plans usage compute spec
  */
-export interface PlansUsageComputeSpec {
+export type PlansUsageComputeSpec = {
   startTime?: Time;
   tenantUids?: string[];
-}
+};

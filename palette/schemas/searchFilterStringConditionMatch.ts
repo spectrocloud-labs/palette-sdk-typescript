@@ -11,7 +11,7 @@
  */
 import type { SearchFilterConjunctionOperator } from "./searchFilterConjunctionOperator";
 
-export interface SearchFilterStringConditionMatch {
+export type SearchFilterStringConditionMatch = {
   conjunction?: SearchFilterConjunctionOperator;
   values?: string[];
-}
+};

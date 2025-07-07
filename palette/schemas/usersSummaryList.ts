@@ -11,6 +11,6 @@
  */
 import type { UserSummary } from "./userSummary";
 
-export interface UsersSummaryList {
+export type UsersSummaryList = {
   items: UserSummary[];
-}
+};

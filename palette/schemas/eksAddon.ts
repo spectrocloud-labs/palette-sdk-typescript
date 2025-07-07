@@ -13,7 +13,7 @@
 /**
  * EksAddon represents a EKS addon
  */
-export interface EksAddon {
+export type EksAddon = {
   /** ConflictResolution is used to declare what should happen if there are parameter conflicts. */
   conflictResolution?: string;
   /** Name is the name of the addon */
@@ -22,4 +22,4 @@ export interface EksAddon {
   serviceAccountRoleARN?: string;
   /** Version is the version of the addon to use */
   version: string;
-}
+};

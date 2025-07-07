@@ -15,7 +15,7 @@ import type { SearchFilterSortSpec } from "./searchFilterSortSpec";
 /**
  * Spectro cluster search filter summary spec
  */
-export interface SearchFilterSummarySpec {
+export type SearchFilterSummarySpec = {
   filter?: SearchFilterSpec;
   sort?: SearchFilterSortSpec[];
-}
+};

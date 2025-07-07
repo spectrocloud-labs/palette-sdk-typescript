@@ -14,8 +14,8 @@ import type { ClusterUsageSummary } from "./clusterUsageSummary";
 /**
  * Project usage summary
  */
-export interface ProjectUsageSummary {
+export type ProjectUsageSummary = {
   alloyCpuCores?: number;
   clusters?: ClusterUsageSummary[];
   pureCpuCores?: number;
-}
+};

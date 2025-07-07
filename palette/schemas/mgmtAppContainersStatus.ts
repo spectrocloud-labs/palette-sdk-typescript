@@ -11,10 +11,10 @@
  */
 import type { MgmtAppContainersState } from "./mgmtAppContainersState";
 
-export interface MgmtAppContainersStatus {
+export type MgmtAppContainersStatus = {
   isHealthy?: boolean;
   message?: string;
   name?: string;
   numberOfRestarts?: number;
   state?: MgmtAppContainersState;
-}
+};

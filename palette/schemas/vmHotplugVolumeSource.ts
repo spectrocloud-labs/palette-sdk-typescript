@@ -15,7 +15,7 @@ import type { VmPersistentVolumeClaimVolumeSource } from "./vmPersistentVolumeCl
 /**
  * HotplugVolumeSource Represents the source of a volume to mount which are capable of being hotplugged on a live running VMI. Only one of its members may be specified.
  */
-export interface VmHotplugVolumeSource {
+export type VmHotplugVolumeSource = {
   dataVolume?: VmCoreDataVolumeSource;
   persistentVolumeClaim?: VmPersistentVolumeClaimVolumeSource;
-}
+};

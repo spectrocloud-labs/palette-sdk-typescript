@@ -15,7 +15,7 @@ import type { SpectroOpenStackClusterImportEntitySpec } from "./spectroOpenStack
 /**
  * Spectro OpenStack cluster import request payload
  */
-export interface SpectroOpenStackClusterImportEntity {
+export type SpectroOpenStackClusterImportEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroOpenStackClusterImportEntitySpec;
-}
+};

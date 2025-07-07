@@ -14,7 +14,7 @@ import type { SonobuoyLog } from "./sonobuoyLog";
 /**
  * Compliance Scan Sonobuoy Report
  */
-export interface SonobuoyReport {
+export type SonobuoyReport = {
   fail?: number;
   logs?: SonobuoyLog[];
   node?: string;
@@ -22,4 +22,4 @@ export interface SonobuoyReport {
   plugin?: string;
   status?: string;
   total?: number;
-}
+};

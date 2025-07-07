@@ -14,6 +14,6 @@ import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity"
 /**
  * Cluster entity for pack refs validate
  */
-export interface SpectroClusterPacksEntity {
+export type SpectroClusterPacksEntity = {
   profiles?: SpectroClusterProfileEntity[];
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { EdgeToken } from "./edgeToken";
 
-export interface EdgeTokens {
+export type EdgeTokens = {
   /** List of edge tokens */
   items: EdgeToken[];
-}
+};

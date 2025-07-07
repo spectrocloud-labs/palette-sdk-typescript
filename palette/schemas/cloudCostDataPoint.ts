@@ -13,9 +13,9 @@
 /**
  * Cloud cost data point information
  */
-export interface CloudCostDataPoint {
+export type CloudCostDataPoint = {
   compute?: number;
   storage?: number;
   timestamp?: number;
   total?: number;
-}
+};

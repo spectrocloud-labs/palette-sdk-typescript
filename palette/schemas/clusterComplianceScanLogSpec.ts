@@ -13,7 +13,7 @@
 /**
  * Cluster compliance scan logs spec
  */
-export interface ClusterComplianceScanLogSpec {
+export type ClusterComplianceScanLogSpec = {
   clusterUid?: string;
   driverType?: string;
-}
+};

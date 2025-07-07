@@ -2,16 +2,26 @@
   "name": "palette-sdk-typescript",
   "version": "0.0.1-pre",
   "description": "TypeScript SDK for Spectro Cloud Palette API",
-  "main": "palette/index.ts",
-  "types": "palette/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
-    "palette/**/*",
+    "dist/**/*",
     "LICENSE",
     "README.md"
   ],
   "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
     "generate": "make generate",
-    "post-process": "node api/post-processing.js",
+    "post-process": "node api/post-processing.js && npm run build",
     "test": "npx ts-node --transpile-only --project test/tsconfig.json test/run-all-tests.ts",
     "test:integration": "npx ts-node --transpile-only --project test/tsconfig.json test/test-imports.ts",
     "lint": "eslint palette/**/*.ts --fix"

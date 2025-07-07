@@ -16,7 +16,7 @@ import type { UserMeStatusTenantPermissions } from "./userMeStatusTenantPermissi
 /**
  * User status with permissions
  */
-export interface UserMeStatus {
+export type UserMeStatus = {
   /** Contains activation link for the user */
   activationLink?: string;
   /** Specifies if user account is active/disabled */
@@ -28,4 +28,4 @@ export interface UserMeStatus {
   projectPermissions?: UserMeStatusProjectPermissions;
   tenant?: UserMeTenant;
   tenantPermissions?: UserMeStatusTenantPermissions;
-}
+};

@@ -12,9 +12,9 @@
 import type { Time } from "./time";
 import type { AsyncResult } from "./asyncResult";
 
-export interface AsyncStatus {
+export type AsyncStatus = {
   endTime?: Time;
   result?: AsyncResult;
   stage?: string;
   startTime?: Time;
-}
+};

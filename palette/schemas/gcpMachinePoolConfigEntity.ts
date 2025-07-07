@@ -12,7 +12,7 @@
 import type { GcpMachinePoolCloudConfigEntity } from "./gcpMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface GcpMachinePoolConfigEntity {
+export type GcpMachinePoolConfigEntity = {
   cloudConfig: GcpMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

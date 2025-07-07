@@ -15,8 +15,8 @@ import type { SyftEntityStatus } from "./syftEntityStatus";
 /**
  * Syft response
  */
-export interface SyftEntity {
+export type SyftEntity = {
   report: SyftReportEntity;
   requestUid: string;
   status: SyftEntityStatus;
-}
+};

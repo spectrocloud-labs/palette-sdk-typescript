@@ -12,8 +12,8 @@
 import type { Audit } from "./audit";
 import type { ListMetaData } from "./listMetaData";
 
-export interface Audits {
+export type Audits = {
   /** List of audit message */
   items: Audit[];
   listmeta?: ListMetaData;
-}
+};

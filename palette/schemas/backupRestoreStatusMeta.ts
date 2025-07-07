@@ -14,8 +14,8 @@ import type { ResourceReference } from "./resourceReference";
 /**
  * Backup restored status
  */
-export interface BackupRestoreStatusMeta {
+export type BackupRestoreStatusMeta = {
   backupName?: string;
   destinationClusterRef?: ResourceReference;
   restoreState?: string;
-}
+};

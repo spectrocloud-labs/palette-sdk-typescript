@@ -14,6 +14,6 @@ import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
 /**
  * Compliance Scan config
  */
-export interface ComplianceScanConfig {
+export type ComplianceScanConfig = {
   schedule?: ClusterFeatureSchedule;
-}
+};

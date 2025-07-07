@@ -13,7 +13,7 @@
 /**
  * Array of kubectl commands
  */
-export interface PcgServiceKubectlCommands {
+export type PcgServiceKubectlCommands = {
   kubectlCommands: string[];
   overlordUid?: string;
-}
+};

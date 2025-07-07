@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterProfilesDeleteEntity {
+export type SpectroClusterProfilesDeleteEntity = {
   /** Cluster's profile uid list */
   profileUids?: string[];
-}
+};

@@ -18,7 +18,7 @@ import type { ClusterKubernetesDistroType } from "./clusterKubernetesDistroType"
 /**
  * Cluster group summay spec
  */
-export interface ClusterGroupSummarySpec {
+export type ClusterGroupSummarySpec = {
   clusterProfileTemplates?: ClusterProfileTemplateMeta[];
   cpu?: ClusterGroupResource;
   endpointType?: ClusterGroupSummarySpecEndpointType;
@@ -28,4 +28,4 @@ export interface ClusterGroupSummarySpec {
   memory?: ClusterGroupResource;
   scope?: string;
   virtualClustersCount?: number;
-}
+};

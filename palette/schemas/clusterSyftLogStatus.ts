@@ -18,7 +18,7 @@ import type { ClusterScanTime } from "./clusterScanTime";
 /**
  * Cluster compliance scan Syft Log Status
  */
-export interface ClusterSyftLogStatus {
+export type ClusterSyftLogStatus = {
   actor?: ClusterFeatureActor;
   location?: ObjectEntity;
   message?: string;
@@ -27,4 +27,4 @@ export interface ClusterSyftLogStatus {
   scanContext?: SyftScanContext;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

@@ -16,8 +16,8 @@ import type { ProjectStatus } from "./projectStatus";
 /**
  * Project information
  */
-export interface Project {
+export type Project = {
   metadata?: ObjectMeta;
   spec?: ProjectSpec;
   status?: ProjectStatus;
-}
+};

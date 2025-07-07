@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface TeamTenantRolesUpdate {
+export type TeamTenantRolesUpdate = {
   roles?: string[];
-}
+};

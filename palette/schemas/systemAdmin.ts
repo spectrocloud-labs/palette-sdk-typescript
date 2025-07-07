@@ -16,8 +16,8 @@ import type { SystemAdministratorStatus } from "./systemAdministratorStatus";
 /**
  * System Admin information
  */
-export interface SystemAdmin {
+export type SystemAdmin = {
   metadata?: ObjectMeta;
   spec?: SystemAdministratorSpec;
   status?: SystemAdministratorStatus;
-}
+};

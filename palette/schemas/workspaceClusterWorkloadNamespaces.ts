@@ -15,7 +15,7 @@ import type { ClusterWorkloadNamespace } from "./clusterWorkloadNamespace";
 /**
  * Workspace cluster workload namespaces summary
  */
-export interface WorkspaceClusterWorkloadNamespaces {
+export type WorkspaceClusterWorkloadNamespaces = {
   metadata?: RelatedObject;
   namespaces?: ClusterWorkloadNamespace[];
-}
+};

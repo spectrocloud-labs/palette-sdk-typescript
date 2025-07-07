@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserActivateLink {
+export type UserActivateLink = {
   activationLink?: string;
-}
+};

@@ -14,6 +14,6 @@ import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
 /**
  * Resource metadata
  */
-export interface ObjectMetaInputEntitySchema {
+export type ObjectMetaInputEntitySchema = {
   metadata: ObjectMetaInputEntity;
-}
+};

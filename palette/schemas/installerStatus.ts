@@ -14,8 +14,8 @@ import type { SpectroClusterMigration } from "./spectroClusterMigration";
 /**
  * Spectro cluster installer status
  */
-export interface InstallerStatus {
+export type InstallerStatus = {
   clusterMigration?: SpectroClusterMigration;
   clusterState?: string;
   endpoint?: string;
-}
+};

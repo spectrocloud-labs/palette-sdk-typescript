@@ -16,9 +16,9 @@ import type { OciRegistryStatus } from "./ociRegistryStatus";
 /**
  * Ecr registry information
  */
-export interface EcrRegistry {
+export type EcrRegistry = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: EcrRegistrySpec;
   status?: OciRegistryStatus;
-}
+};

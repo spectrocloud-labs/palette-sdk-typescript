@@ -14,7 +14,7 @@ import type { GrpcEndpoint } from "./grpcEndpoint";
 /**
  * Describes the response that contains the grpc configuration to establish connection
  */
-export interface GrpcConfiguration {
+export type GrpcConfiguration = {
   preferredServer?: GrpcEndpoint;
   servers?: GrpcEndpoint[];
-}
+};

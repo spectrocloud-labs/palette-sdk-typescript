@@ -13,9 +13,9 @@
 /**
  * Geolocation Latlong entity
  */
-export interface GeolocationLatlong {
+export type GeolocationLatlong = {
   /** Latitude of a resource */
   latitude?: number;
   /** Longitude of a resource */
   longitude?: number;
-}
+};

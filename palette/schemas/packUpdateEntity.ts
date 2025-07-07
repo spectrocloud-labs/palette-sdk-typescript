@@ -14,6 +14,6 @@ import type { PackEntity } from "./packEntity";
 /**
  * Pack update request payload
  */
-export interface PackUpdateEntity {
+export type PackUpdateEntity = {
   pack?: PackEntity;
-}
+};

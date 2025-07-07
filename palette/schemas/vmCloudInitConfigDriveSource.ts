@@ -14,7 +14,7 @@ import type { VmLocalObjectReference } from "./vmLocalObjectReference";
 /**
  * Represents a cloud-init config drive user data source. More info: https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html
  */
-export interface VmCloudInitConfigDriveSource {
+export type VmCloudInitConfigDriveSource = {
   /** NetworkData contains config drive inline cloud-init networkdata. */
   networkData?: string;
   /** NetworkDataBase64 contains config drive cloud-init networkdata as a base64 encoded string. */
@@ -25,4 +25,4 @@ export interface VmCloudInitConfigDriveSource {
   userData?: string;
   /** UserDataBase64 contains config drive cloud-init userdata as a base64 encoded string. */
   userDataBase64?: string;
-}
+};

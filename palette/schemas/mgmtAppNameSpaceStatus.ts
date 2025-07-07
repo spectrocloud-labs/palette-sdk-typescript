@@ -13,10 +13,10 @@ import type { MgmtAppNameSpaceStatusCronJobs } from "./mgmtAppNameSpaceStatusCro
 import type { MgmtAppNameSpaceStatusDeployments } from "./mgmtAppNameSpaceStatusDeployments";
 import type { MgmtAppNameSpaceStatusStatefulSets } from "./mgmtAppNameSpaceStatusStatefulSets";
 
-export interface MgmtAppNameSpaceStatus {
+export type MgmtAppNameSpaceStatus = {
   cronJobs?: MgmtAppNameSpaceStatusCronJobs;
   deployments?: MgmtAppNameSpaceStatusDeployments;
   isHealthy?: boolean;
   messages?: string[];
   statefulSets?: MgmtAppNameSpaceStatusStatefulSets;
-}
+};

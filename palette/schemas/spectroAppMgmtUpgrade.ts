@@ -14,7 +14,7 @@ import type { ClusterProfileNotificationUpdateEntity } from "./clusterProfileNot
 /**
  * Spectro application management upgrade information
  */
-export interface SpectroAppMgmtUpgrade {
+export type SpectroAppMgmtUpgrade = {
   profiles?: ClusterProfileNotificationUpdateEntity[];
   version: string;
-}
+};

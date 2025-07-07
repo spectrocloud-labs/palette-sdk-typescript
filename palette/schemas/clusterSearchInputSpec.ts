@@ -11,6 +11,6 @@
  */
 import type { ClusterSearchInputSpecInputs } from "./clusterSearchInputSpecInputs";
 
-export interface ClusterSearchInputSpec {
+export type ClusterSearchInputSpec = {
   inputs?: ClusterSearchInputSpecInputs;
-}
+};

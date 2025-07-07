@@ -12,7 +12,7 @@
 import type { AppProfileSummary } from "./appProfileSummary";
 import type { ListMetaData } from "./listMetaData";
 
-export interface AppProfilesSummary {
+export type AppProfilesSummary = {
   appProfiles?: AppProfileSummary[];
   listmeta?: ListMetaData;
-}
+};

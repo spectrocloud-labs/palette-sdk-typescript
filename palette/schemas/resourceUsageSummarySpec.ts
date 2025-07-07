@@ -15,7 +15,7 @@ import type { ResourceUsageSummaryOptions } from "./resourceUsageSummaryOptions"
 /**
  * Resource usage summary spec
  */
-export interface ResourceUsageSummarySpec {
+export type ResourceUsageSummarySpec = {
   filter?: ResourceUsageSummaryFilter;
   options?: ResourceUsageSummaryOptions;
-}
+};

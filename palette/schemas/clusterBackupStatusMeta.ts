@@ -18,7 +18,7 @@ import type { BackupRestoreStatusMeta } from "./backupRestoreStatusMeta";
 /**
  * Cluster Backup Status Meta
  */
-export interface ClusterBackupStatusMeta {
+export type ClusterBackupStatusMeta = {
   actor?: ClusterFeatureActor;
   backupConfig?: BackupStatusConfig;
   backupLocationConfig?: BackupLocationConfig;
@@ -26,4 +26,4 @@ export interface ClusterBackupStatusMeta {
   backupStatusMeta?: BackupStatusMeta[];
   restoreStatusMeta?: BackupRestoreStatusMeta[];
   state?: string;
-}
+};

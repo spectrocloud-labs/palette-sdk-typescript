@@ -11,6 +11,6 @@
  */
 import type { EdgeNativeMachinePoolHostEntity } from "./edgeNativeMachinePoolHostEntity";
 
-export interface EdgeNativeMachinePoolCloudConfigEntity {
+export type EdgeNativeMachinePoolCloudConfigEntity = {
   edgeHosts: EdgeNativeMachinePoolHostEntity[];
-}
+};

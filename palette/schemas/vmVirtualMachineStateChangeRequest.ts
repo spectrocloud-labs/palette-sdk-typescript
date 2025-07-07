@@ -11,11 +11,11 @@
  */
 import type { VmVirtualMachineStateChangeRequestData } from "./vmVirtualMachineStateChangeRequestData";
 
-export interface VmVirtualMachineStateChangeRequest {
+export type VmVirtualMachineStateChangeRequest = {
   /** Indicates the type of action that is requested. e.g. Start or Stop */
   action: string;
   /** Provides additional data in order to perform the Action */
   data?: VmVirtualMachineStateChangeRequestData;
   /** Indicates the UUID of an existing Virtual Machine Instance that this change request applies to -- if applicable */
   uid?: string;
-}
+};

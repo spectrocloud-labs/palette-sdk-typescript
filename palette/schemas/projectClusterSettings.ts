@@ -12,7 +12,7 @@
 import type { NodesAutoRemediationSettings } from "./nodesAutoRemediationSettings";
 import type { TenantClusterSettings } from "./tenantClusterSettings";
 
-export interface ProjectClusterSettings {
+export type ProjectClusterSettings = {
   nodesAutoRemediationSetting?: NodesAutoRemediationSettings;
   tenantClusterSettings?: TenantClusterSettings;
-}
+};

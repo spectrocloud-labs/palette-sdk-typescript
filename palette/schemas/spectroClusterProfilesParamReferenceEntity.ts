@@ -13,6 +13,6 @@
 /**
  * Cluster profiles param reference entity
  */
-export interface SpectroClusterProfilesParamReferenceEntity {
+export type SpectroClusterProfilesParamReferenceEntity = {
   references?: string[];
-}
+};

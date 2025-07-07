@@ -14,11 +14,11 @@ import type { ClusterProfileMetadataImportEntityLabels } from "./clusterProfileM
 /**
  * Cluster profile import metadata
  */
-export interface ClusterProfileMetadataImportEntity {
+export type ClusterProfileMetadataImportEntity = {
   /** Cluster profile description */
   description?: string;
   /** Cluster profile labels */
   labels?: ClusterProfileMetadataImportEntityLabels;
   /** Cluster profile name */
   name?: string;
-}
+};

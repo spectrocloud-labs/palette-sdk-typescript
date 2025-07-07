@@ -14,8 +14,8 @@ import type { EdgeHostHealthState } from "./edgeHostHealthState";
 /**
  * EdgeHostHealth defines the desired health state of EdgeHostDevice
  */
-export interface EdgeHostHealth {
+export type EdgeHostHealth = {
   agentVersion?: string;
   message?: string;
   state?: EdgeHostHealthState;
-}
+};

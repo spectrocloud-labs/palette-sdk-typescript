@@ -15,8 +15,8 @@ import type { UserRoleMap } from "./userRoleMap";
 /**
  * Project specifications
  */
-export interface ProjectEntitySpec {
+export type ProjectEntitySpec = {
   logoUid?: string;
   teams?: TeamRoleMap[];
   users?: UserRoleMap[];
-}
+};

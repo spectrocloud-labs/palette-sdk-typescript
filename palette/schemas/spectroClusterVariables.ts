@@ -14,9 +14,9 @@ import type { SpectroClusterVariableResponse } from "./spectroClusterVariableRes
 /**
  * List of cluster variables with schema belonging to a cluster
  */
-export interface SpectroClusterVariables {
+export type SpectroClusterVariables = {
   /** Profile uid to which the cluster variable belongs */
   profileUid: string;
   /** List of cluster variables with schema */
   variables?: SpectroClusterVariableResponse[];
-}
+};

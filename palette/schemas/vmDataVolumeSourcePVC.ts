@@ -13,9 +13,9 @@
 /**
  * DataVolumeSourcePVC provides the parameters to create a Data Volume from an existing PVC
  */
-export interface VmDataVolumeSourcePVC {
+export type VmDataVolumeSourcePVC = {
   /** The name of the source PVC */
   name: string;
   /** The namespace of the source PVC */
   namespace: string;
-}
+};

@@ -13,11 +13,11 @@
 /**
  * OpenStack subnet entity
  */
-export interface OpenStackSubnet {
+export type OpenStackSubnet = {
   /** Description for the network */
   description?: string;
   /** UUID for the network */
   id?: string;
   /** Human-readable name for the network. Might not be unique */
   name?: string;
-}
+};

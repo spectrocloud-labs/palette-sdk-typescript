@@ -13,6 +13,6 @@
 /**
  * Cluster compliance scan config for kube bench driver
  */
-export interface ClusterComplianceScanKubeBenchConfig {
+export type ClusterComplianceScanKubeBenchConfig = {
   runScan?: boolean;
-}
+};

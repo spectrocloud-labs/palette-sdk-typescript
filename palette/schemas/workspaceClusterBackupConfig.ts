@@ -17,11 +17,11 @@ import type { WorkspaceBackupStatusConfig } from "./workspaceBackupStatusConfig"
 /**
  * Workspace cluster backup config
  */
-export interface WorkspaceClusterBackupConfig {
+export type WorkspaceClusterBackupConfig = {
   backupName?: string;
   backupState?: WorkspaceBackupState;
   backupTime?: Time;
   clusterBackupRefs?: WorkspaceClusterBackupResponse[];
   config?: WorkspaceBackupStatusConfig;
   requestTime?: Time;
-}
+};

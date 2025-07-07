@@ -13,6 +13,6 @@
 /**
  * system gcp account specifications
  */
-export interface SystemGcpSpec {
+export type SystemGcpSpec = {
   json?: string;
-}
+};

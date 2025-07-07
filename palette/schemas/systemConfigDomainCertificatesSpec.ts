@@ -14,7 +14,7 @@ import type { SystemCertificatesSpec } from "./systemCertificatesSpec";
 /**
  * system domain and its certificate config spec
  */
-export interface SystemConfigDomainCertificatesSpec {
+export type SystemConfigDomainCertificatesSpec = {
   certificates?: SystemCertificatesSpec;
   rootDomain?: string;
-}
+};

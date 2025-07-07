@@ -16,9 +16,9 @@ import type { UserMeta } from "./userMeta";
 /**
  * Audit actor object
  */
-export interface AuditActor {
+export type AuditActor = {
   actorType?: AuditActorActorType;
   project?: ProjectMeta;
   serviceName?: string;
   user?: UserMeta;
-}
+};

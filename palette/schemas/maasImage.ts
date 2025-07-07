@@ -13,8 +13,8 @@
 /**
  * Name of the image
  */
-export interface MaasImage {
+export type MaasImage = {
   /** full path of the image template location it contains datacenter/folder/templatename etc eg: /mydc/vm/template/spectro/workerpool-1-centos */
   name?: string;
   state?: string;
-}
+};

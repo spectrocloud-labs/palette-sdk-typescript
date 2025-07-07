@@ -13,7 +13,7 @@
 /**
  * Azure availability zone
  */
-export interface AzureAvailabilityZone {
+export type AzureAvailabilityZone = {
   /** Azure availability zone name */
   name?: string;
-}
+};

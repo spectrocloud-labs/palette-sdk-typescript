@@ -15,8 +15,8 @@ import type { SpectroTunnelConfig } from "./spectroTunnelConfig";
 /**
  * Edge host device spec
  */
-export interface EdgeHostDeviceSpecEntity {
+export type EdgeHostDeviceSpecEntity = {
   archType?: ArchType;
   hostPairingKey?: string;
   tunnelConfig?: SpectroTunnelConfig;
-}
+};

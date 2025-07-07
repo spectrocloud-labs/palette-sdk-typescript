@@ -16,8 +16,8 @@ import type { WorkspaceBackupStatus } from "./workspaceBackupStatus";
 /**
  * Workspace backup
  */
-export interface WorkspaceBackup {
+export type WorkspaceBackup = {
   metadata?: ObjectMeta;
   spec?: WorkspaceBackupSpec;
   status?: WorkspaceBackupStatus;
-}
+};

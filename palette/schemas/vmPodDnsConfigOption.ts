@@ -13,8 +13,8 @@
 /**
  * PodDNSConfigOption defines DNS resolver options of a pod.
  */
-export interface VmPodDnsConfigOption {
+export type VmPodDnsConfigOption = {
   /** Required. */
   name?: string;
   value?: string;
-}
+};

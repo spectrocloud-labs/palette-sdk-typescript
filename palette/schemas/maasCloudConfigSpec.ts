@@ -16,8 +16,8 @@ import type { MaasMachinePoolConfig } from "./maasMachinePoolConfig";
 /**
  * MaasCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api
  */
-export interface MaasCloudConfigSpec {
+export type MaasCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: MaasClusterConfig;
   machinePoolConfig?: MaasMachinePoolConfig[];
-}
+};

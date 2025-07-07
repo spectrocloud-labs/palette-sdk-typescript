@@ -15,7 +15,7 @@ import type { IpPoolInputEntitySpec } from "./ipPoolInputEntitySpec";
 /**
  * IP Pool input entity definition
  */
-export interface IpPoolInputEntity {
+export type IpPoolInputEntity = {
   metadata?: ObjectMeta;
   spec?: IpPoolInputEntitySpec;
-}
+};

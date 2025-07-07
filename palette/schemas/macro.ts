@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface Macro {
+export type Macro = {
   name?: string;
   value?: string;
-}
+};

@@ -15,7 +15,7 @@ import type { SpectroClusterProfileSpec } from "./spectroClusterProfileSpec";
 /**
  * Cluster profile response
  */
-export interface SpectroClusterProfile {
+export type SpectroClusterProfile = {
   metadata?: ObjectMeta;
   spec?: SpectroClusterProfileSpec;
-}
+};

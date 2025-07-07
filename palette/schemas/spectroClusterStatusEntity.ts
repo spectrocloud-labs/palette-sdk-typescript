@@ -14,6 +14,6 @@ import type { SpectroClusterState } from "./spectroClusterState";
 /**
  * Spectrocluster status entity
  */
-export interface SpectroClusterStatusEntity {
+export type SpectroClusterStatusEntity = {
   status?: SpectroClusterState;
-}
+};

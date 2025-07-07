@@ -13,9 +13,9 @@
 /**
  * spectro management specifications
  */
-export interface SpectroMgmtSpec {
+export type SpectroMgmtSpec = {
   installerMode?: string;
   spectroClusterUid?: string;
   targetVersion?: string;
   version?: string;
-}
+};

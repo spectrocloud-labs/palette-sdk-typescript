@@ -13,8 +13,8 @@
 /**
  * System admin login input
  */
-export interface SysLogin {
+export type SysLogin = {
   emailId?: string;
   password?: string;
   username?: string;
-}
+};

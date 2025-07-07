@@ -13,11 +13,11 @@
 /**
  * AWS image name and ami
  */
-export interface AwsImage {
+export type AwsImage = {
   /** AWS image id */
   id?: string;
   /** AWS image name */
   name?: string;
   /** AWS image owner id */
   owner?: string;
-}
+};

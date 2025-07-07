@@ -13,8 +13,8 @@ import type { ObjectMeta } from "./objectMeta";
 import type { SpectroClusterMetaSpec } from "./spectroClusterMetaSpec";
 import type { SpectroClusterMetaStatus } from "./spectroClusterMetaStatus";
 
-export interface SpectroClusterMeta {
+export type SpectroClusterMeta = {
   metadata?: ObjectMeta;
   spec?: SpectroClusterMetaSpec;
   status?: SpectroClusterMetaStatus;
-}
+};

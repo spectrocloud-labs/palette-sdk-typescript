@@ -11,7 +11,7 @@
  */
 import type { GitRepoFileContent } from "./gitRepoFileContent";
 
-export interface ServiceVersionSpec {
+export type ServiceVersionSpec = {
   latestVersion?: GitRepoFileContent;
   name?: string;
-}
+};

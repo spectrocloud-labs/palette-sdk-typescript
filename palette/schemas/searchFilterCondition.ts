@@ -16,11 +16,11 @@ import type { SearchFilterIntegerCondition } from "./searchFilterIntegerConditio
 import type { SearchFilterKeyValueCondition } from "./searchFilterKeyValueCondition";
 import type { SearchFilterStringCondition } from "./searchFilterStringCondition";
 
-export interface SearchFilterCondition {
+export type SearchFilterCondition = {
   bool?: SearchFilterBoolCondition;
   date?: SearchFilterDateCondition;
   float?: SearchFilterFloatCondition;
   int?: SearchFilterIntegerCondition;
   keyValue?: SearchFilterKeyValueCondition;
   string?: SearchFilterStringCondition;
-}
+};

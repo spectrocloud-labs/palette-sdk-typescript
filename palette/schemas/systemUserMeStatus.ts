@@ -14,7 +14,7 @@ import type { Time } from "./time";
 /**
  * User status with permissions
  */
-export interface SystemUserMeStatus {
+export type SystemUserMeStatus = {
   isEmailSet?: boolean;
   isEmailVerified?: boolean;
   isMfaEnabled?: boolean;
@@ -23,4 +23,4 @@ export interface SystemUserMeStatus {
   lastEmailVerifiedTime?: Time;
   lastLoginTime?: Time;
   lastPasswordUpdateTime?: Time;
-}
+};

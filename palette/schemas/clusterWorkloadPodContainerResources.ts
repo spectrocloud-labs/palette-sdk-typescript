@@ -14,7 +14,7 @@ import type { ClusterWorkloadPodContainerResource } from "./clusterWorkloadPodCo
 /**
  * Cluster workload pod container resources
  */
-export interface ClusterWorkloadPodContainerResources {
+export type ClusterWorkloadPodContainerResources = {
   limits?: ClusterWorkloadPodContainerResource;
   requests?: ClusterWorkloadPodContainerResource;
-}
+};

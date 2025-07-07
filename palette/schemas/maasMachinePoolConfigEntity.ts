@@ -12,7 +12,7 @@
 import type { MaasMachinePoolCloudConfigEntity } from "./maasMachinePoolCloudConfigEntity";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface MaasMachinePoolConfigEntity {
+export type MaasMachinePoolConfigEntity = {
   cloudConfig: MaasMachinePoolCloudConfigEntity;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

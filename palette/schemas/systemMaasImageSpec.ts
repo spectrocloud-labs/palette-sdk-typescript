@@ -13,8 +13,8 @@
 /**
  * system maas account specifications
  */
-export interface SystemMaasImageSpec {
+export type SystemMaasImageSpec = {
   caCert?: string;
   imagesHostEndpoint?: string;
   insecureSkipVerify?: boolean;
-}
+};

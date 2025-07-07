@@ -15,7 +15,7 @@ import type { ListMetaData } from "./listMetaData";
 /**
  * Azure machine list
  */
-export interface AzureMachines {
+export type AzureMachines = {
   items: AzureMachine[];
   listmeta?: ListMetaData;
-}
+};

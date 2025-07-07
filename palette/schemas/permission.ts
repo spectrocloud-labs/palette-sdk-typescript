@@ -14,8 +14,8 @@ import type { Scope } from "./scope";
 /**
  * Permission information
  */
-export interface Permission {
+export type Permission = {
   name?: string;
   permissions?: string[];
   scope?: Scope;
-}
+};

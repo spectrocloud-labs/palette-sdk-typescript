@@ -14,6 +14,6 @@ import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
 /**
  * Cluster compliance scan schedule config for sonobuoy driver
  */
-export interface ClusterComplianceScanSonobuoyScheduleConfig {
+export type ClusterComplianceScanSonobuoyScheduleConfig = {
   schedule?: ClusterFeatureSchedule;
-}
+};

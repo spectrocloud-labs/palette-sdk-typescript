@@ -15,7 +15,7 @@ import type { ClusterDefinitionSpecEntity } from "./clusterDefinitionSpecEntity"
 /**
  * Cluster definition entity
  */
-export interface ClusterDefinitionEntity {
+export type ClusterDefinitionEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: ClusterDefinitionSpecEntity;
-}
+};

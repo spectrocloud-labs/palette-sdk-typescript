@@ -12,7 +12,7 @@
 import type { SpcApplyActionType } from "./spcApplyActionType";
 import type { Time } from "./time";
 
-export interface SpcApply {
+export type SpcApply = {
   actionType?: SpcApplyActionType;
   /** If it is true then Agent can apply the changes to the palette */
   canBeApplied?: boolean;
@@ -21,4 +21,4 @@ export interface SpcApply {
   patchAppliedTime?: Time;
   spcHash?: string;
   spcInfraHash?: string;
-}
+};

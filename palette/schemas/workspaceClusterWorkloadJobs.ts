@@ -15,7 +15,7 @@ import type { RelatedObject } from "./relatedObject";
 /**
  * Workspace cluster workload jobs summary
  */
-export interface WorkspaceClusterWorkloadJobs {
+export type WorkspaceClusterWorkloadJobs = {
   jobs?: ClusterWorkloadJob[];
   metadata?: RelatedObject;
-}
+};

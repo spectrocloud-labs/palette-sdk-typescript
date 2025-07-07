@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface Uid {
+export type Uid = {
   uid: string;
-}
+};

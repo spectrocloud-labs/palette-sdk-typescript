@@ -14,6 +14,6 @@ import type { ClusterWorkloadDeployment } from "./clusterWorkloadDeployment";
 /**
  * Cluster workload deployments summary
  */
-export interface ClusterWorkloadDeployments {
+export type ClusterWorkloadDeployments = {
   deployments?: ClusterWorkloadDeployment[];
-}
+};

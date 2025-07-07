@@ -14,6 +14,6 @@ import type { AwsClusterConfig } from "./awsClusterConfig";
 /**
  * AWS cloud cluster config entity
  */
-export interface AwsCloudClusterConfigEntity {
+export type AwsCloudClusterConfigEntity = {
   clusterConfig?: AwsClusterConfig;
-}
+};

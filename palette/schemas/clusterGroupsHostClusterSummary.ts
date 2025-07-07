@@ -11,6 +11,6 @@
  */
 import type { ClusterGroupSummary } from "./clusterGroupSummary";
 
-export interface ClusterGroupsHostClusterSummary {
+export type ClusterGroupsHostClusterSummary = {
   summaries: ClusterGroupSummary[];
-}
+};

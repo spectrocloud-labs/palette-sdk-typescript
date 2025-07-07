@@ -16,10 +16,10 @@ import type { CloudMachineStatus } from "./cloudMachineStatus";
 /**
  * GCP cloud VM definition
  */
-export interface GcpMachine {
+export type GcpMachine = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: GcpMachineSpec;
   status?: CloudMachineStatus;
-}
+};

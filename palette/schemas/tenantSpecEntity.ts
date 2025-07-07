@@ -15,7 +15,7 @@ import type { TenantSpecEntityLoginMode } from "./tenantSpecEntityLoginMode";
 /**
  * Tenant Entity input
  */
-export interface TenantSpecEntity {
+export type TenantSpecEntity = {
   address?: Address;
   authType?: string;
   emailId?: string;
@@ -26,4 +26,4 @@ export interface TenantSpecEntity {
   orgName?: string;
   roles?: string[];
   ssoApp?: string;
-}
+};

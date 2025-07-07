@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmHostDevice {
+export type VmHostDevice = {
   /** DeviceName is the resource name of the host device exposed by a device plugin */
   deviceName: string;
   name: string;
   /** If specified, the virtual network interface address and its tag will be provided to the guest via config drive */
   tag?: string;
-}
+};

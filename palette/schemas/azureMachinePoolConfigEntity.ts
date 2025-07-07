@@ -13,8 +13,8 @@ import type { AzureMachinePoolCloudConfigEntity } from "./azureMachinePoolCloudC
 import type { AzureManagedMachinePoolConfig } from "./azureManagedMachinePoolConfig";
 import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
 
-export interface AzureMachinePoolConfigEntity {
+export type AzureMachinePoolConfigEntity = {
   cloudConfig: AzureMachinePoolCloudConfigEntity;
   managedPoolConfig?: AzureManagedMachinePoolConfig;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

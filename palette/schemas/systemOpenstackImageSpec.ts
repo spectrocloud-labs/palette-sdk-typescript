@@ -13,6 +13,6 @@
 /**
  * system openstack account specifications
  */
-export interface SystemOpenstackImageSpec {
+export type SystemOpenstackImageSpec = {
   imagesHostEndpoint?: string;
-}
+};

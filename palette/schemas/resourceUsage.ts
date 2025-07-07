@@ -15,9 +15,9 @@ import type { Time } from "./time";
 /**
  * ResourceUsage
  */
-export interface ResourceUsage {
+export type ResourceUsage = {
   projects?: ProjectResourceUsage[];
   timestamp?: Time;
   totalAlloyCpuCoreHours?: number;
   totalPureCpuCoreHours?: number;
-}
+};

@@ -11,6 +11,6 @@
  */
 import type { ClusterProfileTemplate } from "./clusterProfileTemplate";
 
-export interface SpectroClusterProfileUpdates {
+export type SpectroClusterProfileUpdates = {
   profiles?: ClusterProfileTemplate[];
-}
+};

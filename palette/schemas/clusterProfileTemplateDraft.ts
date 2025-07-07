@@ -15,9 +15,9 @@ import type { ProfileType } from "./profileType";
 /**
  * Cluster profile template spec
  */
-export interface ClusterProfileTemplateDraft {
+export type ClusterProfileTemplateDraft = {
   cloudType?: string;
   /** Cluster profile packs array */
   packs?: PackManifestEntity[];
   type?: ProfileType;
-}
+};

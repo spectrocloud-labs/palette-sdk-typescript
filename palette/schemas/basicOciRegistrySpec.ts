@@ -15,7 +15,7 @@ import type { BasicOciRegistrySpecProviderType } from "./basicOciRegistrySpecPro
 /**
  * Basic oci registry spec
  */
-export interface BasicOciRegistrySpec {
+export type BasicOciRegistrySpec = {
   auth: RegistryAuth;
   /** OCI registry content base path */
   baseContentPath?: string;
@@ -29,4 +29,4 @@ export interface BasicOciRegistrySpec {
   /** Basic oci registry uid */
   registryUid?: string;
   scope?: string;
-}
+};

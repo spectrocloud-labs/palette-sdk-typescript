@@ -15,8 +15,8 @@ import type { KubeHunterEntityStatus } from "./kubeHunterEntityStatus";
 /**
  * KubeHunter response
  */
-export interface KubeHunterEntity {
+export type KubeHunterEntity = {
   reports: KubeHunterEntityReports;
   requestUid: string;
   status: KubeHunterEntityStatus;
-}
+};

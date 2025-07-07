@@ -14,6 +14,6 @@ import type { WorkspaceBackupConfigEntity } from "./workspaceBackupConfigEntity"
 /**
  * Workspace policies
  */
-export interface WorkspacePolicies {
+export type WorkspacePolicies = {
   backupPolicy?: WorkspaceBackupConfigEntity;
-}
+};

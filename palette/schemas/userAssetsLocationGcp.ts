@@ -15,7 +15,7 @@ import type { UserAssetsLocationGcpSpec } from "./userAssetsLocationGcpSpec";
 /**
  * GCP location object
  */
-export interface UserAssetsLocationGcp {
+export type UserAssetsLocationGcp = {
   metadata?: ObjectMetaInputEntity;
   spec?: UserAssetsLocationGcpSpec;
-}
+};

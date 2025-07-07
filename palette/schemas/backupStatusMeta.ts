@@ -15,9 +15,9 @@ import type { Time } from "./time";
 /**
  * Backup  status meta
  */
-export interface BackupStatusMeta {
+export type BackupStatusMeta = {
   backupName?: string;
   backupState?: BackupState;
   backupedNamespaces?: string[];
   expiryDate?: Time;
-}
+};

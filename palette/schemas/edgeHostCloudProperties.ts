@@ -14,6 +14,6 @@ import type { EdgeHostVsphereCloudProperties } from "./edgeHostVsphereCloudPrope
 /**
  * Additional cloud properties of the edge host (applicable based on the cloud type)
  */
-export interface EdgeHostCloudProperties {
+export type EdgeHostCloudProperties = {
   vsphere?: EdgeHostVsphereCloudProperties;
-}
+};

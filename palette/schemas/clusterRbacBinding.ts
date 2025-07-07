@@ -16,9 +16,9 @@ import type { ClusterRbacBindingType } from "./clusterRbacBindingType";
 /**
  * Cluster RBAC binding
  */
-export interface ClusterRbacBinding {
+export type ClusterRbacBinding = {
   namespace?: string;
   role?: ClusterRoleRef;
   subjects?: ClusterRbacSubjects[];
   type?: ClusterRbacBindingType;
-}
+};

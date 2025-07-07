@@ -23,7 +23,7 @@ import type { VmVolume } from "./vmVolume";
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.
  */
-export interface VmVirtualMachineInstanceSpec {
+export type VmVirtualMachineInstanceSpec = {
   /** Specifies a set of public keys to inject into the vm guest */
   accessCredentials?: VmAccessCredential[];
   affinity?: VmAffinity;
@@ -57,4 +57,4 @@ export interface VmVirtualMachineInstanceSpec {
   topologySpreadConstraints?: VmTopologySpreadConstraint[];
   /** List of volumes that can be mounted by disks belonging to the vmi. */
   volumes?: VmVolume[];
-}
+};

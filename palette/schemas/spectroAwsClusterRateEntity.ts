@@ -15,7 +15,7 @@ import type { AwsMachinePoolConfigEntity } from "./awsMachinePoolConfigEntity";
 /**
  * Spectro AWS cluster request payload for estimating rate
  */
-export interface SpectroAwsClusterRateEntity {
+export type SpectroAwsClusterRateEntity = {
   cloudConfig?: AwsClusterConfig;
   machinepoolconfig?: AwsMachinePoolConfigEntity[];
-}
+};

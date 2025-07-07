@@ -13,9 +13,9 @@
 /**
  * Vsphere compute cluster
  */
-export interface VsphereComputeCluster {
+export type VsphereComputeCluster = {
   datastores?: string[];
   name?: string;
   networks?: string[];
   resourcePools?: string[];
-}
+};

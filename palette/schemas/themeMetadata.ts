@@ -13,11 +13,11 @@
 /**
  * Theme metadata
  */
-export interface ThemeMetadata {
+export type ThemeMetadata = {
   /** Tells if the theme is active or not */
   active?: boolean;
   /** Name of the theme */
   name?: string;
   /** Uid of the theme */
   uid?: string;
-}
+};

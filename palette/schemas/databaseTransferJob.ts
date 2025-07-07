@@ -15,8 +15,8 @@ import type { DatabaseTransferJobMode } from "./databaseTransferJobMode";
 /**
  * database transfer job details
  */
-export interface DatabaseTransferJob {
+export type DatabaseTransferJob = {
   backupStatus?: TransferJob;
   backupUid?: string;
   mode?: DatabaseTransferJobMode;
-}
+};

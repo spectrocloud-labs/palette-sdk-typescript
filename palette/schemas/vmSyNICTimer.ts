@@ -11,7 +11,7 @@
  */
 import type { VmFeatureState } from "./vmFeatureState";
 
-export interface VmSyNICTimer {
+export type VmSyNICTimer = {
   direct?: VmFeatureState;
   enabled?: boolean;
-}
+};

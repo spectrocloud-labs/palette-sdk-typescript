@@ -15,7 +15,7 @@ import type { RegistryConf } from "./registryConf";
 /**
  * Registry configuration
  */
-export interface SystemRegistry {
+export type SystemRegistry = {
   metadata?: ObjectMeta;
   spec?: RegistryConf;
-}
+};

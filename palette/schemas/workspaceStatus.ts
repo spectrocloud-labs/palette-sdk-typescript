@@ -14,6 +14,6 @@ import type { WorkspaceError } from "./workspaceError";
 /**
  * Workspace status
  */
-export interface WorkspaceStatus {
+export type WorkspaceStatus = {
   errors?: WorkspaceError[];
-}
+};

@@ -13,8 +13,8 @@ import type { ObjectMeta } from "./objectMeta";
 import type { EdgeHostsMetadataSpec } from "./edgeHostsMetadataSpec";
 import type { EdgeHostsMetadataStatus } from "./edgeHostsMetadataStatus";
 
-export interface EdgeHostsMetadata {
+export type EdgeHostsMetadata = {
   metadata?: ObjectMeta;
   spec?: EdgeHostsMetadataSpec;
   status?: EdgeHostsMetadataStatus;
-}
+};

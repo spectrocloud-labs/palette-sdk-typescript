@@ -13,6 +13,6 @@
 /**
  * system gcp account specifications
  */
-export interface SystemGcpImageSpec {
+export type SystemGcpImageSpec = {
   imageProject?: string;
-}
+};

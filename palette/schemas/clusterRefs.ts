@@ -14,6 +14,6 @@ import type { ObjectReference } from "./objectReference";
 /**
  * Cluster Object References
  */
-export interface ClusterRefs {
+export type ClusterRefs = {
   clusters?: ObjectReference[];
-}
+};

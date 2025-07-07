@@ -13,6 +13,6 @@
 /**
  * Cluster group status
  */
-export interface ClusterGroupStatus {
+export type ClusterGroupStatus = {
   isActive?: boolean;
-}
+};

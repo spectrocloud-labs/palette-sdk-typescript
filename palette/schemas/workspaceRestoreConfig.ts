@@ -14,7 +14,7 @@ import type { IncludeClusterResourceMode } from "./includeClusterResourceMode";
 /**
  * Workspace cluster restore config
  */
-export interface WorkspaceRestoreConfig {
+export type WorkspaceRestoreConfig = {
   backupName: string;
   includeClusterResourceMode?: IncludeClusterResourceMode;
   /** Deprecated. Use includeClusterResourceMode */
@@ -23,4 +23,4 @@ export interface WorkspaceRestoreConfig {
   preserveNodePorts?: boolean;
   restorePVs?: boolean;
   sourceClusterUid: string;
-}
+};

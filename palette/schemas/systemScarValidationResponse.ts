@@ -13,6 +13,6 @@
 /**
  * system proxy config spec
  */
-export interface SystemScarValidationResponse {
+export type SystemScarValidationResponse = {
   spectroVersion?: string;
-}
+};

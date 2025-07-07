@@ -13,11 +13,11 @@
 /**
  * Application deployment target environment reference
  */
-export interface AppDeploymentTargetEnvironmentRef {
+export type AppDeploymentTargetEnvironmentRef = {
   /** Application deployment target resource name */
   name?: string;
   /** Application deployment target resource type [ "nestedCluster", "clusterGroup" ] */
   type?: string;
   /** Application deployment target resource uid */
   uid?: string;
-}
+};

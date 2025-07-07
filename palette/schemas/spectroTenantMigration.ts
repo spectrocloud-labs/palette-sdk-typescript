@@ -14,7 +14,7 @@ import type { SpectroTenantClusterMigration } from "./spectroTenantClusterMigrat
 /**
  * Spectro tenant migration status
  */
-export interface SpectroTenantMigration {
+export type SpectroTenantMigration = {
   clusters?: SpectroTenantClusterMigration[];
   state?: string;
-}
+};

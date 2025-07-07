@@ -13,7 +13,7 @@
 /**
  * Cluster meta health information
  */
-export interface ClusterMetaStatusHealth {
+export type ClusterMetaStatusHealth = {
   isHeartBeatFailed?: boolean;
   state?: string;
-}
+};

@@ -14,6 +14,6 @@ import type { Time } from "./time";
 /**
  * Cluster workload cronjob status
  */
-export interface ClusterWorkloadCronJobStatus {
+export type ClusterWorkloadCronJobStatus = {
   lastScheduleTime?: Time;
-}
+};

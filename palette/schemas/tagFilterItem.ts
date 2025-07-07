@@ -11,9 +11,9 @@
  */
 import type { SearchFilterKeyValueOperator } from "./searchFilterKeyValueOperator";
 
-export interface TagFilterItem {
+export type TagFilterItem = {
   key?: string;
   negation?: boolean;
   operator?: SearchFilterKeyValueOperator;
   values?: string[];
-}
+};

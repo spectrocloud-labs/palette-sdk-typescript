@@ -14,6 +14,6 @@ import type { ClusterResourceError } from "./clusterResourceError";
 /**
  * Cluster namespace status
  */
-export interface ClusterNamespaceStatus {
+export type ClusterNamespaceStatus = {
   errors?: ClusterResourceError[];
-}
+};

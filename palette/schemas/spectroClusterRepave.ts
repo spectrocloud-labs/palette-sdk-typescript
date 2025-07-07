@@ -16,8 +16,8 @@ import type { SpectroClusterRepaveStatus } from "./spectroClusterRepaveStatus";
 /**
  * Spectro cluster repave status information
  */
-export interface SpectroClusterRepave {
+export type SpectroClusterRepave = {
   metadata?: ObjectMeta;
   spec?: SpectroClusterRepaveSpec;
   status?: SpectroClusterRepaveStatus;
-}
+};

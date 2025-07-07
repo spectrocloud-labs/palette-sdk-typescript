@@ -15,9 +15,9 @@ import type { VmPodNetwork } from "./vmPodNetwork";
 /**
  * Network represents a network type and a resource that should be connected to the vm.
  */
-export interface VmNetwork {
+export type VmNetwork = {
   multus?: VmMultusNetwork;
   /** Network name. Must be a DNS_LABEL and unique within the vm. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names */
   name: string;
   pod?: VmPodNetwork;
-}
+};

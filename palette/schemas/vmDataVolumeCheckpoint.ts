@@ -13,9 +13,9 @@
 /**
  * DataVolumeCheckpoint defines a stage in a warm migration.
  */
-export interface VmDataVolumeCheckpoint {
+export type VmDataVolumeCheckpoint = {
   /** Current is the identifier of the snapshot created for this checkpoint. */
   current: string;
   /** Previous is the identifier of the snapshot from the previous checkpoint. */
   previous: string;
-}
+};

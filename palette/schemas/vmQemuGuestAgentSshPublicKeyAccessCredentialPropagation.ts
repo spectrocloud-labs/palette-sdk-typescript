@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation {
+export type VmQemuGuestAgentSshPublicKeyAccessCredentialPropagation = {
   /** Users represents a list of guest users that should have the ssh public keys added to their authorized_keys file. */
   users: string[];
-}
+};

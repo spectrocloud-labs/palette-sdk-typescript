@@ -11,8 +11,8 @@
  */
 import type { ResourceLimitType } from "./resourceLimitType";
 
-export interface SystemResourceLimit {
+export type SystemResourceLimit = {
   kind?: ResourceLimitType;
   limit?: number;
   maxLimit?: number;
-}
+};

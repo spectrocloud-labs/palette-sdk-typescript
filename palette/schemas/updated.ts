@@ -13,4 +13,4 @@
 /**
  * The resource was updated successfully
  */
-export interface Updated {}
+export type Updated = unknown;

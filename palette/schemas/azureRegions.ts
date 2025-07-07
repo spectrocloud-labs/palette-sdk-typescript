@@ -14,6 +14,6 @@ import type { AzureRegion } from "./azureRegion";
 /**
  * List of Azure regions
  */
-export interface AzureRegions {
+export type AzureRegions = {
   regions: AzureRegion[];
-}
+};

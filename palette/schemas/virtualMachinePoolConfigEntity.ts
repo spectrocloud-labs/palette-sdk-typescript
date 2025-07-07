@@ -11,6 +11,6 @@
  */
 import type { VirtualMachinePoolCloudConfigEntity } from "./virtualMachinePoolCloudConfigEntity";
 
-export interface VirtualMachinePoolConfigEntity {
+export type VirtualMachinePoolConfigEntity = {
   cloudConfig: VirtualMachinePoolCloudConfigEntity;
-}
+};

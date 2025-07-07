@@ -14,9 +14,9 @@ import type { AwsCloudCostSummaryMonthlyCost } from "./awsCloudCostSummaryMonthl
 /**
  * AWS cloud account usage cost summary of monthlyCosts and totalCost
  */
-export interface AwsCloudCostSummaryCloudCost {
+export type AwsCloudCostSummaryCloudCost = {
   /** Monthly cost of AWS cost */
   monthlyCosts?: AwsCloudCostSummaryMonthlyCost[];
   /** Total cost of AWS cost */
   total?: number;
-}
+};

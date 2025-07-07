@@ -14,6 +14,6 @@ import type { StorageContainer } from "./storageContainer";
 /**
  * List of Azure storage containers
  */
-export interface AzureStorageContainers {
+export type AzureStorageContainers = {
   containers?: StorageContainer[];
-}
+};

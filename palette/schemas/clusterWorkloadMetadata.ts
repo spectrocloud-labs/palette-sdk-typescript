@@ -16,9 +16,9 @@ import type { ClusterWorkloadMetadataLabels } from "./clusterWorkloadMetadataLab
 /**
  * Cluster workload metadata
  */
-export interface ClusterWorkloadMetadata {
+export type ClusterWorkloadMetadata = {
   creationTimestamp?: Time;
   entity?: ClusterWorkloadRef;
   labels?: ClusterWorkloadMetadataLabels;
   namespace?: string;
-}
+};

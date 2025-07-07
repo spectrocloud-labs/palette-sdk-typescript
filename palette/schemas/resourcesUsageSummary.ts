@@ -14,8 +14,8 @@ import type { ResourceUsageSummary } from "./resourceUsageSummary";
 /**
  * Resources usage summary information
  */
-export interface ResourcesUsageSummary {
+export type ResourcesUsageSummary = {
   cpuUnit?: string;
   memoryUnit?: string;
   resources?: ResourceUsageSummary[];
-}
+};

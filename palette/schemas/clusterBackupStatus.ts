@@ -14,6 +14,6 @@ import type { ClusterBackupStatusMeta } from "./clusterBackupStatusMeta";
 /**
  * Cluster Backup Status
  */
-export interface ClusterBackupStatus {
+export type ClusterBackupStatus = {
   clusterBackupStatuses?: ClusterBackupStatusMeta[];
-}
+};

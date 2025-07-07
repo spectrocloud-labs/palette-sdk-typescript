@@ -14,10 +14,10 @@ import type { IncludeClusterResourceMode } from "./includeClusterResourceMode";
 /**
  * Backup config
  */
-export interface BackupStatusConfig {
+export type BackupStatusConfig = {
   includeAllDisks?: boolean;
   includeClusterResourceMode?: IncludeClusterResourceMode;
   /** Deprecated. Use includeClusterResourceMode */
   includeClusterResources?: boolean;
   namespaces?: string[];
-}
+};

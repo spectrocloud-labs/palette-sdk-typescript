@@ -11,11 +11,11 @@
  */
 import type { VmVGPUOptions } from "./vmVGPUOptions";
 
-export interface VmGPU {
+export type VmGPU = {
   deviceName: string;
   /** Name of the GPU device as exposed by a device plugin */
   name: string;
   /** If specified, the virtual network interface address and its tag will be provided to the guest via config drive */
   tag?: string;
   virtualGPUOptions?: VmVGPUOptions;
-}
+};

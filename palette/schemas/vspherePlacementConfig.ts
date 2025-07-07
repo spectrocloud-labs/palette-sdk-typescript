@@ -14,7 +14,7 @@ import type { VsphereNetworkConfig } from "./vsphereNetworkConfig";
 /**
  * Both ClusterConfig and MachinePoolConfig will have PlacementConfig MachinePoolconfig.Placements will overwrite values defined in ClusterConfig Currently the convention is: Datacenter / Folder / ImageTemplateFolder / Network should be defined at ClusterConfig Cluster / ResourcePool / Datastore / Network is defined at MachinePool ClusterConfig Network should only indicate use DHCP or not MachinePool Network should contain the actual network and IPPool
  */
-export interface VspherePlacementConfig {
+export type VspherePlacementConfig = {
   /** Cluster is the computecluster in vsphere */
   cluster?: string;
   /** Datacenter is the name or inventory path of the datacenter where this machine's VM is created/located. */
@@ -32,4 +32,4 @@ export interface VspherePlacementConfig {
   storagePolicyName?: string;
   /** UID for this placement */
   uid?: string;
-}
+};

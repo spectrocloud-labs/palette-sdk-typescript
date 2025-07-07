@@ -13,9 +13,9 @@
 /**
  * system vsphere account specifications
  */
-export interface SystemVsphereImageSpec {
+export type SystemVsphereImageSpec = {
   caCert?: string;
   imagesHostEndpoint?: string;
   insecureSkipVerify?: boolean;
   overlordOvaLocation?: string;
-}
+};

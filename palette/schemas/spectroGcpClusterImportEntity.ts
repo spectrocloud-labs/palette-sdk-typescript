@@ -15,7 +15,7 @@ import type { SpectroGcpClusterImportEntitySpec } from "./spectroGcpClusterImpor
 /**
  * Spectro GCP cluster import request payload
  */
-export interface SpectroGcpClusterImportEntity {
+export type SpectroGcpClusterImportEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroGcpClusterImportEntitySpec;
-}
+};

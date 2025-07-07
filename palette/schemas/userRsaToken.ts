@@ -13,6 +13,6 @@
 /**
  * Rsa Auth token response
  */
-export interface UserRsaToken {
+export type UserRsaToken = {
   token?: string;
-}
+};

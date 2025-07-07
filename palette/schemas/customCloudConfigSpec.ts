@@ -16,8 +16,8 @@ import type { CustomMachinePoolConfig } from "./customMachinePoolConfig";
 /**
  * CustomCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api
  */
-export interface CustomCloudConfigSpec {
+export type CustomCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: CustomClusterConfig;
   machinePoolConfig?: CustomMachinePoolConfig[];
-}
+};

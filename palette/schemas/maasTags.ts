@@ -14,6 +14,6 @@ import type { MaasTag } from "./maasTag";
 /**
  * List of Maas tags
  */
-export interface MaasTags {
+export type MaasTags = {
   items: MaasTag[];
-}
+};

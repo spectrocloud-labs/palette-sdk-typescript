@@ -11,7 +11,7 @@
  */
 import type { OpenStackCloudAccount } from "./openStackCloudAccount";
 
-export interface OverlordOpenStackAccountEntity {
+export type OverlordOpenStackAccountEntity = {
   account?: OpenStackCloudAccount;
   shareWithProjects?: boolean;
-}
+};

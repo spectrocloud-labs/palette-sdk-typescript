@@ -14,8 +14,8 @@ import type { ClusterWorkloadPodContainerResources } from "./clusterWorkloadPodC
 /**
  * Cluster workload pod container
  */
-export interface ClusterWorkloadPodContainer {
+export type ClusterWorkloadPodContainer = {
   image?: string;
   name?: string;
   resources?: ClusterWorkloadPodContainerResources;
-}
+};

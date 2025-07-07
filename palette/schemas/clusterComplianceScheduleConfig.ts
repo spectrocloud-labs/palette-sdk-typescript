@@ -16,8 +16,8 @@ import type { ClusterComplianceScanSonobuoyScheduleConfig } from "./clusterCompl
 /**
  * Cluster compliance scan schedule configuration
  */
-export interface ClusterComplianceScheduleConfig {
+export type ClusterComplianceScheduleConfig = {
   kubeBench?: ClusterComplianceScanKubeBenchScheduleConfig;
   kubeHunter?: ClusterComplianceScanKubeHunterScheduleConfig;
   sonobuoy?: ClusterComplianceScanSonobuoyScheduleConfig;
-}
+};

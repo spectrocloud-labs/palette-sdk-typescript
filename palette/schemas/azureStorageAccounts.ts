@@ -14,6 +14,6 @@ import type { StorageAccount } from "./storageAccount";
 /**
  * List of Azure storage accounts
  */
-export interface AzureStorageAccounts {
+export type AzureStorageAccounts = {
   accounts?: StorageAccount[];
-}
+};

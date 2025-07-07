@@ -15,7 +15,7 @@ import type { SystemsManager } from "./systemsManager";
 /**
  * AwsHybridConfig specifies the AWS Hybrid configuration for the cluster
  */
-export interface AwsHybridConfig {
+export type AwsHybridConfig = {
   /** AWS VPC CIDR is the CIDR of the AWS/EKS cluster's VPC */
   awsVpcCidr?: string;
   iamRolesAnywhere?: IamRolesAnywhere;
@@ -24,4 +24,4 @@ export interface AwsHybridConfig {
   /** RemotePodCIDRs specifies the Pod CIDRs of all remote pods */
   remotePodCidrs?: string[];
   systemsManager?: SystemsManager;
-}
+};

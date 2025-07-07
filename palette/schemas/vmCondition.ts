@@ -13,11 +13,11 @@
 /**
  * Condition defines conditions
  */
-export interface VmCondition {
+export type VmCondition = {
   lastProbeTime?: string;
   lastTransitionTime?: string;
   message?: string;
   reason?: string;
   status: string;
   type: string;
-}
+};

@@ -11,7 +11,7 @@
  */
 import type { VsphereCloudAccount } from "./vsphereCloudAccount";
 
-export interface OverlordVsphereAccountEntity {
+export type OverlordVsphereAccountEntity = {
   account?: VsphereCloudAccount;
   shareWithProjects?: boolean;
-}
+};

@@ -11,10 +11,10 @@
  */
 import type { Partition } from "./partition";
 
-export interface Disk {
+export type Disk = {
   controller?: string;
   partitions?: Partition[];
   /** Size in GB */
   size?: number;
   vendor?: string;
-}
+};

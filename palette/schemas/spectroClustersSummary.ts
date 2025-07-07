@@ -12,7 +12,7 @@
 import type { SpectroClusterSummary } from "./spectroClusterSummary";
 import type { ListMetaData } from "./listMetaData";
 
-export interface SpectroClustersSummary {
+export type SpectroClustersSummary = {
   items: SpectroClusterSummary[];
   listmeta?: ListMetaData;
-}
+};

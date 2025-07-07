@@ -11,6 +11,6 @@
  */
 import type { ObjectScopeEntity } from "./objectScopeEntity";
 
-export interface ClusterGroupsHostClusterMetadata {
+export type ClusterGroupsHostClusterMetadata = {
   items: ObjectScopeEntity[];
-}
+};

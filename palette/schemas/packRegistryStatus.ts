@@ -14,6 +14,6 @@ import type { RegistrySyncStatus } from "./registrySyncStatus";
 /**
  * Status of the pack registry
  */
-export interface PackRegistryStatus {
+export type PackRegistryStatus = {
   packSyncStatus?: RegistrySyncStatus;
-}
+};

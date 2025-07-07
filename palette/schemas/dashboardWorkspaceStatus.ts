@@ -15,7 +15,7 @@ import type { DashboardWorkspaceAllocation } from "./dashboardWorkspaceAllocatio
 /**
  * Workspace status
  */
-export interface DashboardWorkspaceStatus {
+export type DashboardWorkspaceStatus = {
   namespaces?: DashboardWorkspaceNamespaceAllocation[];
   total?: DashboardWorkspaceAllocation;
-}
+};

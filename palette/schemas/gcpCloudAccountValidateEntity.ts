@@ -14,6 +14,6 @@ import type { GcpAccountValidateSpec } from "./gcpAccountValidateSpec";
 /**
  * Gcp cloud account spec
  */
-export interface GcpCloudAccountValidateEntity {
+export type GcpCloudAccountValidateEntity = {
   spec?: GcpAccountValidateSpec;
-}
+};

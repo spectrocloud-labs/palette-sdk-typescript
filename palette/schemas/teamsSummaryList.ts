@@ -14,6 +14,6 @@ import type { TeamSummary } from "./teamSummary";
 /**
  * Returns Team summary
  */
-export interface TeamsSummaryList {
+export type TeamsSummaryList = {
   items: TeamSummary[];
-}
+};

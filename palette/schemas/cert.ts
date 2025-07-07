@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface Cert {
+export type Cert = {
   certificate?: string;
   isCA?: boolean;
   key?: string;
-}
+};

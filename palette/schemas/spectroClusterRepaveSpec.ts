@@ -12,9 +12,9 @@
 import type { SpectroClusterRepaveReason } from "./spectroClusterRepaveReason";
 import type { ClusterRepaveSource } from "./clusterRepaveSource";
 
-export interface SpectroClusterRepaveSpec {
+export type SpectroClusterRepaveSpec = {
   /** Spectro cluster repave reasons */
   reasons?: SpectroClusterRepaveReason[];
   source?: ClusterRepaveSource;
   spectroClusterUid?: string;
-}
+};

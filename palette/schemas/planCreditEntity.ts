@@ -15,10 +15,10 @@ import type { PlanCreditEntityType } from "./planCreditEntityType";
 /**
  * Plan Credit entity for create/update request
  */
-export interface PlanCreditEntity {
+export type PlanCreditEntity = {
   cpuCoreHours?: number;
   expiry?: Time;
   name?: string;
   start?: Time;
   type: PlanCreditEntityType;
-}
+};
