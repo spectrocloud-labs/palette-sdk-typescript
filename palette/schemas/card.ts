@@ -13,7 +13,7 @@
 /**
  * Card details object
  */
-export interface Card {
+export type Card = {
   /** Card brand */
   brand?: string;
   /** Country name the card belongs */
@@ -26,4 +26,4 @@ export interface Card {
   funding?: string;
   /** Last 4 digit of the card */
   last4?: string;
-}
+};

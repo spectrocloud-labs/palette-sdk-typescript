@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { SystemPlanCreditType } from "./systemPlanCreditType";
+import type { Time } from './time';
+import type { SystemPlanCreditType } from './systemPlanCreditType';
 
 /**
  * Plan Credit
  */
-export interface SystemPlanCredit {
+export type SystemPlanCredit = {
   cpuCoreHours?: number;
   creditUid?: string;
   expiry?: Time;
   name?: string;
   start?: Time;
   type: SystemPlanCreditType;
-}
+};

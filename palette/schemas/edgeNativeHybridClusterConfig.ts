@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeControlPlaneEndPoint } from "./edgeNativeControlPlaneEndPoint";
+import type { EdgeNativeControlPlaneEndPoint } from './edgeNativeControlPlaneEndPoint';
 
 /**
  * EdgeNativeHybridClusterConfig defines Edge Native Cluster specific specification
  */
-export interface EdgeNativeHybridClusterConfig {
+export type EdgeNativeHybridClusterConfig = {
   controlPlaneEndpoint?: EdgeNativeControlPlaneEndPoint;
   /** NTPServers is a list of NTP servers to use instead of the machine image's default NTP server list */
   ntpServers?: string[];
   /** SSHKeys specifies a list of ssh authorized keys to access the vms as a 'spectro' user */
   sshKeys?: string[];
-}
+};

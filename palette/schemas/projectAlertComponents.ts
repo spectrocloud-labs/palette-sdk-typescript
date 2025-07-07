@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectAlertComponent } from "./projectAlertComponent";
+import type { ProjectAlertComponent } from './projectAlertComponent';
 
 /**
  * Supported project alerts component
  */
-export interface ProjectAlertComponents {
+export type ProjectAlertComponents = {
   components?: ProjectAlertComponent[];
-}
+};

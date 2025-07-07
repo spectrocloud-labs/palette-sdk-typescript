@@ -13,7 +13,7 @@
 /**
  * SpotMarketOptions defines the options available to a user when configuring Machines to run on Spot instances. Most users should provide an empty struct.
  */
-export interface SpotMarketOptions {
+export type SpotMarketOptions = {
   /** MaxPrice defines the maximum price the user is willing to pay for Spot VM instances */
   maxPrice?: string;
-}
+};

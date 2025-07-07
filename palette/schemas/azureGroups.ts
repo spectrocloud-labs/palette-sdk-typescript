@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureGroup } from "./azureGroup";
+import type { AzureGroup } from './azureGroup';
 
 /**
  * List of Azure groups
  */
-export interface AzureGroups {
+export type AzureGroups = {
   groups: AzureGroup[];
-}
+};

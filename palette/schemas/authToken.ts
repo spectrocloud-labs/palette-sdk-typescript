@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthToken {
+export type AuthToken = {
   token?: string;
-}
+};

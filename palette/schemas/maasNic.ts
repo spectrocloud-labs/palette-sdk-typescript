@@ -13,8 +13,8 @@
 /**
  * Maas network interface
  */
-export interface MaasNic {
+export type MaasNic = {
   index?: number;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

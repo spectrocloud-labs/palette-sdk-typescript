@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemProductUsage } from "./systemProductUsage";
+import type { SystemProductUsage } from './systemProductUsage';
 
 /**
  * Product usage
  */
-export interface ProductUsage {
+export type ProductUsage = {
   alloyUsage?: SystemProductUsage;
   pureUsage?: SystemProductUsage;
-}
+};

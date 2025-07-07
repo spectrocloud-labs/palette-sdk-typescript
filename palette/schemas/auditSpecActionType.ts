@@ -10,14 +10,14 @@
  * OpenAPI spec version: v1
  */
 
-export type AuditSpecActionType =
-  (typeof AuditSpecActionType)[keyof typeof AuditSpecActionType];
+export type AuditSpecActionType = typeof AuditSpecActionType[keyof typeof AuditSpecActionType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AuditSpecActionType = {
-  create: "create",
-  update: "update",
-  delete: "delete",
-  publish: "publish",
-  deploy: "deploy",
+  create: 'create',
+  update: 'update',
+  delete: 'delete',
+  publish: 'publish',
+  deploy: 'deploy',
 } as const;

@@ -13,10 +13,10 @@
 /**
  * PackPreset defines the preset pack values
  */
-export interface PackPreset {
+export type PackPreset = {
   add?: string;
   displayName?: string;
   group?: string;
   name?: string;
   remove?: string[];
-}
+};

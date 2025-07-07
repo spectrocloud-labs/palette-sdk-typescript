@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface SshUserCredentials {
+export type SshUserCredentials = {
   /** Password is the temporary password of the SSH tunnel */
   password?: string;
   /** SshKey is the ssh key of the SSH tunnel */
   sshKey?: string;
   /** UserName is the temporary username of the SSH tunnel */
   username?: string;
-}
+};

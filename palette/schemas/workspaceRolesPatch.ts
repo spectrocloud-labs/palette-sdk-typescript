@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface WorkspaceRolesPatch {
+export type WorkspaceRolesPatch = {
   roles?: string[];
   uid?: string;
-}
+};

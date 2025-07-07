@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Nameserver } from "./nameserver";
+import type { Nameserver } from './nameserver';
 
 /**
  * Pool defines IP ranges or with CIDR for available IPs Gateway, Prefix and Nameserver if provided, will overwrite values in IPPool
  */
-export interface Pool {
+export type Pool = {
   /** End is the last IP address that can be rendered. It is used as a validation that the rendered IP is in bound. */
   end?: string;
   /** Gateway is the gateway ip address */
@@ -26,4 +26,4 @@ export interface Pool {
   start?: string;
   /** Subnet is used to validate that the rendered IP is in bounds. eg: 192.168.0.0/24 If Start value is not given, start value is derived from the subnet ip incremented by 1 (start value is `192.168.0.1` for subnet `192.168.0.0/24`) */
   subnet?: string;
-}
+};

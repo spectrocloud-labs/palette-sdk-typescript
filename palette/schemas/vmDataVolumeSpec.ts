@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDataVolumeCheckpoint } from "./vmDataVolumeCheckpoint";
-import type { VmPersistentVolumeClaimSpec } from "./vmPersistentVolumeClaimSpec";
-import type { VmDataVolumeSource } from "./vmDataVolumeSource";
-import type { VmDataVolumeSourceRef } from "./vmDataVolumeSourceRef";
-import type { VmStorageSpec } from "./vmStorageSpec";
+import type { VmDataVolumeCheckpoint } from './vmDataVolumeCheckpoint';
+import type { VmPersistentVolumeClaimSpec } from './vmPersistentVolumeClaimSpec';
+import type { VmDataVolumeSource } from './vmDataVolumeSource';
+import type { VmDataVolumeSourceRef } from './vmDataVolumeSourceRef';
+import type { VmStorageSpec } from './vmStorageSpec';
 
 /**
  * DataVolumeSpec defines the DataVolume type specification
  */
-export interface VmDataVolumeSpec {
+export type VmDataVolumeSpec = {
   /** Checkpoints is a list of DataVolumeCheckpoints, representing stages in a multistage import. */
   checkpoints?: VmDataVolumeCheckpoint[];
   /** DataVolumeContentType options: "kubevirt", "archive" */
@@ -33,4 +33,4 @@ export interface VmDataVolumeSpec {
   source?: VmDataVolumeSource;
   sourceRef?: VmDataVolumeSourceRef;
   storage?: VmStorageSpec;
-}
+};

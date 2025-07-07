@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierEntity } from "./appTierEntity";
+import type { AppTierEntity } from './appTierEntity';
 
 /**
  * Application tier patch request payload
  */
-export interface AppTierPatchEntity {
+export type AppTierPatchEntity = {
   appTier?: AppTierEntity;
   /** Application tier UID to be replaced with new tier */
   replaceWithAppTier?: string;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsLaunchTemplate } from "./awsLaunchTemplate";
-import type { EksMachineCloudConfigEntityCapacityType } from "./eksMachineCloudConfigEntityCapacityType";
-import type { SpotMarketOptions } from "./spotMarketOptions";
-import type { EksSubnetEntity } from "./eksSubnetEntity";
+import type { AwsLaunchTemplate } from './awsLaunchTemplate';
+import type { EksMachineCloudConfigEntityCapacityType } from './eksMachineCloudConfigEntityCapacityType';
+import type { SpotMarketOptions } from './spotMarketOptions';
+import type { EksSubnetEntity } from './eksSubnetEntity';
 
-export interface EksMachineCloudConfigEntity {
+export type EksMachineCloudConfigEntity = {
   /** ami type */
   amiType?: string;
   awsLaunchTemplate?: AwsLaunchTemplate;
@@ -33,4 +33,4 @@ export interface EksMachineCloudConfigEntity {
   rootDeviceSize?: number;
   spotMarketOptions?: SpotMarketOptions;
   subnets?: EksSubnetEntity[];
-}
+};

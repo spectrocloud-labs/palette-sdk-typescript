@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type MaasMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type MaasMachinePoolConfigAdditionalLabels = {[key: string]: string};

@@ -13,7 +13,7 @@
 /**
  * Cluster duration thresholds
  */
-export interface SpectroClusterProjectCleanupValidateEntity {
+export type SpectroClusterProjectCleanupValidateEntity = {
   deletingClusterDurationThresholdInMin?: number;
   provisioningClusterDurationThresholdInMin?: number;
-}
+};

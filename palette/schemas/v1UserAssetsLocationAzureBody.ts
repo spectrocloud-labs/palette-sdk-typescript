@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserAssetsLocationAzure } from "./userAssetsLocationAzure";
+import type { UserAssetsLocationAzure } from './userAssetsLocationAzure';
 
 export type V1UserAssetsLocationAzureBody = UserAssetsLocationAzure;

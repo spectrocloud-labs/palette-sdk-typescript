@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestInputEntity } from "./manifestInputEntity";
-import type { PackType } from "./packType";
+import type { ManifestInputEntity } from './manifestInputEntity';
+import type { PackType } from './packType';
 
 /**
  * Pack request payload
  */
-export interface PackManifestEntity {
+export type PackManifestEntity = {
   /** Pack layer */
   layer?: string;
   /** Pack manifests are additional content as part of the profile */
@@ -31,4 +31,4 @@ export interface PackManifestEntity {
   uid?: string;
   /** Pack values represents the values.yaml used as input parameters either Params OR Values should be used, not both If both applied at the same time, will only use Values */
   values?: string;
-}
+};

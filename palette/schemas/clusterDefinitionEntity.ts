@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { ClusterDefinitionSpecEntity } from "./clusterDefinitionSpecEntity";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { ClusterDefinitionSpecEntity } from './clusterDefinitionSpecEntity';
 
 /**
  * Cluster definition entity
  */
-export interface ClusterDefinitionEntity {
+export type ClusterDefinitionEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: ClusterDefinitionSpecEntity;
-}
+};

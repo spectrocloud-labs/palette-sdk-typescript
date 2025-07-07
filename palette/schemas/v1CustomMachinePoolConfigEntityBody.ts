@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachinePoolConfigEntity } from "./customMachinePoolConfigEntity";
+import type { CustomMachinePoolConfigEntity } from './customMachinePoolConfigEntity';
 
 export type V1CustomMachinePoolConfigEntityBody = CustomMachinePoolConfigEntity;

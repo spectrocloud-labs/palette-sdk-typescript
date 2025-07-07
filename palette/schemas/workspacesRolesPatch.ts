@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceRolesPatch } from "./workspaceRolesPatch";
+import type { WorkspaceRolesPatch } from './workspaceRolesPatch';
 
-export interface WorkspacesRolesPatch {
+export type WorkspacesRolesPatch = {
   workspaces?: WorkspaceRolesPatch[];
-}
+};

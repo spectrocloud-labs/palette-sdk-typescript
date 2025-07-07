@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IncludeClusterResourceMode } from "./includeClusterResourceMode";
+import type { IncludeClusterResourceMode } from './includeClusterResourceMode';
 
 /**
  * Workspace backup status config
  */
-export interface WorkspaceBackupStatusConfig {
+export type WorkspaceBackupStatusConfig = {
   backupName?: string;
   durationInHours?: number;
   includeAllDisks?: boolean;
@@ -22,4 +22,4 @@ export interface WorkspaceBackupStatusConfig {
   /** Deprecated. Use includeClusterResourceMode */
   includeClusterResources?: boolean;
   namespaces?: string[];
-}
+};

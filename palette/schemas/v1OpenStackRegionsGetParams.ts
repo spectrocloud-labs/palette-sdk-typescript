@@ -11,8 +11,8 @@
  */
 
 export type V1OpenStackRegionsGetParams = {
-  /**
-   * Uid for the specific OpenStack cloud account
-   */
-  cloudAccountUid?: string;
+/**
+ * Uid for the specific OpenStack cloud account
+ */
+cloudAccountUid?: string;
 };

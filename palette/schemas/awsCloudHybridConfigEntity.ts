@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsHybridConfig } from "./awsHybridConfig";
+import type { AwsHybridConfig } from './awsHybridConfig';
 
 /**
  * AWS cloud hybrid config entity
  */
-export interface AwsCloudHybridConfigEntity {
+export type AwsCloudHybridConfigEntity = {
   hybridConfig?: AwsHybridConfig;
-}
+};

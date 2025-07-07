@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ActiveTenantResources } from "./activeTenantResources";
-import type { TenantCleanUpStatus } from "./tenantCleanUpStatus";
+import type { ActiveTenantResources } from './activeTenantResources';
+import type { TenantCleanUpStatus } from './tenantCleanUpStatus';
 
 /**
  * Resources of tenant
  */
-export interface CleanUpResource {
+export type CleanUpResource = {
   activeResources?: ActiveTenantResources;
   tenantStatus?: TenantCleanUpStatus;
-}
+};

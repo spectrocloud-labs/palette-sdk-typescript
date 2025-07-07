@@ -11,14 +11,14 @@
  */
 
 export type VsphereDnsMappingsGetParams = {
-  /**
+/**
  * Filters can be combined with AND, OR operators with field path name. Eg: metadata.name=TestServiceANDspec.cloudType=aws
 
 Server will be restricted to certain fields based on the indexed data for each resource.
  */
-  filters?: string;
-  /**
-   * Specify the fields with sort order. 1 indicates ascending and -1 for descending. Eg: orderBy=metadata.name=1,metadata.uid=-1
-   */
-  orderBy?: string;
+filters?: string;
+/**
+ * Specify the fields with sort order. 1 indicates ascending and -1 for descending. Eg: orderBy=metadata.name=1,metadata.uid=-1
+ */
+orderBy?: string;
 };

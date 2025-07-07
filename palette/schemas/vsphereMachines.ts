@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereMachine } from "./vsphereMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { VsphereMachine } from './vsphereMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * vSphere machine list
  */
-export interface VsphereMachines {
+export type VsphereMachines = {
   items: VsphereMachine[];
   listmeta?: ListMetaData;
-}
+};

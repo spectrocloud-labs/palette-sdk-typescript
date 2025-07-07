@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterWorkloadRoleBindings } from "./workspaceClusterWorkloadRoleBindings";
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { WorkspaceClusterWorkloadRoleBindings } from './workspaceClusterWorkloadRoleBindings';
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
 
 /**
  * Workspace clusters workload rbac bindings summary
  */
-export interface WorkspaceClustersWorkloadRoleBindings {
+export type WorkspaceClustersWorkloadRoleBindings = {
   clusters?: WorkspaceClusterWorkloadRoleBindings[];
   metadata?: ObjectMetaInputEntity;
-}
+};

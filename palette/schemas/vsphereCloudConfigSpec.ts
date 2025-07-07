@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
-import type { VsphereClusterConfig } from "./vsphereClusterConfig";
-import type { VsphereMachinePoolConfig } from "./vsphereMachinePoolConfig";
+import type { ObjectReference } from './objectReference';
+import type { VsphereClusterConfig } from './vsphereClusterConfig';
+import type { VsphereMachinePoolConfig } from './vsphereMachinePoolConfig';
 
 /**
  * VsphereCloudConfigSpec defines the desired state of VsphereCloudConfig
  */
-export interface VsphereCloudConfigSpec {
+export type VsphereCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig: VsphereClusterConfig;
   edgeHostRef?: ObjectReference;
   machinePoolConfig: VsphereMachinePoolConfig[];
-}
+};

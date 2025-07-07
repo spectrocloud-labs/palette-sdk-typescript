@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ClusterComplianceScanLogSpec } from "./clusterComplianceScanLogSpec";
-import type { ClusterSyftLogStatus } from "./clusterSyftLogStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ClusterComplianceScanLogSpec } from './clusterComplianceScanLogSpec';
+import type { ClusterSyftLogStatus } from './clusterSyftLogStatus';
 
 /**
  * Cluster Compliance Scan Syft Log
  */
-export interface ClusterScanLogSyft {
+export type ClusterScanLogSyft = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanLogSpec;
   status?: ClusterSyftLogStatus;
-}
+};

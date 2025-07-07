@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { WorkspaceClusterBackupConfig } from "./workspaceClusterBackupConfig";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { WorkspaceClusterBackupConfig } from './workspaceClusterBackupConfig';
 
 /**
  * Workspace backup status meta
  */
-export interface WorkspaceBackupStatusMeta {
+export type WorkspaceBackupStatusMeta = {
   actor?: ClusterFeatureActor;
   requestUid?: string;
   workspaceBackupConfig?: WorkspaceClusterBackupConfig;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * CustomBlockSize represents the desired logical and physical block size for a VM disk.
  */
-export interface VmCustomBlockSize {
+export type VmCustomBlockSize = {
   logical: number;
   physical: number;
-}
+};

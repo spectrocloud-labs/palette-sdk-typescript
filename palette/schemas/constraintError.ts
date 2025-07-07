@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ConstraintError {
+export type ConstraintError = {
   code?: string;
   message?: string;
-}
+};

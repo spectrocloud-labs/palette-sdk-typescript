@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterEdgeInstallerConfigInstallerDownloadLinks = {
-  [key: string]: string;
-};
+export type ClusterEdgeInstallerConfigInstallerDownloadLinks = {[key: string]: string};

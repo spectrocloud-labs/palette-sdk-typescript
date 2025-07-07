@@ -11,7 +11,7 @@
  */
 
 export type VsphereAccountsUidClusterResParams = {
-  datacenter: string;
-  computecluster: string;
-  useQualifiedNetworkName?: boolean;
+datacenter: string;
+computecluster: string;
+useQualifiedNetworkName?: boolean;
 };

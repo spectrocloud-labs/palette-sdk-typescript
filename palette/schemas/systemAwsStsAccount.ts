@@ -13,8 +13,8 @@
 /**
  * System AWS Gov account specifications
  */
-export interface SystemAwsStsAccount {
+export type SystemAwsStsAccount = {
   accessKey?: string;
   accountId?: string;
   secretKey?: string;
-}
+};

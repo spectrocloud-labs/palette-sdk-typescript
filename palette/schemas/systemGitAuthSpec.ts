@@ -13,9 +13,9 @@
 /**
  * system git auth account specifications
  */
-export interface SystemGitAuthSpec {
+export type SystemGitAuthSpec = {
   _type?: string;
   password?: string;
   token?: string;
   username?: SystemGitAuthSpec;
-}
+};

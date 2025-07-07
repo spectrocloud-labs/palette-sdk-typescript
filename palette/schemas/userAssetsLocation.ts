@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { UserAssetsLocationSpec } from "./userAssetsLocationSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { UserAssetsLocationSpec } from './userAssetsLocationSpec';
 
 /**
  * Location object
  */
-export interface UserAssetsLocation {
+export type UserAssetsLocation = {
   metadata?: ObjectMeta;
   spec?: UserAssetsLocationSpec;
-}
+};

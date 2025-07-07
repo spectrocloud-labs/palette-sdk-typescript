@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Channel } from "./channel";
+import type { Channel } from './channel';
 
-export interface AlertEntity {
+export type AlertEntity = {
   channels?: Channel[];
-}
+};

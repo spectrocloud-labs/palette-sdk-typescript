@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type MfaCredentialCreationRequestClientExtensionResults = {
-  [key: string]: { [key: string]: unknown };
-};
+export type MfaCredentialCreationRequestClientExtensionResults = {[key: string]: { [key: string]: unknown }};

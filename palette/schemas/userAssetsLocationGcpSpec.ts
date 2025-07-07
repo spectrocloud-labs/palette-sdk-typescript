@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpStorageConfig } from "./gcpStorageConfig";
+import type { GcpStorageConfig } from './gcpStorageConfig';
 
 /**
  * GCP location specification
  */
-export interface UserAssetsLocationGcpSpec {
+export type UserAssetsLocationGcpSpec = {
   config: GcpStorageConfig;
   /** Set to 'true', if location has to be set as default */
   isDefault?: boolean;
   /** GCP location type [gcp] */
   type?: string;
-}
+};

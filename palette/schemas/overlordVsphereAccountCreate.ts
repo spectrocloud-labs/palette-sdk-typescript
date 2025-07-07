@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereCloudAccount } from "./vsphereCloudAccount";
+import type { VsphereCloudAccount } from './vsphereCloudAccount';
 
-export interface OverlordVsphereAccountCreate {
+export type OverlordVsphereAccountCreate = {
   account?: VsphereCloudAccount;
   /** Name for the private gateway & cloud account */
   name?: string;
   shareWithProjects?: boolean;
-}
+};

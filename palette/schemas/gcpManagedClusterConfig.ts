@@ -13,9 +13,9 @@
 /**
  * GCP managed cluster config
  */
-export interface GcpManagedClusterConfig {
+export type GcpManagedClusterConfig = {
   /** EnableAutopilot indicates whether to enable autopilot for this GKE cluster */
   enableAutoPilot?: boolean;
   /** Can be Region or Zone */
   location?: string;
-}
+};

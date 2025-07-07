@@ -13,9 +13,9 @@
 /**
  * Workspace resource allocation
  */
-export interface WorkspaceResourceAllocation {
+export type WorkspaceResourceAllocation = {
   /** @minimum -1 */
   cpuCores?: number;
   /** @minimum -1 */
   memoryMiB?: number;
-}
+};

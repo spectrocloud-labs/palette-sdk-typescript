@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmFilesystemVirtiofs {
-  [key: string]: unknown;
-}
+export type VmFilesystemVirtiofs = { [key: string]: unknown };

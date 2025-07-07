@@ -13,7 +13,7 @@
 /**
  * jet service login input
  */
-export interface JetServiceLogin {
+export type JetServiceLogin = {
   /** authToken helps in two step verification for the authorization. */
   authKey?: string;
   edgeHostUid?: string;
@@ -24,4 +24,4 @@ export interface JetServiceLogin {
   serviceVersion?: string;
   spectroClusterUid?: string;
   tenantUid?: string;
-}
+};

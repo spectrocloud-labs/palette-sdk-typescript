@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksClusterConfig } from "./eksClusterConfig";
-import type { ClusterConfigEntity } from "./clusterConfigEntity";
-import type { FargateProfile } from "./fargateProfile";
-import type { EksMachinePoolConfigEntity } from "./eksMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { EksClusterConfig } from './eksClusterConfig';
+import type { ClusterConfigEntity } from './clusterConfigEntity';
+import type { FargateProfile } from './fargateProfile';
+import type { EksMachinePoolConfigEntity } from './eksMachinePoolConfigEntity';
+import type { SpectroClusterPolicies } from './spectroClusterPolicies';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
 
 export type SpectroEksClusterEntitySpec = {
   /** Cloud account uid to be used for cluster provisioning */

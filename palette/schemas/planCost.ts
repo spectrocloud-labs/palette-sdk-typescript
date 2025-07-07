@@ -13,7 +13,7 @@
 /**
  * Plan Cost
  */
-export interface PlanCost {
+export type PlanCost = {
   discount?: number;
   price?: number;
-}
+};

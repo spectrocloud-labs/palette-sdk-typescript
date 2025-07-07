@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterNamespace } from "./workspaceClusterNamespace";
-import type { WorkspaceClusterRef } from "./workspaceClusterRef";
-import type { WorkspaceQuota } from "./workspaceQuota";
+import type { WorkspaceClusterNamespace } from './workspaceClusterNamespace';
+import type { WorkspaceClusterRef } from './workspaceClusterRef';
+import type { WorkspaceQuota } from './workspaceQuota';
 
 /**
  * Workspace cluster namespaces update entity
  */
-export interface WorkspaceClusterNamespacesEntity {
+export type WorkspaceClusterNamespacesEntity = {
   clusterNamespaces?: WorkspaceClusterNamespace[];
   clusterRefs?: WorkspaceClusterRef[];
   quota?: WorkspaceQuota;
-}
+};

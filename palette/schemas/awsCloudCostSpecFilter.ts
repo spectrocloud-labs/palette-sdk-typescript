@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Aws cloud account usage cost payload filter. startTime and endTime should be within 12 months range from now.
  */
-export interface AwsCloudCostSpecFilter {
+export type AwsCloudCostSpecFilter = {
   endTime?: Time;
   /** IAM UserId of AWS account */
   iamUserId?: string;
   startTime: Time;
-}
+};

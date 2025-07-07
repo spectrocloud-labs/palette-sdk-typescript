@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
+import type { ClusterFeatureSchedule } from './clusterFeatureSchedule';
 
 /**
  * Cluster compliance scan schedule config for sonobuoy driver
  */
-export interface ClusterComplianceScanSonobuoyScheduleConfig {
+export type ClusterComplianceScanSonobuoyScheduleConfig = {
   schedule?: ClusterFeatureSchedule;
-}
+};

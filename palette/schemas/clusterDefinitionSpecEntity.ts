@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterDefinitionProfileEntity } from "./clusterDefinitionProfileEntity";
+import type { ClusterDefinitionProfileEntity } from './clusterDefinitionProfileEntity';
 
 /**
  * Cluster definition spec entity
  */
-export interface ClusterDefinitionSpecEntity {
+export type ClusterDefinitionSpecEntity = {
   cloudType: string;
   /** Cluster definition profiles */
   profiles: ClusterDefinitionProfileEntity[];
-}
+};

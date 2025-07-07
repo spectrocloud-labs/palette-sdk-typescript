@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation";
+import type { WorkspaceResourceAllocation } from './workspaceResourceAllocation';
 
 /**
  * Workspace resource quota
  */
-export interface WorkspaceQuota {
+export type WorkspaceQuota = {
   resourceAllocation?: WorkspaceResourceAllocation;
-}
+};

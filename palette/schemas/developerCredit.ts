@@ -13,7 +13,7 @@
 /**
  * Credits allocated for each tenant/user
  */
-export interface DeveloperCredit {
+export type DeveloperCredit = {
   /** cpu in cores */
   cpu?: number;
   /** memory in GiB */
@@ -22,4 +22,4 @@ export interface DeveloperCredit {
   storageGiB?: number;
   /** number of active virtual clusters */
   virtualClustersLimit?: number;
-}
+};

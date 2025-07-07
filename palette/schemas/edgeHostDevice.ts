@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AclMeta } from "./aclMeta";
-import type { ObjectMeta } from "./objectMeta";
-import type { EdgeHostDeviceSpec } from "./edgeHostDeviceSpec";
-import type { EdgeHostDeviceStatus } from "./edgeHostDeviceStatus";
+import type { AclMeta } from './aclMeta';
+import type { ObjectMeta } from './objectMeta';
+import type { EdgeHostDeviceSpec } from './edgeHostDeviceSpec';
+import type { EdgeHostDeviceStatus } from './edgeHostDeviceStatus';
 
-export interface EdgeHostDevice {
+export type EdgeHostDevice = {
   aclmeta?: AclMeta;
   metadata?: ObjectMeta;
   spec?: EdgeHostDeviceSpec;
   status?: EdgeHostDeviceStatus;
-}
+};

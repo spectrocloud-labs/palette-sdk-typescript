@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { PlanLimit } from "./planLimit";
-import type { TierPrice } from "./tierPrice";
-import type { PlanChangeUpdateType } from "./planChangeUpdateType";
+import type { Time } from './time';
+import type { PlanLimit } from './planLimit';
+import type { TierPrice } from './tierPrice';
+import type { PlanChangeUpdateType } from './planChangeUpdateType';
 
 /**
  * Plan change update entity
  */
-export interface PlanChangeUpdate {
+export type PlanChangeUpdate = {
   expiry: Time;
   isPaymentGateway?: boolean;
   planLimit?: PlanLimit;
   start: Time;
   tierPrice?: TierPrice;
   type: PlanChangeUpdateType;
-}
+};

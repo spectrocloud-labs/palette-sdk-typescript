@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasDomain } from "./maasDomain";
+import type { MaasDomain } from './maasDomain';
 
 /**
  * List of Maas domains
  */
-export interface MaasDomains {
+export type MaasDomains = {
   items: MaasDomain[];
-}
+};

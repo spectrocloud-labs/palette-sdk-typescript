@@ -13,8 +13,8 @@
 /**
  * AWS network interface
  */
-export interface AwsNic {
+export type AwsNic = {
   index?: number;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

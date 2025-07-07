@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Scope } from "./scope";
+import type { Scope } from './scope';
 
 /**
  * Cluster profile clone meta input entity
  */
-export interface ClusterProfileCloneTarget {
+export type ClusterProfileCloneTarget = {
   /** Cloned cluster profile project uid */
   projectUid?: string;
   scope: Scope;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFipsMode } from "./clusterFipsMode";
+import type { ClusterFipsMode } from './clusterFipsMode';
 
 /**
  * Cluster profile fips compliance status
  */
-export interface ClusterProfileFips {
+export type ClusterProfileFips = {
   mode?: ClusterFipsMode;
-}
+};

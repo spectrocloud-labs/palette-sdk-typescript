@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterComplianceScanSyftDriverConfigScope =
-  (typeof ClusterComplianceScanSyftDriverConfigScope)[keyof typeof ClusterComplianceScanSyftDriverConfigScope];
+export type ClusterComplianceScanSyftDriverConfigScope = typeof ClusterComplianceScanSyftDriverConfigScope[keyof typeof ClusterComplianceScanSyftDriverConfigScope];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterComplianceScanSyftDriverConfigScope = {
-  cluster: "cluster",
-  namespace: "namespace",
-  "label-selector": "label-selector",
-  pod: "pod",
+  cluster: 'cluster',
+  namespace: 'namespace',
+  'label-selector': 'label-selector',
+  pod: 'pod',
 } as const;

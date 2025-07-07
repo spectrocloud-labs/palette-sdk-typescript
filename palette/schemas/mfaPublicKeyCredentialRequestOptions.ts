@@ -9,15 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MfaCredentialDescriptor } from "./mfaCredentialDescriptor";
-import type { UrlEncodedBase64 } from "./urlEncodedBase64";
-import type { MfaAuthenticationExtensions } from "./mfaAuthenticationExtensions";
+import type { MfaCredentialDescriptor } from './mfaCredentialDescriptor';
+import type { MfaAuthenticationExtensions } from './mfaAuthenticationExtensions';
 
-export interface MfaPublicKeyCredentialRequestOptions {
+export type MfaPublicKeyCredentialRequestOptions = {
   allowCredentials?: MfaCredentialDescriptor[];
-  challenge?: UrlEncodedBase64;
+  challenge?: string;
   extensions?: MfaAuthenticationExtensions;
   rpId?: string;
   timeout?: number;
   userVerification?: string;
-}
+};

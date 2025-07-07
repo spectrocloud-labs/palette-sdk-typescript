@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackSummarySpecAnnotations } from "./packSummarySpecAnnotations";
-import type { PackLayer } from "./packLayer";
-import type { ObjectReference } from "./objectReference";
-import type { PackPreset } from "./packPreset";
-import type { PackSchema } from "./packSchema";
-import type { PackTemplate } from "./packTemplate";
-import type { PackType } from "./packType";
+import type { PackSummarySpecAnnotations } from './packSummarySpecAnnotations';
+import type { PackLayer } from './packLayer';
+import type { ObjectReference } from './objectReference';
+import type { PackPreset } from './packPreset';
+import type { PackSchema } from './packSchema';
+import type { PackTemplate } from './packTemplate';
+import type { PackType } from './packType';
 
 /**
  * Pack object
  */
-export interface PackSummarySpec {
+export type PackSummarySpec = {
   /** Pack add-on sub type such as monitoring, db etc */
   addonSubType?: string;
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -56,4 +56,4 @@ export interface PackSummarySpec {
   values?: string;
   /** Pack version */
   version?: string;
-}
+};

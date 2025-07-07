@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface OpenstackFlavorConfig {
+export type OpenstackFlavorConfig = {
   /** DiskGiB is the size of a virtual machine's disk, in GiB. */
   diskGiB?: number;
   /** MemoryMiB is the size of a virtual machine's memory, in MiB. */
@@ -19,4 +19,4 @@ export interface OpenstackFlavorConfig {
   name: string;
   /** NumCPUs is the number of virtual processors in a virtual machine. */
   numCPUs?: number;
-}
+};

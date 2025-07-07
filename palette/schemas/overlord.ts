@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { OverloadSpec } from "./overloadSpec";
-import type { OverloadStatus } from "./overloadStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { OverloadSpec } from './overloadSpec';
+import type { OverloadStatus } from './overloadStatus';
 
 /**
  * Overlord defintiion
  */
-export interface Overlord {
+export type Overlord = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: OverloadSpec;
   status?: OverloadStatus;
-}
+};

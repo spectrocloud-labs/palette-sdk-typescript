@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Tenant CleanUp Status
  */
-export interface TenantCleanUpStatus {
+export type TenantCleanUpStatus = {
   cleanUpError?: string;
   cleanUpStages?: string;
   cleanUpTimestamp?: Time;
   cleanedResources?: string[];
   isCompleted?: boolean;
   isInProgress?: boolean;
-}
+};

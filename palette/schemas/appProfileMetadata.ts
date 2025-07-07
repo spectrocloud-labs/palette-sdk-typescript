@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectEntity } from "./objectEntity";
-import type { AppProfileMetadataSpec } from "./appProfileMetadataSpec";
+import type { ObjectEntity } from './objectEntity';
+import type { AppProfileMetadataSpec } from './appProfileMetadataSpec';
 
 /**
  * Application profile metadata summary
  */
-export interface AppProfileMetadata {
+export type AppProfileMetadata = {
   metadata?: ObjectEntity;
   spec?: AppProfileMetadataSpec;
-}
+};

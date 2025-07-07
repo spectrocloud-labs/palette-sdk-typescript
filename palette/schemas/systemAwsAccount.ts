@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAwsSpec } from "./systemAwsSpec";
+import type { SystemAwsSpec } from './systemAwsSpec';
 
 /**
  * SystemAdmin
  */
-export interface SystemAwsAccount {
+export type SystemAwsAccount = {
   spec?: SystemAwsSpec;
-}
+};

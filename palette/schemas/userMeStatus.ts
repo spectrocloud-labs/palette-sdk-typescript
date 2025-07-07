@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserMeStatusProjectPermissions } from "./userMeStatusProjectPermissions";
-import type { UserMeTenant } from "./userMeTenant";
-import type { UserMeStatusTenantPermissions } from "./userMeStatusTenantPermissions";
+import type { UserMeStatusProjectPermissions } from './userMeStatusProjectPermissions';
+import type { UserMeTenant } from './userMeTenant';
+import type { UserMeStatusTenantPermissions } from './userMeStatusTenantPermissions';
 
 /**
  * User status with permissions
  */
-export interface UserMeStatus {
+export type UserMeStatus = {
   /** Contains activation link for the user */
   activationLink?: string;
   /** Specifies if user account is active/disabled */
@@ -28,4 +28,4 @@ export interface UserMeStatus {
   projectPermissions?: UserMeStatusProjectPermissions;
   tenant?: UserMeTenant;
   tenantPermissions?: UserMeStatusTenantPermissions;
-}
+};

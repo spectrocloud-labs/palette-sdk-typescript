@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceCloudCostSummary } from "./resourceCloudCostSummary";
-import type { ResourceTotalCloudCost } from "./resourceTotalCloudCost";
+import type { ResourceCloudCostSummary } from './resourceCloudCostSummary';
+import type { ResourceTotalCloudCost } from './resourceTotalCloudCost';
 
 /**
  * Resources cloud cost summary information
  */
-export interface ResourcesCloudCostSummary {
+export type ResourcesCloudCostSummary = {
   resources?: ResourceCloudCostSummary[];
   total?: ResourceTotalCloudCost;
-}
+};

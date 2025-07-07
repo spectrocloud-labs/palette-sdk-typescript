@@ -10,10 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
+export type ClusterType = typeof ClusterType[keyof typeof ClusterType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterType = {
-  PureManage: "PureManage",
-  PureAttach: "PureAttach",
+  PureManage: 'PureManage',
+  PureAttach: 'PureAttach',
 } as const;

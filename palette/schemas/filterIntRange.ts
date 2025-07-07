@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface FilterIntRange {
+export type FilterIntRange = {
   /** @nullable */
   eq?: number | null;
   /** @nullable */
@@ -23,4 +23,4 @@ export interface FilterIntRange {
   lte?: number | null;
   /** @nullable */
   ne?: number | null;
-}
+};

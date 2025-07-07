@@ -11,7 +11,7 @@
  */
 
 export type OpenstackAccountsUidFlavorsParams = {
-  project?: string;
-  region?: string;
-  domain?: string;
+project?: string;
+region?: string;
+domain?: string;
 };

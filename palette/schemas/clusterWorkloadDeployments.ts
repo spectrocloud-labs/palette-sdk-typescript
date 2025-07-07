@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadDeployment } from "./clusterWorkloadDeployment";
+import type { ClusterWorkloadDeployment } from './clusterWorkloadDeployment';
 
 /**
  * Cluster workload deployments summary
  */
-export interface ClusterWorkloadDeployments {
+export type ClusterWorkloadDeployments = {
   deployments?: ClusterWorkloadDeployment[];
-}
+};

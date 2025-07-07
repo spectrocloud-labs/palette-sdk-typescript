@@ -13,6 +13,6 @@
 /**
  * Active resources of tenant
  */
-export interface SpectroClusterKubeCtlRedirect {
+export type SpectroClusterKubeCtlRedirect = {
   redirectUri?: string;
-}
+};

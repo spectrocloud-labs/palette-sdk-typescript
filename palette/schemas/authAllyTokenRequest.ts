@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthAllyTokenRequest {
+export type AuthAllyTokenRequest = {
   edgeAuthToken?: string;
   edgeHostUid?: string;
   spectroClusterUid?: string;
-}
+};

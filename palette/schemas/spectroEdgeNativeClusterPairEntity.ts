@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { SpectroEdgeNativeClusterPairEntitySpec } from "./spectroEdgeNativeClusterPairEntitySpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { SpectroEdgeNativeClusterPairEntitySpec } from './spectroEdgeNativeClusterPairEntitySpec';
 
 /**
  * EdgeNative cluster pair create payload
  */
-export interface SpectroEdgeNativeClusterPairEntity {
+export type SpectroEdgeNativeClusterPairEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroEdgeNativeClusterPairEntitySpec;
-}
+};

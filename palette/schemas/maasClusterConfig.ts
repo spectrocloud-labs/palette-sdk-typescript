@@ -13,9 +13,9 @@
 /**
  * Cluster level configuration for MAAS cloud and applicable for all the machine pools
  */
-export interface MaasClusterConfig {
+export type MaasClusterConfig = {
   /** Domain name of the cluster to be provisioned */
   domain: string;
   /** SSH keys specifies a list of ssh authorized keys for the 'spectro' user */
   sshKeys?: string[];
-}
+};

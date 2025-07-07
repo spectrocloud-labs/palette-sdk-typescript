@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Event } from "./event";
+import type { Event } from './event';
 
 /**
  * Describes a list component events' details

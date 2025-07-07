@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRepaveState } from "./clusterRepaveState";
+import type { ClusterRepaveState } from './clusterRepaveState';
 
 /**
  * Cluster repave status
  */
-export interface ClusterRepaveStatus {
+export type ClusterRepaveStatus = {
   state?: ClusterRepaveState;
-}
+};

@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Certificate } from "./certificate";
-import type { Time } from "./time";
+import type { Certificate } from './certificate';
+import type { Time } from './time';
 
 /**
  * K8 Certificate Authority
  */
-export interface V1k8CertificateAuthority {
+export type V1k8CertificateAuthority = {
   certificates?: Certificate[];
   expiry?: Time;
   name?: string;
-}
+};

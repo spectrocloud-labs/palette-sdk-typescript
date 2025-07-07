@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface Memory {
+export type Memory = {
   /** memory size in bytes */
   sizeInMB?: number;
-}
+};

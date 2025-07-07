@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { BasicOciRegistrySpec } from "./basicOciRegistrySpec";
-import type { OciRegistryStatus } from "./ociRegistryStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { BasicOciRegistrySpec } from './basicOciRegistrySpec';
+import type { OciRegistryStatus } from './ociRegistryStatus';
 
 /**
  * Basic oci registry information
  */
-export interface BasicOciRegistry {
+export type BasicOciRegistry = {
   kind?: string;
   metadata?: ObjectMeta;
   spec?: BasicOciRegistrySpec;
   status?: OciRegistryStatus;
-}
+};

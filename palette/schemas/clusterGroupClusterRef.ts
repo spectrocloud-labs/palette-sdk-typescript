@@ -13,7 +13,7 @@
 /**
  * Cluster group cluster reference
  */
-export interface ClusterGroupClusterRef {
+export type ClusterGroupClusterRef = {
   clusterName?: string;
   clusterUid?: string;
-}
+};

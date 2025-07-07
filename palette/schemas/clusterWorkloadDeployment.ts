@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadMetadata } from "./clusterWorkloadMetadata";
-import type { ClusterWorkloadDeploymentStatus } from "./clusterWorkloadDeploymentStatus";
+import type { ClusterWorkloadMetadata } from './clusterWorkloadMetadata';
+import type { ClusterWorkloadDeploymentStatus } from './clusterWorkloadDeploymentStatus';
 
 /**
  * Cluster workload deployment summary
  */
-export interface ClusterWorkloadDeployment {
+export type ClusterWorkloadDeployment = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadDeploymentStatus;
-}
+};

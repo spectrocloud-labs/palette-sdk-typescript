@@ -13,8 +13,8 @@
 /**
  * Pack Registry spec summary
  */
-export interface PackRegistrySpecSummary {
+export type PackRegistrySpecSummary = {
   endpoint?: string;
   private?: boolean;
   scope?: string;
-}
+};

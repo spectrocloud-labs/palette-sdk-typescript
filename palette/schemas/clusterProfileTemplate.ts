@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
-import type { PackRef } from "./packRef";
+import type { ObjectReference } from './objectReference';
+import type { PackRef } from './packRef';
 
 /**
  * ClusterProfileTemplate contains details of a clusterprofile definition
  */
-export interface ClusterProfileTemplate {
+export type ClusterProfileTemplate = {
   cloudType?: string;
   name?: string;
   /** PackServerRefs is only used on Hubble side it is reference to pack registry servers which PackRef belongs to in hubble, pack server is a top level object, so use a reference to point to it packs within a clusterprofile can come from different pack servers, so this is an array */
@@ -31,4 +31,4 @@ export interface ClusterProfileTemplate {
   uid?: string;
   /** Deprecated. Use profileVersion */
   version?: number;
-}
+};

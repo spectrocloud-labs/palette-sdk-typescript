@@ -13,7 +13,7 @@
 /**
  * Spectro cluster status summary
  */
-export interface SpectroClusterAddOnServiceSummary {
+export type SpectroClusterAddOnServiceSummary = {
   endpoint?: string;
   name?: string;
-}
+};

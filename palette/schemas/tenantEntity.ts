@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { TenantSpecEntity } from "./tenantSpecEntity";
+import type { ObjectMeta } from './objectMeta';
+import type { TenantSpecEntity } from './tenantSpecEntity';
 
 /**
  * Tenant Entity
  */
-export interface TenantEntity {
+export type TenantEntity = {
   metadata?: ObjectMeta;
   spec?: TenantSpecEntity;
-}
+};

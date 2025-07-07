@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterScanLogKubeBench } from "./clusterScanLogKubeBench";
-import type { ClusterScanLogKubeHunter } from "./clusterScanLogKubeHunter";
-import type { ClusterScanLogSonobuoy } from "./clusterScanLogSonobuoy";
-import type { ClusterScanLogSyft } from "./clusterScanLogSyft";
+import type { ClusterScanLogKubeBench } from './clusterScanLogKubeBench';
+import type { ClusterScanLogKubeHunter } from './clusterScanLogKubeHunter';
+import type { ClusterScanLogSonobuoy } from './clusterScanLogSonobuoy';
+import type { ClusterScanLogSyft } from './clusterScanLogSyft';
 
 /**
  * Cluster compliance scan Logs
  */
-export interface ClusterComplianceScanLogs {
+export type ClusterComplianceScanLogs = {
   kubeBenchLogs?: ClusterScanLogKubeBench[];
   kubeHunterLogs?: ClusterScanLogKubeHunter[];
   sonobuoyLogs?: ClusterScanLogSonobuoy[];
   syftLogs?: ClusterScanLogSyft[];
-}
+};

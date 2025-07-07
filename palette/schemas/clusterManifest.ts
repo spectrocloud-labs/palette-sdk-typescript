@@ -13,9 +13,9 @@
 /**
  * Cluster manifest information
  */
-export interface ClusterManifest {
+export type ClusterManifest = {
   content?: string;
   name?: string;
   namespace?: string;
   type?: string;
-}
+};

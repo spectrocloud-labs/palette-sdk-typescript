@@ -13,6 +13,6 @@
 /**
  * Deleted response with message
  */
-export interface DeletedMsg {
+export type DeletedMsg = {
   msg?: string;
-}
+};

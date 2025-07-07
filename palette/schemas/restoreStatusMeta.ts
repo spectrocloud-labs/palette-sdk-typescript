@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Restore  status meta
  */
-export interface RestoreStatusMeta {
+export type RestoreStatusMeta = {
   isSucceeded?: boolean;
   msg?: string;
   restoreTime?: Time;
-}
+};

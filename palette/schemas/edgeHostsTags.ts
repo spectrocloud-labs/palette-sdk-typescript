@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeHostsTags {
+export type EdgeHostsTags = {
   tags?: string[];
-}
+};

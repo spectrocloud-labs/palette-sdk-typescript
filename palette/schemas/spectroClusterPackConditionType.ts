@@ -10,15 +10,15 @@
  * OpenAPI spec version: v1
  */
 
-export type SpectroClusterPackConditionType =
-  (typeof SpectroClusterPackConditionType)[keyof typeof SpectroClusterPackConditionType];
+export type SpectroClusterPackConditionType = typeof SpectroClusterPackConditionType[keyof typeof SpectroClusterPackConditionType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SpectroClusterPackConditionType = {
-  ReadyForInstall: "ReadyForInstall",
-  Installed: "Installed",
-  Ready: "Ready",
-  Error: "Error",
-  UpgradeAvailable: "UpgradeAvailable",
-  WaitingForOtherLayers: "WaitingForOtherLayers",
+  ReadyForInstall: 'ReadyForInstall',
+  Installed: 'Installed',
+  Ready: 'Ready',
+  Error: 'Error',
+  UpgradeAvailable: 'UpgradeAvailable',
+  WaitingForOtherLayers: 'WaitingForOtherLayers',
 } as const;

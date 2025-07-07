@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterAssetEntitySpec } from "./spectroClusterAssetEntitySpec";
+import type { SpectroClusterAssetEntitySpec } from './spectroClusterAssetEntitySpec';
 
 /**
  * Cluster asset
  */
-export interface SpectroClusterAssetEntity {
+export type SpectroClusterAssetEntity = {
   spec?: SpectroClusterAssetEntitySpec;
-}
+};

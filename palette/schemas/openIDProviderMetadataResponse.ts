@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported } from "./openIDProviderMetadataResponseIdTokenSigningAlgValuesSupported";
+import type { OpenIDProviderMetadataResponseIdTokenSigningAlgValuesSupported } from './openIDProviderMetadataResponseIdTokenSigningAlgValuesSupported';
 
-export interface OpenIDProviderMetadataResponse {
+export type OpenIDProviderMetadataResponse = {
   /** REQUIRED. URL of the OP's OAuth 2.0 Authorization Endpoint */
   authorization_endpoint?: string;
   /** RECOMMENDED. JSON array containing a list of the Claim Names of the Claims that the OpenID Provider MAY be able to supply values for */
@@ -34,4 +34,4 @@ export interface OpenIDProviderMetadataResponse {
   token_endpoint?: string;
   /** RECOMMENDED. URL of the OP's UserInfo Endpoint */
   userinfo_endpoint?: string;
-}
+};

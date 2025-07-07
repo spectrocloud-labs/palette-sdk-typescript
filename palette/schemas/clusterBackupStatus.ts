@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterBackupStatusMeta } from "./clusterBackupStatusMeta";
+import type { ClusterBackupStatusMeta } from './clusterBackupStatusMeta';
 
 /**
  * Cluster Backup Status
  */
-export interface ClusterBackupStatus {
+export type ClusterBackupStatus = {
   clusterBackupStatuses?: ClusterBackupStatusMeta[];
-}
+};

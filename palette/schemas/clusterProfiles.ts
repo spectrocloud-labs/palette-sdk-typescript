@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfile } from "./clusterProfile";
-import type { ListMetaData } from "./listMetaData";
+import type { ClusterProfile } from './clusterProfile';
+import type { ListMetaData } from './listMetaData';
 
-export interface ClusterProfiles {
+export type ClusterProfiles = {
   items: ClusterProfile[];
   listmeta?: ListMetaData;
-}
+};

@@ -13,8 +13,8 @@
 /**
  * Application deployment profile metadata summary
  */
-export interface AppDeploymentProfileMetadataSummary {
+export type AppDeploymentProfileMetadataSummary = {
   name?: string;
   uid?: string;
   version?: string;
-}
+};

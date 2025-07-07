@@ -13,11 +13,11 @@
 /**
  * OpenStack region entity
  */
-export interface OpenStackRegion {
+export type OpenStackRegion = {
   /** Description of OpenStack region */
   description?: string;
   /** Id of OpenStack region */
   id?: string;
   /** Parent region id of OpenStack region */
   parentRegionId?: string;
-}
+};

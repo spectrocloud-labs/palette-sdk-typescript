@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Card } from "./card";
+import type { Card } from './card';
 
 /**
  * Payment method object
  */
-export interface PaymentMethod {
+export type PaymentMethod = {
   card?: Card;
   /** Customer uid */
   customerId?: string;
@@ -24,4 +24,4 @@ export interface PaymentMethod {
   lastName?: string;
   /** Payment method uid */
   paymentMethodId?: string;
-}
+};

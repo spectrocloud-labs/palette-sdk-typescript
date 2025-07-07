@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestData } from "./manifestData";
+import type { ManifestData } from './manifestData';
 
 /**
  * Manifest spec
  */
-export interface ManifestPublishedSpec {
+export type ManifestPublishedSpec = {
   published?: ManifestData;
-}
+};

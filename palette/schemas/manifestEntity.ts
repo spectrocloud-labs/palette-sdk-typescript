@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ManifestSpec } from "./manifestSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { ManifestSpec } from './manifestSpec';
 
 /**
  * Manifest object
  */
-export interface ManifestEntity {
+export type ManifestEntity = {
   metadata?: ObjectMeta;
   spec?: ManifestSpec;
-}
+};

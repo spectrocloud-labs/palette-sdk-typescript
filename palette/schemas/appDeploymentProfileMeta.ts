@@ -13,11 +13,11 @@
 /**
  * Application deployment profile metadata
  */
-export interface AppDeploymentProfileMeta {
+export type AppDeploymentProfileMeta = {
   /** Application deployment profile name */
   name?: string;
   /** Application deployment profile uid */
   uid?: string;
   /** Application deployment profile version */
   version?: string;
-}
+};

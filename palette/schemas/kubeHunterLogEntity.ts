@@ -13,11 +13,11 @@
 /**
  * KubeHunter log
  */
-export interface KubeHunterLogEntity {
+export type KubeHunterLogEntity = {
   description?: string;
   evidence?: string;
   reference?: string;
   severity?: string;
   testId?: string;
   vulnerability?: string;
-}
+};

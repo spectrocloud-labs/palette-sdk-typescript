@@ -11,12 +11,12 @@
  */
 
 export type V1CloudStorageRateParams = {
-  /**
-   * region for which compute rate is requested
-   */
-  region: string;
-  /**
-   * maxDiskType for which compute rate is requested
-   */
-  maxDiskType?: number;
+/**
+ * region for which compute rate is requested
+ */
+region: string;
+/**
+ * maxDiskType for which compute rate is requested
+ */
+maxDiskType?: number;
 };

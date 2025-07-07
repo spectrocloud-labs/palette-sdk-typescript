@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
 
 /**
  * Cluster entity for pack refs validate
  */
-export interface SpectroClusterPacksEntity {
+export type SpectroClusterPacksEntity = {
   profiles?: SpectroClusterProfileEntity[];
-}
+};

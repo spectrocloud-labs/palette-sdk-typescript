@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterHelmChart } from "./clusterHelmChart";
+import type { ClusterHelmChart } from './clusterHelmChart';
 
 /**
  * Cluster helm charts metadata
  */
-export interface ClusterHelmCharts {
+export type ClusterHelmCharts = {
   charts?: ClusterHelmChart[];
-}
+};

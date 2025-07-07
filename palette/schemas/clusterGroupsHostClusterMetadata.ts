@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectScopeEntity } from "./objectScopeEntity";
+import type { ObjectScopeEntity } from './objectScopeEntity';
 
-export interface ClusterGroupsHostClusterMetadata {
+export type ClusterGroupsHostClusterMetadata = {
   items: ObjectScopeEntity[];
-}
+};

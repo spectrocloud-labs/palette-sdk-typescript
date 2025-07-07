@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterMigration } from "./spectroClusterMigration";
+import type { SpectroClusterMigration } from './spectroClusterMigration';
 
 /**
  * Spectro cluster installer status
  */
-export interface InstallerStatus {
+export type InstallerStatus = {
   clusterMigration?: SpectroClusterMigration;
   clusterState?: string;
   endpoint?: string;
-}
+};

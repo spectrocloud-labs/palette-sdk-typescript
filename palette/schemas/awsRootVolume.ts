@@ -13,7 +13,7 @@
 /**
  * Volume encapsulates the configuration options for the storage device.
  */
-export interface AwsRootVolume {
+export type AwsRootVolume = {
   /** Device name */
   deviceName?: string;
   /** EncryptionKey is the KMS key to use to encrypt the volume. Can be either a KMS key ID or ARN */
@@ -26,4 +26,4 @@ export interface AwsRootVolume {
   throughput?: number;
   /** Type is the type of the volume (e.g. gp2, io1, etc...) */
   type?: string;
-}
+};

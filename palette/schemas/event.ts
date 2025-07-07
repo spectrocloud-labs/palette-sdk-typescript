@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
-import type { ObjectMeta } from "./objectMeta";
-import type { EventRelatedObject } from "./eventRelatedObject";
-import type { EventSource } from "./eventSource";
+import type { ObjectReference } from './objectReference';
+import type { ObjectMeta } from './objectMeta';
+import type { EventRelatedObject } from './eventRelatedObject';
+import type { EventSource } from './eventSource';
 
 /**
  * Describes the component event details
  */
-export interface Event {
+export type Event = {
   involvedObject?: ObjectReference;
   /** Describes message associated with the event */
   message?: string;
@@ -28,4 +28,4 @@ export interface Event {
   /** Describes the gravitas for the event */
   severity?: string;
   source?: EventSource;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * system web kubectl config spec
  */
-export interface SystemKubectlSpec {
+export type SystemKubectlSpec = {
   endpoint?: string;
   isEnabled?: boolean;
-}
+};

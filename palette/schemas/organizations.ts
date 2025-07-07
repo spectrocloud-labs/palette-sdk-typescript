@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Organization } from "./organization";
+import type { Organization } from './organization';
 
 /**
  * Returns a list of user's organizations details and login methods
  */
-export interface Organizations {
+export type Organizations = {
   /** Describes a list of user's organization */
   organizations?: Organization[];
-}
+};

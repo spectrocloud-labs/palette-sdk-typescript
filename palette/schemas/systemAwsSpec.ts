@@ -13,7 +13,7 @@
 /**
  * system aws account specifications
  */
-export interface SystemAwsSpec {
+export type SystemAwsSpec = {
   accessKey?: string;
   secretKey?: string;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { FilterSummarySpec } from "./filterSummarySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { FilterSummarySpec } from './filterSummarySpec';
 
 /**
  * Filter summary object
  */
-export interface FilterSummary {
+export type FilterSummary = {
   metadata?: ObjectMeta;
   spec?: FilterSummarySpec;
-}
+};

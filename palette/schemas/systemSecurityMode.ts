@@ -13,6 +13,6 @@
 /**
  * System service mode
  */
-export interface SystemSecurityMode {
+export type SystemSecurityMode = {
   securityMode?: string;
-}
+};

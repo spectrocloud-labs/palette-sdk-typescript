@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryAuth } from "./registryAuth";
+import type { RegistryAuth } from './registryAuth';
 
 /**
  * Helm registry credentials spec
  */
-export interface HelmRegistrySpec {
+export type HelmRegistrySpec = {
   auth: RegistryAuth;
   endpoint: string;
   isPrivate?: boolean;
@@ -22,4 +22,4 @@ export interface HelmRegistrySpec {
   /** Helm registry uid */
   registryUid?: string;
   scope?: string;
-}
+};

@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeNativeOverlayNetworkConfiguration {
+export type EdgeNativeOverlayNetworkConfiguration = {
   /** CIDR is the CIDR of the overlay network */
   cidr?: string;
   /** Enable is a flag to enable overlay network */
   enable?: boolean;
-}
+};

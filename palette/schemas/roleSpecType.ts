@@ -10,10 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type RoleSpecType = (typeof RoleSpecType)[keyof typeof RoleSpecType];
+export type RoleSpecType = typeof RoleSpecType[keyof typeof RoleSpecType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const RoleSpecType = {
-  system: "system",
-  user: "user",
+  system: 'system',
+  user: 'user',
 } as const;

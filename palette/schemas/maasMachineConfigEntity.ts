@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasInstanceType } from "./maasInstanceType";
+import type { MaasInstanceType } from './maasInstanceType';
 
-export interface MaasMachineConfigEntity {
+export type MaasMachineConfigEntity = {
   /** for control plane pool, this will be the failure domains for kcp */
   azs?: string[];
   instanceType?: MaasInstanceType;
   resourcePool?: string;
-}
+};

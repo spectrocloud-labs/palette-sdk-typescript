@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtFileTransferFtpEntity } from "./mgmtFileTransferFtpEntity";
+import type { MgmtFileTransferFtpEntity } from './mgmtFileTransferFtpEntity';
 
 /**
  * list ftp backups
  */
-export interface MgmtListBackupFtpEntity {
+export type MgmtListBackupFtpEntity = {
   fileTransferConfig?: MgmtFileTransferFtpEntity;
-}
+};

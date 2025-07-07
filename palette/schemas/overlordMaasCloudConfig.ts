@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasClusterConfig } from "./maasClusterConfig";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
-import type { ClusterConfigEntity } from "./clusterConfigEntity";
-import type { MaasMachineConfigEntity } from "./maasMachineConfigEntity";
+import type { MaasClusterConfig } from './maasClusterConfig';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
+import type { ClusterConfigEntity } from './clusterConfigEntity';
+import type { MaasMachineConfigEntity } from './maasMachineConfigEntity';
 
-export interface OverlordMaasCloudConfig {
+export type OverlordMaasCloudConfig = {
   clusterConfig?: MaasClusterConfig;
   /** Cluster profiles pack configuration for private gateway cluster */
   clusterProfiles?: SpectroClusterProfileEntity[];
@@ -22,4 +22,4 @@ export interface OverlordMaasCloudConfig {
   machineConfig?: MaasMachineConfigEntity;
   /** size of the pool, number of machines */
   size?: number;
-}
+};

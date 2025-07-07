@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroVsphereClusterEntitySpec } from "./spectroVsphereClusterEntitySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroVsphereClusterEntitySpec } from './spectroVsphereClusterEntitySpec';
 
 /**
  * vSphere cluster request payload for create and update
  */
-export interface SpectroVsphereClusterEntity {
+export type SpectroVsphereClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroVsphereClusterEntitySpec;
-}
+};

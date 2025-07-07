@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualMachine } from "./virtualMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { VirtualMachine } from './virtualMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * List of virtual machines
  */
-export interface VirtualMachines {
+export type VirtualMachines = {
   items: VirtualMachine[];
   listmeta?: ListMetaData;
-}
+};

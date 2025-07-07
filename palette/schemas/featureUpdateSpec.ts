@@ -13,9 +13,9 @@
 /**
  * Feature update spec
  */
-export interface FeatureUpdateSpec {
+export type FeatureUpdateSpec = {
   /** Feature description */
   description?: string;
   /** Feature doc link */
   docLink?: string;
-}
+};

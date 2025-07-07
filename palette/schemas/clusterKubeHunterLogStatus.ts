@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { ClusterKubeHunterLogStatusReports } from "./clusterKubeHunterLogStatusReports";
-import type { ClusterScanTime } from "./clusterScanTime";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { ClusterKubeHunterLogStatusReports } from './clusterKubeHunterLogStatusReports';
+import type { ClusterScanTime } from './clusterScanTime';
 
 /**
  * Cluster compliance scan KubeHunter Log Status
  */
-export interface ClusterKubeHunterLogStatus {
+export type ClusterKubeHunterLogStatus = {
   actor?: ClusterFeatureActor;
   message?: string;
   reports?: ClusterKubeHunterLogStatusReports;
   requestUid?: string;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

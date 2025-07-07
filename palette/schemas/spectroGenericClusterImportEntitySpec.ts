@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ImportClusterConfig } from "./importClusterConfig";
-import type { ImportEdgeHostConfig } from "./importEdgeHostConfig";
+import type { ImportClusterConfig } from './importClusterConfig';
+import type { ImportEdgeHostConfig } from './importEdgeHostConfig';
 
 export type SpectroGenericClusterImportEntitySpec = {
   clusterConfig?: ImportClusterConfig;

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantSamlSpecAttribute } from "./tenantSamlSpecAttribute";
+import type { TenantSamlSpecAttribute } from './tenantSamlSpecAttribute';
 
 /**
  * Tenant
  */
-export interface TenantSamlSpec {
+export type TenantSamlSpec = {
   acsUrl?: string;
   attributes?: TenantSamlSpecAttribute[];
   /** same as entity id */
@@ -35,4 +35,4 @@ export interface TenantSamlSpec {
   singleLogoutUrl?: string;
   /** When syncSsoTeams is set to true, all the teams from the OIDC configuration are pulled and saved in palette whereas when set to false, only the teams which are part of palette are pulled and saved */
   syncSsoTeams?: boolean;
-}
+};

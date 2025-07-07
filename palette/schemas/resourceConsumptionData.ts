@@ -13,7 +13,7 @@
 /**
  * Resource cosumption data
  */
-export interface ResourceConsumptionData {
+export type ResourceConsumptionData = {
   cpu?: number;
   memory?: number;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtFileTransferS3Entity } from "./mgmtFileTransferS3Entity";
+import type { MgmtFileTransferS3Entity } from './mgmtFileTransferS3Entity';
 
 /**
  * delete backups based on retention period
  */
-export interface MgmtDeleteBackupS3Entity {
+export type MgmtDeleteBackupS3Entity = {
   fileTransferConfig?: MgmtFileTransferS3Entity;
   retentionPeriod?: number;
-}
+};

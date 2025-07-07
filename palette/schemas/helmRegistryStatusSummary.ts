@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistrySyncStatus } from "./registrySyncStatus";
+import type { RegistrySyncStatus } from './registrySyncStatus';
 
 /**
  * Helm registry status summary
  */
-export interface HelmRegistryStatusSummary {
+export type HelmRegistryStatusSummary = {
   sync?: RegistrySyncStatus;
-}
+};

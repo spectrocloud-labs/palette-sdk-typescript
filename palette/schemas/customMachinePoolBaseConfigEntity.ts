@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachinePoolBaseConfigEntityAdditionalLabels } from "./customMachinePoolBaseConfigEntityAdditionalLabels";
-import type { Taint } from "./taint";
+import type { CustomMachinePoolBaseConfigEntityAdditionalLabels } from './customMachinePoolBaseConfigEntityAdditionalLabels';
+import type { Taint } from './taint';
 
 /**
  * Machine pool configuration for the custom cluster
  */
-export interface CustomMachinePoolBaseConfigEntity {
+export type CustomMachinePoolBaseConfigEntity = {
   /** Additional labels to be part of the machine pool */
   additionalLabels?: CustomMachinePoolBaseConfigEntityAdditionalLabels;
   /** Whether this pool is for control plane */
@@ -24,4 +24,4 @@ export interface CustomMachinePoolBaseConfigEntity {
   taints?: Taint[];
   /** If IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

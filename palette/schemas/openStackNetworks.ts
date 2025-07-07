@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackNetwork } from "./openStackNetwork";
+import type { OpenStackNetwork } from './openStackNetwork';
 
 /**
  * List of OpenStack networks
  */
-export interface OpenStackNetworks {
+export type OpenStackNetworks = {
   items: OpenStackNetwork[];
-}
+};

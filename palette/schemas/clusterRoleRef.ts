@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRoleRefKind } from "./clusterRoleRefKind";
+import type { ClusterRoleRefKind } from './clusterRoleRefKind';
 
 /**
  * Cluster role ref
  */
-export interface ClusterRoleRef {
+export type ClusterRoleRef = {
   kind?: ClusterRoleRefKind;
   name?: string;
-}
+};

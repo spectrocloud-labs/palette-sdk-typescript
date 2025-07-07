@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspaceNamespaceAllocation } from "./dashboardWorkspaceNamespaceAllocation";
-import type { DashboardWorkspaceAllocation } from "./dashboardWorkspaceAllocation";
+import type { DashboardWorkspaceNamespaceAllocation } from './dashboardWorkspaceNamespaceAllocation';
+import type { DashboardWorkspaceAllocation } from './dashboardWorkspaceAllocation';
 
 /**
  * Workspace status
  */
-export interface DashboardWorkspaceStatus {
+export type DashboardWorkspaceStatus = {
   namespaces?: DashboardWorkspaceNamespaceAllocation[];
   total?: DashboardWorkspaceAllocation;
-}
+};

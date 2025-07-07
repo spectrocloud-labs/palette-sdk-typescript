@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtDbCollectionInfo } from "./mgmtDbCollectionInfo";
+import type { MgmtDbCollectionInfo } from './mgmtDbCollectionInfo';
 
 /**
  * Database info
  */
-export interface MgmtDbInfo {
+export type MgmtDbInfo = {
   collections?: MgmtDbCollectionInfo[];
   isEmpty?: boolean;
   name?: string;
   size?: number;
   totalIndexSize?: number;
-}
+};

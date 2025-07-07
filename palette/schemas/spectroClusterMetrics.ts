@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ComputeMetrics } from "./computeMetrics";
+import type { ComputeMetrics } from './computeMetrics';
 
 /**
  * Spectro cluster metrics
  */
-export interface SpectroClusterMetrics {
+export type SpectroClusterMetrics = {
   cpu?: ComputeMetrics;
   memory?: ComputeMetrics;
-}
+};

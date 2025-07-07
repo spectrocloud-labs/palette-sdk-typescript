@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface EventsRelatedObjectsEntity {
+export type EventsRelatedObjectsEntity = {
   /** List of uids of the related object */
   relatedObjectUids: string[];
-}
+};

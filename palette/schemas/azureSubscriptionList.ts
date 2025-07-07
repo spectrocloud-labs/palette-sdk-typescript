@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Subscription } from "./subscription";
+import type { Subscription } from './subscription';
 
 /**
  * List of Azure subscription
  */
-export interface AzureSubscriptionList {
+export type AzureSubscriptionList = {
   subscriptionList?: Subscription[];
-}
+};

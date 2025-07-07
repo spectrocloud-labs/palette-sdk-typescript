@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeHostSSHSecret {
+export type EdgeHostSSHSecret = {
   /** SSH secret name */
   name?: string;
   /** Private Key to access the host */
   privateKey?: string;
-}
+};

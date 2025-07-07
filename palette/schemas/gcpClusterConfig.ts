@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpManagedClusterConfig } from "./gcpManagedClusterConfig";
+import type { GcpManagedClusterConfig } from './gcpManagedClusterConfig';
 
 /**
  * Cluster level configuration for gcp cloud and applicable for all the machine pools
  */
-export interface GcpClusterConfig {
+export type GcpClusterConfig = {
   managedClusterConfig?: GcpManagedClusterConfig;
   /** NetworkName if empty would create VPC Network in auto mode. If provided, custom VPC network will be used */
   network?: string;
@@ -22,4 +22,4 @@ export interface GcpClusterConfig {
   project: string;
   /** GCP region for the cluster */
   region: string;
-}
+};

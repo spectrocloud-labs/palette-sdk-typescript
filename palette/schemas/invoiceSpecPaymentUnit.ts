@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type InvoiceSpecPaymentUnit =
-  (typeof InvoiceSpecPaymentUnit)[keyof typeof InvoiceSpecPaymentUnit];
+export type InvoiceSpecPaymentUnit = typeof InvoiceSpecPaymentUnit[keyof typeof InvoiceSpecPaymentUnit];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const InvoiceSpecPaymentUnit = {
-  usd: "usd",
+  usd: 'usd',
 } as const;

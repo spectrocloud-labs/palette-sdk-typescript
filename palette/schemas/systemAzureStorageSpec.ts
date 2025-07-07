@@ -13,8 +13,8 @@
 /**
  * system aws account specifications
  */
-export interface SystemAzureStorageSpec {
+export type SystemAzureStorageSpec = {
   accessKey?: string;
   container?: string;
   storageName?: string;
-}
+};

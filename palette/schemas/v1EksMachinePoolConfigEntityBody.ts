@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksMachinePoolConfigEntity } from "./eksMachinePoolConfigEntity";
+import type { EksMachinePoolConfigEntity } from './eksMachinePoolConfigEntity';
 
 export type V1EksMachinePoolConfigEntityBody = EksMachinePoolConfigEntity;

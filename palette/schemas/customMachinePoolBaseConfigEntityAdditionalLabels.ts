@@ -13,6 +13,4 @@
 /**
  * Additional labels to be part of the machine pool
  */
-export type CustomMachinePoolBaseConfigEntityAdditionalLabels = {
-  [key: string]: string;
-};
+export type CustomMachinePoolBaseConfigEntityAdditionalLabels = {[key: string]: string};

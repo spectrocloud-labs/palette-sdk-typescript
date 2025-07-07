@@ -13,7 +13,7 @@
 /**
  * System Administrator Profile Specification
  */
-export interface SystemAdminProfileSpec {
+export type SystemAdminProfileSpec = {
   firstName?: string;
   lastName?: string;
-}
+};

@@ -10,17 +10,17 @@
  * OpenAPI spec version: v1
  */
 
-export type CloudMachineStatusInstanceState =
-  (typeof CloudMachineStatusInstanceState)[keyof typeof CloudMachineStatusInstanceState];
+export type CloudMachineStatusInstanceState = typeof CloudMachineStatusInstanceState[keyof typeof CloudMachineStatusInstanceState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const CloudMachineStatusInstanceState = {
-  Pending: "Pending",
-  Provisioning: "Provisioning",
-  Provisioned: "Provisioned",
-  Running: "Running",
-  Deleting: "Deleting",
-  Deleted: "Deleted",
-  Failed: "Failed",
-  Unknown: "Unknown",
+  Pending: 'Pending',
+  Provisioning: 'Provisioning',
+  Provisioned: 'Provisioned',
+  Running: 'Running',
+  Deleting: 'Deleting',
+  Deleted: 'Deleted',
+  Failed: 'Failed',
+  Unknown: 'Unknown',
 } as const;

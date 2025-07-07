@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackResolvedValues } from "./packResolvedValues";
-import type { PackSummarySpec } from "./packSummarySpec";
-import type { RegistryMetadata } from "./registryMetadata";
+import type { PackResolvedValues } from './packResolvedValues';
+import type { PackSummarySpec } from './packSummarySpec';
+import type { RegistryMetadata } from './registryMetadata';
 
 /**
  * Pack summary spec
  */
-export interface PackRefSummarySpec {
+export type PackRefSummarySpec = {
   macros?: PackResolvedValues;
   pack?: PackSummarySpec;
   registry?: RegistryMetadata;
-}
+};

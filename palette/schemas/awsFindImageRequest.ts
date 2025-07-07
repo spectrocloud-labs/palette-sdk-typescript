@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
 /**
  * AWS image name and credentials
  */
-export interface AwsFindImageRequest {
+export type AwsFindImageRequest = {
   /** AWS image ami name */
   amiName?: string;
   awsAccount?: AwsCloudAccount;
-}
+};

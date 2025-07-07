@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterVariable } from "./spectroClusterVariable";
+import type { SpectroClusterVariable } from './spectroClusterVariable';
 
 /**
  * List of cluster variables to be updated with profile uid
  */
-export interface SpectroClusterVariableUpdateEntity {
+export type SpectroClusterVariableUpdateEntity = {
   /** Profile uid to which the variable belongs */
   profileUid: string;
   /** List of variables with updated values */
   variables?: SpectroClusterVariable[];
-}
+};

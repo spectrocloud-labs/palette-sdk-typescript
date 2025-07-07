@@ -13,7 +13,7 @@
 /**
  * Tenant usage object
  */
-export interface TenantUsage {
+export type TenantUsage = {
   /** Organization name */
   orgName?: string;
   /** Tenant uid */
@@ -22,4 +22,4 @@ export interface TenantUsage {
   usedAlloyCredits?: number;
   /** Credits used by managed clusters */
   usedPureCredits?: number;
-}
+};

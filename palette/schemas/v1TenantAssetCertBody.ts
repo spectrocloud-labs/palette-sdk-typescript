@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantAssetCert } from "./tenantAssetCert";
+import type { TenantAssetCert } from './tenantAssetCert';
 
 export type V1TenantAssetCertBody = TenantAssetCert;

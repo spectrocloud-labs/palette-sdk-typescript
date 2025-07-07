@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterHealth } from "./appDeploymentClusterHealth";
+import type { AppDeploymentClusterHealth } from './appDeploymentClusterHealth';
 
 /**
  * Application deployment cluster status
  */
-export interface AppDeploymentClusterStatus {
+export type AppDeploymentClusterStatus = {
   health?: AppDeploymentClusterHealth;
   state?: string;
-}
+};

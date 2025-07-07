@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericMachine } from "./genericMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { GenericMachine } from './genericMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Generic machine list
  */
-export interface GenericMachines {
+export type GenericMachines = {
   items: GenericMachine[];
   listmeta?: ListMetaData;
-}
+};

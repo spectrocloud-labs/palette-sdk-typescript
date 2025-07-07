@@ -13,8 +13,8 @@
 /**
  * User meta entity
  */
-export interface UserMetaEntity {
+export type UserMetaEntity = {
   emailId?: string;
   name?: string;
   uid?: string;
-}
+};

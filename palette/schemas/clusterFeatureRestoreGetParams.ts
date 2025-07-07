@@ -11,5 +11,5 @@
  */
 
 export type ClusterFeatureRestoreGetParams = {
-  restoreRequestUid?: string;
+restoreRequestUid?: string;
 };

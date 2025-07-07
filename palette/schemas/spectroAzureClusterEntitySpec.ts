@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureClusterConfig } from "./azureClusterConfig";
-import type { ClusterConfigEntity } from "./clusterConfigEntity";
-import type { AzureMachinePoolConfigEntity } from "./azureMachinePoolConfigEntity";
-import type { SpectroClusterPolicies } from "./spectroClusterPolicies";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
+import type { AzureClusterConfig } from './azureClusterConfig';
+import type { ClusterConfigEntity } from './clusterConfigEntity';
+import type { AzureMachinePoolConfigEntity } from './azureMachinePoolConfigEntity';
+import type { SpectroClusterPolicies } from './spectroClusterPolicies';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
 
 export type SpectroAzureClusterEntitySpec = {
   /** Cloud account uid to be used for cluster provisioning */

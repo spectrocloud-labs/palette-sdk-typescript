@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsPartition } from "./awsPartition";
+import type { AwsPartition } from './awsPartition';
 
 /**
  * AWS cloud account sts
  */
-export interface AwsAccountSts {
+export type AwsAccountSts = {
   /** A 12-digit number, such as 123456789012, that uniquely identifies an AWS account */
   accountId?: string;
   /** It can be passed to the AssumeRole API of the STS. It can be used in the condition element in a role's trust policy, allowing the role to be assumed only when a certain value is present in the external ID */
   externalId?: string;
   partition?: AwsPartition;
-}
+};

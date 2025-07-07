@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { IpPoolInputEntitySpec } from "./ipPoolInputEntitySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { IpPoolInputEntitySpec } from './ipPoolInputEntitySpec';
 
 /**
  * IP Pool input entity definition
  */
-export interface IpPoolInputEntity {
+export type IpPoolInputEntity = {
   metadata?: ObjectMeta;
   spec?: IpPoolInputEntitySpec;
-}
+};

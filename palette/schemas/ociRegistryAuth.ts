@@ -13,9 +13,9 @@
 /**
  * Auth credentials of the oci registry
  */
-export interface OciRegistryAuth {
+export type OciRegistryAuth = {
   /** Password in the credentials */
   password?: string;
   /** Username in the credentials */
   username?: string;
-}
+};

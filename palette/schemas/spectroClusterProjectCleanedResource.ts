@@ -13,6 +13,6 @@
 /**
  * List of cleaned project spectro cluster resources
  */
-export interface SpectroClusterProjectCleanedResource {
+export type SpectroClusterProjectCleanedResource = {
   resources?: string[];
-}
+};

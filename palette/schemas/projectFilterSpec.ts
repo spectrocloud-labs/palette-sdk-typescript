@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
+import type { FilterString } from './filterString';
 
 /**
  * Project filter spec
  */
-export interface ProjectFilterSpec {
+export type ProjectFilterSpec = {
   name?: FilterString;
-}
+};

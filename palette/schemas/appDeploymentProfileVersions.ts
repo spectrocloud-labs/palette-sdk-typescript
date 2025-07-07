@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentProfileVersion } from "./appDeploymentProfileVersion";
-import type { AppDeploymentProfileMeta } from "./appDeploymentProfileMeta";
+import type { AppDeploymentProfileVersion } from './appDeploymentProfileVersion';
+import type { AppDeploymentProfileMeta } from './appDeploymentProfileMeta';
 
 /**
  * Application deployment profile versions
  */
-export interface AppDeploymentProfileVersions {
+export type AppDeploymentProfileVersions = {
   /** Application deployment profile available versions */
   availableVersions?: AppDeploymentProfileVersion[];
   /** Application deployment profile latest versions */
   latestVersions?: AppDeploymentProfileVersion[];
   metadata?: AppDeploymentProfileMeta;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryConfiguration } from "./registryConfiguration";
+import type { RegistryConfiguration } from './registryConfiguration';
 
 /**
  * Registry configuration entity
  */
-export interface RegistryConfigEntity {
+export type RegistryConfigEntity = {
   config?: RegistryConfiguration;
-}
+};

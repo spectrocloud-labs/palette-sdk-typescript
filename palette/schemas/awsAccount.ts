@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AwsCloudAccount } from "./awsCloudAccount";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { AwsCloudAccount } from './awsCloudAccount';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * Aws cloud account information
  */
-export interface AwsAccount {
+export type AwsAccount = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: AwsCloudAccount;
   status?: CloudAccountStatus;
-}
+};

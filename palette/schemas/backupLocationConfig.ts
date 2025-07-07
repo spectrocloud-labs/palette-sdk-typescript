@@ -13,8 +13,8 @@
 /**
  * Backup location configuration
  */
-export interface BackupLocationConfig {
+export type BackupLocationConfig = {
   name?: string;
   type?: string;
   uid?: string;
-}
+};

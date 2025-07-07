@@ -13,7 +13,7 @@
 /**
  * DataVolumeSourceImageIO provides the parameters to create a Data Volume from an imageio source
  */
-export interface VmDataVolumeSourceImageIO {
+export type VmDataVolumeSourceImageIO = {
   /** CertConfigMap provides a reference to the CA cert */
   certConfigMap?: string;
   /** DiskID provides id of a disk to be imported */
@@ -22,4 +22,4 @@ export interface VmDataVolumeSourceImageIO {
   secretRef?: string;
   /** URL is the URL of the ovirt-engine */
   url: string;
-}
+};

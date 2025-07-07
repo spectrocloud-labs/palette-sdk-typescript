@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestRefUpdateEntity } from "./manifestRefUpdateEntity";
-import type { PackType } from "./packType";
+import type { ManifestRefUpdateEntity } from './manifestRefUpdateEntity';
+import type { PackType } from './packType';
 
 /**
  * Pack values entity to refer the existing pack for the values override
  */
-export interface PackValuesEntity {
+export type PackValuesEntity = {
   /** Pack manifests are additional content as part of the profile */
   manifests?: ManifestRefUpdateEntity[];
   /** Pack name */
@@ -25,4 +25,4 @@ export interface PackValuesEntity {
   type?: PackType;
   /** Pack values represents the values.yaml used as input parameters either Params OR Values should be used, not both If both applied at the same time, will only use Values */
   values?: string;
-}
+};

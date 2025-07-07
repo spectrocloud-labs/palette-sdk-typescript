@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * transfer job details
  */
-export interface TransferJob {
+export type TransferJob = {
   finishTime?: Time;
   folder?: string;
   isCompleted?: boolean;
@@ -22,4 +22,4 @@ export interface TransferJob {
   startTime?: Time;
   state?: string;
   status?: string[];
-}
+};

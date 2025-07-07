@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadPodContainerResource } from "./clusterWorkloadPodContainerResource";
+import type { ClusterWorkloadPodContainerResource } from './clusterWorkloadPodContainerResource';
 
 /**
  * Cluster workload pod container resources
  */
-export interface ClusterWorkloadPodContainerResources {
+export type ClusterWorkloadPodContainerResources = {
   limits?: ClusterWorkloadPodContainerResource;
   requests?: ClusterWorkloadPodContainerResource;
-}
+};

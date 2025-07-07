@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ThemeSpec } from "./themeSpec";
-import type { ThemeStatus } from "./themeStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ThemeSpec } from './themeSpec';
+import type { ThemeStatus } from './themeStatus';
 
 /**
  * Theme data entity
  */
-export interface Theme {
+export type Theme = {
   metadata?: ObjectMeta;
   spec?: ThemeSpec;
   status?: ThemeStatus;
-}
+};

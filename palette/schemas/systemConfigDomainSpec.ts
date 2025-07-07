@@ -13,10 +13,10 @@
 /**
  * system domain config spec
  */
-export interface SystemConfigDomainSpec {
+export type SystemConfigDomainSpec = {
   apiServer?: string;
   derivedApiServer?: string;
   derivedRootDomain?: string;
   rootDomain?: string;
   urlProtocol?: string;
-}
+};

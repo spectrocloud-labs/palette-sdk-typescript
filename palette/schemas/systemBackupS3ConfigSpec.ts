@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemBackupSpec } from "./systemBackupSpec";
-import type { SystemS3Spec } from "./systemS3Spec";
+import type { SystemBackupSpec } from './systemBackupSpec';
+import type { SystemS3Spec } from './systemS3Spec';
 
 /**
  * system backup config spec
  */
-export interface SystemBackupS3ConfigSpec {
+export type SystemBackupS3ConfigSpec = {
   backupSpec?: SystemBackupSpec;
   s3?: SystemS3Spec;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectTagsEntity } from "./objectTagsEntity";
+import type { ObjectTagsEntity } from './objectTagsEntity';
 
 /**
  * Edge host device uid and name
  */
-export interface EdgeHostDeviceMetaUpdateEntity {
+export type EdgeHostDeviceMetaUpdateEntity = {
   metadata?: ObjectTagsEntity;
-}
+};

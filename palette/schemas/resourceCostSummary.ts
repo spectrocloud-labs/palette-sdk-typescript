@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceReference } from "./resourceReference";
-import type { ResourceCostDataPoint } from "./resourceCostDataPoint";
-import type { ResourceTotalCost } from "./resourceTotalCost";
+import type { ResourceReference } from './resourceReference';
+import type { ResourceCostDataPoint } from './resourceCostDataPoint';
+import type { ResourceTotalCost } from './resourceTotalCost';
 
 /**
  * Resource cost summary information
  */
-export interface ResourceCostSummary {
+export type ResourceCostSummary = {
   associatedResources?: ResourceReference[];
   data?: ResourceCostDataPoint[];
   entity?: ResourceReference;
   total?: ResourceTotalCost;
-}
+};

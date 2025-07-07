@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./archType";
-import type { SpectroTunnelConfig } from "./spectroTunnelConfig";
+import type { ArchType } from './archType';
+import type { SpectroTunnelConfig } from './spectroTunnelConfig';
 
 /**
  * Edge host device spec
  */
-export interface EdgeHostDeviceSpecEntity {
+export type EdgeHostDeviceSpecEntity = {
   archType?: ArchType;
   hostPairingKey?: string;
   tunnelConfig?: SpectroTunnelConfig;
-}
+};

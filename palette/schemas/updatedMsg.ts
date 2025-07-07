@@ -13,6 +13,6 @@
 /**
  * Update response with message
  */
-export interface UpdatedMsg {
+export type UpdatedMsg = {
   msg?: string;
-}
+};

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachine } from "./customMachine";
+import type { CustomMachine } from './customMachine';
 
 export type V1CustomMachineBody = CustomMachine;

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantCleanUpStatus } from "./tenantCleanUpStatus";
+import type { TenantCleanUpStatus } from './tenantCleanUpStatus';
 
 /**
  * Tenant Status
  */
-export interface TenantStatus {
+export type TenantStatus = {
   cleanUpStatus?: TenantCleanUpStatus;
   isActive?: boolean;
   toBeDeleted?: boolean;
-}
+};

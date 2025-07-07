@@ -13,4 +13,4 @@
 /**
  * Pack annotations is used to allow pack to add more arbitrary configurations
  */
-export type PackSummarySpecAnnotations = { [key: string]: string };
+export type PackSummarySpecAnnotations = {[key: string]: string};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackMachinePoolConfigAdditionalLabels } from "./openStackMachinePoolConfigAdditionalLabels";
-import type { OpenStackMachinePoolConfigAdditionalTags } from "./openStackMachinePoolConfigAdditionalTags";
-import type { OpenstackFlavorConfig } from "./openstackFlavorConfig";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { OpenStackResource } from "./openStackResource";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { OpenStackMachinePoolConfigAdditionalLabels } from './openStackMachinePoolConfigAdditionalLabels';
+import type { OpenStackMachinePoolConfigAdditionalTags } from './openStackMachinePoolConfigAdditionalTags';
+import type { OpenstackFlavorConfig } from './openstackFlavorConfig';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { OpenStackResource } from './openStackResource';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
-export interface OpenStackMachinePoolConfig {
+export type OpenStackMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: OpenStackMachinePoolConfigAdditionalLabels;
   /** AdditionalTags is an optional set of tags to add to resources managed by the provider, in addition to the ones added by default. For eg., tags for EKS nodeGroup or EKS NodegroupIAMRole */
@@ -50,4 +50,4 @@ export interface OpenStackMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

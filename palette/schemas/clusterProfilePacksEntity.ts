@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { PackSummarySpec } from "./packSummarySpec";
-import type { PackSummaryStatus } from "./packSummaryStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { PackSummarySpec } from './packSummarySpec';
+import type { PackSummaryStatus } from './packSummaryStatus';
 
 /**
  * Cluster profile packs object
  */
-export interface ClusterProfilePacksEntity {
+export type ClusterProfilePacksEntity = {
   metadata?: ObjectMeta;
   spec?: PackSummarySpec;
   status?: PackSummaryStatus;
-}
+};

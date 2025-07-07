@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaUpdateEntity } from "./objectMetaUpdateEntity";
-import type { ClusterNamespaceSpec } from "./clusterNamespaceSpec";
+import type { ObjectMetaUpdateEntity } from './objectMetaUpdateEntity';
+import type { ClusterNamespaceSpec } from './clusterNamespaceSpec';
 
 /**
  * Cluster Namespace resource defintion
  */
-export interface ClusterNamespaceResourceInputEntity {
+export type ClusterNamespaceResourceInputEntity = {
   metadata?: ObjectMetaUpdateEntity;
   spec?: ClusterNamespaceSpec;
-}
+};

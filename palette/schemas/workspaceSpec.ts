@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterNamespace } from "./workspaceClusterNamespace";
-import type { ClusterRbac } from "./clusterRbac";
-import type { WorkspaceClusterRef } from "./workspaceClusterRef";
-import type { WorkspacePolicies } from "./workspacePolicies";
-import type { WorkspaceQuota } from "./workspaceQuota";
+import type { WorkspaceClusterNamespace } from './workspaceClusterNamespace';
+import type { ClusterRbac } from './clusterRbac';
+import type { WorkspaceClusterRef } from './workspaceClusterRef';
+import type { WorkspacePolicies } from './workspacePolicies';
+import type { WorkspaceQuota } from './workspaceQuota';
 
 /**
  * Workspace specifications
  */
-export interface WorkspaceSpec {
+export type WorkspaceSpec = {
   clusterNamespaces?: WorkspaceClusterNamespace[];
   clusterRbacs?: ClusterRbac[];
   clusterRefs?: WorkspaceClusterRef[];
   policies?: WorkspacePolicies;
   quota?: WorkspaceQuota;
-}
+};

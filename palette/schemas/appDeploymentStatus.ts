@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterPackStatus } from "./clusterPackStatus";
-import type { LifecycleStatus } from "./lifecycleStatus";
+import type { ClusterPackStatus } from './clusterPackStatus';
+import type { LifecycleStatus } from './lifecycleStatus';
 
 /**
  * Application deployment status
  */
-export interface AppDeploymentStatus {
+export type AppDeploymentStatus = {
   /** Application deployment tiers */
   appTiers?: ClusterPackStatus[];
   lifecycleStatus?: LifecycleStatus;
   /** Application deployment state [ "Pending", "Deploying", "Deployed", "Updating" ] */
   state?: string;
-}
+};

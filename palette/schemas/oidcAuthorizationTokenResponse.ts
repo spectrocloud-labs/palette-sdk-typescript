@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OidcAuthorizationTokenResponseRaw } from "./oidcAuthorizationTokenResponseRaw";
+import type { OidcAuthorizationTokenResponseRaw } from './oidcAuthorizationTokenResponseRaw';
 
-export interface OidcAuthorizationTokenResponse {
+export type OidcAuthorizationTokenResponse = {
   access_token?: string;
   error?: string;
   error_description?: string;
@@ -20,4 +20,4 @@ export interface OidcAuthorizationTokenResponse {
   raw?: OidcAuthorizationTokenResponseRaw;
   refresh_token?: string;
   scope?: string;
-}
+};

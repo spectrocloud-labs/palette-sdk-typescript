@@ -13,6 +13,6 @@
 /**
  * Pack params request payload
  */
-export interface PackParamsEntity {
+export type PackParamsEntity = {
   references?: string[];
-}
+};

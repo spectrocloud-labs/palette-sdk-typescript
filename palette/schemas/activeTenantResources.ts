@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ActiveTenantResourcesActiveResources } from "./activeTenantResourcesActiveResources";
+import type { ActiveTenantResourcesActiveResources } from './activeTenantResourcesActiveResources';
 
 /**
  * Active resources of tenant
  */
-export interface ActiveTenantResources {
+export type ActiveTenantResources = {
   activeResources?: ActiveTenantResourcesActiveResources;
-}
+};

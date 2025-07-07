@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserInfoResponse {
+export type UserInfoResponse = {
   /** End-User's preferred postal address */
   address?: string;
   /** End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] YYYY-MM-DD format */
@@ -51,4 +51,4 @@ export interface UserInfoResponse {
   website?: string;
   /** String from zoneinfo [zoneinfo] time zone database representing the End-User's time zone */
   zoneinfo?: string;
-}
+};

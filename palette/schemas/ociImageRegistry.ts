@@ -13,7 +13,7 @@
 /**
  * Oci Image Registry
  */
-export interface OciImageRegistry {
+export type OciImageRegistry = {
   /** baseContentPath is the root path for the registry content */
   baseContentPath?: string;
   caCert?: string;
@@ -24,4 +24,4 @@ export interface OciImageRegistry {
   name?: string;
   password?: string;
   username?: string;
-}
+};

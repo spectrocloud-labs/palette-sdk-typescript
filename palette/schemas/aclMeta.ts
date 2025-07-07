@@ -13,11 +13,11 @@
 /**
  * Resource access control information (Read-only response data)
  */
-export interface AclMeta {
+export type AclMeta = {
   /** User or service uid which created the resource */
   ownerUid?: string;
   /** Project's uid if the resource is under a project */
   projectUid?: string;
   /** Tenant's uid */
   tenantUid?: string;
-}
+};

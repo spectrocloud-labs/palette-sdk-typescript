@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { SystemAdminProfileSpec } from "./systemAdminProfileSpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { SystemAdminProfileSpec } from './systemAdminProfileSpec';
 
 /**
  * System Administrator Profile Entity
  */
-export interface SystemAdminProfile {
+export type SystemAdminProfile = {
   metadata?: ObjectMetaInputEntity;
   spec?: SystemAdminProfileSpec;
-}
+};

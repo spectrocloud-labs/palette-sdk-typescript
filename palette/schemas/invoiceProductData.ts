@@ -13,7 +13,7 @@
 /**
  * Product invoice data
  */
-export interface InvoiceProductData {
+export type InvoiceProductData = {
   /** Allocated credits */
   allocatedCredits?: number;
   /** Total amount */
@@ -36,4 +36,4 @@ export interface InvoiceProductData {
   totalUsedCredits?: number;
   /** Used credits */
   usedCredits?: number;
-}
+};

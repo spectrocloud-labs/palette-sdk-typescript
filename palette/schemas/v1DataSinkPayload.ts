@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Data sink payload entity
  */
-export interface V1DataSinkPayload {
+export type V1DataSinkPayload = {
   /** RefUid of the data sink payload */
   refUid?: string;
   timestamp?: Time;
-  [key: string]: { [key: string]: unknown };
-}
+  [key: string]: unknown;
+};

@@ -11,8 +11,8 @@
  */
 
 export type EdgeHostDevicesUidGetParams = {
-  /**
-   * resolve pack values if set to true
-   */
-  resolvePackValues?: boolean;
+/**
+ * resolve pack values if set to true
+ */
+resolvePackValues?: boolean;
 };

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterKeyValueOperator } from "./searchFilterKeyValueOperator";
+import type { SearchFilterKeyValueOperator } from './searchFilterKeyValueOperator';
 
-export interface TagFilterItem {
+export type TagFilterItem = {
   key?: string;
   negation?: boolean;
   operator?: SearchFilterKeyValueOperator;
   values?: string[];
-}
+};

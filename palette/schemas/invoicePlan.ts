@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InvoicePlanCredit } from "./invoicePlanCredit";
-import type { InvoicePlanPlantype } from "./invoicePlanPlantype";
+import type { InvoicePlanCredit } from './invoicePlanCredit';
+import type { InvoicePlanPlantype } from './invoicePlanPlantype';
 
 /**
  * Invoice plan object
  */
-export interface InvoicePlan {
+export type InvoicePlan = {
   /** List of free credits */
   freeCredits?: InvoicePlanCredit[];
   plantype?: InvoicePlanPlantype;
   /** List of SLA credits */
   slaCredits?: InvoicePlanCredit[];
-}
+};

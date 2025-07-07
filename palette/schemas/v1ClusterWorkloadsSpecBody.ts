@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadsSpec } from "./clusterWorkloadsSpec";
+import type { ClusterWorkloadsSpec } from './clusterWorkloadsSpec';
 
 export type V1ClusterWorkloadsSpecBody = ClusterWorkloadsSpec;

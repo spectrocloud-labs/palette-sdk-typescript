@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterComplianceScanSyftDriverConfigFormat } from "./clusterComplianceScanSyftDriverConfigFormat";
-import type { ObjectEntity } from "./objectEntity";
-import type { ClusterComplianceScanSyftDriverConfigScope } from "./clusterComplianceScanSyftDriverConfigScope";
+import type { ClusterComplianceScanSyftDriverConfigFormat } from './clusterComplianceScanSyftDriverConfigFormat';
+import type { ObjectEntity } from './objectEntity';
+import type { ClusterComplianceScanSyftDriverConfigScope } from './clusterComplianceScanSyftDriverConfigScope';
 
 /**
  * Cluster compliance scan specification
  */
-export interface ClusterComplianceScanSyftDriverConfig {
+export type ClusterComplianceScanSyftDriverConfig = {
   format?: ClusterComplianceScanSyftDriverConfigFormat;
   labelSelector?: string;
   location?: ObjectEntity;
   namespace?: string;
   podName?: string;
   scope?: ClusterComplianceScanSyftDriverConfigScope;
-}
+};

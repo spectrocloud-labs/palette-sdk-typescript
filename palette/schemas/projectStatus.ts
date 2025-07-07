@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectCleanUpStatus } from "./projectCleanUpStatus";
+import type { ProjectCleanUpStatus } from './projectCleanUpStatus';
 
 /**
  * Project status
  */
-export interface ProjectStatus {
+export type ProjectStatus = {
   cleanUpStatus?: ProjectCleanUpStatus;
   isDisabled?: boolean;
-}
+};

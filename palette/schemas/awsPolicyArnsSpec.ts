@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
 /**
  * Aws policy ARNs spec
  */
-export interface AwsPolicyArnsSpec {
+export type AwsPolicyArnsSpec = {
   account: AwsCloudAccount;
   policyArns: string[];
-}
+};

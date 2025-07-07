@@ -13,6 +13,6 @@
 /**
  * Cluster feature schedule
  */
-export interface ClusterFeatureSchedule {
+export type ClusterFeatureSchedule = {
   scheduledRunTime?: string;
-}
+};

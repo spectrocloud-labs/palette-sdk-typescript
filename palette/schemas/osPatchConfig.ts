@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
-export interface OsPatchConfig {
+export type OsPatchConfig = {
   onDemandPatchAfter?: Time;
   /** PatchOnBoot indicates need to do patch when node first boot up, only once */
   patchOnBoot?: boolean;
@@ -19,4 +19,4 @@ export interface OsPatchConfig {
   rebootIfRequired?: boolean;
   /** The schedule at which security patches will be applied to OS. Schedule should be in Cron format, see https://en.wikipedia.org/wiki/Cron for more help. */
   schedule?: string;
-}
+};

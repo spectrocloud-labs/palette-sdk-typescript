@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ServicePort } from "./servicePort";
+import type { ServicePort } from './servicePort';
 
-export interface LoadBalancerService {
+export type LoadBalancerService = {
   /** IP or Host from svc.Status.LoadBalancerStatus.Ingress */
   host?: string;
   /** name of the loadbalancer service */
   name?: string;
   /** port this service exposed */
   ports?: ServicePort[];
-}
+};

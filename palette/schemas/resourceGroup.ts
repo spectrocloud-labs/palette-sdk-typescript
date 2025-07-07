@@ -13,11 +13,11 @@
 /**
  * Azure resource Group is a container that holds related resources for an Azure solution
  */
-export interface ResourceGroup {
+export type ResourceGroup = {
   /** The ID of the resource group */
   id?: string;
   /** The location of the resource group. It cannot be changed after the resource group has been created */
   location?: string;
   /** The type of the resource group */
   name?: string;
-}
+};

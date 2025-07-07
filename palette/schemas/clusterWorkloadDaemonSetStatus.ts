@@ -13,11 +13,11 @@
 /**
  * Cluster workload daemonset status
  */
-export interface ClusterWorkloadDaemonSetStatus {
+export type ClusterWorkloadDaemonSetStatus = {
   available?: number;
   currentScheduled?: number;
   desiredScheduled?: number;
   misScheduled?: number;
   ready?: number;
   updatedScheduled?: number;
-}
+};

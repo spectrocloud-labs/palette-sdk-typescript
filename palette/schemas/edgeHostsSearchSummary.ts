@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostsMetadata } from "./edgeHostsMetadata";
-import type { ListMetaData } from "./listMetaData";
+import type { EdgeHostsMetadata } from './edgeHostsMetadata';
+import type { ListMetaData } from './listMetaData';
 
-export interface EdgeHostsSearchSummary {
+export type EdgeHostsSearchSummary = {
   items: EdgeHostsMetadata[];
   listmeta?: ListMetaData;
-}
+};

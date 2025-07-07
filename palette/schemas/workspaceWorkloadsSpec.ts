@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceWorkloadsFilter } from "./workspaceWorkloadsFilter";
+import type { WorkspaceWorkloadsFilter } from './workspaceWorkloadsFilter';
 
 /**
  * Workspace workloads spec
  */
-export interface WorkspaceWorkloadsSpec {
+export type WorkspaceWorkloadsSpec = {
   filter?: WorkspaceWorkloadsFilter;
-}
+};

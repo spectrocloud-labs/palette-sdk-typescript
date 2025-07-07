@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FargateProfile } from "./fargateProfile";
+import type { FargateProfile } from './fargateProfile';
 
 /**
  * Fargate profiles
  */
-export interface EksFargateProfiles {
+export type EksFargateProfiles = {
   fargateProfiles?: FargateProfile[];
-}
+};

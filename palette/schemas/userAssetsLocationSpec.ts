@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LocationType } from "./locationType";
+import type { LocationType } from './locationType';
 
 /**
  * Location specification
  */
-export interface UserAssetsLocationSpec {
+export type UserAssetsLocationSpec = {
   isDefault?: boolean;
   storage?: LocationType;
   type?: string;
-}
+};

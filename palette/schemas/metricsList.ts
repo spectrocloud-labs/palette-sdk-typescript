@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MetricMetadata } from "./metricMetadata";
-import type { Metrics } from "./metrics";
+import type { MetricMetadata } from './metricMetadata';
+import type { Metrics } from './metrics';
 
-export interface MetricsList {
+export type MetricsList = {
   metadata?: MetricMetadata;
   metrics?: Metrics[];
-}
+};

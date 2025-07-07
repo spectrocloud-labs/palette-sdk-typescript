@@ -13,9 +13,9 @@
 /**
  * Application tier property object
  */
-export interface AppTierPropertyEntity {
+export type AppTierPropertyEntity = {
   /** Application tier property name */
   name?: string;
   /** Application tier property value */
   value?: string;
-}
+};

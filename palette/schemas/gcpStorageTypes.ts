@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { StorageType } from "./storageType";
+import type { StorageType } from './storageType';
 
 /**
  * List of GCP storage types
  */
-export interface GcpStorageTypes {
+export type GcpStorageTypes = {
   storageTypes?: StorageType[];
-}
+};

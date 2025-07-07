@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ClusterGroupSpec } from "./clusterGroupSpec";
-import type { ClusterGroupStatus } from "./clusterGroupStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ClusterGroupSpec } from './clusterGroupSpec';
+import type { ClusterGroupStatus } from './clusterGroupStatus';
 
 /**
  * Cluster group information
  */
-export interface ClusterGroup {
+export type ClusterGroup = {
   metadata?: ObjectMeta;
   spec?: ClusterGroupSpec;
   status?: ClusterGroupStatus;
-}
+};

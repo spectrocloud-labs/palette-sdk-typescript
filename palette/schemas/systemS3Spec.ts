@@ -13,10 +13,10 @@
 /**
  * system backup s3 storage config spec
  */
-export interface SystemS3Spec {
+export type SystemS3Spec = {
   accessKey?: string;
   bucket?: string;
   folder?: string;
   region?: string;
   secretKey?: string;
-}
+};

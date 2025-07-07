@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomClusterConfig } from "./customClusterConfig";
+import type { CustomClusterConfig } from './customClusterConfig';
 
 /**
  * Custom cloud cluster config entity
  */
-export interface CustomCloudClusterConfigEntity {
+export type CustomCloudClusterConfigEntity = {
   clusterConfig?: CustomClusterConfig;
-}
+};

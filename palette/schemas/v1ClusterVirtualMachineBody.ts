@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterVirtualMachine } from "./clusterVirtualMachine";
+import type { ClusterVirtualMachine } from './clusterVirtualMachine';
 
 export type V1ClusterVirtualMachineBody = ClusterVirtualMachine;

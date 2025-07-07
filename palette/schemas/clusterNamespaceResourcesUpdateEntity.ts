@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterNamespaceResourceInputEntity } from "./clusterNamespaceResourceInputEntity";
+import type { ClusterNamespaceResourceInputEntity } from './clusterNamespaceResourceInputEntity';
 
-export interface ClusterNamespaceResourcesUpdateEntity {
+export type ClusterNamespaceResourcesUpdateEntity = {
   namespaces?: ClusterNamespaceResourceInputEntity[];
-}
+};

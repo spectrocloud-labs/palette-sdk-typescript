@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostNetwork } from "./edgeHostNetwork";
-import type { EdgeHostStoragePool } from "./edgeHostStoragePool";
+import type { EdgeHostNetwork } from './edgeHostNetwork';
+import type { EdgeHostStoragePool } from './edgeHostStoragePool';
 
 /**
  * Additional properties of edge host
  */
-export interface EdgeHostProperties {
+export type EdgeHostProperties = {
   networks?: EdgeHostNetwork[];
   storagePools?: EdgeHostStoragePool[];
-}
+};

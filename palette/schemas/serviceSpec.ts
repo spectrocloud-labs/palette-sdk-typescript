@@ -13,7 +13,7 @@
 /**
  * ServiceSpec defines the specification of service registering edge
  */
-export interface ServiceSpec {
+export type ServiceSpec = {
   name?: string;
   version?: string;
-}
+};

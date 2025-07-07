@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SonobuoyEntityReports } from "./sonobuoyEntityReports";
-import type { SonobuoyEntityStatus } from "./sonobuoyEntityStatus";
+import type { SonobuoyEntityReports } from './sonobuoyEntityReports';
+import type { SonobuoyEntityStatus } from './sonobuoyEntityStatus';
 
 /**
  * Sonobuoy response
  */
-export interface SonobuoyEntity {
+export type SonobuoyEntity = {
   reports: SonobuoyEntityReports;
   requestUid: string;
   status: SonobuoyEntityStatus;
-}
+};

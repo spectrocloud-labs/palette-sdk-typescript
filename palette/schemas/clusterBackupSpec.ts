@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterBackupConfig } from "./clusterBackupConfig";
+import type { ClusterBackupConfig } from './clusterBackupConfig';
 
 /**
  * Cluster Backup Spec
  */
-export interface ClusterBackupSpec {
+export type ClusterBackupSpec = {
   clusterUid?: string;
   config?: ClusterBackupConfig;
-}
+};

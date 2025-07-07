@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Cluster compliance scan Time
  */
-export interface ClusterScanTime {
+export type ClusterScanTime = {
   endTime?: Time;
   startTime?: Time;
-}
+};

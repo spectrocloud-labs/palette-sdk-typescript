@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackImportEntity } from "./packImportEntity";
+import type { PackImportEntity } from './packImportEntity';
 
 /**
  * Cluster profile import template
  */
-export interface ClusterProfileTemplateImportEntity {
+export type ClusterProfileTemplateImportEntity = {
   /** Cluster profile cloud type */
   cloudType?: string;
   /** Cluster profile packs array */
   packs?: PackImportEntity[];
   /** Cluster profile type [ "cluster", "infra", "add-on", "system" ] */
   type?: string;
-}
+};

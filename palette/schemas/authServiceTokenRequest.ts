@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthServiceTokenRequest {
+export type AuthServiceTokenRequest = {
   authKey?: string;
   edgeHostUid?: string;
   hostClusterUid?: string;
@@ -20,4 +20,4 @@ export interface AuthServiceTokenRequest {
   serviceVersion?: string;
   spectroClusterUid?: string;
   tenantUid?: string;
-}
+};

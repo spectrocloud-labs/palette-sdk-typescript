@@ -11,5 +11,5 @@
  */
 
 export type ClusterFeatureSonobuoyLogGetParams = {
-  reportId?: string;
+reportId?: string;
 };

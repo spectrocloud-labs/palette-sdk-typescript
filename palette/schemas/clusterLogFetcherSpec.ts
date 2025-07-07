@@ -13,7 +13,7 @@
 /**
  * Cluster Log Fetcher Spec
  */
-export interface ClusterLogFetcherSpec {
+export type ClusterLogFetcherSpec = {
   clusterUid?: string;
   log?: string;
-}
+};

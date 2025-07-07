@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsResourceReference } from "./awsResourceReference";
-import type { AwsNic } from "./awsNic";
+import type { AwsResourceReference } from './awsResourceReference';
+import type { AwsNic } from './awsNic';
 
 /**
  * AWS cloud VM definition spec
  */
-export interface AwsMachineSpec {
+export type AwsMachineSpec = {
   /** Additional Security groups */
   additionalSecurityGroups?: AwsResourceReference[];
   ami: string;
@@ -29,4 +29,4 @@ export interface AwsMachineSpec {
   subnetId?: string;
   type?: string;
   vpcId: string;
-}
+};

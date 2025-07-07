@@ -9,8 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppCronJobStatus } from "./mgmtAppCronJobStatus";
+import type { MgmtAppCronJobStatus } from './mgmtAppCronJobStatus';
 
-export type MgmtAppNameSpaceStatusCronJobs = {
-  [key: string]: MgmtAppCronJobStatus;
-};
+export type MgmtAppNameSpaceStatusCronJobs = {[key: string]: MgmtAppCronJobStatus};

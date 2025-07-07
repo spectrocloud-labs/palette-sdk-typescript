@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AzureAccountEntitySpecClientCloud } from "./v1AzureAccountEntitySpecClientCloud";
+import type { V1AzureAccountEntitySpecClientCloud } from './v1AzureAccountEntitySpecClientCloud';
 
-export interface V1AzureAccountEntitySpec {
+export type V1AzureAccountEntitySpec = {
   /** Contains configuration for Azure cloud */
   clientCloud?: V1AzureAccountEntitySpecClientCloud;
   clientId?: string;
   clientSecret?: string;
   subscriptionId?: string;
   tenantId?: string;
-}
+};

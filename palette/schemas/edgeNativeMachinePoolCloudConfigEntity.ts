@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeMachinePoolHostEntity } from "./edgeNativeMachinePoolHostEntity";
+import type { EdgeNativeMachinePoolHostEntity } from './edgeNativeMachinePoolHostEntity';
 
-export interface EdgeNativeMachinePoolCloudConfigEntity {
+export type EdgeNativeMachinePoolCloudConfigEntity = {
   edgeHosts: EdgeNativeMachinePoolHostEntity[];
-}
+};

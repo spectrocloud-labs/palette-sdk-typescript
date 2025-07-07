@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmMemoryDumpVolumeSource {
+export type VmMemoryDumpVolumeSource = {
   /** ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims */
   claimName: string;
   /** Hotpluggable indicates whether the volume can be hotplugged and hotunplugged. */
   hotpluggable?: boolean;
   /** Will force the ReadOnly setting in VolumeMounts. Default false. */
   readOnly?: boolean;
-}
+};

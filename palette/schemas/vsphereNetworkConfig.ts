@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IPPool } from "./iPPool";
-import type { ObjectReference } from "./objectReference";
+import type { IPPool } from './iPPool';
+import type { ObjectReference } from './objectReference';
 
-export interface VsphereNetworkConfig {
+export type VsphereNetworkConfig = {
   ipPool?: IPPool;
   /** NetworkName is the name of the network in which VMs are created/located. */
   networkName: string;
   parentPoolRef?: ObjectReference;
   /** support dhcp or static IP, if false, use DHCP */
   staticIp?: boolean;
-}
+};

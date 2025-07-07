@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type PackRefSummaryAnnotations = { [key: string]: string };
+export type PackRefSummaryAnnotations = {[key: string]: string};

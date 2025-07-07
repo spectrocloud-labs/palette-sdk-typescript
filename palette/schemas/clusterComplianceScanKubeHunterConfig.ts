@@ -13,6 +13,6 @@
 /**
  * Cluster compliance scan config for kube hunter driver
  */
-export interface ClusterComplianceScanKubeHunterConfig {
+export type ClusterComplianceScanKubeHunterConfig = {
   runScan?: boolean;
-}
+};

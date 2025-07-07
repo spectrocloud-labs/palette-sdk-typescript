@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileCloneTarget } from "./appProfileCloneTarget";
+import type { AppProfileCloneTarget } from './appProfileCloneTarget';
 
 /**
  * Application profile clone metadata
  */
-export interface AppProfileCloneMetaInputEntity {
+export type AppProfileCloneMetaInputEntity = {
   /** Application profile name */
   name: string;
   target?: AppProfileCloneTarget;
   /** Application profile version */
   version?: string;
-}
+};

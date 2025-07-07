@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmNodeAffinity } from "./vmNodeAffinity";
-import type { VmPodAffinity } from "./vmPodAffinity";
-import type { PodAntiAffinity } from "./podAntiAffinity";
+import type { VmNodeAffinity } from './vmNodeAffinity';
+import type { VmPodAffinity } from './vmPodAffinity';
+import type { PodAntiAffinity } from './podAntiAffinity';
 
 /**
  * Affinity is a group of affinity scheduling rules.
  */
-export interface VmAffinity {
+export type VmAffinity = {
   nodeAffinity?: VmNodeAffinity;
   podAffinity?: VmPodAffinity;
   podAntiAffinity?: PodAntiAffinity;
-}
+};

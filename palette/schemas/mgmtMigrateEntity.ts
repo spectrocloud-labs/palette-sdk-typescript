@@ -13,7 +13,7 @@
 /**
  * SystemAdmin
  */
-export interface MgmtMigrateEntity {
+export type MgmtMigrateEntity = {
   db?: string;
   host?: string;
   isServiceRecord?: boolean;
@@ -21,4 +21,4 @@ export interface MgmtMigrateEntity {
   port?: number;
   uri?: string;
   username?: string;
-}
+};

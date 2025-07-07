@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereComputeCluster } from "./vsphereComputeCluster";
+import type { VsphereComputeCluster } from './vsphereComputeCluster';
 
 /**
  * Vsphere datacenter
  */
-export interface VsphereCloudDatacenter {
+export type VsphereCloudDatacenter = {
   computeClusters?: VsphereComputeCluster[];
   folders?: string[];
   name?: string;
-}
+};

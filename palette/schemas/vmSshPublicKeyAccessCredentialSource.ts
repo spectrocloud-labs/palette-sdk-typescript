@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmAccessCredentialSecretSource } from "./vmAccessCredentialSecretSource";
+import type { VmAccessCredentialSecretSource } from './vmAccessCredentialSecretSource';
 
 /**
  * SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.
  */
-export interface VmSshPublicKeyAccessCredentialSource {
+export type VmSshPublicKeyAccessCredentialSource = {
   secret?: VmAccessCredentialSecretSource;
-}
+};

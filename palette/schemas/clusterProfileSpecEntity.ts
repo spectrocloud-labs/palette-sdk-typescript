@@ -13,7 +13,7 @@
 /**
  * Cluster profile update spec
  */
-export interface ClusterProfileSpecEntity {
+export type ClusterProfileSpecEntity = {
   /** Cluster profile version */
   version?: string;
-}
+};

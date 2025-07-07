@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
+import type { ObjectReference } from './objectReference';
 
-export interface HostClusterConfigResponse {
+export type HostClusterConfigResponse = {
   clusterGroup?: ObjectReference;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { CustomCloudConfigSpec } from "./customCloudConfigSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { CustomCloudConfigSpec } from './customCloudConfigSpec';
 
 /**
  * CustomCloudConfig is the Schema for the custom cloudconfigs API
  */
-export interface CustomCloudConfig {
+export type CustomCloudConfig = {
   /** Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds */
   kind?: string;
   metadata?: ObjectMeta;
   spec?: CustomCloudConfigSpec;
-}
+};

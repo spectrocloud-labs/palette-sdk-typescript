@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface GcpAccountSpec {
+export type GcpAccountSpec = {
   /** Gcp cloud account json credentials */
   jsonCredentials?: string;
   /** Reference of the credentials stored in the file */
   jsonCredentialsFileName?: string;
-}
+};

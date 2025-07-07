@@ -13,7 +13,7 @@
 /**
  * Azure Machine Spec Image
  */
-export interface AzureMachineSpecImage {
+export type AzureMachineSpecImage = {
   gallery?: string;
   id?: string;
   name?: string;
@@ -23,4 +23,4 @@ export interface AzureMachineSpecImage {
   sku?: string;
   subscriptionId?: string;
   version?: string;
-}
+};

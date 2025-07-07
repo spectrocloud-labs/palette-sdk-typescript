@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UidSummary } from "./uidSummary";
+import type { UidSummary } from './uidSummary';
 
-export interface TeamSpecSummary {
+export type TeamSpecSummary = {
   emailId?: string;
   projects?: UidSummary[];
   roles?: UidSummary[];
   users?: UidSummary[];
-}
+};

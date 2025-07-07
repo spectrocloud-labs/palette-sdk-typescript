@@ -13,7 +13,7 @@
 /**
  * APIServerAccessProfile - access profile for AKS API server.
  */
-export interface APIServerAccessProfile {
+export type APIServerAccessProfile = {
   /** AuthorizedIPRanges - Authorized IP Ranges to kubernetes API server. */
   authorizedIPRanges?: string[];
   /** EnablePrivateCluster - Whether to create the cluster as a private cluster or not. */
@@ -22,4 +22,4 @@ export interface APIServerAccessProfile {
   enablePrivateClusterPublicFQDN?: boolean;
   /** PrivateDNSZone - Private dns zone mode for private cluster. */
   privateDNSZone?: string;
-}
+};

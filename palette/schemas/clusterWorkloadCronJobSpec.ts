@@ -13,6 +13,6 @@
 /**
  * Cluster workload cronjob spec
  */
-export interface ClusterWorkloadCronJobSpec {
+export type ClusterWorkloadCronJobSpec = {
   schedule?: string;
-}
+};

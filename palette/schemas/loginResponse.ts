@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LoginResponseAuthType } from "./loginResponseAuthType";
-import type { SsoLogins } from "./ssoLogins";
+import type { LoginResponseAuthType } from './loginResponseAuthType';
+import type { SsoLogins } from './ssoLogins';
 
 /**
  * Returns the allowed login method and information with the organization details
  */
-export interface LoginResponse {
+export type LoginResponse = {
   /** Describes the env type. Possible values [ saas, self-hosted, quick-start, enterprise, airgap] */
   appEnv?: string;
   /** Describes the default mode of authentication. Possible values [password, sso] */
@@ -31,4 +31,4 @@ export interface LoginResponse {
   ssoLogins?: SsoLogins;
   /** Describes the total number of tenant present in the system */
   totalTenants?: number;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereImage } from "./vsphereImage";
-import type { VsphereInstanceType } from "./vsphereInstanceType";
-import type { VsphereNic } from "./vsphereNic";
-import type { VspherePlacementConfig } from "./vspherePlacementConfig";
+import type { VsphereImage } from './vsphereImage';
+import type { VsphereInstanceType } from './vsphereInstanceType';
+import type { VsphereNic } from './vsphereNic';
+import type { VspherePlacementConfig } from './vspherePlacementConfig';
 
 /**
  * vSphere cloud VM definition spec
  */
-export interface VsphereMachineSpec {
+export type VsphereMachineSpec = {
   images?: VsphereImage[];
   instanceType?: VsphereInstanceType;
   nics: VsphereNic[];
@@ -26,4 +26,4 @@ export interface VsphereMachineSpec {
   placement: VspherePlacementConfig;
   /** VcenterServer is the address of the vSphere endpoint */
   vcenterServer: string;
-}
+};

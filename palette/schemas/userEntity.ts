@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { UserSpecEntity } from "./userSpecEntity";
+import type { ObjectMeta } from './objectMeta';
+import type { UserSpecEntity } from './userSpecEntity';
 
 /**
  * User
  */
-export interface UserEntity {
+export type UserEntity = {
   metadata?: ObjectMeta;
   spec?: UserSpecEntity;
-}
+};

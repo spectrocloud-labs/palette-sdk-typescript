@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasZone } from "./maasZone";
+import type { MaasZone } from './maasZone';
 
 /**
  * List of Maas zones
  */
-export interface MaasZones {
+export type MaasZones = {
   items: MaasZone[];
-}
+};

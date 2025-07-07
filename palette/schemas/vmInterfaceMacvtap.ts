@@ -13,6 +13,4 @@
 /**
  * InterfaceMacvtap connects to a given network by extending the Kubernetes node's L2 networks via a macvtap interface.
  */
-export interface VmInterfaceMacvtap {
-  [key: string]: unknown;
-}
+export type VmInterfaceMacvtap = { [key: string]: unknown };

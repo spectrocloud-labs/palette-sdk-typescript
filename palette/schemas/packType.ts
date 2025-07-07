@@ -10,12 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type PackType = (typeof PackType)[keyof typeof PackType];
+export type PackType = typeof PackType[keyof typeof PackType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PackType = {
-  spectro: "spectro",
-  helm: "helm",
-  manifest: "manifest",
-  oci: "oci",
+  spectro: 'spectro',
+  helm: 'helm',
+  manifest: 'manifest',
+  oci: 'oci',
 } as const;

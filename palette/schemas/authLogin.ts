@@ -13,11 +13,11 @@
 /**
  * Describes the credential details required for authentication
  */
-export interface AuthLogin {
+export type AuthLogin = {
   /** Describes the email id required for the user to authenticate */
   emailId?: string;
   /** Describes the user's organization name to login */
   org?: string;
   /** Describes the password required for the user to authenticate */
   password?: string;
-}
+};

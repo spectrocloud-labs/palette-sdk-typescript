@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterDateConditionMatch } from "./searchFilterDateConditionMatch";
-import type { SearchFilterDateOperator } from "./searchFilterDateOperator";
+import type { SearchFilterDateConditionMatch } from './searchFilterDateConditionMatch';
+import type { SearchFilterDateOperator } from './searchFilterDateOperator';
 
-export interface SearchFilterDateCondition {
+export type SearchFilterDateCondition = {
   match?: SearchFilterDateConditionMatch;
   negation?: boolean;
   operator?: SearchFilterDateOperator;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanRenewal } from "./planRenewal";
+import type { PlanRenewal } from './planRenewal';
 
 /**
  * Plan add renawal update entity
  */
-export interface PlanRenewalUpdate {
+export type PlanRenewalUpdate = {
   renewal?: PlanRenewal;
-}
+};

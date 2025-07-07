@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroMaasClusterEntitySpec } from "./spectroMaasClusterEntitySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroMaasClusterEntitySpec } from './spectroMaasClusterEntitySpec';
 
 /**
  * Spectro Maas cluster request payload for create and update
  */
-export interface SpectroMaasClusterEntity {
+export type SpectroMaasClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroMaasClusterEntitySpec;
-}
+};

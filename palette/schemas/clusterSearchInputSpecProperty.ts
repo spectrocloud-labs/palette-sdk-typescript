@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectEntity } from "./objectEntity";
+import type { ObjectEntity } from './objectEntity';
 
-export interface ClusterSearchInputSpecProperty {
+export type ClusterSearchInputSpecProperty = {
   values?: ObjectEntity[];
-}
+};

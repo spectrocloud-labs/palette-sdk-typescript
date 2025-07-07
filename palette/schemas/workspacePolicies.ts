@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupConfigEntity } from "./workspaceBackupConfigEntity";
+import type { WorkspaceBackupConfigEntity } from './workspaceBackupConfigEntity';
 
 /**
  * Workspace policies
  */
-export interface WorkspacePolicies {
+export type WorkspacePolicies = {
   backupPolicy?: WorkspaceBackupConfigEntity;
-}
+};

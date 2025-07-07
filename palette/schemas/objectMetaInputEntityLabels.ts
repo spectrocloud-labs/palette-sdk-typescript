@@ -13,4 +13,4 @@
 /**
  * Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
  */
-export type ObjectMetaInputEntityLabels = { [key: string]: string };
+export type ObjectMetaInputEntityLabels = {[key: string]: string};

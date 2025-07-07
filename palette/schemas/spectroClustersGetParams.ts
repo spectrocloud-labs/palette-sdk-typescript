@@ -11,24 +11,24 @@
  */
 
 export type SpectroClustersGetParams = {
-  /**
-   * Comma separated tags like system,profile
-   */
-  includeTags?: string;
-  /**
-   * Resolve pack values if set to true
-   */
-  resolvePackValues?: boolean;
-  /**
-   * Includes pack meta such as schema, presets
-   */
-  includePackMeta?: string;
-  /**
-   * Filter cluster profile templates by profileType
-   */
-  profileType?: string;
-  /**
-   * Include non spectro labels in the cluster labels if set to true
-   */
-  includeNonSpectroLabels?: boolean;
+/**
+ * Comma separated tags like system,profile
+ */
+includeTags?: string;
+/**
+ * Resolve pack values if set to true
+ */
+resolvePackValues?: boolean;
+/**
+ * Includes pack meta such as schema, presets
+ */
+includePackMeta?: string;
+/**
+ * Filter cluster profile templates by profileType
+ */
+profileType?: string;
+/**
+ * Include non spectro labels in the cluster labels if set to true
+ */
+includeNonSpectroLabels?: boolean;
 };

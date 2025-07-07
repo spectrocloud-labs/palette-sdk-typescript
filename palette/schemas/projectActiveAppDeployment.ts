@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectEntity } from "./objectEntity";
+import type { ObjectEntity } from './objectEntity';
 
 /**
  * Active app deployment
  */
-export interface ProjectActiveAppDeployment {
+export type ProjectActiveAppDeployment = {
   appRef?: ObjectEntity;
   state?: string;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Overlord } from "./overlord";
+import type { Overlord } from './overlord';
 
 /**
  * Array of Overlords
  */
-export interface Overlords {
+export type Overlords = {
   items: Overlord[];
-}
+};

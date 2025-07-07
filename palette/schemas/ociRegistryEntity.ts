@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryAuth } from "./registryAuth";
+import type { RegistryAuth } from './registryAuth';
 
 /**
  * Oci registry credentials
  */
-export interface OciRegistryEntity {
+export type OciRegistryEntity = {
   auth?: RegistryAuth;
   defaultRegion?: string;
   endpoint?: string;
   providerType?: string;
   scope?: string;
   type?: string;
-}
+};

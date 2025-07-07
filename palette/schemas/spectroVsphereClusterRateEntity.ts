@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereClusterConfigEntity } from "./vsphereClusterConfigEntity";
-import type { VsphereMachinePoolConfigEntity } from "./vsphereMachinePoolConfigEntity";
+import type { VsphereClusterConfigEntity } from './vsphereClusterConfigEntity';
+import type { VsphereMachinePoolConfigEntity } from './vsphereMachinePoolConfigEntity';
 
 /**
  * Vsphere cluster request payload for estimating rate
  */
-export interface SpectroVsphereClusterRateEntity {
+export type SpectroVsphereClusterRateEntity = {
   cloudConfig?: VsphereClusterConfigEntity;
   machinepoolconfig?: VsphereMachinePoolConfigEntity[];
-}
+};

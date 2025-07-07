@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface CustomMachinePoolCloudConfigEntity {
+export type CustomMachinePoolCloudConfigEntity = {
   /** Machine pool configuration as yaml content */
   values?: string;
-}
+};

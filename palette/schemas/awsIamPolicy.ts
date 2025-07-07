@@ -13,8 +13,8 @@
 /**
  * Aws policy
  */
-export interface AwsIamPolicy {
+export type AwsIamPolicy = {
   arn?: string;
   policyId?: string;
   policyName?: string;
-}
+};

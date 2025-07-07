@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AuditSpec } from "./auditSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { AuditSpec } from './auditSpec';
 
 /**
  * Audit response payload
  */
-export interface Audit {
+export type Audit = {
   metadata?: ObjectMeta;
   spec?: AuditSpec;
-}
+};

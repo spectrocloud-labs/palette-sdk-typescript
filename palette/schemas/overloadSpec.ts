@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IpPoolEntity } from "./ipPoolEntity";
+import type { IpPoolEntity } from './ipPoolEntity';
 
 /**
  * Overload spec
  */
-export interface OverloadSpec {
+export type OverloadSpec = {
   cloudAccountUid?: string;
   ipAddress?: string;
   ipPools?: IpPoolEntity[];
@@ -22,4 +22,4 @@ export interface OverloadSpec {
   isSystem?: boolean;
   spectroClusterUid?: string;
   tenantUid?: string;
-}
+};

@@ -13,8 +13,8 @@
 /**
  * Syft dependency
  */
-export interface SyftDependencyEntity {
+export type SyftDependencyEntity = {
   name?: string;
   type?: string;
   version?: string;
-}
+};

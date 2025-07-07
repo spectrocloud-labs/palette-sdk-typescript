@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterHealthStatus } from "./spectroClusterHealthStatus";
-import type { ClusterNotificationStatus } from "./clusterNotificationStatus";
+import type { SpectroClusterHealthStatus } from './spectroClusterHealthStatus';
+import type { ClusterNotificationStatus } from './clusterNotificationStatus';
 
 /**
  * Overload status
  */
-export interface OverloadStatus {
+export type OverloadStatus = {
   health?: SpectroClusterHealthStatus;
   isActive?: boolean;
   isReady?: boolean;
   kubectlCommands?: string[];
   notifications?: ClusterNotificationStatus;
   state?: string;
-}
+};

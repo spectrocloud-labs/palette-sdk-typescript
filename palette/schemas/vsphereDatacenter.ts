@@ -13,11 +13,11 @@
 /**
  * List of Datacenter with computeclusters
  */
-export interface VsphereDatacenter {
+export type VsphereDatacenter = {
   /** List  of the VSphere compute clusters in datacenter */
   computeclusters?: string[];
   /** name of the datacenter of the VSphere */
   datacenter?: string;
   /** List  of the VSphere folders in datacenter */
   folders?: string[];
-}
+};

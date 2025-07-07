@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * API key specification
  */
-export interface ApiKeySpecEntity {
+export type ApiKeySpecEntity = {
   expiry?: Time;
   /** User to whom the API key has to be created */
   userUid?: string;
-}
+};

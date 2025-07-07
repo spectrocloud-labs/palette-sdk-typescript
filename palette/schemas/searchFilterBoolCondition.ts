@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface SearchFilterBoolCondition {
+export type SearchFilterBoolCondition = {
   value?: boolean;
-}
+};

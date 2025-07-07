@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceReference } from "./resourceReference";
+import type { ResourceReference } from './resourceReference';
 
 /**
  * Backup restored status
  */
-export interface BackupRestoreStatusMeta {
+export type BackupRestoreStatusMeta = {
   backupName?: string;
   destinationClusterRef?: ResourceReference;
   restoreState?: string;
-}
+};

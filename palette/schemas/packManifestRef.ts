@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface PackManifestRef {
+export type PackManifestRef = {
   digest?: string;
   isOverridden?: boolean;
   name?: string;
   parentUid?: string;
   uid?: string;
-}
+};

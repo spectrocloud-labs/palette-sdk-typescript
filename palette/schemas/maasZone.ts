@@ -13,9 +13,9 @@
 /**
  * Maas zone
  */
-export interface MaasZone {
+export type MaasZone = {
   /** Description of Maas domain */
   description?: string;
   /** Name of Maas zone */
   name?: string;
-}
+};

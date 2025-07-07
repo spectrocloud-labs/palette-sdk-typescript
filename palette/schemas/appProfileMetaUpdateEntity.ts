@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileMetaUpdateEntityAnnotations } from "./appProfileMetaUpdateEntityAnnotations";
-import type { AppProfileMetaUpdateEntityLabels } from "./appProfileMetaUpdateEntityLabels";
+import type { AppProfileMetaUpdateEntityAnnotations } from './appProfileMetaUpdateEntityAnnotations';
+import type { AppProfileMetaUpdateEntityLabels } from './appProfileMetaUpdateEntityLabels';
 
 /**
  * Application profile metadata update request payload
  */
-export interface AppProfileMetaUpdateEntity {
+export type AppProfileMetaUpdateEntity = {
   /** Application profile annotations */
   annotations?: AppProfileMetaUpdateEntityAnnotations;
   /** Application profile labels */
   labels?: AppProfileMetaUpdateEntityLabels;
-}
+};

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmRemoveVolumeOptions } from "./vmRemoveVolumeOptions";
+import type { VmRemoveVolumeOptions } from './vmRemoveVolumeOptions';
 
-export interface VMRemoveVolumeEntity {
+export type VMRemoveVolumeEntity = {
   /** If 'true' remove the disk from the Virtual Machine & Virtual Machine Instance, else remove the disk from the Virtual Machine Instance only */
   persist?: boolean;
   removeVolumeOptions: VmRemoveVolumeOptions;
-}
+};

@@ -11,8 +11,8 @@
  */
 
 export type V1AzureGroupsParams = {
-  /**
-   * Uid for the specific Azure cloud account
-   */
-  cloudAccountUid?: string;
+/**
+ * Uid for the specific Azure cloud account
+ */
+cloudAccountUid?: string;
 };

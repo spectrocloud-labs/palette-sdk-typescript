@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FargateProfileAdditionalTags } from "./fargateProfileAdditionalTags";
-import type { FargateSelector } from "./fargateSelector";
+import type { FargateProfileAdditionalTags } from './fargateProfileAdditionalTags';
+import type { FargateSelector } from './fargateSelector';
 
 /**
  * FargateProfile defines the desired state of FargateProfile
  */
-export interface FargateProfile {
+export type FargateProfile = {
   /** AdditionalTags is an optional set of tags to add to AWS resources managed by the AWS provider, in addition to the ones added by default. */
   additionalTags?: FargateProfileAdditionalTags;
   /** name specifies the profile name. */
@@ -24,4 +24,4 @@ export interface FargateProfile {
   selectors?: FargateSelector[];
   /** SubnetIDs specifies which subnets are used for the auto scaling group of this nodegroup. */
   subnetIds?: string[];
-}
+};

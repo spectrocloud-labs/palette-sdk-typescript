@@ -13,7 +13,7 @@
 /**
  * SnapshotVolumesLists includes the list of volumes which were included in the snapshot and volumes which were excluded from the snapshot
  */
-export interface VmSnapshotVolumesLists {
+export type VmSnapshotVolumesLists = {
   excludedVolumes?: string[];
   includedVolumes?: string[];
-}
+};

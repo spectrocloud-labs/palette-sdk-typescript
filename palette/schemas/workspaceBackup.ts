@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { WorkspaceBackupSpec } from "./workspaceBackupSpec";
-import type { WorkspaceBackupStatus } from "./workspaceBackupStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { WorkspaceBackupSpec } from './workspaceBackupSpec';
+import type { WorkspaceBackupStatus } from './workspaceBackupStatus';
 
 /**
  * Workspace backup
  */
-export interface WorkspaceBackup {
+export type WorkspaceBackup = {
   metadata?: ObjectMeta;
   spec?: WorkspaceBackupSpec;
   status?: WorkspaceBackupStatus;
-}
+};

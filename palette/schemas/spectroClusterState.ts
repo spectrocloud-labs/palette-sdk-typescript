@@ -13,7 +13,7 @@
 /**
  * Spectrocluster state entity
  */
-export interface SpectroClusterState {
+export type SpectroClusterState = {
   /** Spectrocluster state */
   state?: string;
-}
+};

@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type BasicOciRegistrySpecProviderType =
-  (typeof BasicOciRegistrySpecProviderType)[keyof typeof BasicOciRegistrySpecProviderType];
+export type BasicOciRegistrySpecProviderType = typeof BasicOciRegistrySpecProviderType[keyof typeof BasicOciRegistrySpecProviderType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const BasicOciRegistrySpecProviderType = {
-  helm: "helm",
-  zarf: "zarf",
-  pack: "pack",
+  helm: 'helm',
+  zarf: 'zarf',
+  pack: 'pack',
 } as const;

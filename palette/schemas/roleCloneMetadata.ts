@@ -13,6 +13,6 @@
 /**
  * Role clone metadata
  */
-export interface RoleCloneMetadata {
+export type RoleCloneMetadata = {
   name?: string;
-}
+};

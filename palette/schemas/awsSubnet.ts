@@ -13,7 +13,7 @@
 /**
  * A subnet is a range of IP addresses in a AWS VPC
  */
-export interface AwsSubnet {
+export type AwsSubnet = {
   /** Every subnet can only be associated with only one Availability Zone */
   az?: string;
   /** Is this subnet private */
@@ -24,4 +24,4 @@ export interface AwsSubnet {
   name?: string;
   /** Id of the subnet */
   subnetId?: string;
-}
+};

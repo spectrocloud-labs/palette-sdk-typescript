@@ -13,7 +13,7 @@
 /**
  * System Administrator MFA configuration
  */
-export interface SystemAdminMfa {
+export type SystemAdminMfa = {
   devices?: string[];
   state?: string;
-}
+};

@@ -13,6 +13,4 @@
 /**
  * InterfaceSlirp connects to a given network using QEMU user networking mode.
  */
-export interface VmInterfaceSlirp {
-  [key: string]: unknown;
-}
+export type VmInterfaceSlirp = { [key: string]: unknown };

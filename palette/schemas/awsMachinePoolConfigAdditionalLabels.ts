@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type AwsMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type AwsMachinePoolConfigAdditionalLabels = {[key: string]: string};

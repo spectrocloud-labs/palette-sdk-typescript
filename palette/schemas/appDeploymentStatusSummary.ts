@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterStatus } from "./appDeploymentClusterStatus";
-import type { AppDeploymentNotifications } from "./appDeploymentNotifications";
+import type { AppDeploymentClusterStatus } from './appDeploymentClusterStatus';
+import type { AppDeploymentNotifications } from './appDeploymentNotifications';
 
 /**
  * Application deployment status summary
  */
-export interface AppDeploymentStatusSummary {
+export type AppDeploymentStatusSummary = {
   cluster?: AppDeploymentClusterStatus;
   notifications?: AppDeploymentNotifications;
   state?: string;
-}
+};

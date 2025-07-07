@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Feature } from "./feature";
+import type { Feature } from './feature';
 
-export interface Features {
+export type Features = {
   /** List of features */
   items: Feature[];
-}
+};

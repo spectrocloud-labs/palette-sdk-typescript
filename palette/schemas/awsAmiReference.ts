@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsAmiReferenceEksOptimizedLookupType } from "./awsAmiReferenceEksOptimizedLookupType";
+import type { AwsAmiReferenceEksOptimizedLookupType } from './awsAmiReferenceEksOptimizedLookupType';
 
 /**
  * AMI is the reference to the AMI from which to create the machine instance
  */
-export interface AwsAmiReference {
+export type AwsAmiReference = {
   /** EKSOptimizedLookupType If specified, will look up an EKS Optimized image in SSM Parameter store */
   eksOptimizedLookupType?: AwsAmiReferenceEksOptimizedLookupType;
   /** ID of resource */
   id?: string;
-}
+};

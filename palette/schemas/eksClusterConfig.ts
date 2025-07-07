@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksAddon } from "./eksAddon";
-import type { EncryptionConfig } from "./encryptionConfig";
-import type { EksClusterConfigEndpointAccess } from "./eksClusterConfigEndpointAccess";
+import type { EksAddon } from './eksAddon';
+import type { EncryptionConfig } from './encryptionConfig';
+import type { EksClusterConfigEndpointAccess } from './eksClusterConfigEndpointAccess';
 
 /**
  * EksClusterConfig defines EKS specific config
  */
-export interface EksClusterConfig {
+export type EksClusterConfig = {
   /** Addons defines the EKS addons to enable with the EKS cluster. This may be required for brownfield clusters */
   addons?: EksAddon[];
   /** BastionDisabled is the option to disable bastion node */
@@ -31,4 +31,4 @@ export interface EksClusterConfig {
   sshKeyName?: string;
   /** VPC Id to deploy cluster into should have one public and one private subnet for the the cluster creation, this field is optional, If VPC Id is not provided a fully managed VPC will be created */
   vpcId?: string;
-}
+};

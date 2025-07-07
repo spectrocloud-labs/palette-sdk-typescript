@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectActiveCluster } from "./projectActiveCluster";
+import type { ProjectActiveCluster } from './projectActiveCluster';
 
 /**
  * Active clusters
  */
-export interface ProjectActiveClusters {
+export type ProjectActiveClusters = {
   clusters?: ProjectActiveCluster[];
   count?: number;
-}
+};

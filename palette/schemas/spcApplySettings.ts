@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpcApplySettingsActionType } from "./spcApplySettingsActionType";
+import type { SpcApplySettingsActionType } from './spcApplySettingsActionType';
 
-export interface SpcApplySettings {
+export type SpcApplySettings = {
   actionType?: SpcApplySettingsActionType;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
 
 /**
  * Resource metadata
  */
-export interface ObjectMetaInputEntitySchema {
+export type ObjectMetaInputEntitySchema = {
   metadata: ObjectMetaInputEntity;
-}
+};

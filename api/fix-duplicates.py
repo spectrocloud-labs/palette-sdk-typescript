@@ -18,14 +18,35 @@ from typing import Dict, List, Tuple, Any
 
 
 def find_duplicate_schemas(definitions: Dict[str, Any]) -> List[Tuple[str, str]]:
-    """Find schemas with dots that have corresponding versions without dots."""
+    """Find schemas with dots that have corresponding versions without dots, and casing differences."""
     duplicates = []
     
+    # Find dot-based duplicates
     for name in definitions.keys():
         if '.' in name:
             no_dot_name = name.replace('.', '')
             if no_dot_name in definitions:
                 duplicates.append((name, no_dot_name))
+    
+    # Find casing-based duplicates
+    schema_names = list(definitions.keys())
+    for i, name1 in enumerate(schema_names):
+        for j, name2 in enumerate(schema_names[i+1:], i+1):
+            # Check if they're the same when case-insensitive
+            if name1.lower() == name2.lower() and name1 != name2:
+                # Skip if already found as dot-based duplicate
+                if (name1, name2) not in duplicates and (name2, name1) not in duplicates:
+                    # Prefer the version with consistent casing (camelCase starting with lowercase)
+                    if name1[0].islower() and name2[0].isupper():
+                        duplicates.append((name2, name1))  # Remove uppercase version, keep lowercase
+                    elif name1[0].isupper() and name2[0].islower():
+                        duplicates.append((name1, name2))  # Remove uppercase version, keep lowercase
+                    else:
+                        # Both have same case for first letter, prefer alphabetically first
+                        if name1 < name2:
+                            duplicates.append((name2, name1))
+                        else:
+                            duplicates.append((name1, name2))
     
     return duplicates
 
@@ -176,6 +197,47 @@ def fix_openapi_duplicates(input_file: str, output_file: str):
     
     spec = fix_type_arrays(spec)
     print(f"Fixed {type_array_fixes} type arrays")
+    
+    # Fix schema naming issues that cause orval import problems
+    print("\nFixing schema naming issues...")
+    naming_fixes = 0
+    
+    def fix_schema_naming(obj):
+        nonlocal naming_fixes
+        if isinstance(obj, dict):
+            result = {}
+            for key, value in obj.items():
+                if key == '$ref' and isinstance(value, str) and value.startswith('#/definitions/'):
+                    # Extract schema name from reference
+                    schema_name = value.replace('#/definitions/', '')
+                    
+                    # Fix common naming issues that cause orval to generate wrong imports
+                    fixed_name = schema_name
+                    
+                    # Fix APIEndpoint naming - ensure it stays as APIEndpoint not ApiEndpoint
+                    if schema_name == 'v1APIEndpoint':
+                        # Keep as is - this is correct
+                        pass
+                    elif 'APIEndpoint' in schema_name:
+                        # Ensure API stays uppercase
+                        fixed_name = schema_name.replace('ApiEndpoint', 'APIEndpoint')
+                    
+                    if fixed_name != schema_name:
+                        result[key] = f"#/definitions/{fixed_name}"
+                        naming_fixes += 1
+                        print(f"  Fixed reference: {schema_name} -> {fixed_name}")
+                    else:
+                        result[key] = value
+                else:
+                    result[key] = fix_schema_naming(value)
+            return result
+        elif isinstance(obj, list):
+            return [fix_schema_naming(item) for item in obj]
+        else:
+            return obj
+    
+    spec = fix_schema_naming(spec)
+    print(f"Fixed {naming_fixes} schema naming issues")
     
     print(f"\nWriting fixed spec to {output_file}...")
     

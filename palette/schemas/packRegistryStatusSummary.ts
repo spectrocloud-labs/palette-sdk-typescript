@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistrySyncStatus } from "./registrySyncStatus";
+import type { RegistrySyncStatus } from './registrySyncStatus';
 
 /**
  * Pack registry status summary
  */
-export interface PackRegistryStatusSummary {
+export type PackRegistryStatusSummary = {
   sync?: RegistrySyncStatus;
-}
+};

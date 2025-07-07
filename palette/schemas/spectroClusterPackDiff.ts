@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackRef } from "./packRef";
+import type { PackRef } from './packRef';
 
 /**
  * Cluster pack difference
  */
-export interface SpectroClusterPackDiff {
+export type SpectroClusterPackDiff = {
   current?: PackRef;
   diffConfigKeys?: string[];
   target?: PackRef;
-}
+};

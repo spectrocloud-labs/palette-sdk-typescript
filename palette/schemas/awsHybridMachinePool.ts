@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridPoolClusterCloudType } from "./hybridPoolClusterCloudType";
+import type { HybridPoolClusterCloudType } from './hybridPoolClusterCloudType';
 
 /**
  * Machine pool reference of cloud config of cluster deployed by hybrid cluster
  */
-export interface AwsHybridMachinePool {
+export type AwsHybridMachinePool = {
   poolCloudType?: HybridPoolClusterCloudType;
   /** Machine pool name */
   poolName?: string;
   /** Machine pool uid */
   poolUid?: string;
-}
+};

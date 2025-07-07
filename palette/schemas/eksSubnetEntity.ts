@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface EksSubnetEntity {
+export type EksSubnetEntity = {
   az?: string;
   id?: string;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ComplianceScanConfig } from "./complianceScanConfig";
+import type { ComplianceScanConfig } from './complianceScanConfig';
 
 /**
  * Compliance Scan driver spec
  */
-export interface ComplianceScanDriverSpec {
+export type ComplianceScanDriverSpec = {
   config?: ComplianceScanConfig;
   isClusterConfig?: boolean;
-}
+};

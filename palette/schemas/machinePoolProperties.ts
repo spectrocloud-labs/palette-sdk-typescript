@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./archType";
+import type { ArchType } from './archType';
 
 /**
  * Machine pool specific properties
  */
-export interface MachinePoolProperties {
+export type MachinePoolProperties = {
   archType?: ArchType;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceNamespaceImage } from "./workspaceNamespaceImage";
-import type { WorkspaceNamespaceResourceAllocation } from "./workspaceNamespaceResourceAllocation";
+import type { WorkspaceNamespaceImage } from './workspaceNamespaceImage';
+import type { WorkspaceNamespaceResourceAllocation } from './workspaceNamespaceResourceAllocation';
 
 /**
  * Workspace cluster namespace
  */
-export interface WorkspaceClusterNamespace {
+export type WorkspaceClusterNamespace = {
   image?: WorkspaceNamespaceImage;
   isRegex?: boolean;
   name?: string;
   namespaceResourceAllocation?: WorkspaceNamespaceResourceAllocation;
-}
+};

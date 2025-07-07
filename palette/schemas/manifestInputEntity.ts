@@ -13,9 +13,9 @@
 /**
  * Manifest request payload
  */
-export interface ManifestInputEntity {
+export type ManifestInputEntity = {
   /** Manifest content */
   content?: string;
   /** Manifest name */
   name?: string;
-}
+};

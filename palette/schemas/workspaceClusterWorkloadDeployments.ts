@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadDeployment } from "./clusterWorkloadDeployment";
-import type { RelatedObject } from "./relatedObject";
+import type { ClusterWorkloadDeployment } from './clusterWorkloadDeployment';
+import type { RelatedObject } from './relatedObject';
 
 /**
  * Workspace cluster workload deployments summary
  */
-export interface WorkspaceClusterWorkloadDeployments {
+export type WorkspaceClusterWorkloadDeployments = {
   deployments?: ClusterWorkloadDeployment[];
   metadata?: RelatedObject;
-}
+};

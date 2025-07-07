@@ -9,21 +9,21 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmAccessCredential } from "./vmAccessCredential";
-import type { VmAffinity } from "./vmAffinity";
-import type { VmPodDnsConfig } from "./vmPodDnsConfig";
-import type { VmDomainSpec } from "./vmDomainSpec";
-import type { VmProbe } from "./vmProbe";
-import type { VmNetwork } from "./vmNetwork";
-import type { VmVirtualMachineInstanceSpecNodeSelector } from "./vmVirtualMachineInstanceSpecNodeSelector";
-import type { VmToleration } from "./vmToleration";
-import type { VmTopologySpreadConstraint } from "./vmTopologySpreadConstraint";
-import type { VmVolume } from "./vmVolume";
+import type { VmAccessCredential } from './vmAccessCredential';
+import type { VmAffinity } from './vmAffinity';
+import type { VmPodDnsConfig } from './vmPodDnsConfig';
+import type { VmDomainSpec } from './vmDomainSpec';
+import type { VmProbe } from './vmProbe';
+import type { VmNetwork } from './vmNetwork';
+import type { VmVirtualMachineInstanceSpecNodeSelector } from './vmVirtualMachineInstanceSpecNodeSelector';
+import type { VmToleration } from './vmToleration';
+import type { VmTopologySpreadConstraint } from './vmTopologySpreadConstraint';
+import type { VmVolume } from './vmVolume';
 
 /**
  * VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.
  */
-export interface VmVirtualMachineInstanceSpec {
+export type VmVirtualMachineInstanceSpec = {
   /** Specifies a set of public keys to inject into the vm guest */
   accessCredentials?: VmAccessCredential[];
   affinity?: VmAffinity;
@@ -57,4 +57,4 @@ export interface VmVirtualMachineInstanceSpec {
   topologySpreadConstraints?: VmTopologySpreadConstraint[];
   /** List of volumes that can be mounted by disks belonging to the vmi. */
   volumes?: VmVolume[];
-}
+};

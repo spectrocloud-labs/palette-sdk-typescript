@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LoadBalancerSpecIpAllocationMethod } from "./loadBalancerSpecIpAllocationMethod";
-import type { LoadBalancerSpecType } from "./loadBalancerSpecType";
+import type { LoadBalancerSpecIpAllocationMethod } from './loadBalancerSpecIpAllocationMethod';
+import type { LoadBalancerSpecType } from './loadBalancerSpecType';
 
 /**
  * LoadBalancerSpec defines an Azure load balancer.
  */
-export interface LoadBalancerSpec {
+export type LoadBalancerSpec = {
   apiServerLBStaticIP?: string;
   ipAllocationMethod?: LoadBalancerSpecIpAllocationMethod;
   privateDNSName?: string;
@@ -24,4 +24,4 @@ If not specified, the resource group of the cluster will be used to create the A
   privateDNSZoneResourceGroup?: string;
   /** Load Balancer type */
   type?: LoadBalancerSpecType;
-}
+};

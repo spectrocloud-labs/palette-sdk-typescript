@@ -3,7 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { setupConfig, type PaletteAPIFunctions } from "../palette";
+import {
+  clusterProfilesFilterSummary,
+  clusterProfilesMetadata,
+  type ClusterProfilesFilterSpec,
+  type ClusterProfilesFilterSummaryParams,
+  type ClusterProfilesSummary,
+  type ClusterProfilesMetadata,
+} from "../palette";
 import dotenvx from "@dotenvx/dotenvx";
 
 const result = dotenvx.config({
@@ -19,7 +26,7 @@ if (result.error) {
   );
 } else {
   console.log(
-    `dotenvx loaded ${Object.keys(result.parsed || {}).length} environment variables successfully`
+    `Loaded ${Object.keys(result.parsed || {}).length} environment variables`
   );
 }
 
@@ -27,83 +34,80 @@ const API_KEY = process.env.PALETTE_API_KEY;
 const BASE_URL = process.env.PALETTE_BASE_URL || "https://api.spectrocloud.com";
 
 if (!API_KEY) {
-  console.error("❌ PALETTE_API_KEY environment variable is required");
+  console.error("PALETTE_API_KEY environment variable is required");
   process.exit(1);
 }
 
 async function testClientWrapper() {
-  console.log("🧪 Testing the setupConfig client pattern...");
+  console.log("Testing individual function imports pattern...");
 
   try {
-    // Test the new client pattern
-    const palette: PaletteAPIFunctions = setupConfig({
-      baseURL: BASE_URL,
+    // Test the individual function pattern
+    const config = {
       headers: {
         ApiKey: API_KEY,
         "Content-Type": "application/json",
       },
-    });
+    };
 
-    console.log("✅ Client created successfully");
+    console.log("PASS: Config created successfully");
 
-    // Test that the client has the expected functions
-    console.log("🔍 Testing client function availability...");
+    // Test that the functions are available
+    console.log("Testing function availability...");
 
-    // Check if functions are available on the client
-    if (typeof palette.clusterProfilesFilterSummary === "function") {
-      console.log("✅ clusterProfilesFilterSummary is available");
+    // Check if functions are available
+    if (typeof clusterProfilesFilterSummary === "function") {
+      console.log("PASS: clusterProfilesFilterSummary is available");
     } else {
-      console.log("❌ clusterProfilesFilterSummary is not available");
+      console.log("FAIL: clusterProfilesFilterSummary is not available");
       return false;
     }
 
-    // Test making an API call with the client
-    console.log("🔍 Testing API call with client...");
-    const response = await palette.clusterProfilesFilterSummary(
-      {
-        // Filter criteria
-        filter: {
-          // Optional filter properties
-        },
-        sort: [],
-      },
-      {
-        // Query parameters
-      }
+    if (typeof clusterProfilesMetadata === "function") {
+      console.log("PASS: clusterProfilesMetadata is available");
+    } else {
+      console.log("FAIL: clusterProfilesMetadata is not available");
+      return false;
+    }
+
+    // Test making an API call
+    console.log("Testing API call...");
+    const filterSpec: ClusterProfilesFilterSpec = {
+      filter: {},
+      sort: [],
+    };
+
+    const response: ClusterProfilesSummary = await clusterProfilesFilterSummary(
+      filterSpec,
+      {},
+      config
     );
 
-    if (response && response.data && Array.isArray(response.data.items)) {
+    if (response && response.items && Array.isArray(response.items)) {
       console.log(
-        `✅ API call successful! Found ${response.data.items.length} cluster profiles`
+        `PASS: API call successful! Found ${response.items.length} cluster profiles`
       );
     } else {
-      console.log("❌ API call failed or returned unexpected data");
+      console.log("FAIL: API call failed or returned unexpected data");
       return false;
     }
 
-    // Test another function to ensure the proxy works for multiple functions
-    console.log("🔍 Testing another function...");
+    // Test another function to ensure multiple functions work
+    console.log("Testing another function...");
 
-    if (typeof palette.clusterProfilesMetadata === "function") {
-      console.log("✅ clusterProfilesMetadata is also available");
-
-      // Test calling it
-      const metadataResponse = await palette.clusterProfilesMetadata();
-      if (metadataResponse && metadataResponse.data) {
-        console.log("✅ clusterProfilesMetadata call successful");
-      } else {
-        console.log("❌ clusterProfilesMetadata call failed");
-        return false;
-      }
+    const metadataResponse: ClusterProfilesMetadata =
+      await clusterProfilesMetadata(config);
+    if (metadataResponse && Object.keys(metadataResponse).length > 0) {
+      console.log("PASS: clusterProfilesMetadata call successful");
     } else {
-      console.log("❌ clusterProfilesMetadata is not available");
+      console.log("FAIL: clusterProfilesMetadata call failed");
       return false;
     }
 
-    console.log("🎉 All client wrapper tests passed!");
+    console.log("All function import tests passed!");
     return true;
   } catch (error) {
-    console.error("❌ Error testing client wrapper:", error);
+    console.error("FAIL: Error testing function imports:", error);
     return false;
   }
 }
@@ -115,15 +119,15 @@ if (require.main === module) {
   testClientWrapper()
     .then((success) => {
       if (success) {
-        console.log("✅ Client wrapper test completed successfully");
+        console.log("Function imports test completed successfully");
         process.exit(0);
       } else {
-        console.log("❌ Client wrapper test failed");
+        console.log("Function imports test failed");
         process.exit(1);
       }
     })
     .catch((error) => {
-      console.error("❌ Test failed:", error);
+      console.error("Test failed:", error);
       process.exit(1);
     });
 }

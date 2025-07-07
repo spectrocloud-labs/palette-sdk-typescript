@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface MfaAuthenticatorSelection {
+export type MfaAuthenticatorSelection = {
   authenticatorAttachment?: string;
   requireResidentKey?: boolean;
   residentKey?: string;
   userVerification?: string;
-}
+};

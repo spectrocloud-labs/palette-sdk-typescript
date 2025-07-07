@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAwsImageSpec } from "./systemAwsImageSpec";
+import type { SystemAwsImageSpec } from './systemAwsImageSpec';
 
 /**
  * SystemAdmin
  */
-export interface SystemAwsImage {
+export type SystemAwsImage = {
   spec?: SystemAwsImageSpec;
-}
+};

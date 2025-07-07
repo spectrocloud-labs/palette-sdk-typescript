@@ -13,6 +13,6 @@
 /**
  * System config cluster
  */
-export interface SystemConfigCluster {
+export type SystemConfigCluster = {
   stableEndpointAccess?: boolean;
-}
+};

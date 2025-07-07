@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
-export interface ClusterCondition {
+export type ClusterCondition = {
   lastProbeTime?: Time;
   lastTransitionTime?: Time;
   /** Human-readable message indicating details about last transition. */
@@ -20,4 +20,4 @@ export interface ClusterCondition {
   reason?: string;
   status: string;
   type: string;
-}
+};

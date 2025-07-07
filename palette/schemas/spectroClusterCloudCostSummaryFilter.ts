@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Spectro cluster cloud cost summary filter
  */
-export interface SpectroClusterCloudCostSummaryFilter {
+export type SpectroClusterCloudCostSummaryFilter = {
   clouds?: string[];
   endTime?: Time;
   projects?: string[];
   startTime?: Time;
   workspaces?: string[];
-}
+};

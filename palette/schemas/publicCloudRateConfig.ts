@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudInstanceRateConfig } from "./cloudInstanceRateConfig";
+import type { CloudInstanceRateConfig } from './cloudInstanceRateConfig';
 
 /**
  * Public cloud rate config
  */
-export interface PublicCloudRateConfig {
+export type PublicCloudRateConfig = {
   computeOptimized?: CloudInstanceRateConfig;
   memoryOptimized?: CloudInstanceRateConfig;
-}
+};

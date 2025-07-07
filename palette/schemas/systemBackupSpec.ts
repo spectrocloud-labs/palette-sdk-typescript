@@ -13,8 +13,8 @@
 /**
  * system backup config spec
  */
-export interface SystemBackupSpec {
+export type SystemBackupSpec = {
   hourOfTheDay?: number;
   interval?: number;
   retentionPeriod?: number;
-}
+};

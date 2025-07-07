@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { ClusterRepaveState } from "./clusterRepaveState";
+import type { Time } from './time';
+import type { ClusterRepaveState } from './clusterRepaveState';
 
-export interface SpectroClusterRepaveStatus {
+export type SpectroClusterRepaveStatus = {
   message?: string;
   repaveTransitionTime?: Time;
   state?: ClusterRepaveState;
-}
+};

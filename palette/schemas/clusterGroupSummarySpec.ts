@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateMeta } from "./clusterProfileTemplateMeta";
-import type { ClusterGroupResource } from "./clusterGroupResource";
-import type { ClusterGroupSummarySpecEndpointType } from "./clusterGroupSummarySpecEndpointType";
-import type { ObjectResReference } from "./objectResReference";
-import type { ClusterKubernetesDistroType } from "./clusterKubernetesDistroType";
+import type { ClusterProfileTemplateMeta } from './clusterProfileTemplateMeta';
+import type { ClusterGroupResource } from './clusterGroupResource';
+import type { ClusterGroupSummarySpecEndpointType } from './clusterGroupSummarySpecEndpointType';
+import type { ObjectResReference } from './objectResReference';
+import type { ClusterKubernetesDistroType } from './clusterKubernetesDistroType';
 
 /**
  * Cluster group summay spec
  */
-export interface ClusterGroupSummarySpec {
+export type ClusterGroupSummarySpec = {
   clusterProfileTemplates?: ClusterProfileTemplateMeta[];
   cpu?: ClusterGroupResource;
   endpointType?: ClusterGroupSummarySpecEndpointType;
@@ -28,4 +28,4 @@ export interface ClusterGroupSummarySpec {
   memory?: ClusterGroupResource;
   scope?: string;
   virtualClustersCount?: number;
-}
+};

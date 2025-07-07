@@ -13,11 +13,11 @@
 /**
  * Pack template dependency
  */
-export interface PackDependency {
+export type PackDependency = {
   /** Pack template dependency pack layer */
   layer?: string;
   /** Pack template dependency pack name */
   name?: string;
   /** If true then dependency pack values can't be overridden */
   readOnly?: boolean;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * system version info
  */
-export interface SystemVersionInfo {
+export type SystemVersionInfo = {
   version?: string;
-}
+};

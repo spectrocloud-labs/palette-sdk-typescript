@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterProfileScope =
-  (typeof ClusterProfileScope)[keyof typeof ClusterProfileScope];
+export type ClusterProfileScope = typeof ClusterProfileScope[keyof typeof ClusterProfileScope];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterProfileScope = {
-  system: "system",
-  tenant: "tenant",
-  project: "project",
+  system: 'system',
+  tenant: 'tenant',
+  project: 'project',
 } as const;

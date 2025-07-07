@@ -13,7 +13,7 @@
 /**
  * Application deployment profile request payload
  */
-export interface AppDeploymentProfileEntity {
+export type AppDeploymentProfileEntity = {
   /** Application deployment profile uid */
   appProfileUid: string;
-}
+};

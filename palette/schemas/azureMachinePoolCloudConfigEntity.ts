@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureOSDisk } from "./azureOSDisk";
+import type { AzureOSDisk } from './azureOSDisk';
 
-export interface AzureMachinePoolCloudConfigEntity {
+export type AzureMachinePoolCloudConfigEntity = {
   azs?: string[];
   /** Instance type stands for VMSize in Azure */
   instanceType?: string;
   /** whether this pool is for system node Pool */
   isSystemNodePool?: boolean;
   osDisk?: AzureOSDisk;
-}
+};

@@ -13,10 +13,10 @@
 /**
  * Compliance Scan Sonobuoy Log
  */
-export interface SonobuoyLog {
+export type SonobuoyLog = {
   description?: string;
   msg?: string;
   output?: string;
   path?: string;
   state?: string;
-}
+};

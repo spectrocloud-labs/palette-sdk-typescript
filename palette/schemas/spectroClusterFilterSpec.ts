@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
-import type { ClusterState } from "./clusterState";
-import type { FilterIntRange } from "./filterIntRange";
-import type { SpectroClusterFilterSpecHealthState } from "./spectroClusterFilterSpecHealthState";
-import type { FilterNumberRange } from "./filterNumberRange";
-import type { FilterArray } from "./filterArray";
+import type { FilterString } from './filterString';
+import type { ClusterState } from './clusterState';
+import type { FilterIntRange } from './filterIntRange';
+import type { SpectroClusterFilterSpecHealthState } from './spectroClusterFilterSpecHealthState';
+import type { FilterNumberRange } from './filterNumberRange';
+import type { FilterArray } from './filterArray';
 
 /**
  * Spectro cluster filter spec
  */
-export interface SpectroClusterFilterSpec {
+export type SpectroClusterFilterSpec = {
   cloudAccounts?: string[];
   clusterName?: FilterString;
   clusterProfiles?: string[];
@@ -37,4 +37,4 @@ export interface SpectroClusterFilterSpec {
   metricPeriod?: number;
   projectUids?: string[];
   tags?: FilterArray;
-}
+};

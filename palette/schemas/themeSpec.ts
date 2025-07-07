@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ThemeSpec {
+export type ThemeSpec = {
   /** Contains the string value of custom properties like logo, name etc. */
   values: string;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtAppPodsStatusContainers } from "./mgmtAppPodsStatusContainers";
-import type { MgmtAppPodsStatusPvcs } from "./mgmtAppPodsStatusPvcs";
-import type { Time } from "./time";
+import type { MgmtAppPodsStatusContainers } from './mgmtAppPodsStatusContainers';
+import type { MgmtAppPodsStatusPvcs } from './mgmtAppPodsStatusPvcs';
+import type { Time } from './time';
 
-export interface MgmtAppPodsStatus {
+export type MgmtAppPodsStatus = {
   containers?: MgmtAppPodsStatusContainers;
   isHealthy?: boolean;
   messages?: string[];
@@ -22,4 +22,4 @@ export interface MgmtAppPodsStatus {
   pvcs?: MgmtAppPodsStatusPvcs;
   reason?: string;
   startTime?: Time;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Role status
  */
-export interface RoleStatus {
+export type RoleStatus = {
   /** Specifies if role account is enabled/disabled */
   isEnabled?: boolean;
-}
+};

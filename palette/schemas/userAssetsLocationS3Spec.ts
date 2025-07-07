@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { S3StorageConfig } from "./s3StorageConfig";
+import type { S3StorageConfig } from './s3StorageConfig';
 
 /**
  * S3 location specification
  */
-export interface UserAssetsLocationS3Spec {
+export type UserAssetsLocationS3Spec = {
   config: S3StorageConfig;
   /** Set to 'true', if location has to be set as default */
   isDefault?: boolean;
   /** S3 location type [s3/minio] */
   type?: string;
-}
+};

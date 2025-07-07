@@ -13,11 +13,11 @@
 /**
  * update strategy, either ScaleOut or ScaleIn if empty, will default to RollingUpdateScaleOut
  */
-export type UpdateStrategyType =
-  (typeof UpdateStrategyType)[keyof typeof UpdateStrategyType];
+export type UpdateStrategyType = typeof UpdateStrategyType[keyof typeof UpdateStrategyType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const UpdateStrategyType = {
-  RollingUpdateScaleOut: "RollingUpdateScaleOut",
-  RollingUpdateScaleIn: "RollingUpdateScaleIn",
+  RollingUpdateScaleOut: 'RollingUpdateScaleOut',
+  RollingUpdateScaleIn: 'RollingUpdateScaleIn',
 } as const;

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { StorageType } from "./storageType";
+import type { StorageType } from './storageType';
 
-export interface AwsStorageTypes {
+export type AwsStorageTypes = {
   /** List of AWS storage types */
   storageTypes?: StorageType[];
-}
+};

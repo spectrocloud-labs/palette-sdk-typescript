@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./relatedObject";
-import type { ClusterWorkloadPod } from "./clusterWorkloadPod";
+import type { RelatedObject } from './relatedObject';
+import type { ClusterWorkloadPod } from './clusterWorkloadPod';
 
 /**
  * Workspace cluster workload pods summary
  */
-export interface WorkspaceClusterWorkloadPods {
+export type WorkspaceClusterWorkloadPods = {
   metadata?: RelatedObject;
   pods?: ClusterWorkloadPod[];
-}
+};

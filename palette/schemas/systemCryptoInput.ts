@@ -13,6 +13,6 @@
 /**
  * SystemAdmin
  */
-export interface SystemCryptoInput {
+export type SystemCryptoInput = {
   input?: string;
-}
+};

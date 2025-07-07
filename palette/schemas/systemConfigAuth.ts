@@ -13,7 +13,7 @@
 /**
  * System config auth
  */
-export interface SystemConfigAuth {
+export type SystemConfigAuth = {
   enforceServiceAuthToken?: boolean;
   enforceTlsVerify?: boolean;
-}
+};

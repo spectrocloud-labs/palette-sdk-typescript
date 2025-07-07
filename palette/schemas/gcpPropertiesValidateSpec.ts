@@ -13,9 +13,9 @@
 /**
  * Gcp properties validate spec
  */
-export interface GcpPropertiesValidateSpec {
+export type GcpPropertiesValidateSpec = {
   azs?: string[];
   cloudAccountUid?: string;
   projectId?: string;
   region?: string;
-}
+};

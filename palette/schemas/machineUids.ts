@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface MachineUids {
+export type MachineUids = {
   machineUids?: string[];
-}
+};

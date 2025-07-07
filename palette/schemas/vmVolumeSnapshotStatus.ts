@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmVolumeSnapshotStatus {
+export type VmVolumeSnapshotStatus = {
   /** True if the volume supports snapshotting */
   enabled: boolean;
   /** Volume name */
   name: string;
   /** Empty if snapshotting is enabled, contains reason otherwise */
   reason?: string;
-}
+};

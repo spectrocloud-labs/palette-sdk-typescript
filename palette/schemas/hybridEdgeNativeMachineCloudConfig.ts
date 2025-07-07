@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./archType";
-import type { EdgeNativeHybridMachinePoolHost } from "./edgeNativeHybridMachinePoolHost";
-import type { HybridCluster } from "./hybridCluster";
+import type { ArchType } from './archType';
+import type { EdgeNativeHybridMachinePoolHost } from './edgeNativeHybridMachinePoolHost';
+import type { HybridCluster } from './hybridCluster';
 
 /**
  * HybridEdgeNativeMachineCloudConfig defines hybrid Edge-Native cluster's machine configurations
  */
-export interface HybridEdgeNativeMachineCloudConfig {
+export type HybridEdgeNativeMachineCloudConfig = {
   archType: ArchType;
   /** Edge host's configuration */
   edgeHosts: EdgeNativeHybridMachinePoolHost[];
   hybridCluster?: HybridCluster;
-}
+};

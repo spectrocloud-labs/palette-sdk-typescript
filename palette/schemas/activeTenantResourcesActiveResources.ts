@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ActiveTenantResourcesActiveResources = { [key: string]: string[] };
+export type ActiveTenantResourcesActiveResources = {[key: string]: string[]};

@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AuditSpecActionType } from "./auditSpecActionType";
-import type { AuditActor } from "./auditActor";
-import type { AuditResourceReference } from "./auditResourceReference";
+import type { AuditSpecActionType } from './auditSpecActionType';
+import type { AuditActor } from './auditActor';
+import type { AuditResourceReference } from './auditResourceReference';
 
 /**
  * Audit specifications
  */
-export interface AuditSpec {
+export type AuditSpec = {
   /** Audit action message */
   actionMsg?: string;
   actionType?: AuditSpecActionType;
@@ -26,4 +26,4 @@ export interface AuditSpec {
   resource?: AuditResourceReference;
   /** Audit user message */
   userMsg?: string;
-}
+};

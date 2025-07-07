@@ -13,7 +13,7 @@
 /**
  * Returns spectro cluster token
  */
-export interface SpectroClusterToken {
+export type SpectroClusterToken = {
   /** Spectro cluster auth token */
   authToken?: string;
-}
+};

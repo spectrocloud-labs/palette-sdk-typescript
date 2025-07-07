@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface Cpu {
+export type Cpu = {
   /** number of cpu cores */
   cores?: number;
-}
+};

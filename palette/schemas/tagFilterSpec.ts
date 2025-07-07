@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TagFilterGroup } from "./tagFilterGroup";
+import type { TagFilterGroup } from './tagFilterGroup';
 
 /**
  * Filter create spec
  */
-export interface TagFilterSpec {
+export type TagFilterSpec = {
   filterGroup?: TagFilterGroup;
-}
+};

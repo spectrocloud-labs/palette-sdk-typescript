@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Plan } from "./plan";
-import type { ListMetaData } from "./listMetaData";
+import type { Plan } from './plan';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Array of Plans
  */
-export interface Plans {
+export type Plans = {
   items: Plan[];
   listmeta?: ListMetaData;
-}
+};

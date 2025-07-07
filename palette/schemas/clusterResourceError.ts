@@ -13,8 +13,8 @@
 /**
  * Cluster resource error
  */
-export interface ClusterResourceError {
+export type ClusterResourceError = {
   msg?: string;
   name?: string;
   resourceType?: string;
-}
+};

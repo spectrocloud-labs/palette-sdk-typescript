@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspaceClusterRef } from "./dashboardWorkspaceClusterRef";
-import type { DashboardWorkspaceQuota } from "./dashboardWorkspaceQuota";
+import type { DashboardWorkspaceClusterRef } from './dashboardWorkspaceClusterRef';
+import type { DashboardWorkspaceQuota } from './dashboardWorkspaceQuota';
 
 /**
  * Workspace spec summary
  */
-export interface DashboardWorkspaceSpec {
+export type DashboardWorkspaceSpec = {
   clusterRefs?: DashboardWorkspaceClusterRef[];
   namespaces?: string[];
   quota?: DashboardWorkspaceQuota;
-}
+};

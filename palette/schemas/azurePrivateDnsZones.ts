@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzurePrivateDnsZone } from "./azurePrivateDnsZone";
+import type { AzurePrivateDnsZone } from './azurePrivateDnsZone';
 
 /**
  * List of Azure storage accounts
  */
-export interface AzurePrivateDnsZones {
+export type AzurePrivateDnsZones = {
   privateDnsZones?: AzurePrivateDnsZone[];
-}
+};

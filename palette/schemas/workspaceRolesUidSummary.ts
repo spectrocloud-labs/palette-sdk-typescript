@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface WorkspaceRolesUidSummary {
+export type WorkspaceRolesUidSummary = {
   name?: string;
   uid?: string;
-}
+};

@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export interface GitRepoFileContent {
+export type GitRepoFileContent = {
   content?: string;
   name?: string;
   path?: string;
   repoName?: string;
   sha?: string;
-}
+};

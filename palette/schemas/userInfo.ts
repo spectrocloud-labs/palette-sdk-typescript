@@ -13,9 +13,9 @@
 /**
  * User basic information
  */
-export interface UserInfo {
+export type UserInfo = {
   /** Organization name */
   orgName?: string;
   tenantUid?: string;
   userUid?: string;
-}
+};

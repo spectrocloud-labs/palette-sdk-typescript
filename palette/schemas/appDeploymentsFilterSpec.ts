@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentFilterSpec } from "./appDeploymentFilterSpec";
-import type { AppDeploymentSortSpec } from "./appDeploymentSortSpec";
+import type { AppDeploymentFilterSpec } from './appDeploymentFilterSpec';
+import type { AppDeploymentSortSpec } from './appDeploymentSortSpec';
 
 /**
  * Application deployment filter summary spec
  */
-export interface AppDeploymentsFilterSpec {
+export type AppDeploymentsFilterSpec = {
   filter?: AppDeploymentFilterSpec;
   sort?: AppDeploymentSortSpec[];
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Spectrocluster registration token entity
  */
-export interface SpectroClusterRegistrationTokenEntity {
+export type SpectroClusterRegistrationTokenEntity = {
   /** Registration token to reject the pairing request */
   registrationToken?: string;
-}
+};

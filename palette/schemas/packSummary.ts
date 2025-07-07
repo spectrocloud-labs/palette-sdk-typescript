@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { PackSummarySpec } from "./packSummarySpec";
-import type { PackSummaryStatus } from "./packSummaryStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { PackSummarySpec } from './packSummarySpec';
+import type { PackSummaryStatus } from './packSummaryStatus';
 
 /**
  * Pack summary object
  */
-export interface PackSummary {
+export type PackSummary = {
   /** Pack api version */
   apiVersion?: string;
   /** Pack kind */
@@ -24,4 +24,4 @@ export interface PackSummary {
   metadata?: ObjectMeta;
   spec?: PackSummarySpec;
   status?: PackSummaryStatus;
-}
+};

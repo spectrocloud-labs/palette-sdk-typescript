@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspaceResourceAllocation } from "./dashboardWorkspaceResourceAllocation";
+import type { DashboardWorkspaceResourceAllocation } from './dashboardWorkspaceResourceAllocation';
 
 /**
  * Workspace allocation
  */
-export interface DashboardWorkspaceAllocation {
+export type DashboardWorkspaceAllocation = {
   cpu?: DashboardWorkspaceResourceAllocation;
   memory?: DashboardWorkspaceResourceAllocation;
-}
+};

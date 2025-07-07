@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDisk } from "./vmDisk";
-import type { VmHotplugVolumeSource } from "./vmHotplugVolumeSource";
+import type { VmDisk } from './vmDisk';
+import type { VmHotplugVolumeSource } from './vmHotplugVolumeSource';
 
 /**
  * AddVolumeOptions is provided when dynamically hot plugging a volume and disk
  */
-export interface VmAddVolumeOptions {
+export type VmAddVolumeOptions = {
   disk: VmDisk;
   /** When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed */
   dryRun?: string[];
   /** Name represents the name that will be used to map the disk to the corresponding volume. This overrides any name set inside the Disk struct itself. */
   name: string;
   volumeSource: VmHotplugVolumeSource;
-}
+};

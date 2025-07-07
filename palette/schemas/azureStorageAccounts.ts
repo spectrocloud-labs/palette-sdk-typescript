@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { StorageAccount } from "./storageAccount";
+import type { StorageAccount } from './storageAccount';
 
 /**
  * List of Azure storage accounts
  */
-export interface AzureStorageAccounts {
+export type AzureStorageAccounts = {
   accounts?: StorageAccount[];
-}
+};

@@ -13,4 +13,4 @@
 /**
  * AdditionalTags is an optional set of tags to add to AWS resources managed by the AWS provider, in addition to the ones added by default.
  */
-export type FargateProfileAdditionalTags = { [key: string]: string };
+export type FargateProfileAdditionalTags = {[key: string]: string};

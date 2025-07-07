@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsResourceReference } from "./awsResourceReference";
-import type { AwsAmiReference } from "./awsAmiReference";
-import type { AwsRootVolume } from "./awsRootVolume";
+import type { AwsResourceReference } from './awsResourceReference';
+import type { AwsAmiReference } from './awsAmiReference';
+import type { AwsRootVolume } from './awsRootVolume';
 
 /**
  * AWSLaunchTemplate specifies the launch template to use to create the managed node group
  */
-export interface AwsLaunchTemplate {
+export type AwsLaunchTemplate = {
   /** AdditionalSecurityGroups is an array of references to security groups that should be applied to the instances */
   additionalSecurityGroups?: AwsResourceReference[];
   ami?: AwsAmiReference;
@@ -27,4 +27,4 @@ export interface AwsLaunchTemplate {
   /** ImageLookupOrg is the AWS Organization ID to use for image lookup if AMI is not set */
   imageLookupOrg?: string;
   rootVolume?: AwsRootVolume;
-}
+};

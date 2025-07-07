@@ -13,12 +13,12 @@
 /**
  * State of edge host device
  */
-export type DeviceSpecHostState =
-  (typeof DeviceSpecHostState)[keyof typeof DeviceSpecHostState];
+export type DeviceSpecHostState = typeof DeviceSpecHostState[keyof typeof DeviceSpecHostState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const DeviceSpecHostState = {
-  registration: "registration",
-  cluster: "cluster",
-  recovery: "recovery",
+  registration: 'registration',
+  cluster: 'cluster',
+  recovery: 'recovery',
 } as const;

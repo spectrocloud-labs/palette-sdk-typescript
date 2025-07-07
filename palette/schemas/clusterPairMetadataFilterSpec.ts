@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
+import type { FilterString } from './filterString';
 
 /**
  * Edge hosts pair metadata filter spec
  */
-export interface ClusterPairMetadataFilterSpec {
+export type ClusterPairMetadataFilterSpec = {
   localClusterUid?: FilterString;
   state?: FilterString;
-}
+};

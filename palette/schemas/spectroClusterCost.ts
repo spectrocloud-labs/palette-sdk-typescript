@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterCloudCost } from "./spectroClusterCloudCost";
-import type { ResourceCost } from "./resourceCost";
+import type { SpectroClusterCloudCost } from './spectroClusterCloudCost';
+import type { ResourceCost } from './resourceCost';
 
 /**
  * Spectro cluster cost information
  */
-export interface SpectroClusterCost {
+export type SpectroClusterCost = {
   cloud?: SpectroClusterCloudCost;
   cost?: ResourceCost;
   name?: string;
   uid?: string;
-}
+};

@@ -13,10 +13,10 @@
 /**
  * spectro application management specifications
  */
-export interface MgmtAppSpec {
+export type MgmtAppSpec = {
   appEnv?: string;
   cloudType?: string;
   installedVersion?: string;
   latestVersion?: string;
   spectroClusterUid?: string;
-}
+};

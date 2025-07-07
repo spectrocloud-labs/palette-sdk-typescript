@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./vmQuantity";
+import type { VmQuantity } from './vmQuantity';
 
 /**
  * Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
  */
-export type VmCoreResourceRequirementsRequests = { [key: string]: VmQuantity };
+export type VmCoreResourceRequirementsRequests = {[key: string]: VmQuantity};

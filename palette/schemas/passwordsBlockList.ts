@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PasswordsBlockListEntity } from "./passwordsBlockListEntity";
+import type { PasswordsBlockListEntity } from './passwordsBlockListEntity';
 
 /**
  * List of blocklisted passwords
  */
-export interface PasswordsBlockList {
+export type PasswordsBlockList = {
   spec?: PasswordsBlockListEntity;
-}
+};

@@ -13,9 +13,9 @@
 /**
  * vSphere network interface
  */
-export interface VsphereNic {
+export type VsphereNic = {
   index?: number;
   macAddress?: string;
   networkName: string;
   privateIPs?: string[];
-}
+};

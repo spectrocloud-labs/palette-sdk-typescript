@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1ClusterProfilesUidExportFormat } from "./v1ClusterProfilesUidExportFormat";
+import type { V1ClusterProfilesUidExportFormat } from './v1ClusterProfilesUidExportFormat';
 
 export type V1ClusterProfilesUidExportParams = {
-  /**
-   * Cluster profile export file format [ "yaml", "json" ]
-   */
-  format?: V1ClusterProfilesUidExportFormat;
+/**
+ * Cluster profile export file format [ "yaml", "json" ]
+ */
+format?: V1ClusterProfilesUidExportFormat;
 };

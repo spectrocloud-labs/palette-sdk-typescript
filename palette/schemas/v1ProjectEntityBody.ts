@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectEntity } from "./projectEntity";
+import type { ProjectEntity } from './projectEntity';
 
 export type V1ProjectEntityBody = ProjectEntity;

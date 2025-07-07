@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackMetadata } from "./packMetadata";
-import type { ListMetaData } from "./listMetaData";
+import type { PackMetadata } from './packMetadata';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * List of packs metadata
  */
-export interface PackMetadataList {
+export type PackMetadataList = {
   /** Packs metadata array */
   items: PackMetadata[];
   listmeta?: ListMetaData;
-}
+};

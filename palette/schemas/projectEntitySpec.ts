@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamRoleMap } from "./teamRoleMap";
-import type { UserRoleMap } from "./userRoleMap";
+import type { TeamRoleMap } from './teamRoleMap';
+import type { UserRoleMap } from './userRoleMap';
 
 /**
  * Project specifications
  */
-export interface ProjectEntitySpec {
+export type ProjectEntitySpec = {
   logoUid?: string;
   teams?: TeamRoleMap[];
   users?: UserRoleMap[];
-}
+};

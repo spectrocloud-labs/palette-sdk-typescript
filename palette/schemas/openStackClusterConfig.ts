@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackResource } from "./openStackResource";
+import type { OpenStackResource } from './openStackResource';
 
 /**
  * Cluster level configuration for OpenStack cloud and applicable for all the machine pools
  */
-export interface OpenStackClusterConfig {
+export type OpenStackClusterConfig = {
   /** Create bastion node option we have earlier supported creation of bastion by default */
   bastionDisabled?: boolean;
   /** DNSNameservers is the list of nameservers for OpenStack Subnet being created. Set this value when you need create a new network/subnet while the access through DNS is required. */
@@ -27,4 +27,4 @@ export interface OpenStackClusterConfig {
   region?: string;
   sshKeyName?: string;
   subnet?: OpenStackResource;
-}
+};

@@ -11,5 +11,5 @@
  */
 
 export type V1SsoLoginsParams = {
-  org?: string;
+org?: string;
 };

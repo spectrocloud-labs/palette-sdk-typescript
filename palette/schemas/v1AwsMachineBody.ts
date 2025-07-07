@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsMachine } from "./awsMachine";
+import type { AwsMachine } from './awsMachine';
 
 export type V1AwsMachineBody = AwsMachine;

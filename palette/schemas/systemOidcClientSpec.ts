@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemOidcClaims } from "./systemOidcClaims";
+import type { SystemOidcClaims } from './systemOidcClaims';
 
 /**
  * system sso oidc config spec
  */
-export interface SystemOidcClientSpec {
+export type SystemOidcClientSpec = {
   callbackUrl?: string;
   clientId?: string;
   clientSecret?: string;
@@ -24,4 +24,4 @@ export interface SystemOidcClientSpec {
   logoUrl?: string;
   requiredClaims?: SystemOidcClaims;
   scopes?: string[];
-}
+};

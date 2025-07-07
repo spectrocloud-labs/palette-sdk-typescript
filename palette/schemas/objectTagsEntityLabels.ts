@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ObjectTagsEntityLabels = { [key: string]: string };
+export type ObjectTagsEntityLabels = {[key: string]: string};

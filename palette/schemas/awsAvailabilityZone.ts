@@ -13,11 +13,11 @@
 /**
  * Distinct locations within an AWS Region that are engineered to be isolated from failures in other Zones
  */
-export interface AwsAvailabilityZone {
+export type AwsAvailabilityZone = {
   /** AWS availability zone name */
   name?: string;
   /** AWS availability zone state */
   state?: string;
   /** AWS availability zone id */
   zoneId?: string;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HybridClusterMeta } from "./hybridClusterMeta";
+import type { HybridClusterMeta } from './hybridClusterMeta';
 
 /**
  * Object identity meta of the cluster
  */
-export interface EdgeClusterObjectEntity {
+export type EdgeClusterObjectEntity = {
   hybridCluster?: HybridClusterMeta;
   /** Name of the cluster */
   name?: string;
   /** Uid of the cluster */
   uid?: string;
-}
+};

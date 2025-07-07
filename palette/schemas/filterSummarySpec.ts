@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface FilterSummarySpec {
+export type FilterSummarySpec = {
   filterType?: string;
-}
+};

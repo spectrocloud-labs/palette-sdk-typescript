@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { GcpAccountEntitySpec } from "./gcpAccountEntitySpec";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { GcpAccountEntitySpec } from './gcpAccountEntitySpec';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * GCP account information
  */
-export interface GcpAccountEntity {
+export type GcpAccountEntity = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface GcpAccountEntity {
   metadata?: ObjectMeta;
   spec?: GcpAccountEntitySpec;
   status?: CloudAccountStatus;
-}
+};

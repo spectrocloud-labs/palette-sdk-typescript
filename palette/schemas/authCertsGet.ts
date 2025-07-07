@@ -13,9 +13,9 @@
 /**
  * Auth certs get
  */
-export interface AuthCertsGet {
+export type AuthCertsGet = {
   apiDomain?: string;
   caCert?: string;
   insecureSkipVerify?: boolean;
   rootDomain?: string;
-}
+};

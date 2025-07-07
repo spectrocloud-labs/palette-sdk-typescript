@@ -13,11 +13,11 @@
 /**
  * enable or disable the non FIPS complaint
  */
-export type NonFipsConfigMode =
-  (typeof NonFipsConfigMode)[keyof typeof NonFipsConfigMode];
+export type NonFipsConfigMode = typeof NonFipsConfigMode[keyof typeof NonFipsConfigMode];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const NonFipsConfigMode = {
-  nonFipsEnabled: "nonFipsEnabled",
-  nonFipsDisabled: "nonFipsDisabled",
+  nonFipsEnabled: 'nonFipsEnabled',
+  nonFipsDisabled: 'nonFipsDisabled',
 } as const;

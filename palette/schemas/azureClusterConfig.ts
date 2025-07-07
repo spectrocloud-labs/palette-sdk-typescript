@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AADProfile } from "./aADProfile";
-import type { APIServerAccessProfile } from "./aPIServerAccessProfile";
-import type { Subnet } from "./subnet";
-import type { InfraLBConfig } from "./infraLBConfig";
+import type { AADProfile } from './aADProfile';
+import type { APIServerAccessProfile } from './aPIServerAccessProfile';
+import type { Subnet } from './subnet';
+import type { InfraLBConfig } from './infraLBConfig';
 
 /**
  * Cluster level configuration for Azure cloud and applicable for all the machine pools
  */
-export interface AzureClusterConfig {
+export type AzureClusterConfig = {
   aadProfile?: AADProfile;
   apiServerAccessProfile?: APIServerAccessProfile;
   containerName?: string;
@@ -37,4 +37,4 @@ export interface AzureClusterConfig {
   vnetName?: string;
   vnetResourceGroup?: string;
   workerSubnet?: Subnet;
-}
+};

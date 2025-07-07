@@ -13,6 +13,6 @@
 /**
  * Virtual cloud machine definition spec
  */
-export interface VirtualMachineSpec {
+export type VirtualMachineSpec = {
   hostname?: string;
-}
+};

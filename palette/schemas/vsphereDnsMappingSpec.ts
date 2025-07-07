@@ -13,7 +13,7 @@
 /**
  * VSphere DNS Mapping Spec
  */
-export interface VsphereDnsMappingSpec {
+export type VsphereDnsMappingSpec = {
   /** VSphere datacenter name */
   datacenter: string;
   /** VSphere DNS name */
@@ -24,4 +24,4 @@ export interface VsphereDnsMappingSpec {
   readonly networkUrl?: string;
   /** VSphere private gateway uid */
   privateGatewayUid: string;
-}
+};

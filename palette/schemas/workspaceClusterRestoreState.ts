@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Workspace cluster restore state
  */
-export interface WorkspaceClusterRestoreState {
+export type WorkspaceClusterRestoreState = {
   msg?: string;
   restoreTime?: Time;
   state?: string;
-}
+};

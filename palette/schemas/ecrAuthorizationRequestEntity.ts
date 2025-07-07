@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
 /**
  * Ecr registry credentials entity
  */
-export interface EcrAuthorizationRequestEntity {
+export type EcrAuthorizationRequestEntity = {
   awsCloudAccount?: AwsCloudAccount;
   /** Endpoint url to make the request */
   endpoint?: string;
@@ -22,4 +22,4 @@ export interface EcrAuthorizationRequestEntity {
   isPrivate?: boolean;
   /** Name of the region */
   region?: string;
-}
+};

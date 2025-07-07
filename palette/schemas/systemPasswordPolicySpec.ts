@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * system password policy
  */
-export interface SystemPasswordPolicySpec {
+export type SystemPasswordPolicySpec = {
   creationTimestamp?: Time;
   expiryDurationInDays?: number;
   firstReminderInDays?: number;
@@ -27,4 +27,4 @@ export interface SystemPasswordPolicySpec {
   regex?: string;
   reminderFrequency?: number;
   updateTimestamp?: Time;
-}
+};

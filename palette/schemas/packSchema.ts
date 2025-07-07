@@ -13,7 +13,7 @@
 /**
  * PackSchema defines the schema definition, hints for the pack values
  */
-export interface PackSchema {
+export type PackSchema = {
   format?: string;
   hints?: string[];
   listOptions?: string[];
@@ -22,4 +22,4 @@ export interface PackSchema {
   regex?: string;
   required?: boolean;
   type?: string;
-}
+};

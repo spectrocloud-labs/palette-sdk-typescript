@@ -13,9 +13,9 @@
 /**
  * system smtp config spec
  */
-export interface SystemCertificateSpec {
+export type SystemCertificateSpec = {
   caCert?: string;
   crt?: string;
   insecureSkipVerify?: boolean;
   key?: string;
-}
+};

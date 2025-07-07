@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryAuth } from "./registryAuth";
+import type { RegistryAuth } from './registryAuth';
 
 /**
  * Registry configuration
  */
-export interface RegistryConfiguration {
+export type RegistryConfiguration = {
   auth?: RegistryAuth;
   endpoint?: string;
   name?: string;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * Application deployment virtual cluster target spec
  */
-export interface AppDeploymentVirtualClusterTargetSpec {
+export type AppDeploymentVirtualClusterTargetSpec = {
   /** Application deployment virtual cluster uid */
   clusterUid: string;
-}
+};

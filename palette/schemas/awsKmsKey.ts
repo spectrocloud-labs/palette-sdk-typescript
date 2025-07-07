@@ -13,11 +13,11 @@
 /**
  * AWS KMS Key - gives you centralized control over the cryptographic keys used to protect your data.
  */
-export interface AwsKmsKey {
+export type AwsKmsKey = {
   /** AWS KMS alias */
   keyAlias?: string;
   /** AWS KMS arn */
   keyArn: string;
   /** AWS KMS keyid */
   keyId: string;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster asset Kube Config
  */
-export interface SpectroClusterAssetKubeConfig {
+export type SpectroClusterAssetKubeConfig = {
   kubeconfig?: string;
-}
+};

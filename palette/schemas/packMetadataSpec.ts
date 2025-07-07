@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackLayer } from "./packLayer";
-import type { RegistryPackMetadata } from "./registryPackMetadata";
-import type { PackType } from "./packType";
+import type { PackLayer } from './packLayer';
+import type { RegistryPackMetadata } from './registryPackMetadata';
+import type { PackType } from './packType';
 
 /**
  * Pack metadata spec
  */
-export interface PackMetadataSpec {
+export type PackMetadataSpec = {
   /** Pack add-on sub type such as monitoring, db etc */
   addonSubType?: string;
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -33,4 +33,4 @@ export interface PackMetadataSpec {
   /** Pack registries array */
   registries?: RegistryPackMetadata[];
   type?: PackType;
-}
+};

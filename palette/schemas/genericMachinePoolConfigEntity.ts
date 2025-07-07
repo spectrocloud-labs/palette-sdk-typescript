@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GenericClusterConfig } from "./genericClusterConfig";
-import type { MachinePoolConfigEntity } from "./machinePoolConfigEntity";
+import type { GenericClusterConfig } from './genericClusterConfig';
+import type { MachinePoolConfigEntity } from './machinePoolConfigEntity';
 
-export interface GenericMachinePoolConfigEntity {
+export type GenericMachinePoolConfigEntity = {
   cloudConfig?: GenericClusterConfig;
   poolConfig?: MachinePoolConfigEntity;
-}
+};

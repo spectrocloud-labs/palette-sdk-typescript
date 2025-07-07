@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { EdgeNativeCloudConfigSpec } from "./edgeNativeCloudConfigSpec";
-import type { EdgeNativeCloudConfigStatus } from "./edgeNativeCloudConfigStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { EdgeNativeCloudConfigSpec } from './edgeNativeCloudConfigSpec';
+import type { EdgeNativeCloudConfigStatus } from './edgeNativeCloudConfigStatus';
 
 /**
  * EdgeNativeCloudConfig is the Schema for the edgenativecloudconfigs API
  */
-export interface EdgeNativeCloudConfig {
+export type EdgeNativeCloudConfig = {
   metadata?: ObjectMeta;
   spec?: EdgeNativeCloudConfigSpec;
   status?: EdgeNativeCloudConfigStatus;
-}
+};

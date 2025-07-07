@@ -13,6 +13,4 @@
 /**
  * Describes the events happened for the notifications
  */
-export type NotificationActionEvents = {
-  [key: string]: { [key: string]: string };
-};
+export type NotificationActionEvents = {[key: string]: {[key: string]: string}};

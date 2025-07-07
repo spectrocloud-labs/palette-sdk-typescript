@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasInstanceType } from "./maasInstanceType";
+import type { MaasInstanceType } from './maasInstanceType';
 
-export interface MaasMachinePoolCloudConfigEntity {
+export type MaasMachinePoolCloudConfigEntity = {
   azs?: string[];
   instanceType: MaasInstanceType;
   /** the resource pool */
   resourcePool: string;
   /** Tags in maas environment */
   tags?: string[];
-}
+};

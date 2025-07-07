@@ -10,6 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmConfigDriveSshPublicKeyAccessCredentialPropagation {
-  [key: string]: unknown;
-}
+export type VmConfigDriveSshPublicKeyAccessCredentialPropagation = { [key: string]: unknown };

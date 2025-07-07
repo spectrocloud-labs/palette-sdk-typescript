@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { EdgeTokenSpecEntity } from "./edgeTokenSpecEntity";
+import type { ObjectMeta } from './objectMeta';
+import type { EdgeTokenSpecEntity } from './edgeTokenSpecEntity';
 
 /**
  * Edge token request payload
  */
-export interface EdgeTokenEntity {
+export type EdgeTokenEntity = {
   metadata?: ObjectMeta;
   spec?: EdgeTokenSpecEntity;
-}
+};

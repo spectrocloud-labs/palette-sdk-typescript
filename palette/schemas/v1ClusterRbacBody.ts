@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRbac } from "./clusterRbac";
+import type { ClusterRbac } from './clusterRbac';
 
 export type V1ClusterRbacBody = ClusterRbac;

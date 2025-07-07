@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasMachine } from "./maasMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { MaasMachine } from './maasMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * List of MAAS machines
  */
-export interface MaasMachines {
+export type MaasMachines = {
   items: MaasMachine[];
   listmeta?: ListMetaData;
-}
+};

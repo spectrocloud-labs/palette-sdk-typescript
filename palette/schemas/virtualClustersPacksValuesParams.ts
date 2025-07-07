@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VirtualClustersPacksValuesKubernetesDistroType } from "./virtualClustersPacksValuesKubernetesDistroType";
+import type { VirtualClustersPacksValuesKubernetesDistroType } from './virtualClustersPacksValuesKubernetesDistroType';
 
 export type VirtualClustersPacksValuesParams = {
-  /**
-   * Kubernetes distribution type
-   */
-  kubernetesDistroType?: VirtualClustersPacksValuesKubernetesDistroType;
+/**
+ * Kubernetes distribution type
+ */
+kubernetesDistroType?: VirtualClustersPacksValuesKubernetesDistroType;
 };

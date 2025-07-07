@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMMigrateParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

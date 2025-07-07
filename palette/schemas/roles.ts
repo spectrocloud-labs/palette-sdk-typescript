@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Role } from "./role";
-import type { ListMetaData } from "./listMetaData";
+import type { Role } from './role';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Array of Roles
  */
-export interface Roles {
+export type Roles = {
   items: Role[];
   listmeta?: ListMetaData;
-}
+};

@@ -11,8 +11,8 @@
  */
 
 export type V1VsphereComputeClusterResourcesParams = {
-  /**
-   * Uid for the specific VSphere cloud account
-   */
-  cloudAccountUid: string;
+/**
+ * Uid for the specific VSphere cloud account
+ */
+cloudAccountUid: string;
 };

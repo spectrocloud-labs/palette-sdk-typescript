@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GrpcEndpointTls } from "./grpcEndpointTls";
+import type { GrpcEndpointTls } from './grpcEndpointTls';
 
-export interface GrpcEndpoint {
+export type GrpcEndpoint = {
   /** Describes the URL where the client has to connect to the grpc server */
   endpoint?: string;
   /** Describes the Grpc tls config which client will use to make a request to the grpc server */
   tls?: GrpcEndpointTls;
-}
+};

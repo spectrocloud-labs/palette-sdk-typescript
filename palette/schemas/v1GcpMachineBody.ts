@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpMachine } from "./gcpMachine";
+import type { GcpMachine } from './gcpMachine';
 
 export type V1GcpMachineBody = GcpMachine;

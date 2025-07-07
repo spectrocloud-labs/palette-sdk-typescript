@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UidSummary } from "./uidSummary";
+import type { UidSummary } from './uidSummary';
 
-export interface UidRoleSummary {
+export type UidRoleSummary = {
   inheritedRoles?: UidSummary[];
   name?: string;
   roles?: UidSummary[];
   uid?: string;
-}
+};

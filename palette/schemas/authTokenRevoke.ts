@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthTokenRevoke {
+export type AuthTokenRevoke = {
   tokens?: string[];
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { NonFipsConfig } from "./nonFipsConfig";
+import type { NonFipsConfig } from './nonFipsConfig';
 
 /**
  * FIPS configuration
  */
-export interface FipsSettings {
+export type FipsSettings = {
   fipsClusterFeatureConfig?: NonFipsConfig;
   fipsClusterImportConfig?: NonFipsConfig;
   fipsPackConfig?: NonFipsConfig;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SshTunnelStatus } from "./sshTunnelStatus";
+import type { SshTunnelStatus } from './sshTunnelStatus';
 
 /**
  * SpectroTunnelStatus is the status of the tunnel
  */
-export interface SpectroTunnelStatus {
+export type SpectroTunnelStatus = {
   ssh?: SshTunnelStatus;
-}
+};

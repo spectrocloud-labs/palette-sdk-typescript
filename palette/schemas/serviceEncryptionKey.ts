@@ -13,7 +13,7 @@
 /**
  * Returns the data encryption key for the session
  */
-export interface ServiceEncryptionKey {
+export type ServiceEncryptionKey = {
   /** Encryption key to be used to decrypt the encrypted data in the response */
   encryptionKey?: string;
-}
+};

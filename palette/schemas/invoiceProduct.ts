@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InvoiceProductData } from "./invoiceProductData";
+import type { InvoiceProductData } from './invoiceProductData';
 
 /**
  * Product invoice object
  */
-export interface InvoiceProduct {
+export type InvoiceProduct = {
   alloy?: InvoiceProductData;
   pure?: InvoiceProductData;
-}
+};

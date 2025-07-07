@@ -11,8 +11,8 @@
  */
 
 export type V1AwsKmsKeyGetParams = {
-  /**
-   * Uid for the specific AWS cloud account
-   */
-  cloudAccountUid: string;
+/**
+ * Uid for the specific AWS cloud account
+ */
+cloudAccountUid: string;
 };

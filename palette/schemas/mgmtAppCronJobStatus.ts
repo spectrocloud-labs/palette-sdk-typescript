@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { MgmtAppCronJobStatusPods } from "./mgmtAppCronJobStatusPods";
+import type { Time } from './time';
+import type { MgmtAppCronJobStatusPods } from './mgmtAppCronJobStatusPods';
 
-export interface MgmtAppCronJobStatus {
+export type MgmtAppCronJobStatus = {
   isHealthy?: boolean;
   lastScheduleTime?: Time;
   lastSuccessfulRunTime?: Time;
   messages?: string[];
   name?: string;
   pods?: MgmtAppCronJobStatusPods;
-}
+};

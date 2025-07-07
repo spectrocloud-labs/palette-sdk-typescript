@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SearchFilterSchemaSpecProperty } from "./searchFilterSchemaSpecProperty";
+import type { SearchFilterSchemaSpecProperty } from './searchFilterSchemaSpecProperty';
 
-export interface SearchFilterSchemaSpecProperties {
+export type SearchFilterSchemaSpecProperties = {
   properties?: SearchFilterSchemaSpecProperty[];
-}
+};

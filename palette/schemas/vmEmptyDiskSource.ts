@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmQuantity } from "./vmQuantity";
+import type { VmQuantity } from './vmQuantity';
 
 /**
  * EmptyDisk represents a temporary disk which shares the vmis lifecycle.
  */
-export interface VmEmptyDiskSource {
+export type VmEmptyDiskSource = {
   capacity: VmQuantity;
-}
+};

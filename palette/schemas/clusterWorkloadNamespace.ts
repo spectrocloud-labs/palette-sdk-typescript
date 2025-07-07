@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadMetadata } from "./clusterWorkloadMetadata";
-import type { ClusterWorkloadNamespaceStatus } from "./clusterWorkloadNamespaceStatus";
+import type { ClusterWorkloadMetadata } from './clusterWorkloadMetadata';
+import type { ClusterWorkloadNamespaceStatus } from './clusterWorkloadNamespaceStatus';
 
 /**
  * Cluster workload namespace summary
  */
-export interface ClusterWorkloadNamespace {
+export type ClusterWorkloadNamespace = {
   metadata?: ClusterWorkloadMetadata;
   status?: ClusterWorkloadNamespaceStatus;
-}
+};

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestRefUpdateEntity } from "./manifestRefUpdateEntity";
+import type { ManifestRefUpdateEntity } from './manifestRefUpdateEntity';
 
 export type V1ManifestRefUpdateEntityBody = ManifestRefUpdateEntity;

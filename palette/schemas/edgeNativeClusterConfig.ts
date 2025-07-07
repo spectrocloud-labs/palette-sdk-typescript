@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeControlPlaneEndPoint } from "./edgeNativeControlPlaneEndPoint";
-import type { EdgeNativeOverlayNetworkConfiguration } from "./edgeNativeOverlayNetworkConfiguration";
+import type { EdgeNativeControlPlaneEndPoint } from './edgeNativeControlPlaneEndPoint';
+import type { EdgeNativeOverlayNetworkConfiguration } from './edgeNativeOverlayNetworkConfiguration';
 
 /**
  * EdgeNativeClusterConfig definnes Edge Native Cluster specific Spec
  */
-export interface EdgeNativeClusterConfig {
+export type EdgeNativeClusterConfig = {
   controlPlaneEndpoint?: EdgeNativeControlPlaneEndPoint;
   /** IsTwoNodeCluster is to enable two node cluster support in the control-plane */
   isTwoNodeCluster?: boolean;
@@ -26,4 +26,4 @@ export interface EdgeNativeClusterConfig {
   sshKeys?: string[];
   /** StaticIP indicates if IP allocation type is static IP. DHCP is the default allocation type */
   staticIp?: boolean;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadReplicaStatus } from "./clusterWorkloadReplicaStatus";
+import type { ClusterWorkloadReplicaStatus } from './clusterWorkloadReplicaStatus';
 
 /**
  * Cluster workload statefulset status
  */
-export interface ClusterWorkloadStatefulSetStatus {
+export type ClusterWorkloadStatefulSetStatus = {
   replicas?: ClusterWorkloadReplicaStatus;
-}
+};

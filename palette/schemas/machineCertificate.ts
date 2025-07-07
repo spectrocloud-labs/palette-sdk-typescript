@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CertificateAuthority } from "./certificateAuthority";
+import type { CertificateAuthority } from './certificateAuthority';
 
 /**
  * K8 Certificates for control plane nodes
  */
-export interface MachineCertificate {
+export type MachineCertificate = {
   /** Applicable certificate authorities */
   certificateAuthorities?: CertificateAuthority[];
   name?: string;
-}
+};

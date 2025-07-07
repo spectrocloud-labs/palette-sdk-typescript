@@ -11,5 +11,5 @@
  */
 
 export type OverlordsOpenStackManifestParams = {
-  pairingCode: string;
+pairingCode: string;
 };

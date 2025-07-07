@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterGroupSummarySpecEndpointType =
-  (typeof ClusterGroupSummarySpecEndpointType)[keyof typeof ClusterGroupSummarySpecEndpointType];
+export type ClusterGroupSummarySpecEndpointType = typeof ClusterGroupSummarySpecEndpointType[keyof typeof ClusterGroupSummarySpecEndpointType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterGroupSummarySpecEndpointType = {
-  Ingress: "Ingress",
-  LoadBalancer: "LoadBalancer",
+  Ingress: 'Ingress',
+  LoadBalancer: 'LoadBalancer',
 } as const;

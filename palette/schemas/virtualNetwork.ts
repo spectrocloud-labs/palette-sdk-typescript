@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Subnet } from "./subnet";
+import type { Subnet } from './subnet';
 
 /**
  * Azure virtual network is the fundamental building block for your private network in Azure.
  */
-export interface VirtualNetwork {
+export type VirtualNetwork = {
   /** Location of the virtual network */
   addressSpaces?: string[];
   /** The ID of the resource group */
@@ -27,4 +27,4 @@ export interface VirtualNetwork {
   subnets?: Subnet[];
   /** Type of the virtual network */
   type?: string;
-}
+};

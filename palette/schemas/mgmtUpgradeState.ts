@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
-export interface MgmtUpgradeState {
+export type MgmtUpgradeState = {
   description?: string;
   details?: string[];
   endTimestamp?: Time;
   isCompleted?: boolean;
   message?: string;
   startTimestamp?: Time;
-}
+};

@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TlsConfiguration } from "./tlsConfiguration";
-import type { RegistryAuthType } from "./registryAuthType";
+import type { TlsConfiguration } from './tlsConfiguration';
+import type { RegistryAuthType } from './registryAuthType';
 
 /**
  * Auth credentials of the registry
  */
-export interface RegistryAuth {
+export type RegistryAuth = {
   password?: string;
   tls?: TlsConfiguration;
   token?: string;
   type?: RegistryAuthType;
   username?: string;
-}
+};

@@ -3,10 +3,6 @@
     "application/json"
   ],
   "definitions": {
-    "URLEncodedBase64": {
-      "format": "url-encoded-base64",
-      "type": "string"
-    },
     "V1AwsAccountSts": {
       "description": "AWS cloud account sts",
       "properties": {
@@ -398,25 +394,6 @@
           "type": "array"
         }
       },
-      "type": "object"
-    },
-    "v1ApiEndpoint": {
-      "description": "APIEndpoint represents a reachable Kubernetes API endpoint.",
-      "properties": {
-        "host": {
-          "description": "The hostname on which the API server is serving.",
-          "type": "string"
-        },
-        "port": {
-          "description": "The port on which the API server is serving.",
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "host",
-        "port"
-      ],
       "type": "object"
     },
     "v1ApiKey": {
@@ -16697,15 +16674,15 @@
           "type": "string"
         },
         "rawId": {
-          "$ref": "#/definitions/URLEncodedBase64"
+          "$ref": "#/definitions/urlEncodedBase64"
         },
         "response": {
           "properties": {
             "attestationObject": {
-              "$ref": "#/definitions/URLEncodedBase64"
+              "$ref": "#/definitions/urlEncodedBase64"
             },
             "clientDataJSON": {
-              "$ref": "#/definitions/URLEncodedBase64"
+              "$ref": "#/definitions/urlEncodedBase64"
             },
             "transports": {
               "items": {
@@ -16798,7 +16775,7 @@
           "$ref": "#/definitions/v1MfaAuthenticatorSelection"
         },
         "challenge": {
-          "$ref": "#/definitions/URLEncodedBase64"
+          "$ref": "#/definitions/urlEncodedBase64"
         },
         "excludeCredentials": {
           "items": {
@@ -62225,7 +62202,7 @@
             "name": "body",
             "schema": {
               "items": {
-                "$ref": "#/definitions/v1ApiEndpoint"
+                "$ref": "#/definitions/v1APIEndpoint"
               },
               "type": "array"
             }

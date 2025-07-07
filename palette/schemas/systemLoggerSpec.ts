@@ -13,7 +13,7 @@
 /**
  * system logger config spec
  */
-export interface SystemLoggerSpec {
+export type SystemLoggerSpec = {
   format?: string;
   level?: string;
-}
+};

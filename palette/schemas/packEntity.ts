@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackType } from "./packType";
+import type { PackType } from './packType';
 
 /**
  * Pack object
  */
-export interface PackEntity {
+export type PackEntity = {
   /** Pack layer */
   layer?: string;
   /** Pack name */
@@ -26,4 +26,4 @@ export interface PackEntity {
   uid: string;
   /** values represents the values.yaml used as input parameters either Params OR Values should be used, not both If both applied at the same time, will only use Values */
   values?: string;
-}
+};

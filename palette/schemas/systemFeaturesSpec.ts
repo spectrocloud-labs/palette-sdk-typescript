@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface SystemFeaturesSpec {
+export type SystemFeaturesSpec = {
   /** Feature description */
   description?: string;
   /** Feature doc link */
@@ -19,4 +19,4 @@ export interface SystemFeaturesSpec {
   isAllowed?: boolean;
   /** Unique Feature key */
   key?: string;
-}
+};

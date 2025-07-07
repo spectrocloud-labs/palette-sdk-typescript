@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AzureCloudAccount } from "./azureCloudAccount";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { AzureCloudAccount } from './azureCloudAccount';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * Azure account information
  */
-export interface AzureAccount {
+export type AzureAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface AzureAccount {
   metadata?: ObjectMeta;
   spec?: AzureCloudAccount;
   status?: CloudAccountStatus;
-}
+};

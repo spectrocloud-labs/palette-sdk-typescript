@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantResourceLimitEntity } from "./tenantResourceLimitEntity";
+import type { TenantResourceLimitEntity } from './tenantResourceLimitEntity';
 
 /**
  * Tenant resource limits. Supported resources keys are 'user','project','apiKey','team','role','cloudaccount','clusterprofile','workspace','registry','privategateway','location','certificate','macro','sshkey','alert','spectrocluster','edgehost'.
  */
-export interface TenantResourceLimitsEntity {
+export type TenantResourceLimitsEntity = {
   resources?: TenantResourceLimitEntity[];
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster backup location type
  */
-export interface ClusterBackupLocationType {
+export type ClusterBackupLocationType = {
   locationType: string;
-}
+};

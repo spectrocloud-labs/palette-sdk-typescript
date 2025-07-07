@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspace } from "./dashboardWorkspace";
+import type { DashboardWorkspace } from './dashboardWorkspace';
 
-export interface DashboardWorkspaces {
+export type DashboardWorkspaces = {
   cpuUnit?: string;
   items: DashboardWorkspace[];
   memoryUnit?: string;
-}
+};

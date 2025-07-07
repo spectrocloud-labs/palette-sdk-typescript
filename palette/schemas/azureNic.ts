@@ -13,8 +13,8 @@
 /**
  * AWS network interface
  */
-export interface AzureNic {
+export type AzureNic = {
   index?: number;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

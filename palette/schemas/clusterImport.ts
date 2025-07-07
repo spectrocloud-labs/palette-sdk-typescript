@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface ClusterImport {
+export type ClusterImport = {
   /** import link to download and install ally-lite, palette-lite */
   importLink?: string;
   /** Deprecated. Use the 'spec.clusterType' */
   isBrownfield?: boolean;
   /** cluster import status */
   state?: string;
-}
+};

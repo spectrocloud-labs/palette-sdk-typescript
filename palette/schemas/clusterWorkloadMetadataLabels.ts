@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ClusterWorkloadMetadataLabels = { [key: string]: string };
+export type ClusterWorkloadMetadataLabels = {[key: string]: string};

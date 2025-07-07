@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { RoleSpec } from "./roleSpec";
-import type { RoleStatus } from "./roleStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { RoleSpec } from './roleSpec';
+import type { RoleStatus } from './roleStatus';
 
 /**
  * Role
  */
-export interface Role {
+export type Role = {
   metadata?: ObjectMeta;
   spec?: RoleSpec;
   status?: RoleStatus;
-}
+};

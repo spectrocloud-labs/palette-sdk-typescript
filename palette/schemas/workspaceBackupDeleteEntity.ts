@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupClusterRef } from "./workspaceBackupClusterRef";
+import type { WorkspaceBackupClusterRef } from './workspaceBackupClusterRef';
 
 /**
  * Cluster backup delete config
  */
-export interface WorkspaceBackupDeleteEntity {
+export type WorkspaceBackupDeleteEntity = {
   clusterConfigs?: WorkspaceBackupClusterRef[];
   requestUid?: string;
-}
+};

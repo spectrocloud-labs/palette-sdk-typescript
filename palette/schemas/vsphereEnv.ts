@@ -13,7 +13,7 @@
 /**
  * Vsphere environment entity
  */
-export interface VsphereEnv {
+export type VsphereEnv = {
   /** Version of vsphere environment */
   version?: string;
-}
+};

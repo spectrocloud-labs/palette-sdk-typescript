@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectSummary } from "./projectSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { ProjectSummary } from './projectSummary';
+import type { ListMetaData } from './listMetaData';
 
-export interface ProjectsSummary {
+export type ProjectsSummary = {
   items: ProjectSummary[];
   listmeta?: ListMetaData;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface PcgSelfHostedParams {
+export type PcgSelfHostedParams = {
   cloudType?: string;
   name?: string;
-}
+};

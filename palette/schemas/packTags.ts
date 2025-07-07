@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface PackTags {
+export type PackTags = {
   /** Pack group */
   group?: string;
   /** Pack uid */
@@ -21,4 +21,4 @@ export interface PackTags {
   tag?: string;
   /** Pack version */
   version?: string;
-}
+};

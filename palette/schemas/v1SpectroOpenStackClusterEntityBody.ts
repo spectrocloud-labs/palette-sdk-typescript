@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroOpenStackClusterEntity } from "./spectroOpenStackClusterEntity";
+import type { SpectroOpenStackClusterEntity } from './spectroOpenStackClusterEntity';
 
 export type V1SpectroOpenStackClusterEntityBody = SpectroOpenStackClusterEntity;

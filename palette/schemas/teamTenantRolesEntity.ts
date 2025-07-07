@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UidSummary } from "./uidSummary";
+import type { UidSummary } from './uidSummary';
 
-export interface TeamTenantRolesEntity {
+export type TeamTenantRolesEntity = {
   roles?: UidSummary[];
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster asset Frp Kube Config
  */
-export interface SpectroClusterAssetFrpKubeConfig {
+export type SpectroClusterAssetFrpKubeConfig = {
   frpKubeconfig?: string;
-}
+};

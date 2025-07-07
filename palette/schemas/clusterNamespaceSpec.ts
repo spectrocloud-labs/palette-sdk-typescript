@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./relatedObject";
-import type { ClusterNamespaceResourceAllocation } from "./clusterNamespaceResourceAllocation";
+import type { RelatedObject } from './relatedObject';
+import type { ClusterNamespaceResourceAllocation } from './clusterNamespaceResourceAllocation';
 
 /**
  * Cluster namespace spec
  */
-export interface ClusterNamespaceSpec {
+export type ClusterNamespaceSpec = {
   isRegex?: boolean;
   relatedObject?: RelatedObject;
   resourceAllocation?: ClusterNamespaceResourceAllocation;
-}
+};

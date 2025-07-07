@@ -10,10 +10,10 @@
  * OpenAPI spec version: v1
  */
 
-export type DashboardClustersSearchSummaryExportFormat =
-  (typeof DashboardClustersSearchSummaryExportFormat)[keyof typeof DashboardClustersSearchSummaryExportFormat];
+export type DashboardClustersSearchSummaryExportFormat = typeof DashboardClustersSearchSummaryExportFormat[keyof typeof DashboardClustersSearchSummaryExportFormat];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const DashboardClustersSearchSummaryExportFormat = {
-  csv: "csv",
+  csv: 'csv',
 } as const;

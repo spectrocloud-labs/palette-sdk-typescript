@@ -13,6 +13,4 @@
 /**
  * DownwardMetricsVolumeSource adds a very small disk to VMIs which contains a limited view of host and guest metrics. The disk content is compatible with vhostmd (https://github.com/vhostmd/vhostmd) and vm-dump-metrics.
  */
-export interface VmDownwardMetricsVolumeSource {
-  [key: string]: unknown;
-}
+export type VmDownwardMetricsVolumeSource = { [key: string]: unknown };

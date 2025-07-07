@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceReference } from "./resourceReference";
+import type { ResourceReference } from './resourceReference';
 
-export interface ClusterRbacEntity {
+export type ClusterRbacEntity = {
   /** Cluster RBAC role bindings */
   clusterRbac?: ResourceReference[];
-}
+};

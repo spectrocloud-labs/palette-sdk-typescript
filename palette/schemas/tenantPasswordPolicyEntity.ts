@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Tenant Password Policy Entity
  */
-export interface TenantPasswordPolicyEntity {
+export type TenantPasswordPolicyEntity = {
   creationTimestamp?: Time;
   expiryDurationInDays?: number;
   firstReminderInDays?: number;
@@ -26,4 +26,4 @@ export interface TenantPasswordPolicyEntity {
   minNumOfSpecialCharacters?: number;
   regex?: string;
   updateTimestamp?: Time;
-}
+};

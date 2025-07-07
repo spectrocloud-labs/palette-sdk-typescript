@@ -13,9 +13,9 @@
 /**
  * Application deployment profile version
  */
-export interface AppDeploymentProfileVersion {
+export type AppDeploymentProfileVersion = {
   /** Application deployment profile uid */
   uid?: string;
   /** Application deployment profile version */
   version?: string;
-}
+};

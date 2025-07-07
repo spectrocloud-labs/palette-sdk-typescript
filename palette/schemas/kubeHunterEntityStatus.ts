@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type KubeHunterEntityStatus =
-  (typeof KubeHunterEntityStatus)[keyof typeof KubeHunterEntityStatus];
+export type KubeHunterEntityStatus = typeof KubeHunterEntityStatus[keyof typeof KubeHunterEntityStatus];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const KubeHunterEntityStatus = {
-  Completed: "Completed",
-  InProgress: "InProgress",
-  Failed: "Failed",
-  Initiated: "Initiated",
+  Completed: 'Completed',
+  InProgress: 'InProgress',
+  Failed: 'Failed',
+  Initiated: 'Initiated',
 } as const;

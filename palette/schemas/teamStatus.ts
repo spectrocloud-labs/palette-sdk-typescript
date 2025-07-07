@@ -13,6 +13,4 @@
 /**
  * Team status
  */
-export interface TeamStatus {
-  [key: string]: unknown;
-}
+export type TeamStatus = { [key: string]: unknown };

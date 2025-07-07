@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InvoiceBillingPeriod } from "./invoiceBillingPeriod";
-import type { MonthlyUsage } from "./monthlyUsage";
-import type { ProductUsage } from "./productUsage";
+import type { InvoiceBillingPeriod } from './invoiceBillingPeriod';
+import type { MonthlyUsage } from './monthlyUsage';
+import type { ProductUsage } from './productUsage';
 
 /**
  * Yearly usage object
  */
-export interface YearlyUsage {
+export type YearlyUsage = {
   billingPeriod?: InvoiceBillingPeriod;
   /** List of monthly usages */
   monthlyUsages?: MonthlyUsage[];
   productUsages?: ProductUsage;
-}
+};

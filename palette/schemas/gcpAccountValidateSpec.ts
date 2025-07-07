@@ -13,9 +13,9 @@
 /**
  * Gcp cloud account entity which takes json credentials or reference to the file where credentials are stored
  */
-export interface GcpAccountValidateSpec {
+export type GcpAccountValidateSpec = {
   /** Gcp cloud account json credentials */
   jsonCredentials?: string;
   /** Deprecated - Use jsonCredentials for Gcp account credentials; Reference of the credentials stored in the file */
   jsonCredentialsFileUid?: string;
-}
+};

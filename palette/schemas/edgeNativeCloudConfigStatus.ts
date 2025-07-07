@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./clusterCondition";
+import type { ClusterCondition } from './clusterCondition';
 
 /**
  * EdgeNativeCloudConfigStatus defines the observed state of EdgeNativeCloudConfig
  */
-export interface EdgeNativeCloudConfigStatus {
+export type EdgeNativeCloudConfigStatus = {
   conditions?: ClusterCondition[];
   nodeImage?: string;
   /** SourceImageId can be from packref's annotations or from pack.json */
   sourceImageId?: string;
-}
+};

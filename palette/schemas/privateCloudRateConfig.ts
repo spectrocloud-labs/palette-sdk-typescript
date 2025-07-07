@@ -13,9 +13,9 @@
 /**
  * Private cloud rate config
  */
-export interface PrivateCloudRateConfig {
+export type PrivateCloudRateConfig = {
   cpuUnitPricePerHour?: number;
   gpuUnitPricePerHour?: number;
   memoryUnitPriceGiBPerHour?: number;
   storageUnitPriceGiBPerHour?: number;
-}
+};

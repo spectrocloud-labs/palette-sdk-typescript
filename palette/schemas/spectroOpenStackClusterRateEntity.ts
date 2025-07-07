@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackClusterConfig } from "./openStackClusterConfig";
-import type { OpenStackMachinePoolConfigEntity } from "./openStackMachinePoolConfigEntity";
+import type { OpenStackClusterConfig } from './openStackClusterConfig';
+import type { OpenStackMachinePoolConfigEntity } from './openStackMachinePoolConfigEntity';
 
 /**
  * Openstack cluster request payload for estimating rate
  */
-export interface SpectroOpenStackClusterRateEntity {
+export type SpectroOpenStackClusterRateEntity = {
   cloudConfig?: OpenStackClusterConfig;
   machinepoolconfig?: OpenStackMachinePoolConfigEntity[];
-}
+};

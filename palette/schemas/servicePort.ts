@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface ServicePort {
+export type ServicePort = {
   /** The port that will be exposed by this service. */
   port: number;
   protocol?: string;
-}
+};

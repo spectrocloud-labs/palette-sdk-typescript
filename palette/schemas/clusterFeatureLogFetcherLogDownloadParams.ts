@@ -11,5 +11,5 @@
  */
 
 export type ClusterFeatureLogFetcherLogDownloadParams = {
-  fileName?: string;
+fileName?: string;
 };

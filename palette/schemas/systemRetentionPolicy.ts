@@ -13,6 +13,6 @@
 /**
  * system retention policy
  */
-export interface SystemRetentionPolicy {
+export type SystemRetentionPolicy = {
   retentionPeriod?: number;
-}
+};

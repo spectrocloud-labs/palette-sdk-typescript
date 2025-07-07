@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Tenant } from "./tenant";
-import type { ListMetaData } from "./listMetaData";
+import type { Tenant } from './tenant';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Tenants list
  */
-export interface Tenants {
+export type Tenants = {
   items: Tenant[];
   listmeta?: ListMetaData;
-}
+};

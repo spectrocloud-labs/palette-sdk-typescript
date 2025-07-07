@@ -13,8 +13,8 @@
 /**
  * spectro application management release description
  */
-export interface ReleaseDescription {
+export type ReleaseDescription = {
   details?: string;
   title?: string;
   version?: string;
-}
+};

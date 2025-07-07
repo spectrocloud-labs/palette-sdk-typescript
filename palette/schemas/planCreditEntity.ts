@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { PlanCreditEntityType } from "./planCreditEntityType";
+import type { Time } from './time';
+import type { PlanCreditEntityType } from './planCreditEntityType';
 
 /**
  * Plan Credit entity for create/update request
  */
-export interface PlanCreditEntity {
+export type PlanCreditEntity = {
   cpuCoreHours?: number;
   expiry?: Time;
   name?: string;
   start?: Time;
   type: PlanCreditEntityType;
-}
+};

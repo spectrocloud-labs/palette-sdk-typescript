@@ -13,9 +13,9 @@
 /**
  * Cluster workload replica status
  */
-export interface ClusterWorkloadReplicaStatus {
+export type ClusterWorkloadReplicaStatus = {
   available?: number;
   ready?: number;
   total?: number;
   updated?: number;
-}
+};

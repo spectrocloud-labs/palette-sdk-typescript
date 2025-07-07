@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmLunTarget {
+export type VmLunTarget = {
   /** Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi. */
   bus?: string;
   /** ReadOnly. Defaults to false. */
   readonly?: boolean;
-}
+};

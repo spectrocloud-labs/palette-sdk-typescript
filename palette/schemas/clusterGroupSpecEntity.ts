@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterGroupClusterRef } from "./clusterGroupClusterRef";
-import type { ClusterGroupClustersConfig } from "./clusterGroupClustersConfig";
-import type { SpectroClusterProfileEntity } from "./spectroClusterProfileEntity";
-import type { ClusterGroupSpecEntityType } from "./clusterGroupSpecEntityType";
+import type { ClusterGroupClusterRef } from './clusterGroupClusterRef';
+import type { ClusterGroupClustersConfig } from './clusterGroupClustersConfig';
+import type { SpectroClusterProfileEntity } from './spectroClusterProfileEntity';
+import type { ClusterGroupSpecEntityType } from './clusterGroupSpecEntityType';
 
 /**
  * Cluster group specifications request entity
  */
-export interface ClusterGroupSpecEntity {
+export type ClusterGroupSpecEntity = {
   clusterRefs?: ClusterGroupClusterRef[];
   clustersConfig?: ClusterGroupClustersConfig;
   profiles?: SpectroClusterProfileEntity[];
   type?: ClusterGroupSpecEntityType;
-}
+};

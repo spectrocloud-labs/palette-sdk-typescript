@@ -13,9 +13,9 @@
 /**
  * Object identity meta of hybrid cluster
  */
-export interface HybridClusterMeta {
+export type HybridClusterMeta = {
   /** Name of the hybrid cluster */
   name?: string;
   /** Uid of the hybrid cluster */
   uid?: string;
-}
+};

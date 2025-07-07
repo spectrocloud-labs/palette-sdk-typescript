@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface AuthJetKeyRequest {
+export type AuthJetKeyRequest = {
   allyAuthToken: string;
   hostClusterUid: string;
-}
+};

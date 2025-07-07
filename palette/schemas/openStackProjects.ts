@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackProject } from "./openStackProject";
+import type { OpenStackProject } from './openStackProject';
 
 /**
  * Array of OpenStack projects
  */
-export interface OpenStackProjects {
+export type OpenStackProjects = {
   items: OpenStackProject[];
-}
+};

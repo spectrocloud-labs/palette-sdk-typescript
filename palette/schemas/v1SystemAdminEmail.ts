@@ -13,8 +13,8 @@
 /**
  * SystemAdmin
  */
-export interface V1SystemAdminEmail {
+export type V1SystemAdminEmail = {
   email?: string;
   insecureVerify?: boolean;
   password?: string;
-}
+};

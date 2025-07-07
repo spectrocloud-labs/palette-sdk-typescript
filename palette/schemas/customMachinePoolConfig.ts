@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CustomMachinePoolConfigAdditionalLabels } from "./customMachinePoolConfigAdditionalLabels";
-import type { Taint } from "./taint";
+import type { CustomMachinePoolConfigAdditionalLabels } from './customMachinePoolConfigAdditionalLabels';
+import type { Taint } from './taint';
 
-export interface CustomMachinePoolConfig {
+export type CustomMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: CustomMachinePoolConfigAdditionalLabels;
   /** whether this pool is for control plane */
@@ -26,4 +26,4 @@ export interface CustomMachinePoolConfig {
   useControlPlaneAsWorker?: boolean;
   /** YAML string for machine */
   values?: string;
-}
+};

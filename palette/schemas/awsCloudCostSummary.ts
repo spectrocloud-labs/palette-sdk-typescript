@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudCostSummaryCloudCost } from "./awsCloudCostSummaryCloudCost";
+import type { AwsCloudCostSummaryCloudCost } from './awsCloudCostSummaryCloudCost';
 
 /**
  * AWS cloud account usage cost summary response data
  */
-export interface AwsCloudCostSummary {
+export type AwsCloudCostSummary = {
   cost?: AwsCloudCostSummaryCloudCost;
-}
+};

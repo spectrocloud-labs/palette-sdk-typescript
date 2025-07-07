@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { DataSinkSpec } from "./dataSinkSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { DataSinkSpec } from './dataSinkSpec';
 
 /**
  * Data sink
  */
-export interface DataSinkConfig {
+export type DataSinkConfig = {
   metadata?: ObjectMeta;
   spec?: DataSinkSpec;
-}
+};

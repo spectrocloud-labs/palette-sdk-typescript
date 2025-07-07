@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DataSinkConfig } from "./dataSinkConfig";
+import type { DataSinkConfig } from './dataSinkConfig';
 
 export type V1DataSinkConfigBody = DataSinkConfig;

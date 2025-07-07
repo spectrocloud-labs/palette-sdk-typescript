@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Nic } from "./nic";
-import type { EdgeNativeHybridMachinePoolHostTwoNodeCandidatePriority } from "./edgeNativeHybridMachinePoolHostTwoNodeCandidatePriority";
+import type { Nic } from './nic';
+import type { EdgeNativeHybridMachinePoolHostTwoNodeCandidatePriority } from './edgeNativeHybridMachinePoolHostTwoNodeCandidatePriority';
 
 /**
  * v1EdgeNativeHybridMachinePoolHostEntity defines Edge Native machine pool's host configuration
  */
-export interface EdgeNativeHybridMachinePoolHost {
+export type EdgeNativeHybridMachinePoolHost = {
   /** Edge host name */
   hostName?: string;
   /** Edge host id */
@@ -25,4 +25,4 @@ export interface EdgeNativeHybridMachinePoolHost {
   twoNodeCandidatePriority?: EdgeNativeHybridMachinePoolHostTwoNodeCandidatePriority;
   /** Vpn server IP */
   vpnServerIp?: string;
-}
+};

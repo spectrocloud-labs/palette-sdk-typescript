@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClustersInfo } from "./clustersInfo";
-import type { UserActivityInfo } from "./userActivityInfo";
+import type { ClustersInfo } from './clustersInfo';
+import type { UserActivityInfo } from './userActivityInfo';
 
 /**
  * Active tenant and clusters data
  */
-export interface TenantActivity {
+export type TenantActivity = {
   clustersInfo?: ClustersInfo;
   org?: string;
   planType?: string;
@@ -23,4 +23,4 @@ export interface TenantActivity {
   totalUsers?: number;
   uid?: string;
   users?: UserActivityInfo[];
-}
+};

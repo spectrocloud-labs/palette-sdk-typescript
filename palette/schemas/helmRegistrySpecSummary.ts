@@ -13,8 +13,8 @@
 /**
  * Helm Registry spec summary
  */
-export interface HelmRegistrySpecSummary {
+export type HelmRegistrySpecSummary = {
   endpoint?: string;
   isPrivate?: boolean;
   scope?: string;
-}
+};

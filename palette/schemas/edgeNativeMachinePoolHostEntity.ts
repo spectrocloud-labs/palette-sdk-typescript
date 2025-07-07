@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Nic } from "./nic";
-import type { EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority } from "./edgeNativeMachinePoolHostEntityTwoNodeCandidatePriority";
+import type { Nic } from './nic';
+import type { EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority } from './edgeNativeMachinePoolHostEntityTwoNodeCandidatePriority';
 
-export interface EdgeNativeMachinePoolHostEntity {
+export type EdgeNativeMachinePoolHostEntity = {
   /** Edge host name */
   hostName?: string;
   /** Edge host id */
@@ -24,4 +24,4 @@ export interface EdgeNativeMachinePoolHostEntity {
   staticIP?: string;
   /** Set the edgehost candidate priority as primary or secondary, if the edgehost is nominated as two node candidate */
   twoNodeCandidatePriority?: EdgeNativeMachinePoolHostEntityTwoNodeCandidatePriority;
-}
+};

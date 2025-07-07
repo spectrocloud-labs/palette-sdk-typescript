@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupState } from "./workspaceBackupState";
-import type { Time } from "./time";
-import type { WorkspaceClusterBackupResponse } from "./workspaceClusterBackupResponse";
-import type { WorkspaceBackupStatusConfig } from "./workspaceBackupStatusConfig";
+import type { WorkspaceBackupState } from './workspaceBackupState';
+import type { Time } from './time';
+import type { WorkspaceClusterBackupResponse } from './workspaceClusterBackupResponse';
+import type { WorkspaceBackupStatusConfig } from './workspaceBackupStatusConfig';
 
 /**
  * Workspace cluster backup config
  */
-export interface WorkspaceClusterBackupConfig {
+export type WorkspaceClusterBackupConfig = {
   backupName?: string;
   backupState?: WorkspaceBackupState;
   backupTime?: Time;
   clusterBackupRefs?: WorkspaceClusterBackupResponse[];
   config?: WorkspaceBackupStatusConfig;
   requestTime?: Time;
-}
+};

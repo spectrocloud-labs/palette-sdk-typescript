@@ -13,7 +13,7 @@
 /**
  * Cloud account settings
  */
-export interface CloudAccountSettings {
+export type CloudAccountSettings = {
   /** Will disable certain properties request to cloud and the input is collected directly from the user */
   disablePropertiesRequest?: boolean;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PriceRange } from "./priceRange";
+import type { PriceRange } from './priceRange';
 
 /**
  * tier price
  */
-export interface TierPrice {
+export type TierPrice = {
   alloyPricing?: PriceRange[];
   purePricing?: PriceRange[];
-}
+};

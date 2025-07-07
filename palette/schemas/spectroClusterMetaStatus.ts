@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface SpectroClusterMetaStatus {
+export type SpectroClusterMetaStatus = {
   /** Current state of the cluster */
   state: string;
-}
+};

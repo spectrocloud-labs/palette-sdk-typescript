@@ -13,4 +13,4 @@
 /**
  * Application tier resolved macro values map
  */
-export type AppTierResolvedValuesResolved = { [key: string]: string };
+export type AppTierResolvedValuesResolved = {[key: string]: string};

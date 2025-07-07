@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { SpectroAzureClusterImportEntitySpec } from "./spectroAzureClusterImportEntitySpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { SpectroAzureClusterImportEntitySpec } from './spectroAzureClusterImportEntitySpec';
 
 /**
  * Spectro Azure cluster import request payload
  */
-export interface SpectroAzureClusterImportEntity {
+export type SpectroAzureClusterImportEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroAzureClusterImportEntitySpec;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ControlPlaneHealthCheckTimeoutEntity {
+export type ControlPlaneHealthCheckTimeoutEntity = {
   /** ControlPlaneHealthCheckTimeout is the timeout to check for ready state of the control plane nodes */
   controlPlaneHealthCheckTimeout?: string;
-}
+};

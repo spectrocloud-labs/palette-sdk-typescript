@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InvoiceProduct } from "./invoiceProduct";
-import type { InvoiceProject } from "./invoiceProject";
-import type { InvoiceState } from "./invoiceState";
+import type { InvoiceProduct } from './invoiceProduct';
+import type { InvoiceProject } from './invoiceProject';
+import type { InvoiceState } from './invoiceState';
 
 /**
  * Invoice Status
  */
-export interface InvoiceStatus {
+export type InvoiceStatus = {
   /** Total billable amount */
   billableAmount?: number;
   productInvoice?: InvoiceProduct;
@@ -26,4 +26,4 @@ export interface InvoiceStatus {
   states?: InvoiceState[];
   /** Stripe invoice uid */
   stripeInvoiceId?: string;
-}
+};

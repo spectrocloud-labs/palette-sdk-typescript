@@ -13,9 +13,9 @@
 /**
  * Subnets are regional resources, and have IP address ranges associated with them
  */
-export interface GcpSubnet {
+export type GcpSubnet = {
   /** GCP subnet id */
   id?: string;
   /** GCP subnet name */
   name?: string;
-}
+};

@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
-export interface AwsUserCloudAccount {
+export type AwsUserCloudAccount = {
   accountId?: string;
   cloudAccount?: AwsCloudAccount;
-}
+};

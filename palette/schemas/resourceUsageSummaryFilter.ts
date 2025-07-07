@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { ResourceWorkloadFilter } from "./resourceWorkloadFilter";
+import type { Time } from './time';
+import type { ResourceWorkloadFilter } from './resourceWorkloadFilter';
 
 /**
  * Resource usage summary filter
  */
-export interface ResourceUsageSummaryFilter {
+export type ResourceUsageSummaryFilter = {
   clouds?: string[];
   clusters?: string[];
   endTime?: Time;
@@ -28,4 +28,4 @@ export interface ResourceUsageSummaryFilter {
   startTime?: Time;
   workload?: ResourceWorkloadFilter;
   workspaces?: string[];
-}
+};

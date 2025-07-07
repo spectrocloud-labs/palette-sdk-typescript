@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { RestoreStatusMeta } from "./restoreStatusMeta";
-import type { ResourceReference } from "./resourceReference";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { RestoreStatusMeta } from './restoreStatusMeta';
+import type { ResourceReference } from './resourceReference';
 
 /**
  * Cluster Restore Status Meta
  */
-export interface ClusterRestoreStatusMeta {
+export type ClusterRestoreStatusMeta = {
   actor?: ClusterFeatureActor;
   backupName?: string;
   backupRequestUid?: string;
@@ -24,4 +24,4 @@ export interface ClusterRestoreStatusMeta {
   restoreStatusMeta?: RestoreStatusMeta;
   sourceClusterRef?: ResourceReference;
   state?: string;
-}
+};

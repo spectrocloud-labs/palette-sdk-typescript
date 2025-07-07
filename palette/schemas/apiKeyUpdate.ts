@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ApiKeySpecUpdate } from "./apiKeySpecUpdate";
+import type { ObjectMeta } from './objectMeta';
+import type { ApiKeySpecUpdate } from './apiKeySpecUpdate';
 
 /**
  * API key update request payload
  */
-export interface ApiKeyUpdate {
+export type ApiKeyUpdate = {
   metadata?: ObjectMeta;
   spec?: ApiKeySpecUpdate;
-}
+};

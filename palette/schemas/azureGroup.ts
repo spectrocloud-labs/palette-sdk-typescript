@@ -13,9 +13,9 @@
 /**
  * Azure group entity
  */
-export interface AzureGroup {
+export type AzureGroup = {
   /** Azure group id */
   id?: string;
   /** Azure group name */
   name?: string;
-}
+};

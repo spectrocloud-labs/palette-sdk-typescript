@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupConfigEntity } from "./workspaceBackupConfigEntity";
+import type { WorkspaceBackupConfigEntity } from './workspaceBackupConfigEntity';
 
 export type V1WorkspaceBackupConfigEntityBody = WorkspaceBackupConfigEntity;

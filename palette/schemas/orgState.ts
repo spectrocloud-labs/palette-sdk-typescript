@@ -13,6 +13,6 @@
 /**
  * Org state
  */
-export interface OrgState {
+export type OrgState = {
   state?: string;
-}
+};

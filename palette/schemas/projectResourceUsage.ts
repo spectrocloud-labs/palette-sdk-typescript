@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectMeta } from "./projectMeta";
+import type { ProjectMeta } from './projectMeta';
 
 /**
  * project resource usage
  */
-export interface ProjectResourceUsage {
+export type ProjectResourceUsage = {
   alloyCpuCoreHours?: number;
   project?: ProjectMeta;
   pureCpuCoreHours?: number;
-}
+};

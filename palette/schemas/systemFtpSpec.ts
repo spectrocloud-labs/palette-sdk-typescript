@@ -13,9 +13,9 @@
 /**
  * system ftp config spec
  */
-export interface SystemFtpSpec {
+export type SystemFtpSpec = {
   dir?: string;
   password?: string;
   server?: string;
   username?: string;
-}
+};

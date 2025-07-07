@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface FreemiumUsageLimit {
+export type FreemiumUsageLimit = {
   activeClusters?: number;
   overageUsage?: number;
   usage?: number;
-}
+};

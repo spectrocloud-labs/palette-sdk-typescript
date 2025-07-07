@@ -13,9 +13,9 @@
 /**
  * Tunnel authorize request
  */
-export interface AuthTunnel {
+export type AuthTunnel = {
   /** kind of the resource */
   kind?: string;
   /** uid of the resource */
   uid?: string;
-}
+};

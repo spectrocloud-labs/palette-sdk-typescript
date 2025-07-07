@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { BasicOciRegistry } from "./basicOciRegistry";
+import type { BasicOciRegistry } from './basicOciRegistry';
 
 export type V1BasicOciRegistryBody = BasicOciRegistry;

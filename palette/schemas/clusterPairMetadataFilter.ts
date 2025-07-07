@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterPairMetadataFilterSpec } from "./clusterPairMetadataFilterSpec";
-import type { ClusterPairMetadataSortSpec } from "./clusterPairMetadataSortSpec";
+import type { ClusterPairMetadataFilterSpec } from './clusterPairMetadataFilterSpec';
+import type { ClusterPairMetadataSortSpec } from './clusterPairMetadataSortSpec';
 
 /**
  * Cluster pair metadata filter spec
  */
-export interface ClusterPairMetadataFilter {
+export type ClusterPairMetadataFilter = {
   filter?: ClusterPairMetadataFilterSpec;
   sort?: ClusterPairMetadataSortSpec[];
-}
+};

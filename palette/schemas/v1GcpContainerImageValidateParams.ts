@@ -11,12 +11,12 @@
  */
 
 export type V1GcpContainerImageValidateParams = {
-  /**
-   * image path in the container
-   */
-  imagePath: string;
-  /**
-   * tag in the GCP container
-   */
-  tag: string;
+/**
+ * image path in the container
+ */
+imagePath: string;
+/**
+ * tag in the GCP container
+ */
+tag: string;
 };

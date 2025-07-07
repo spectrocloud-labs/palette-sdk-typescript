@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * SystemAdmin
  */
-export interface MgmtMigrationStatuses {
+export type MgmtMigrationStatuses = {
   finishTime?: Time;
   folderName?: string;
   isCompleted?: boolean;
@@ -22,4 +22,4 @@ export interface MgmtMigrationStatuses {
   startTime?: Time;
   state?: string;
   status?: string[];
-}
+};

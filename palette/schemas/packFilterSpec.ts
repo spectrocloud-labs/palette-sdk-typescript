@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
-import type { PackLayer } from "./packLayer";
-import type { PackType } from "./packType";
+import type { FilterString } from './filterString';
+import type { PackLayer } from './packLayer';
+import type { PackType } from './packType';
 
 /**
  * Packs filter spec
  */
-export interface PackFilterSpec {
+export type PackFilterSpec = {
   /** Pack add-on sub type such as monitoring, db etc */
   addOnSubType?: string[];
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -37,4 +37,4 @@ export interface PackFilterSpec {
   state?: string[];
   /** Pack type */
   type?: PackType[];
-}
+};

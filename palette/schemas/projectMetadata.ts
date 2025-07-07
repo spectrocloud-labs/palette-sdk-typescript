@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectEntity } from "./objectEntity";
+import type { ObjectEntity } from './objectEntity';
 
 /**
  * Project metadata
  */
-export interface ProjectMetadata {
+export type ProjectMetadata = {
   metadata?: ObjectEntity;
-}
+};

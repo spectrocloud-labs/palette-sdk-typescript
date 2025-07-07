@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierType } from "./appTierType";
+import type { AppTierType } from './appTierType';
 
 /**
  * Application tier reference
  */
-export interface AppTierRef {
+export type AppTierRef = {
   /** Application tier name */
   name?: string;
   type?: AppTierType;
@@ -22,4 +22,4 @@ export interface AppTierRef {
   uid?: string;
   /** Application tier version */
   version?: string;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ClusterRestoreSpec } from "./clusterRestoreSpec";
-import type { ClusterRestoreStatus } from "./clusterRestoreStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ClusterRestoreSpec } from './clusterRestoreSpec';
+import type { ClusterRestoreStatus } from './clusterRestoreStatus';
 
 /**
  * Cluster Restore
  */
-export interface ClusterRestore {
+export type ClusterRestore = {
   metadata?: ObjectMeta;
   spec?: ClusterRestoreSpec;
   status?: ClusterRestoreStatus;
-}
+};

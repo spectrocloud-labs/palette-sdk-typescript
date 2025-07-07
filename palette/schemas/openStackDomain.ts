@@ -13,11 +13,11 @@
 /**
  * OpenStack domain. A Domain is a collection of projects, users, and roles
  */
-export interface OpenStackDomain {
+export type OpenStackDomain = {
   /** Description is the description of the Domain */
   description?: string;
   /** ID is the unique ID of the domain */
   id?: string;
   /** Name is the name of the domain */
   name?: string;
-}
+};

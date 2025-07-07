@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RoleCloneMetadata } from "./roleCloneMetadata";
+import type { RoleCloneMetadata } from './roleCloneMetadata';
 
 /**
  * Role clone specifications
  */
-export interface RoleClone {
+export type RoleClone = {
   metadata?: RoleCloneMetadata;
-}
+};

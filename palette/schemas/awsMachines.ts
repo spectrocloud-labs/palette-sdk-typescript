@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsMachine } from "./awsMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { AwsMachine } from './awsMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * AWS machine list
  */
-export interface AwsMachines {
+export type AwsMachines = {
   items: AwsMachine[];
   listmeta?: ListMetaData;
-}
+};

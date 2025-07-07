@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanCredit } from "./planCredit";
+import type { PlanCredit } from './planCredit';
 
 /**
  * Invoice plan credit object
  */
-export interface InvoicePlanCredit {
+export type InvoicePlanCredit = {
   planCredit?: PlanCredit;
   /** Total used cpu core hours */
   totalCpuCoreHours?: number;
-}
+};

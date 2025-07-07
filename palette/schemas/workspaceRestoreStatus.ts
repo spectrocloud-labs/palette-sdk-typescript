@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceRestoreStatusMeta } from "./workspaceRestoreStatusMeta";
+import type { WorkspaceRestoreStatusMeta } from './workspaceRestoreStatusMeta';
 
 /**
  * Workspace restore status
  */
-export interface WorkspaceRestoreStatus {
+export type WorkspaceRestoreStatus = {
   workspaceRestoreStatuses?: WorkspaceRestoreStatusMeta[];
-}
+};

@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ManifestInputEntity } from "./manifestInputEntity";
-import type { AppTierPropertyEntity } from "./appTierPropertyEntity";
-import type { AppTierType } from "./appTierType";
+import type { ManifestInputEntity } from './manifestInputEntity';
+import type { AppTierPropertyEntity } from './appTierPropertyEntity';
+import type { AppTierType } from './appTierType';
 
 /**
  * Application tier request payload
  */
-export interface AppTierEntity {
+export type AppTierEntity = {
   /** Application tier container registry uid */
   containerRegistryUid?: string;
   /** Application tier installation order */
@@ -36,4 +36,4 @@ export interface AppTierEntity {
   values?: string;
   /** Application tier version */
   version?: string;
-}
+};

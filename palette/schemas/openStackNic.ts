@@ -13,8 +13,8 @@
 /**
  * OpenStack network interface
  */
-export interface OpenStackNic {
+export type OpenStackNic = {
   index?: number;
   networkName: string;
   privateIPs?: string[];
-}
+};

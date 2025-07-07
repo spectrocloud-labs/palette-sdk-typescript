@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface Nic {
+export type Nic = {
   dns?: string[];
   gateway?: string;
   ip?: string;
@@ -18,4 +18,4 @@ export interface Nic {
   macAddr?: string;
   nicName?: string;
   subnet?: string;
-}
+};

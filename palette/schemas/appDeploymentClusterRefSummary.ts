@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterRefSummaryDeploymentClusterType } from "./appDeploymentClusterRefSummaryDeploymentClusterType";
+import type { AppDeploymentClusterRefSummaryDeploymentClusterType } from './appDeploymentClusterRefSummaryDeploymentClusterType';
 
 /**
  * Application deployment cluster reference
  */
-export interface AppDeploymentClusterRefSummary {
+export type AppDeploymentClusterRefSummary = {
   /** Application deployment source cluster type[ "virtualCluster", "hostCluster" ] */
   deploymentClusterType?: AppDeploymentClusterRefSummaryDeploymentClusterType;
   /** Application deployment source cluster name */
   name?: string;
   /** Application deployment source cluster uid */
   uid?: string;
-}
+};

@@ -10,13 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type InvoiceStateState =
-  (typeof InvoiceStateState)[keyof typeof InvoiceStateState];
+export type InvoiceStateState = typeof InvoiceStateState[keyof typeof InvoiceStateState];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const InvoiceStateState = {
-  Paid: "Paid",
-  PaymentPending: "PaymentPending",
-  PaymentInProgress: "PaymentInProgress",
-  PaymentFailed: "PaymentFailed",
+  Paid: 'Paid',
+  PaymentPending: 'PaymentPending',
+  PaymentInProgress: 'PaymentInProgress',
+  PaymentFailed: 'PaymentFailed',
 } as const;

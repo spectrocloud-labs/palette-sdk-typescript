@@ -13,7 +13,7 @@
 /**
  * Yearly usage
  */
-export interface SystemProductUsage {
+export type SystemProductUsage = {
   /** Allocated credits */
   allocatedCredits?: number;
   /** Credits exceeded the allocated and free credits */
@@ -22,4 +22,4 @@ export interface SystemProductUsage {
   freeSlaCredits?: number;
   /** Used credits */
   usedCredits?: number;
-}
+};

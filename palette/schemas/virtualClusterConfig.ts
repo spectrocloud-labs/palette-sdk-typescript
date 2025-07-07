@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { APIEndpoint } from "./aPIEndpoint";
-import type { VirtualClusterHelmRelease } from "./virtualClusterHelmRelease";
+import type { APIEndpoint } from './aPIEndpoint';
+import type { VirtualClusterHelmRelease } from './virtualClusterHelmRelease';
 
 /**
  * Cluster level configuration for virtual cluster
  */
-export interface VirtualClusterConfig {
+export type VirtualClusterConfig = {
   controlPlaneEndpoint?: APIEndpoint;
   helmRelease?: VirtualClusterHelmRelease;
   kubernetesVersion?: string;
-}
+};

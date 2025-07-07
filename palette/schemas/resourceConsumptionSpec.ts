@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceConsumptionFilter } from "./resourceConsumptionFilter";
-import type { ResourceConsumptionOptions } from "./resourceConsumptionOptions";
+import type { ResourceConsumptionFilter } from './resourceConsumptionFilter';
+import type { ResourceConsumptionOptions } from './resourceConsumptionOptions';
 
 /**
  * Resource consumption spec
  */
-export interface ResourceConsumptionSpec {
+export type ResourceConsumptionSpec = {
   filter?: ResourceConsumptionFilter;
   options?: ResourceConsumptionOptions;
-}
+};

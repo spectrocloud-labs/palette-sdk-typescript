@@ -13,7 +13,7 @@
 /**
  * Cluster group resource allocated and usage information
  */
-export interface ClusterGroupResource {
+export type ClusterGroupResource = {
   allocated?: number;
   used?: number;
-}
+};

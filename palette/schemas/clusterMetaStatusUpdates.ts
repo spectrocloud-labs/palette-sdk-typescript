@@ -13,6 +13,6 @@
 /**
  * Cluster meta updates information
  */
-export interface ClusterMetaStatusUpdates {
+export type ClusterMetaStatusUpdates = {
   isUpdatesPending?: boolean;
-}
+};

@@ -10,12 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type AppTierType = (typeof AppTierType)[keyof typeof AppTierType];
+export type AppTierType = typeof AppTierType[keyof typeof AppTierType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AppTierType = {
-  manifest: "manifest",
-  helm: "helm",
-  "operator-instance": "operator-instance",
-  container: "container",
+  manifest: 'manifest',
+  helm: 'helm',
+  'operator-instance': 'operator-instance',
+  container: 'container',
 } as const;

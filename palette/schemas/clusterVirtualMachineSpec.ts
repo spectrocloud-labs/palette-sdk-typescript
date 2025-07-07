@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmDataVolumeTemplateSpec } from "./vmDataVolumeTemplateSpec";
-import type { VmInstancetypeMatcher } from "./vmInstancetypeMatcher";
-import type { VmPreferenceMatcher } from "./vmPreferenceMatcher";
-import type { VmVirtualMachineInstanceTemplateSpec } from "./vmVirtualMachineInstanceTemplateSpec";
+import type { VmDataVolumeTemplateSpec } from './vmDataVolumeTemplateSpec';
+import type { VmInstancetypeMatcher } from './vmInstancetypeMatcher';
+import type { VmPreferenceMatcher } from './vmPreferenceMatcher';
+import type { VmVirtualMachineInstanceTemplateSpec } from './vmVirtualMachineInstanceTemplateSpec';
 
 /**
  * VirtualMachineSpec describes how the proper VirtualMachine should look like
  */
-export interface ClusterVirtualMachineSpec {
+export type ClusterVirtualMachineSpec = {
   /** dataVolumeTemplates is a list of dataVolumes that the VirtualMachineInstance template can reference. DataVolumes in this list are dynamically created for the VirtualMachine and are tied to the VirtualMachine's life-cycle. */
   dataVolumeTemplates?: VmDataVolumeTemplateSpec[];
   instancetype?: VmInstancetypeMatcher;
@@ -27,4 +27,4 @@ export interface ClusterVirtualMachineSpec {
   /** Running controls whether the associatied VirtualMachineInstance is created or not Mutually exclusive with RunStrategy */
   running?: boolean;
   template: VmVirtualMachineInstanceTemplateSpec;
-}
+};

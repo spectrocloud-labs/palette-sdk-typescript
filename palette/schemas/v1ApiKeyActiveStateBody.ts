@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ApiKeyActiveState } from "./apiKeyActiveState";
+import type { ApiKeyActiveState } from './apiKeyActiveState';
 
 export type V1ApiKeyActiveStateBody = ApiKeyActiveState;

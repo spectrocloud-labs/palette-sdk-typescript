@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { ObjectEntity } from "./objectEntity";
-import type { SyftReport } from "./syftReport";
-import type { SyftScanContext } from "./syftScanContext";
-import type { ClusterScanTime } from "./clusterScanTime";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { ObjectEntity } from './objectEntity';
+import type { SyftReport } from './syftReport';
+import type { SyftScanContext } from './syftScanContext';
+import type { ClusterScanTime } from './clusterScanTime';
 
 /**
  * Cluster compliance scan Syft Log Status
  */
-export interface ClusterSyftLogStatus {
+export type ClusterSyftLogStatus = {
   actor?: ClusterFeatureActor;
   location?: ObjectEntity;
   message?: string;
@@ -27,4 +27,4 @@ export interface ClusterSyftLogStatus {
   scanContext?: SyftScanContext;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

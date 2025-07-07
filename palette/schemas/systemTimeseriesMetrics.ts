@@ -13,9 +13,9 @@
 /**
  * system timeseries metrics config
  */
-export interface SystemTimeseriesMetrics {
+export type SystemTimeseriesMetrics = {
   archivalInterval?: number;
   batchInterval?: number;
   enabled?: boolean;
   retentionPeriod?: number;
-}
+};

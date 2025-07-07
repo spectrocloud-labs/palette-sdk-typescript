@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClustersHealth } from "./spectroClustersHealth";
-import type { ProjectStatus } from "./projectStatus";
-import type { ProjectUsageSummary } from "./projectUsageSummary";
+import type { SpectroClustersHealth } from './spectroClustersHealth';
+import type { ProjectStatus } from './projectStatus';
+import type { ProjectUsageSummary } from './projectUsageSummary';
 
 /**
  * Project status summary
  */
-export interface ProjectStatusSummary {
+export type ProjectStatusSummary = {
   clustersHealth?: SpectroClustersHealth;
   status?: ProjectStatus;
   usage?: ProjectUsageSummary;
-}
+};

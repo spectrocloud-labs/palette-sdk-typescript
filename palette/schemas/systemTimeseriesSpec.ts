@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemTimeseriesMetrics } from "./systemTimeseriesMetrics";
+import type { SystemTimeseriesMetrics } from './systemTimeseriesMetrics';
 
 /**
  * system timeseries config spec
  */
-export interface SystemTimeseriesSpec {
+export type SystemTimeseriesSpec = {
   machine?: SystemTimeseriesMetrics;
   pod?: SystemTimeseriesMetrics;
-}
+};

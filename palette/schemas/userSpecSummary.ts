@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UidSummary } from "./uidSummary";
+import type { UidSummary } from './uidSummary';
 
-export interface UserSpecSummary {
+export type UserSpecSummary = {
   emailId?: string;
   firstName?: string;
   lastName?: string;
@@ -20,4 +20,4 @@ export interface UserSpecSummary {
   projectsCount?: number;
   roles?: UidSummary[];
   teams?: UidSummary[];
-}
+};

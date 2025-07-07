@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmTypedLocalObjectReference } from "./vmTypedLocalObjectReference";
-import type { VmCoreResourceRequirements } from "./vmCoreResourceRequirements";
-import type { VmLabelSelector } from "./vmLabelSelector";
+import type { VmTypedLocalObjectReference } from './vmTypedLocalObjectReference';
+import type { VmCoreResourceRequirements } from './vmCoreResourceRequirements';
+import type { VmLabelSelector } from './vmLabelSelector';
 
 /**
  * StorageSpec defines the Storage type specification
  */
-export interface VmStorageSpec {
+export type VmStorageSpec = {
   /** AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1 */
   accessModes?: string[];
   dataSource?: VmTypedLocalObjectReference;
@@ -28,4 +28,4 @@ export interface VmStorageSpec {
   volumeMode?: string;
   /** VolumeName is the binding reference to the PersistentVolume backing this claim. */
   volumeName?: string;
-}
+};

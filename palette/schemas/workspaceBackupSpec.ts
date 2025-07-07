@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceBackupConfig } from "./workspaceBackupConfig";
+import type { WorkspaceBackupConfig } from './workspaceBackupConfig';
 
 /**
  * Workspace backup spec
  */
-export interface WorkspaceBackupSpec {
+export type WorkspaceBackupSpec = {
   config?: WorkspaceBackupConfig;
   workspaceUid?: string;
-}
+};

@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface InstanceConfig {
+export type InstanceConfig = {
   category?: string;
   cpuSet?: number;
   diskGiB?: number;
@@ -19,4 +19,4 @@ export interface InstanceConfig {
   name?: string;
   /** NumCPUs is the number of virtual processors in a virtual machine */
   numCPUs?: number;
-}
+};

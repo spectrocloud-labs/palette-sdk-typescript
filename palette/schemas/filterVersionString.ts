@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface FilterVersionString {
+export type FilterVersionString = {
   /** @nullable */
   beginsWith?: string | null;
   /** @nullable */
@@ -21,4 +21,4 @@ export interface FilterVersionString {
   lt?: string | null;
   /** @nullable */
   ne?: string | null;
-}
+};

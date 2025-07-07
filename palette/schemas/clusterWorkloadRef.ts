@@ -13,8 +13,8 @@
 /**
  * Cluster workload ref
  */
-export interface ClusterWorkloadRef {
+export type ClusterWorkloadRef = {
   kind?: string;
   name?: string;
   uid?: string;
-}
+};

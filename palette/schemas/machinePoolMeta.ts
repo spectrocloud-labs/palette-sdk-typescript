@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateMeta } from "./clusterProfileTemplateMeta";
+import type { ClusterProfileTemplateMeta } from './clusterProfileTemplateMeta';
 
-export interface MachinePoolMeta {
+export type MachinePoolMeta = {
   cloudType?: string;
   /** number of healthy machines */
   healthy?: number;
@@ -24,4 +24,4 @@ export interface MachinePoolMeta {
   maintenanceMode?: number;
   /** size of the pool, number of machines */
   size?: number;
-}
+};

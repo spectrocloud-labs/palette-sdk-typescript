@@ -13,9 +13,9 @@
 /**
  * GCP network interface
  */
-export interface GcpNic {
+export type GcpNic = {
   index?: number;
   networkName?: string;
   privateIPs?: string[];
   publicIp?: string;
-}
+};

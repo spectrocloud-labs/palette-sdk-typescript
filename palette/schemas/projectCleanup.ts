@@ -13,7 +13,7 @@
 /**
  * Project delete request payload
  */
-export interface ProjectCleanup {
+export type ProjectCleanup = {
   deletingClusterDurationThresholdInMin?: number;
   provisioningClusterDurationThresholdInMin?: number;
-}
+};

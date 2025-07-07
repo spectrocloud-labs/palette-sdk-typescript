@@ -13,8 +13,8 @@
 /**
  * IP Pool status
  */
-export interface IpPoolStatus {
+export type IpPoolStatus = {
   allottedIps?: string[];
   associatedClusters?: string[];
   inUse?: boolean;
-}
+};

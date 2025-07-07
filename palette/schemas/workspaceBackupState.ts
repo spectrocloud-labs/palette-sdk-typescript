@@ -13,7 +13,7 @@
 /**
  * Workspace backup state
  */
-export interface WorkspaceBackupState {
+export type WorkspaceBackupState = {
   deleteState?: string;
   state?: string;
-}
+};

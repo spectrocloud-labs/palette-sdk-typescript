@@ -13,9 +13,9 @@
 /**
  * Variable with value which will be used within the packs of cluster profile
  */
-export interface SpectroClusterVariable {
+export type SpectroClusterVariable = {
   /** Variable name */
   name: string;
   /** Actual value of the variable to be used within the cluster */
   value?: string;
-}
+};

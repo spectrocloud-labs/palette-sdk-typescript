@@ -13,6 +13,4 @@
 /**
  * InterfacePasst connects to a given network.
  */
-export interface VmInterfacePasst {
-  [key: string]: unknown;
-}
+export type VmInterfacePasst = { [key: string]: unknown };

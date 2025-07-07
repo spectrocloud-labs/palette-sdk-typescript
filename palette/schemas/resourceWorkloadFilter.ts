@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceWorkloadFilterType } from "./resourceWorkloadFilterType";
+import type { ResourceWorkloadFilterType } from './resourceWorkloadFilterType';
 
 /**
  * Workload resource filter
  */
-export interface ResourceWorkloadFilter {
+export type ResourceWorkloadFilter = {
   names?: string[];
   type?: ResourceWorkloadFilterType;
-}
+};

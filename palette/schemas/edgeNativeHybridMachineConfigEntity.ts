@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ArchType } from "./archType";
-import type { EdgeNativeHybridMachinePoolHost } from "./edgeNativeHybridMachinePoolHost";
+import type { ArchType } from './archType';
+import type { EdgeNativeHybridMachinePoolHost } from './edgeNativeHybridMachinePoolHost';
 
 /**
  * EdgeNativeHybridMachineConfigEntity defines Edge Native machine configuration
  */
-export interface EdgeNativeHybridMachineConfigEntity {
+export type EdgeNativeHybridMachineConfigEntity = {
   archType: ArchType;
   /** Edge hosts configurations */
   edgeHosts: EdgeNativeHybridMachinePoolHost[];
-}
+};

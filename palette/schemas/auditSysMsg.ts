@@ -13,9 +13,9 @@
 /**
  * Audit system message
  */
-export interface AuditSysMsg {
+export type AuditSysMsg = {
   /** Audit resource action message */
   actionMsg?: string;
   /** Audit resource content message */
   contentMsg?: string;
-}
+};

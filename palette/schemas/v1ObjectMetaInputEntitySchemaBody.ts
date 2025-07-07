@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntitySchema } from "./objectMetaInputEntitySchema";
+import type { ObjectMetaInputEntitySchema } from './objectMetaInputEntitySchema';
 
 export type V1ObjectMetaInputEntitySchemaBody = ObjectMetaInputEntitySchema;

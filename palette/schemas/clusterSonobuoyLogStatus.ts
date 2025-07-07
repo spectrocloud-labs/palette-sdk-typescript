@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureActor } from "./clusterFeatureActor";
-import type { ClusterSonobuoyLogStatusReports } from "./clusterSonobuoyLogStatusReports";
-import type { ClusterScanTime } from "./clusterScanTime";
+import type { ClusterFeatureActor } from './clusterFeatureActor';
+import type { ClusterSonobuoyLogStatusReports } from './clusterSonobuoyLogStatusReports';
+import type { ClusterScanTime } from './clusterScanTime';
 
 /**
  * Cluster compliance scan Sonobuoy Log Status
  */
-export interface ClusterSonobuoyLogStatus {
+export type ClusterSonobuoyLogStatus = {
   actor?: ClusterFeatureActor;
   message?: string;
   reports?: ClusterSonobuoyLogStatusReports;
   requestUid?: string;
   scanTime?: ClusterScanTime;
   state?: string;
-}
+};

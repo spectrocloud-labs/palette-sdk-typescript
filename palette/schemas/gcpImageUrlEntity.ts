@@ -13,11 +13,11 @@
 /**
  * Gcp image url entity
  */
-export interface GcpImageUrlEntity {
+export type GcpImageUrlEntity = {
   /** The name of the image family to which this image belongs */
   imageFamily?: string;
   /** Server-defined URL for the resource */
   imageUrl?: string;
   /** Name of the resource */
   name?: string;
-}
+};

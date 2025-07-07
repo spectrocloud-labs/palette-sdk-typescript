@@ -13,11 +13,11 @@
 /**
  * Compliance Scan KubeHunter Log
  */
-export interface KubeHunterLog {
+export type KubeHunterLog = {
   description?: string;
   evidence?: string;
   reference?: string;
   severity?: string;
   testId?: string;
   vulnerability?: string;
-}
+};

@@ -13,6 +13,6 @@
 /**
  * Cluster meta Cost information
  */
-export interface ClusterMetaStatusCost {
+export type ClusterMetaStatusCost = {
   total?: number;
-}
+};

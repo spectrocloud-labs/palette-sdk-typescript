@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { V1AwsAccountStsGetPartition } from "./v1AwsAccountStsGetPartition";
+import type { V1AwsAccountStsGetPartition } from './v1AwsAccountStsGetPartition';
 
 export type V1AwsAccountStsGetParams = {
-  /**
-   * AWS accounts are scoped to a single partition. Allowed values [aws, aws-us-gov], Default values
-   */
-  partition?: V1AwsAccountStsGetPartition;
+/**
+ * AWS accounts are scoped to a single partition. Allowed values [aws, aws-us-gov], Default values
+ */
+partition?: V1AwsAccountStsGetPartition;
 };

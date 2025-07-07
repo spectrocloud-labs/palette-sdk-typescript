@@ -13,11 +13,11 @@
 /**
  * Spectro cluster status
  */
-export interface SpectroClusterPairStatus {
+export type SpectroClusterPairStatus = {
   /** Cluster Name associated to the pairing request */
   pairingClusterName?: string;
   /** Cluster UID associated to the pairing request */
   pairingClusterUid?: string;
   /** Spectro cluster status */
   state?: string;
-}
+};

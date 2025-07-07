@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectFilterSpec } from "./projectFilterSpec";
-import type { ProjectFilterSortSpec } from "./projectFilterSortSpec";
+import type { ProjectFilterSpec } from './projectFilterSpec';
+import type { ProjectFilterSortSpec } from './projectFilterSortSpec';
 
 /**
  * Project filter summary spec
  */
-export interface ProjectsFilterSpec {
+export type ProjectsFilterSpec = {
   filter?: ProjectFilterSpec;
   sort?: ProjectFilterSortSpec[];
-}
+};

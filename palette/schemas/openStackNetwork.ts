@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackSubnet } from "./openStackSubnet";
+import type { OpenStackSubnet } from './openStackSubnet';
 
 /**
  * OpenStack network
  */
-export interface OpenStackNetwork {
+export type OpenStackNetwork = {
   /** Description of OpenStack network */
   description?: string;
   /** Id of OpenStack network */
@@ -23,4 +23,4 @@ export interface OpenStackNetwork {
   name?: string;
   /** Subnets associated with OpenStack network */
   subnets?: OpenStackSubnet[];
-}
+};

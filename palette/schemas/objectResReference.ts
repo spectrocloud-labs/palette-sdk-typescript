@@ -13,10 +13,10 @@
 /**
  * Object resource reference
  */
-export interface ObjectResReference {
+export type ObjectResReference = {
   kind?: string;
   name?: string;
   projectUid?: string;
   tenantUid?: string;
   uid?: string;
-}
+};

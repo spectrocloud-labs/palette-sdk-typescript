@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Invoice billing period object
  */
-export interface InvoiceBillingPeriod {
+export type InvoiceBillingPeriod = {
   end?: Time;
   start?: Time;
-}
+};

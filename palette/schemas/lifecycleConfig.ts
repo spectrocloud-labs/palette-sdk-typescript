@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface LifecycleConfig {
+export type LifecycleConfig = {
   /** enable pause life cycle config */
   pause?: boolean;
-}
+};

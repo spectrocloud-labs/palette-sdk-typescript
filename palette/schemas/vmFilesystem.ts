@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmFilesystemVirtiofs } from "./vmFilesystemVirtiofs";
+import type { VmFilesystemVirtiofs } from './vmFilesystemVirtiofs';
 
-export interface VmFilesystem {
+export type VmFilesystem = {
   /** Name is the device name */
   name: string;
   virtiofs: VmFilesystemVirtiofs;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackTemplateParameterOptions } from "./packTemplateParameterOptions";
+import type { PackTemplateParameterOptions } from './packTemplateParameterOptions';
 
 /**
  * Pack template parameter
  */
-export interface PackTemplateParameter {
+export type PackTemplateParameter = {
   /** Pack template parameter description */
   description?: string;
   /** Pack template parameter display name */
@@ -41,4 +41,4 @@ export interface PackTemplateParameter {
   type?: string;
   /** Pack template parameter value */
   value?: string;
-}
+};

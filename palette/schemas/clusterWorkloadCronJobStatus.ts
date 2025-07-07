@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Cluster workload cronjob status
  */
-export interface ClusterWorkloadCronJobStatus {
+export type ClusterWorkloadCronJobStatus = {
   lastScheduleTime?: Time;
-}
+};

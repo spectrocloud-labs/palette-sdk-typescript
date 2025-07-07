@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GPUDeviceSpecAddresses } from "./gPUDeviceSpecAddresses";
+import type { GPUDeviceSpecAddresses } from './gPUDeviceSpecAddresses';
 
-export interface GPUDeviceSpec {
+export type GPUDeviceSpec = {
   /** Addresses is a map of PCI device entry name to its addresses.
 Example entry would be "11:00.0 VGA compatible controller [0300]: NVIDIA
 Corporation Device [10de:1eb1] (rev a1)"- > 0000_11_00_0" The address is
@@ -25,4 +25,4 @@ format
   model?: string;
   /** Vendor is the GPU vendor, for eg., NVIDIA or AMD */
   vendor?: string;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Cluster's usage compute spec
  */
-export interface SpectroClustersUsageComputeSpec {
+export type SpectroClustersUsageComputeSpec = {
   clusterUids?: string[];
   startTime?: Time;
-}
+};

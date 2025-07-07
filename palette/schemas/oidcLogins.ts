@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SsoLogin } from "./ssoLogin";
-import type { OidcLoginsTenantLogin } from "./oidcLoginsTenantLogin";
+import type { SsoLogin } from './ssoLogin';
+import type { OidcLoginsTenantLogin } from './oidcLoginsTenantLogin';
 
 /**
  * loginsDetails
  */
-export interface OidcLogins {
+export type OidcLogins = {
   systemLogins?: SsoLogin[];
   tenantLogin?: OidcLoginsTenantLogin;
-}
+};

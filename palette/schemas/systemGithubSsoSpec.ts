@@ -13,9 +13,9 @@
 /**
  * system sso github config spec
  */
-export interface SystemGithubSsoSpec {
+export type SystemGithubSsoSpec = {
   clientId?: string;
   clientSecretKey?: string;
   isEnabled?: boolean;
   logoUrl?: string;
-}
+};

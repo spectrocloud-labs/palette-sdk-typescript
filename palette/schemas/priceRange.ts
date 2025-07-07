@@ -13,10 +13,10 @@
 /**
  * tier price range
  */
-export interface PriceRange {
+export type PriceRange = {
   discount?: number;
   startFrom?: number;
   unitAmount?: number;
   upTo?: number;
   upToInfinity?: boolean;
-}
+};

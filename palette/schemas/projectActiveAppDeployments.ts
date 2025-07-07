@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectActiveAppDeployment } from "./projectActiveAppDeployment";
+import type { ProjectActiveAppDeployment } from './projectActiveAppDeployment';
 
 /**
  * Active app deployment
  */
-export interface ProjectActiveAppDeployments {
+export type ProjectActiveAppDeployments = {
   apps?: ProjectActiveAppDeployment[];
   count?: number;
-}
+};

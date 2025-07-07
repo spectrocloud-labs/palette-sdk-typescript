@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DashboardWorkspaceClusterRef } from "./dashboardWorkspaceClusterRef";
-import type { Time } from "./time";
+import type { DashboardWorkspaceClusterRef } from './dashboardWorkspaceClusterRef';
+import type { Time } from './time';
 
 /**
  * Deprecated. Workspace meta data
  */
-export interface DashboardWorkspaceMeta {
+export type DashboardWorkspaceMeta = {
   /** Deprecated. Use clusterRefs */
   clusterNames?: string[];
   clusterRefs?: DashboardWorkspaceClusterRef[];
@@ -23,4 +23,4 @@ export interface DashboardWorkspaceMeta {
   name?: string;
   namespaces?: string[];
   uid?: string;
-}
+};

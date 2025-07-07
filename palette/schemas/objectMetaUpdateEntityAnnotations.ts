@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ObjectMetaUpdateEntityAnnotations = { [key: string]: string };
+export type ObjectMetaUpdateEntityAnnotations = {[key: string]: string};

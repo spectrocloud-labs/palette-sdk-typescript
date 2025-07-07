@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceGroup } from "./resourceGroup";
+import type { ResourceGroup } from './resourceGroup';
 
 /**
  * List of Azure resource group
  */
-export interface AzureResourceGroupList {
+export type AzureResourceGroupList = {
   resourceGroupList?: ResourceGroup[];
-}
+};

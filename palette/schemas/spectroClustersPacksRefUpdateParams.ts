@@ -11,5 +11,5 @@
  */
 
 export type SpectroClustersPacksRefUpdateParams = {
-  notify?: string;
+notify?: string;
 };

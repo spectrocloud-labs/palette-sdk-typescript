@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudRate } from "./cloudRate";
+import type { CloudRate } from './cloudRate';
 
 /**
  * Machine pool estimated rate information
  */
-export interface MachinePoolRate {
+export type MachinePoolRate = {
   name?: string;
   nodesCount?: number;
   rate?: CloudRate;
-}
+};

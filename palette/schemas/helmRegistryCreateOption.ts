@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { HelmChartOption } from "./helmChartOption";
+import type { HelmChartOption } from './helmChartOption';
 
 /**
  * Helm registry create options
  */
-export interface HelmRegistryCreateOption {
+export type HelmRegistryCreateOption = {
   charts?: HelmChartOption[];
   skipSync?: boolean;
-}
+};

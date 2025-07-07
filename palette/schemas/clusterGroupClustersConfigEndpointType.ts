@@ -13,11 +13,11 @@
 /**
  * Host cluster endpoint type
  */
-export type ClusterGroupClustersConfigEndpointType =
-  (typeof ClusterGroupClustersConfigEndpointType)[keyof typeof ClusterGroupClustersConfigEndpointType];
+export type ClusterGroupClustersConfigEndpointType = typeof ClusterGroupClustersConfigEndpointType[keyof typeof ClusterGroupClustersConfigEndpointType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ClusterGroupClustersConfigEndpointType = {
-  Ingress: "Ingress",
-  LoadBalancer: "LoadBalancer",
+  Ingress: 'Ingress',
+  LoadBalancer: 'LoadBalancer',
 } as const;

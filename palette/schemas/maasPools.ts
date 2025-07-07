@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasPool } from "./maasPool";
+import type { MaasPool } from './maasPool';
 
 /**
  * List of Maas pools
  */
-export interface MaasPools {
+export type MaasPools = {
   items: MaasPool[];
-}
+};

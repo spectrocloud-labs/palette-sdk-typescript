@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ConfigReverseProxyProtocol } from "./configReverseProxyProtocol";
+import type { ConfigReverseProxyProtocol } from './configReverseProxyProtocol';
 
 /**
  * Describes the reverse proxy configuration
  */
-export interface ConfigReverseProxy {
+export type ConfigReverseProxy = {
   /** Describes the ca certificate for system's reverse proxy */
   caCert?: string;
   /** Describes the client certificate for system's reverse proxy */
@@ -27,4 +27,4 @@ export interface ConfigReverseProxy {
   protocol?: ConfigReverseProxyProtocol;
   /** Describes the system's reverse proxy server */
   server?: string;
-}
+};

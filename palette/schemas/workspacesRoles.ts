@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceRolesUidSummary } from "./workspaceRolesUidSummary";
+import type { WorkspaceRolesUidSummary } from './workspaceRolesUidSummary';
 
 /**
  * Workspace users and their roles
  */
-export interface WorkspacesRoles {
+export type WorkspacesRoles = {
   inheritedRoles?: WorkspaceRolesUidSummary[];
   name?: string;
   roles?: WorkspaceRolesUidSummary[];
   uid?: string;
-}
+};

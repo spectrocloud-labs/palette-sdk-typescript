@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterVirtualPacksValue } from "./clusterVirtualPacksValue";
+import type { ClusterVirtualPacksValue } from './clusterVirtualPacksValue';
 
 /**
  * Virtual cluster packs values
  */
-export interface ClusterVirtualPacksValues {
+export type ClusterVirtualPacksValues = {
   packs?: ClusterVirtualPacksValue[];
-}
+};

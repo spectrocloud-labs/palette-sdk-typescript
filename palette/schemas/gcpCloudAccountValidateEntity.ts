@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpAccountValidateSpec } from "./gcpAccountValidateSpec";
+import type { GcpAccountValidateSpec } from './gcpAccountValidateSpec';
 
 /**
  * Gcp cloud account spec
  */
-export interface GcpCloudAccountValidateEntity {
+export type GcpCloudAccountValidateEntity = {
   spec?: GcpAccountValidateSpec;
-}
+};

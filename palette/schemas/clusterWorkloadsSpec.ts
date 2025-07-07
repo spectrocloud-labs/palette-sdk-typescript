@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadsFilter } from "./clusterWorkloadsFilter";
+import type { ClusterWorkloadsFilter } from './clusterWorkloadsFilter';
 
 /**
  * Cluster workloads spec
  */
-export interface ClusterWorkloadsSpec {
+export type ClusterWorkloadsSpec = {
   filter?: ClusterWorkloadsFilter;
-}
+};

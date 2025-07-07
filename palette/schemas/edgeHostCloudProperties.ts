@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostVsphereCloudProperties } from "./edgeHostVsphereCloudProperties";
+import type { EdgeHostVsphereCloudProperties } from './edgeHostVsphereCloudProperties';
 
 /**
  * Additional cloud properties of the edge host (applicable based on the cloud type)
  */
-export interface EdgeHostCloudProperties {
+export type EdgeHostCloudProperties = {
   vsphere?: EdgeHostVsphereCloudProperties;
-}
+};

@@ -11,5 +11,5 @@
  */
 
 export type ClusterFeatureKubeBenchLogGetParams = {
-  reportId?: string;
+reportId?: string;
 };

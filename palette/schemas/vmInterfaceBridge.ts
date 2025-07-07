@@ -13,6 +13,4 @@
 /**
  * InterfaceBridge connects to a given network via a linux bridge.
  */
-export interface VmInterfaceBridge {
-  [key: string]: unknown;
-}
+export type VmInterfaceBridge = { [key: string]: unknown };

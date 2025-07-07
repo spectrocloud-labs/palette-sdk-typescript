@@ -13,7 +13,7 @@
 /**
  * Object identity meta
  */
-export interface ObjectEntity {
+export type ObjectEntity = {
   name?: string;
   uid?: string;
-}
+};

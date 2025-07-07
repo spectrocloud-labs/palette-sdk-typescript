@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
-import type { EcrRegistrySpecProviderType } from "./ecrRegistrySpecProviderType";
-import type { TlsConfiguration } from "./tlsConfiguration";
+import type { AwsCloudAccount } from './awsCloudAccount';
+import type { EcrRegistrySpecProviderType } from './ecrRegistrySpecProviderType';
+import type { TlsConfiguration } from './tlsConfiguration';
 
 /**
  * Ecr registry spec
  */
-export interface EcrRegistrySpec {
+export type EcrRegistrySpec = {
   /** OCI ecr registry content base path */
   baseContentPath?: string;
   containsSpectroManifest?: boolean;
@@ -30,4 +30,4 @@ export interface EcrRegistrySpec {
   registryUid?: string;
   scope?: string;
   tls?: TlsConfiguration;
-}
+};

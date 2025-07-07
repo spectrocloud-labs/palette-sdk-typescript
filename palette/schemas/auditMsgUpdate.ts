@@ -13,11 +13,11 @@
 /**
  * Audit user message update request payload
  */
-export interface AuditMsgUpdate {
+export type AuditMsgUpdate = {
   /**
    * User message
    * @minLength 3
    * @maxLength 255
    */
   userMsg?: string;
-}
+};

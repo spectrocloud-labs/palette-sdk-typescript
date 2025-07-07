@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PaymentIntent } from "./paymentIntent";
+import type { PaymentIntent } from './paymentIntent';
 
 /**
  * Payment subscription object
  */
-export interface PaymentSubscription {
+export type PaymentSubscription = {
   /** Customer uid */
   customerId?: string;
   paymentIntent?: PaymentIntent;
@@ -28,4 +28,4 @@ export interface PaymentSubscription {
   subscriptionId?: string;
   /** Plan subscription state */
   subscriptionState?: string;
-}
+};

@@ -13,11 +13,11 @@
 /**
  * Allowed Values [secret, sts]. STS type will be used for role assumption for sts type, accessKey/secretKey contains the source account, Arn is the target account.
  */
-export type AwsCloudAccountCredentialType =
-  (typeof AwsCloudAccountCredentialType)[keyof typeof AwsCloudAccountCredentialType];
+export type AwsCloudAccountCredentialType = typeof AwsCloudAccountCredentialType[keyof typeof AwsCloudAccountCredentialType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AwsCloudAccountCredentialType = {
-  secret: "secret",
-  sts: "sts",
+  secret: 'secret',
+  sts: 'sts',
 } as const;

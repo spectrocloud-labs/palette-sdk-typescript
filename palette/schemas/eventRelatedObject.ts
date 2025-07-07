@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EventRelatedObjectKind } from "./eventRelatedObjectKind";
+import type { EventRelatedObjectKind } from './eventRelatedObjectKind';
 
 /**
  * Object for which the event is related
  */
-export interface EventRelatedObject {
+export type EventRelatedObject = {
   kind?: EventRelatedObjectKind;
   name?: string;
   uid?: string;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceCostSummaryOptionsGroupBy } from "./resourceCostSummaryOptionsGroupBy";
+import type { ResourceCostSummaryOptionsGroupBy } from './resourceCostSummaryOptionsGroupBy';
 
 /**
  * Resource cost summary options
  */
-export interface ResourceCostSummaryOptions {
+export type ResourceCostSummaryOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceCostSummaryOptionsGroupBy;
   period?: number;
-}
+};

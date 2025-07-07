@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ClusterComplianceScanLogSpec } from "./clusterComplianceScanLogSpec";
-import type { ClusterKubeHunterLogStatus } from "./clusterKubeHunterLogStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ClusterComplianceScanLogSpec } from './clusterComplianceScanLogSpec';
+import type { ClusterKubeHunterLogStatus } from './clusterKubeHunterLogStatus';
 
 /**
  * Cluster compliance scan KubeHunter Log
  */
-export interface ClusterScanLogKubeHunter {
+export type ClusterScanLogKubeHunter = {
   metadata?: ObjectMeta;
   spec?: ClusterComplianceScanLogSpec;
   status?: ClusterKubeHunterLogStatus;
-}
+};

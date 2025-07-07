@@ -13,9 +13,9 @@
 /**
  * APIEndpoint represents a reachable Kubernetes API endpoint.
  */
-export interface ApiEndpoint {
+export type APIEndpoint = {
   /** The hostname on which the API server is serving. */
   host: string;
   /** The port on which the API server is serving. */
   port: number;
-}
+};

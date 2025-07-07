@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VariableFormat } from "./variableFormat";
+import type { VariableFormat } from './variableFormat';
 
 /**
  * Unique variable field with schema definition
  */
-export interface Variable {
+export type Variable = {
   /** The default value of the variable */
   defaultValue?: string;
   /** Variable description */
@@ -34,4 +34,4 @@ export interface Variable {
   regex?: string;
   /** Flag to specify if the variable is optional or mandatory. If it is mandatory then default value must be provided */
   required?: boolean;
-}
+};

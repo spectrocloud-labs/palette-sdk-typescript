@@ -13,7 +13,7 @@
 /**
  * Image registry spec
  */
-export interface OciRegistrySpec {
+export type OciRegistrySpec = {
   containsSpectroManifest?: boolean;
   defaultRegion?: string;
   endpoint?: string;
@@ -21,4 +21,4 @@ export interface OciRegistrySpec {
   providerType?: string;
   registryType?: string;
   scope?: string;
-}
+};

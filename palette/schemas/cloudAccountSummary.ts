@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { CloudAccountSummarySpecSummary } from "./cloudAccountSummarySpecSummary";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { CloudAccountSummarySpecSummary } from './cloudAccountSummarySpecSummary';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * Cloud account summary
  */
-export interface CloudAccountSummary {
+export type CloudAccountSummary = {
   kind?: string;
   metadata?: ObjectMeta;
   /** Cloud account spec summary */
   specSummary?: CloudAccountSummarySpecSummary;
   status?: CloudAccountStatus;
-}
+};

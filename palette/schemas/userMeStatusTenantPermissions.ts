@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type UserMeStatusTenantPermissions = { [key: string]: string[] };
+export type UserMeStatusTenantPermissions = {[key: string]: string[]};

@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface LoginBannerSettings {
+export type LoginBannerSettings = {
   /** Login banner message displayed to the user */
   Message?: string;
   /** Set to 'true' if login banner has to be displayed for user */
   isEnabled?: boolean;
   /** Banner title displayed to the user */
   title?: string;
-}
+};

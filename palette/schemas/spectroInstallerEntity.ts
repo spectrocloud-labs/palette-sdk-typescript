@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroInstallerEntitySpec } from "./spectroInstallerEntitySpec";
-import type { InstallerStatus } from "./installerStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroInstallerEntitySpec } from './spectroInstallerEntitySpec';
+import type { InstallerStatus } from './installerStatus';
 
 /**
  * Spectro installer entity for create
  */
-export interface SpectroInstallerEntity {
+export type SpectroInstallerEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroInstallerEntitySpec;
   status?: InstallerStatus;
-}
+};

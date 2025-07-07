@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfilePacksEntity } from "./clusterProfilePacksEntity";
-import type { ObjectReference } from "./objectReference";
+import type { ClusterProfilePacksEntity } from './clusterProfilePacksEntity';
+import type { ObjectReference } from './objectReference';
 
 /**
  * Cluster profile spec response
  */
-export interface SpectroClusterProfileSpec {
+export type SpectroClusterProfileSpec = {
   /** Cluster profile cloud type */
   cloudType?: string;
   /** Cluster profile packs array */
@@ -25,4 +25,4 @@ export interface SpectroClusterProfileSpec {
   type?: string;
   /** Cluster profile version */
   version?: number;
-}
+};

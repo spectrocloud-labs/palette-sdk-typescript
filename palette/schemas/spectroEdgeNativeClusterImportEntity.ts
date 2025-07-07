@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { SpectroEdgeNativeClusterImportEntitySpec } from "./spectroEdgeNativeClusterImportEntitySpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { SpectroEdgeNativeClusterImportEntitySpec } from './spectroEdgeNativeClusterImportEntitySpec';
 
 /**
  * Spectro EdgeNative cluster import request payload
  */
-export interface SpectroEdgeNativeClusterImportEntity {
+export type SpectroEdgeNativeClusterImportEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: SpectroEdgeNativeClusterImportEntitySpec;
-}
+};

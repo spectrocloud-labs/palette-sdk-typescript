@@ -13,11 +13,11 @@
 /**
  * Azure storage container organizes a set of blobs, similar to a directory in a file system
  */
-export interface StorageContainer {
+export type StorageContainer = {
   /** Fully qualified resource ID for the resource. */
   id?: string;
   /** The name of the resource */
   name?: string;
   /** The type of the resource. E.g. "Microsoft.Compute/virtualMachines" */
   type?: string;
-}
+};

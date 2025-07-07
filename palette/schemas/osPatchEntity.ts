@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OsPatchConfig } from "./osPatchConfig";
+import type { OsPatchConfig } from './osPatchConfig';
 
-export interface OsPatchEntity {
+export type OsPatchEntity = {
   osPatchConfig?: OsPatchConfig;
-}
+};

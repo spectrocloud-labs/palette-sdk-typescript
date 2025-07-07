@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { StorageContainer } from "./storageContainer";
+import type { StorageContainer } from './storageContainer';
 
 /**
  * List of Azure storage containers
  */
-export interface AzureStorageContainers {
+export type AzureStorageContainers = {
   containers?: StorageContainer[];
-}
+};

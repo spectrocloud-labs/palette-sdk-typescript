@@ -13,9 +13,9 @@
 /**
  * system edge-native account specifications
  */
-export interface SystemEdgeNativeImageSpec {
+export type SystemEdgeNativeImageSpec = {
   caCert?: string;
   imagesHostEndpoint?: string;
   insecureSkipVerify?: boolean;
   stylusImagesEndpoint?: string;
-}
+};

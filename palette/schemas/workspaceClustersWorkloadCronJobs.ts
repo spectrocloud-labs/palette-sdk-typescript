@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterWorkloadCronJobs } from "./workspaceClusterWorkloadCronJobs";
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { WorkspaceClusterWorkloadCronJobs } from './workspaceClusterWorkloadCronJobs';
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
 
 /**
  * Workspace clusters workload cronjobs summary
  */
-export interface WorkspaceClustersWorkloadCronJobs {
+export type WorkspaceClustersWorkloadCronJobs = {
   clusters?: WorkspaceClusterWorkloadCronJobs[];
   metadata?: ObjectMetaInputEntity;
-}
+};

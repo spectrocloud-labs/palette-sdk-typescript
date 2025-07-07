@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ChannelHttpHeaders = { [key: string]: string };
+export type ChannelHttpHeaders = {[key: string]: string};

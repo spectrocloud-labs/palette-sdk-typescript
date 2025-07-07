@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface AwsAMI {
+export type AwsAMI = {
   id?: string;
   os?: string;
   region?: string;
   state?: string;
-}
+};

@@ -13,16 +13,15 @@
 /**
  * @nullable
  */
-export type SearchSortFields =
-  | (typeof SearchSortFields)[keyof typeof SearchSortFields]
-  | null;
+export type SearchSortFields = typeof SearchSortFields[keyof typeof SearchSortFields] | null;
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SearchSortFields = {
-  environment: "environment",
-  clusterName: "clusterName",
-  clusterState: "clusterState",
-  healthState: "healthState",
-  creationTimestamp: "creationTimestamp",
-  lastModifiedTimestamp: "lastModifiedTimestamp",
+  environment: 'environment',
+  clusterName: 'clusterName',
+  clusterState: 'clusterState',
+  healthState: 'healthState',
+  creationTimestamp: 'creationTimestamp',
+  lastModifiedTimestamp: 'lastModifiedTimestamp',
 } as const;

@@ -13,7 +13,7 @@
 /**
  * Cluster level configuration for Custom cloud and applicable for all the machine pools
  */
-export interface CustomClusterConfig {
+export type CustomClusterConfig = {
   /** YAML string for Cluster and CloudCluster */
   values: string;
-}
+};

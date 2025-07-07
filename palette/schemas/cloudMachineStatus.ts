@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachineHealth } from "./machineHealth";
-import type { CloudMachineStatusInstanceState } from "./cloudMachineStatusInstanceState";
-import type { MachineMaintenanceStatus } from "./machineMaintenanceStatus";
+import type { MachineHealth } from './machineHealth';
+import type { CloudMachineStatusInstanceState } from './cloudMachineStatusInstanceState';
+import type { MachineMaintenanceStatus } from './machineMaintenanceStatus';
 
 /**
  * cloud machine status
  */
-export interface CloudMachineStatus {
+export type CloudMachineStatus = {
   health?: MachineHealth;
   instanceState?: CloudMachineStatusInstanceState;
   maintenanceStatus?: MachineMaintenanceStatus;
-}
+};

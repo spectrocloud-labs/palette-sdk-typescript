@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroOpenStackClusterEntitySpec } from "./spectroOpenStackClusterEntitySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroOpenStackClusterEntitySpec } from './spectroOpenStackClusterEntitySpec';
 
 /**
  * OpenStack cluster request payload for create and update
  */
-export interface SpectroOpenStackClusterEntity {
+export type SpectroOpenStackClusterEntity = {
   metadata?: ObjectMeta;
   spec?: SpectroOpenStackClusterEntitySpec;
-}
+};

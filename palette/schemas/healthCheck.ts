@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface HealthCheck {
+export type HealthCheck = {
   isHealthy?: boolean;
   message?: string;
   name?: string;
-}
+};

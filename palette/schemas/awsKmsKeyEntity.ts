@@ -13,11 +13,11 @@
 /**
  * List of AWS Keys
  */
-export interface AwsKmsKeyEntity {
+export type AwsKmsKeyEntity = {
   /** The twelve-digit account ID of the Amazon Web Services account that owns the KMS key */
   awsAccountId?: string;
   /** Specifies whether the KMS key is enabled. */
   enabled?: boolean;
   /** The globally unique identifier for the KMS key */
   keyId?: string;
-}
+};

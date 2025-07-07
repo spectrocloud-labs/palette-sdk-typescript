@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { FeatureUpdateSpec } from "./featureUpdateSpec";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { FeatureUpdateSpec } from './featureUpdateSpec';
 
 /**
  * Feature update spec
  */
-export interface FeatureUpdate {
+export type FeatureUpdate = {
   metadata?: ObjectMetaInputEntity;
   spec?: FeatureUpdateSpec;
-}
+};

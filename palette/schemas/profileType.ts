@@ -10,12 +10,13 @@
  * OpenAPI spec version: v1
  */
 
-export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
+export type ProfileType = typeof ProfileType[keyof typeof ProfileType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ProfileType = {
-  cluster: "cluster",
-  infra: "infra",
-  "add-on": "add-on",
-  system: "system",
+  cluster: 'cluster',
+  infra: 'infra',
+  'add-on': 'add-on',
+  system: 'system',
 } as const;

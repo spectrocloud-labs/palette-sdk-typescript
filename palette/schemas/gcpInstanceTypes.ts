@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { InstanceType } from "./instanceType";
+import type { InstanceType } from './instanceType';
 
 /**
  * Retrieves a list of GCP instance types
  */
-export interface GcpInstanceTypes {
+export type GcpInstanceTypes = {
   /** List of GCP instance types */
   instanceTypes?: InstanceType[];
-}
+};

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentSummary } from "./appDeploymentSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { AppDeploymentSummary } from './appDeploymentSummary';
+import type { ListMetaData } from './listMetaData';
 
-export interface AppDeploymentsSummary {
+export type AppDeploymentsSummary = {
   appDeployments?: AppDeploymentSummary[];
   listmeta?: ListMetaData;
-}
+};

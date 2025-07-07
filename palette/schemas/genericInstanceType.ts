@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface GenericInstanceType {
+export type GenericInstanceType = {
   /** DiskGiB is the size of a virtual machine's disk, in GiB */
   diskGiB?: number;
   /** MemoryMiB is the size of a virtual machine's memory, in MiB */
@@ -18,4 +18,4 @@ export interface GenericInstanceType {
   name?: string;
   /** NumCPUs is the number of virtual processors in a virtual machine */
   numCPUs?: number;
-}
+};

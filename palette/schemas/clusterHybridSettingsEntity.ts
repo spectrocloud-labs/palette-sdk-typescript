@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ClusterHybridSettingsEntity {
+export type ClusterHybridSettingsEntity = {
   /** Property which is used to enable a cluster to perform hybrid operations */
   enable?: boolean;
-}
+};

@@ -13,7 +13,7 @@
 /**
  * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
  */
-export interface VmLocalObjectReference {
+export type VmLocalObjectReference = {
   /** Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names */
   name?: string;
-}
+};

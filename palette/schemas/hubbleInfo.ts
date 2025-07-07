@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface HubbleInfo {
+export type HubbleInfo = {
   apiEndpoint?: string;
   apiPort?: string;
   uiEndpoint?: string;
   uiPort?: string;
-}
+};

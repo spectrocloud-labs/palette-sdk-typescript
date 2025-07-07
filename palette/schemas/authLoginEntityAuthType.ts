@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type AuthLoginEntityAuthType =
-  (typeof AuthLoginEntityAuthType)[keyof typeof AuthLoginEntityAuthType];
+export type AuthLoginEntityAuthType = typeof AuthLoginEntityAuthType[keyof typeof AuthLoginEntityAuthType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AuthLoginEntityAuthType = {
-  password: "password",
-  sso: "sso",
+  password: 'password',
+  sso: 'sso',
 } as const;

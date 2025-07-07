@@ -13,7 +13,7 @@
 /**
  * List of AWS AMI types
  */
-export interface AmiTypes {
+export type AmiTypes = {
   /** List of AWS AMI types */
   amiTypes?: string[];
-}
+};

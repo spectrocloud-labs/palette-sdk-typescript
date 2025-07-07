@@ -13,6 +13,6 @@
 /**
  * overlord manifest
  */
-export interface OverlordManifest {
+export type OverlordManifest = {
   manifest?: string;
-}
+};

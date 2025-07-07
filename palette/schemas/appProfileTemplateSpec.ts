@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTier } from "./appTier";
-import type { ObjectReference } from "./objectReference";
+import type { AppTier } from './appTier';
+import type { ObjectReference } from './objectReference';
 
 /**
  * Application profile template specs
  */
-export interface AppProfileTemplateSpec {
+export type AppProfileTemplateSpec = {
   /** Application profile tiers */
   appTiers?: AppTier[];
   /** Application profile registries reference */
   registryRefs?: ObjectReference[];
-}
+};

@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpAccount } from "./gcpAccount";
-import type { ListMetaData } from "./listMetaData";
+import type { GcpAccount } from './gcpAccount';
+import type { ListMetaData } from './listMetaData';
 
-export interface GcpAccounts {
+export type GcpAccounts = {
   items: GcpAccount[];
   listmeta?: ListMetaData;
-}
+};

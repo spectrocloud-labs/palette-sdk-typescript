@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantsActivitiesTenants } from "./tenantsActivitiesTenants";
+import type { TenantsActivitiesTenants } from './tenantsActivitiesTenants';
 
 /**
  * Active tenants and clusters data
  */
-export interface TenantsActivities {
+export type TenantsActivities = {
   tenants?: TenantsActivitiesTenants;
-}
+};

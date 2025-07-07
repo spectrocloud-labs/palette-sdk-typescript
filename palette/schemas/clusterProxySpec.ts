@@ -13,7 +13,7 @@
 /**
  * cluster proxy config spec
  */
-export interface ClusterProxySpec {
+export type ClusterProxySpec = {
   /** Location to mount Proxy CA cert inside container */
   caContainerMountPath?: string;
   /** Location for Proxy CA cert on host nodes */
@@ -24,4 +24,4 @@ export interface ClusterProxySpec {
   httpsProxy?: string;
   /** NoProxy represents the NO_PROXY or no_proxy environment */
   noProxy?: string;
-}
+};

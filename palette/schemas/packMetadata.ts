@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { PackMetadataSpec } from "./packMetadataSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { PackMetadataSpec } from './packMetadataSpec';
 
 /**
  * Pack metadata object
  */
-export interface PackMetadata {
+export type PackMetadata = {
   /** Pack api version */
   apiVersion?: string;
   /** Pack kind */
   kind?: string;
   metadata?: ObjectMeta;
   spec?: PackMetadataSpec;
-}
+};

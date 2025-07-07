@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { NonFipsConfigMode } from "./nonFipsConfigMode";
+import type { NonFipsConfigMode } from './nonFipsConfigMode';
 
 /**
  * Non-FIPS configuration
  */
-export interface NonFipsConfig {
+export type NonFipsConfig = {
   /** enable or disable the non FIPS complaint */
   mode?: NonFipsConfigMode;
-}
+};

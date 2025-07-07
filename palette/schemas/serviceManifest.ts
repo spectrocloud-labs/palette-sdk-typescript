@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ServiceManifestSpec } from "./serviceManifestSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { ServiceManifestSpec } from './serviceManifestSpec';
 
 /**
  * Service manifest information
  */
-export interface ServiceManifest {
+export type ServiceManifest = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: ServiceManifestSpec;
-}
+};

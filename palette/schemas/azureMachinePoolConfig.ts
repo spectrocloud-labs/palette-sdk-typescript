@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureMachinePoolConfigAdditionalLabels } from "./azureMachinePoolConfigAdditionalLabels";
-import type { AzureMachinePoolConfigAdditionalTags } from "./azureMachinePoolConfigAdditionalTags";
-import type { InstanceConfig } from "./instanceConfig";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { AzureOSDisk } from "./azureOSDisk";
-import type { OsType } from "./osType";
-import type { SpotVMOptions } from "./spotVMOptions";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { AzureMachinePoolConfigAdditionalLabels } from './azureMachinePoolConfigAdditionalLabels';
+import type { AzureMachinePoolConfigAdditionalTags } from './azureMachinePoolConfigAdditionalTags';
+import type { InstanceConfig } from './instanceConfig';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { AzureOSDisk } from './azureOSDisk';
+import type { OsType } from './osType';
+import type { SpotVMOptions } from './spotVMOptions';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
-export interface AzureMachinePoolConfig {
+export type AzureMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: AzureMachinePoolConfigAdditionalLabels;
   /** AdditionalTags is an optional set of tags to add to resources managed by the provider, in addition to the ones added by default. For eg., tags for EKS nodeGroup or EKS NodegroupIAMRole */
@@ -52,4 +52,4 @@ export interface AzureMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

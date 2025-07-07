@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type TenantSelfSignUpSpecLoginMode =
-  (typeof TenantSelfSignUpSpecLoginMode)[keyof typeof TenantSelfSignUpSpecLoginMode];
+export type TenantSelfSignUpSpecLoginMode = typeof TenantSelfSignUpSpecLoginMode[keyof typeof TenantSelfSignUpSpecLoginMode];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const TenantSelfSignUpSpecLoginMode = {
-  dev: "dev",
-  devops: "devops",
+  dev: 'dev',
+  devops: 'devops',
 } as const;

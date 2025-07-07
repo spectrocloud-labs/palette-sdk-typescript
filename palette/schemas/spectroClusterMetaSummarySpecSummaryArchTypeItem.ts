@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export type SpectroClusterMetaSummarySpecSummaryArchTypeItem =
-  (typeof SpectroClusterMetaSummarySpecSummaryArchTypeItem)[keyof typeof SpectroClusterMetaSummarySpecSummaryArchTypeItem];
+export type SpectroClusterMetaSummarySpecSummaryArchTypeItem = typeof SpectroClusterMetaSummarySpecSummaryArchTypeItem[keyof typeof SpectroClusterMetaSummarySpecSummaryArchTypeItem];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SpectroClusterMetaSummarySpecSummaryArchTypeItem = {
-  arm64: "arm64",
-  amd64: "amd64",
+  arm64: 'arm64',
+  amd64: 'amd64',
 } as const;

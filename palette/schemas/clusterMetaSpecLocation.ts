@@ -13,10 +13,10 @@
 /**
  * Cluster location information
  */
-export interface ClusterMetaSpecLocation {
+export type ClusterMetaSpecLocation = {
   coordinates?: number[];
   countryCode?: string;
   countryName?: string;
   regionCode?: string;
   regionName?: string;
-}
+};

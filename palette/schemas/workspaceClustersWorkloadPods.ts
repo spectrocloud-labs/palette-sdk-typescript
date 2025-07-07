@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { WorkspaceClusterWorkloadPods } from "./workspaceClusterWorkloadPods";
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
+import type { WorkspaceClusterWorkloadPods } from './workspaceClusterWorkloadPods';
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
 
 /**
  * Workspace clusters workload pods summary
  */
-export interface WorkspaceClustersWorkloadPods {
+export type WorkspaceClustersWorkloadPods = {
   clusters?: WorkspaceClusterWorkloadPods[];
   metadata?: ObjectMetaInputEntity;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterManifest } from "./clusterManifest";
+import type { ClusterManifest } from './clusterManifest';
 
 /**
  * Cluster manifests information
  */
-export interface ClusterManifests {
+export type ClusterManifests = {
   manifests?: ClusterManifest[];
-}
+};

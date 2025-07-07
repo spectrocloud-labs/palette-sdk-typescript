@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Lock } from "./lock";
+import type { Lock } from './lock';
 
-export interface HealthLocks {
+export type HealthLocks = {
   expiredLocks?: Lock[];
-}
+};

@@ -13,7 +13,7 @@
 /**
  * System service login input
  */
-export interface SystemServiceLogin {
+export type SystemServiceLogin = {
   /** authToken helps in two step verification for the authorization. */
   authToken?: string;
   isSystem?: boolean;
@@ -22,4 +22,4 @@ export interface SystemServiceLogin {
   serviceVersion?: string;
   spectroClusterUid?: string;
   tenantUid?: string;
-}
+};

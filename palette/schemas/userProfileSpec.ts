@@ -13,9 +13,9 @@
 /**
  * User Profile specifications
  */
-export interface UserProfileSpec {
+export type UserProfileSpec = {
   /** User's email id */
   emailId?: string;
   firstName?: string;
   lastName?: string;
-}
+};

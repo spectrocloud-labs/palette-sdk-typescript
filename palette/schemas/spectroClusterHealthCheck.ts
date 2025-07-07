@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterHealthCheckSpec } from "./spectroClusterHealthCheckSpec";
-import type { SpectroClusterHealthCheckStatus } from "./spectroClusterHealthCheckStatus";
+import type { SpectroClusterHealthCheckSpec } from './spectroClusterHealthCheckSpec';
+import type { SpectroClusterHealthCheckStatus } from './spectroClusterHealthCheckStatus';
 
-export interface SpectroClusterHealthCheck {
+export type SpectroClusterHealthCheck = {
   spec?: SpectroClusterHealthCheckSpec;
   status?: SpectroClusterHealthCheckStatus;
-}
+};

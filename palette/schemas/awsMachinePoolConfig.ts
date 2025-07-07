@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsMachinePoolConfigAdditionalLabels } from "./awsMachinePoolConfigAdditionalLabels";
-import type { AwsResourceReference } from "./awsResourceReference";
-import type { AwsMachinePoolConfigAdditionalTags } from "./awsMachinePoolConfigAdditionalTags";
-import type { AwsMachinePoolConfigCapacityType } from "./awsMachinePoolConfigCapacityType";
-import type { InstanceConfig } from "./instanceConfig";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { SpotMarketOptions } from "./spotMarketOptions";
-import type { AwsMachinePoolConfigSubnetIds } from "./awsMachinePoolConfigSubnetIds";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { AwsMachinePoolConfigAdditionalLabels } from './awsMachinePoolConfigAdditionalLabels';
+import type { AwsResourceReference } from './awsResourceReference';
+import type { AwsMachinePoolConfigAdditionalTags } from './awsMachinePoolConfigAdditionalTags';
+import type { AwsMachinePoolConfigCapacityType } from './awsMachinePoolConfigCapacityType';
+import type { InstanceConfig } from './instanceConfig';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { SpotMarketOptions } from './spotMarketOptions';
+import type { AwsMachinePoolConfigSubnetIds } from './awsMachinePoolConfigSubnetIds';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
-export interface AwsMachinePoolConfig {
+export type AwsMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: AwsMachinePoolConfigAdditionalLabels;
   /** Additional Security groups */
@@ -58,4 +58,4 @@ export interface AwsMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

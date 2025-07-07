@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { AppProfileTiersSpec } from "./appProfileTiersSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { AppProfileTiersSpec } from './appProfileTiersSpec';
 
 /**
  * Application profile tiers information
  */
-export interface AppProfileTiers {
+export type AppProfileTiers = {
   metadata?: ObjectMeta;
   spec?: AppProfileTiersSpec;
-}
+};

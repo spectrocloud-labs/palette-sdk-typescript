@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VsphereNetworkConfigEntity } from "./vsphereNetworkConfigEntity";
+import type { VsphereNetworkConfigEntity } from './vsphereNetworkConfigEntity';
 
 /**
  * Both ClusterConfig and MachinePoolConfig will have PlacementConfig MachinePoolconfig.Placements will overwrite values defined in ClusterConfig Currently the convention is: Datacenter / Folder / ImageTemplateFolder / Network should be defined at ClusterConfig Cluster / ResourcePool / Datastore / Network is defined at MachinePool ClusterConfig Network should only indicate use DHCP or not MachinePool Network should contain the actual network and IPPool
  */
-export interface VspherePlacementConfigEntity {
+export type VspherePlacementConfigEntity = {
   /** Cluster is the computecluster in vsphere */
   cluster?: string;
   /** Datacenter is the name or inventory path of the datacenter where this machine's VM is created/located. */
@@ -32,4 +32,4 @@ export interface VspherePlacementConfigEntity {
   storagePolicyName?: string;
   /** UID for this placement */
   uid?: string;
-}
+};

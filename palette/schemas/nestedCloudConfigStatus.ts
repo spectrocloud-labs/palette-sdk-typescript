@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./clusterCondition";
+import type { ClusterCondition } from './clusterCondition';
 
 /**
  * Defines the status of virtual cloud config
  */
-export interface NestedCloudConfigStatus {
+export type NestedCloudConfigStatus = {
   conditions?: ClusterCondition[];
   /** addon layers present in spc */
   isAddonLayer?: boolean;
-}
+};

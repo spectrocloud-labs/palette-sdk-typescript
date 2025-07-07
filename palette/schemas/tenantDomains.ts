@@ -13,6 +13,6 @@
 /**
  * Tenant domains
  */
-export interface TenantDomains {
+export type TenantDomains = {
   domains?: string[];
-}
+};

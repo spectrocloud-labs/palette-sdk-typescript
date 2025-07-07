@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackConfigSpec } from "./packConfigSpec";
+import type { PackConfigSpec } from './packConfigSpec';
 
 /**
  * Pack configuration
  */
-export interface PackConfig {
+export type PackConfig = {
   spec?: PackConfigSpec;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { FeatureSpec } from "./featureSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { FeatureSpec } from './featureSpec';
 
 /**
  * Feature response
  */
-export interface Feature {
+export type Feature = {
   metadata?: ObjectMeta;
   spec?: FeatureSpec;
-}
+};

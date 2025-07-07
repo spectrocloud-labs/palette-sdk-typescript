@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { CustomCloudAccount } from "./customCloudAccount";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { CustomCloudAccount } from './customCloudAccount';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * Custom account information
  */
-export interface CustomAccount {
+export type CustomAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface CustomAccount {
   metadata?: ObjectMeta;
   spec?: CustomCloudAccount;
   status?: CloudAccountStatus;
-}
+};

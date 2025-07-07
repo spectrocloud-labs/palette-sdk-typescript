@@ -13,9 +13,9 @@
 /**
  * Message subscriber request
  */
-export interface MsgSubscriber {
+export type MsgSubscriber = {
   accountId?: string;
   publisher?: string;
   service?: string;
   userId?: string;
-}
+};

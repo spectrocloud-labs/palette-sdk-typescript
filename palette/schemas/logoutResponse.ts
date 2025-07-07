@@ -13,6 +13,6 @@
 /**
  * Logout response specifying the redirect url
  */
-export interface LogoutResponse {
+export type LogoutResponse = {
   redirectUrl?: string;
-}
+};

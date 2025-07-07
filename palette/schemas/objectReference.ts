@@ -13,11 +13,11 @@
 /**
  * ObjectReference contains enough information to let you inspect or modify the referred object.
  */
-export interface ObjectReference {
+export type ObjectReference = {
   /** Kind of the referent. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds */
   kind?: string;
   /** Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names */
   name?: string;
   /** UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids */
   uid?: string;
-}
+};

@@ -11,5 +11,5 @@
  */
 
 export type BasicOciRegistriesCreateParams = {
-  skipPackSync?: boolean;
+skipPackSync?: boolean;
 };

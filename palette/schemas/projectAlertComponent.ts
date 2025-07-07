@@ -13,8 +13,8 @@
 /**
  * Project alert component
  */
-export interface ProjectAlertComponent {
+export type ProjectAlertComponent = {
   description?: string;
   name?: string;
   supportedChannels?: string[];
-}
+};

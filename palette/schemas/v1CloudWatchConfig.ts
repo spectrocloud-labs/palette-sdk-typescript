@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsCloudAccount } from "./awsCloudAccount";
+import type { AwsCloudAccount } from './awsCloudAccount';
 
 /**
  * Cloud watch config entity
  */
-export interface V1CloudWatchConfig {
+export type V1CloudWatchConfig = {
   credentials?: AwsCloudAccount;
   /** Name of the group */
   group?: string;
@@ -22,4 +22,4 @@ export interface V1CloudWatchConfig {
   region?: string;
   /** Name of the stream */
   stream?: string;
-}
+};

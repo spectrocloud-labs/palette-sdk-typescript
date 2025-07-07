@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface GrpcClientMonitoringData {
+export type GrpcClientMonitoringData = {
   clientUid?: string;
   receivedBroadcastCount?: number;
   receivedPublishedCount?: number;
   sentBroadcastCount?: number;
   sentPublishedCount?: number;
   subjects?: string[];
-}
+};

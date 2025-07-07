@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostSSHSecret } from "./edgeHostSSHSecret";
+import type { EdgeHostSSHSecret } from './edgeHostSSHSecret';
 
-export interface EdgeHostIdentity {
+export type EdgeHostIdentity = {
   /** CACert is the client CA certificate */
   caCert?: string;
   /** Mode indicates a system or session connection to the host */
@@ -19,4 +19,4 @@ export interface EdgeHostIdentity {
   /** SocketPath is an optional path to the socket on the host, if not using defaults */
   socketPath?: string;
   sshSecret?: EdgeHostSSHSecret;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemMaasImageSpec } from "./systemMaasImageSpec";
+import type { SystemMaasImageSpec } from './systemMaasImageSpec';
 
 /**
  * SystemAdmin
  */
-export interface SystemMaasImage {
+export type SystemMaasImage = {
   spec?: SystemMaasImageSpec;
-}
+};

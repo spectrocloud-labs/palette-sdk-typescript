@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
-import type { GenericClusterConfig } from "./genericClusterConfig";
-import type { GenericMachinePoolConfig } from "./genericMachinePoolConfig";
+import type { ObjectReference } from './objectReference';
+import type { GenericClusterConfig } from './genericClusterConfig';
+import type { GenericMachinePoolConfig } from './genericMachinePoolConfig';
 
 /**
  * Generic CloudConfig spec for all cloud types
  */
-export interface GenericCloudConfigSpec {
+export type GenericCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: GenericClusterConfig;
   /** Appliances (Edge Host) uids */
   edgeHostRefs?: ObjectReference[];
   machinePoolConfig?: GenericMachinePoolConfig[];
-}
+};

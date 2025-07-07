@@ -13,7 +13,7 @@
 /**
  * Metric Info
  */
-export interface MetricPoint {
+export type MetricPoint = {
   avg?: number;
   count?: number;
   max?: number;
@@ -21,4 +21,4 @@ export interface MetricPoint {
   sum?: number;
   timestamp?: number;
   value?: number;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterResourceAllocation } from "./clusterResourceAllocation";
-import type { WorkspaceResourceAllocation } from "./workspaceResourceAllocation";
+import type { ClusterResourceAllocation } from './clusterResourceAllocation';
+import type { WorkspaceResourceAllocation } from './workspaceResourceAllocation';
 
 /**
  * Workspace namespace resource allocation
  */
-export interface WorkspaceNamespaceResourceAllocation {
+export type WorkspaceNamespaceResourceAllocation = {
   clusterResourceAllocations?: ClusterResourceAllocation[];
   defaultResourceAllocation?: WorkspaceResourceAllocation;
-}
+};

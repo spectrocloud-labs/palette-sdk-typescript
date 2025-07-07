@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplateDraft } from "./clusterProfileTemplateDraft";
+import type { ClusterProfileTemplateDraft } from './clusterProfileTemplateDraft';
 
 export type V1ClusterProfileTemplateDraftBody = ClusterProfileTemplateDraft;

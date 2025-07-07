@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DeveloperCredit } from "./developerCredit";
-import type { AppFeatureFreemium } from "./appFeatureFreemium";
+import type { DeveloperCredit } from './developerCredit';
+import type { AppFeatureFreemium } from './appFeatureFreemium';
 
 /**
  * System app features
  */
-export interface AppFeatures {
+export type AppFeatures = {
   developerCredit?: DeveloperCredit;
   freeCloudCredit?: boolean;
   freemium?: AppFeatureFreemium;
-}
+};

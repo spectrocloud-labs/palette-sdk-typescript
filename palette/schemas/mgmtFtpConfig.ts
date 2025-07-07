@@ -13,9 +13,9 @@
 /**
  * ftp config
  */
-export interface MgmtFtpConfig {
+export type MgmtFtpConfig = {
   directory?: string;
   password?: string;
   server?: string;
   username?: string;
-}
+};

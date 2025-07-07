@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface TenantUpgradeSettingsEntity {
+export type TenantUpgradeSettingsEntity = {
   enableLock?: boolean;
   supportedVersionsRange?: number;
-}
+};

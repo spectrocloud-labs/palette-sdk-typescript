@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectsWorkspaces } from "./projectsWorkspaces";
+import type { ProjectsWorkspaces } from './projectsWorkspaces';
 
 /**
  * List all workspaces with the roles assigned to the users
  */
-export interface WorkspaceScopeRoles {
+export type WorkspaceScopeRoles = {
   projects?: ProjectsWorkspaces[];
-}
+};

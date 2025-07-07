@@ -13,10 +13,10 @@
 /**
  * Auth token response
  */
-export interface SysUserToken {
+export type SysUserToken = {
   Authorization?: string;
   IsEmailSet?: boolean;
   IsEmailVerified?: boolean;
   IsMfa?: boolean;
   IsPasswordReset?: boolean;
-}
+};

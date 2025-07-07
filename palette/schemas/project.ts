@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ProjectSpec } from "./projectSpec";
-import type { ProjectStatus } from "./projectStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ProjectSpec } from './projectSpec';
+import type { ProjectStatus } from './projectStatus';
 
 /**
  * Project information
  */
-export interface Project {
+export type Project = {
   metadata?: ObjectMeta;
   spec?: ProjectSpec;
   status?: ProjectStatus;
-}
+};

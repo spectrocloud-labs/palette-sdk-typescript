@@ -13,10 +13,10 @@
 /**
  * Sonobuoy log
  */
-export interface SonobuoyLogEntity {
+export type SonobuoyLogEntity = {
   description?: string;
   msg?: string;
   output?: string;
   path?: string;
   state?: string;
-}
+};

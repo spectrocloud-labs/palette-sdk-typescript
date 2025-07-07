@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { VsphereCloudAccount } from "./vsphereCloudAccount";
-import type { CloudAccountStatus } from "./cloudAccountStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { VsphereCloudAccount } from './vsphereCloudAccount';
+import type { CloudAccountStatus } from './cloudAccountStatus';
 
 /**
  * VSphere account information
  */
-export interface VsphereAccount {
+export type VsphereAccount = {
   /** Cloud account api version */
   apiVersion?: string;
   /** Cloud account kind */
@@ -24,4 +24,4 @@ export interface VsphereAccount {
   metadata?: ObjectMeta;
   spec?: VsphereCloudAccount;
   status?: CloudAccountStatus;
-}
+};

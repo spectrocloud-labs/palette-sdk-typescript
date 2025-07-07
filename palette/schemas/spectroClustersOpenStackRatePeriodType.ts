@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type SpectroClustersOpenStackRatePeriodType =
-  (typeof SpectroClustersOpenStackRatePeriodType)[keyof typeof SpectroClustersOpenStackRatePeriodType];
+export type SpectroClustersOpenStackRatePeriodType = typeof SpectroClustersOpenStackRatePeriodType[keyof typeof SpectroClustersOpenStackRatePeriodType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const SpectroClustersOpenStackRatePeriodType = {
-  hourly: "hourly",
-  monthly: "monthly",
-  yearly: "yearly",
+  hourly: 'hourly',
+  monthly: 'monthly',
+  yearly: 'yearly',
 } as const;

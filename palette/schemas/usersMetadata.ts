@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { UserMetaEntity } from "./userMetaEntity";
+import type { UserMetaEntity } from './userMetaEntity';
 
-export interface UsersMetadata {
+export type UsersMetadata = {
   items: UserMetaEntity[];
-}
+};

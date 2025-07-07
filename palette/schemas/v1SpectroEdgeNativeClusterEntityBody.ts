@@ -9,7 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroEdgeNativeClusterEntity } from "./spectroEdgeNativeClusterEntity";
+import type { SpectroEdgeNativeClusterEntity } from './spectroEdgeNativeClusterEntity';
 
-export type V1SpectroEdgeNativeClusterEntityBody =
-  SpectroEdgeNativeClusterEntity;
+export type V1SpectroEdgeNativeClusterEntityBody = SpectroEdgeNativeClusterEntity;

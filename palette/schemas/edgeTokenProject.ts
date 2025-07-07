@@ -13,9 +13,9 @@
 /**
  * Edge token project information
  */
-export interface EdgeTokenProject {
+export type EdgeTokenProject = {
   /** Project name */
   name?: string;
   /** Project uid */
   uid?: string;
-}
+};

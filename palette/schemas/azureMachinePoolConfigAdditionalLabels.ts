@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type AzureMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type AzureMachinePoolConfigAdditionalLabels = {[key: string]: string};

@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterMeta } from "./clusterMeta";
+import type { ClusterMeta } from './clusterMeta';
 
 /**
  * Active clusters information
  */
-export interface ClustersInfo {
+export type ClustersInfo = {
   clustersMeta?: ClusterMeta[];
   totalActiveClusters?: number;
   totalActiveGreenFieldClusters?: number;
   totalActiveImportedClusters?: number;
   totalClustersDeleted?: number;
   totalClustersDeployed?: number;
-}
+};

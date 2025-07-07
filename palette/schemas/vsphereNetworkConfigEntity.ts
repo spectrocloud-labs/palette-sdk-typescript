@@ -10,11 +10,11 @@
  * OpenAPI spec version: v1
  */
 
-export interface VsphereNetworkConfigEntity {
+export type VsphereNetworkConfigEntity = {
   /** NetworkName is the name of the network in which VMs are created/located. */
   networkName: string;
   /** ParentPoolRef Uid to the ParentPool which allocates IPs for this IPPool */
   parentPoolUid?: string;
   /** support dhcp or static IP, if false, use DHCP */
   staticIp?: boolean;
-}
+};

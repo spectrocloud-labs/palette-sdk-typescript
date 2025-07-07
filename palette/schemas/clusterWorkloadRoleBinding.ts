@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadMetadata } from "./clusterWorkloadMetadata";
-import type { ClusterRbacBinding } from "./clusterRbacBinding";
+import type { ClusterWorkloadMetadata } from './clusterWorkloadMetadata';
+import type { ClusterRbacBinding } from './clusterRbacBinding';
 
 /**
  * Cluster workload rbac binding summary
  */
-export interface ClusterWorkloadRoleBinding {
+export type ClusterWorkloadRoleBinding = {
   metadata?: ClusterWorkloadMetadata;
   spec?: ClusterRbacBinding;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PaymentPlan } from "./paymentPlan";
+import type { PaymentPlan } from './paymentPlan';
 
 /**
  * Payment plan object model
  */
-export interface PaymentPlans {
+export type PaymentPlans = {
   /** List of Stripe plan details */
   stripePlanDetails: PaymentPlan[];
-}
+};

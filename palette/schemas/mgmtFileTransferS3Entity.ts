@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtBackupSpec } from "./mgmtBackupSpec";
-import type { MgmtS3Config } from "./mgmtS3Config";
+import type { MgmtBackupSpec } from './mgmtBackupSpec';
+import type { MgmtS3Config } from './mgmtS3Config';
 
 /**
  * file transfer details
  */
-export interface MgmtFileTransferS3Entity {
+export type MgmtFileTransferS3Entity = {
   backupSpec?: MgmtBackupSpec;
   s3?: MgmtS3Config;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMetaInputEntity } from "./objectMetaInputEntity";
-import type { CustomCloudSpecEntity } from "./customCloudSpecEntity";
+import type { ObjectMetaInputEntity } from './objectMetaInputEntity';
+import type { CustomCloudSpecEntity } from './customCloudSpecEntity';
 
 /**
  * Custom cloud request entity
  */
-export interface CustomCloudRequestEntity {
+export type CustomCloudRequestEntity = {
   metadata?: ObjectMetaInputEntity;
   spec?: CustomCloudSpecEntity;
-}
+};

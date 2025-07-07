@@ -11,16 +11,16 @@
  */
 
 export type VsphereMappingGetParams = {
-  /**
-   * Specify the vSphere gateway uid
-   */
-  gatewayUid: string;
-  /**
-   * Specify the vSphere datacenter name
-   */
-  datacenter: string;
-  /**
-   * Specify the vSphere network name
-   */
-  network: string;
+/**
+ * Specify the vSphere gateway uid
+ */
+gatewayUid: string;
+/**
+ * Specify the vSphere datacenter name
+ */
+datacenter: string;
+/**
+ * Specify the vSphere network name
+ */
+network: string;
 };

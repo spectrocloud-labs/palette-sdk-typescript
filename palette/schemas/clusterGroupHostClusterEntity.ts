@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterGroupClusterRef } from "./clusterGroupClusterRef";
-import type { ClusterGroupClustersConfig } from "./clusterGroupClustersConfig";
+import type { ClusterGroupClusterRef } from './clusterGroupClusterRef';
+import type { ClusterGroupClustersConfig } from './clusterGroupClustersConfig';
 
 /**
  * Clusters and clusters config of cluster group
  */
-export interface ClusterGroupHostClusterEntity {
+export type ClusterGroupHostClusterEntity = {
   clusterRefs?: ClusterGroupClusterRef[];
   clustersConfig?: ClusterGroupClustersConfig;
-}
+};

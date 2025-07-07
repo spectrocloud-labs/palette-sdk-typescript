@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { IpPoolEntity } from "./ipPoolEntity";
+import type { IpPoolEntity } from './ipPoolEntity';
 
-export interface IpPools {
+export type IpPools = {
   items: IpPoolEntity[];
-}
+};

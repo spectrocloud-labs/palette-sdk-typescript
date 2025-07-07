@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterBackupConfig } from "./clusterBackupConfig";
-import type { ClusterComplianceScheduleConfig } from "./clusterComplianceScheduleConfig";
+import type { ClusterBackupConfig } from './clusterBackupConfig';
+import type { ClusterComplianceScheduleConfig } from './clusterComplianceScheduleConfig';
 
 /**
  * Cluster policies
  */
-export interface SpectroClusterPolicies {
+export type SpectroClusterPolicies = {
   backupPolicy?: ClusterBackupConfig;
   scanPolicy?: ClusterComplianceScheduleConfig;
-}
+};

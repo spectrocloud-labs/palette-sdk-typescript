@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterGroupClustersConfigEndpointType } from "./clusterGroupClustersConfigEndpointType";
-import type { ClusterGroupHostClusterConfig } from "./clusterGroupHostClusterConfig";
-import type { ClusterKubernetesDistroType } from "./clusterKubernetesDistroType";
-import type { ClusterGroupLimitConfig } from "./clusterGroupLimitConfig";
+import type { ClusterGroupClustersConfigEndpointType } from './clusterGroupClustersConfigEndpointType';
+import type { ClusterGroupHostClusterConfig } from './clusterGroupHostClusterConfig';
+import type { ClusterKubernetesDistroType } from './clusterKubernetesDistroType';
+import type { ClusterGroupLimitConfig } from './clusterGroupLimitConfig';
 
 /**
  * Clusters config of cluster group
  */
-export interface ClusterGroupClustersConfig {
+export type ClusterGroupClustersConfig = {
   /** Host cluster endpoint type */
   endpointType?: ClusterGroupClustersConfigEndpointType;
   hostClustersConfig?: ClusterGroupHostClusterConfig[];
   kubernetesDistroType?: ClusterKubernetesDistroType;
   limitConfig?: ClusterGroupLimitConfig;
   values?: string;
-}
+};

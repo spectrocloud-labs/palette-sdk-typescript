@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeHunterLogEntity } from "./kubeHunterLogEntity";
-import type { Time } from "./time";
-import type { KubeHunterVulnerabilityDataEntity } from "./kubeHunterVulnerabilityDataEntity";
+import type { KubeHunterLogEntity } from './kubeHunterLogEntity';
+import type { Time } from './time';
+import type { KubeHunterVulnerabilityDataEntity } from './kubeHunterVulnerabilityDataEntity';
 
 /**
  * KubeHunter report
  */
-export interface KubeHunterReportEntity {
+export type KubeHunterReportEntity = {
   logs?: KubeHunterLogEntity[];
   time?: Time;
   vulnerabilities?: KubeHunterVulnerabilityDataEntity;
-}
+};

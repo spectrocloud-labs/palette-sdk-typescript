@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterVMCloneEntityNewMacAddresses } from "./spectroClusterVMCloneEntityNewMacAddresses";
+import type { SpectroClusterVMCloneEntityNewMacAddresses } from './spectroClusterVMCloneEntityNewMacAddresses';
 
-export interface SpectroClusterVMCloneEntity {
+export type SpectroClusterVMCloneEntity = {
   /** Annotation filters */
   annotationFilters?: string[];
   /** Cloning Virtual machine's name */
@@ -22,4 +22,4 @@ export interface SpectroClusterVMCloneEntity {
   newMacAddresses?: SpectroClusterVMCloneEntityNewMacAddresses;
   /** NewSMBiosSerial manually sets that target's SMbios serial. If this field is not specified, a new serial will be generated automatically. */
   newSMBiosSerial?: string;
-}
+};

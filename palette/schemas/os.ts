@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface Os {
+export type Os = {
   family?: string;
   kernel?: string;
   kernelVersion?: string;
   version?: string;
-}
+};

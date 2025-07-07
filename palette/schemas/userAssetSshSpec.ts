@@ -13,6 +13,6 @@
 /**
  * SSH key specification
  */
-export interface UserAssetSshSpec {
+export type UserAssetSshSpec = {
   publicKey?: string;
-}
+};

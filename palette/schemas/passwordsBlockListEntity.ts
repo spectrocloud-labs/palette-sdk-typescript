@@ -13,6 +13,6 @@
 /**
  * List of block listed passwords
  */
-export interface PasswordsBlockListEntity {
+export type PasswordsBlockListEntity = {
   passwords?: string[];
-}
+};

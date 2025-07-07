@@ -13,9 +13,9 @@
 /**
  * Cluster usage summary
  */
-export interface ClusterUsageSummary {
+export type ClusterUsageSummary = {
   cpuCores?: number;
   isAlloy?: boolean;
   name?: string;
   uid?: string;
-}
+};

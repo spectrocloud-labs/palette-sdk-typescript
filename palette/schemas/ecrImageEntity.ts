@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface EcrImageEntity {
+export type EcrImageEntity = {
   /** Image name */
   name?: string;
   /** Image tag */
   tag?: string;
-}
+};

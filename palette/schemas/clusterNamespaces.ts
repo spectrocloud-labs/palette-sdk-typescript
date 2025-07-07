@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterNamespace } from "./clusterNamespace";
+import type { ClusterNamespace } from './clusterNamespace';
 
 /**
  * Cluster's available namespaces
  */
-export interface ClusterNamespaces {
+export type ClusterNamespaces = {
   namespaces?: ClusterNamespace[];
-}
+};

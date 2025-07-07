@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface CustomInstanceType {
+export type CustomInstanceType = {
   /** DiskGiB is the size of a custom machine's disk, in GiB */
   diskGiB?: number;
   /** MemoryMiB is the size of a custom machine's memory, in MiB */
@@ -18,4 +18,4 @@ export interface CustomInstanceType {
   name?: string;
   /** NumCPUs is the number in a custom machine */
   numCPUs?: number;
-}
+};

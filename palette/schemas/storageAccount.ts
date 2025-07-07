@@ -13,7 +13,7 @@
 /**
  * Azure storage account provides a unique namespace for your Azure resources
  */
-export interface StorageAccount {
+export type StorageAccount = {
   /** Fully qualified resource ID for the resource */
   id?: string;
   /** The kind of the resource */
@@ -22,4 +22,4 @@ export interface StorageAccount {
   location?: string;
   /** The name of the resource */
   name?: string;
-}
+};

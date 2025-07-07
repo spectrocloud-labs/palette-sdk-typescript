@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Resource cost summary filter
  */
-export interface ResourceCostSummaryFilter {
+export type ResourceCostSummaryFilter = {
   clouds?: string[];
   clusters?: string[];
   endTime?: Time;
@@ -25,4 +25,4 @@ export interface ResourceCostSummaryFilter {
   projects?: string[];
   startTime?: Time;
   workspaces?: string[];
-}
+};

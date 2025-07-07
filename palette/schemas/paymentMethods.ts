@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PaymentMethod } from "./paymentMethod";
+import type { PaymentMethod } from './paymentMethod';
 
 /**
  * Payment Method list
  */
-export interface PaymentMethods {
+export type PaymentMethods = {
   /** Default payment method */
   defaultPaymentMethod?: string;
   /** List of payment method */
   paymentMethods?: PaymentMethod[];
-}
+};

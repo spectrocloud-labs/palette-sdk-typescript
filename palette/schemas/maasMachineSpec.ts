@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MaasNic } from "./maasNic";
+import type { MaasNic } from './maasNic';
 
 /**
  * Maas cloud VM definition spec
  */
-export interface MaasMachineSpec {
+export type MaasMachineSpec = {
   az?: string;
   hostname?: string;
   nics?: MaasNic[];
-}
+};

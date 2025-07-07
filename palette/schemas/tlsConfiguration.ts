@@ -13,10 +13,10 @@
 /**
  * TLS configuration
  */
-export interface TlsConfiguration {
+export type TlsConfiguration = {
   ca?: string;
   certificate?: string;
   enabled?: boolean;
   insecureSkipVerify?: boolean;
   key?: string;
-}
+};

@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackManifestUpdateEntity } from "./packManifestUpdateEntity";
-import type { ProfileType } from "./profileType";
+import type { PackManifestUpdateEntity } from './packManifestUpdateEntity';
+import type { ProfileType } from './profileType';
 
 /**
  * Cluster profile template update spec
  */
-export interface ClusterProfileTemplateUpdate {
+export type ClusterProfileTemplateUpdate = {
   /** Cluster profile packs array */
   packs?: PackManifestUpdateEntity[];
   type?: ProfileType;
-}
+};

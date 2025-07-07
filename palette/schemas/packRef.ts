@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackRefAnnotations } from "./packRefAnnotations";
-import type { PackRefLayer } from "./packRefLayer";
-import type { ObjectReference } from "./objectReference";
-import type { PackRefParams } from "./packRefParams";
-import type { PackPreset } from "./packPreset";
-import type { PackSchema } from "./packSchema";
-import type { PackRefType } from "./packRefType";
+import type { PackRefAnnotations } from './packRefAnnotations';
+import type { PackRefLayer } from './packRefLayer';
+import type { ObjectReference } from './objectReference';
+import type { PackRefParams } from './packRefParams';
+import type { PackPreset } from './packPreset';
+import type { PackSchema } from './packSchema';
+import type { PackRefType } from './packRefType';
 
 /**
  * PackRef server/name:tag to point to a pack PackRef is used when construct a ClusterProfile PackSpec is used for UI to render the parameters form ClusterProfile will not know inner details of a pack ClusterProfile only contain pack name:tag, and the param values user entered for it
  */
-export interface PackRef {
+export type PackRef = {
   /** Annotations is used to allow packref to add more arbitrary information one example is to add git reference for values.yaml */
   annotations?: PackRefAnnotations;
   /** digest is used to specify the version should be installed by palette when pack upgrade available, change this digest to trigger upgrade */
@@ -52,4 +52,4 @@ export interface PackRef {
   values?: string;
   /** pack version */
   version?: string;
-}
+};

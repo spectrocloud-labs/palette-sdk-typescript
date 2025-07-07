@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface UserKubectlSession {
+export type UserKubectlSession = {
   clusterUid?: string;
   creationTime?: string;
   isActive?: boolean;
@@ -23,4 +23,4 @@ export interface UserKubectlSession {
   tenantClusterEndpoint?: string;
   userName?: string;
   userUid?: string;
-}
+};

@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectResourceUsage } from "./projectResourceUsage";
-import type { Time } from "./time";
+import type { ProjectResourceUsage } from './projectResourceUsage';
+import type { Time } from './time';
 
 /**
  * ResourceUsage
  */
-export interface ResourceUsage {
+export type ResourceUsage = {
   projects?: ProjectResourceUsage[];
   timestamp?: Time;
   totalAlloyCpuCoreHours?: number;
   totalPureCpuCoreHours?: number;
-}
+};

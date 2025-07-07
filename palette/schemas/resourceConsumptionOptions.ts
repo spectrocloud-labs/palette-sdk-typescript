@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceConsumptionOptionsGroupBy } from "./resourceConsumptionOptionsGroupBy";
+import type { ResourceConsumptionOptionsGroupBy } from './resourceConsumptionOptionsGroupBy';
 
 /**
  * Resource consumption options
  */
-export interface ResourceConsumptionOptions {
+export type ResourceConsumptionOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceConsumptionOptionsGroupBy;
   period?: number;
-}
+};

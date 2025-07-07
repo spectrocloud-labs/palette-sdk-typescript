@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface MetricMetadata {
+export type MetricMetadata = {
   name?: string;
   uid?: string;
-}
+};

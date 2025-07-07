@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AwsMachinePoolConfigEntity } from "./awsMachinePoolConfigEntity";
+import type { AwsMachinePoolConfigEntity } from './awsMachinePoolConfigEntity';
 
 export type V1AwsMachinePoolConfigEntityBody = AwsMachinePoolConfigEntity;

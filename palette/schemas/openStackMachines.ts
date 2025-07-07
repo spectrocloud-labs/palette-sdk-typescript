@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackMachine } from "./openStackMachine";
+import type { OpenStackMachine } from './openStackMachine';
 
 /**
  * OpenStack machine list
  */
-export interface OpenStackMachines {
+export type OpenStackMachines = {
   items: OpenStackMachine[];
-}
+};

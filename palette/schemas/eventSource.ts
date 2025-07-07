@@ -13,9 +13,9 @@
 /**
  * Describes the origin for the event
  */
-export interface EventSource {
+export type EventSource = {
   /** Describes the component where event originated */
   component?: string;
   /** Describes the host where event originated */
   host?: string;
-}
+};

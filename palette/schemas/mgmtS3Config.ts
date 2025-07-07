@@ -13,10 +13,10 @@
 /**
  * s3 config
  */
-export interface MgmtS3Config {
+export type MgmtS3Config = {
   accessKey?: string;
   bucket?: string;
   directory?: string;
   region?: string;
   secretKey?: string;
-}
+};

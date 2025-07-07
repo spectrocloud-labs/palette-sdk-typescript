@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppTierResolvedValuesResolved } from "./appTierResolvedValuesResolved";
+import type { AppTierResolvedValuesResolved } from './appTierResolvedValuesResolved';
 
 /**
  * Application tier resolved macro values
  */
-export interface AppTierResolvedValues {
+export type AppTierResolvedValues = {
   /** Application tier resolved macro values map */
   resolved?: AppTierResolvedValuesResolved;
-}
+};

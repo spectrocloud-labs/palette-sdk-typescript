@@ -13,9 +13,9 @@
 /**
  * Cluster workload pod container resource
  */
-export interface ClusterWorkloadPodContainerResource {
+export type ClusterWorkloadPodContainerResource = {
   cpu?: number;
   cpuUnit?: string;
   memory?: number;
   memoryUnit?: string;
-}
+};

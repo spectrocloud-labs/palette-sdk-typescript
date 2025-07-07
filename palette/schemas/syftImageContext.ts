@@ -13,8 +13,8 @@
 /**
  * Compliance Scan Syft Image Context
  */
-export interface SyftImageContext {
+export type SyftImageContext = {
   containerName?: string;
   namespace?: string;
   podName?: string;
-}
+};

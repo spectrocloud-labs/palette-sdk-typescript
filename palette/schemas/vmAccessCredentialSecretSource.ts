@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface VmAccessCredentialSecretSource {
+export type VmAccessCredentialSecretSource = {
   /** SecretName represents the name of the secret in the VMI's namespace */
   secretName: string;
-}
+};

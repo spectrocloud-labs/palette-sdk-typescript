@@ -13,8 +13,8 @@
 /**
  * Compliance Scan KubeHunter Vulnerabilities
  */
-export interface KubeHunterVulnerabilities {
+export type KubeHunterVulnerabilities = {
   high?: number;
   low?: number;
   medium?: number;
-}
+};

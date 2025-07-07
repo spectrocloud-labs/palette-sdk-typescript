@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeBenchLogEntity } from "./kubeBenchLogEntity";
-import type { Time } from "./time";
+import type { KubeBenchLogEntity } from './kubeBenchLogEntity';
+import type { Time } from './time';
 
 /**
  * KubeBench report
  */
-export interface KubeBenchReportEntity {
+export type KubeBenchReportEntity = {
   fail?: number;
   info?: number;
   logs?: KubeBenchLogEntity[];
@@ -24,4 +24,4 @@ export interface KubeBenchReportEntity {
   time?: Time;
   type?: string;
   warn?: number;
-}
+};

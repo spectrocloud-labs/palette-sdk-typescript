@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceRolesUpdateEntity } from "./resourceRolesUpdateEntity";
+import type { ResourceRolesUpdateEntity } from './resourceRolesUpdateEntity';
 
 export type V1ResourceRolesUpdateEntityBody = ResourceRolesUpdateEntity;

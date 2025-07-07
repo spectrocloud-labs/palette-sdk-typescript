@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Cluster workload pod container state
  */
-export interface ClusterWorkloadPodContainerState {
+export type ClusterWorkloadPodContainerState = {
   exitCode?: number;
   finishedAt?: Time;
   reason?: string;
   startedAt?: Time;
   state?: string;
-}
+};

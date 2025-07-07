@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { DatabaseTransferJob } from "./databaseTransferJob";
+import type { DatabaseTransferJob } from './databaseTransferJob';
 
 /**
  * database transfer status
  */
-export interface DatabaseTransferStatus {
+export type DatabaseTransferStatus = {
   backups?: DatabaseTransferJob[];
   isActive?: boolean;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RelatedObject } from "./relatedObject";
-import type { ClusterWorkloadStatefulSet } from "./clusterWorkloadStatefulSet";
+import type { RelatedObject } from './relatedObject';
+import type { ClusterWorkloadStatefulSet } from './clusterWorkloadStatefulSet';
 
 /**
  * Workspace cluster workload statefulsets summary
  */
-export interface WorkspaceClusterWorkloadStatefulSets {
+export type WorkspaceClusterWorkloadStatefulSets = {
   metadata?: RelatedObject;
   statefulSets?: ClusterWorkloadStatefulSet[];
-}
+};

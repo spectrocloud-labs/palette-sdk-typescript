@@ -9,8 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { KubeHunterReport } from "./kubeHunterReport";
+import type { KubeHunterReport } from './kubeHunterReport';
 
-export type ClusterKubeHunterLogStatusReports = {
-  [key: string]: KubeHunterReport;
-};
+export type ClusterKubeHunterLogStatusReports = {[key: string]: KubeHunterReport};

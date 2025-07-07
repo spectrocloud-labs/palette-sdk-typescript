@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadPodMetadata } from "./clusterWorkloadPodMetadata";
-import type { ClusterWorkloadPodSpec } from "./clusterWorkloadPodSpec";
-import type { ClusterWorkloadPodStatus } from "./clusterWorkloadPodStatus";
+import type { ClusterWorkloadPodMetadata } from './clusterWorkloadPodMetadata';
+import type { ClusterWorkloadPodSpec } from './clusterWorkloadPodSpec';
+import type { ClusterWorkloadPodStatus } from './clusterWorkloadPodStatus';
 
 /**
  * Cluster workload pod summary
  */
-export interface ClusterWorkloadPod {
+export type ClusterWorkloadPod = {
   metadata?: ClusterWorkloadPodMetadata;
   spec?: ClusterWorkloadPodSpec;
   status?: ClusterWorkloadPodStatus;
-}
+};

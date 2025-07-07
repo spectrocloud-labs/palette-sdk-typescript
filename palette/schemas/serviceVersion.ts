@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ServiceVersionSpec } from "./serviceVersionSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { ServiceVersionSpec } from './serviceVersionSpec';
 
 /**
  * Service version information
  */
-export interface ServiceVersion {
+export type ServiceVersion = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: ServiceVersionSpec;
-}
+};

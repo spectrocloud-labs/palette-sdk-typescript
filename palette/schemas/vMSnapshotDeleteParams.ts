@@ -11,8 +11,8 @@
  */
 
 export type VMSnapshotDeleteParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

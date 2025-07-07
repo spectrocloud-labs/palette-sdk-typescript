@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { ClusterWorkloadCondition } from "./clusterWorkloadCondition";
+import type { Time } from './time';
+import type { ClusterWorkloadCondition } from './clusterWorkloadCondition';
 
 /**
  * Cluster workload job status
  */
-export interface ClusterWorkloadJobStatus {
+export type ClusterWorkloadJobStatus = {
   completionTime?: Time;
   conditions?: ClusterWorkloadCondition[];
   startTime?: Time;
   succeeded?: number;
-}
+};

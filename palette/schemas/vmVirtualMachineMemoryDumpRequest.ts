@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * VirtualMachineMemoryDumpRequest represent the memory dump request phase and info
  */
-export interface VmVirtualMachineMemoryDumpRequest {
+export type VmVirtualMachineMemoryDumpRequest = {
   /** ClaimName is the name of the pvc that will contain the memory dump */
   claimName: string;
   endTimestamp?: Time;
@@ -27,4 +27,4 @@ export interface VmVirtualMachineMemoryDumpRequest {
   /** Remove represents request of dissociating the memory dump pvc */
   remove?: boolean;
   startTimestamp?: Time;
-}
+};

@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanLimitSpec } from "./planLimitSpec";
+import type { PlanLimitSpec } from './planLimitSpec';
 
 /**
  * Monthly Plan Limit
  */
-export interface PlanLimit {
+export type PlanLimit = {
   alloy?: PlanLimitSpec;
   /** is onDemand plan and has no limit */
   isOnDemand?: boolean;
   /** is unlimited cpu core hours */
   isUnlimited?: boolean;
   pure?: PlanLimitSpec;
-}
+};

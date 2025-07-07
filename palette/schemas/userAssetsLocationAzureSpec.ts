@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AzureStorageConfig } from "./azureStorageConfig";
+import type { AzureStorageConfig } from './azureStorageConfig';
 
 /**
  * Azure location specification
  */
-export interface UserAssetsLocationAzureSpec {
+export type UserAssetsLocationAzureSpec = {
   config: AzureStorageConfig;
   /** Set to 'true', if location has to be set as default */
   isDefault?: boolean;
   /** Azure location type [azure] */
   type?: string;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { PackRefSummarySpec } from "./packRefSummarySpec";
+import type { ObjectMeta } from './objectMeta';
+import type { PackRefSummarySpec } from './packRefSummarySpec';
 
 /**
  * Pack summary response
  */
-export interface PackRefSummaryResponse {
+export type PackRefSummaryResponse = {
   metadata?: ObjectMeta;
   spec?: PackRefSummarySpec;
-}
+};

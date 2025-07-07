@@ -13,8 +13,8 @@
 /**
  * Load balancer configuration for exposing the virtual cluster's kube-apiserver
  */
-export interface LoadBalancerConfig {
+export type LoadBalancerConfig = {
   externalIPs?: string[];
   externalTrafficPolicy?: string;
   loadBalancerSourceRanges?: string[];
-}
+};

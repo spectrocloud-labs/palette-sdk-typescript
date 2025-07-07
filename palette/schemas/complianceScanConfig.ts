@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterFeatureSchedule } from "./clusterFeatureSchedule";
+import type { ClusterFeatureSchedule } from './clusterFeatureSchedule';
 
 /**
  * Compliance Scan config
  */
-export interface ComplianceScanConfig {
+export type ComplianceScanConfig = {
   schedule?: ClusterFeatureSchedule;
-}
+};

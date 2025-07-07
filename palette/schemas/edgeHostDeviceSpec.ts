@@ -9,19 +9,19 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeHostCloudProperties } from "./edgeHostCloudProperties";
-import type { ClusterProfileTemplate } from "./clusterProfileTemplate";
-import type { DeviceSpec } from "./deviceSpec";
-import type { EdgeHost } from "./edgeHost";
-import type { EdgeHostProperties } from "./edgeHostProperties";
-import type { ServiceSpec } from "./serviceSpec";
-import type { SpectroTunnelConfig } from "./spectroTunnelConfig";
-import type { EdgeHostDeviceSpecType } from "./edgeHostDeviceSpecType";
+import type { EdgeHostCloudProperties } from './edgeHostCloudProperties';
+import type { ClusterProfileTemplate } from './clusterProfileTemplate';
+import type { DeviceSpec } from './deviceSpec';
+import type { EdgeHost } from './edgeHost';
+import type { EdgeHostProperties } from './edgeHostProperties';
+import type { ServiceSpec } from './serviceSpec';
+import type { SpectroTunnelConfig } from './spectroTunnelConfig';
+import type { EdgeHostDeviceSpecType } from './edgeHostDeviceSpecType';
 
 /**
  * EdgeHostDeviceSpec defines the desired state of EdgeHostDevice
  */
-export interface EdgeHostDeviceSpec {
+export type EdgeHostDeviceSpec = {
   cloudProperties?: EdgeHostCloudProperties;
   clusterProfileTemplates?: ClusterProfileTemplate[];
   device?: DeviceSpec;
@@ -32,4 +32,4 @@ export interface EdgeHostDeviceSpec {
   /** Deprecated. Cloudtype of the provisioned edge host */
   type?: EdgeHostDeviceSpecType;
   version?: string;
-}
+};

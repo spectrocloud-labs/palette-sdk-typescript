@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface GrpcSubjectMonitoringData {
+export type GrpcSubjectMonitoringData = {
   broadcastCount?: number;
   clients?: string[];
   publishedCount?: number;
   subject?: string;
-}
+};

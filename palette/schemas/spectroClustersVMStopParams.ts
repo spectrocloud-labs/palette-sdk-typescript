@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMStopParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

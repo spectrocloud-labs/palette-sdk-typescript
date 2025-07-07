@@ -10,32 +10,32 @@
  * OpenAPI spec version: v1
  */
 
-export type ResourceLimitType =
-  (typeof ResourceLimitType)[keyof typeof ResourceLimitType];
+export type ResourceLimitType = typeof ResourceLimitType[keyof typeof ResourceLimitType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const ResourceLimitType = {
-  user: "user",
-  project: "project",
-  apiKey: "apiKey",
-  team: "team",
-  role: "role",
-  cloudaccount: "cloudaccount",
-  clusterprofile: "clusterprofile",
-  workspace: "workspace",
-  registry: "registry",
-  privategateway: "privategateway",
-  location: "location",
-  certificate: "certificate",
-  macro: "macro",
-  sshkey: "sshkey",
-  alert: "alert",
-  spectrocluster: "spectrocluster",
-  edgehost: "edgehost",
-  appprofile: "appprofile",
-  appdeployment: "appdeployment",
-  edgetoken: "edgetoken",
-  clustergroup: "clustergroup",
-  filter: "filter",
-  systemadmin: "systemadmin",
+  user: 'user',
+  project: 'project',
+  apiKey: 'apiKey',
+  team: 'team',
+  role: 'role',
+  cloudaccount: 'cloudaccount',
+  clusterprofile: 'clusterprofile',
+  workspace: 'workspace',
+  registry: 'registry',
+  privategateway: 'privategateway',
+  location: 'location',
+  certificate: 'certificate',
+  macro: 'macro',
+  sshkey: 'sshkey',
+  alert: 'alert',
+  spectrocluster: 'spectrocluster',
+  edgehost: 'edgehost',
+  appprofile: 'appprofile',
+  appdeployment: 'appdeployment',
+  edgetoken: 'edgetoken',
+  clustergroup: 'clustergroup',
+  filter: 'filter',
+  systemadmin: 'systemadmin',
 } as const;

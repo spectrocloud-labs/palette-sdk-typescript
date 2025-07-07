@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Aws secret account credentials
  */
-export interface AwsAccountCredentials {
+export type AwsAccountCredentials = {
   /** Aws account access key */
   accessKey?: string;
   expirationTime?: Time;
@@ -22,4 +22,4 @@ export interface AwsAccountCredentials {
   secretKey?: string;
   /** Aws account secret token */
   secretToken?: string;
-}
+};

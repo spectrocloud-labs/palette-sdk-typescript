@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { RegistryPackMetadataAnnotations } from "./registryPackMetadataAnnotations";
+import type { RegistryPackMetadataAnnotations } from './registryPackMetadataAnnotations';
 
 /**
  * Registry metadata information
  */
-export interface RegistryPackMetadata {
+export type RegistryPackMetadata = {
   /** Pack annotations is used to allow pack to add more arbitrary configurations */
   annotations?: RegistryPackMetadataAnnotations;
   /** Latest pack uid */
@@ -29,4 +29,4 @@ export interface RegistryPackMetadata {
   scope?: string;
   /** Pack registry uid */
   uid?: string;
-}
+};

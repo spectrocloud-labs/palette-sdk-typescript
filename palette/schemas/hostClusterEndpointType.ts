@@ -13,11 +13,11 @@
 /**
  * is enabled as host cluster
  */
-export type HostClusterEndpointType =
-  (typeof HostClusterEndpointType)[keyof typeof HostClusterEndpointType];
+export type HostClusterEndpointType = typeof HostClusterEndpointType[keyof typeof HostClusterEndpointType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const HostClusterEndpointType = {
-  Ingress: "Ingress",
-  LoadBalancer: "LoadBalancer",
+  Ingress: 'Ingress',
+  LoadBalancer: 'LoadBalancer',
 } as const;

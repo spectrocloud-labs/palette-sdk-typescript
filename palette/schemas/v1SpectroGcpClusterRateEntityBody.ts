@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroGcpClusterRateEntity } from "./spectroGcpClusterRateEntity";
+import type { SpectroGcpClusterRateEntity } from './spectroGcpClusterRateEntity';
 
 export type V1SpectroGcpClusterRateEntityBody = SpectroGcpClusterRateEntity;

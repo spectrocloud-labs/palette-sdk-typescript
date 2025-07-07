@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemVsphereImageSpec } from "./systemVsphereImageSpec";
+import type { SystemVsphereImageSpec } from './systemVsphereImageSpec';
 
 /**
  * SystemAdmin
  */
-export interface SystemVsphereImage {
+export type SystemVsphereImage = {
   spec?: SystemVsphereImageSpec;
-}
+};

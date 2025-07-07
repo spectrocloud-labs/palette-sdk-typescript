@@ -13,7 +13,7 @@
 /**
  * system web kubectl config spec
  */
-export interface SystemOciImageRegistry {
+export type SystemOciImageRegistry = {
   baseContentPath?: string;
   caCert?: string;
   endpoint?: string;
@@ -22,4 +22,4 @@ export interface SystemOciImageRegistry {
   name?: string;
   password?: string;
   username?: string;
-}
+};

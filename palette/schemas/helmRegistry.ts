@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { HelmRegistrySpec } from "./helmRegistrySpec";
-import type { HelmRegistryStatus } from "./helmRegistryStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { HelmRegistrySpec } from './helmRegistrySpec';
+import type { HelmRegistryStatus } from './helmRegistryStatus';
 
 /**
  * Helm registry information
  */
-export interface HelmRegistry {
+export type HelmRegistry = {
   apiVersion?: string;
   kind?: string;
   metadata?: ObjectMeta;
   spec?: HelmRegistrySpec;
   status?: HelmRegistryStatus;
-}
+};

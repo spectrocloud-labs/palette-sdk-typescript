@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroCluster } from "./spectroCluster";
-import type { ListMetaData } from "./listMetaData";
+import type { SpectroCluster } from './spectroCluster';
+import type { ListMetaData } from './listMetaData';
 
-export interface SpectroClusters {
+export type SpectroClusters = {
   items: SpectroCluster[];
   listmeta?: ListMetaData;
-}
+};

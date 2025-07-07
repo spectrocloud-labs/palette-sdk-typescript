@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface HealthPing {
+export type HealthPing = {
   msg?: string;
-}
+};

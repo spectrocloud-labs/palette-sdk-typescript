@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SpectroClusterPackDiff } from "./spectroClusterPackDiff";
+import type { SpectroClusterPackDiff } from './spectroClusterPackDiff';
 
 /**
  * Cluster repave reason description
  */
-export interface SpectroClusterRepaveReason {
+export type SpectroClusterRepaveReason = {
   code?: string;
   message?: string;
   pack?: SpectroClusterPackDiff;
-}
+};

@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamSummary } from "./teamSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { TeamSummary } from './teamSummary';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * Deprecated, Use v1UsersSummaryList - Returns User summary
  */
-export interface TeamsSummary {
+export type TeamsSummary = {
   items: TeamSummary[];
   listmeta?: ListMetaData;
-}
+};

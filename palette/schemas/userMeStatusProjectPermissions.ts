@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type UserMeStatusProjectPermissions = { [key: string]: string[] };
+export type UserMeStatusProjectPermissions = {[key: string]: string[]};

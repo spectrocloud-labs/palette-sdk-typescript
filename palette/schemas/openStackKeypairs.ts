@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { OpenStackKeypair } from "./openStackKeypair";
+import type { OpenStackKeypair } from './openStackKeypair';
 
 /**
  * List of OpenStack keypairs
  */
-export interface OpenStackKeypairs {
+export type OpenStackKeypairs = {
   items: OpenStackKeypair[];
-}
+};

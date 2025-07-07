@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroClusterSummarySpecSummary } from "./spectroClusterSummarySpecSummary";
-import type { SpectroClusterSummaryStatus } from "./spectroClusterSummaryStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroClusterSummarySpecSummary } from './spectroClusterSummarySpecSummary';
+import type { SpectroClusterSummaryStatus } from './spectroClusterSummaryStatus';
 
 /**
  * Spectro cluster summary
  */
-export interface SpectroClusterSummary {
+export type SpectroClusterSummary = {
   metadata?: ObjectMeta;
   /** Spectro cluster spec summary */
   specSummary?: SpectroClusterSummarySpecSummary;
   /** Spectro cluster status summary */
   status?: SpectroClusterSummaryStatus;
-}
+};

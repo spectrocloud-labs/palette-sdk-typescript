@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmCpuFeature } from "./vmCpuFeature";
-import type { VmNUMA } from "./vmNUMA";
-import type { VmRealtime } from "./vmRealtime";
+import type { VmCpuFeature } from './vmCpuFeature';
+import type { VmNUMA } from './vmNUMA';
+import type { VmRealtime } from './vmRealtime';
 
 /**
  * CPU allows specifying the CPU topology.
  */
-export interface VmCpu {
+export type VmCpu = {
   /** Cores specifies the number of cores inside the vmi. Must be a value greater or equal 1. */
   cores?: number;
   /** DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it. */
@@ -33,4 +33,4 @@ export interface VmCpu {
   sockets?: number;
   /** Threads specifies the number of threads inside the vmi. Must be a value greater or equal 1. */
   threads?: number;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppDeploymentClusterRefSummary } from "./appDeploymentClusterRefSummary";
+import type { AppDeploymentClusterRefSummary } from './appDeploymentClusterRefSummary';
 
 /**
  * Application deployment target config summary
  */
-export interface AppDeploymentTargetConfigSummary {
+export type AppDeploymentTargetConfigSummary = {
   clusterRef?: AppDeploymentClusterRefSummary;
-}
+};

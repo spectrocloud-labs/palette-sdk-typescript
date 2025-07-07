@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectEntity } from "./objectEntity";
-import type { ClusterProfileMetadataSpec } from "./clusterProfileMetadataSpec";
+import type { ObjectEntity } from './objectEntity';
+import type { ClusterProfileMetadataSpec } from './clusterProfileMetadataSpec';
 
 /**
  * Cluster profile filter spec
  */
-export interface ClusterProfileMetadata {
+export type ClusterProfileMetadata = {
   metadata?: ObjectEntity;
   spec?: ClusterProfileMetadataSpec;
-}
+};

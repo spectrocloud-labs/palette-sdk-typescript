@@ -11,12 +11,12 @@
  */
 
 export type V1AwsKmsKeyValidateParams = {
-  /**
-   * Uid for the specific AWS cloud account
-   */
-  cloudAccountUid: string;
-  /**
-   * AWS KEY ARN for validation
-   */
-  keyArn: string;
+/**
+ * Uid for the specific AWS cloud account
+ */
+cloudAccountUid: string;
+/**
+ * AWS KEY ARN for validation
+ */
+keyArn: string;
 };

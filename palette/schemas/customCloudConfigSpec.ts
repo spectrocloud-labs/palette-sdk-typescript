@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectReference } from "./objectReference";
-import type { CustomClusterConfig } from "./customClusterConfig";
-import type { CustomMachinePoolConfig } from "./customMachinePoolConfig";
+import type { ObjectReference } from './objectReference';
+import type { CustomClusterConfig } from './customClusterConfig';
+import type { CustomMachinePoolConfig } from './customMachinePoolConfig';
 
 /**
  * CustomCloudConfigSpec defines the cloud configuration input by user This will translate to clusterspec/machinespec for cluster-api
  */
-export interface CustomCloudConfigSpec {
+export type CustomCloudConfigSpec = {
   cloudAccountRef?: ObjectReference;
   clusterConfig?: CustomClusterConfig;
   machinePoolConfig?: CustomMachinePoolConfig[];
-}
+};

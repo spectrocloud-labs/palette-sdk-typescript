@@ -9,7 +9,7 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MgmtUpgradeState } from "./mgmtUpgradeState";
+import type { MgmtUpgradeState } from './mgmtUpgradeState';
 
 export type MgmtAppUpgradeStatusStates = {
   imageUpdate?: MgmtUpgradeState;

@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Compute metrics
  */
-export interface ComputeMetrics {
+export type ComputeMetrics = {
   lastUpdatedTime?: Time;
   limit?: number;
   request?: number;
   total?: number;
   unit?: string;
   usage?: number;
-}
+};

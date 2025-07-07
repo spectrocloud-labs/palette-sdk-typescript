@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { SpectroMgmtSpec } from "./spectroMgmtSpec";
-import type { SpectroMgmtStatus } from "./spectroMgmtStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { SpectroMgmtSpec } from './spectroMgmtSpec';
+import type { SpectroMgmtStatus } from './spectroMgmtStatus';
 
 /**
  * Spectro management data
  */
-export interface SpectroMgmt {
+export type SpectroMgmt = {
   metadata?: ObjectMeta;
   spec?: SpectroMgmtSpec;
   status?: SpectroMgmtStatus;
-}
+};

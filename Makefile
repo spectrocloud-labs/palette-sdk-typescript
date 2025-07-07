@@ -29,10 +29,11 @@ generate: install-dependencies ## Generate models with tags-split organization
 		-o /local
 	npx orval
 	node api/post-processing.js
-	@$(OK) "Code generation complete with tags-split organization"
+	npm run build
+	@$(OK) "Code generation complete with tags-split organization and JavaScript build"
 
 install-dependencies:
-	npm ci && npm install --save-dev @openapitools/openapi-generator-cli orval
+	npm install --save-dev @openapitools/openapi-generator-cli orval
 	@$(OK) "Dependencies installed"
 
 ##@ Test Targets
@@ -78,6 +79,7 @@ license:
 ##@ Maintenance Targets
 
 clean: ## Clean generated files except httpClient folder
-	find palette/ -mindepth 1 -maxdepth 1 ! -name 'httpClient' -exec rm -rf {} +
+	rm -rf palette/
 	rm -f api/palette-apis-spec-tagged.json
+	rm -rf dist/
 	@$(OK) "Clean complete"

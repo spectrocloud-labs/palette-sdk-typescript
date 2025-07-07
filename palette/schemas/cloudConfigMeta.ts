@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MachinePoolMeta } from "./machinePoolMeta";
+import type { MachinePoolMeta } from './machinePoolMeta';
 
-export interface CloudConfigMeta {
+export type CloudConfigMeta = {
   cloudType?: string;
   /** Hybrid Machine pools meta information */
   hybridMachinePools?: MachinePoolMeta[];
@@ -19,4 +19,4 @@ export interface CloudConfigMeta {
   machinePools?: MachinePoolMeta[];
   /** Cluster's cloud config uid */
   uid?: string;
-}
+};

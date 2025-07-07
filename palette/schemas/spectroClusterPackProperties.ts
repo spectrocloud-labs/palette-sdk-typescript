@@ -13,6 +13,6 @@
 /**
  * Cluster pack properties response
  */
-export interface SpectroClusterPackProperties {
+export type SpectroClusterPackProperties = {
   yaml?: string;
-}
+};

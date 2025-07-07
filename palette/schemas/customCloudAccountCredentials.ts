@@ -13,4 +13,4 @@
 /**
  * Cloud account credentials
  */
-export type CustomCloudAccountCredentials = { [key: string]: string };
+export type CustomCloudAccountCredentials = {[key: string]: string};

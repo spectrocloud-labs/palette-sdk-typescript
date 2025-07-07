@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { TagFilterSpec } from "./tagFilterSpec";
+import type { ObjectMeta } from './objectMeta';
+import type { TagFilterSpec } from './tagFilterSpec';
 
 /**
  * Filter summary object
  */
-export interface TagFilterSummary {
+export type TagFilterSummary = {
   metadata?: ObjectMeta;
   spec?: TagFilterSpec;
-}
+};

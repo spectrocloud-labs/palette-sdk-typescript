@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpProject } from "./gcpProject";
+import type { GcpProject } from './gcpProject';
 
 /**
  * List of GCP Projects
  */
-export interface GcpProjects {
+export type GcpProjects = {
   /** List of GCP Projects */
   projects?: GcpProject[];
-}
+};

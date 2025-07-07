@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterRbacSubjectsType } from "./clusterRbacSubjectsType";
+import type { ClusterRbacSubjectsType } from './clusterRbacSubjectsType';
 
 /**
  * Cluster role ref
  */
-export interface ClusterRbacSubjects {
+export type ClusterRbacSubjects = {
   name?: string;
   namespace?: string;
   type?: ClusterRbacSubjectsType;
-}
+};

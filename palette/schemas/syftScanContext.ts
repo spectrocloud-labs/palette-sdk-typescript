@@ -13,10 +13,10 @@
 /**
  * Compliance Scan Syft Context
  */
-export interface SyftScanContext {
+export type SyftScanContext = {
   format?: string;
   labelSelector?: string;
   namespace?: string;
   podName?: string;
   scope?: string;
-}
+};

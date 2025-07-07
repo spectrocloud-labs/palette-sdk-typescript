@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadNamespace } from "./clusterWorkloadNamespace";
+import type { ClusterWorkloadNamespace } from './clusterWorkloadNamespace';
 
 /**
  * Cluster workload namespaces summary
  */
-export interface ClusterWorkloadNamespaces {
+export type ClusterWorkloadNamespaces = {
   namespaces?: ClusterWorkloadNamespace[];
-}
+};

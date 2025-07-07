@@ -13,7 +13,7 @@
 /**
  * Cluster Log Fetcher Node Request
  */
-export interface ClusterLogFetcherNodeRequest {
+export type ClusterLogFetcherNodeRequest = {
   /** Array of logs */
   logs?: string[];
-}
+};

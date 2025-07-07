@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface ApiKeyActiveState {
+export type ApiKeyActiveState = {
   /** API key active state */
   isActive?: boolean;
-}
+};

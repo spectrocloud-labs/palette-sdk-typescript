@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * System Administrator Activation Specification
  */
-export interface SystemAdminActivation {
+export type SystemAdminActivation = {
   expiry?: Time;
   link?: string;
-}
+};

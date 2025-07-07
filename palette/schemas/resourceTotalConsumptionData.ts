@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceConsumptionData } from "./resourceConsumptionData";
+import type { ResourceConsumptionData } from './resourceConsumptionData';
 
 /**
  * Resource total cosumption data
  */
-export interface ResourceTotalConsumptionData {
+export type ResourceTotalConsumptionData = {
   allotted?: ResourceConsumptionData;
   usage?: ResourceConsumptionData;
-}
+};

@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { FilterString } from "./filterString";
+import type { FilterString } from './filterString';
 
 /**
  * Users filter spec
  */
-export interface UsersFilterSpec {
+export type UsersFilterSpec = {
   emailId?: FilterString;
   name?: FilterString;
-}
+};

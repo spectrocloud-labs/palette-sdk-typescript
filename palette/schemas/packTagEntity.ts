@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackLayer } from "./packLayer";
-import type { PackUidValues } from "./packUidValues";
-import type { PackTags } from "./packTags";
+import type { PackLayer } from './packLayer';
+import type { PackUidValues } from './packUidValues';
+import type { PackTags } from './packTags';
 
 /**
  * Pack object
  */
-export interface PackTagEntity {
+export type PackTagEntity = {
   /** Pack add-on sub type such as monitoring, db etc */
   addonSubType?: string;
   /** Pack add-on type such as logging, monitoring, security etc */
@@ -36,4 +36,4 @@ export interface PackTagEntity {
   registryUid?: string;
   /** Pack version tags array */
   tags?: PackTags[];
-}
+};

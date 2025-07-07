@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileSortFields } from "./clusterProfileSortFields";
-import type { SortOrder } from "./sortOrder";
+import type { ClusterProfileSortFields } from './clusterProfileSortFields';
+import type { SortOrder } from './sortOrder';
 
-export interface ClusterProfileSortSpec {
+export type ClusterProfileSortSpec = {
   field?: ClusterProfileSortFields;
   order?: SortOrder;
-}
+};

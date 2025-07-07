@@ -11,18 +11,18 @@
  */
 
 export type ClusterProfilesFilterSummaryParams = {
-  /**
+/**
  * limit is a maximum number of responses to return for a list call. Maximum value of the limit is 50.
 If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results.
  * @maximum 50
  */
-  limit?: number;
-  /**
-   * offset is the next index number from which the response will start. The response offset value can be used along with continue token for the pagination.
-   */
-  offset?: number;
-  /**
-   * continue token to paginate the subsequent data items
-   */
-  continue?: string;
+limit?: number;
+/**
+ * offset is the next index number from which the response will start. The response offset value can be used along with continue token for the pagination.
+ */
+offset?: number;
+/**
+ * continue token to paginate the subsequent data items
+ */
+continue?: string;
 };

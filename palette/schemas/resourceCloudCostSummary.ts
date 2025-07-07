@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudCostDataPoint } from "./cloudCostDataPoint";
-import type { ResourceReference } from "./resourceReference";
-import type { ResourceTotalCloudCost } from "./resourceTotalCloudCost";
+import type { CloudCostDataPoint } from './cloudCostDataPoint';
+import type { ResourceReference } from './resourceReference';
+import type { ResourceTotalCloudCost } from './resourceTotalCloudCost';
 
 /**
  * Resource cloud cost summary information
  */
-export interface ResourceCloudCostSummary {
+export type ResourceCloudCostSummary = {
   data?: CloudCostDataPoint[];
   entity?: ResourceReference;
   total?: ResourceTotalCloudCost;
-}
+};

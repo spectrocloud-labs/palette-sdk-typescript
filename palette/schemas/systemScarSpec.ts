@@ -13,11 +13,11 @@
 /**
  * system scar config spec
  */
-export interface SystemScarSpec {
+export type SystemScarSpec = {
   baseContentPath?: string;
   caCert?: string;
   endpoint?: string;
   insecureVerify?: boolean;
   password?: string;
   username?: string;
-}
+};

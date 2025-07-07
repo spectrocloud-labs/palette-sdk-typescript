@@ -13,7 +13,7 @@
 /**
  * Returns the Authenticated redirect Url for the palette oidc
  */
-export interface UserAuthenticatedUrl {
+export type UserAuthenticatedUrl = {
   /** authenticated redirect Url for the palette oidc */
   redirectUrl?: string;
-}
+};

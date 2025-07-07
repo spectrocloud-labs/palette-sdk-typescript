@@ -13,6 +13,6 @@
 /**
  * system rate-limit
  */
-export interface SystemRateLimit {
+export type SystemRateLimit = {
   isActive?: boolean;
-}
+};

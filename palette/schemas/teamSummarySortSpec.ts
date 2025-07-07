@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamSummarySortFields } from "./teamSummarySortFields";
-import type { SortOrder } from "./sortOrder";
+import type { TeamSummarySortFields } from './teamSummarySortFields';
+import type { SortOrder } from './sortOrder';
 
-export interface TeamSummarySortSpec {
+export type TeamSummarySortSpec = {
   field?: TeamSummarySortFields;
   order?: SortOrder;
-}
+};

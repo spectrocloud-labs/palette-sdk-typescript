@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeToken } from "./edgeToken";
+import type { EdgeToken } from './edgeToken';
 
-export interface EdgeTokens {
+export type EdgeTokens = {
   /** List of edge tokens */
   items: EdgeToken[];
-}
+};

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileEntity } from "./appProfileEntity";
+import type { AppProfileEntity } from './appProfileEntity';
 
 export type V1AppProfileEntityBody = AppProfileEntity;

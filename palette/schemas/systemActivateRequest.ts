@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface SystemActivateRequest {
+export type SystemActivateRequest = {
   activationKey: string;
-}
+};

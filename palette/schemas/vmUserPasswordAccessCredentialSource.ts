@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmAccessCredentialSecretSource } from "./vmAccessCredentialSecretSource";
+import type { VmAccessCredentialSecretSource } from './vmAccessCredentialSecretSource';
 
 /**
  * UserPasswordAccessCredentialSource represents where to retrieve the user password credentials Only one of its members may be specified.
  */
-export interface VmUserPasswordAccessCredentialSource {
+export type VmUserPasswordAccessCredentialSource = {
   secret?: VmAccessCredentialSecretSource;
-}
+};

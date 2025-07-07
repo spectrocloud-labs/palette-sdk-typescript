@@ -13,9 +13,9 @@
 /**
  * Manifest request payload
  */
-export interface ManifestRefInputEntity {
+export type ManifestRefInputEntity = {
   /** Manifest content in yaml */
   content?: string;
   /** Manifest uid */
   uid?: string;
-}
+};

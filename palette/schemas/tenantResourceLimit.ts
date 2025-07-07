@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceLimitType } from "./resourceLimitType";
+import type { ResourceLimitType } from './resourceLimitType';
 
-export interface TenantResourceLimit {
+export type TenantResourceLimit = {
   kind?: ResourceLimitType;
   label?: string;
   limit?: number;
   maxLimit?: number;
-}
+};

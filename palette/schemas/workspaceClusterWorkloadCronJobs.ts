@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadCronJob } from "./clusterWorkloadCronJob";
-import type { RelatedObject } from "./relatedObject";
+import type { ClusterWorkloadCronJob } from './clusterWorkloadCronJob';
+import type { RelatedObject } from './relatedObject';
 
 /**
  * Workspace cluster workload cronjobs summary
  */
-export interface WorkspaceClusterWorkloadCronJobs {
+export type WorkspaceClusterWorkloadCronJobs = {
   cronjobs?: ClusterWorkloadCronJob[];
   metadata?: RelatedObject;
-}
+};

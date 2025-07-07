@@ -13,9 +13,9 @@
 /**
  * Published manifest object
  */
-export interface ManifestData {
+export type ManifestData = {
   /** Manifest content in yaml */
   content?: string;
   /** Manifest digest */
   digest?: string;
-}
+};

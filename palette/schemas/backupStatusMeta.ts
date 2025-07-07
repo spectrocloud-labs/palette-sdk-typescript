@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { BackupState } from "./backupState";
-import type { Time } from "./time";
+import type { BackupState } from './backupState';
+import type { Time } from './time';
 
 /**
  * Backup  status meta
  */
-export interface BackupStatusMeta {
+export type BackupStatusMeta = {
   backupName?: string;
   backupState?: BackupState;
   backupedNamespaces?: string[];
   expiryDate?: Time;
-}
+};

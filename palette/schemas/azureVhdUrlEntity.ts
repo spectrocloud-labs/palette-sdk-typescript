@@ -13,9 +13,9 @@
 /**
  * Azure vhd url entity
  */
-export interface AzureVhdUrlEntity {
+export type AzureVhdUrlEntity = {
   /** The name of the resource */
   name?: string;
   /** The url of the Azure Vhd */
   url?: string;
-}
+};

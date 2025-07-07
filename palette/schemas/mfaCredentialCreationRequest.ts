@@ -9,17 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { MfaCredentialCreationRequestClientExtensionResults } from "./mfaCredentialCreationRequestClientExtensionResults";
-import type { URLEncodedBase64 } from "./uRLEncodedBase64";
-import type { MfaCredentialCreationRequestResponse } from "./mfaCredentialCreationRequestResponse";
+import type { MfaCredentialCreationRequestClientExtensionResults } from './mfaCredentialCreationRequestClientExtensionResults';
+import type { MfaCredentialCreationRequestResponse } from './mfaCredentialCreationRequestResponse';
 
-export interface MfaCredentialCreationRequest {
+export type MfaCredentialCreationRequest = {
   _type?: string;
   authenticatorAttachment?: string;
   clientExtensionResults?: MfaCredentialCreationRequestClientExtensionResults;
   deviceName?: string;
   id?: string;
-  rawId?: URLEncodedBase64;
+  rawId?: string;
   response?: MfaCredentialCreationRequestResponse;
   transports?: string[];
-}
+};

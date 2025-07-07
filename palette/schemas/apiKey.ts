@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectMeta } from "./objectMeta";
-import type { ApiKeySpec } from "./apiKeySpec";
-import type { ApiKeyStatus } from "./apiKeyStatus";
+import type { ObjectMeta } from './objectMeta';
+import type { ApiKeySpec } from './apiKeySpec';
+import type { ApiKeyStatus } from './apiKeyStatus';
 
 /**
  * API key information
  */
-export interface ApiKey {
+export type ApiKey = {
   metadata?: ObjectMeta;
   spec?: ApiKeySpec;
   status?: ApiKeyStatus;
-}
+};

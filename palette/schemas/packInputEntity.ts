@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackManifestEntity } from "./packManifestEntity";
+import type { PackManifestEntity } from './packManifestEntity';
 
 /**
  * Pack request payload
  */
-export interface PackInputEntity {
+export type PackInputEntity = {
   pack?: PackManifestEntity;
-}
+};

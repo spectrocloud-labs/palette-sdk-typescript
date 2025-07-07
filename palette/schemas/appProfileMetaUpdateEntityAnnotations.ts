@@ -13,4 +13,4 @@
 /**
  * Application profile annotations
  */
-export type AppProfileMetaUpdateEntityAnnotations = { [key: string]: string };
+export type AppProfileMetaUpdateEntityAnnotations = {[key: string]: string};

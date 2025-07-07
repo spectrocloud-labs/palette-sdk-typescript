@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Status of the account
  */
-export interface CloudAccountStatus {
+export type CloudAccountStatus = {
   /** Cloud account status */
   state?: string;
   tokenExpiry?: Time;
   tokenGenerationTime?: Time;
-}
+};

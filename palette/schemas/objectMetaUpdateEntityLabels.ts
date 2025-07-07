@@ -10,4 +10,4 @@
  * OpenAPI spec version: v1
  */
 
-export type ObjectMetaUpdateEntityLabels = { [key: string]: string };
+export type ObjectMetaUpdateEntityLabels = {[key: string]: string};

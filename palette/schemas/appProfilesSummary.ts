@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { AppProfileSummary } from "./appProfileSummary";
-import type { ListMetaData } from "./listMetaData";
+import type { AppProfileSummary } from './appProfileSummary';
+import type { ListMetaData } from './listMetaData';
 
-export interface AppProfilesSummary {
+export type AppProfilesSummary = {
   appProfiles?: AppProfileSummary[];
   listmeta?: ListMetaData;
-}
+};

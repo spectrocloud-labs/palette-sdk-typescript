@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeNativeTwoNodeCandidateEntity {
+export type EdgeNativeTwoNodeCandidateEntity = {
   primaryEdgeHost?: string;
   secondaryEdgeHost?: string;
-}
+};

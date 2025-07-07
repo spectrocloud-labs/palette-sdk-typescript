@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterLocation } from "./clusterLocation";
+import type { ClusterLocation } from './clusterLocation';
 
 /**
  * Cluster location
  */
-export interface SpectroClusterLocationInputEntity {
+export type SpectroClusterLocationInputEntity = {
   location?: ClusterLocation;
-}
+};

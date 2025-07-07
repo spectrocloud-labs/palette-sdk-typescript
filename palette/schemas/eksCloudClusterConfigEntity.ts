@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksClusterConfig } from "./eksClusterConfig";
+import type { EksClusterConfig } from './eksClusterConfig';
 
 /**
  * EKS cloud cluster config entity
  */
-export interface EksCloudClusterConfigEntity {
+export type EksCloudClusterConfigEntity = {
   clusterConfig?: EksClusterConfig;
-}
+};

@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanLimit } from "./planLimit";
+import type { PlanLimit } from './planLimit';
 
 /**
  * Plan limit change update entity
  */
-export interface PlanLimitUpdate {
+export type PlanLimitUpdate = {
   planLimit: PlanLimit;
-}
+};

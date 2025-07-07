@@ -9,9 +9,9 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { CloudCategory } from "./cloudCategory";
+import type { CloudCategory } from './cloudCategory';
 
-export interface CustomCloudType {
+export type CustomCloudType = {
   cloudCategory?: CloudCategory;
   /** Cloud grouping as family */
   cloudFamily?: string;
@@ -27,4 +27,4 @@ export interface CustomCloudType {
   logo?: string;
   /** Custom cloudtype name */
   name?: string;
-}
+};

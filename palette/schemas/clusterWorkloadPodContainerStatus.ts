@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterWorkloadPodContainerState } from "./clusterWorkloadPodContainerState";
+import type { ClusterWorkloadPodContainerState } from './clusterWorkloadPodContainerState';
 
 /**
  * Cluster workload pod container status
  */
-export interface ClusterWorkloadPodContainerStatus {
+export type ClusterWorkloadPodContainerStatus = {
   image?: string;
   name?: string;
   ready?: boolean;
   restartCount?: number;
   started?: boolean;
   state?: ClusterWorkloadPodContainerState;
-}
+};

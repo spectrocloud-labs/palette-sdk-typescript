@@ -13,8 +13,8 @@
 /**
  * Filter metadata object
  */
-export interface FilterMetadata {
+export type FilterMetadata = {
   filterType?: string;
   name?: string;
   uid?: string;
-}
+};

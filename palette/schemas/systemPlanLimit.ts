@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemPlanLimitSpec } from "./systemPlanLimitSpec";
+import type { SystemPlanLimitSpec } from './systemPlanLimitSpec';
 
 /**
  * System Monthly Plan Limit
  */
-export interface SystemPlanLimit {
+export type SystemPlanLimit = {
   alloy?: SystemPlanLimitSpec;
   /** is unlimited cpu core hours */
   isUnlimited?: boolean;
   pure?: SystemPlanLimitSpec;
-}
+};

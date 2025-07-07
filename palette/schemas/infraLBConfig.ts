@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { LoadBalancerSpec } from "./loadBalancerSpec";
+import type { LoadBalancerSpec } from './loadBalancerSpec';
 
-export interface InfraLBConfig {
+export type InfraLBConfig = {
   apiServerLB?: LoadBalancerSpec;
-}
+};

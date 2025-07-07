@@ -21041,7 +21041,7 @@ paths:
           application/json:
             schema:
               items:
-                $ref: "#/components/schemas/v1ApiEndpoint"
+                $ref: "#/components/schemas/v1APIEndpoint"
               type: array
         required: false
       responses:
@@ -25391,9 +25391,6 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
-    URLEncodedBase64:
-      format: url-encoded-base64
-      type: string
     V1AwsAccountSts:
       description: AWS cloud account sts
       example:
@@ -25789,23 +25786,6 @@ components:
           items:
             type: string
           type: array
-      type: object
-    v1ApiEndpoint:
-      description: APIEndpoint represents a reachable Kubernetes API endpoint.
-      example:
-        port: 0
-        host: host
-      properties:
-        host:
-          description: The hostname on which the API server is serving.
-          type: string
-        port:
-          description: The port on which the API server is serving.
-          format: int32
-          type: integer
-      required:
-      - host
-      - port
       type: object
     v1ApiKey:
       description: API key information

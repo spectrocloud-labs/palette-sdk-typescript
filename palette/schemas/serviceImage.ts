@@ -13,9 +13,9 @@
 /**
  * Service image entity
  */
-export interface ServiceImage {
+export type ServiceImage = {
   buildId?: string;
   image?: string;
   serviceName?: string;
   version?: string;
-}
+};

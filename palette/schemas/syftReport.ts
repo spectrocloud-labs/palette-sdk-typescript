@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SyftDependency } from "./syftDependency";
-import type { SyftImageContext } from "./syftImageContext";
-import type { Time } from "./time";
-import type { SyftVulnerability } from "./syftVulnerability";
-import type { SyftVulnerabilitySummary } from "./syftVulnerabilitySummary";
+import type { SyftDependency } from './syftDependency';
+import type { SyftImageContext } from './syftImageContext';
+import type { Time } from './time';
+import type { SyftVulnerability } from './syftVulnerability';
+import type { SyftVulnerabilitySummary } from './syftVulnerabilitySummary';
 
 /**
  * Compliance Scan Syft Report
  */
-export interface SyftReport {
+export type SyftReport = {
   dependencies?: SyftDependency[];
   image?: string;
   imageContexts?: SyftImageContext[];
@@ -27,4 +27,4 @@ export interface SyftReport {
   time?: Time;
   vulnerabilities?: SyftVulnerability[];
   vulnerabilitySummary?: SyftVulnerabilitySummary;
-}
+};

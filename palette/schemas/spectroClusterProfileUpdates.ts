@@ -9,8 +9,8 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterProfileTemplate } from "./clusterProfileTemplate";
+import type { ClusterProfileTemplate } from './clusterProfileTemplate';
 
-export interface SpectroClusterProfileUpdates {
+export type SpectroClusterProfileUpdates = {
   profiles?: ClusterProfileTemplate[];
-}
+};

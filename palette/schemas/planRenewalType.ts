@@ -10,12 +10,12 @@
  * OpenAPI spec version: v1
  */
 
-export type PlanRenewalType =
-  (typeof PlanRenewalType)[keyof typeof PlanRenewalType];
+export type PlanRenewalType = typeof PlanRenewalType[keyof typeof PlanRenewalType];
+
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const PlanRenewalType = {
-  Trial: "Trial",
-  MonthlyOnDemand: "MonthlyOnDemand",
-  AnnualSubscription: "AnnualSubscription",
+  Trial: 'Trial',
+  MonthlyOnDemand: 'MonthlyOnDemand',
+  AnnualSubscription: 'AnnualSubscription',
 } as const;

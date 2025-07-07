@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TeamSummary } from "./teamSummary";
+import type { TeamSummary } from './teamSummary';
 
 /**
  * Returns Team summary
  */
-export interface TeamsSummaryList {
+export type TeamsSummaryList = {
   items: TeamSummary[];
-}
+};

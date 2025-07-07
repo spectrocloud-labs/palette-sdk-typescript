@@ -13,7 +13,7 @@
 /**
  * Describes a predefined Identity Provider (IDP)
  */
-export interface IdentityProvider {
+export type IdentityProvider = {
   id?: string;
   name?: string;
-}
+};

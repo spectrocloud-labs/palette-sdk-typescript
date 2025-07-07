@@ -13,6 +13,4 @@
 /**
  * GuestAgentPing configures the guest-agent based ping probe
  */
-export interface VmGuestAgentPing {
-  [key: string]: unknown;
-}
+export type VmGuestAgentPing = { [key: string]: unknown };

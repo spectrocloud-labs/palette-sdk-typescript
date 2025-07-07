@@ -11,8 +11,8 @@
  */
 
 export type SpectroClustersVMDeleteParams = {
-  /**
-   * Namespace name
-   */
-  namespace: string;
+/**
+ * Namespace name
+ */
+namespace: string;
 };

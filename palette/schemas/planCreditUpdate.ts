@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PlanCreditEntity } from "./planCreditEntity";
+import type { PlanCreditEntity } from './planCreditEntity';
 
 /**
  * Plan credit update entity
  */
-export interface PlanCreditUpdate {
+export type PlanCreditUpdate = {
   credit?: PlanCreditEntity;
-}
+};

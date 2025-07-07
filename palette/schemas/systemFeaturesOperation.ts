@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface SystemFeaturesOperation {
+export type SystemFeaturesOperation = {
   /** Flag which specifies if feature is allowed or not */
   isAllowed?: boolean;
-}
+};

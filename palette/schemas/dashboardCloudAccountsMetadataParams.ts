@@ -11,5 +11,5 @@
  */
 
 export type DashboardCloudAccountsMetadataParams = {
-  environment?: string;
+environment?: string;
 };

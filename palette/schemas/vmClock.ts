@@ -9,15 +9,15 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { VmTimer } from "./vmTimer";
-import type { VmClockOffsetUTC } from "./vmClockOffsetUTC";
+import type { VmTimer } from './vmTimer';
+import type { VmClockOffsetUTC } from './vmClockOffsetUTC';
 
 /**
  * Represents the clock and timers of a vmi.
  */
-export interface VmClock {
+export type VmClock = {
   timer?: VmTimer;
   /** Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York'). */
   timezone?: string;
   utc?: VmClockOffsetUTC;
-}
+};

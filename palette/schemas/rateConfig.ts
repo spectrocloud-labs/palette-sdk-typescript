@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PublicCloudRateConfig } from "./publicCloudRateConfig";
-import type { CustomCloudRateConfig } from "./customCloudRateConfig";
-import type { PrivateCloudRateConfig } from "./privateCloudRateConfig";
+import type { PublicCloudRateConfig } from './publicCloudRateConfig';
+import type { CustomCloudRateConfig } from './customCloudRateConfig';
+import type { PrivateCloudRateConfig } from './privateCloudRateConfig';
 
 /**
  * Rate config
  */
-export interface RateConfig {
+export type RateConfig = {
   aws?: PublicCloudRateConfig;
   azure?: PublicCloudRateConfig;
   custom?: CustomCloudRateConfig[];
@@ -27,4 +27,4 @@ export interface RateConfig {
   maas?: PrivateCloudRateConfig;
   openstack?: PrivateCloudRateConfig;
   vsphere?: PrivateCloudRateConfig;
-}
+};

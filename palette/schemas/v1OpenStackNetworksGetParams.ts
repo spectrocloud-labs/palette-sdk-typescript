@@ -11,20 +11,20 @@
  */
 
 export type V1OpenStackNetworksGetParams = {
-  /**
-   * Uid for the specific OpenStack cloud account
-   */
-  cloudAccountUid?: string;
-  /**
-   * project for which OpenStack networks are requested
-   */
-  project?: string;
-  /**
-   * region for which OpenStack networks are requested
-   */
-  region?: string;
-  /**
-   * domain for which OpenStack networks are requested
-   */
-  domain?: string;
+/**
+ * Uid for the specific OpenStack cloud account
+ */
+cloudAccountUid?: string;
+/**
+ * project for which OpenStack networks are requested
+ */
+project?: string;
+/**
+ * region for which OpenStack networks are requested
+ */
+region?: string;
+/**
+ * domain for which OpenStack networks are requested
+ */
+domain?: string;
 };

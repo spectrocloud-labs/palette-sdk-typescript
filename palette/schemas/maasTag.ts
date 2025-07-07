@@ -13,7 +13,7 @@
 /**
  * Maas tag
  */
-export interface MaasTag {
+export type MaasTag = {
   /** Comment on Maas tag */
   comment?: string;
   /** Definition of Maas tag */
@@ -24,4 +24,4 @@ export interface MaasTag {
   name?: string;
   /** Description of Maas tag */
   resourceUri?: string;
-}
+};

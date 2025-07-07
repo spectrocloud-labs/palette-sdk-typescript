@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterLogFetcherK8sRequest } from "./clusterLogFetcherK8sRequest";
-import type { ClusterLogFetcherRequestMode } from "./clusterLogFetcherRequestMode";
-import type { ClusterLogFetcherNodeRequest } from "./clusterLogFetcherNodeRequest";
+import type { ClusterLogFetcherK8sRequest } from './clusterLogFetcherK8sRequest';
+import type { ClusterLogFetcherRequestMode } from './clusterLogFetcherRequestMode';
+import type { ClusterLogFetcherNodeRequest } from './clusterLogFetcherNodeRequest';
 
 /**
  * Cluster Log Fetcher Request
  */
-export interface ClusterLogFetcherRequest {
+export type ClusterLogFetcherRequest = {
   /** Duration for which log is requested */
   duration?: number;
   k8s?: ClusterLogFetcherK8sRequest;
@@ -25,4 +25,4 @@ export interface ClusterLogFetcherRequest {
   /** No of lines of logs requested */
   noOfLines?: number;
   node?: ClusterLogFetcherNodeRequest;
-}
+};

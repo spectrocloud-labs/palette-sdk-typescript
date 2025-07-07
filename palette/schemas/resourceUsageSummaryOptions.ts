@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ResourceUsageSummaryOptionsGroupBy } from "./resourceUsageSummaryOptionsGroupBy";
+import type { ResourceUsageSummaryOptionsGroupBy } from './resourceUsageSummaryOptionsGroupBy';
 
 /**
  * Resource usage summary options
  */
-export interface ResourceUsageSummaryOptions {
+export type ResourceUsageSummaryOptions = {
   enableSummaryView?: boolean;
   groupBy?: ResourceUsageSummaryOptionsGroupBy;
   includeMeteringInfo?: boolean;
   period?: number;
-}
+};

@@ -10,6 +10,6 @@
  * OpenAPI spec version: v1
  */
 
-export interface EdgeHostDeviceHostCheckSum {
+export type EdgeHostDeviceHostCheckSum = {
   hostCheckSum?: string;
-}
+};

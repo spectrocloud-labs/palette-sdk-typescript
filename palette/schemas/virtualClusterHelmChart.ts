@@ -10,8 +10,8 @@
  * OpenAPI spec version: v1
  */
 
-export interface VirtualClusterHelmChart {
+export type VirtualClusterHelmChart = {
   name?: string;
   repo?: string;
   version?: string;
-}
+};

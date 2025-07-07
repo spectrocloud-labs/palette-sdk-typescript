@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GcpMachine } from "./gcpMachine";
-import type { ListMetaData } from "./listMetaData";
+import type { GcpMachine } from './gcpMachine';
+import type { ListMetaData } from './listMetaData';
 
 /**
  * GCP machine list
  */
-export interface GcpMachines {
+export type GcpMachines = {
   items: GcpMachine[];
   listmeta?: ListMetaData;
-}
+};

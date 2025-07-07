@@ -13,9 +13,9 @@
 /**
  * Freemium information
  */
-export interface AppFeatureFreemium {
+export type AppFeatureFreemium = {
   activeClustersLimit?: number;
   isFreemium?: boolean;
   overageUsageLimit?: number;
   totalUsageLimit?: number;
-}
+};

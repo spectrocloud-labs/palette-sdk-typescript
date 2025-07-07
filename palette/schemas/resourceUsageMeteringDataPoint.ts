@@ -13,9 +13,9 @@
 /**
  * min and max count for machines & edgehost for the given period
  */
-export interface ResourceUsageMeteringDataPoint {
+export type ResourceUsageMeteringDataPoint = {
   activeEdgehosts?: number;
   activeMachines?: number;
   maxEdgehosts?: number;
   maxMachines?: number;
-}
+};

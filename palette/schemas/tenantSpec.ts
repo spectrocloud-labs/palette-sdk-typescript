@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Address } from "./address";
+import type { Address } from './address';
 
 /**
  * Tenant Spec
  */
-export interface TenantSpec {
+export type TenantSpec = {
   address?: Address;
   authType?: string;
   defaultLoginMode?: string;
   orgEmailId?: string;
   orgName?: string;
   planUid?: string;
-}
+};

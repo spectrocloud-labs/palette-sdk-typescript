@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface TenantsAccountsNas {
+export type TenantsAccountsNas = {
   failures?: string[];
   success?: string[];
-}
+};

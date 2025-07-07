@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
-import type { ClusterState } from "./clusterState";
+import type { Time } from './time';
+import type { ClusterState } from './clusterState';
 
 /**
  * Active cluster meta
  */
-export interface ClusterMeta {
+export type ClusterMeta = {
   cloudType?: string;
   clusterType?: string;
   creationTimestamp?: Time;
@@ -24,4 +24,4 @@ export interface ClusterMeta {
   projectName?: string;
   state?: ClusterState;
   uid?: string;
-}
+};

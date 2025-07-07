@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EdgeNativeMachinePoolConfigAdditionalLabels } from "./edgeNativeMachinePoolConfigAdditionalLabels";
-import type { EdgeNativeMachinePoolConfigAdditionalTags } from "./edgeNativeMachinePoolConfigAdditionalTags";
-import type { EdgeNativeHost } from "./edgeNativeHost";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { EdgeNativeMachinePoolConfigAdditionalLabels } from './edgeNativeMachinePoolConfigAdditionalLabels';
+import type { EdgeNativeMachinePoolConfigAdditionalTags } from './edgeNativeMachinePoolConfigAdditionalTags';
+import type { EdgeNativeHost } from './edgeNativeHost';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
-export interface EdgeNativeMachinePoolConfig {
+export type EdgeNativeMachinePoolConfig = {
   /** AdditionalLabels */
   additionalLabels?: EdgeNativeMachinePoolConfigAdditionalLabels;
   /** AdditionalTags is an optional set of tags to add to resources managed by the provider, in addition to the ones added by default. For eg., tags for EKS nodeGroup or EKS NodegroupIAMRole */
@@ -43,4 +43,4 @@ export interface EdgeNativeMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

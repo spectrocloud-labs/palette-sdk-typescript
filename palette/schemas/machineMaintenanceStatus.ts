@@ -13,8 +13,8 @@
 /**
  * Machine maintenance status
  */
-export interface MachineMaintenanceStatus {
+export type MachineMaintenanceStatus = {
   action?: string;
   message?: string;
   state?: string;
-}
+};

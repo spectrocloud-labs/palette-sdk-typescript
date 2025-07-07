@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ClusterCondition } from "./clusterCondition";
+import type { ClusterCondition } from './clusterCondition';
 
-export interface ClusterPackManifestStatus {
+export type ClusterPackManifestStatus = {
   condition?: ClusterCondition;
   name?: string;
   uid?: string;
-}
+};

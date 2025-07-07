@@ -13,9 +13,9 @@
 /**
  * User specifications
  */
-export interface SystemUserSpec {
+export type SystemUserSpec = {
   /** Admin type */
   adminType?: string;
   /** System User's email id */
   emailId?: string;
-}
+};

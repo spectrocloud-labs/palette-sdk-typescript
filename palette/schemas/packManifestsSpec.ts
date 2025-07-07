@@ -9,17 +9,17 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { PackManifestsSpecAnnotations } from "./packManifestsSpecAnnotations";
-import type { PackLayer } from "./packLayer";
-import type { ManifestSummary } from "./manifestSummary";
-import type { PackPreset } from "./packPreset";
-import type { PackSchema } from "./packSchema";
-import type { PackType } from "./packType";
+import type { PackManifestsSpecAnnotations } from './packManifestsSpecAnnotations';
+import type { PackLayer } from './packLayer';
+import type { ManifestSummary } from './manifestSummary';
+import type { PackPreset } from './packPreset';
+import type { PackSchema } from './packSchema';
+import type { PackType } from './packType';
 
 /**
  * Pack manifests spec
  */
-export interface PackManifestsSpec {
+export type PackManifestsSpec = {
   /** Pack add-on type such as logging, monitoring, security etc */
   addonType?: string;
   /** Pack annotations is used to allow pack to add more arbitrary configurations */
@@ -52,4 +52,4 @@ export interface PackManifestsSpec {
   values?: string;
   /** Pack version */
   version?: string;
-}
+};

@@ -9,6 +9,6 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ProjectRolesPatch } from "./projectRolesPatch";
+import type { ProjectRolesPatch } from './projectRolesPatch';
 
 export type V1ProjectRolesPatchBody = ProjectRolesPatch;

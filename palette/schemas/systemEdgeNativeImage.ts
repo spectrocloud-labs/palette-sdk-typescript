@@ -9,11 +9,11 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemEdgeNativeImageSpec } from "./systemEdgeNativeImageSpec";
+import type { SystemEdgeNativeImageSpec } from './systemEdgeNativeImageSpec';
 
 /**
  * SystemAdmin
  */
-export interface SystemEdgeNativeImage {
+export type SystemEdgeNativeImage = {
   spec?: SystemEdgeNativeImageSpec;
-}
+};

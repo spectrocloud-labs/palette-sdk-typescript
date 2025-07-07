@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { TenantSelfSignUpSpecLoginMode } from "./tenantSelfSignUpSpecLoginMode";
+import type { TenantSelfSignUpSpecLoginMode } from './tenantSelfSignUpSpecLoginMode';
 
 /**
  * Tenant sign up data
  */
-export interface TenantSelfSignUpSpec {
+export type TenantSelfSignUpSpec = {
   emailId: string;
   firstName: string;
   lastName: string;
   loginMode?: TenantSelfSignUpSpecLoginMode;
   notifyTenantAdmin?: boolean;
   orgName: string;
-}
+};

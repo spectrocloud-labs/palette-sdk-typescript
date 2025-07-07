@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * spectro management upgrade logs
  */
-export interface SpectroMgmtUpgrade {
+export type SpectroMgmtUpgrade = {
   upgradeTime?: Time;
   version?: string;
-}
+};

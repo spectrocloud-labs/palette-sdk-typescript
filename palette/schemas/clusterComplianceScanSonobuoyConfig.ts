@@ -13,6 +13,6 @@
 /**
  * Cluster compliance scan config for sonobuoy driver
  */
-export interface ClusterComplianceScanSonobuoyConfig {
+export type ClusterComplianceScanSonobuoyConfig = {
   runScan?: boolean;
-}
+};

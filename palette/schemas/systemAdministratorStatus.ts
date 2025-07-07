@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { SystemAdminActivation } from "./systemAdminActivation";
-import type { Time } from "./time";
+import type { SystemAdminActivation } from './systemAdminActivation';
+import type { Time } from './time';
 
 /**
  * System Administrator Status
  */
-export interface SystemAdministratorStatus {
+export type SystemAdministratorStatus = {
   activation?: SystemAdminActivation;
   createdBy?: string;
   lastPasswordUpdate?: Time;
   lastSignIn?: Time;
   state?: string;
-}
+};

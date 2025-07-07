@@ -13,4 +13,4 @@
 /**
  * additionalLabels
  */
-export type EksMachinePoolConfigAdditionalLabels = { [key: string]: string };
+export type EksMachinePoolConfigAdditionalLabels = {[key: string]: string};

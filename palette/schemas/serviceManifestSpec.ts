@@ -9,10 +9,10 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { GitRepoFileContent } from "./gitRepoFileContent";
+import type { GitRepoFileContent } from './gitRepoFileContent';
 
-export interface ServiceManifestSpec {
+export type ServiceManifestSpec = {
   manifests?: GitRepoFileContent[];
   name?: string;
   version?: string;
-}
+};

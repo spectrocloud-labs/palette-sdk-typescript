@@ -10,9 +10,9 @@
  * OpenAPI spec version: v1
  */
 
-export interface TenantSamlSpecAttribute {
+export type TenantSamlSpecAttribute = {
   attributeValue?: string;
   mappedAttribute?: string;
   name?: string;
   nameFormat?: string;
-}
+};

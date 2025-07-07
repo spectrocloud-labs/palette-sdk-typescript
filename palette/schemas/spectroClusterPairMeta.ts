@@ -13,7 +13,7 @@
 /**
  * Spectro cluster meta
  */
-export interface SpectroClusterPairMeta {
+export type SpectroClusterPairMeta = {
   /** Cluster token in the local UI */
   localClusterToken?: string;
   /** Cluster uid in the local UI */
@@ -22,4 +22,4 @@ export interface SpectroClusterPairMeta {
   name?: string;
   /** Spectro cluster uid */
   uid?: string;
-}
+};

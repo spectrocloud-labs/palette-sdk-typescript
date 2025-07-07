@@ -9,14 +9,14 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Backup state
  */
-export interface BackupState {
+export type BackupState = {
   backupTime?: Time;
   deleteState?: string;
   msg?: string;
   state?: string;
-}
+};

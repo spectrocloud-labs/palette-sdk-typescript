@@ -9,18 +9,18 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { EksMachinePoolConfigAdditionalLabels } from "./eksMachinePoolConfigAdditionalLabels";
-import type { EksMachinePoolConfigAdditionalTags } from "./eksMachinePoolConfigAdditionalTags";
-import type { AwsLaunchTemplate } from "./awsLaunchTemplate";
-import type { EksMachinePoolConfigCapacityType } from "./eksMachinePoolConfigCapacityType";
-import type { InstanceConfig } from "./instanceConfig";
-import type { MachinePoolProperties } from "./machinePoolProperties";
-import type { SpotMarketOptions } from "./spotMarketOptions";
-import type { EksMachinePoolConfigSubnetIds } from "./eksMachinePoolConfigSubnetIds";
-import type { Taint } from "./taint";
-import type { UpdateStrategy } from "./updateStrategy";
+import type { EksMachinePoolConfigAdditionalLabels } from './eksMachinePoolConfigAdditionalLabels';
+import type { EksMachinePoolConfigAdditionalTags } from './eksMachinePoolConfigAdditionalTags';
+import type { AwsLaunchTemplate } from './awsLaunchTemplate';
+import type { EksMachinePoolConfigCapacityType } from './eksMachinePoolConfigCapacityType';
+import type { InstanceConfig } from './instanceConfig';
+import type { MachinePoolProperties } from './machinePoolProperties';
+import type { SpotMarketOptions } from './spotMarketOptions';
+import type { EksMachinePoolConfigSubnetIds } from './eksMachinePoolConfigSubnetIds';
+import type { Taint } from './taint';
+import type { UpdateStrategy } from './updateStrategy';
 
-export interface EksMachinePoolConfig {
+export type EksMachinePoolConfig = {
   /** additionalLabels */
   additionalLabels?: EksMachinePoolConfigAdditionalLabels;
   /** AdditionalTags is an optional set of tags to add to resources managed by the provider, in addition to the ones added by default. For eg., tags for EKS nodeGroup or EKS NodegroupIAMRole */
@@ -61,4 +61,4 @@ export interface EksMachinePoolConfig {
   updateStrategy?: UpdateStrategy;
   /** if IsControlPlane==true && useControlPlaneAsWorker==true, then will remove control plane taint this will not be used for worker pools */
   useControlPlaneAsWorker?: boolean;
-}
+};

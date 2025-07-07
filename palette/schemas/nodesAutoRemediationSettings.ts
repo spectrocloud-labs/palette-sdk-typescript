@@ -10,7 +10,7 @@
  * OpenAPI spec version: v1
  */
 
-export interface NodesAutoRemediationSettings {
+export type NodesAutoRemediationSettings = {
   disableNodesAutoRemediation?: boolean;
   isEnabled?: boolean;
-}
+};

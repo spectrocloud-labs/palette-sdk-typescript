@@ -9,13 +9,13 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Scope } from "./scope";
+import type { Scope } from './scope';
 
 /**
  * Permission information
  */
-export interface Permission {
+export type Permission = {
   name?: string;
   permissions?: string[];
   scope?: Scope;
-}
+};

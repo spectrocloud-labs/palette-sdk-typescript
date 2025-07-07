@@ -9,12 +9,12 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { Time } from "./time";
+import type { Time } from './time';
 
 /**
  * Upgrades represent the reason of the last upgrade that took place
  */
-export interface Upgrades {
+export type Upgrades = {
   reason?: string[];
   timestamp?: Time;
-}
+};

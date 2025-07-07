@@ -9,16 +9,16 @@
  * Palette APIs - 4.6
  * OpenAPI spec version: v1
  */
-import type { ObjectResReference } from "./objectResReference";
+import type { ObjectResReference } from './objectResReference';
 
 /**
  * ClusterProfileStatus defines the observed state of ClusterProfile
  */
-export interface ClusterProfileStatus {
+export type ClusterProfileStatus = {
   /** If it is true then profile pack values has a reference to user defined macros */
   hasUserMacros?: boolean;
   /** Deprecated. Use inUseClusters */
   inUseClusterUids?: string[];
   inUseClusters?: ObjectResReference[];
   isPublished?: boolean;
-}
+};
