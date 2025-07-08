@@ -848,6 +848,23 @@ import type {
   WorkspacesValidateNameParams
 } from './schemas';
 
+
+// Runtime configuration for base URL
+let PALETTE_BASE_URL = "https://api.spectrocloud.com";
+
+/**
+ * Configure the base URL for all Palette API calls
+ * @param baseUrl - The base URL for your Palette instance (e.g., "https://your-palette-host.com")
+ */
+export const setPaletteBaseUrl = (baseUrl: string) => {
+  PALETTE_BASE_URL = baseUrl.replace(/\/$/, ''); // Remove trailing slash
+};
+
+/**
+ * Get the current configured base URL
+ */
+export const getPaletteBaseUrl = () => PALETTE_BASE_URL;
+
 /**
  * @summary Retrieves a list of API keys
  */
@@ -856,7 +873,7 @@ export const getApiKeysListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys`
+  return `${PALETTE_BASE_URL}/v1/apiKeys`
 }
 
 export const apiKeysList = async ( options?: RequestInit): Promise<ApiKeys> => {
@@ -886,7 +903,7 @@ export const getApiKeysCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys`
+  return `${PALETTE_BASE_URL}/v1/apiKeys`
 }
 
 export const apiKeysCreate = async (apiKeyEntity: ApiKeyEntity, options?: RequestInit): Promise<ApiKeyCreateResponse> => {
@@ -917,7 +934,7 @@ export const getApiKeysUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/apiKeys/${uid}`
 }
 
 export const apiKeysUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -947,7 +964,7 @@ export const getApiKeysUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/apiKeys/${uid}`
 }
 
 export const apiKeysUidGet = async (uid: string, options?: RequestInit): Promise<ApiKey> => {
@@ -977,7 +994,7 @@ export const getApiKeysUidActiveStateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/apiKeys/${uid}`
 }
 
 export const apiKeysUidActiveState = async (uid: string,
@@ -1009,7 +1026,7 @@ export const getApiKeysUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/apiKeys/${uid}`
 }
 
 export const apiKeysUidUpdate = async (uid: string,
@@ -1041,7 +1058,7 @@ export const getApiKeysUidStateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/apiKeys/${uid}/state`
+  return `${PALETTE_BASE_URL}/v1/apiKeys/${uid}/state`
 }
 
 export const apiKeysUidState = async (uid: string,
@@ -1073,7 +1090,7 @@ export const getAppDeploymentsVirtualClusterCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments`
+  return `${PALETTE_BASE_URL}/v1/appDeployments`
 }
 
 export const appDeploymentsVirtualClusterCreate = async (appDeploymentVirtualClusterEntity: AppDeploymentVirtualClusterEntity, options?: RequestInit): Promise<Uid> => {
@@ -1104,7 +1121,7 @@ export const getAppDeploymentsClusterGroupCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/clusterGroup`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/clusterGroup`
 }
 
 export const appDeploymentsClusterGroupCreate = async (appDeploymentClusterGroupEntity: AppDeploymentClusterGroupEntity, options?: RequestInit): Promise<Uid> => {
@@ -1135,7 +1152,7 @@ export const getAppDeploymentsUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}`
 }
 
 export const appDeploymentsUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -1165,7 +1182,7 @@ export const getAppDeploymentsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}`
 }
 
 export const appDeploymentsUidGet = async (uid: string, options?: RequestInit): Promise<AppDeployment> => {
@@ -1195,7 +1212,7 @@ export const getAppDeploymentsUidProfileGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile`
 }
 
 export const appDeploymentsUidProfileGet = async (uid: string, options?: RequestInit): Promise<AppDeploymentProfileSpec> => {
@@ -1225,7 +1242,7 @@ export const getAppDeploymentsUidProfileUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile`
 }
 
 export const appDeploymentsUidProfileUpdate = async (uid: string,
@@ -1263,7 +1280,7 @@ export const getAppDeploymentsUidProfileApplyUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/apply?${stringifiedParams}` : `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/apply`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/apply?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/apply`
 }
 
 export const appDeploymentsUidProfileApply = async (uid: string,
@@ -1295,7 +1312,7 @@ export const getAppDeploymentsProfileTiersUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/tiers/${tierUid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/tiers/${tierUid}`
 }
 
 export const appDeploymentsProfileTiersUidGet = async (uid: string,
@@ -1327,7 +1344,7 @@ export const getAppDeploymentsProfileTiersUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/tiers/${tierUid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/tiers/${tierUid}`
 }
 
 export const appDeploymentsProfileTiersUidUpdate = async (uid: string,
@@ -1361,7 +1378,7 @@ export const getAppDeploymentsProfileTiersUidManifestsGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests`
 }
 
 export const appDeploymentsProfileTiersUidManifestsGet = async (uid: string,
@@ -1394,7 +1411,7 @@ export const getAppDeploymentsProfileTiersManifestsUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`
 }
 
 export const appDeploymentsProfileTiersManifestsUidGet = async (uid: string,
@@ -1428,7 +1445,7 @@ export const getAppDeploymentsProfileTiersManifestsUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/tiers/${tierUid}/manifests/${manifestUid}`
 }
 
 export const appDeploymentsProfileTiersManifestsUidUpdate = async (uid: string,
@@ -1462,7 +1479,7 @@ export const getAppDeploymentsUidProfileVersionsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appDeployments/${uid}/profile/versions`
+  return `${PALETTE_BASE_URL}/v1/appDeployments/${uid}/profile/versions`
 }
 
 export const appDeploymentsUidProfileVersionsGet = async (uid: string, options?: RequestInit): Promise<AppDeploymentProfileVersions> => {
@@ -1492,7 +1509,7 @@ export const getAppProfilesCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles`
+  return `${PALETTE_BASE_URL}/v1/appProfiles`
 }
 
 export const appProfilesCreate = async (v1AppProfileEntityBody: V1AppProfileEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -1523,7 +1540,7 @@ export const getAppProfilesMacrosListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/macros`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/macros`
 }
 
 export const appProfilesMacrosList = async ( options?: RequestInit): Promise<Macros> => {
@@ -1553,7 +1570,7 @@ export const getAppProfilesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}`
 }
 
 export const appProfilesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -1583,7 +1600,7 @@ export const getAppProfilesUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}`
 }
 
 export const appProfilesUidGet = async (uid: string, options?: RequestInit): Promise<AppProfile> => {
@@ -1613,7 +1630,7 @@ export const getAppProfilesUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}`
 }
 
 export const appProfilesUidUpdate = async (uid: string,
@@ -1645,7 +1662,7 @@ export const getAppProfilesUidCloneUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/clone`
 }
 
 export const appProfilesUidClone = async (uid: string,
@@ -1677,7 +1694,7 @@ export const getAppProfilesUidCloneValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/clone/validate`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/clone/validate`
 }
 
 export const appProfilesUidCloneValidate = async (uid: string,
@@ -1709,7 +1726,7 @@ export const getAppProfilesUidMetadataUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/metadata`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/metadata`
 }
 
 export const appProfilesUidMetadataUpdate = async (uid: string,
@@ -1741,7 +1758,7 @@ export const getAppProfilesUidTiersGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers`
 }
 
 export const appProfilesUidTiersGet = async (uid: string, options?: RequestInit): Promise<AppProfileTiers> => {
@@ -1771,7 +1788,7 @@ export const getAppProfilesUidTiersPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers`
 }
 
 export const appProfilesUidTiersPatch = async (uid: string,
@@ -1803,7 +1820,7 @@ export const getAppProfilesUidTiersCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers`
 }
 
 export const appProfilesUidTiersCreate = async (uid: string,
@@ -1836,7 +1853,7 @@ export const getAppProfilesUidTiersUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}`
 }
 
 export const appProfilesUidTiersUidDelete = async (uid: string,
@@ -1868,7 +1885,7 @@ export const getAppProfilesUidTiersUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}`
 }
 
 export const appProfilesUidTiersUidGet = async (uid: string,
@@ -1900,7 +1917,7 @@ export const getAppProfilesUidTiersUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}`
 }
 
 export const appProfilesUidTiersUidUpdate = async (uid: string,
@@ -1934,7 +1951,7 @@ export const getAppProfilesUidTiersUidManifestsGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
 }
 
 export const appProfilesUidTiersUidManifestsGet = async (uid: string,
@@ -1966,7 +1983,7 @@ export const getAppProfilesUidTiersUidManifestsCreateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/manifests`
 }
 
 export const appProfilesUidTiersUidManifestsCreate = async (uid: string,
@@ -2001,7 +2018,7 @@ export const getAppProfilesUidTiersUidManifestsUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
 }
 
 export const appProfilesUidTiersUidManifestsUidDelete = async (uid: string,
@@ -2035,7 +2052,7 @@ export const getAppProfilesUidTiersUidManifestsUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
 }
 
 export const appProfilesUidTiersUidManifestsUidGet = async (uid: string,
@@ -2069,7 +2086,7 @@ export const getAppProfilesUidTiersUidManifestsUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/manifests/${manifestUid}`
 }
 
 export const appProfilesUidTiersUidManifestsUidUpdate = async (uid: string,
@@ -2104,7 +2121,7 @@ export const getAppProfilesUidTiersUidResolvedValuesGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`
+  return `${PALETTE_BASE_URL}/v1/appProfiles/${uid}/tiers/${tierUid}/resolvedValues`
 }
 
 export const appProfilesUidTiersUidResolvedValuesGet = async (uid: string,
@@ -2142,7 +2159,7 @@ export const getAuditsListUrl = (params?: AuditsListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/audits?${stringifiedParams}` : `https://api.spectrocloud.com/v1/audits`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/audits?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/audits`
 }
 
 export const auditsList = async (params?: AuditsListParams, options?: RequestInit): Promise<Audits> => {
@@ -2172,7 +2189,7 @@ export const getAuditsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/audits/${uid}`
+  return `${PALETTE_BASE_URL}/v1/audits/${uid}`
 }
 
 export const auditsUidGet = async (uid: string, options?: RequestInit): Promise<Audit> => {
@@ -2202,7 +2219,7 @@ export const getAuditsUidGetSysMsgUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/audits/${uid}/sysMsg`
+  return `${PALETTE_BASE_URL}/v1/audits/${uid}/sysMsg`
 }
 
 export const auditsUidGetSysMsg = async (uid: string, options?: RequestInit): Promise<AuditSysMsg> => {
@@ -2232,7 +2249,7 @@ export const getAuditsUidMsgUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/audits/${uid}/userMsg`
+  return `${PALETTE_BASE_URL}/v1/audits/${uid}/userMsg`
 }
 
 export const auditsUidMsgUpdate = async (uid: string,
@@ -2272,7 +2289,7 @@ export const getAuthenticateUrl = (params?: AuthenticateParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/authenticate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/authenticate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/authenticate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/authenticate`
 }
 
 export const authenticate = async (authLogin: AuthLogin,
@@ -2312,7 +2329,7 @@ export const getAuthOrgUrl = (params?: AuthOrgParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/org?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/org`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/org?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/org`
 }
 
 export const authOrg = async (params?: AuthOrgParams, options?: RequestInit): Promise<LoginResponse> => {
@@ -2349,7 +2366,7 @@ export const getV1OidcCallbackUrl = (org: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/callback?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/callback`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/org/${org}/oidc/callback?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/org/${org}/oidc/callback`
 }
 
 export const v1OidcCallback = async (org: string,
@@ -2387,7 +2404,7 @@ export const getV1OidcLogoutUrl = (org: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/logout?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/org/${org}/oidc/logout`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/org/${org}/oidc/logout?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/org/${org}/oidc/logout`
 }
 
 export const v1OidcLogout = async (org: string,
@@ -2425,7 +2442,7 @@ export const getV1SamlCallbackUrl = (org: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/org/${org}/saml/callback?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/org/${org}/saml/callback`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/org/${org}/saml/callback?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/org/${org}/saml/callback`
 }
 
 export const v1SamlCallback = async (org: string,
@@ -2472,7 +2489,7 @@ export const getV1SamlLogoutUrl = (org: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/org/${org}/saml/logout?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/org/${org}/saml/logout`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/org/${org}/saml/logout?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/org/${org}/saml/logout`
 }
 
 export const v1SamlLogout = async (org: string,
@@ -2510,7 +2527,7 @@ export const getV1AuthOrgsUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/orgs`
+  return `${PALETTE_BASE_URL}/v1/auth/orgs`
 }
 
 export const v1AuthOrgs = async ( options?: RequestInit): Promise<Organizations> => {
@@ -2541,7 +2558,7 @@ export const getPasswordActivateUrl = (passwordToken: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/password/${passwordToken}/activate`
+  return `${PALETTE_BASE_URL}/v1/auth/password/${passwordToken}/activate`
 }
 
 export const passwordActivate = async (passwordToken: string,
@@ -2574,7 +2591,7 @@ export const getPasswordResetUrl = (passwordToken: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/password/${passwordToken}/reset`
+  return `${PALETTE_BASE_URL}/v1/auth/password/${passwordToken}/reset`
 }
 
 export const passwordReset = async (passwordToken: string,
@@ -2613,7 +2630,7 @@ export const getAuthRefreshUrl = (token: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/refresh/${token}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/refresh/${token}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/refresh/${token}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/refresh/${token}`
 }
 
 export const authRefresh = async (token: string,
@@ -2645,7 +2662,7 @@ export const getV1SsoIdpsUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/sso/idps`
+  return `${PALETTE_BASE_URL}/v1/auth/sso/idps`
 }
 
 export const v1SsoIdps = async ( options?: RequestInit): Promise<IdentityProviders> => {
@@ -2683,7 +2700,7 @@ export const getV1SsoLoginsUrl = (params?: V1SsoLoginsParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/sso/logins?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/sso/logins`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/sso/logins?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/sso/logins`
 }
 
 export const v1SsoLogins = async (params?: V1SsoLoginsParams, options?: RequestInit): Promise<SsoLogins> => {
@@ -2714,7 +2731,7 @@ export const getV1AuthSsoProvidersUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/sso/providers`
+  return `${PALETTE_BASE_URL}/v1/auth/sso/providers`
 }
 
 export const v1AuthSsoProviders = async ( options?: RequestInit): Promise<SsoLogins> => {
@@ -2751,7 +2768,7 @@ export const getV1SsoCallbackUrl = (ssoApp: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/sso/${ssoApp}/callback?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/sso/${ssoApp}/callback`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/sso/${ssoApp}/callback?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/sso/${ssoApp}/callback`
 }
 
 export const v1SsoCallback = async (ssoApp: string,
@@ -2790,7 +2807,7 @@ export const getV1AuthUserOrgForgotUrl = (params: V1AuthUserOrgForgotParams,) =>
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/auth/user/org/forgot?${stringifiedParams}` : `https://api.spectrocloud.com/v1/auth/user/org/forgot`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/auth/user/org/forgot?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/auth/user/org/forgot`
 }
 
 export const v1AuthUserOrgForgot = async (params: V1AuthUserOrgForgotParams, options?: RequestInit): Promise<void> => {
@@ -2821,7 +2838,7 @@ export const getPasswordResetRequestUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/auth/user/password/reset`
+  return `${PALETTE_BASE_URL}/v1/auth/user/password/reset`
 }
 
 export const passwordResetRequest = async (passwordResetRequestBody: PasswordResetRequestBody, options?: RequestInit): Promise<void> => {
@@ -2859,7 +2876,7 @@ export const getCloudAccountsAwsListUrl = (params?: CloudAccountsAwsListParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/aws?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/aws`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/aws?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/aws`
 }
 
 export const cloudAccountsAwsList = async (params?: CloudAccountsAwsListParams, options?: RequestInit): Promise<AwsAccounts> => {
@@ -2889,7 +2906,7 @@ export const getCloudAccountsAwsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/aws`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/aws`
 }
 
 export const cloudAccountsAwsCreate = async (awsAccount: AwsAccount, options?: RequestInit): Promise<Uid> => {
@@ -2920,7 +2937,7 @@ export const getCloudAccountsAwsDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/aws/${uid}`
 }
 
 export const cloudAccountsAwsDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -2958,7 +2975,7 @@ export const getCloudAccountsAwsGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/aws/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/aws/${uid}`
 }
 
 export const cloudAccountsAwsGet = async (uid: string,
@@ -2989,7 +3006,7 @@ export const getCloudAccountsAwsUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/aws/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/aws/${uid}`
 }
 
 export const cloudAccountsAwsUpdate = async (uid: string,
@@ -3028,7 +3045,7 @@ export const getCloudAccountsAzureListUrl = (params?: CloudAccountsAzureListPara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/azure?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/azure`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/azure?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/azure`
 }
 
 export const cloudAccountsAzureList = async (params?: CloudAccountsAzureListParams, options?: RequestInit): Promise<AzureAccounts> => {
@@ -3058,7 +3075,7 @@ export const getCloudAccountsAzureCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/azure`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/azure`
 }
 
 export const cloudAccountsAzureCreate = async (azureAccount: AzureAccount, options?: RequestInit): Promise<Uid> => {
@@ -3089,7 +3106,7 @@ export const getCloudAccountsAzureDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/azure/${uid}`
 }
 
 export const cloudAccountsAzureDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -3119,7 +3136,7 @@ export const getCloudAccountsAzureGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/azure/${uid}`
 }
 
 export const cloudAccountsAzureGet = async (uid: string, options?: RequestInit): Promise<AzureAccount> => {
@@ -3149,7 +3166,7 @@ export const getCloudAccountsAzureUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/azure/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/azure/${uid}`
 }
 
 export const cloudAccountsAzureUpdate = async (uid: string,
@@ -3189,7 +3206,7 @@ export const getCloudAccountsCustomListUrl = (cloudType: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}`
 }
 
 export const cloudAccountsCustomList = async (cloudType: string,
@@ -3220,7 +3237,7 @@ export const getCloudAccountsCustomCreateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}`
 }
 
 export const cloudAccountsCustomCreate = async (cloudType: string,
@@ -3253,7 +3270,7 @@ export const getCloudAccountsCustomDeleteUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
 }
 
 export const cloudAccountsCustomDelete = async (cloudType: string,
@@ -3285,7 +3302,7 @@ export const getCloudAccountsCustomGetUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
 }
 
 export const cloudAccountsCustomGet = async (cloudType: string,
@@ -3317,7 +3334,7 @@ export const getCloudAccountsCustomUpdateUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/cloudTypes/${cloudType}/${uid}`
 }
 
 export const cloudAccountsCustomUpdate = async (cloudType: string,
@@ -3357,7 +3374,7 @@ export const getCloudAccountsGcpListUrl = (params?: CloudAccountsGcpListParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/gcp?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/gcp`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp`
 }
 
 export const cloudAccountsGcpList = async (params?: CloudAccountsGcpListParams, options?: RequestInit): Promise<GcpAccounts> => {
@@ -3387,7 +3404,7 @@ export const getCloudAccountsGcpCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/gcp`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp`
 }
 
 export const cloudAccountsGcpCreate = async (v1GcpAccountEntityBody: V1GcpAccountEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -3418,7 +3435,7 @@ export const getCloudAccountsGcpDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp/${uid}`
 }
 
 export const cloudAccountsGcpDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -3448,7 +3465,7 @@ export const getCloudAccountsGcpGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp/${uid}`
 }
 
 export const cloudAccountsGcpGet = async (uid: string, options?: RequestInit): Promise<GcpAccount> => {
@@ -3478,7 +3495,7 @@ export const getCloudAccountsGcpUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/gcp/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/gcp/${uid}`
 }
 
 export const cloudAccountsGcpUpdate = async (uid: string,
@@ -3517,7 +3534,7 @@ export const getCloudAccountsMaasListUrl = (params?: CloudAccountsMaasListParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/maas?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/maas`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/maas?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/maas`
 }
 
 export const cloudAccountsMaasList = async (params?: CloudAccountsMaasListParams, options?: RequestInit): Promise<MaasAccounts> => {
@@ -3547,7 +3564,7 @@ export const getCloudAccountsMaasCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas`
 }
 
 export const cloudAccountsMaasCreate = async (maasAccount: MaasAccount, options?: RequestInit): Promise<Uid> => {
@@ -3578,7 +3595,7 @@ export const getCloudAccountsMaasDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}`
 }
 
 export const cloudAccountsMaasDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -3608,7 +3625,7 @@ export const getCloudAccountsMaasGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}`
 }
 
 export const cloudAccountsMaasGet = async (uid: string, options?: RequestInit): Promise<MaasAccount> => {
@@ -3638,7 +3655,7 @@ export const getCloudAccountsMaasPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}`
 }
 
 export const cloudAccountsMaasPatch = async (uid: string,
@@ -3670,7 +3687,7 @@ export const getCloudAccountsMaasUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}`
 }
 
 export const cloudAccountsMaasUpdate = async (uid: string,
@@ -3702,7 +3719,7 @@ export const getMaasAccountsUidAzsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/azs`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}/properties/azs`
 }
 
 export const maasAccountsUidAzs = async (uid: string, options?: RequestInit): Promise<MaasZones> => {
@@ -3732,7 +3749,7 @@ export const getMaasAccountsUidDomainsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/domains`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}/properties/domains`
 }
 
 export const maasAccountsUidDomains = async (uid: string, options?: RequestInit): Promise<MaasDomains> => {
@@ -3762,7 +3779,7 @@ export const getMaasAccountsUidPoolsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/resourcePools`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}/properties/resourcePools`
 }
 
 export const maasAccountsUidPools = async (uid: string, options?: RequestInit): Promise<MaasPools> => {
@@ -3792,7 +3809,7 @@ export const getMaasAccountsUidSubnetsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/subnets`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}/properties/subnets`
 }
 
 export const maasAccountsUidSubnets = async (uid: string, options?: RequestInit): Promise<MaasSubnets> => {
@@ -3822,7 +3839,7 @@ export const getMaasAccountsUidTagsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/maas/${uid}/properties/tags`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/maas/${uid}/properties/tags`
 }
 
 export const maasAccountsUidTags = async (uid: string, options?: RequestInit): Promise<MaasTags> => {
@@ -3859,7 +3876,7 @@ export const getCloudAccountsOpenStackListUrl = (params?: CloudAccountsOpenStack
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/openstack?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/openstack`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack`
 }
 
 export const cloudAccountsOpenStackList = async (params?: CloudAccountsOpenStackListParams, options?: RequestInit): Promise<OpenStackAccounts> => {
@@ -3889,7 +3906,7 @@ export const getCloudAccountsOpenStackCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack`
 }
 
 export const cloudAccountsOpenStackCreate = async (openStackAccount: OpenStackAccount, options?: RequestInit): Promise<Uid> => {
@@ -3920,7 +3937,7 @@ export const getCloudAccountsOpenStackDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}`
 }
 
 export const cloudAccountsOpenStackDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -3950,7 +3967,7 @@ export const getCloudAccountsOpenStackGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}`
 }
 
 export const cloudAccountsOpenStackGet = async (uid: string, options?: RequestInit): Promise<OpenStackAccount> => {
@@ -3980,7 +3997,7 @@ export const getCloudAccountsOpenStackUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}`
 }
 
 export const cloudAccountsOpenStackUpdate = async (uid: string,
@@ -4020,7 +4037,7 @@ export const getOpenstackAccountsUidAzsUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/azs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/azs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/azs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/azs`
 }
 
 export const openstackAccountsUidAzs = async (uid: string,
@@ -4059,7 +4076,7 @@ export const getOpenstackAccountsUidFlavorsUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/flavors?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/flavors`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/flavors?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/flavors`
 }
 
 export const openstackAccountsUidFlavors = async (uid: string,
@@ -4098,7 +4115,7 @@ export const getOpenstackAccountsUidKeypairsUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/keypairs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/keypairs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/keypairs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/keypairs`
 }
 
 export const openstackAccountsUidKeypairs = async (uid: string,
@@ -4137,7 +4154,7 @@ export const getOpenstackAccountsUidNetworksUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/networks?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/networks`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/networks?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/networks`
 }
 
 export const openstackAccountsUidNetworks = async (uid: string,
@@ -4168,7 +4185,7 @@ export const getOpenstackAccountsUidProjectsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/projects`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/projects`
 }
 
 export const openstackAccountsUidProjects = async (uid: string, options?: RequestInit): Promise<OpenStackProjects> => {
@@ -4198,7 +4215,7 @@ export const getOpenstackAccountsUidRegionsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/openstack/${uid}/properties/regions`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/openstack/${uid}/properties/regions`
 }
 
 export const openstackAccountsUidRegions = async (uid: string, options?: RequestInit): Promise<OpenStackRegions> => {
@@ -4235,7 +4252,7 @@ export const getCloudAccountsListSummaryUrl = (params?: CloudAccountsListSummary
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/summary?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/summary`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/summary?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/summary`
 }
 
 export const cloudAccountsListSummary = async (params?: CloudAccountsListSummaryParams, options?: RequestInit): Promise<CloudAccountsSummary> => {
@@ -4272,7 +4289,7 @@ export const getCloudAccountsVsphereListUrl = (params?: CloudAccountsVsphereList
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/vsphere?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/vsphere`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere`
 }
 
 export const cloudAccountsVsphereList = async (params?: CloudAccountsVsphereListParams, options?: RequestInit): Promise<VsphereAccounts> => {
@@ -4302,7 +4319,7 @@ export const getCloudAccountsVsphereCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere`
 }
 
 export const cloudAccountsVsphereCreate = async (v1VsphereAccountBody: V1VsphereAccountBody, options?: RequestInit): Promise<Uid> => {
@@ -4333,7 +4350,7 @@ export const getCloudAccountsVsphereDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}`
 }
 
 export const cloudAccountsVsphereDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -4363,7 +4380,7 @@ export const getCloudAccountsVsphereGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}`
 }
 
 export const cloudAccountsVsphereGet = async (uid: string, options?: RequestInit): Promise<VsphereAccount> => {
@@ -4393,7 +4410,7 @@ export const getCloudAccountsVsphereUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}`
 }
 
 export const cloudAccountsVsphereUpdate = async (uid: string,
@@ -4431,7 +4448,7 @@ export const getVsphereAccountsUidClusterResUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}/properties/computecluster/resources`
 }
 
 export const vsphereAccountsUidClusterRes = async (uid: string,
@@ -4462,7 +4479,7 @@ export const getVsphereAccountsUidDatacentersUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/vsphere/${uid}/properties/datacenters`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/vsphere/${uid}/properties/datacenters`
 }
 
 export const vsphereAccountsUidDatacenters = async (uid: string, options?: RequestInit): Promise<VsphereDatacenters> => {
@@ -4492,7 +4509,7 @@ export const getAccountsGeolocationPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudaccounts/${uid}/geoLocation`
+  return `${PALETTE_BASE_URL}/v1/cloudaccounts/${uid}/geoLocation`
 }
 
 export const accountsGeolocationPatch = async (uid: string,
@@ -4524,7 +4541,7 @@ export const getCloudConfigsAksGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}`
 }
 
 export const cloudConfigsAksGet = async (configUid: string, options?: RequestInit): Promise<AzureCloudConfig> => {
@@ -4554,7 +4571,7 @@ export const getCloudConfigsAksUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsAksUidClusterConfig = async (configUid: string,
@@ -4586,7 +4603,7 @@ export const getCloudConfigsAksMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools`
 }
 
 export const cloudConfigsAksMachinePoolCreate = async (configUid: string,
@@ -4619,7 +4636,7 @@ export const getCloudConfigsAksMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAksMachinePoolDelete = async (configUid: string,
@@ -4651,7 +4668,7 @@ export const getCloudConfigsAksMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAksMachinePoolUpdate = async (configUid: string,
@@ -4693,7 +4710,7 @@ export const getCloudConfigsAksPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAksPoolMachinesList = async (configUid: string,
@@ -4726,7 +4743,7 @@ export const getCloudConfigsAksPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAksPoolMachinesAdd = async (configUid: string,
@@ -4761,7 +4778,7 @@ export const getCloudConfigsAksPoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAksPoolMachinesUidDelete = async (configUid: string,
@@ -4795,7 +4812,7 @@ export const getCloudConfigsAksPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAksPoolMachinesUidGet = async (configUid: string,
@@ -4829,7 +4846,7 @@ export const getCloudConfigsAksPoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAksPoolMachinesUidUpdate = async (configUid: string,
@@ -4863,7 +4880,7 @@ export const getCloudConfigsAwsGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}`
 }
 
 export const cloudConfigsAwsGet = async (configUid: string, options?: RequestInit): Promise<AwsCloudConfig> => {
@@ -4893,7 +4910,7 @@ export const getCloudConfigsAwsUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsAwsUidClusterConfig = async (configUid: string,
@@ -4925,7 +4942,7 @@ export const getAwsCloudConfigsUidHybridConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/clusterConfig/hybridConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/clusterConfig/hybridConfig`
 }
 
 export const awsCloudConfigsUidHybridConfig = async (configUid: string,
@@ -4957,7 +4974,7 @@ export const getV1AwsCloudConfigsEdgeNativeUidMachinePoolCreateUrl = (configUid:
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools`
 }
 
 export const v1AwsCloudConfigsEdgeNativeUidMachinePoolCreate = async (configUid: string,
@@ -4990,7 +5007,7 @@ export const getAwsCloudConfigsEdgeNativeMachinePoolDeleteUrl = (configUid: stri
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
 }
 
 export const awsCloudConfigsEdgeNativeMachinePoolDelete = async (configUid: string,
@@ -5022,7 +5039,7 @@ export const getAwsCloudConfigsEdgeNativeMachinePoolGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
 }
 
 export const awsCloudConfigsEdgeNativeMachinePoolGet = async (configUid: string,
@@ -5054,7 +5071,7 @@ export const getAwsCloudConfigsEdgeNativeMachinePoolUpdateUrl = (configUid: stri
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/edge-native/machinePools/${machinePoolName}`
 }
 
 export const awsCloudConfigsEdgeNativeMachinePoolUpdate = async (configUid: string,
@@ -5087,7 +5104,7 @@ export const getCloudConfigsAwsMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools`
 }
 
 export const cloudConfigsAwsMachinePoolCreate = async (configUid: string,
@@ -5120,7 +5137,7 @@ export const getCloudConfigsAwsMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAwsMachinePoolDelete = async (configUid: string,
@@ -5152,7 +5169,7 @@ export const getCloudConfigsAwsMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAwsMachinePoolUpdate = async (configUid: string,
@@ -5194,7 +5211,7 @@ export const getCloudConfigsAwsPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAwsPoolMachinesList = async (configUid: string,
@@ -5227,7 +5244,7 @@ export const getCloudConfigsAwsPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAwsPoolMachinesAdd = async (configUid: string,
@@ -5262,7 +5279,7 @@ export const getCloudConfigsAwsPoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAwsPoolMachinesUidDelete = async (configUid: string,
@@ -5296,7 +5313,7 @@ export const getCloudConfigsAwsPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAwsPoolMachinesUidGet = async (configUid: string,
@@ -5330,7 +5347,7 @@ export const getCloudConfigsAwsPoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/aws/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAwsPoolMachinesUidUpdate = async (configUid: string,
@@ -5364,7 +5381,7 @@ export const getCloudConfigsAzureGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}`
 }
 
 export const cloudConfigsAzureGet = async (configUid: string, options?: RequestInit): Promise<AzureCloudConfig> => {
@@ -5394,7 +5411,7 @@ export const getCloudConfigsAzureUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsAzureUidClusterConfig = async (configUid: string,
@@ -5426,7 +5443,7 @@ export const getCloudConfigsAzureMachinePoolCreateUrl = (configUid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools`
 }
 
 export const cloudConfigsAzureMachinePoolCreate = async (configUid: string,
@@ -5459,7 +5476,7 @@ export const getCloudConfigsAzureMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAzureMachinePoolDelete = async (configUid: string,
@@ -5491,7 +5508,7 @@ export const getCloudConfigsAzureMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsAzureMachinePoolUpdate = async (configUid: string,
@@ -5534,7 +5551,7 @@ export const getCloudConfigsAzurePoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAzurePoolMachinesList = async (configUid: string,
@@ -5567,7 +5584,7 @@ export const getCloudConfigsAzurePoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsAzurePoolMachinesAdd = async (configUid: string,
@@ -5602,7 +5619,7 @@ export const getCloudConfigsAzurePoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAzurePoolMachinesUidDelete = async (configUid: string,
@@ -5637,7 +5654,7 @@ export const getCloudConfigsAzurePoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAzurePoolMachinesUidGet = async (configUid: string,
@@ -5671,7 +5688,7 @@ export const getCloudConfigsAzurePoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/azure/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsAzurePoolMachinesUidUpdate = async (configUid: string,
@@ -5706,7 +5723,7 @@ export const getCloudConfigsCustomGetUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}`
 }
 
 export const cloudConfigsCustomGet = async (cloudType: string,
@@ -5738,7 +5755,7 @@ export const getCloudConfigsCustomUidClusterConfigUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsCustomUidClusterConfig = async (cloudType: string,
@@ -5772,7 +5789,7 @@ export const getCloudConfigsCustomMachinePoolCreateUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools`
 }
 
 export const cloudConfigsCustomMachinePoolCreate = async (cloudType: string,
@@ -5807,7 +5824,7 @@ export const getCloudConfigsCustomMachinePoolDeleteUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsCustomMachinePoolDelete = async (cloudType: string,
@@ -5841,7 +5858,7 @@ export const getCloudConfigsCustomMachinePoolUpdateUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsCustomMachinePoolUpdate = async (cloudType: string,
@@ -5885,7 +5902,7 @@ export const getCloudConfigsCustomPoolMachinesListUrl = (cloudType: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsCustomPoolMachinesList = async (cloudType: string,
@@ -5920,7 +5937,7 @@ export const getCloudConfigsCustomPoolMachinesAddUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsCustomPoolMachinesAdd = async (cloudType: string,
@@ -5957,7 +5974,7 @@ export const getCloudConfigsCustomPoolMachinesUidDeleteUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsCustomPoolMachinesUidDelete = async (cloudType: string,
@@ -5993,7 +6010,7 @@ export const getCloudConfigsCustomPoolMachinesUidGetUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsCustomPoolMachinesUidGet = async (cloudType: string,
@@ -6029,7 +6046,7 @@ export const getCloudConfigsCustomPoolMachinesUidUpdateUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/cloudTypes/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsCustomPoolMachinesUidUpdate = async (cloudType: string,
@@ -6064,7 +6081,7 @@ export const getCloudConfigsEdgeNativeGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}`
 }
 
 export const cloudConfigsEdgeNativeGet = async (configUid: string, options?: RequestInit): Promise<EdgeNativeCloudConfig> => {
@@ -6094,7 +6111,7 @@ export const getCloudConfigsEdgeNativeUidClusterConfigUrl = (configUid: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsEdgeNativeUidClusterConfig = async (configUid: string,
@@ -6126,7 +6143,7 @@ export const getCloudConfigsEdgeNativeMachinePoolCreateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools`
 }
 
 export const cloudConfigsEdgeNativeMachinePoolCreate = async (configUid: string,
@@ -6159,7 +6176,7 @@ export const getCloudConfigsEdgeNativeMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsEdgeNativeMachinePoolDelete = async (configUid: string,
@@ -6191,7 +6208,7 @@ export const getCloudConfigsEdgeNativeMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsEdgeNativeMachinePoolUpdate = async (configUid: string,
@@ -6225,7 +6242,7 @@ export const getCloudConfigsEdgeNativePoolMachinesListUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsEdgeNativePoolMachinesList = async (configUid: string,
@@ -6257,7 +6274,7 @@ export const getCloudConfigsEdgeNativePoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsEdgeNativePoolMachinesAdd = async (configUid: string,
@@ -6292,7 +6309,7 @@ export const getCloudConfigsEdgeNativePoolMachinesUidDeleteUrl = (configUid: str
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEdgeNativePoolMachinesUidDelete = async (configUid: string,
@@ -6326,7 +6343,7 @@ export const getCloudConfigsEdgeNativePoolMachinesUidGetUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEdgeNativePoolMachinesUidGet = async (configUid: string,
@@ -6360,7 +6377,7 @@ export const getCloudConfigsEdgeNativePoolMachinesUidUpdateUrl = (configUid: str
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/edge-native/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEdgeNativePoolMachinesUidUpdate = async (configUid: string,
@@ -6394,7 +6411,7 @@ export const getCloudConfigsEksGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}`
 }
 
 export const cloudConfigsEksGet = async (configUid: string, options?: RequestInit): Promise<EksCloudConfig> => {
@@ -6424,7 +6441,7 @@ export const getCloudConfigsEksUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsEksUidClusterConfig = async (configUid: string,
@@ -6456,7 +6473,7 @@ export const getCloudConfigsEksUidFargateProfilesUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/fargateProfiles`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/fargateProfiles`
 }
 
 export const cloudConfigsEksUidFargateProfilesUpdate = async (configUid: string,
@@ -6488,7 +6505,7 @@ export const getCloudConfigsEksMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools`
 }
 
 export const cloudConfigsEksMachinePoolCreate = async (configUid: string,
@@ -6521,7 +6538,7 @@ export const getCloudConfigsEksMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsEksMachinePoolDelete = async (configUid: string,
@@ -6553,7 +6570,7 @@ export const getCloudConfigsEksMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsEksMachinePoolUpdate = async (configUid: string,
@@ -6595,7 +6612,7 @@ export const getCloudConfigsEksPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsEksPoolMachinesList = async (configUid: string,
@@ -6628,7 +6645,7 @@ export const getCloudConfigsEksPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsEksPoolMachinesAdd = async (configUid: string,
@@ -6663,7 +6680,7 @@ export const getCloudConfigsEksPoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEksPoolMachinesUidDelete = async (configUid: string,
@@ -6697,7 +6714,7 @@ export const getCloudConfigsEksPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEksPoolMachinesUidGet = async (configUid: string,
@@ -6731,7 +6748,7 @@ export const getCloudConfigsEksPoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/eks/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsEksPoolMachinesUidUpdate = async (configUid: string,
@@ -6765,7 +6782,7 @@ export const getCloudConfigsGcpGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}`
 }
 
 export const cloudConfigsGcpGet = async (configUid: string, options?: RequestInit): Promise<GcpCloudConfig> => {
@@ -6795,7 +6812,7 @@ export const getCloudConfigsGcpUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsGcpUidClusterConfig = async (configUid: string,
@@ -6827,7 +6844,7 @@ export const getCloudConfigsGcpMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools`
 }
 
 export const cloudConfigsGcpMachinePoolCreate = async (configUid: string,
@@ -6860,7 +6877,7 @@ export const getCloudConfigsGcpMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGcpMachinePoolDelete = async (configUid: string,
@@ -6892,7 +6909,7 @@ export const getCloudConfigsGcpMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGcpMachinePoolUpdate = async (configUid: string,
@@ -6934,7 +6951,7 @@ export const getCloudConfigsGcpPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGcpPoolMachinesList = async (configUid: string,
@@ -6967,7 +6984,7 @@ export const getCloudConfigsGcpPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGcpPoolMachinesAdd = async (configUid: string,
@@ -7002,7 +7019,7 @@ export const getCloudConfigsGcpPoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGcpPoolMachinesUidDelete = async (configUid: string,
@@ -7036,7 +7053,7 @@ export const getCloudConfigsGcpPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGcpPoolMachinesUidGet = async (configUid: string,
@@ -7070,7 +7087,7 @@ export const getCloudConfigsGcpPoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gcp/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGcpPoolMachinesUidUpdate = async (configUid: string,
@@ -7104,7 +7121,7 @@ export const getCloudConfigsGenericGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}`
 }
 
 export const cloudConfigsGenericGet = async (configUid: string, options?: RequestInit): Promise<GenericCloudConfig> => {
@@ -7134,7 +7151,7 @@ export const getCloudConfigsGenericUidClusterConfigUrl = (configUid: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsGenericUidClusterConfig = async (configUid: string,
@@ -7166,7 +7183,7 @@ export const getCloudConfigsGenericMachinePoolCreateUrl = (configUid: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools`
 }
 
 export const cloudConfigsGenericMachinePoolCreate = async (configUid: string,
@@ -7199,7 +7216,7 @@ export const getCloudConfigsGenericMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGenericMachinePoolDelete = async (configUid: string,
@@ -7231,7 +7248,7 @@ export const getCloudConfigsGenericMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGenericMachinePoolUpdate = async (configUid: string,
@@ -7273,7 +7290,7 @@ export const getCloudConfigsGenericPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGenericPoolMachinesList = async (configUid: string,
@@ -7306,7 +7323,7 @@ export const getCloudConfigsGenericPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGenericPoolMachinesAdd = async (configUid: string,
@@ -7341,7 +7358,7 @@ export const getCloudConfigsGenericPoolMachinesUidDeleteUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGenericPoolMachinesUidDelete = async (configUid: string,
@@ -7375,7 +7392,7 @@ export const getCloudConfigsGenericPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGenericPoolMachinesUidGet = async (configUid: string,
@@ -7409,7 +7426,7 @@ export const getCloudConfigsGenericPoolMachinesUidUpdateUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/generic/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGenericPoolMachinesUidUpdate = async (configUid: string,
@@ -7443,7 +7460,7 @@ export const getCloudConfigsGkeGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}`
 }
 
 export const cloudConfigsGkeGet = async (configUid: string, options?: RequestInit): Promise<GcpCloudConfig> => {
@@ -7473,7 +7490,7 @@ export const getCloudConfigsGkeUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsGkeUidClusterConfig = async (configUid: string,
@@ -7505,7 +7522,7 @@ export const getCloudConfigsGkeMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools`
 }
 
 export const cloudConfigsGkeMachinePoolCreate = async (configUid: string,
@@ -7538,7 +7555,7 @@ export const getCloudConfigsGkeMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGkeMachinePoolDelete = async (configUid: string,
@@ -7570,7 +7587,7 @@ export const getCloudConfigsGkeMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsGkeMachinePoolUpdate = async (configUid: string,
@@ -7612,7 +7629,7 @@ export const getCloudConfigsGkePoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGkePoolMachinesList = async (configUid: string,
@@ -7645,7 +7662,7 @@ export const getCloudConfigsGkePoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsGkePoolMachinesAdd = async (configUid: string,
@@ -7680,7 +7697,7 @@ export const getCloudConfigsGkePoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGkePoolMachinesUidDelete = async (configUid: string,
@@ -7714,7 +7731,7 @@ export const getCloudConfigsGkePoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGkePoolMachinesUidGet = async (configUid: string,
@@ -7748,7 +7765,7 @@ export const getCloudConfigsGkePoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/gke/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsGkePoolMachinesUidUpdate = async (configUid: string,
@@ -7782,7 +7799,7 @@ export const getCloudConfigsMaasGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}`
 }
 
 export const cloudConfigsMaasGet = async (configUid: string, options?: RequestInit): Promise<MaasCloudConfig> => {
@@ -7812,7 +7829,7 @@ export const getCloudConfigsMaasUidClusterConfigUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsMaasUidClusterConfig = async (configUid: string,
@@ -7844,7 +7861,7 @@ export const getCloudConfigsMaasMachinePoolCreateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools`
 }
 
 export const cloudConfigsMaasMachinePoolCreate = async (configUid: string,
@@ -7877,7 +7894,7 @@ export const getCloudConfigsMaasMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsMaasMachinePoolDelete = async (configUid: string,
@@ -7909,7 +7926,7 @@ export const getCloudConfigsMaasMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsMaasMachinePoolUpdate = async (configUid: string,
@@ -7951,7 +7968,7 @@ export const getCloudConfigsMaasPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsMaasPoolMachinesList = async (configUid: string,
@@ -7984,7 +8001,7 @@ export const getCloudConfigsMaasPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsMaasPoolMachinesAdd = async (configUid: string,
@@ -8019,7 +8036,7 @@ export const getCloudConfigsMaasPoolMachinesUidDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsMaasPoolMachinesUidDelete = async (configUid: string,
@@ -8053,7 +8070,7 @@ export const getCloudConfigsMaasPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsMaasPoolMachinesUidGet = async (configUid: string,
@@ -8087,7 +8104,7 @@ export const getCloudConfigsMaasPoolMachinesUidUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/maas/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsMaasPoolMachinesUidUpdate = async (configUid: string,
@@ -8121,7 +8138,7 @@ export const getCloudConfigsOpenStackGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}`
 }
 
 export const cloudConfigsOpenStackGet = async (configUid: string, options?: RequestInit): Promise<OpenStackCloudConfig> => {
@@ -8151,7 +8168,7 @@ export const getCloudConfigsOpenStackUidClusterConfigUrl = (configUid: string,) 
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsOpenStackUidClusterConfig = async (configUid: string,
@@ -8183,7 +8200,7 @@ export const getCloudConfigsOpenStackMachinePoolCreateUrl = (configUid: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools`
 }
 
 export const cloudConfigsOpenStackMachinePoolCreate = async (configUid: string,
@@ -8216,7 +8233,7 @@ export const getCloudConfigsOpenStackMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsOpenStackMachinePoolDelete = async (configUid: string,
@@ -8248,7 +8265,7 @@ export const getCloudConfigsOpenStackMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsOpenStackMachinePoolUpdate = async (configUid: string,
@@ -8282,7 +8299,7 @@ export const getCloudConfigsOpenStackPoolMachinesListUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsOpenStackPoolMachinesList = async (configUid: string,
@@ -8314,7 +8331,7 @@ export const getCloudConfigsOpenStackPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsOpenStackPoolMachinesAdd = async (configUid: string,
@@ -8349,7 +8366,7 @@ export const getCloudConfigsOpenStackPoolMachinesUidDeleteUrl = (configUid: stri
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsOpenStackPoolMachinesUidDelete = async (configUid: string,
@@ -8383,7 +8400,7 @@ export const getCloudConfigsOpenStackPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsOpenStackPoolMachinesUidGet = async (configUid: string,
@@ -8417,7 +8434,7 @@ export const getCloudConfigsOpenStackPoolMachinesUidUpdateUrl = (configUid: stri
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/openstack/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsOpenStackPoolMachinesUidUpdate = async (configUid: string,
@@ -8451,7 +8468,7 @@ export const getCloudConfigsVirtualGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}`
 }
 
 export const cloudConfigsVirtualGet = async (configUid: string, options?: RequestInit): Promise<VirtualCloudConfig> => {
@@ -8481,7 +8498,7 @@ export const getCloudConfigsVirtualUidClusterConfigUrl = (configUid: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsVirtualUidClusterConfig = async (configUid: string,
@@ -8513,7 +8530,7 @@ export const getCloudConfigsVirtualMachinePoolCreateUrl = (configUid: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools`
 }
 
 export const cloudConfigsVirtualMachinePoolCreate = async (configUid: string,
@@ -8546,7 +8563,7 @@ export const getCloudConfigsVirtualMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsVirtualMachinePoolDelete = async (configUid: string,
@@ -8578,7 +8595,7 @@ export const getCloudConfigsVirtualMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsVirtualMachinePoolUpdate = async (configUid: string,
@@ -8620,7 +8637,7 @@ export const getCloudConfigsVirtualPoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsVirtualPoolMachinesList = async (configUid: string,
@@ -8653,7 +8670,7 @@ export const getCloudConfigsVirtualPoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsVirtualPoolMachinesAdd = async (configUid: string,
@@ -8688,7 +8705,7 @@ export const getCloudConfigsVirtualPoolMachinesUidDeleteUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVirtualPoolMachinesUidDelete = async (configUid: string,
@@ -8722,7 +8739,7 @@ export const getCloudConfigsVirtualPoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVirtualPoolMachinesUidGet = async (configUid: string,
@@ -8756,7 +8773,7 @@ export const getCloudConfigsVirtualPoolMachinesUidUpdateUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVirtualPoolMachinesUidUpdate = async (configUid: string,
@@ -8790,7 +8807,7 @@ export const getCloudConfigsVirtualUidUpdateUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/virtual/${configUid}/resize`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/virtual/${configUid}/resize`
 }
 
 export const cloudConfigsVirtualUidUpdate = async (configUid: string,
@@ -8822,7 +8839,7 @@ export const getCloudConfigsVsphereGetUrl = (configUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}`
 }
 
 export const cloudConfigsVsphereGet = async (configUid: string, options?: RequestInit): Promise<VsphereCloudConfig> => {
@@ -8852,7 +8869,7 @@ export const getCloudConfigsVsphereUidClusterConfigUrl = (configUid: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/clusterConfig`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/clusterConfig`
 }
 
 export const cloudConfigsVsphereUidClusterConfig = async (configUid: string,
@@ -8884,7 +8901,7 @@ export const getCloudConfigsVsphereMachinePoolCreateUrl = (configUid: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools`
 }
 
 export const cloudConfigsVsphereMachinePoolCreate = async (configUid: string,
@@ -8917,7 +8934,7 @@ export const getCloudConfigsVsphereMachinePoolDeleteUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsVsphereMachinePoolDelete = async (configUid: string,
@@ -8949,7 +8966,7 @@ export const getCloudConfigsVsphereMachinePoolUpdateUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}`
 }
 
 export const cloudConfigsVsphereMachinePoolUpdate = async (configUid: string,
@@ -8991,7 +9008,7 @@ export const getCloudConfigsVspherePoolMachinesListUrl = (configUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsVspherePoolMachinesList = async (configUid: string,
@@ -9024,7 +9041,7 @@ export const getCloudConfigsVspherePoolMachinesAddUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines`
 }
 
 export const cloudConfigsVspherePoolMachinesAdd = async (configUid: string,
@@ -9059,7 +9076,7 @@ export const getCloudConfigsVspherePoolMachinesUidDeleteUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVspherePoolMachinesUidDelete = async (configUid: string,
@@ -9093,7 +9110,7 @@ export const getCloudConfigsVspherePoolMachinesUidGetUrl = (configUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVspherePoolMachinesUidGet = async (configUid: string,
@@ -9127,7 +9144,7 @@ export const getCloudConfigsVspherePoolMachinesUidUpdateUrl = (configUid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/vsphere/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}`
 }
 
 export const cloudConfigsVspherePoolMachinesUidUpdate = async (configUid: string,
@@ -9164,7 +9181,7 @@ export const getCloudConfigsMachinePoolsMachineUidMaintenanceUpdateUrl = (cloudT
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance`
 }
 
 export const cloudConfigsMachinePoolsMachineUidMaintenanceUpdate = async (cloudType: string,
@@ -9202,7 +9219,7 @@ export const getCloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdateUrl = (
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance/status`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/${cloudType}/${configUid}/machinePools/${machinePoolName}/machines/${machineUid}/maintenance/status`
 }
 
 export const cloudConfigsMachinePoolsMachineUidMaintenanceStatusUpdate = async (cloudType: string,
@@ -9237,7 +9254,7 @@ export const getCloudConfigsMachinePoolsMachineUidsGetUrl = (configUid: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/cloudconfigs/${configUid}/machinePools/machineUids`
+  return `${PALETTE_BASE_URL}/v1/cloudconfigs/${configUid}/machinePools/machineUids`
 }
 
 export const cloudConfigsMachinePoolsMachineUidsGet = async (configUid: string, options?: RequestInit): Promise<MachinePoolsMachineUids> => {
@@ -9267,7 +9284,7 @@ export const getV1AwsAccountSecretCredentialsUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/account/secret/credentials`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/account/secret/credentials`
 }
 
 export const v1AwsAccountSecretCredentials = async (awsSecretSpecInputEntity: AwsSecretSpecInputEntity, options?: RequestInit): Promise<AwsAccountCredentials> => {
@@ -9305,7 +9322,7 @@ export const getV1AwsAccountStsGetUrl = (params?: V1AwsAccountStsGetParams,) => 
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/account/sts?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/account/sts`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/account/sts?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/account/sts`
 }
 
 export const v1AwsAccountStsGet = async (params?: V1AwsAccountStsGetParams, options?: RequestInit): Promise<AwsAccountSts> => {
@@ -9335,7 +9352,7 @@ export const getV1AwsAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/account/validate`
 }
 
 export const v1AwsAccountValidate = async (awsCloudAccount: AwsCloudAccount, options?: RequestInit): Promise<void> => {
@@ -9366,7 +9383,7 @@ export const getV1AwsAmiTypesUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/amiTypes`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/amiTypes`
 }
 
 export const v1AwsAmiTypes = async ( options?: RequestInit): Promise<AmiTypes> => {
@@ -9397,7 +9414,7 @@ export const getV1CloudsAwsCloudWatchValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/cloudwatch/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/cloudwatch/validate`
 }
 
 export const v1CloudsAwsCloudWatchValidate = async (v1CloudWatchConfig: V1CloudWatchConfig, options?: RequestInit): Promise<void> => {
@@ -9428,7 +9445,7 @@ export const getAwsCloudCostUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/cost`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/cost`
 }
 
 export const awsCloudCost = async (awsCloudCostSpec: AwsCloudCostSpec, options?: RequestInit): Promise<AwsCloudCostSummary> => {
@@ -9468,7 +9485,7 @@ export const getV1AwsVolumeSizeGetUrl = (imageId: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/imageIds/${imageId}/volumeSize?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/imageIds/${imageId}/volumeSize`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/imageIds/${imageId}/volumeSize?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/imageIds/${imageId}/volumeSize`
 }
 
 export const v1AwsVolumeSizeGet = async (imageId: string,
@@ -9506,7 +9523,7 @@ export const getV1AwsIamPoliciesUrl = (params?: V1AwsIamPoliciesParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/policies?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/policies`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/policies?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/policies`
 }
 
 export const v1AwsIamPolicies = async (awsCloudAccount: AwsCloudAccount,
@@ -9545,7 +9562,7 @@ export const getV1AwsPolicyArnsValidateUrl = (params?: V1AwsPolicyArnsValidatePa
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/policyArns/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/policyArns/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/policyArns/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/policyArns/validate`
 }
 
 export const v1AwsPolicyArnsValidate = async (awsPolicyArnsSpec: AwsPolicyArnsSpec,
@@ -9577,7 +9594,7 @@ export const getV1AwsPropertiesValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/properties/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/properties/validate`
 }
 
 export const v1AwsPropertiesValidate = async (awsPropertiesValidateSpec: AwsPropertiesValidateSpec, options?: RequestInit): Promise<void> => {
@@ -9615,7 +9632,7 @@ export const getV1AwsRegionsUrl = (params: V1AwsRegionsParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions`
 }
 
 export const v1AwsRegions = async (params: V1AwsRegionsParams, options?: RequestInit): Promise<AwsRegions> => {
@@ -9653,7 +9670,7 @@ export const getV1AwsZonesUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/availabilityzones?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/availabilityzones`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/availabilityzones?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/availabilityzones`
 }
 
 export const v1AwsZones = async (region: string,
@@ -9684,7 +9701,7 @@ export const getV1AwsCopyImageFromDefaultRegionUrl = (region: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/copydefaultimages`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/copydefaultimages`
 }
 
 export const v1AwsCopyImageFromDefaultRegion = async (region: string,
@@ -9725,7 +9742,7 @@ export const getV1AwsClusterNameValidateUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/eksClusters/name/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/eksClusters/name/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/eksClusters/name/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/eksClusters/name/validate`
 }
 
 export const v1AwsClusterNameValidate = async (region: string,
@@ -9756,7 +9773,7 @@ export const getV1AwsFindImageUrl = (region: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/images`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/images`
 }
 
 export const v1AwsFindImage = async (region: string,
@@ -9796,7 +9813,7 @@ export const getV1AwsInstanceTypesUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/instancetypes?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/instancetypes`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/instancetypes?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/instancetypes`
 }
 
 export const v1AwsInstanceTypes = async (region: string,
@@ -9835,7 +9852,7 @@ export const getV1AwsKeyPairsUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/keypairs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/keypairs`
 }
 
 export const v1AwsKeyPairs = async (region: string,
@@ -9875,7 +9892,7 @@ export const getV1AwsKeyPairValidateUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/keypairs/${keypair}/validate`
 }
 
 export const v1AwsKeyPairValidate = async (region: string,
@@ -9916,7 +9933,7 @@ export const getV1AwsKmsKeyGetUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kms/${keyId}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kms/${keyId}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kms/${keyId}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kms/${keyId}`
 }
 
 export const v1AwsKmsKeyGet = async (region: string,
@@ -9956,7 +9973,7 @@ export const getV1AwsKmsKeysUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kmskeys?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kmskeys`
 }
 
 export const v1AwsKmsKeys = async (region: string,
@@ -9995,7 +10012,7 @@ export const getV1AwsKmsKeyValidateUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/kmskeys/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kmskeys/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/kmskeys/validate`
 }
 
 export const v1AwsKmsKeyValidate = async (region: string,
@@ -10026,7 +10043,7 @@ export const getV1AwsStorageTypesUrl = (region: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/storagetypes`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/storagetypes`
 }
 
 export const v1AwsStorageTypes = async (region: string, options?: RequestInit): Promise<AwsStorageTypes> => {
@@ -10064,7 +10081,7 @@ export const getV1AwsVpcsUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/vpcs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/regions/${region}/vpcs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/vpcs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/regions/${region}/vpcs`
 }
 
 export const v1AwsVpcs = async (region: string,
@@ -10095,7 +10112,7 @@ export const getV1AwsS3ValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/aws/s3/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/aws/s3/validate`
 }
 
 export const v1AwsS3Validate = async (awsS3BucketCredentials: AwsS3BucketCredentials, options?: RequestInit): Promise<void> => {
@@ -10133,7 +10150,7 @@ export const getV1AwsSecurityGroupsUrl = (params: V1AwsSecurityGroupsParams,) =>
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/securitygroups?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/securitygroups`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/securitygroups?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/securitygroups`
 }
 
 export const v1AwsSecurityGroups = async (params: V1AwsSecurityGroupsParams, options?: RequestInit): Promise<AwsSecurityGroups> => {
@@ -10171,7 +10188,7 @@ export const getV1AwsVolumeTypesGetUrl = (params: V1AwsVolumeTypesGetParams,) =>
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/aws/volumeTypes?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/aws/volumeTypes`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/aws/volumeTypes?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/aws/volumeTypes`
 }
 
 export const v1AwsVolumeTypesGet = async (params: V1AwsVolumeTypesGetParams, options?: RequestInit): Promise<AWSVolumeTypes> => {
@@ -10202,7 +10219,7 @@ export const getV1AzureAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/azure/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/azure/account/validate`
 }
 
 export const v1AzureAccountValidate = async (azureCloudAccount: AzureCloudAccount, options?: RequestInit): Promise<void> => {
@@ -10240,7 +10257,7 @@ export const getV1AzureGroupsUrl = (params?: V1AzureGroupsParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/groups?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/groups`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/groups?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/groups`
 }
 
 export const v1AzureGroups = async (params?: V1AzureGroupsParams, options?: RequestInit): Promise<AzureGroups> => {
@@ -10277,7 +10294,7 @@ export const getV1AzureRegionsUrl = (params?: V1AzureRegionsParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions`
 }
 
 export const v1AzureRegions = async (params?: V1AzureRegionsParams, options?: RequestInit): Promise<AzureRegions> => {
@@ -10315,7 +10332,7 @@ export const getV1AzureInstanceTypesUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/instancetypes?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/instancetypes`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/instancetypes?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/instancetypes`
 }
 
 export const v1AzureInstanceTypes = async (region: string,
@@ -10346,7 +10363,7 @@ export const getV1AzureStorageTypesUrl = (region: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/storagetypes`
+  return `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/storagetypes`
 }
 
 export const v1AzureStorageTypes = async (region: string, options?: RequestInit): Promise<AzureStorageTypes> => {
@@ -10386,7 +10403,7 @@ export const getV1AzureClusterNameValidateUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/aksClusters/name/validate`
 }
 
 export const v1AzureClusterNameValidate = async (region: string,
@@ -10427,7 +10444,7 @@ export const getV1AzureVirtualNetworkListUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/networks`
 }
 
 export const v1AzureVirtualNetworkList = async (region: string,
@@ -10468,7 +10485,7 @@ export const getV1AzureResourceGroupListUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/subscriptions/${subscriptionId}/resourceGroups`
 }
 
 export const v1AzureResourceGroupList = async (region: string,
@@ -10508,7 +10525,7 @@ export const getV1AzureZonesUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/zones?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/regions/${region}/zones`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/zones?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/regions/${region}/zones`
 }
 
 export const v1AzureZones = async (region: string,
@@ -10548,7 +10565,7 @@ export const getV1AzurePrivateDnsZonesUrl = (resourceGroup: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/privateDnsZones`
 }
 
 export const v1AzurePrivateDnsZones = async (resourceGroup: string,
@@ -10588,7 +10605,7 @@ export const getV1AzureStorageAccountsUrl = (resourceGroup: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts`
 }
 
 export const v1AzureStorageAccounts = async (resourceGroup: string,
@@ -10629,7 +10646,7 @@ export const getV1AzureStorageContainersUrl = (resourceGroup: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/resourceGroups/${resourceGroup}/storageAccounts/${storageAccountName}/containers`
 }
 
 export const v1AzureStorageContainers = async (resourceGroup: string,
@@ -10669,7 +10686,7 @@ export const getV1AzureStorageAccountTypesUrl = (params?: V1AzureStorageAccountT
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/storageaccounttypes?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/storageaccounttypes`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/storageaccounttypes?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/storageaccounttypes`
 }
 
 export const v1AzureStorageAccountTypes = async (params?: V1AzureStorageAccountTypesParams, options?: RequestInit): Promise<AzureStorageAccountEntity> => {
@@ -10707,7 +10724,7 @@ export const getV1AzureSubscriptionListUrl = (params: V1AzureSubscriptionListPar
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/azure/subscriptions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/azure/subscriptions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/azure/subscriptions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/azure/subscriptions`
 }
 
 export const v1AzureSubscriptionList = async (params: V1AzureSubscriptionListParams, options?: RequestInit): Promise<AzureSubscriptionList> => {
@@ -10737,7 +10754,7 @@ export const getV1AzureVhdUrlUrl = (vhd: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/azure/vhds/${vhd}/url`
+  return `${PALETTE_BASE_URL}/v1/clouds/azure/vhds/${vhd}/url`
 }
 
 export const v1AzureVhdUrl = async (vhd: string, options?: RequestInit): Promise<AzureVhdUrlEntity> => {
@@ -10767,7 +10784,7 @@ export const getV1CustomCloudTypesGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes`
 }
 
 export const v1CustomCloudTypesGet = async ( options?: RequestInit): Promise<CustomCloudTypes> => {
@@ -10797,7 +10814,7 @@ export const getV1CustomCloudTypeRegisterUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/register`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/register`
 }
 
 export const v1CustomCloudTypeRegister = async (customCloudRequestEntity: CustomCloudRequestEntity, options?: RequestInit): Promise<Uid> => {
@@ -10828,7 +10845,7 @@ export const getV1CustomCloudTypesDeleteUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}`
 }
 
 export const v1CustomCloudTypesDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -10858,7 +10875,7 @@ export const getV1CustomCloudTypeCloudAccountKeysGetUrl = (cloudType: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`
 }
 
 export const v1CustomCloudTypeCloudAccountKeysGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeCloudAccountKeys> => {
@@ -10888,7 +10905,7 @@ export const getV1CustomCloudTypeCloudAccountKeysUpdateUrl = (cloudType: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/cloudAccountKeys`
 }
 
 export const v1CustomCloudTypeCloudAccountKeysUpdate = async (cloudType: string,
@@ -10920,7 +10937,7 @@ export const getV1CustomCloudTypeBootstrapDeleteUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
 }
 
 export const v1CustomCloudTypeBootstrapDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -10950,7 +10967,7 @@ export const getV1CustomCloudTypeBootstrapGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
 }
 
 export const v1CustomCloudTypeBootstrapGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -10980,7 +10997,7 @@ export const getV1CustomCloudTypeBootstrapUpdateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/bootstrap`
 }
 
 export const v1CustomCloudTypeBootstrapUpdate = async (cloudType: string,
@@ -11016,7 +11033,7 @@ export const getV1CustomCloudTypeCloudProviderDeleteUrl = (cloudType: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
 }
 
 export const v1CustomCloudTypeCloudProviderDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11046,7 +11063,7 @@ export const getV1CustomCloudTypeCloudProviderGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
 }
 
 export const v1CustomCloudTypeCloudProviderGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11076,7 +11093,7 @@ export const getV1CustomCloudTypeCloudProviderUpdateUrl = (cloudType: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/cloudProvider`
 }
 
 export const v1CustomCloudTypeCloudProviderUpdate = async (cloudType: string,
@@ -11112,7 +11129,7 @@ export const getV1CustomCloudTypeControlPlaneDeleteUrl = (cloudType: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
 }
 
 export const v1CustomCloudTypeControlPlaneDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11142,7 +11159,7 @@ export const getV1CustomCloudTypeControlPlaneGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
 }
 
 export const v1CustomCloudTypeControlPlaneGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11172,7 +11189,7 @@ export const getV1CustomCloudTypeControlPlaneUpdateUrl = (cloudType: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/controlPlane`
 }
 
 export const v1CustomCloudTypeControlPlaneUpdate = async (cloudType: string,
@@ -11208,7 +11225,7 @@ export const getV1CustomCloudTypeCoreDeleteUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/core`
 }
 
 export const v1CustomCloudTypeCoreDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11238,7 +11255,7 @@ export const getV1CustomCloudTypeCoreGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/core`
 }
 
 export const v1CustomCloudTypeCoreGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11268,7 +11285,7 @@ export const getV1CustomCloudTypeCoreUpdateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/core`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/core`
 }
 
 export const v1CustomCloudTypeCoreUpdate = async (cloudType: string,
@@ -11304,7 +11321,7 @@ export const getV1CustomCloudTypeClusterTemplateDeleteUrl = (cloudType: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
 }
 
 export const v1CustomCloudTypeClusterTemplateDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11334,7 +11351,7 @@ export const getV1CustomCloudTypeClusterTemplateGetUrl = (cloudType: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
 }
 
 export const v1CustomCloudTypeClusterTemplateGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11364,7 +11381,7 @@ export const getV1CustomCloudTypeClusterTemplateUpdateUrl = (cloudType: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/clusterTemplate`
 }
 
 export const v1CustomCloudTypeClusterTemplateUpdate = async (cloudType: string,
@@ -11400,7 +11417,7 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateDeleteUrl = (cloudType:
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
 }
 
 export const v1CustomCloudTypeControlPlanePoolTemplateDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11430,7 +11447,7 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateGetUrl = (cloudType: st
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
 }
 
 export const v1CustomCloudTypeControlPlanePoolTemplateGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11460,7 +11477,7 @@ export const getV1CustomCloudTypeControlPlanePoolTemplateUpdateUrl = (cloudType:
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/controlPlanePoolTemplate`
 }
 
 export const v1CustomCloudTypeControlPlanePoolTemplateUpdate = async (cloudType: string,
@@ -11496,7 +11513,7 @@ export const getV1CustomCloudTypeWorkerPoolTemplateDeleteUrl = (cloudType: strin
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
 }
 
 export const v1CustomCloudTypeWorkerPoolTemplateDelete = async (cloudType: string, options?: RequestInit): Promise<void> => {
@@ -11526,7 +11543,7 @@ export const getV1CustomCloudTypeWorkerPoolTemplateGetUrl = (cloudType: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
 }
 
 export const v1CustomCloudTypeWorkerPoolTemplateGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudTypeContentResponse> => {
@@ -11556,7 +11573,7 @@ export const getV1CustomCloudTypeWorkerPoolTemplateUpdateUrl = (cloudType: strin
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/content/templates/workerPoolTemplate`
 }
 
 export const v1CustomCloudTypeWorkerPoolTemplateUpdate = async (cloudType: string,
@@ -11592,7 +11609,7 @@ export const getV1CustomCloudTypeLogoGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/logo`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/logo`
 }
 
 export const v1CustomCloudTypeLogoGet = async (cloudType: string, options?: RequestInit): Promise<Blob> => {
@@ -11622,7 +11639,7 @@ export const getV1CustomCloudTypeLogoUpdateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/logo`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/logo`
 }
 
 export const v1CustomCloudTypeLogoUpdate = async (cloudType: string,
@@ -11658,7 +11675,7 @@ export const getV1CustomCloudTypeMetaGetUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/meta`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/meta`
 }
 
 export const v1CustomCloudTypeMetaGet = async (cloudType: string, options?: RequestInit): Promise<CustomCloudMetaEntity> => {
@@ -11688,7 +11705,7 @@ export const getV1CustomCloudTypeMetaUpdateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/cloudTypes/${cloudType}/meta`
+  return `${PALETTE_BASE_URL}/v1/clouds/cloudTypes/${cloudType}/meta`
 }
 
 export const v1CustomCloudTypeMetaUpdate = async (cloudType: string,
@@ -11720,7 +11737,7 @@ export const getV1EksPropertiesValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/eks/properties/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/eks/properties/validate`
 }
 
 export const v1EksPropertiesValidate = async (eksPropertiesValidateSpec: EksPropertiesValidateSpec, options?: RequestInit): Promise<void> => {
@@ -11751,7 +11768,7 @@ export const getV1GcpAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/account/validate`
 }
 
 export const v1GcpAccountValidate = async (gcpCloudAccountValidateEntity: GcpCloudAccountValidateEntity, options?: RequestInit): Promise<void> => {
@@ -11782,7 +11799,7 @@ export const getV1GcpAzValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/azs/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/azs/validate`
 }
 
 export const v1GcpAzValidate = async (azValidateEntity: AzValidateEntity, options?: RequestInit): Promise<void> => {
@@ -11813,7 +11830,7 @@ export const getV1GcpBucketNameValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/bucketname/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/bucketname/validate`
 }
 
 export const v1GcpBucketNameValidate = async (gcpAccountNameValidateSpec: GcpAccountNameValidateSpec, options?: RequestInit): Promise<void> => {
@@ -11851,7 +11868,7 @@ export const getV1GcpContainerImageValidateUrl = (params: V1GcpContainerImageVal
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/image/container/validate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/image/container/validate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/image/container/validate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/image/container/validate`
 }
 
 export const v1GcpContainerImageValidate = async (params: V1GcpContainerImageValidateParams, options?: RequestInit): Promise<void> => {
@@ -11881,7 +11898,7 @@ export const getV1GcpImageUrlUrl = (imageName: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/images/${imageName}/url`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/images/${imageName}/url`
 }
 
 export const v1GcpImageUrl = async (imageName: string, options?: RequestInit): Promise<GcpImageUrlEntity> => {
@@ -11918,7 +11935,7 @@ export const getV1GcpProjectsUrl = (params: V1GcpProjectsParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/projects?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/projects`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/projects?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/projects`
 }
 
 export const v1GcpProjects = async (params: V1GcpProjectsParams, options?: RequestInit): Promise<GcpProjects> => {
@@ -11956,7 +11973,7 @@ export const getV1GcpRegionsUrl = (project: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions`
 }
 
 export const v1GcpRegions = async (project: string,
@@ -11996,7 +12013,7 @@ export const getV1GcpNetworksUrl = (project: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/networks?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/networks`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions/${region}/networks?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions/${region}/networks`
 }
 
 export const v1GcpNetworks = async (project: string,
@@ -12037,7 +12054,7 @@ export const getV1GcpZonesUrl = (project: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/zones?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/regions/${region}/zones`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions/${region}/zones?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/regions/${region}/zones`
 }
 
 export const v1GcpZones = async (project: string,
@@ -12069,7 +12086,7 @@ export const getV1GcpProjectValidateUrl = (project: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/validate`
 }
 
 export const v1GcpProjectValidate = async (project: string,
@@ -12109,7 +12126,7 @@ export const getV1GcpAvailabilityZonesUrl = (project: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/zones?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/projects/${project}/zones`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/zones?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/projects/${project}/zones`
 }
 
 export const v1GcpAvailabilityZones = async (project: string,
@@ -12140,7 +12157,7 @@ export const getV1GcpPropertiesValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/properties/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/properties/validate`
 }
 
 export const v1GcpPropertiesValidate = async (gcpPropertiesValidateSpec: GcpPropertiesValidateSpec, options?: RequestInit): Promise<void> => {
@@ -12179,7 +12196,7 @@ export const getV1GcpInstanceTypesUrl = (region: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/gcp/regions/${region}/instancetypes?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/gcp/regions/${region}/instancetypes`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/gcp/regions/${region}/instancetypes?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/gcp/regions/${region}/instancetypes`
 }
 
 export const v1GcpInstanceTypes = async (region: string,
@@ -12210,7 +12227,7 @@ export const getV1GcpStorageTypesUrl = (region: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/gcp/regions/${region}/storagetypes`
+  return `${PALETTE_BASE_URL}/v1/clouds/gcp/regions/${region}/storagetypes`
 }
 
 export const v1GcpStorageTypes = async (region: string, options?: RequestInit): Promise<GcpStorageTypes> => {
@@ -12241,7 +12258,7 @@ export const getV1MaasAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/maas/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/maas/account/validate`
 }
 
 export const v1MaasAccountValidate = async (maasCloudAccount: MaasCloudAccount, options?: RequestInit): Promise<void> => {
@@ -12279,7 +12296,7 @@ export const getV1MaasZonesGetUrl = (params?: V1MaasZonesGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/maas/azs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/maas/azs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/maas/azs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/maas/azs`
 }
 
 export const v1MaasZonesGet = async (params?: V1MaasZonesGetParams, options?: RequestInit): Promise<MaasZones> => {
@@ -12316,7 +12333,7 @@ export const getV1MaasDomainsGetUrl = (params?: V1MaasDomainsGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/maas/domains?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/maas/domains`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/maas/domains?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/maas/domains`
 }
 
 export const v1MaasDomainsGet = async (params?: V1MaasDomainsGetParams, options?: RequestInit): Promise<MaasDomains> => {
@@ -12353,7 +12370,7 @@ export const getV1MaasPoolsGetUrl = (params?: V1MaasPoolsGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/maas/resourcePools?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/maas/resourcePools`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/maas/resourcePools?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/maas/resourcePools`
 }
 
 export const v1MaasPoolsGet = async (params?: V1MaasPoolsGetParams, options?: RequestInit): Promise<MaasPools> => {
@@ -12390,7 +12407,7 @@ export const getV1MaasSubnetsGetUrl = (params?: V1MaasSubnetsGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/maas/subnets?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/maas/subnets`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/maas/subnets?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/maas/subnets`
 }
 
 export const v1MaasSubnetsGet = async (params?: V1MaasSubnetsGetParams, options?: RequestInit): Promise<MaasSubnets> => {
@@ -12427,7 +12444,7 @@ export const getV1MaasTagsGetUrl = (params?: V1MaasTagsGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/maas/tags?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/maas/tags`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/maas/tags?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/maas/tags`
 }
 
 export const v1MaasTagsGet = async (params?: V1MaasTagsGetParams, options?: RequestInit): Promise<MaasTags> => {
@@ -12458,7 +12475,7 @@ export const getV1OpenStackAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/openstack/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/openstack/account/validate`
 }
 
 export const v1OpenStackAccountValidate = async (openStackCloudAccount: OpenStackCloudAccount, options?: RequestInit): Promise<void> => {
@@ -12496,7 +12513,7 @@ export const getV1OpenStackAzsGetUrl = (params?: V1OpenStackAzsGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/azs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/azs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/azs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/azs`
 }
 
 export const v1OpenStackAzsGet = async (params?: V1OpenStackAzsGetParams, options?: RequestInit): Promise<OpenStackAzs> => {
@@ -12533,7 +12550,7 @@ export const getV1OpenStackFlavorsGetUrl = (params?: V1OpenStackFlavorsGetParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/flavors?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/flavors`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/flavors?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/flavors`
 }
 
 export const v1OpenStackFlavorsGet = async (params?: V1OpenStackFlavorsGetParams, options?: RequestInit): Promise<OpenStackFlavors> => {
@@ -12570,7 +12587,7 @@ export const getV1OpenStackKeypairsGetUrl = (params?: V1OpenStackKeypairsGetPara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/keypairs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/keypairs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/keypairs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/keypairs`
 }
 
 export const v1OpenStackKeypairsGet = async (params?: V1OpenStackKeypairsGetParams, options?: RequestInit): Promise<OpenStackKeypairs> => {
@@ -12607,7 +12624,7 @@ export const getV1OpenStackNetworksGetUrl = (params?: V1OpenStackNetworksGetPara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/networks?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/networks`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/networks?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/networks`
 }
 
 export const v1OpenStackNetworksGet = async (params?: V1OpenStackNetworksGetParams, options?: RequestInit): Promise<OpenStackNetworks> => {
@@ -12644,7 +12661,7 @@ export const getV1OpenStackProjectsGetUrl = (params?: V1OpenStackProjectsGetPara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/projects?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/projects`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/projects?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/projects`
 }
 
 export const v1OpenStackProjectsGet = async (params?: V1OpenStackProjectsGetParams, options?: RequestInit): Promise<OpenStackProjects> => {
@@ -12681,7 +12698,7 @@ export const getV1OpenStackRegionsGetUrl = (params?: V1OpenStackRegionsGetParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/openstack/regions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/openstack/regions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/openstack/regions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/openstack/regions`
 }
 
 export const v1OpenStackRegionsGet = async (params?: V1OpenStackRegionsGetParams, options?: RequestInit): Promise<OpenStackRegions> => {
@@ -12712,7 +12729,7 @@ export const getV1VsphereAccountValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/vsphere/account/validate`
+  return `${PALETTE_BASE_URL}/v1/clouds/vsphere/account/validate`
 }
 
 export const v1VsphereAccountValidate = async (v1VsphereCloudAccountBody: V1VsphereCloudAccountBody, options?: RequestInit): Promise<void> => {
@@ -12750,7 +12767,7 @@ export const getV1VsphereDatacentersUrl = (params?: V1VsphereDatacentersParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/vsphere/datacenters?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/vsphere/datacenters`
 }
 
 export const v1VsphereDatacenters = async (params?: V1VsphereDatacentersParams, options?: RequestInit): Promise<VsphereDatacenters> => {
@@ -12789,7 +12806,7 @@ export const getV1VsphereComputeClusterResourcesUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/vsphere/datacenters/${uid}/computeclusters/${computecluster}`
 }
 
 export const v1VsphereComputeClusterResources = async (uid: string,
@@ -12821,7 +12838,7 @@ export const getV1VsphereEnvUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clouds/vsphere/env`
+  return `${PALETTE_BASE_URL}/v1/clouds/vsphere/env`
 }
 
 export const v1VsphereEnv = async (v1VsphereCloudAccountBody: V1VsphereCloudAccountBody, options?: RequestInit): Promise<VsphereEnv> => {
@@ -12861,7 +12878,7 @@ export const getV1CloudComputeRateUrl = (cloud: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/${cloud}/compute/${type}/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/${cloud}/compute/${type}/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/${cloud}/compute/${type}/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/${cloud}/compute/${type}/rate`
 }
 
 export const v1CloudComputeRate = async (cloud: string,
@@ -12902,7 +12919,7 @@ export const getV1CloudStorageRateUrl = (cloud: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clouds/${cloud}/storage/${type}/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clouds/${cloud}/storage/${type}/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clouds/${cloud}/storage/${type}/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clouds/${cloud}/storage/${type}/rate`
 }
 
 export const v1CloudStorageRate = async (cloud: string,
@@ -12934,7 +12951,7 @@ export const getClusterGroupsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups`
+  return `${PALETTE_BASE_URL}/v1/clustergroups`
 }
 
 export const clusterGroupsCreate = async (clusterGroupEntity: ClusterGroupEntity, options?: RequestInit): Promise<Uid> => {
@@ -12965,7 +12982,7 @@ export const getClusterGroupsDeveloperCreditUsageGetUrl = (scope: 'system' | 'te
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/developerCredit/usage/${scope}`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/developerCredit/usage/${scope}`
 }
 
 export const clusterGroupsDeveloperCreditUsageGet = async (scope: 'system' | 'tenant', options?: RequestInit): Promise<ClusterGroupsDeveloperCreditUsage> => {
@@ -12995,7 +13012,7 @@ export const getClusterGroupsHostClusterSummaryUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/hostCluster`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/hostCluster`
 }
 
 export const clusterGroupsHostClusterSummary = async ( options?: RequestInit): Promise<ClusterGroupsHostClusterSummary> => {
@@ -13025,7 +13042,7 @@ export const getClusterGroupsHostClusterMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/hostCluster/metadata`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/hostCluster/metadata`
 }
 
 export const clusterGroupsHostClusterMetadata = async ( options?: RequestInit): Promise<ClusterGroupsHostClusterMetadata> => {
@@ -13062,7 +13079,7 @@ export const getClusterGroupsValidateNameUrl = (params: ClusterGroupsValidateNam
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clustergroups/validate/name?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clustergroups/validate/name`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clustergroups/validate/name?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clustergroups/validate/name`
 }
 
 export const clusterGroupsValidateName = async (params: ClusterGroupsValidateNameParams, options?: RequestInit): Promise<void> => {
@@ -13092,7 +13109,7 @@ export const getClusterGroupsUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}`
 }
 
 export const clusterGroupsUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -13122,7 +13139,7 @@ export const getClusterGroupsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}`
 }
 
 export const clusterGroupsUidGet = async (uid: string, options?: RequestInit): Promise<ClusterGroup> => {
@@ -13152,7 +13169,7 @@ export const getClusterGroupsUidHostClusterUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}/hostCluster`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/hostCluster`
 }
 
 export const clusterGroupsUidHostClusterUpdate = async (uid: string,
@@ -13184,7 +13201,7 @@ export const getClusterGroupsUidMetaUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}/meta`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/meta`
 }
 
 export const clusterGroupsUidMetaUpdate = async (uid: string,
@@ -13216,7 +13233,7 @@ export const getClusterGroupsUidPacksResolvedValuesGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}/packs/resolvedValues`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/packs/resolvedValues`
 }
 
 export const clusterGroupsUidPacksResolvedValuesGet = async (uid: string, options?: RequestInit): Promise<SpectroClusterProfilesResolvedValues> => {
@@ -13254,7 +13271,7 @@ export const getClusterGroupsUidProfilesGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clustergroups/${uid}/profiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clustergroups/${uid}/profiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/profiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/profiles`
 }
 
 export const clusterGroupsUidProfilesGet = async (uid: string,
@@ -13285,7 +13302,7 @@ export const getClusterGroupsUidProfilesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clustergroups/${uid}/profiles`
+  return `${PALETTE_BASE_URL}/v1/clustergroups/${uid}/profiles`
 }
 
 export const clusterGroupsUidProfilesUpdate = async (uid: string,
@@ -13324,7 +13341,7 @@ export const getClusterProfilesCreateUrl = (params?: ClusterProfilesCreateParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles`
 }
 
 export const clusterProfilesCreate = async (clusterProfileEntity: ClusterProfileEntity,
@@ -13356,7 +13373,7 @@ export const getClusterProfilesBulkDeleteUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/bulk`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/bulk`
 }
 
 export const clusterProfilesBulkDelete = async (bulkDeleteRequest: BulkDeleteRequest, options?: RequestInit): Promise<BulkDeleteResponse> => {
@@ -13394,7 +13411,7 @@ export const getClusterProfilesImportUrl = (params?: ClusterProfilesImportParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/import?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/import`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/import?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/import`
 }
 
 export const clusterProfilesImport = async (v1ClusterProfileImportEntityBody: V1ClusterProfileImportEntityBody,
@@ -13433,7 +13450,7 @@ export const getClusterProfilesImportFileUrl = (params?: ClusterProfilesImportFi
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/import/file?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/import/file`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/import/file?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/import/file`
 }
 
 export const clusterProfilesImportFile = async (clusterProfilesImportFileBody: ClusterProfilesImportFileBody,
@@ -13469,7 +13486,7 @@ export const getClusterProfilesImportValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/import/validate`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/import/validate`
 }
 
 export const clusterProfilesImportValidate = async (v1ClusterProfileImportEntityBody: V1ClusterProfileImportEntityBody, options?: RequestInit): Promise<ClusterProfileImportEntity> => {
@@ -13500,7 +13517,7 @@ export const getMacrosListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/macros`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/macros`
 }
 
 export const macrosList = async ( options?: RequestInit): Promise<Macros> => {
@@ -13538,7 +13555,7 @@ export const getClusterProfilesValidateNameVersionUrl = (params?: ClusterProfile
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/validate/name?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/validate/name`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/validate/name?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/validate/name`
 }
 
 export const clusterProfilesValidateNameVersion = async (params?: ClusterProfilesValidateNameVersionParams, options?: RequestInit): Promise<void> => {
@@ -13568,7 +13585,7 @@ export const getClusterProfilesValidatePacksUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/validate/packs`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/validate/packs`
 }
 
 export const clusterProfilesValidatePacks = async (v1ClusterProfileTemplateDraftBody: V1ClusterProfileTemplateDraftBody, options?: RequestInit): Promise<ClusterProfileValidatorResponse> => {
@@ -13605,7 +13622,7 @@ export const getClusterProfilesDeleteUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}`
 }
 
 export const clusterProfilesDelete = async (uid: string,
@@ -13642,7 +13659,7 @@ export const getClusterProfilesGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}`
 }
 
 export const clusterProfilesGet = async (uid: string,
@@ -13679,7 +13696,7 @@ export const getClusterProfilesUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}`
 }
 
 export const clusterProfilesUpdate = async (uid: string,
@@ -13712,7 +13729,7 @@ export const getClusterProfilesUidCloneUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/clone`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/clone`
 }
 
 export const clusterProfilesUidClone = async (uid: string,
@@ -13745,7 +13762,7 @@ export const getClusterProfilesUidCloneValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/clone/validate`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/clone/validate`
 }
 
 export const clusterProfilesUidCloneValidate = async (uid: string,
@@ -13783,7 +13800,7 @@ export const getV1ClusterProfilesUidExportUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/export?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/export`
 }
 
 export const v1ClusterProfilesUidExport = async (uid: string,
@@ -13820,7 +13837,7 @@ export const getV1ClusterProfilesUidExportTerraformUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export/terraform?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/export/terraform`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/export/terraform?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/export/terraform`
 }
 
 export const v1ClusterProfilesUidExportTerraform = async (uid: string,
@@ -13851,7 +13868,7 @@ export const getClusterProfilesUidMetadataUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/metadata`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/metadata`
 }
 
 export const clusterProfilesUidMetadataUpdate = async (uid: string,
@@ -13889,7 +13906,7 @@ export const getClusterProfilesPacksRefUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packRefs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packRefs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packRefs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packRefs`
 }
 
 export const clusterProfilesPacksRefUpdate = async (uid: string,
@@ -13926,7 +13943,7 @@ export const getClusterProfilesUidPacksGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs`
 }
 
 export const clusterProfilesUidPacksGet = async (uid: string,
@@ -13963,7 +13980,7 @@ export const getClusterProfilesUidPacksAddUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs`
 }
 
 export const clusterProfilesUidPacksAdd = async (uid: string,
@@ -14002,7 +14019,7 @@ export const getClusterProfilesUidPacksManifestsGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/manifests?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/manifests`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/manifests?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/manifests`
 }
 
 export const clusterProfilesUidPacksManifestsGet = async (uid: string,
@@ -14033,7 +14050,7 @@ export const getClusterProfilesUidPacksResolvedValuesGetUrl = (uid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/resolvedValues`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/resolvedValues`
 }
 
 export const clusterProfilesUidPacksResolvedValuesGet = async (uid: string, options?: RequestInit): Promise<PackResolvedValues> => {
@@ -14064,7 +14081,7 @@ export const getClusterProfilesUidPacksNameDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}`
 }
 
 export const clusterProfilesUidPacksNameDelete = async (uid: string,
@@ -14096,7 +14113,7 @@ export const getV1ClusterProfilesUidPacksNameGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}`
 }
 
 export const v1ClusterProfilesUidPacksNameGet = async (uid: string,
@@ -14128,7 +14145,7 @@ export const getClusterProfilesUidPacksNameUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}`
 }
 
 export const clusterProfilesUidPacksNameUpdate = async (uid: string,
@@ -14170,7 +14187,7 @@ export const getClusterProfilesUidPacksConfigGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/config?${stringifiedParams}` : `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/config`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/config?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/config`
 }
 
 export const clusterProfilesUidPacksConfigGet = async (uid: string,
@@ -14203,7 +14220,7 @@ export const getClusterProfilesUidPacksUidManifestsUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/manifests`
 }
 
 export const clusterProfilesUidPacksUidManifests = async (uid: string,
@@ -14235,7 +14252,7 @@ export const getClusterProfilesUidPacksNameManifestsAddUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/manifests`
 }
 
 export const clusterProfilesUidPacksNameManifestsAdd = async (uid: string,
@@ -14270,7 +14287,7 @@ export const getClusterProfilesUidPacksNameManifestsUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
 }
 
 export const clusterProfilesUidPacksNameManifestsUidDelete = async (uid: string,
@@ -14304,7 +14321,7 @@ export const getClusterProfilesUidPacksNameManifestsUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
 }
 
 export const clusterProfilesUidPacksNameManifestsUidGet = async (uid: string,
@@ -14338,7 +14355,7 @@ export const getClusterProfilesUidPacksNameManifestsUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/packs/${packName}/manifests/${manifestUid}`
 }
 
 export const clusterProfilesUidPacksNameManifestsUidUpdate = async (uid: string,
@@ -14375,7 +14392,7 @@ export const getClusterProfilesPublishUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/publish`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/publish`
 }
 
 export const clusterProfilesPublish = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -14405,7 +14422,7 @@ export const getClusterProfilesUidSpcDownloadUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/spc/download`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/spc/download`
 }
 
 export const clusterProfilesUidSpcDownload = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -14435,7 +14452,7 @@ export const getClusterProfilesUidValidatePacksUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/validate/packs`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/validate/packs`
 }
 
 export const clusterProfilesUidValidatePacks = async (uid: string,
@@ -14467,7 +14484,7 @@ export const getV1ClusterProfilesUidVariablesDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/variables`
 }
 
 export const v1ClusterProfilesUidVariablesDelete = async (uid: string,
@@ -14499,7 +14516,7 @@ export const getV1ClusterProfilesUidVariablesGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/variables`
 }
 
 export const v1ClusterProfilesUidVariablesGet = async (uid: string, options?: RequestInit): Promise<Variables> => {
@@ -14529,7 +14546,7 @@ export const getV1ClusterProfilesUidVariablesPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/variables`
 }
 
 export const v1ClusterProfilesUidVariablesPatch = async (uid: string,
@@ -14561,7 +14578,7 @@ export const getV1ClusterProfilesUidVariablesPutUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/clusterprofiles/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/clusterprofiles/${uid}/variables`
 }
 
 export const v1ClusterProfilesUidVariablesPut = async (uid: string,
@@ -14600,7 +14617,7 @@ export const getDashboardAppDeploymentsUrl = (params?: DashboardAppDeploymentsPa
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/appDeployments?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/appDeployments`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/appDeployments?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/appDeployments`
 }
 
 export const dashboardAppDeployments = async (appDeploymentsFilterSpec: AppDeploymentsFilterSpec,
@@ -14639,7 +14656,7 @@ export const getDashboardAppProfilesUrl = (params?: DashboardAppProfilesParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/appProfiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/appProfiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/appProfiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/appProfiles`
 }
 
 export const dashboardAppProfiles = async (appProfilesFilterSpec: AppProfilesFilterSpec,
@@ -14671,7 +14688,7 @@ export const getDashboardAppProfilesMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/appProfiles/metadata`
+  return `${PALETTE_BASE_URL}/v1/dashboard/appProfiles/metadata`
 }
 
 export const dashboardAppProfilesMetadata = async ( options?: RequestInit): Promise<AppProfilesMetadata> => {
@@ -14701,7 +14718,7 @@ export const getEdgeHostsMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/appliances/metadata`
+  return `${PALETTE_BASE_URL}/v1/dashboard/appliances/metadata`
 }
 
 export const edgeHostsMetadata = async (edgeHostsMetadataFilter: EdgeHostsMetadataFilter, options?: RequestInit): Promise<EdgeHostsMetadataSummary> => {
@@ -14739,7 +14756,7 @@ export const getDashboardCloudAccountsMetadataUrl = (params?: DashboardCloudAcco
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/cloudaccounts/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/cloudaccounts/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/cloudaccounts/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/cloudaccounts/metadata`
 }
 
 export const dashboardCloudAccountsMetadata = async (params?: DashboardCloudAccountsMetadataParams, options?: RequestInit): Promise<CloudAccountsMetadata> => {
@@ -14777,7 +14794,7 @@ export const getClusterGroupUidHostClustersSummaryUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/clustergroups/${uid}/hostClusters?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/clustergroups/${uid}/hostClusters`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/clustergroups/${uid}/hostClusters?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/clustergroups/${uid}/hostClusters`
 }
 
 export const clusterGroupUidHostClustersSummary = async (uid: string,
@@ -14818,7 +14835,7 @@ export const getClusterGroupUidVirtualClustersSummaryUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/clustergroups/${uid}/virtualClusters?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/clustergroups/${uid}/virtualClusters`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/clustergroups/${uid}/virtualClusters?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/clustergroups/${uid}/virtualClusters`
 }
 
 export const clusterGroupUidVirtualClustersSummary = async (uid: string,
@@ -14858,7 +14875,7 @@ export const getClusterProfilesFilterSummaryUrl = (params?: ClusterProfilesFilte
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/clusterprofiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/clusterprofiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/clusterprofiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/clusterprofiles`
 }
 
 export const clusterProfilesFilterSummary = async (clusterProfilesFilterSpec: ClusterProfilesFilterSpec,
@@ -14890,7 +14907,7 @@ export const getClusterProfilesMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/clusterprofiles/metadata`
+  return `${PALETTE_BASE_URL}/v1/dashboard/clusterprofiles/metadata`
 }
 
 export const clusterProfilesMetadata = async ( options?: RequestInit): Promise<ClusterProfilesMetadata> => {
@@ -14920,7 +14937,7 @@ export const getClusterProfilesUidSummaryUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/clusterprofiles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/dashboard/clusterprofiles/${uid}`
 }
 
 export const clusterProfilesUidSummary = async (uid: string, options?: RequestInit): Promise<ClusterProfileSummary> => {
@@ -14957,7 +14974,7 @@ export const getDashboardEdgehostsSearchUrl = (params?: DashboardEdgehostsSearch
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/edgehosts/search?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/edgehosts/search`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/edgehosts/search?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/edgehosts/search`
 }
 
 export const dashboardEdgehostsSearch = async (v1SearchFilterSummarySpecBody: V1SearchFilterSummarySpecBody,
@@ -14989,7 +15006,7 @@ export const getDashboardEdgehostsSearchSchemaGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/edgehosts/search/schema`
+  return `${PALETTE_BASE_URL}/v1/dashboard/edgehosts/search/schema`
 }
 
 export const dashboardEdgehostsSearchSchemaGet = async ( options?: RequestInit): Promise<SearchFilterSchemaSpec> => {
@@ -15026,7 +15043,7 @@ export const getDashboardPcgsSearchSummaryUrl = (params?: DashboardPcgsSearchSum
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/pcgs/search?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/pcgs/search`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/pcgs/search?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/pcgs/search`
 }
 
 export const dashboardPcgsSearchSummary = async (v1SearchFilterSummarySpecBody: V1SearchFilterSummarySpecBody,
@@ -15058,7 +15075,7 @@ export const getDashboardPcgSearchSchemaGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/pcgs/search/schema`
+  return `${PALETTE_BASE_URL}/v1/dashboard/pcgs/search/schema`
 }
 
 export const dashboardPcgSearchSchemaGet = async ( options?: RequestInit): Promise<SearchFilterSchemaSpec> => {
@@ -15092,7 +15109,7 @@ export const getProjectsFilterSummaryUrl = (params?: ProjectsFilterSummaryParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/projects?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/projects`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/projects?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/projects`
 }
 
 export const projectsFilterSummary = async (projectsFilterSpec: ProjectsFilterSpec,
@@ -15131,7 +15148,7 @@ export const getProjectsMetadataUrl = (params?: ProjectsMetadataParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/projects/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/projects/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/projects/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/projects/metadata`
 }
 
 export const projectsMetadata = async (params?: ProjectsMetadataParams, options?: RequestInit): Promise<ProjectsMetadata> => {
@@ -15161,7 +15178,7 @@ export const getDashboardSpectroClustersCostSummaryUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/cost`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/cost`
 }
 
 export const dashboardSpectroClustersCostSummary = async (spectroClusterCloudCostSummarySpec: SpectroClusterCloudCostSummarySpec, options?: RequestInit): Promise<ResourcesCloudCostSummary> => {
@@ -15199,7 +15216,7 @@ export const getSpectroClustersFiltersWorkspaceUrl = (params?: SpectroClustersFi
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/filters/workspace?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/filters/workspace`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/filters/workspace?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/filters/workspace`
 }
 
 export const spectroClustersFiltersWorkspace = async (params?: SpectroClustersFiltersWorkspaceParams, options?: RequestInit): Promise<SpectroClustersSummary> => {
@@ -15230,7 +15247,7 @@ export const getSpectroClustersMetaGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/meta`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/meta`
 }
 
 export const spectroClustersMetaGet = async ( options?: RequestInit): Promise<SpectroClustersMeta> => {
@@ -15267,7 +15284,7 @@ export const getSpectroClustersMetadataGetUrl = (params?: SpectroClustersMetadat
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/metadata`
 }
 
 export const spectroClustersMetadataGet = async (params?: SpectroClustersMetadataGetParams, options?: RequestInit): Promise<SpectroClustersMetadata> => {
@@ -15297,7 +15314,7 @@ export const getSpectroClustersMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/metadata`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/metadata`
 }
 
 export const spectroClustersMetadata = async (spectroClusterMetadataSpec: SpectroClusterMetadataSpec, options?: RequestInit): Promise<SpectroClustersMetadata> => {
@@ -15328,7 +15345,7 @@ export const getSpectroClustersMetadataSearchUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/metadata/search`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/metadata/search`
 }
 
 export const spectroClustersMetadataSearch = async (v1SearchFilterSummarySpecBody: V1SearchFilterSummarySpecBody, options?: RequestInit): Promise<SpectroClustersMetadataSearch> => {
@@ -15359,7 +15376,7 @@ export const getSpectroClustersMetadataSearchSchemaUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/metadata/search/schema`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/metadata/search/schema`
 }
 
 export const spectroClustersMetadataSearchSchema = async ( options?: RequestInit): Promise<SearchFilterSchemaSpec> => {
@@ -15396,7 +15413,7 @@ export const getDashboardSpectroClustersRepaveListUrl = (params?: DashboardSpect
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/repaveStatus?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/repaveStatus`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/repaveStatus?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/repaveStatus`
 }
 
 export const dashboardSpectroClustersRepaveList = async (params?: DashboardSpectroClustersRepaveListParams, options?: RequestInit): Promise<SpectroClustersSummary> => {
@@ -15426,7 +15443,7 @@ export const getSpectroClustersResourcesConsumptionUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/resources/consumption`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/resources/consumption`
 }
 
 export const spectroClustersResourcesConsumption = async (v1ResourceConsumptionSpecBody: V1ResourceConsumptionSpecBody, options?: RequestInit): Promise<ResourcesConsumption> => {
@@ -15457,7 +15474,7 @@ export const getSpectroClustersResourcesCostSummaryUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/resources/cost`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/resources/cost`
 }
 
 export const spectroClustersResourcesCostSummary = async (resourceCostSummarySpec: ResourceCostSummarySpec, options?: RequestInit): Promise<ResourcesCostSummary> => {
@@ -15488,7 +15505,7 @@ export const getSpectroClustersResourcesUsageSummaryUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/resources/usage`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/resources/usage`
 }
 
 export const spectroClustersResourcesUsageSummary = async (resourceUsageSummarySpec: ResourceUsageSummarySpec, options?: RequestInit): Promise<ResourcesUsageSummary> => {
@@ -15526,7 +15543,7 @@ export const getSpectroClustersSearchFilterSummaryUrl = (params?: SpectroCluster
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search`
 }
 
 export const spectroClustersSearchFilterSummary = async (v1SearchFilterSummarySpecBody: V1SearchFilterSummarySpecBody,
@@ -15565,7 +15582,7 @@ export const getDashboardClustersSearchSummaryExportGetUrl = (params?: Dashboard
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/export?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/export`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/export?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/export`
 }
 
 export const dashboardClustersSearchSummaryExportGet = async (params?: DashboardClustersSearchSummaryExportGetParams, options?: RequestInit): Promise<Blob> => {
@@ -15602,7 +15619,7 @@ export const getDashboardClustersSearchSummaryExportUrl = (params?: DashboardClu
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/export?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/export`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/export?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/export`
 }
 
 export const dashboardClustersSearchSummaryExport = async (v1SearchFilterSummarySpecBody: V1SearchFilterSummarySpecBody,
@@ -15634,7 +15651,7 @@ export const getDashboardSpectroClustersSearchInputUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/input`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/input`
 }
 
 export const dashboardSpectroClustersSearchInput = async ( options?: RequestInit): Promise<ClusterSearchInputSpec> => {
@@ -15664,7 +15681,7 @@ export const getSpectroClustersSearchSchemaUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/search/schema`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/search/schema`
 }
 
 export const spectroClustersSearchSchema = async ( options?: RequestInit): Promise<SearchFilterSchemaSpec> => {
@@ -15694,7 +15711,7 @@ export const getV1DashboardVMEnabledClustersListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/vms`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/vms`
 }
 
 export const v1DashboardVMEnabledClustersList = async ( options?: RequestInit): Promise<VMClusters> => {
@@ -15724,7 +15741,7 @@ export const getSpectroClustersSummaryUidUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}`
 }
 
 export const spectroClustersSummaryUid = async (uid: string, options?: RequestInit): Promise<SpectroClusterUidSummary> => {
@@ -15762,7 +15779,7 @@ export const getSpectroClustersUidCostSummaryUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/cost?${stringifiedParams}` : `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/cost`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/cost?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/cost`
 }
 
 export const spectroClustersUidCostSummary = async (uid: string,
@@ -15793,7 +15810,7 @@ export const getSpectroClustersSummaryUidOverviewUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/overview`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/overview`
 }
 
 export const spectroClustersSummaryUidOverview = async (uid: string, options?: RequestInit): Promise<SpectroClusterUidSummary> => {
@@ -15823,7 +15840,7 @@ export const getSpectroClustersUidResourcesConsumptionUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/resources/consumption`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/resources/consumption`
 }
 
 export const spectroClustersUidResourcesConsumption = async (uid: string,
@@ -15855,7 +15872,7 @@ export const getDashboardSpectroClustersUidWorkloadsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads`
 }
 
 export const dashboardSpectroClustersUidWorkloads = async (uid: string,
@@ -15887,7 +15904,7 @@ export const getDashboardSpectroClustersUidWorkloadsClusterRoleBindingUrl = (uid
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/clusterrolebinding`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/clusterrolebinding`
 }
 
 export const dashboardSpectroClustersUidWorkloadsClusterRoleBinding = async (uid: string,
@@ -15919,7 +15936,7 @@ export const getDashboardSpectroClustersUidWorkloadsCronJobUrl = (uid: string,) 
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/cronjob`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/cronjob`
 }
 
 export const dashboardSpectroClustersUidWorkloadsCronJob = async (uid: string,
@@ -15951,7 +15968,7 @@ export const getDashboardSpectroClustersUidWorkloadsDaemonSetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/daemonset`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/daemonset`
 }
 
 export const dashboardSpectroClustersUidWorkloadsDaemonSet = async (uid: string,
@@ -15983,7 +16000,7 @@ export const getDashboardSpectroClustersUidWorkloadsDeploymentUrl = (uid: string
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/deployment`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/deployment`
 }
 
 export const dashboardSpectroClustersUidWorkloadsDeployment = async (uid: string,
@@ -16015,7 +16032,7 @@ export const getDashboardSpectroClustersUidWorkloadsJobUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/job`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/job`
 }
 
 export const dashboardSpectroClustersUidWorkloadsJob = async (uid: string,
@@ -16047,7 +16064,7 @@ export const getDashboardSpectroClustersUidWorkloadsNamespaceUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/namespace`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/namespace`
 }
 
 export const dashboardSpectroClustersUidWorkloadsNamespace = async (uid: string,
@@ -16079,7 +16096,7 @@ export const getDashboardSpectroClustersUidWorkloadsPodUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/pod`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/pod`
 }
 
 export const dashboardSpectroClustersUidWorkloadsPod = async (uid: string,
@@ -16111,7 +16128,7 @@ export const getDashboardSpectroClustersUidWorkloadsRoleBindingUrl = (uid: strin
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/rolebinding`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/rolebinding`
 }
 
 export const dashboardSpectroClustersUidWorkloadsRoleBinding = async (uid: string,
@@ -16143,7 +16160,7 @@ export const getDashboardSpectroClustersUidWorkloadsStatefulSetUrl = (uid: strin
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/spectroclusters/${uid}/workloads/statefulset`
+  return `${PALETTE_BASE_URL}/v1/dashboard/spectroclusters/${uid}/workloads/statefulset`
 }
 
 export const dashboardSpectroClustersUidWorkloadsStatefulSet = async (uid: string,
@@ -16175,7 +16192,7 @@ export const getDashboardWorkspacesListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces`
 }
 
 export const dashboardWorkspacesList = async ( options?: RequestInit): Promise<DashboardWorkspaces> => {
@@ -16205,7 +16222,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/clusterrolebinding`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/clusterrolebinding`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsClusterRoleBinding = async (uid: string,
@@ -16237,7 +16254,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsCronJobUrl = (uid:
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/cronjob`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/cronjob`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsCronJob = async (uid: string,
@@ -16269,7 +16286,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsDaemonSetUrl = (ui
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/daemonset`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/daemonset`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsDaemonSet = async (uid: string,
@@ -16301,7 +16318,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsDeploymentUrl = (u
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/deployment`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/deployment`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsDeployment = async (uid: string,
@@ -16333,7 +16350,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsJobUrl = (uid: str
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/job`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/job`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsJob = async (uid: string,
@@ -16365,7 +16382,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsNamespaceUrl = (ui
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/namespace`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/namespace`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsNamespace = async (uid: string,
@@ -16397,7 +16414,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsPodUrl = (uid: str
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/pod`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/pod`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsPod = async (uid: string,
@@ -16429,7 +16446,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsRoleBindingUrl = (
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/rolebinding`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/rolebinding`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsRoleBinding = async (uid: string,
@@ -16461,7 +16478,7 @@ export const getDashboardWorkspacesUidSpectroClustersWorkloadsStatefulSetUrl = (
 
   
 
-  return `https://api.spectrocloud.com/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/statefulset`
+  return `${PALETTE_BASE_URL}/v1/dashboard/workspaces/${uid}/spectroclusters/workloads/statefulset`
 }
 
 export const dashboardWorkspacesUidSpectroClustersWorkloadsStatefulSet = async (uid: string,
@@ -16494,7 +16511,7 @@ export const getV1DataSinksCloudWatchSinkUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/datasinks/cloudwatch`
+  return `${PALETTE_BASE_URL}/v1/datasinks/cloudwatch`
 }
 
 export const v1DataSinksCloudWatchSink = async (v1DataSinkCloudWatchConfig: V1DataSinkCloudWatchConfig, options?: RequestInit): Promise<void> => {
@@ -16525,7 +16542,7 @@ export const getEdgeHostDevicesCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts`
+  return `${PALETTE_BASE_URL}/v1/edgehosts`
 }
 
 export const edgeHostDevicesCreate = async (edgeHostDeviceEntity: EdgeHostDeviceEntity, options?: RequestInit): Promise<Uid> => {
@@ -16563,7 +16580,7 @@ export const getEdgeHostsMetadataQuickFilterGetUrl = (params?: EdgeHostsMetadata
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/edgehosts/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/edgehosts/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/edgehosts/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/edgehosts/metadata`
 }
 
 export const edgeHostsMetadataQuickFilterGet = async (params?: EdgeHostsMetadataQuickFilterGetParams, options?: RequestInit): Promise<EdgeHostsMeta> => {
@@ -16593,7 +16610,7 @@ export const getEdgeHostDevicesRegisterUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/register`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/register`
 }
 
 export const edgeHostDevicesRegister = async (v1EdgeHostDeviceBody: V1EdgeHostDeviceBody, options?: RequestInit): Promise<EdgeHostDevice> => {
@@ -16624,7 +16641,7 @@ export const getEdgeHostsTagsGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tags`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tags`
 }
 
 export const edgeHostsTagsGet = async ( options?: RequestInit): Promise<EdgeHostsTags> => {
@@ -16654,7 +16671,7 @@ export const getEdgeTokensListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens`
 }
 
 export const edgeTokensList = async ( options?: RequestInit): Promise<EdgeTokens> => {
@@ -16684,7 +16701,7 @@ export const getEdgeTokensCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens`
 }
 
 export const edgeTokensCreate = async (edgeTokenEntity: EdgeTokenEntity, options?: RequestInit): Promise<Uid> => {
@@ -16715,7 +16732,7 @@ export const getEdgeTokensUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens/${uid}`
 }
 
 export const edgeTokensUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -16745,7 +16762,7 @@ export const getEdgeTokensUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens/${uid}`
 }
 
 export const edgeTokensUidGet = async (uid: string, options?: RequestInit): Promise<EdgeToken> => {
@@ -16775,7 +16792,7 @@ export const getEdgeTokensUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens/${uid}`
 }
 
 export const edgeTokensUidUpdate = async (uid: string,
@@ -16807,7 +16824,7 @@ export const getEdgeTokensUidStateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/tokens/${uid}/state`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/tokens/${uid}/state`
 }
 
 export const edgeTokensUidState = async (uid: string,
@@ -16839,7 +16856,7 @@ export const getEdgeHostDevicesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}`
 }
 
 export const edgeHostDevicesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -16877,7 +16894,7 @@ export const getEdgeHostDevicesUidGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/edgehosts/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/edgehosts/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/edgehosts/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/edgehosts/${uid}`
 }
 
 export const edgeHostDevicesUidGet = async (uid: string,
@@ -16908,7 +16925,7 @@ export const getEdgeHostDevicesUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}`
 }
 
 export const edgeHostDevicesUidUpdate = async (uid: string,
@@ -16940,7 +16957,7 @@ export const getEdgeHostDevicesUidClusterDeassociateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/cluster/associate`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/cluster/associate`
 }
 
 export const edgeHostDevicesUidClusterDeassociate = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -16970,7 +16987,7 @@ export const getEdgeHostDevicesUidClusterAssociateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/cluster/associate`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/cluster/associate`
 }
 
 export const edgeHostDevicesUidClusterAssociate = async (uid: string,
@@ -17002,7 +17019,7 @@ export const getEdgeHostDevicesUidConfigGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/config`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/config`
 }
 
 export const edgeHostDevicesUidConfigGet = async (uid: string, options?: RequestInit): Promise<EdgeHostConfig> => {
@@ -17032,7 +17049,7 @@ export const getEdgeHostDevicesHealthUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/health`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/health`
 }
 
 export const edgeHostDevicesHealthUpdate = async (uid: string,
@@ -17064,7 +17081,7 @@ export const getEdgeHostDeviceHostCheckSumUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/hostCheckSum`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/hostCheckSum`
 }
 
 export const edgeHostDeviceHostCheckSumUpdate = async (uid: string,
@@ -17096,7 +17113,7 @@ export const getEdgeHostDeviceHostPairingKeyUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/hostPairingKey`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/hostPairingKey`
 }
 
 export const edgeHostDeviceHostPairingKeyUpdate = async (uid: string,
@@ -17128,7 +17145,7 @@ export const getEdgeHostDevicesUidMetaUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/meta`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/meta`
 }
 
 export const edgeHostDevicesUidMetaUpdate = async (uid: string,
@@ -17169,7 +17186,7 @@ export const getEdgeHostDevicesUidPackManifestsUidGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/edgehosts/${uid}/pack/manifests/${manifestUid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/edgehosts/${uid}/pack/manifests/${manifestUid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/pack/manifests/${manifestUid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/pack/manifests/${manifestUid}`
 }
 
 export const edgeHostDevicesUidPackManifestsUidGet = async (uid: string,
@@ -17201,7 +17218,7 @@ export const getEdgeHostDevicesUidPacksStatusPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/packs/status`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/packs/status`
 }
 
 export const edgeHostDevicesUidPacksStatusPatch = async (uid: string,
@@ -17241,7 +17258,7 @@ export const getEdgeHostDevicesUidProfilesGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/edgehosts/${uid}/profiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/edgehosts/${uid}/profiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/profiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/profiles`
 }
 
 export const edgeHostDevicesUidProfilesGet = async (uid: string,
@@ -17272,7 +17289,7 @@ export const getEdgeHostDevicesUidProfilesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/profiles`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/profiles`
 }
 
 export const edgeHostDevicesUidProfilesUpdate = async (uid: string,
@@ -17304,7 +17321,7 @@ export const getV1EdgeHostsUidResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/reset`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/reset`
 }
 
 export const v1EdgeHostsUidReset = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -17334,7 +17351,7 @@ export const getEdgeHostDevicesUidSpcDownloadUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/spc/download`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/spc/download`
 }
 
 export const edgeHostDevicesUidSpcDownload = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -17364,7 +17381,7 @@ export const getEdgeHostDevicesUidTunnelConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/tunnelConfig`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/tunnelConfig`
 }
 
 export const edgeHostDevicesUidTunnelConfigUpdate = async (uid: string,
@@ -17396,7 +17413,7 @@ export const getEdgeHostDevicesUidTunnelStatusUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/tunnelStatus`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/tunnelStatus`
 }
 
 export const edgeHostDevicesUidTunnelStatusUpdate = async (uid: string,
@@ -17428,7 +17445,7 @@ export const getEdgeHostDevicesUidVspherePropertiesUpdateUrl = (uid: string,) =>
 
   
 
-  return `https://api.spectrocloud.com/v1/edgehosts/${uid}/vsphere/properties`
+  return `${PALETTE_BASE_URL}/v1/edgehosts/${uid}/vsphere/properties`
 }
 
 export const edgeHostDevicesUidVspherePropertiesUpdate = async (uid: string,
@@ -17468,7 +17485,7 @@ export const getEventsComponentsListUrl = (params?: EventsComponentsListParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/events/components?${stringifiedParams}` : `https://api.spectrocloud.com/v1/events/components`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/events/components?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/events/components`
 }
 
 export const eventsComponentsList = async (params?: EventsComponentsListParams, options?: RequestInit): Promise<Events> => {
@@ -17499,7 +17516,7 @@ export const getEventsComponentsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/events/components`
+  return `${PALETTE_BASE_URL}/v1/events/components`
 }
 
 export const eventsComponentsCreate = async (event: Event, options?: RequestInit): Promise<Uid> => {
@@ -17531,7 +17548,7 @@ export const getEventsComponentsCreateBulkUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/events/components/bulk`
+  return `${PALETTE_BASE_URL}/v1/events/components/bulk`
 }
 
 export const eventsComponentsCreateBulk = async (bulkEvents: BulkEvents, options?: RequestInit): Promise<Uids> => {
@@ -17563,7 +17580,7 @@ export const getEventsComponentsObjTypeUidDeleteUrl = (objectKind: 'spectroclust
 
   
 
-  return `https://api.spectrocloud.com/v1/events/components/${objectKind}/${objectUid}`
+  return `${PALETTE_BASE_URL}/v1/events/components/${objectKind}/${objectUid}`
 }
 
 export const eventsComponentsObjTypeUidDelete = async (objectKind: 'spectrocluster' | 'edgehost',
@@ -17604,7 +17621,7 @@ export const getEventsComponentsObjTypeUidListUrl = (objectKind: 'spectrocluster
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/events/components/${objectKind}/${objectUid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/events/components/${objectKind}/${objectUid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/events/components/${objectKind}/${objectUid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/events/components/${objectKind}/${objectUid}`
 }
 
 export const eventsComponentsObjTypeUidList = async (objectKind: 'spectrocluster' | 'edgehost',
@@ -17636,7 +17653,7 @@ export const getFeaturesListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/features`
+  return `${PALETTE_BASE_URL}/v1/features`
 }
 
 export const featuresList = async ( options?: RequestInit): Promise<Features> => {
@@ -17666,7 +17683,7 @@ export const getFeaturesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/features/${uid}`
+  return `${PALETTE_BASE_URL}/v1/features/${uid}`
 }
 
 export const featuresUpdate = async (uid: string,
@@ -17705,7 +17722,7 @@ export const getFiltersListUrl = (params?: FiltersListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/filters?${stringifiedParams}` : `https://api.spectrocloud.com/v1/filters`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/filters?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/filters`
 }
 
 export const filtersList = async (params?: FiltersListParams, options?: RequestInit): Promise<FiltersSummary> => {
@@ -17742,7 +17759,7 @@ export const getFiltersMetadataUrl = (params?: FiltersMetadataParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/filters/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/filters/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/filters/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/filters/metadata`
 }
 
 export const filtersMetadata = async (params?: FiltersMetadataParams, options?: RequestInit): Promise<FiltersMetadata> => {
@@ -17772,7 +17789,7 @@ export const getTagFiltersCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/filters/tag`
+  return `${PALETTE_BASE_URL}/v1/filters/tag`
 }
 
 export const tagFiltersCreate = async (v1TagFilterBody: V1TagFilterBody, options?: RequestInit): Promise<Uid> => {
@@ -17803,7 +17820,7 @@ export const getTagFilterUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/filters/tag/${uid}`
+  return `${PALETTE_BASE_URL}/v1/filters/tag/${uid}`
 }
 
 export const tagFilterUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -17833,7 +17850,7 @@ export const getTagFilterUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/filters/tag/${uid}`
+  return `${PALETTE_BASE_URL}/v1/filters/tag/${uid}`
 }
 
 export const tagFilterUidGet = async (uid: string, options?: RequestInit): Promise<TagFilterSummary> => {
@@ -17863,7 +17880,7 @@ export const getTagFilterUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/filters/tag/${uid}`
+  return `${PALETTE_BASE_URL}/v1/filters/tag/${uid}`
 }
 
 export const tagFilterUidUpdate = async (uid: string,
@@ -17904,7 +17921,7 @@ export const getMetricsListUrl = (resourceKind: 'pod' | 'namespace' | 'spectrocl
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/metrics/${resourceKind}/values?${stringifiedParams}` : `https://api.spectrocloud.com/v1/metrics/${resourceKind}/values`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/metrics/${resourceKind}/values?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/metrics/${resourceKind}/values`
 }
 
 export const metricsList = async (resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
@@ -17936,7 +17953,7 @@ export const getMetricsUidDeleteUrl = (resourceKind: 'pod' | 'namespace' | 'spec
 
   
 
-  return `https://api.spectrocloud.com/v1/metrics/${resourceKind}/${resourceUid}/values`
+  return `${PALETTE_BASE_URL}/v1/metrics/${resourceKind}/${resourceUid}/values`
 }
 
 export const metricsUidDelete = async (resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
@@ -17976,7 +17993,7 @@ export const getMetricsUidListUrl = (resourceKind: 'pod' | 'namespace' | 'spectr
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/metrics/${resourceKind}/${resourceUid}/values?${stringifiedParams}` : `https://api.spectrocloud.com/v1/metrics/${resourceKind}/${resourceUid}/values`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/metrics/${resourceKind}/${resourceUid}/values?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/metrics/${resourceKind}/${resourceUid}/values`
 }
 
 export const metricsUidList = async (resourceKind: 'pod' | 'namespace' | 'spectrocluster' | 'machine' | 'project',
@@ -18016,7 +18033,7 @@ export const getNotificationsListUrl = (params?: NotificationsListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/notifications/?${stringifiedParams}` : `https://api.spectrocloud.com/v1/notifications/`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/notifications/?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/notifications/`
 }
 
 export const notificationsList = async (params?: NotificationsListParams, options?: RequestInit): Promise<Notifications> => {
@@ -18047,7 +18064,7 @@ export const getNotificationsEventCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/notifications/events`
+  return `${PALETTE_BASE_URL}/v1/notifications/events`
 }
 
 export const notificationsEventCreate = async (notificationEvent: NotificationEvent, options?: RequestInit): Promise<Uid> => {
@@ -18088,7 +18105,7 @@ export const getNotificationsObjTypeUidListUrl = (objectKind: 'spectrocluster' |
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/notifications/${objectKind}/${objectUid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/notifications/${objectKind}/${objectUid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/notifications/${objectKind}/${objectUid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/notifications/${objectKind}/${objectUid}`
 }
 
 export const notificationsObjTypeUidList = async (objectKind: 'spectrocluster' | 'clusterprofile' | 'appdeployment',
@@ -18121,7 +18138,7 @@ export const getNotificationsUidAckUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/notifications/${uid}/ack`
+  return `${PALETTE_BASE_URL}/v1/notifications/${uid}/ack`
 }
 
 export const notificationsUidAck = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -18152,7 +18169,7 @@ export const getNotificationsUidDoneUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/notifications/${uid}/done`
+  return `${PALETTE_BASE_URL}/v1/notifications/${uid}/done`
 }
 
 export const notificationsUidDone = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -18189,7 +18206,7 @@ export const getOverlordsListUrl = (params?: OverlordsListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords`
 }
 
 export const overlordsList = async (params?: OverlordsListParams, options?: RequestInit): Promise<Overlords> => {
@@ -18224,7 +18241,7 @@ export const getV1OverlordsMaasManifestUrl = (params: V1OverlordsMaasManifestPar
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords/maas/manifest?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords/maas/manifest`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords/maas/manifest?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords/maas/manifest`
 }
 
 export const v1OverlordsMaasManifest = async (params: V1OverlordsMaasManifestParams, options?: RequestInit): Promise<OverlordManifest> => {
@@ -18254,7 +18271,7 @@ export const getOverlordsUidMaasAccountCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/account`
 }
 
 export const overlordsUidMaasAccountCreate = async (uid: string,
@@ -18286,7 +18303,7 @@ export const getOverlordsUidMaasAccountUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/account`
 }
 
 export const overlordsUidMaasAccountUpdate = async (uid: string,
@@ -18318,7 +18335,7 @@ export const getOverlordsUidMaasAccountValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/account/validate`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/account/validate`
 }
 
 export const overlordsUidMaasAccountValidate = async (uid: string,
@@ -18350,7 +18367,7 @@ export const getV1OverlordsUidMaasCloudConfigCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/cloudconfig`
 }
 
 export const v1OverlordsUidMaasCloudConfigCreate = async (uid: string,
@@ -18382,7 +18399,7 @@ export const getV1OverlordsUidMaasCloudConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/cloudconfig`
 }
 
 export const v1OverlordsUidMaasCloudConfigUpdate = async (uid: string,
@@ -18414,7 +18431,7 @@ export const getOverlordsUidMaasClusterProfileUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/maas/${uid}/clusterprofile`
+  return `${PALETTE_BASE_URL}/v1/overlords/maas/${uid}/clusterprofile`
 }
 
 export const overlordsUidMaasClusterProfile = async (uid: string, options?: RequestInit): Promise<ClusterProfile> => {
@@ -18444,7 +18461,7 @@ export const getV1OverlordsMigrateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/migrate`
+  return `${PALETTE_BASE_URL}/v1/overlords/migrate`
 }
 
 export const v1OverlordsMigrate = async (overlordMigrateEntity: OverlordMigrateEntity, options?: RequestInit): Promise<void> => {
@@ -18480,7 +18497,7 @@ export const getOverlordsOpenStackManifestUrl = (params: OverlordsOpenStackManif
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords/openstack/manifest?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords/openstack/manifest`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords/openstack/manifest?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords/openstack/manifest`
 }
 
 export const overlordsOpenStackManifest = async (params: OverlordsOpenStackManifestParams, options?: RequestInit): Promise<OverlordManifest> => {
@@ -18510,7 +18527,7 @@ export const getOverlordsUidOpenStackAccountCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/account`
 }
 
 export const overlordsUidOpenStackAccountCreate = async (uid: string,
@@ -18542,7 +18559,7 @@ export const getOverlordsUidOpenStackAccountUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/account`
 }
 
 export const overlordsUidOpenStackAccountUpdate = async (uid: string,
@@ -18574,7 +18591,7 @@ export const getOverlordsUidOpenStackAccountValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/account/validate`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/account/validate`
 }
 
 export const overlordsUidOpenStackAccountValidate = async (uid: string,
@@ -18606,7 +18623,7 @@ export const getOverlordsUidOpenStackCloudConfigCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/cloudconfig`
 }
 
 export const overlordsUidOpenStackCloudConfigCreate = async (uid: string,
@@ -18638,7 +18655,7 @@ export const getOverlordsUidOpenStackCloudConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/cloudconfig`
 }
 
 export const overlordsUidOpenStackCloudConfigUpdate = async (uid: string,
@@ -18670,7 +18687,7 @@ export const getOverlordsUidOpenStackClusterProfileUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/openstack/${uid}/clusterprofile`
+  return `${PALETTE_BASE_URL}/v1/overlords/openstack/${uid}/clusterprofile`
 }
 
 export const overlordsUidOpenStackClusterProfile = async (uid: string, options?: RequestInit): Promise<ClusterProfile> => {
@@ -18707,7 +18724,7 @@ export const getOverlordsPairingCodeUrl = (params?: OverlordsPairingCodeParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords/pairing/code?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords/pairing/code`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords/pairing/code?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords/pairing/code`
 }
 
 export const overlordsPairingCode = async (params?: OverlordsPairingCodeParams, options?: RequestInit): Promise<PairingCode> => {
@@ -18742,7 +18759,7 @@ export const getOverlordsVsphereManifestUrl = (params: OverlordsVsphereManifestP
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords/vsphere/manifest?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords/vsphere/manifest`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords/vsphere/manifest?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords/vsphere/manifest`
 }
 
 export const overlordsVsphereManifest = async (params: OverlordsVsphereManifestParams, options?: RequestInit): Promise<OverlordManifest> => {
@@ -18772,7 +18789,7 @@ export const getOverlordsVsphereOvaGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/ova`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/ova`
 }
 
 export const overlordsVsphereOvaGet = async ( options?: RequestInit): Promise<OverloadVsphereOva> => {
@@ -18802,7 +18819,7 @@ export const getOverlordsUidVsphereAccountCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/account`
 }
 
 export const overlordsUidVsphereAccountCreate = async (uid: string,
@@ -18834,7 +18851,7 @@ export const getOverlordsUidVsphereAccountUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/account`
 }
 
 export const overlordsUidVsphereAccountUpdate = async (uid: string,
@@ -18866,7 +18883,7 @@ export const getOverlordsUidVsphereAccountValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/account/validate`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/account/validate`
 }
 
 export const overlordsUidVsphereAccountValidate = async (uid: string,
@@ -18898,7 +18915,7 @@ export const getOverlordsUidVsphereCloudConfigCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/cloudconfig`
 }
 
 export const overlordsUidVsphereCloudConfigCreate = async (uid: string,
@@ -18930,7 +18947,7 @@ export const getOverlordsUidVsphereCloudConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/cloudconfig`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/cloudconfig`
 }
 
 export const overlordsUidVsphereCloudConfigUpdate = async (uid: string,
@@ -18962,7 +18979,7 @@ export const getOverlordsUidVsphereClusterProfileUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/clusterprofile`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/clusterprofile`
 }
 
 export const overlordsUidVsphereClusterProfile = async (uid: string, options?: RequestInit): Promise<ClusterProfile> => {
@@ -18992,7 +19009,7 @@ export const getOverlordsUidPoolsListUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/pools`
 }
 
 export const overlordsUidPoolsList = async (uid: string, options?: RequestInit): Promise<IpPools> => {
@@ -19022,7 +19039,7 @@ export const getOverlordsUidPoolCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/pools`
 }
 
 export const overlordsUidPoolCreate = async (uid: string,
@@ -19055,7 +19072,7 @@ export const getOverlordsUidPoolDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools/${poolUid}`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/pools/${poolUid}`
 }
 
 export const overlordsUidPoolDelete = async (uid: string,
@@ -19087,7 +19104,7 @@ export const getOverlordsUidPoolUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/pools/${poolUid}`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/pools/${poolUid}`
 }
 
 export const overlordsUidPoolUpdate = async (uid: string,
@@ -19126,7 +19143,7 @@ export const getOverlordsUidVsphereComputeclusterResUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/properties/computecluster/resources?${stringifiedParams}` : `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/properties/computecluster/resources`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/properties/computecluster/resources?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/properties/computecluster/resources`
 }
 
 export const overlordsUidVsphereComputeclusterRes = async (uid: string,
@@ -19157,7 +19174,7 @@ export const getOverlordsUidVsphereDatacentersUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/vsphere/${uid}/properties/datacenters`
+  return `${PALETTE_BASE_URL}/v1/overlords/vsphere/${uid}/properties/datacenters`
 }
 
 export const overlordsUidVsphereDatacenters = async (uid: string, options?: RequestInit): Promise<VsphereDatacenters> => {
@@ -19187,7 +19204,7 @@ export const getOverlordsUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/${uid}`
+  return `${PALETTE_BASE_URL}/v1/overlords/${uid}`
 }
 
 export const overlordsUidDelete = async (uid: string, options?: RequestInit): Promise<DeletedMsg> => {
@@ -19217,7 +19234,7 @@ export const getOverlordsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/${uid}`
+  return `${PALETTE_BASE_URL}/v1/overlords/${uid}`
 }
 
 export const overlordsUidGet = async (uid: string, options?: RequestInit): Promise<Overlord> => {
@@ -19247,7 +19264,7 @@ export const getOverlordsUidMetadataUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/${uid}/metadata`
+  return `${PALETTE_BASE_URL}/v1/overlords/${uid}/metadata`
 }
 
 export const overlordsUidMetadataUpdate = async (uid: string,
@@ -19279,7 +19296,7 @@ export const getOverlordsUidResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/overlords/${uid}/reset`
+  return `${PALETTE_BASE_URL}/v1/overlords/${uid}/reset`
 }
 
 export const overlordsUidReset = async (uid: string, options?: RequestInit): Promise<UpdatedMsg> => {
@@ -19316,7 +19333,7 @@ export const getPacksSummaryListUrl = (params?: PacksSummaryListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/packs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/packs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/packs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/packs`
 }
 
 export const packsSummaryList = async (params?: PacksSummaryListParams, options?: RequestInit): Promise<PackSummaries> => {
@@ -19353,7 +19370,7 @@ export const getPacksSearchUrl = (params?: PacksSearchParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/packs/search?${stringifiedParams}` : `https://api.spectrocloud.com/v1/packs/search`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/packs/search?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/packs/search`
 }
 
 export const packsSearch = async (packsFilterSpec: PacksFilterSpec,
@@ -19392,7 +19409,7 @@ export const getPacksNameRegistryUidListUrl = (packName: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/packs/${packName}/registries/${registryUid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/packs/${packName}/registries/${registryUid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/packs/${packName}/registries/${registryUid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/packs/${packName}/registries/${registryUid}`
 }
 
 export const packsNameRegistryUidList = async (packName: string,
@@ -19424,7 +19441,7 @@ export const getPacksPackUidLogoUrl = (packUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/packs/${packUid}/logo`
+  return `${PALETTE_BASE_URL}/v1/packs/${packUid}/logo`
 }
 
 export const packsPackUidLogo = async (packUid: string, options?: RequestInit): Promise<Blob> => {
@@ -19454,7 +19471,7 @@ export const getPacksUidUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/packs/${uid}`
+  return `${PALETTE_BASE_URL}/v1/packs/${uid}`
 }
 
 export const packsUid = async (uid: string, options?: RequestInit): Promise<PackTagEntity> => {
@@ -19484,7 +19501,7 @@ export const getPacksUidReadmeUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/packs/${uid}/readme`
+  return `${PALETTE_BASE_URL}/v1/packs/${uid}/readme`
 }
 
 export const packsUidReadme = async (uid: string, options?: RequestInit): Promise<PackReadme> => {
@@ -19514,7 +19531,7 @@ export const getPcgSelfHostedUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/pcg/selfHosted`
+  return `${PALETTE_BASE_URL}/v1/pcg/selfHosted`
 }
 
 export const pcgSelfHosted = async (pcgSelfHostedParams: PcgSelfHostedParams, options?: RequestInit): Promise<PcgServiceKubectlCommands> => {
@@ -19545,7 +19562,7 @@ export const getPcgUidRegisterUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/pcg/${uid}/register`
+  return `${PALETTE_BASE_URL}/v1/pcg/${uid}/register`
 }
 
 export const pcgUidRegister = async (uid: string,
@@ -19577,7 +19594,7 @@ export const getPcgUidAllyManifestGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/pcg/${uid}/services/ally/manifest`
+  return `${PALETTE_BASE_URL}/v1/pcg/${uid}/services/ally/manifest`
 }
 
 export const pcgUidAllyManifestGet = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -19607,7 +19624,7 @@ export const getPcgUidJetManifestGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/pcg/${uid}/services/jet/manifest`
+  return `${PALETTE_BASE_URL}/v1/pcg/${uid}/services/jet/manifest`
 }
 
 export const pcgUidJetManifestGet = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -19644,7 +19661,7 @@ export const getPermissionsListUrl = (params?: PermissionsListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/permissions?${stringifiedParams}` : `https://api.spectrocloud.com/v1/permissions`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/permissions?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/permissions`
 }
 
 export const permissionsList = async (params?: PermissionsListParams, options?: RequestInit): Promise<Permissions> => {
@@ -19674,7 +19691,7 @@ export const getProjectsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects`
+  return `${PALETTE_BASE_URL}/v1/projects`
 }
 
 export const projectsCreate = async (v1ProjectEntityBody: V1ProjectEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -19705,7 +19722,7 @@ export const getProjectsAlertsUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/alerts`
+  return `${PALETTE_BASE_URL}/v1/projects/alerts`
 }
 
 export const projectsAlerts = async ( options?: RequestInit): Promise<ProjectAlertComponents> => {
@@ -19743,7 +19760,7 @@ export const getProjectsUidDeleteUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/projects/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/projects/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/projects/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/projects/${uid}`
 }
 
 export const projectsUidDelete = async (uid: string,
@@ -19776,7 +19793,7 @@ export const getProjectsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}`
 }
 
 export const projectsUidGet = async (uid: string, options?: RequestInit): Promise<Project> => {
@@ -19806,7 +19823,7 @@ export const getProjectsUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}`
 }
 
 export const projectsUidUpdate = async (uid: string,
@@ -19839,7 +19856,7 @@ export const getProjectsUidAlertDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}`
 }
 
 export const projectsUidAlertDelete = async (uid: string,
@@ -19871,7 +19888,7 @@ export const getProjectsUidAlertCreateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}`
 }
 
 export const projectsUidAlertCreate = async (uid: string,
@@ -19905,7 +19922,7 @@ export const getProjectsUidAlertUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}`
 }
 
 export const projectsUidAlertUpdate = async (uid: string,
@@ -19940,7 +19957,7 @@ export const getProjectsUidAlertsUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}/${alertUid}`
 }
 
 export const projectsUidAlertsUidDelete = async (uid: string,
@@ -19974,7 +19991,7 @@ export const getProjectsUidAlertsUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}/${alertUid}`
 }
 
 export const projectsUidAlertsUidGet = async (uid: string,
@@ -20008,7 +20025,7 @@ export const getProjectsUidAlertsUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/alerts/${component}/${alertUid}`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/alerts/${component}/${alertUid}`
 }
 
 export const projectsUidAlertsUidUpdate = async (uid: string,
@@ -20042,7 +20059,7 @@ export const getProjectsUidMacrosDeleteByMacroNameUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/macros`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/macros`
 }
 
 export const projectsUidMacrosDeleteByMacroName = async (uid: string,
@@ -20074,7 +20091,7 @@ export const getProjectsUidMacrosListUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/macros`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/macros`
 }
 
 export const projectsUidMacrosList = async (uid: string, options?: RequestInit): Promise<Macros> => {
@@ -20104,7 +20121,7 @@ export const getProjectsUidMacrosUpdateByMacroNameUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/macros`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/macros`
 }
 
 export const projectsUidMacrosUpdateByMacroName = async (uid: string,
@@ -20136,7 +20153,7 @@ export const getProjectsUidMacrosCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/macros`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/macros`
 }
 
 export const projectsUidMacrosCreate = async (uid: string,
@@ -20168,7 +20185,7 @@ export const getProjectsUidMacrosUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/macros`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/macros`
 }
 
 export const projectsUidMacrosUpdate = async (uid: string,
@@ -20200,7 +20217,7 @@ export const getProjectsUidMetaUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/meta`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/meta`
 }
 
 export const projectsUidMetaUpdate = async (uid: string,
@@ -20232,7 +20249,7 @@ export const getProjectClusterSettingsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/preferences/clusterSettings`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/preferences/clusterSettings`
 }
 
 export const projectClusterSettingsGet = async (uid: string, options?: RequestInit): Promise<ProjectClusterSettings> => {
@@ -20262,7 +20279,7 @@ export const getProjectClustersNodesAutoRemediationSettingUpdateUrl = (uid: stri
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/preferences/clusterSettings/nodesAutoRemediationSetting`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/preferences/clusterSettings/nodesAutoRemediationSetting`
 }
 
 export const projectClustersNodesAutoRemediationSettingUpdate = async (uid: string,
@@ -20294,7 +20311,7 @@ export const getProjectsUidTeamsUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/teams`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/teams`
 }
 
 export const projectsUidTeamsUpdate = async (uid: string,
@@ -20326,7 +20343,7 @@ export const getProjectsUidUsersUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/users`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/users`
 }
 
 export const projectsUidUsersUpdate = async (uid: string,
@@ -20358,7 +20375,7 @@ export const getProjectsUidValidateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/projects/${uid}/validate`
+  return `${PALETTE_BASE_URL}/v1/projects/${uid}/validate`
 }
 
 export const projectsUidValidate = async (uid: string, options?: RequestInit): Promise<ProjectActiveResources> => {
@@ -20395,7 +20412,7 @@ export const getRegistriesHelmListUrl = (params?: RegistriesHelmListParams,) => 
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/helm?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/helm`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/helm?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/helm`
 }
 
 export const registriesHelmList = async (params?: RegistriesHelmListParams, options?: RequestInit): Promise<HelmRegistries> => {
@@ -20430,7 +20447,7 @@ export const getRegistriesHelmCreateUrl = (params?: RegistriesHelmCreateParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/helm?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/helm`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/helm?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/helm`
 }
 
 export const registriesHelmCreate = async (helmRegistryEntity: HelmRegistryEntity,
@@ -20469,7 +20486,7 @@ export const getRegistriesHelmSummaryListUrl = (params?: RegistriesHelmSummaryLi
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/helm/summary?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/helm/summary`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/helm/summary?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/helm/summary`
 }
 
 export const registriesHelmSummaryList = async (params?: RegistriesHelmSummaryListParams, options?: RequestInit): Promise<HelmRegistriesSummary> => {
@@ -20500,7 +20517,7 @@ export const getV1RegistriesHelmValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/helm/validate`
+  return `${PALETTE_BASE_URL}/v1/registries/helm/validate`
 }
 
 export const v1RegistriesHelmValidate = async (helmRegistrySpec: HelmRegistrySpec, options?: RequestInit): Promise<void> => {
@@ -20531,7 +20548,7 @@ export const getRegistriesHelmUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/helm/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/helm/${uid}`
 }
 
 export const registriesHelmUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -20561,7 +20578,7 @@ export const getRegistriesHelmUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/helm/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/helm/${uid}`
 }
 
 export const registriesHelmUidGet = async (uid: string, options?: RequestInit): Promise<HelmRegistry> => {
@@ -20591,7 +20608,7 @@ export const getRegistriesHelmUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/helm/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/helm/${uid}`
 }
 
 export const registriesHelmUidUpdate = async (uid: string,
@@ -20630,7 +20647,7 @@ export const getRegistriesHelmUidSyncUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/helm/${uid}/sync?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/helm/${uid}/sync`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/helm/${uid}/sync?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/helm/${uid}/sync`
 }
 
 export const registriesHelmUidSync = async (uid: string,
@@ -20662,7 +20679,7 @@ export const getRegistriesHelmUidSyncStatusUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/helm/${uid}/sync/status`
+  return `${PALETTE_BASE_URL}/v1/registries/helm/${uid}/sync/status`
 }
 
 export const registriesHelmUidSyncStatus = async (uid: string, options?: RequestInit): Promise<RegistrySyncStatus> => {
@@ -20697,7 +20714,7 @@ export const getRegistriesMetadataUrl = (params?: RegistriesMetadataParams,) => 
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/metadata?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/metadata`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/metadata?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/metadata`
 }
 
 export const registriesMetadata = async (params?: RegistriesMetadataParams, options?: RequestInit): Promise<RegistriesMetadata> => {
@@ -20734,7 +20751,7 @@ export const getBasicOciRegistriesCreateUrl = (params?: BasicOciRegistriesCreate
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/oci/basic?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/oci/basic`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/oci/basic?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/oci/basic`
 }
 
 export const basicOciRegistriesCreate = async (v1BasicOciRegistryBody: V1BasicOciRegistryBody,
@@ -20767,7 +20784,7 @@ export const getBasicOciRegistriesValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/basic/validate`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/basic/validate`
 }
 
 export const basicOciRegistriesValidate = async (basicOciRegistrySpec: BasicOciRegistrySpec, options?: RequestInit): Promise<void> => {
@@ -20805,7 +20822,7 @@ export const getEcrRegistriesCreateUrl = (params?: EcrRegistriesCreateParams,) =
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/oci/ecr?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/oci/ecr`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/oci/ecr?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/oci/ecr`
 }
 
 export const ecrRegistriesCreate = async (v1EcrRegistryBody: V1EcrRegistryBody,
@@ -20838,7 +20855,7 @@ export const getEcrRegistriesValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/ecr/validate`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/ecr/validate`
 }
 
 export const ecrRegistriesValidate = async (ecrRegistrySpec: EcrRegistrySpec, options?: RequestInit): Promise<void> => {
@@ -20869,7 +20886,7 @@ export const getOciImageRegistryGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/image`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/image`
 }
 
 export const ociImageRegistryGet = async ( options?: RequestInit): Promise<OciImageRegistry> => {
@@ -20899,7 +20916,7 @@ export const getOciRegistriesSummaryUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/summary`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/summary`
 }
 
 export const ociRegistriesSummary = async ( options?: RequestInit): Promise<OciRegistries> => {
@@ -20935,7 +20952,7 @@ export const getOciRegistriesGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/oci/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/oci/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/oci/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/oci/${uid}`
 }
 
 export const ociRegistriesGet = async (uid: string,
@@ -20966,7 +20983,7 @@ export const getBasicOciRegistriesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic`
 }
 
 export const basicOciRegistriesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -20996,7 +21013,7 @@ export const getBasicOciRegistriesUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic`
 }
 
 export const basicOciRegistriesUidGet = async (uid: string, options?: RequestInit): Promise<BasicOciRegistry> => {
@@ -21026,7 +21043,7 @@ export const getBasicOciRegistriesUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic`
 }
 
 export const basicOciRegistriesUidUpdate = async (uid: string,
@@ -21065,7 +21082,7 @@ export const getBasicOciRegistriesUidSyncUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic/sync?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic/sync`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic/sync?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic/sync`
 }
 
 export const basicOciRegistriesUidSync = async (uid: string,
@@ -21097,7 +21114,7 @@ export const getBasicOciRegistriesUidSyncStatusUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/basic/sync/status`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/basic/sync/status`
 }
 
 export const basicOciRegistriesUidSyncStatus = async (uid: string, options?: RequestInit): Promise<RegistrySyncStatus> => {
@@ -21127,7 +21144,7 @@ export const getEcrRegistriesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr`
 }
 
 export const ecrRegistriesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -21157,7 +21174,7 @@ export const getEcrRegistriesUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr`
 }
 
 export const ecrRegistriesUidGet = async (uid: string, options?: RequestInit): Promise<EcrRegistry> => {
@@ -21187,7 +21204,7 @@ export const getEcrRegistriesUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr`
 }
 
 export const ecrRegistriesUidUpdate = async (uid: string,
@@ -21226,7 +21243,7 @@ export const getEcrRegistriesUidSyncUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr/sync?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr/sync`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr/sync?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr/sync`
 }
 
 export const ecrRegistriesUidSync = async (uid: string,
@@ -21258,7 +21275,7 @@ export const getEcrRegistriesUidSyncStatusUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/oci/${uid}/ecr/sync/status`
+  return `${PALETTE_BASE_URL}/v1/registries/oci/${uid}/ecr/sync/status`
 }
 
 export const ecrRegistriesUidSyncStatus = async (uid: string, options?: RequestInit): Promise<RegistrySyncStatus> => {
@@ -21295,7 +21312,7 @@ export const getRegistriesPackListUrl = (params?: RegistriesPackListParams,) => 
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/pack?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/pack`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/pack?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/pack`
 }
 
 export const registriesPackList = async (params?: RegistriesPackListParams, options?: RequestInit): Promise<PackRegistries> => {
@@ -21332,7 +21349,7 @@ export const getRegistriesPackCreateUrl = (params?: RegistriesPackCreateParams,)
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/pack?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/pack`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/pack?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/pack`
 }
 
 export const registriesPackCreate = async (v1PackRegistryBody: V1PackRegistryBody,
@@ -21371,7 +21388,7 @@ export const getRegistriesPackSummaryListUrl = (params?: RegistriesPackSummaryLi
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/pack/summary?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/pack/summary`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/pack/summary?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/pack/summary`
 }
 
 export const registriesPackSummaryList = async (params?: RegistriesPackSummaryListParams, options?: RequestInit): Promise<PackRegistriesSummary> => {
@@ -21402,7 +21419,7 @@ export const getV1RegistriesPackValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/pack/validate`
+  return `${PALETTE_BASE_URL}/v1/registries/pack/validate`
 }
 
 export const v1RegistriesPackValidate = async (packRegistrySpec: PackRegistrySpec, options?: RequestInit): Promise<void> => {
@@ -21433,7 +21450,7 @@ export const getRegistriesPackUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/pack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/pack/${uid}`
 }
 
 export const registriesPackUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -21463,7 +21480,7 @@ export const getRegistriesPackUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/pack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/pack/${uid}`
 }
 
 export const registriesPackUidGet = async (uid: string, options?: RequestInit): Promise<PackRegistry> => {
@@ -21493,7 +21510,7 @@ export const getRegistriesPackUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/pack/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/pack/${uid}`
 }
 
 export const registriesPackUidUpdate = async (uid: string,
@@ -21532,7 +21549,7 @@ export const getRegistriesPackUidSyncUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/registries/pack/${uid}/sync?${stringifiedParams}` : `https://api.spectrocloud.com/v1/registries/pack/${uid}/sync`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/registries/pack/${uid}/sync?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/registries/pack/${uid}/sync`
 }
 
 export const registriesPackUidSync = async (uid: string,
@@ -21564,7 +21581,7 @@ export const getRegistriesPackUidSyncStatusUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/pack/${uid}/sync/status`
+  return `${PALETTE_BASE_URL}/v1/registries/pack/${uid}/sync/status`
 }
 
 export const registriesPackUidSyncStatus = async (uid: string, options?: RequestInit): Promise<RegistrySyncStatus> => {
@@ -21594,7 +21611,7 @@ export const getRegistriesNameConfigGetUrl = (registryName: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/${registryName}/config`
+  return `${PALETTE_BASE_URL}/v1/registries/${registryName}/config`
 }
 
 export const registriesNameConfigGet = async (registryName: string, options?: RequestInit): Promise<RegistryConfigEntity> => {
@@ -21624,7 +21641,7 @@ export const getRegistriesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/registries/${uid}`
+  return `${PALETTE_BASE_URL}/v1/registries/${uid}`
 }
 
 export const registriesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -21661,7 +21678,7 @@ export const getRolesListUrl = (params?: RolesListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/roles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/roles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/roles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/roles`
 }
 
 export const rolesList = async (params?: RolesListParams, options?: RequestInit): Promise<Roles> => {
@@ -21691,7 +21708,7 @@ export const getRolesCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/roles`
+  return `${PALETTE_BASE_URL}/v1/roles`
 }
 
 export const rolesCreate = async (v1RoleBody: V1RoleBody, options?: RequestInit): Promise<Uid> => {
@@ -21722,7 +21739,7 @@ export const getRolesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/roles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/roles/${uid}`
 }
 
 export const rolesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -21752,7 +21769,7 @@ export const getRolesUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/roles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/roles/${uid}`
 }
 
 export const rolesUidGet = async (uid: string, options?: RequestInit): Promise<Role> => {
@@ -21782,7 +21799,7 @@ export const getRolesUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/roles/${uid}`
+  return `${PALETTE_BASE_URL}/v1/roles/${uid}`
 }
 
 export const rolesUidUpdate = async (uid: string,
@@ -21814,7 +21831,7 @@ export const getRolesCloneUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/roles/${uid}/clone`
+  return `${PALETTE_BASE_URL}/v1/roles/${uid}/clone`
 }
 
 export const rolesClone = async (uid: string,
@@ -21854,7 +21871,7 @@ export const getServiceVersionGetUrl = (serviceName: 'ally' | 'jet' | 'palette' 
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/services/${serviceName}/version?${stringifiedParams}` : `https://api.spectrocloud.com/v1/services/${serviceName}/version`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/services/${serviceName}/version?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/services/${serviceName}/version`
 }
 
 export const serviceVersionGet = async (serviceName: 'ally' | 'jet' | 'palette' | 'ambit' | 'ally-lite' | 'palette-lite' | 'crony' | 'tick' | 'edge' | 'lodge' | 'level' | 'edgeconfig' | 'firth' | 'stylus',
@@ -21894,7 +21911,7 @@ export const getServiceManifestGetUrl = (serviceName: 'ally' | 'jet' | 'palette'
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/services/${serviceName}/versions/${version}/manifest?${stringifiedParams}` : `https://api.spectrocloud.com/v1/services/${serviceName}/versions/${version}/manifest`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/services/${serviceName}/versions/${version}/manifest?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/services/${serviceName}/versions/${version}/manifest`
 }
 
 export const serviceManifestGet = async (serviceName: 'ally' | 'jet' | 'palette' | 'ambit' | 'ally-lite' | 'palette-lite' | 'crony' | 'tick' | 'edge' | 'lodge' | 'level' | 'edgeconfig' | 'firth' | 'stylus',
@@ -21926,7 +21943,7 @@ export const getSpectroClustersAksCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/aks`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/aks`
 }
 
 export const spectroClustersAksCreate = async (v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -21964,7 +21981,7 @@ export const getSpectroClustersAksRateUrl = (params?: SpectroClustersAksRatePara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/aks/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/aks/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/aks/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/aks/rate`
 }
 
 export const spectroClustersAksRate = async (v1SpectroAzureClusterRateEntityBody: V1SpectroAzureClusterRateEntityBody,
@@ -21996,7 +22013,7 @@ export const getSpectroClustersAksValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/aks/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/aks/validate`
 }
 
 export const spectroClustersAksValidate = async (v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22027,7 +22044,7 @@ export const getSpectroClustersAwsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/aws`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/aws`
 }
 
 export const spectroClustersAwsCreate = async (v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -22058,7 +22075,7 @@ export const getSpectroClustersAwsImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/aws/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/aws/import`
 }
 
 export const spectroClustersAwsImport = async (spectroAwsClusterImportEntity: SpectroAwsClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -22096,7 +22113,7 @@ export const getSpectroClustersAwsRateUrl = (params?: SpectroClustersAwsRatePara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/aws/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/aws/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/aws/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/aws/rate`
 }
 
 export const spectroClustersAwsRate = async (spectroAwsClusterRateEntity: SpectroAwsClusterRateEntity,
@@ -22128,7 +22145,7 @@ export const getSpectroClustersAwsValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/aws/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/aws/validate`
 }
 
 export const spectroClustersAwsValidate = async (v1SpectroAwsClusterEntityBody: V1SpectroAwsClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22159,7 +22176,7 @@ export const getSpectroClustersAzureCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/azure`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/azure`
 }
 
 export const spectroClustersAzureCreate = async (v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -22190,7 +22207,7 @@ export const getSpectroClustersAzureImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/azure/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/azure/import`
 }
 
 export const spectroClustersAzureImport = async (spectroAzureClusterImportEntity: SpectroAzureClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -22228,7 +22245,7 @@ export const getSpectroClustersAzureRateUrl = (params?: SpectroClustersAzureRate
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/azure/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/azure/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/azure/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/azure/rate`
 }
 
 export const spectroClustersAzureRate = async (v1SpectroAzureClusterRateEntityBody: V1SpectroAzureClusterRateEntityBody,
@@ -22260,7 +22277,7 @@ export const getSpectroClustersAzureValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/azure/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/azure/validate`
 }
 
 export const spectroClustersAzureValidate = async (v1SpectroAzureClusterEntityBody: V1SpectroAzureClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22291,7 +22308,7 @@ export const getSpectroClustersCustomCreateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/cloudTypes/${cloudType}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/cloudTypes/${cloudType}`
 }
 
 export const spectroClustersCustomCreate = async (cloudType: string,
@@ -22323,7 +22340,7 @@ export const getSpectroClustersCustomValidateUrl = (cloudType: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/cloudTypes/${cloudType}/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/cloudTypes/${cloudType}/validate`
 }
 
 export const spectroClustersCustomValidate = async (cloudType: string,
@@ -22355,7 +22372,7 @@ export const getSpectroClustersConfigEdgeInstallerUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/config/edgeInstaller`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/config/edgeInstaller`
 }
 
 export const spectroClustersConfigEdgeInstaller = async ( options?: RequestInit): Promise<ClusterEdgeInstallerConfig> => {
@@ -22385,7 +22402,7 @@ export const getSpectroClustersEdgeNativeCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/edge-native`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/edge-native`
 }
 
 export const spectroClustersEdgeNativeCreate = async (v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -22416,7 +22433,7 @@ export const getSpectroClustersEdgeNativeImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/edge-native/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/edge-native/import`
 }
 
 export const spectroClustersEdgeNativeImport = async (spectroEdgeNativeClusterImportEntity: SpectroEdgeNativeClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -22454,7 +22471,7 @@ export const getSpectroClustersEdgeNativeRateUrl = (params?: SpectroClustersEdge
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/edge-native/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/edge-native/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/edge-native/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/edge-native/rate`
 }
 
 export const spectroClustersEdgeNativeRate = async (spectroEdgeNativeClusterRateEntity: SpectroEdgeNativeClusterRateEntity,
@@ -22486,7 +22503,7 @@ export const getSpectroClustersEdgeNativeValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/edge-native/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/edge-native/validate`
 }
 
 export const spectroClustersEdgeNativeValidate = async (v1SpectroEdgeNativeClusterEntityBody: V1SpectroEdgeNativeClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22517,7 +22534,7 @@ export const getSpectroClustersEksCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/eks`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/eks`
 }
 
 export const spectroClustersEksCreate = async (v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -22555,7 +22572,7 @@ export const getSpectroClustersEksRateUrl = (params?: SpectroClustersEksRatePara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/eks/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/eks/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/eks/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/eks/rate`
 }
 
 export const spectroClustersEksRate = async (spectroEksClusterRateEntity: SpectroEksClusterRateEntity,
@@ -22587,7 +22604,7 @@ export const getSpectroClustersEksValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/eks/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/eks/validate`
 }
 
 export const spectroClustersEksValidate = async (v1SpectroEksClusterEntityBody: V1SpectroEksClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22618,7 +22635,7 @@ export const getV1ClusterFeatureBackupLocationUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/features/backup/locations/${uid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/features/backup/locations/${uid}`
 }
 
 export const v1ClusterFeatureBackupLocationUidGet = async (uid: string, options?: RequestInit): Promise<ClusterRefs> => {
@@ -22648,7 +22665,7 @@ export const getV1ClusterFeatureBackupLocationUidChangeUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/features/backup/locations/${uid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/features/backup/locations/${uid}`
 }
 
 export const v1ClusterFeatureBackupLocationUidChange = async (uid: string,
@@ -22688,7 +22705,7 @@ export const getClusterFeatureLogFetcherLogDownloadUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/download?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/download`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/features/logFetcher/${uid}/download?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/features/logFetcher/${uid}/download`
 }
 
 export const clusterFeatureLogFetcherLogDownload = async (uid: string,
@@ -22727,7 +22744,7 @@ export const getClusterFeatureLogFetcherLogUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/log?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/features/logFetcher/${uid}/log`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/features/logFetcher/${uid}/log?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/features/logFetcher/${uid}/log`
 }
 
 export const clusterFeatureLogFetcherLogUpdate = async (uid: string,
@@ -22764,7 +22781,7 @@ export const getSpectroClustersGcpCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/gcp`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/gcp`
 }
 
 export const spectroClustersGcpCreate = async (v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -22795,7 +22812,7 @@ export const getSpectroClustersGcpImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/gcp/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/gcp/import`
 }
 
 export const spectroClustersGcpImport = async (spectroGcpClusterImportEntity: SpectroGcpClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -22833,7 +22850,7 @@ export const getSpectroClustersGcpRateUrl = (params?: SpectroClustersGcpRatePara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/gcp/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/gcp/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/gcp/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/gcp/rate`
 }
 
 export const spectroClustersGcpRate = async (v1SpectroGcpClusterRateEntityBody: V1SpectroGcpClusterRateEntityBody,
@@ -22865,7 +22882,7 @@ export const getSpectroClustersGcpValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/gcp/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/gcp/validate`
 }
 
 export const spectroClustersGcpValidate = async (v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -22897,7 +22914,7 @@ export const getSpectroClustersGenericImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/generic/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/generic/import`
 }
 
 export const spectroClustersGenericImport = async (spectroGenericClusterImportEntity: SpectroGenericClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -22935,7 +22952,7 @@ export const getSpectroClustersGenericRateUrl = (params?: SpectroClustersGeneric
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/generic/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/generic/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/generic/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/generic/rate`
 }
 
 export const spectroClustersGenericRate = async (spectroGenericClusterRateEntity: SpectroGenericClusterRateEntity,
@@ -22967,7 +22984,7 @@ export const getSpectroClustersGkeCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/gke`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/gke`
 }
 
 export const spectroClustersGkeCreate = async (v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -23005,7 +23022,7 @@ export const getSpectroClustersGkeRateUrl = (params?: SpectroClustersGkeRatePara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/gke/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/gke/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/gke/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/gke/rate`
 }
 
 export const spectroClustersGkeRate = async (v1SpectroGcpClusterRateEntityBody: V1SpectroGcpClusterRateEntityBody,
@@ -23037,7 +23054,7 @@ export const getSpectroClustersGkeValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/gke/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/gke/validate`
 }
 
 export const spectroClustersGkeValidate = async (v1SpectroGcpClusterEntityBody: V1SpectroGcpClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23068,7 +23085,7 @@ export const getSpectroClustersMaasCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/maas`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/maas`
 }
 
 export const spectroClustersMaasCreate = async (v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -23099,7 +23116,7 @@ export const getSpectroClustersMaasImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/maas/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/maas/import`
 }
 
 export const spectroClustersMaasImport = async (spectroMaasClusterImportEntity: SpectroMaasClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -23137,7 +23154,7 @@ export const getSpectroClustersMaasRateUrl = (params?: SpectroClustersMaasRatePa
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/maas/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/maas/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/maas/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/maas/rate`
 }
 
 export const spectroClustersMaasRate = async (spectroMaasClusterRateEntity: SpectroMaasClusterRateEntity,
@@ -23169,7 +23186,7 @@ export const getSpectroClustersMaasValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/maas/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/maas/validate`
 }
 
 export const spectroClustersMaasValidate = async (v1SpectroMaasClusterEntityBody: V1SpectroMaasClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23200,7 +23217,7 @@ export const getSpectroClustersOpenStackCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/openstack`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/openstack`
 }
 
 export const spectroClustersOpenStackCreate = async (v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -23231,7 +23248,7 @@ export const getSpectroClustersOpenStackImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/openstack/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/openstack/import`
 }
 
 export const spectroClustersOpenStackImport = async (spectroOpenStackClusterImportEntity: SpectroOpenStackClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -23269,7 +23286,7 @@ export const getSpectroClustersOpenStackRateUrl = (params?: SpectroClustersOpenS
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/openstack/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/openstack/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/openstack/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/openstack/rate`
 }
 
 export const spectroClustersOpenStackRate = async (spectroOpenStackClusterRateEntity: SpectroOpenStackClusterRateEntity,
@@ -23301,7 +23318,7 @@ export const getSpectroClustersOpenStackValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/openstack/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/openstack/validate`
 }
 
 export const spectroClustersOpenStackValidate = async (v1SpectroOpenStackClusterEntityBody: V1SpectroOpenStackClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23332,7 +23349,7 @@ export const getSpectroClustersSpcDownloadUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/spc/download`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/spc/download`
 }
 
 export const spectroClustersSpcDownload = async (clusterDefinitionEntity: ClusterDefinitionEntity, options?: RequestInit): Promise<Blob> => {
@@ -23363,7 +23380,7 @@ export const getSpectroClustersTagsGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/tags`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/tags`
 }
 
 export const spectroClustersTagsGet = async ( options?: RequestInit): Promise<SpectroClusterTags> => {
@@ -23393,7 +23410,7 @@ export const getSpectroClustersUpgradeSettingsGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/upgrade/settings`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/upgrade/settings`
 }
 
 export const spectroClustersUpgradeSettingsGet = async ( options?: RequestInit): Promise<ClusterUpgradeSettingsEntity> => {
@@ -23423,7 +23440,7 @@ export const getSpectroClustersUpgradeSettingsUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/upgrade/settings`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/upgrade/settings`
 }
 
 export const spectroClustersUpgradeSettings = async (v1ClusterUpgradeSettingsEntityBody: V1ClusterUpgradeSettingsEntityBody, options?: RequestInit): Promise<void> => {
@@ -23461,7 +23478,7 @@ export const getSpectroClustersValidateNameUrl = (params?: SpectroClustersValida
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/validate/name?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/validate/name`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/validate/name?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/validate/name`
 }
 
 export const spectroClustersValidateName = async (params?: SpectroClustersValidateNameParams, options?: RequestInit): Promise<void> => {
@@ -23491,7 +23508,7 @@ export const getSpectroClustersValidatePacksUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/validate/packs`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/validate/packs`
 }
 
 export const spectroClustersValidatePacks = async (v1SpectroClusterPacksEntityBody: V1SpectroClusterPacksEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23522,7 +23539,7 @@ export const getSpectroClustersVirtualCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/virtual`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/virtual`
 }
 
 export const spectroClustersVirtualCreate = async (v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -23560,7 +23577,7 @@ export const getVirtualClustersPacksValuesUrl = (params?: VirtualClustersPacksVa
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/virtual/packs/values?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/virtual/packs/values`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/virtual/packs/values?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/virtual/packs/values`
 }
 
 export const virtualClustersPacksValues = async (params?: VirtualClustersPacksValuesParams, options?: RequestInit): Promise<ClusterVirtualPacksValues> => {
@@ -23590,7 +23607,7 @@ export const getSpectroClustersVirtualValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/virtual/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/virtual/validate`
 }
 
 export const spectroClustersVirtualValidate = async (v1SpectroVirtualClusterEntityBody: V1SpectroVirtualClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23621,7 +23638,7 @@ export const getSpectroClustersVsphereCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/vsphere`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/vsphere`
 }
 
 export const spectroClustersVsphereCreate = async (v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody, options?: RequestInit): Promise<Uid> => {
@@ -23652,7 +23669,7 @@ export const getSpectroClustersVsphereImportUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/vsphere/import`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/vsphere/import`
 }
 
 export const spectroClustersVsphereImport = async (spectroVsphereClusterImportEntity: SpectroVsphereClusterImportEntity, options?: RequestInit): Promise<Uid> => {
@@ -23690,7 +23707,7 @@ export const getSpectroClustersVsphereRateUrl = (params?: SpectroClustersVsphere
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/vsphere/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/vsphere/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/vsphere/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/vsphere/rate`
 }
 
 export const spectroClustersVsphereRate = async (spectroVsphereClusterRateEntity: SpectroVsphereClusterRateEntity,
@@ -23722,7 +23739,7 @@ export const getSpectroClustersVsphereValidateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/vsphere/validate`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/vsphere/validate`
 }
 
 export const spectroClustersVsphereValidate = async (v1SpectroVsphereClusterEntityBody: V1SpectroVsphereClusterEntityBody, options?: RequestInit): Promise<SpectroClusterValidatorResponse> => {
@@ -23761,7 +23778,7 @@ export const getSpectroClustersDeleteUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}`
 }
 
 export const spectroClustersDelete = async (uid: string,
@@ -23800,7 +23817,7 @@ export const getSpectroClustersGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}`
 }
 
 export const spectroClustersGet = async (uid: string,
@@ -23831,7 +23848,7 @@ export const getSpectroClustersUidAssetsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets`
 }
 
 export const spectroClustersUidAssetsGet = async (uid: string, options?: RequestInit): Promise<SpectroClusterAssetEntity> => {
@@ -23861,7 +23878,7 @@ export const getSpectroClustersUidAssetsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets`
 }
 
 export const spectroClustersUidAssets = async (uid: string,
@@ -23893,7 +23910,7 @@ export const getSpectroClustersUidAdminKubeConfigUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/adminKubeconfig`
 }
 
 export const spectroClustersUidAdminKubeConfig = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -23923,7 +23940,7 @@ export const getSpectroClustersUidTokenKubeConfigDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
 }
 
 export const spectroClustersUidTokenKubeConfigDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -23953,7 +23970,7 @@ export const getSpectroClustersUidTokenKubeConfigGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
 }
 
 export const spectroClustersUidTokenKubeConfigGet = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -23983,7 +24000,7 @@ export const getSpectroClustersUidTokenKubeConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/adminTokenKubeconfig`
 }
 
 export const spectroClustersUidTokenKubeConfigUpdate = async (uid: string,
@@ -24015,7 +24032,7 @@ export const getSpectroClustersUidFrpKubeConfigDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/frpKubeconfig`
 }
 
 export const spectroClustersUidFrpKubeConfigDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -24045,7 +24062,7 @@ export const getSpectroClustersUidFrpKubeConfigGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/frpKubeconfig`
 }
 
 export const spectroClustersUidFrpKubeConfigGet = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -24075,7 +24092,7 @@ export const getSpectroClustersUidFrpKubeConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/frpKubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/frpKubeconfig`
 }
 
 export const spectroClustersUidFrpKubeConfigUpdate = async (uid: string,
@@ -24115,7 +24132,7 @@ export const getSpectroClustersUidKubeConfigUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfig?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfig`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfig?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfig`
 }
 
 export const spectroClustersUidKubeConfig = async (uid: string,
@@ -24146,7 +24163,7 @@ export const getSpectroClustersUidKubeConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfig`
 }
 
 export const spectroClustersUidKubeConfigUpdate = async (uid: string,
@@ -24178,7 +24195,7 @@ export const getSpectroClustersUidKubeConfigClientDeleteUrl = (uid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfigclient`
 }
 
 export const spectroClustersUidKubeConfigClientDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -24208,7 +24225,7 @@ export const getSpectroClustersUidKubeConfigClientGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfigclient`
 }
 
 export const spectroClustersUidKubeConfigClientGet = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -24238,7 +24255,7 @@ export const getSpectroClustersUidKubeConfigClientUpdateUrl = (uid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/kubeconfigclient`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/kubeconfigclient`
 }
 
 export const spectroClustersUidKubeConfigClientUpdate = async (uid: string,
@@ -24270,7 +24287,7 @@ export const getSpectroClustersUidManifestGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/manifest`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/manifest`
 }
 
 export const spectroClustersUidManifestGet = async (uid: string, options?: RequestInit): Promise<string> => {
@@ -24300,7 +24317,7 @@ export const getSpectroClustersUidManifestUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/assets/manifest`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/assets/manifest`
 }
 
 export const spectroClustersUidManifestUpdate = async (uid: string,
@@ -24332,7 +24349,7 @@ export const getSpectroClustersUidClusterMetaAttributeUpdateUrl = (uid: string,)
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/clusterMetaAttribute`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/clusterConfig/clusterMetaAttribute`
 }
 
 export const spectroClustersUidClusterMetaAttributeUpdate = async (uid: string,
@@ -24364,7 +24381,7 @@ export const getV1ControlPlaneHealthCheckTimeoutUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/controlPlaneHealthCheckTimeout`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/clusterConfig/controlPlaneHealthCheckTimeout`
 }
 
 export const v1ControlPlaneHealthCheckTimeoutUpdate = async (uid: string,
@@ -24396,7 +24413,7 @@ export const getV1HostClusterConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/hostCluster`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/clusterConfig/hostCluster`
 }
 
 export const v1HostClusterConfigUpdate = async (uid: string,
@@ -24428,7 +24445,7 @@ export const getSpectroClustersUidLifecycleConfigUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/lifecycleConfig`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/clusterConfig/lifecycleConfig`
 }
 
 export const spectroClustersUidLifecycleConfigUpdate = async (uid: string,
@@ -24460,7 +24477,7 @@ export const getSpectroClustersUidOsPatchUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/clusterConfig/osPatch`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/clusterConfig/osPatch`
 }
 
 export const spectroClustersUidOsPatchUpdate = async (uid: string,
@@ -24492,7 +24509,7 @@ export const getSpectroClustersUidConfigNamespacesGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/namespaces`
 }
 
 export const spectroClustersUidConfigNamespacesGet = async (uid: string, options?: RequestInit): Promise<ClusterNamespaceResources> => {
@@ -24522,7 +24539,7 @@ export const getSpectroClustersUidConfigNamespacesUpdateUrl = (uid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/namespaces`
 }
 
 export const spectroClustersUidConfigNamespacesUpdate = async (uid: string,
@@ -24555,7 +24572,7 @@ export const getSpectroClustersUidConfigNamespacesUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`
 }
 
 export const spectroClustersUidConfigNamespacesUidGet = async (uid: string,
@@ -24587,7 +24604,7 @@ export const getSpectroClustersUidConfigNamespacesUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/namespaces/${namespaceUid}`
 }
 
 export const spectroClustersUidConfigNamespacesUidUpdate = async (uid: string,
@@ -24620,7 +24637,7 @@ export const getSpectroClustersUidConfigRbacsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/rbacs`
 }
 
 export const spectroClustersUidConfigRbacsGet = async (uid: string, options?: RequestInit): Promise<ClusterRbacs> => {
@@ -24650,7 +24667,7 @@ export const getSpectroClustersUidConfigRbacsUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/rbacs`
 }
 
 export const spectroClustersUidConfigRbacsUpdate = async (uid: string,
@@ -24683,7 +24700,7 @@ export const getSpectroClustersUidConfigRbacsUidGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`
 }
 
 export const spectroClustersUidConfigRbacsUidGet = async (uid: string,
@@ -24715,7 +24732,7 @@ export const getSpectroClustersUidConfigRbacsUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/config/rbacs/${rbacUid}`
 }
 
 export const spectroClustersUidConfigRbacsUidUpdate = async (uid: string,
@@ -24748,7 +24765,7 @@ export const getSpectroClustersUidDownloadUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/download`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/download`
 }
 
 export const spectroClustersUidDownload = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -24778,7 +24795,7 @@ export const getEdgeNativeClustersHostsListUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/edge-native/edgeHosts`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/edge-native/edgeHosts`
 }
 
 export const edgeNativeClustersHostsList = async (uid: string, options?: RequestInit): Promise<EdgeHostDevices> => {
@@ -24808,7 +24825,7 @@ export const getV1SpectroClustersUidEdgeResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/edge/reset`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/edge/reset`
 }
 
 export const v1SpectroClustersUidEdgeReset = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -24838,7 +24855,7 @@ export const getClusterFeatureBackupScheduleResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup`
 }
 
 export const clusterFeatureBackupScheduleReset = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -24876,7 +24893,7 @@ export const getClusterFeatureBackupGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup`
 }
 
 export const clusterFeatureBackupGet = async (uid: string,
@@ -24907,7 +24924,7 @@ export const getClusterFeatureBackupCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup`
 }
 
 export const clusterFeatureBackupCreate = async (uid: string,
@@ -24939,7 +24956,7 @@ export const getClusterFeatureBackupUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup`
 }
 
 export const clusterFeatureBackupUpdate = async (uid: string,
@@ -24971,7 +24988,7 @@ export const getClusterFeatureBackupOnDemandCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup/onDemand`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup/onDemand`
 }
 
 export const clusterFeatureBackupOnDemandCreate = async (uid: string,
@@ -25005,7 +25022,7 @@ export const getClusterFeatureBackupDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/backup/${backupName}/request/${requestUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/backup/${backupName}/request/${requestUid}`
 }
 
 export const clusterFeatureBackupDelete = async (uid: string,
@@ -25037,7 +25054,7 @@ export const getClusterFeatureComplianceScanGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan`
 }
 
 export const clusterFeatureComplianceScanGet = async (uid: string, options?: RequestInit): Promise<ClusterComplianceScan> => {
@@ -25067,7 +25084,7 @@ export const getClusterFeatureComplianceScanCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan`
 }
 
 export const clusterFeatureComplianceScanCreate = async (uid: string,
@@ -25099,7 +25116,7 @@ export const getClusterFeatureComplianceScanUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan`
 }
 
 export const clusterFeatureComplianceScanUpdate = async (uid: string,
@@ -25131,7 +25148,7 @@ export const getClusterFeatureComplianceScanLogsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers`
 }
 
 export const clusterFeatureComplianceScanLogsGet = async (uid: string, options?: RequestInit): Promise<ClusterComplianceScanLogs> => {
@@ -25161,7 +25178,7 @@ export const getClusterFeatureScanKubeBenchLogUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeBench`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeBench`
 }
 
 export const clusterFeatureScanKubeBenchLogUpdate = async (uid: string,
@@ -25193,7 +25210,7 @@ export const getClusterFeatureScanKubeHunterLogUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeHunter`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/kubeHunter`
 }
 
 export const clusterFeatureScanKubeHunterLogUpdate = async (uid: string,
@@ -25225,7 +25242,7 @@ export const getClusterFeatureScanSonobuoyLogUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/sonobuoy`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/sonobuoy`
 }
 
 export const clusterFeatureScanSonobuoyLogUpdate = async (uid: string,
@@ -25257,7 +25274,7 @@ export const getClusterFeatureScanSyftLogUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/syft`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/drivers/syft`
 }
 
 export const clusterFeatureScanSyftLogUpdate = async (uid: string,
@@ -25290,7 +25307,7 @@ export const getClusterFeatureComplianceScanLogDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}`
 }
 
 export const clusterFeatureComplianceScanLogDelete = async (uid: string,
@@ -25328,7 +25345,7 @@ export const getClusterFeatureKubeBenchLogGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeBench`
 }
 
 export const clusterFeatureKubeBenchLogGet = async (uid: string,
@@ -25367,7 +25384,7 @@ export const getClusterFeatureKubeHunterLogGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/kubeHunter`
 }
 
 export const clusterFeatureKubeHunterLogGet = async (uid: string,
@@ -25406,7 +25423,7 @@ export const getClusterFeatureSonobuoyLogGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/sonobuoy`
 }
 
 export const clusterFeatureSonobuoyLogGet = async (uid: string,
@@ -25439,7 +25456,7 @@ export const getClusterFeatureSyftLogGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft`
 }
 
 export const clusterFeatureSyftLogGet = async (uid: string,
@@ -25477,7 +25494,7 @@ export const getSyftScanLogImageSBOMGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/syft/sbom`
 }
 
 export const syftScanLogImageSBOMGet = async (uid: string,
@@ -25517,7 +25534,7 @@ export const getClusterFeatureDriverLogDownloadUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/logs/${logUid}/drivers/${driver}/download`
 }
 
 export const clusterFeatureDriverLogDownload = async (uid: string,
@@ -25550,7 +25567,7 @@ export const getClusterFeatureComplianceScanOnDemandCreateUrl = (uid: string,) =
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/complianceScan/onDemand`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/complianceScan/onDemand`
 }
 
 export const clusterFeatureComplianceScanOnDemandCreate = async (uid: string,
@@ -25582,7 +25599,7 @@ export const getClusterFeatureHelmChartsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/helmCharts`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/helmCharts`
 }
 
 export const clusterFeatureHelmChartsGet = async (uid: string, options?: RequestInit): Promise<ClusterHelmCharts> => {
@@ -25620,7 +25637,7 @@ export const getClusterFeatureLogFetcherGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/logFetcher?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/logFetcher`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/logFetcher?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/logFetcher`
 }
 
 export const clusterFeatureLogFetcherGet = async (uid: string,
@@ -25651,7 +25668,7 @@ export const getClusterFeatureLogFetcherCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/logFetcher`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/logFetcher`
 }
 
 export const clusterFeatureLogFetcherCreate = async (uid: string,
@@ -25683,7 +25700,7 @@ export const getClusterFeatureManifestsGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/manifests`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/manifests`
 }
 
 export const clusterFeatureManifestsGet = async (uid: string, options?: RequestInit): Promise<ClusterManifests> => {
@@ -25721,7 +25738,7 @@ export const getClusterFeatureRestoreGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/restore?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/restore`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/restore?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/restore`
 }
 
 export const clusterFeatureRestoreGet = async (uid: string,
@@ -25752,7 +25769,7 @@ export const getClusterFeatureRestoreOnDemandCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/features/restore/onDemand`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/features/restore/onDemand`
 }
 
 export const clusterFeatureRestoreOnDemandCreate = async (uid: string,
@@ -25784,7 +25801,7 @@ export const getSpectroClustersUidHeartbeatUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/heartbeat`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/heartbeat`
 }
 
 export const spectroClustersUidHeartbeatUpdate = async (uid: string,
@@ -25816,7 +25833,7 @@ export const getSpectroClustersGetHybridPoolsMetadataUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/hybridPools/metadata`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/hybridPools/metadata`
 }
 
 export const spectroClustersGetHybridPoolsMetadata = async (uid: string, options?: RequestInit): Promise<SpectroClusterHybridPoolsMetadata> => {
@@ -25846,7 +25863,7 @@ export const getSpectroClustersUidHybridSettingsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/hybridSettings`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/hybridSettings`
 }
 
 export const spectroClustersUidHybridSettings = async (uid: string,
@@ -25878,7 +25895,7 @@ export const getSpectroClustersUidImportManifestUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/import/manifest`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/import/manifest`
 }
 
 export const spectroClustersUidImportManifest = async (uid: string, options?: RequestInit): Promise<Blob> => {
@@ -25908,7 +25925,7 @@ export const getSpectroClustersUidImportUpgradePatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/import/upgrade`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/import/upgrade`
 }
 
 export const spectroClustersUidImportUpgradePatch = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -25938,7 +25955,7 @@ export const getSpectroClustersK8CertificateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/k8certificates`
 }
 
 export const spectroClustersK8Certificate = async (uid: string, options?: RequestInit): Promise<MachineCertificates> => {
@@ -25968,7 +25985,7 @@ export const getSpectroClustersK8CertificateUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/k8certificates`
 }
 
 export const spectroClustersK8CertificateUpdate = async (uid: string,
@@ -26000,7 +26017,7 @@ export const getSpectroClustersCertificatesRenewUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/k8certificates/renew`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/k8certificates/renew`
 }
 
 export const spectroClustersCertificatesRenew = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -26030,7 +26047,7 @@ export const getV1SpectroClustersUidKubeCtlRedirectUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/kubectl/redirect`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/kubectl/redirect`
 }
 
 export const v1SpectroClustersUidKubeCtlRedirect = async (uid: string, options?: RequestInit): Promise<SpectroClusterKubeCtlRedirect> => {
@@ -26060,7 +26077,7 @@ export const getSpectroClustersUidLocationPutUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/location`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/location`
 }
 
 export const spectroClustersUidLocationPut = async (uid: string,
@@ -26092,7 +26109,7 @@ export const getSpectroClustersUidMetadataUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/metadata`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/metadata`
 }
 
 export const spectroClustersUidMetadataUpdate = async (uid: string,
@@ -26130,7 +26147,7 @@ export const getClusterNamespacesGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/namespaces?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/namespaces`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/namespaces?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/namespaces`
 }
 
 export const clusterNamespacesGet = async (uid: string,
@@ -26161,7 +26178,7 @@ export const getV1SpectroClustersUidOIDCUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/oidc`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/oidc`
 }
 
 export const v1SpectroClustersUidOIDC = async (uid: string, options?: RequestInit): Promise<SpectroClusterOidcSpec> => {
@@ -26191,7 +26208,7 @@ export const getV1SpectroClustersUidOIDCDashboardUrlUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/oidc/dashboard/url`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/oidc/dashboard/url`
 }
 
 export const v1SpectroClustersUidOIDCDashboardUrl = async (uid: string, options?: RequestInit): Promise<SectroClusterK8sDashboardUrl> => {
@@ -26230,7 +26247,7 @@ export const getSpectroClustersUidPackManifestsUidGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/pack/manifests/${manifestUid}`
 }
 
 export const spectroClustersUidPackManifestsUidGet = async (uid: string,
@@ -26270,7 +26287,7 @@ export const getSpectroClustersUidPackPropertiesUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/properties?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/pack/properties`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/pack/properties?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/pack/properties`
 }
 
 export const spectroClustersUidPackProperties = async (uid: string,
@@ -26307,7 +26324,7 @@ export const getSpectroClustersPacksRefUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packRefs?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packRefs`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/packRefs?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/packRefs`
 }
 
 export const spectroClustersPacksRefUpdate = async (uid: string,
@@ -26340,7 +26357,7 @@ export const getSpectroClustersUidPacksResolvedValuesGetUrl = (uid: string,) => 
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packs/resolvedValues`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/packs/resolvedValues`
 }
 
 export const spectroClustersUidPacksResolvedValuesGet = async (uid: string, options?: RequestInit): Promise<SpectroClusterProfilesResolvedValues> => {
@@ -26370,7 +26387,7 @@ export const getSpectroClustersUidPacksStatusPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/packs/status`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/packs/status`
 }
 
 export const spectroClustersUidPacksStatusPatch = async (uid: string,
@@ -26402,7 +26419,7 @@ export const getSpectroClustersGetProfileUpdatesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profileUpdates`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profileUpdates`
 }
 
 export const spectroClustersGetProfileUpdates = async (uid: string, options?: RequestInit): Promise<SpectroClusterProfileUpdates> => {
@@ -26432,7 +26449,7 @@ export const getSpectroClustersDeleteProfilesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles`
 }
 
 export const spectroClustersDeleteProfiles = async (uid: string,
@@ -26472,7 +26489,7 @@ export const getSpectroClustersGetProfilesUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles`
 }
 
 export const spectroClustersGetProfiles = async (uid: string,
@@ -26511,7 +26528,7 @@ export const getSpectroClustersPatchProfilesUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles`
 }
 
 export const spectroClustersPatchProfiles = async (uid: string,
@@ -26552,7 +26569,7 @@ export const getSpectroClustersUpdateProfilesUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles`
 }
 
 export const spectroClustersUpdateProfiles = async (uid: string,
@@ -26593,7 +26610,7 @@ export const getSpectroClustersGetProfilesPacksManifestsUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/packs/manifests?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/packs/manifests`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles/packs/manifests?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles/packs/manifests`
 }
 
 export const spectroClustersGetProfilesPacksManifests = async (uid: string,
@@ -26626,7 +26643,7 @@ export const getSpectroClustersUidProfilesUidPacksConfigGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/config`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/config`
 }
 
 export const spectroClustersUidProfilesUidPacksConfigGet = async (uid: string,
@@ -26660,7 +26677,7 @@ export const getSpectroClustersProfilesUidPackManifestsGetUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`
 }
 
 export const spectroClustersProfilesUidPackManifestsGet = async (uid: string,
@@ -26694,7 +26711,7 @@ export const getSpectroClustersProfilesUidPackManifestsUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/profiles/${profileUid}/packs/${packName}/manifests`
 }
 
 export const spectroClustersProfilesUidPackManifestsUpdate = async (uid: string,
@@ -26734,7 +26751,7 @@ export const getSpectroClustersUidRateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/rate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/rate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/rate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/rate`
 }
 
 export const spectroClustersUidRate = async (uid: string,
@@ -26765,7 +26782,7 @@ export const getSpectroClustersUidRepaveApproveUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/repave/approve`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/repave/approve`
 }
 
 export const spectroClustersUidRepaveApproveUpdate = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -26795,7 +26812,7 @@ export const getSpectroClustersUidRepaveGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/repave/status`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/repave/status`
 }
 
 export const spectroClustersUidRepaveGet = async (uid: string, options?: RequestInit): Promise<SpectroClusterRepave> => {
@@ -26825,7 +26842,7 @@ export const getV1SpectroClustersUidResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/reset`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/reset`
 }
 
 export const v1SpectroClustersUidReset = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -26855,7 +26872,7 @@ export const getSpectroClustersUidStatusUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status`
 }
 
 export const spectroClustersUidStatus = async (uid: string, options?: RequestInit): Promise<SpectroClusterStatusEntity> => {
@@ -26885,7 +26902,7 @@ export const getSpectroClustersUpdateStatusConditionUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/condition`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/condition`
 }
 
 export const spectroClustersUpdateStatusCondition = async (uid: string,
@@ -26917,7 +26934,7 @@ export const getSpectroClustersUpdateStatusConditionsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/conditions`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/conditions`
 }
 
 export const spectroClustersUpdateStatusConditions = async (uid: string,
@@ -26949,7 +26966,7 @@ export const getSpectroClustersUpdateStatusEndpointsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/endpoints`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/endpoints`
 }
 
 export const spectroClustersUpdateStatusEndpoints = async (uid: string,
@@ -26981,7 +26998,7 @@ export const getSpectroClustersUpdateStatusImportedUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/imported`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/imported`
 }
 
 export const spectroClustersUpdateStatusImported = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -27011,7 +27028,7 @@ export const getSpectroClustersUpdateStatusServicesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/services`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/services`
 }
 
 export const spectroClustersUpdateStatusServices = async (uid: string,
@@ -27043,7 +27060,7 @@ export const getSpectroClustersUidStatusSpcApplyGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/spcApply`
 }
 
 export const spectroClustersUidStatusSpcApplyGet = async (uid: string, options?: RequestInit): Promise<SpcApply> => {
@@ -27073,7 +27090,7 @@ export const getSpectroClustersUidStatusSpcApplyUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/spcApply`
 }
 
 export const spectroClustersUidStatusSpcApply = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -27103,7 +27120,7 @@ export const getSpectroClustersUidStatusSpcPatchTimeUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/spcApply/patchTime`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/spcApply/patchTime`
 }
 
 export const spectroClustersUidStatusSpcPatchTime = async (uid: string,
@@ -27135,7 +27152,7 @@ export const getSpectroClustersUidUpgradesPutUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/status/upgrades`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/status/upgrades`
 }
 
 export const spectroClustersUidUpgradesPut = async (uid: string,
@@ -27167,7 +27184,7 @@ export const getSpectroClustersUidUpgradeSettingsUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/upgrade/settings`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/upgrade/settings`
 }
 
 export const spectroClustersUidUpgradeSettings = async (uid: string,
@@ -27199,7 +27216,7 @@ export const getSpectroClustersUidValidatePacksUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/validate/packs`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/validate/packs`
 }
 
 export const spectroClustersUidValidatePacks = async (uid: string,
@@ -27231,7 +27248,7 @@ export const getSpectroClustersUidValidateRepaveUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/validate/repave`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/validate/repave`
 }
 
 export const spectroClustersUidValidateRepave = async (uid: string,
@@ -27263,7 +27280,7 @@ export const getSpectroClustersUidVariablesGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/variables`
 }
 
 export const spectroClustersUidVariablesGet = async (uid: string, options?: RequestInit): Promise<SpectroClusterVariables[]> => {
@@ -27293,7 +27310,7 @@ export const getSpectroClustersUidVariablesPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/variables`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/variables`
 }
 
 export const spectroClustersUidVariablesPatch = async (uid: string,
@@ -27333,7 +27350,7 @@ export const getSpectroClustersVMListUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms`
 }
 
 export const spectroClustersVMList = async (uid: string,
@@ -27372,7 +27389,7 @@ export const getSpectroClustersVMCreateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms`
 }
 
 export const spectroClustersVMCreate = async (uid: string,
@@ -27413,7 +27430,7 @@ export const getClusterVMSnapshotsListUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/snapshot?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/snapshot`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/snapshot?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/snapshot`
 }
 
 export const clusterVMSnapshotsList = async (uid: string,
@@ -27451,7 +27468,7 @@ export const getSpectroClustersVMDeleteUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}`
 }
 
 export const spectroClustersVMDelete = async (uid: string,
@@ -27490,7 +27507,7 @@ export const getSpectroClustersVMGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}`
 }
 
 export const spectroClustersVMGet = async (uid: string,
@@ -27529,7 +27546,7 @@ export const getSpectroClustersVMUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}`
 }
 
 export const spectroClustersVMUpdate = async (uid: string,
@@ -27570,7 +27587,7 @@ export const getSpectroClustersVMAddVolumeUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/addVolume?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/addVolume`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/addVolume?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/addVolume`
 }
 
 export const spectroClustersVMAddVolume = async (uid: string,
@@ -27611,7 +27628,7 @@ export const getSpectroClustersVMCloneUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/clone?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/clone`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/clone?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/clone`
 }
 
 export const spectroClustersVMClone = async (uid: string,
@@ -27652,7 +27669,7 @@ export const getSpectroClustersVMMigrateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/migrate?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/migrate`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/migrate?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/migrate`
 }
 
 export const spectroClustersVMMigrate = async (uid: string,
@@ -27691,7 +27708,7 @@ export const getSpectroClustersVMPauseUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/pause?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/pause`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/pause?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/pause`
 }
 
 export const spectroClustersVMPause = async (uid: string,
@@ -27730,7 +27747,7 @@ export const getSpectroClustersVMRemoveVolumeUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/removeVolume`
 }
 
 export const spectroClustersVMRemoveVolume = async (uid: string,
@@ -27771,7 +27788,7 @@ export const getSpectroClustersVMRestartUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/restart?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/restart`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/restart?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/restart`
 }
 
 export const spectroClustersVMRestart = async (uid: string,
@@ -27810,7 +27827,7 @@ export const getSpectroClustersVMResumeUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/resume?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/resume`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/resume?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/resume`
 }
 
 export const spectroClustersVMResume = async (uid: string,
@@ -27849,7 +27866,7 @@ export const getVMSnapshotCreateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot`
 }
 
 export const vMSnapshotCreate = async (uid: string,
@@ -27891,7 +27908,7 @@ export const getVMSnapshotDeleteUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
 }
 
 export const vMSnapshotDelete = async (uid: string,
@@ -27932,7 +27949,7 @@ export const getVMSnapshotGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
 }
 
 export const vMSnapshotGet = async (uid: string,
@@ -27973,7 +27990,7 @@ export const getVMSnapshotUpdateUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/snapshot/${snapshotName}`
 }
 
 export const vMSnapshotUpdate = async (uid: string,
@@ -28015,7 +28032,7 @@ export const getSpectroClustersVMStartUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/start?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/start`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/start?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/start`
 }
 
 export const spectroClustersVMStart = async (uid: string,
@@ -28054,7 +28071,7 @@ export const getSpectroClustersVMStopUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/stop?${stringifiedParams}` : `https://api.spectrocloud.com/v1/spectroclusters/${uid}/vms/${vmName}/stop`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/stop?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/vms/${vmName}/stop`
 }
 
 export const spectroClustersVMStop = async (uid: string,
@@ -28087,7 +28104,7 @@ export const getSpectroClustersUidWorkloadsSyncUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/workloads/sync`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/workloads/sync`
 }
 
 export const spectroClustersUidWorkloadsSync = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -28118,7 +28135,7 @@ export const getSpectroClustersUidWorkloadsKindSyncUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/spectroclusters/${uid}/workloads/${workloadKind}/sync`
+  return `${PALETTE_BASE_URL}/v1/spectroclusters/${uid}/workloads/${workloadKind}/sync`
 }
 
 export const spectroClustersUidWorkloadsKindSync = async (uid: string,
@@ -28149,7 +28166,7 @@ export const getV1SystemConfigReverseProxyGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/system/config/reverseproxy`
+  return `${PALETTE_BASE_URL}/v1/system/config/reverseproxy`
 }
 
 export const v1SystemConfigReverseProxyGet = async ( options?: RequestInit): Promise<SystemReverseProxy> => {
@@ -28179,7 +28196,7 @@ export const getV1SystemConfigReverseProxyUpdateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/system/config/reverseproxy`
+  return `${PALETTE_BASE_URL}/v1/system/config/reverseproxy`
 }
 
 export const v1SystemConfigReverseProxyUpdate = async (systemReverseProxy: SystemReverseProxy, options?: RequestInit): Promise<Updated> => {
@@ -28210,7 +28227,7 @@ export const getV1PasswordsBlockListDeleteUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/system/passwords/blocklist`
+  return `${PALETTE_BASE_URL}/v1/system/passwords/blocklist`
 }
 
 export const v1PasswordsBlockListDelete = async (v1PasswordsBlockListBody: V1PasswordsBlockListBody, options?: RequestInit): Promise<void> => {
@@ -28241,7 +28258,7 @@ export const getV1PasswordsBlockListUpdateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/system/passwords/blocklist`
+  return `${PALETTE_BASE_URL}/v1/system/passwords/blocklist`
 }
 
 export const v1PasswordsBlockListUpdate = async (v1PasswordsBlockListBody: V1PasswordsBlockListBody, options?: RequestInit): Promise<Updated> => {
@@ -28279,7 +28296,7 @@ export const getTeamsListUrl = (params?: TeamsListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/teams?${stringifiedParams}` : `https://api.spectrocloud.com/v1/teams`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/teams?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/teams`
 }
 
 export const teamsList = async (params?: TeamsListParams, options?: RequestInit): Promise<Teams> => {
@@ -28309,7 +28326,7 @@ export const getTeamsCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams`
+  return `${PALETTE_BASE_URL}/v1/teams`
 }
 
 export const teamsCreate = async (v1TeamBody: V1TeamBody, options?: RequestInit): Promise<Uid> => {
@@ -28340,7 +28357,7 @@ export const getTeamsSummaryGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/summary`
+  return `${PALETTE_BASE_URL}/v1/teams/summary`
 }
 
 export const teamsSummaryGet = async (teamsSummarySpec: TeamsSummarySpec, options?: RequestInit): Promise<TeamsSummaryList> => {
@@ -28371,7 +28388,7 @@ export const getTeamsUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}`
 }
 
 export const teamsUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -28401,7 +28418,7 @@ export const getTeamsUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}`
 }
 
 export const teamsUidGet = async (uid: string, options?: RequestInit): Promise<Team> => {
@@ -28431,7 +28448,7 @@ export const getTeamsUidPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}`
 }
 
 export const teamsUidPatch = async (uid: string,
@@ -28463,7 +28480,7 @@ export const getTeamsUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}`
 }
 
 export const teamsUidUpdate = async (uid: string,
@@ -28495,7 +28512,7 @@ export const getTeamsProjectRolesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/projects`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/projects`
 }
 
 export const teamsProjectRoles = async (uid: string, options?: RequestInit): Promise<ProjectRolesEntity> => {
@@ -28525,7 +28542,7 @@ export const getTeamsProjectRolesPutUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/projects`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/projects`
 }
 
 export const teamsProjectRolesPut = async (uid: string,
@@ -28558,7 +28575,7 @@ export const getTeamsUidResourceRolesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/resourceRoles`
 }
 
 export const teamsUidResourceRoles = async (uid: string, options?: RequestInit): Promise<ResourceRoles> => {
@@ -28589,7 +28606,7 @@ export const getTeamsUidResourceRolesCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/resourceRoles`
 }
 
 export const teamsUidResourceRolesCreate = async (uid: string,
@@ -28622,7 +28639,7 @@ export const getTeamsUidResourceRolesUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`
 }
 
 export const teamsUidResourceRolesUidDelete = async (uid: string,
@@ -28655,7 +28672,7 @@ export const getTeamsResourceRolesUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/resourceRoles/${resourceRoleUid}`
 }
 
 export const teamsResourceRolesUidUpdate = async (uid: string,
@@ -28688,7 +28705,7 @@ export const getV1TeamsUidTenantRolesGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/roles`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/roles`
 }
 
 export const v1TeamsUidTenantRolesGet = async (uid: string, options?: RequestInit): Promise<TeamTenantRolesEntity> => {
@@ -28718,7 +28735,7 @@ export const getV1TeamsUidTenantRolesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/teams/${uid}/roles`
+  return `${PALETTE_BASE_URL}/v1/teams/${uid}/roles`
 }
 
 export const v1TeamsUidTenantRolesUpdate = async (uid: string,
@@ -28750,7 +28767,7 @@ export const getPatchTenantAddressUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/address`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/address`
 }
 
 export const patchTenantAddress = async (tenantUid: string,
@@ -28782,7 +28799,7 @@ export const getV1TenantUIdAssetsCertsListUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/certs`
 }
 
 export const v1TenantUIdAssetsCertsList = async (tenantUid: string, options?: RequestInit): Promise<TenantAssetCerts> => {
@@ -28812,7 +28829,7 @@ export const getV1TenantUidAssetsCertsCreateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/certs`
 }
 
 export const v1TenantUidAssetsCertsCreate = async (tenantUid: string,
@@ -28845,7 +28862,7 @@ export const getV1TenantUidAssetsCertsUidDeleteUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
 }
 
 export const v1TenantUidAssetsCertsUidDelete = async (tenantUid: string,
@@ -28877,7 +28894,7 @@ export const getV1TenantUidAssetsCertsUidGetUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
 }
 
 export const v1TenantUidAssetsCertsUidGet = async (tenantUid: string,
@@ -28909,7 +28926,7 @@ export const getV1TenantUidAssetsCertsUidUpdateUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/certs/${certificateUid}`
 }
 
 export const v1TenantUidAssetsCertsUidUpdate = async (tenantUid: string,
@@ -28942,7 +28959,7 @@ export const getV1TenantUidAssetsDataSinksDeleteUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/dataSinks`
 }
 
 export const v1TenantUidAssetsDataSinksDelete = async (tenantUid: string, options?: RequestInit): Promise<void> => {
@@ -28972,7 +28989,7 @@ export const getV1TenantUidAssetsDataSinksGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/dataSinks`
 }
 
 export const v1TenantUidAssetsDataSinksGet = async (tenantUid: string, options?: RequestInit): Promise<DataSinkConfig> => {
@@ -29002,7 +29019,7 @@ export const getV1TenantUidAssetsDataSinksCreateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/dataSinks`
 }
 
 export const v1TenantUidAssetsDataSinksCreate = async (tenantUid: string,
@@ -29034,7 +29051,7 @@ export const getV1TenantUidAssetsDataSinksUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/assets/dataSinks`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/assets/dataSinks`
 }
 
 export const v1TenantUidAssetsDataSinksUpdate = async (tenantUid: string,
@@ -29066,7 +29083,7 @@ export const getTenantUidAuthTokenSettingsGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/authTokenSettings`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/authTokenSettings`
 }
 
 export const tenantUidAuthTokenSettingsGet = async (tenantUid: string, options?: RequestInit): Promise<AuthTokenSettings> => {
@@ -29096,7 +29113,7 @@ export const getTenantUidAuthTokenSettingsUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/authTokenSettings`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/authTokenSettings`
 }
 
 export const tenantUidAuthTokenSettingsUpdate = async (tenantUid: string,
@@ -29128,7 +29145,7 @@ export const getTenantsUidContractAcceptUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/contract/accept`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/contract/accept`
 }
 
 export const tenantsUidContractAccept = async (tenantUid: string, options?: RequestInit): Promise<void> => {
@@ -29166,7 +29183,7 @@ export const getTenantsCreditAccountDeleteUrl = (tenantUid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/tenants/${tenantUid}/creditAccount/aws?${stringifiedParams}` : `https://api.spectrocloud.com/v1/tenants/${tenantUid}/creditAccount/aws`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/creditAccount/aws?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/creditAccount/aws`
 }
 
 export const tenantsCreditAccountDelete = async (tenantUid: string,
@@ -29197,7 +29214,7 @@ export const getTenantsCreditAccountGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/creditAccount/aws`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/creditAccount/aws`
 }
 
 export const tenantsCreditAccountGet = async (tenantUid: string, options?: RequestInit): Promise<AwsCreditAccountEntity> => {
@@ -29227,7 +29244,7 @@ export const getV1TenantUidDomainsGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/domains`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/domains`
 }
 
 export const v1TenantUidDomainsGet = async (tenantUid: string, options?: RequestInit): Promise<TenantDomains> => {
@@ -29257,7 +29274,7 @@ export const getV1TenantUidDomainsUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/domains`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/domains`
 }
 
 export const v1TenantUidDomainsUpdate = async (tenantUid: string,
@@ -29289,7 +29306,7 @@ export const getPatchTenantEmailIdUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/emailId`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/emailId`
 }
 
 export const patchTenantEmailId = async (tenantUid: string,
@@ -29321,7 +29338,7 @@ export const getTenantFreemiumGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemium`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/freemium`
 }
 
 export const tenantFreemiumGet = async (tenantUid: string, options?: RequestInit): Promise<TenantFreemium> => {
@@ -29351,7 +29368,7 @@ export const getTenantFreemiumUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemium`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/freemium`
 }
 
 export const tenantFreemiumUpdate = async (tenantUid: string,
@@ -29383,7 +29400,7 @@ export const getTenantFreemiumUsageGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/freemiumUsage`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/freemiumUsage`
 }
 
 export const tenantFreemiumUsageGet = async (tenantUid: string, options?: RequestInit): Promise<TenantFreemiumUsage> => {
@@ -29414,7 +29431,7 @@ export const getInvoicesUidGetUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/invoices/${invoiceUid}`
 }
 
 export const invoicesUidGet = async (tenantUid: string,
@@ -29446,7 +29463,7 @@ export const getV1InvoiceUidReportInvoicePdfUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/invoice/pdf`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/invoice/pdf`
 }
 
 export const v1InvoiceUidReportInvoicePdf = async (tenantUid: string,
@@ -29478,7 +29495,7 @@ export const getV1InvoiceUidReportPdfUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/pdf`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/pdf`
 }
 
 export const v1InvoiceUidReportPdf = async (tenantUid: string,
@@ -29510,7 +29527,7 @@ export const getV1InvoiceUidReportUsagePdfUrl = (tenantUid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/usage/pdf`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/invoices/${invoiceUid}/report/usage/pdf`
 }
 
 export const v1InvoiceUidReportUsagePdf = async (tenantUid: string,
@@ -29541,7 +29558,7 @@ export const getTenantUidLoginBannerGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/loginBanner`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/loginBanner`
 }
 
 export const tenantUidLoginBannerGet = async (tenantUid: string, options?: RequestInit): Promise<LoginBannerSettings> => {
@@ -29571,7 +29588,7 @@ export const getTenantUidLoginBannerUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/loginBanner`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/loginBanner`
 }
 
 export const tenantUidLoginBannerUpdate = async (tenantUid: string,
@@ -29603,7 +29620,7 @@ export const getTenantsUidMacrosDeleteByMacroNameUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/macros`
 }
 
 export const tenantsUidMacrosDeleteByMacroName = async (tenantUid: string,
@@ -29635,7 +29652,7 @@ export const getTenantsUidMacrosListUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/macros`
 }
 
 export const tenantsUidMacrosList = async (tenantUid: string, options?: RequestInit): Promise<Macros> => {
@@ -29665,7 +29682,7 @@ export const getTenantsUidMacrosUpdateByMacroNameUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/macros`
 }
 
 export const tenantsUidMacrosUpdateByMacroName = async (tenantUid: string,
@@ -29697,7 +29714,7 @@ export const getTenantsUidMacrosCreateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/macros`
 }
 
 export const tenantsUidMacrosCreate = async (tenantUid: string,
@@ -29729,7 +29746,7 @@ export const getTenantsUidMacrosUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/macros`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/macros`
 }
 
 export const tenantsUidMacrosUpdate = async (tenantUid: string,
@@ -29761,7 +29778,7 @@ export const getV1TenantUidOidcConfigGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/oidc/config`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/oidc/config`
 }
 
 export const v1TenantUidOidcConfigGet = async (tenantUid: string, options?: RequestInit): Promise<TenantOidcClientSpec> => {
@@ -29791,7 +29808,7 @@ export const getV1TenantUidOidcConfigUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/oidc/config`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/oidc/config`
 }
 
 export const v1TenantUidOidcConfigUpdate = async (tenantUid: string,
@@ -29823,7 +29840,7 @@ export const getV1TenantUidPasswordPolicyGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/password/policy`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/password/policy`
 }
 
 export const v1TenantUidPasswordPolicyGet = async (tenantUid: string, options?: RequestInit): Promise<TenantPasswordPolicyEntity> => {
@@ -29853,7 +29870,7 @@ export const getV1TenantUidPasswordPolicyUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/password/policy`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/password/policy`
 }
 
 export const v1TenantUidPasswordPolicyUpdate = async (tenantUid: string,
@@ -29885,7 +29902,7 @@ export const getV1TenantPrefClusterGroupGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterGroup`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/clusterGroup`
 }
 
 export const v1TenantPrefClusterGroupGet = async (tenantUid: string, options?: RequestInit): Promise<TenantEnableClusterGroup> => {
@@ -29915,7 +29932,7 @@ export const getV1TenantPrefClusterGroupUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterGroup`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/clusterGroup`
 }
 
 export const v1TenantPrefClusterGroupUpdate = async (tenantUid: string,
@@ -29947,7 +29964,7 @@ export const getTenantClusterSettingsGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterSettings`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/clusterSettings`
 }
 
 export const tenantClusterSettingsGet = async (tenantUid: string, options?: RequestInit): Promise<TenantClusterSettings> => {
@@ -29977,7 +29994,7 @@ export const getTenantClustersNodesAutoRemediationSettingUpdateUrl = (tenantUid:
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/clusterSettings/nodesAutoRemediationSetting`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/clusterSettings/nodesAutoRemediationSetting`
 }
 
 export const tenantClustersNodesAutoRemediationSettingUpdate = async (tenantUid: string,
@@ -30009,7 +30026,7 @@ export const getV1TenantDeveloperCreditGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/developerCredit`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/developerCredit`
 }
 
 export const v1TenantDeveloperCreditGet = async (tenantUid: string, options?: RequestInit): Promise<DeveloperCredit> => {
@@ -30039,7 +30056,7 @@ export const getV1TenantDeveloperCreditUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/developerCredit`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/developerCredit`
 }
 
 export const v1TenantDeveloperCreditUpdate = async (tenantUid: string,
@@ -30071,7 +30088,7 @@ export const getTenantFipsSettingsGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/fips`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/fips`
 }
 
 export const tenantFipsSettingsGet = async (tenantUid: string, options?: RequestInit): Promise<FipsSettings> => {
@@ -30101,7 +30118,7 @@ export const getTenantFipsSettingsUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/preferences/fips`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/preferences/fips`
 }
 
 export const tenantFipsSettingsUpdate = async (tenantUid: string,
@@ -30133,7 +30150,7 @@ export const getRateConfigGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/rateConfig`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/rateConfig`
 }
 
 export const rateConfigGet = async (tenantUid: string, options?: RequestInit): Promise<RateConfig> => {
@@ -30163,7 +30180,7 @@ export const getRateConfigUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/rateConfig`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/rateConfig`
 }
 
 export const rateConfigUpdate = async (tenantUid: string,
@@ -30195,7 +30212,7 @@ export const getTenantResourceLimitsGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/resourceLimits`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/resourceLimits`
 }
 
 export const tenantResourceLimitsGet = async (tenantUid: string, options?: RequestInit): Promise<TenantResourceLimits> => {
@@ -30225,7 +30242,7 @@ export const getTenantResourceLimitsUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/resourceLimits`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/resourceLimits`
 }
 
 export const tenantResourceLimitsUpdate = async (tenantUid: string,
@@ -30257,7 +30274,7 @@ export const getV1TenantUidSamlConfigSpecGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/saml/config`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/saml/config`
 }
 
 export const v1TenantUidSamlConfigSpecGet = async (tenantUid: string, options?: RequestInit): Promise<TenantSamlSpec> => {
@@ -30287,7 +30304,7 @@ export const getV1TenantUidSamlConfigUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/saml/config`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/saml/config`
 }
 
 export const v1TenantUidSamlConfigUpdate = async (tenantUid: string,
@@ -30319,7 +30336,7 @@ export const getV1TenantUidSsoAuthProvidersGetUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/sso/auth/providers`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/sso/auth/providers`
 }
 
 export const v1TenantUidSsoAuthProvidersGet = async (tenantUid: string, options?: RequestInit): Promise<TenantSsoAuthProvidersEntity> => {
@@ -30349,7 +30366,7 @@ export const getV1TenantUidSsoAuthProvidersUpdateUrl = (tenantUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/tenants/${tenantUid}/sso/auth/providers`
+  return `${PALETTE_BASE_URL}/v1/tenants/${tenantUid}/sso/auth/providers`
 }
 
 export const v1TenantUidSsoAuthProvidersUpdate = async (tenantUid: string,
@@ -30389,7 +30406,7 @@ export const getUsersListUrl = (params?: UsersListParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/users?${stringifiedParams}` : `https://api.spectrocloud.com/v1/users`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/users?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/users`
 }
 
 export const usersList = async (params?: UsersListParams, options?: RequestInit): Promise<Users> => {
@@ -30420,7 +30437,7 @@ export const getUsersCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users`
+  return `${PALETTE_BASE_URL}/v1/users`
 }
 
 export const usersCreate = async (userEntity: UserEntity, options?: RequestInit): Promise<Uid> => {
@@ -30458,7 +30475,7 @@ export const getUsersAssetsLocationGetUrl = (params?: UsersAssetsLocationGetPara
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/users/assets/locations?${stringifiedParams}` : `https://api.spectrocloud.com/v1/users/assets/locations`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/users/assets/locations?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/users/assets/locations`
 }
 
 export const usersAssetsLocationGet = async (params?: UsersAssetsLocationGetParams, options?: RequestInit): Promise<UserAssetsLocations> => {
@@ -30488,7 +30505,7 @@ export const getUsersAssetsLocationAzureCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/azure`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/azure`
 }
 
 export const usersAssetsLocationAzureCreate = async (v1UserAssetsLocationAzureBody: V1UserAssetsLocationAzureBody, options?: RequestInit): Promise<Uid> => {
@@ -30519,7 +30536,7 @@ export const getUsersAssetsLocationAzureGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/azure/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/azure/${uid}`
 }
 
 export const usersAssetsLocationAzureGet = async (uid: string, options?: RequestInit): Promise<UserAssetsLocationAzure> => {
@@ -30549,7 +30566,7 @@ export const getUsersAssetsLocationAzureUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/azure/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/azure/${uid}`
 }
 
 export const usersAssetsLocationAzureUpdate = async (uid: string,
@@ -30581,7 +30598,7 @@ export const getUsersAssetsLocationGcpCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/gcp`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/gcp`
 }
 
 export const usersAssetsLocationGcpCreate = async (v1UserAssetsLocationGcpBody: V1UserAssetsLocationGcpBody, options?: RequestInit): Promise<Uid> => {
@@ -30612,7 +30629,7 @@ export const getUsersAssetsLocationGcpGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/gcp/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/gcp/${uid}`
 }
 
 export const usersAssetsLocationGcpGet = async (uid: string, options?: RequestInit): Promise<UserAssetsLocationGcp> => {
@@ -30642,7 +30659,7 @@ export const getUsersAssetsLocationGcpUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/gcp/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/gcp/${uid}`
 }
 
 export const usersAssetsLocationGcpUpdate = async (uid: string,
@@ -30674,7 +30691,7 @@ export const getUsersAssetsLocationMinioCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/minio`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/minio`
 }
 
 export const usersAssetsLocationMinioCreate = async (v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body, options?: RequestInit): Promise<Uid> => {
@@ -30705,7 +30722,7 @@ export const getUsersAssetsLocationMinioGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/minio/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/minio/${uid}`
 }
 
 export const usersAssetsLocationMinioGet = async (uid: string, options?: RequestInit): Promise<UserAssetsLocationS3> => {
@@ -30735,7 +30752,7 @@ export const getUsersAssetsLocationMinioUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/minio/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/minio/${uid}`
 }
 
 export const usersAssetsLocationMinioUpdate = async (uid: string,
@@ -30767,7 +30784,7 @@ export const getUsersAssetsLocationS3CreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/s3`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/s3`
 }
 
 export const usersAssetsLocationS3Create = async (v1UserAssetsLocationS3Body: V1UserAssetsLocationS3Body, options?: RequestInit): Promise<Uid> => {
@@ -30798,7 +30815,7 @@ export const getUsersAssetsLocationS3DeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/s3/${uid}`
 }
 
 export const usersAssetsLocationS3Delete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -30828,7 +30845,7 @@ export const getUsersAssetsLocationS3GetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/s3/${uid}`
 }
 
 export const usersAssetsLocationS3Get = async (uid: string, options?: RequestInit): Promise<UserAssetsLocationS3> => {
@@ -30858,7 +30875,7 @@ export const getUsersAssetsLocationS3UpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/s3/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/s3/${uid}`
 }
 
 export const usersAssetsLocationS3Update = async (uid: string,
@@ -30891,7 +30908,7 @@ export const getUsersAssetsLocationDefaultUpdateUrl = (type: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/${type}/${uid}/default`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/${type}/${uid}/default`
 }
 
 export const usersAssetsLocationDefaultUpdate = async (type: string,
@@ -30922,7 +30939,7 @@ export const getUsersAssetsLocationDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/locations/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/locations/${uid}`
 }
 
 export const usersAssetsLocationDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -30959,7 +30976,7 @@ export const getUsersAssetsSshGetUrl = (params?: UsersAssetsSshGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/users/assets/sshkeys?${stringifiedParams}` : `https://api.spectrocloud.com/v1/users/assets/sshkeys`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/users/assets/sshkeys?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/users/assets/sshkeys`
 }
 
 export const usersAssetsSshGet = async (params?: UsersAssetsSshGetParams, options?: RequestInit): Promise<UserAssetsSsh> => {
@@ -30989,7 +31006,7 @@ export const getUserAssetsSshCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/sshkeys`
+  return `${PALETTE_BASE_URL}/v1/users/assets/sshkeys`
 }
 
 export const userAssetsSshCreate = async (userAssetSshEntity: UserAssetSshEntity, options?: RequestInit): Promise<Uid> => {
@@ -31020,7 +31037,7 @@ export const getUsersAssetSshDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/sshkeys/${uid}`
 }
 
 export const usersAssetSshDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -31050,7 +31067,7 @@ export const getUsersAssetSshGetUidUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/sshkeys/${uid}`
 }
 
 export const usersAssetSshGetUid = async (uid: string, options?: RequestInit): Promise<UserAssetSsh> => {
@@ -31080,7 +31097,7 @@ export const getUsersAssetSshUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/sshkeys/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/sshkeys/${uid}`
 }
 
 export const usersAssetSshUpdate = async (uid: string,
@@ -31119,7 +31136,7 @@ export const getVsphereMappingGetUrl = (params: VsphereMappingGetParams,) => {
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMapping?${stringifiedParams}` : `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMapping`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMapping?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMapping`
 }
 
 export const vsphereMappingGet = async (params: VsphereMappingGetParams, options?: RequestInit): Promise<VsphereDnsMapping> => {
@@ -31156,7 +31173,7 @@ export const getVsphereDnsMappingsGetUrl = (params?: VsphereDnsMappingsGetParams
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings?${stringifiedParams}` : `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings`
 }
 
 export const vsphereDnsMappingsGet = async (params?: VsphereDnsMappingsGetParams, options?: RequestInit): Promise<VsphereDnsMappings> => {
@@ -31186,7 +31203,7 @@ export const getVsphereDnsMappingCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings`
+  return `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings`
 }
 
 export const vsphereDnsMappingCreate = async (v1VsphereDnsMappingBody: V1VsphereDnsMappingBody, options?: RequestInit): Promise<Uid> => {
@@ -31217,7 +31234,7 @@ export const getVsphereDnsMappingDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings/${uid}`
 }
 
 export const vsphereDnsMappingDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -31247,7 +31264,7 @@ export const getVsphereDnsMappingGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings/${uid}`
 }
 
 export const vsphereDnsMappingGet = async (uid: string, options?: RequestInit): Promise<VsphereDnsMapping> => {
@@ -31277,7 +31294,7 @@ export const getVsphereDnsMappingUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/assets/vsphere/dnsMappings/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/assets/vsphere/dnsMappings/${uid}`
 }
 
 export const vsphereDnsMappingUpdate = async (uid: string,
@@ -31309,7 +31326,7 @@ export const getUsersAuthTokensRevokeUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/auth/tokens/revoke`
+  return `${PALETTE_BASE_URL}/v1/users/auth/tokens/revoke`
 }
 
 export const usersAuthTokensRevoke = async (authTokenRevoke: AuthTokenRevoke, options?: RequestInit): Promise<void> => {
@@ -31340,7 +31357,7 @@ export const getV1UsersConfigScarGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/config/scar`
+  return `${PALETTE_BASE_URL}/v1/users/config/scar`
 }
 
 export const v1UsersConfigScarGet = async ( options?: RequestInit): Promise<SystemScarSpec> => {
@@ -31371,7 +31388,7 @@ export const getUsersInfoGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/info`
+  return `${PALETTE_BASE_URL}/v1/users/info`
 }
 
 export const usersInfoGet = async ( options?: RequestInit): Promise<UserInfo> => {
@@ -31402,7 +31419,7 @@ export const getV1UsersKubectlSessionUidUrl = (sessionUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/kubectl/session/${sessionUid}`
+  return `${PALETTE_BASE_URL}/v1/users/kubectl/session/${sessionUid}`
 }
 
 export const v1UsersKubectlSessionUid = async (sessionUid: string, options?: RequestInit): Promise<UserKubectlSession> => {
@@ -31432,7 +31449,7 @@ export const getUsersMetadataUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/meta`
+  return `${PALETTE_BASE_URL}/v1/users/meta`
 }
 
 export const usersMetadata = async ( options?: RequestInit): Promise<UsersMetadata> => {
@@ -31463,7 +31480,7 @@ export const getV1UsersPasswordChangeUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/password/change`
+  return `${PALETTE_BASE_URL}/v1/users/password/change`
 }
 
 export const v1UsersPasswordChange = async (v1UsersPasswordChangeBody: V1UsersPasswordChangeBody, options?: RequestInit): Promise<void> => {
@@ -31495,7 +31512,7 @@ export const getUsersEmailPasswordResetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/password/reset`
+  return `${PALETTE_BASE_URL}/v1/users/password/reset`
 }
 
 export const usersEmailPasswordReset = async (usersEmailPasswordResetBody: UsersEmailPasswordResetBody, options?: RequestInit): Promise<void> => {
@@ -31526,7 +31543,7 @@ export const getUsersSummaryGetUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/summary`
+  return `${PALETTE_BASE_URL}/v1/users/summary`
 }
 
 export const usersSummaryGet = async (usersSummarySpec: UsersSummarySpec, options?: RequestInit): Promise<UsersSummaryList> => {
@@ -31558,7 +31575,7 @@ export const getUsersSystemFeatureUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/features`
+  return `${PALETTE_BASE_URL}/v1/users/system/features`
 }
 
 export const usersSystemFeature = async ( options?: RequestInit): Promise<SystemFeatures> => {
@@ -31588,7 +31605,7 @@ export const getUsersSystemMacrosDeleteByMacroNameUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/macros`
+  return `${PALETTE_BASE_URL}/v1/users/system/macros`
 }
 
 export const usersSystemMacrosDeleteByMacroName = async (v1MacrosBody: V1MacrosBody, options?: RequestInit): Promise<void> => {
@@ -31619,7 +31636,7 @@ export const getUsersSystemMacrosListUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/macros`
+  return `${PALETTE_BASE_URL}/v1/users/system/macros`
 }
 
 export const usersSystemMacrosList = async ( options?: RequestInit): Promise<Macros> => {
@@ -31649,7 +31666,7 @@ export const getUsersSystemMacrosUpdateByMacroNameUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/macros`
+  return `${PALETTE_BASE_URL}/v1/users/system/macros`
 }
 
 export const usersSystemMacrosUpdateByMacroName = async (v1MacrosBody: V1MacrosBody, options?: RequestInit): Promise<void> => {
@@ -31680,7 +31697,7 @@ export const getUsersSystemMacrosCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/macros`
+  return `${PALETTE_BASE_URL}/v1/users/system/macros`
 }
 
 export const usersSystemMacrosCreate = async (v1MacrosBody: V1MacrosBody, options?: RequestInit): Promise<void> => {
@@ -31711,7 +31728,7 @@ export const getUsersSystemMacrosUpdateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/system/macros`
+  return `${PALETTE_BASE_URL}/v1/users/system/macros`
 }
 
 export const usersSystemMacrosUpdate = async (v1MacrosBody: V1MacrosBody, options?: RequestInit): Promise<void> => {
@@ -31743,7 +31760,7 @@ export const getUsersUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}`
 }
 
 export const usersUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -31774,7 +31791,7 @@ export const getUsersUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}`
 }
 
 export const usersUidGet = async (uid: string, options?: RequestInit): Promise<User> => {
@@ -31805,7 +31822,7 @@ export const getUsersUidPatchUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}`
 }
 
 export const usersUidPatch = async (uid: string,
@@ -31838,7 +31855,7 @@ export const getUsersUidUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}`
 }
 
 export const usersUidUpdate = async (uid: string,
@@ -31871,7 +31888,7 @@ export const getUsersUidPasswordChangeUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/password/change`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/password/change`
 }
 
 export const usersUidPasswordChange = async (uid: string,
@@ -31904,7 +31921,7 @@ export const getUsersUidPasswordResetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/password/reset`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/password/reset`
 }
 
 export const usersUidPasswordReset = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -31935,7 +31952,7 @@ export const getUsersProjectRolesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/projects`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/projects`
 }
 
 export const usersProjectRoles = async (uid: string, options?: RequestInit): Promise<ProjectRolesEntity> => {
@@ -31966,7 +31983,7 @@ export const getUsersProjectRolesPutUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/projects`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/projects`
 }
 
 export const usersProjectRolesPut = async (uid: string,
@@ -31999,7 +32016,7 @@ export const getUsersUidResourceRolesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/resourceRoles`
 }
 
 export const usersUidResourceRoles = async (uid: string, options?: RequestInit): Promise<ResourceRoles> => {
@@ -32030,7 +32047,7 @@ export const getUsersUidResourceRolesCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/resourceRoles`
 }
 
 export const usersUidResourceRolesCreate = async (uid: string,
@@ -32063,7 +32080,7 @@ export const getUsersUidResourceRolesUidDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles/${resourceRoleUid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/resourceRoles/${resourceRoleUid}`
 }
 
 export const usersUidResourceRolesUidDelete = async (uid: string,
@@ -32096,7 +32113,7 @@ export const getUsersResourceRolesUidUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/resourceRoles/${resourceRoleUid}`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/resourceRoles/${resourceRoleUid}`
 }
 
 export const usersResourceRolesUidUpdate = async (uid: string,
@@ -32130,7 +32147,7 @@ export const getUsersUidRolesUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/roles`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/roles`
 }
 
 export const usersUidRoles = async (uid: string, options?: RequestInit): Promise<UserRolesEntity> => {
@@ -32161,7 +32178,7 @@ export const getUsersUidRolesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/roles`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/roles`
 }
 
 export const usersUidRolesUpdate = async (uid: string,
@@ -32193,7 +32210,7 @@ export const getUsersStatusLoginModeUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/users/${uid}/status/loginMode`
+  return `${PALETTE_BASE_URL}/v1/users/${uid}/status/loginMode`
 }
 
 export const usersStatusLoginMode = async (uid: string,
@@ -32225,7 +32242,7 @@ export const getWorkspacesCreateUrl = () => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces`
+  return `${PALETTE_BASE_URL}/v1/workspaces`
 }
 
 export const workspacesCreate = async (workspaceEntity: WorkspaceEntity, options?: RequestInit): Promise<Uid> => {
@@ -32256,7 +32273,7 @@ export const getTeamsWorkspaceGetRolesUrl = (teamUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/teams/${teamUid}/roles`
+  return `${PALETTE_BASE_URL}/v1/workspaces/teams/${teamUid}/roles`
 }
 
 export const teamsWorkspaceGetRoles = async (teamUid: string, options?: RequestInit): Promise<WorkspaceScopeRoles> => {
@@ -32286,7 +32303,7 @@ export const getTeamsWorkspaceRolesPutUrl = (teamUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/teams/${teamUid}/roles`
+  return `${PALETTE_BASE_URL}/v1/workspaces/teams/${teamUid}/roles`
 }
 
 export const teamsWorkspaceRolesPut = async (teamUid: string,
@@ -32319,7 +32336,7 @@ export const getUsersWorkspaceGetRolesUrl = (userUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/users/${userUid}/roles`
+  return `${PALETTE_BASE_URL}/v1/workspaces/users/${userUid}/roles`
 }
 
 export const usersWorkspaceGetRoles = async (userUid: string, options?: RequestInit): Promise<WorkspaceScopeRoles> => {
@@ -32350,7 +32367,7 @@ export const getUsersWorkspaceRolesPutUrl = (userUid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/users/${userUid}/roles`
+  return `${PALETTE_BASE_URL}/v1/workspaces/users/${userUid}/roles`
 }
 
 export const usersWorkspaceRolesPut = async (userUid: string,
@@ -32389,7 +32406,7 @@ export const getWorkspacesValidateNameUrl = (params: WorkspacesValidateNameParam
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/workspaces/validate/name?${stringifiedParams}` : `https://api.spectrocloud.com/v1/workspaces/validate/name`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/workspaces/validate/name?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/workspaces/validate/name`
 }
 
 export const workspacesValidateName = async (params: WorkspacesValidateNameParams, options?: RequestInit): Promise<void> => {
@@ -32419,7 +32436,7 @@ export const getWorkspacesUidDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}`
 }
 
 export const workspacesUidDelete = async (uid: string, options?: RequestInit): Promise<void> => {
@@ -32449,7 +32466,7 @@ export const getWorkspacesUidGetUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}`
 }
 
 export const workspacesUidGet = async (uid: string, options?: RequestInit): Promise<Workspace> => {
@@ -32479,7 +32496,7 @@ export const getWorkspaceOpsBackupDeleteUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup`
 }
 
 export const workspaceOpsBackupDelete = async (uid: string,
@@ -32519,7 +32536,7 @@ export const getWorkspaceOpsBackupGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/workspaces/${uid}/backup?${stringifiedParams}` : `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup`
 }
 
 export const workspaceOpsBackupGet = async (uid: string,
@@ -32550,7 +32567,7 @@ export const getWorkspaceOpsBackupCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup`
 }
 
 export const workspaceOpsBackupCreate = async (uid: string,
@@ -32582,7 +32599,7 @@ export const getWorkspaceOpsBackupUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup`
 }
 
 export const workspaceOpsBackupUpdate = async (uid: string,
@@ -32614,7 +32631,7 @@ export const getWorkspaceOpsBackupOnDemandCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/backup/onDemand`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/backup/onDemand`
 }
 
 export const workspaceOpsBackupOnDemandCreate = async (uid: string,
@@ -32646,7 +32663,7 @@ export const getWorkspacesUidClusterNamespacesUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterNamespaces`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/clusterNamespaces`
 }
 
 export const workspacesUidClusterNamespacesUpdate = async (uid: string,
@@ -32678,7 +32695,7 @@ export const getWorkspacesClusterRbacCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/clusterRbacs`
 }
 
 export const workspacesClusterRbacCreate = async (uid: string,
@@ -32711,7 +32728,7 @@ export const getWorkspacesUidClusterRbacDeleteUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`
 }
 
 export const workspacesUidClusterRbacDelete = async (uid: string,
@@ -32743,7 +32760,7 @@ export const getWorkspacesUidClusterRbacUpdateUrl = (uid: string,
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/clusterRbacs/${clusterRbacUid}`
 }
 
 export const workspacesUidClusterRbacUpdate = async (uid: string,
@@ -32776,7 +32793,7 @@ export const getWorkspacesUidMetaUpdateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/meta`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/meta`
 }
 
 export const workspacesUidMetaUpdate = async (uid: string,
@@ -32816,7 +32833,7 @@ export const getWorkspaceOpsRestoreGetUrl = (uid: string,
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://api.spectrocloud.com/v1/workspaces/${uid}/restore?${stringifiedParams}` : `https://api.spectrocloud.com/v1/workspaces/${uid}/restore`
+  return stringifiedParams.length > 0 ? `${PALETTE_BASE_URL}/v1/workspaces/${uid}/restore?${stringifiedParams}` : `${PALETTE_BASE_URL}/v1/workspaces/${uid}/restore`
 }
 
 export const workspaceOpsRestoreGet = async (uid: string,
@@ -32847,7 +32864,7 @@ export const getWorkspaceOpsRestoreOnDemandCreateUrl = (uid: string,) => {
 
   
 
-  return `https://api.spectrocloud.com/v1/workspaces/${uid}/restore/onDemand`
+  return `${PALETTE_BASE_URL}/v1/workspaces/${uid}/restore/onDemand`
 }
 
 export const workspaceOpsRestoreOnDemandCreate = async (uid: string,

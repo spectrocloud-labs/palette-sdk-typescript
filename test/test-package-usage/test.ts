@@ -7,6 +7,8 @@ import {
   clusterProfilesFilterSummary,
   spectroClustersMetadataGet,
   spectroClustersFiltersWorkspace,
+  setPaletteBaseUrl,
+  getPaletteBaseUrl,
   type ClusterProfilesFilterSpec,
   type ClusterProfilesFilterSummaryParams,
   type ClusterProfilesSummary,
@@ -32,6 +34,27 @@ if (result.error) {
   );
 }
 
+// === Runtime Base URL Configuration Demo ===
+console.log("\n=== Runtime Base URL Configuration Demo ===");
+
+// Show default URL
+console.log("Default base URL:", getPaletteBaseUrl());
+
+// Configure custom base URL if provided via environment variable
+const customBaseUrl = process.env.PALETTE_BASE_URL;
+if (customBaseUrl) {
+  console.log("Setting custom base URL:", customBaseUrl);
+  setPaletteBaseUrl(customBaseUrl);
+  console.log("New base URL:", getPaletteBaseUrl());
+} else {
+  console.log(
+    "No custom base URL provided, using default:",
+    getPaletteBaseUrl()
+  );
+  console.log("To use a custom URL, set PALETTE_BASE_URL environment variable");
+  console.log("Example: PALETTE_BASE_URL=https://your-palette-host.com");
+}
+
 const config = {
   headers: {
     ApiKey: process.env.PALETTE_API_KEY || "",
@@ -39,6 +62,9 @@ const config = {
     ProjectUID: process.env.PALETTE_DEFAULT_PROJECT_UID || "",
   },
 };
+
+console.log("\n=== API Testing with Configured Base URL ===");
+console.log("Using base URL:", getPaletteBaseUrl());
 
 const filterSpec: ClusterProfilesFilterSpec = {
   filter: {},
@@ -102,3 +128,46 @@ try {
 } catch (error) {
   console.error("FAIL: spectroClustersFiltersWorkspace", error);
 }
+
+// === Test URL switching functionality ===
+function testUrlSwitching() {
+  console.log("\n=== Testing Runtime URL Switching ===");
+
+  const originalUrl = getPaletteBaseUrl();
+  console.log("Original URL:", originalUrl);
+
+  // Test switching to different URL
+  const testUrl = "https://example-palette-host.com";
+  setPaletteBaseUrl(testUrl);
+  const newUrl = getPaletteBaseUrl();
+
+  if (newUrl === testUrl) {
+    console.log("✅ PASS: URL successfully switched to test URL");
+  } else {
+    console.log(
+      `❌ FAIL: URL switching failed - Expected: ${testUrl}, Got: ${newUrl}`
+    );
+    throw new Error("URL switching test failed");
+  }
+
+  // Test switching back
+  const targetUrl = customBaseUrl || "https://api.spectrocloud.com";
+  setPaletteBaseUrl(targetUrl);
+  const restoredUrl = getPaletteBaseUrl();
+
+  if (restoredUrl === targetUrl) {
+    console.log(
+      "✅ PASS: URL successfully switched back to original/custom URL"
+    );
+  } else {
+    console.log(
+      `❌ FAIL: URL restoration failed - Expected: ${targetUrl}, Got: ${restoredUrl}`
+    );
+    throw new Error("URL restoration test failed");
+  }
+
+  console.log("✅ All URL switching tests passed");
+}
+
+// Run the URL switching test
+testUrlSwitching();
