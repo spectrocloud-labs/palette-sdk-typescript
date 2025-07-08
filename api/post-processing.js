@@ -155,6 +155,80 @@ function runEslint() {
 
 
 /**
+ * Add runtime base URL configuration to the client
+ */
+function addRuntimeBaseUrlConfig() {
+  const clientPath = path.join(__dirname, "../palette/client.ts");
+  
+  if (!fs.existsSync(clientPath)) {
+    console.log("⚠️  client.ts not found");
+    return false;
+  }
+
+  let content = fs.readFileSync(clientPath, "utf8");
+  
+  // Check if already processed
+  if (content.includes("setPaletteBaseUrl")) {
+    console.log("✅ Runtime base URL configuration already exists");
+    return true;
+  }
+
+  // Add configuration section at the top of the file (after imports)
+  const configSection = `
+// Runtime configuration for base URL
+let PALETTE_BASE_URL = "https://api.spectrocloud.com";
+
+/**
+ * Configure the base URL for all Palette API calls
+ * @param baseUrl - The base URL for your Palette instance (e.g., "https://your-palette-host.com")
+ */
+export const setPaletteBaseUrl = (baseUrl: string) => {
+  PALETTE_BASE_URL = baseUrl.replace(/\\/$/, ''); // Remove trailing slash
+};
+
+/**
+ * Get the current configured base URL
+ */
+export const getPaletteBaseUrl = () => PALETTE_BASE_URL;
+
+`;
+
+  // Find the end of imports section
+  const importRegex = /(import[\s\S]*?from ['"][^'"]+['"];?\s*)+/;
+  const match = content.match(importRegex);
+
+  if (match) {
+    content = content.replace(match[0], match[0] + configSection);
+  } else {
+    // If no imports found, add at the beginning after the header comment
+    const headerRegex = /(\/\*\*[\s\S]*?\*\/\s*)/;
+    const headerMatch = content.match(headerRegex);
+    if (headerMatch) {
+      content = content.replace(headerMatch[0], headerMatch[0] + configSection);
+    } else {
+      content = configSection + content;
+    }
+  }
+
+  // Replace hardcoded URLs with the variable
+  content = content.replace(
+    /return `https:\/\/api\.spectrocloud\.com/g,
+    'return `${PALETTE_BASE_URL}'
+  );
+
+  // Also handle any other URL patterns that might exist
+  content = content.replace(
+    /`https:\/\/api\.spectrocloud\.com/g,
+    '`${PALETTE_BASE_URL}'
+  );
+
+  fs.writeFileSync(clientPath, content, "utf8");
+  console.log("✅ Added runtime base URL configuration to client");
+  
+  return true;
+}
+
+/**
  * Create main index file with exports from client and schemas
  */
 function createMainIndexFile() {
@@ -206,13 +280,15 @@ export * from "./schemas";
 function main() {
   try {
     const success1 = fixSchemaFiles();
-    const success2 = createMainIndexFile();
-    const success3 = addLicenseHeaders();
-    const success4 = runEslint();
+    const success2 = addRuntimeBaseUrlConfig();
+    const success3 = createMainIndexFile();
+    const success4 = addLicenseHeaders();
+    const success5 = runEslint();
 
-    if (success1 && success2 && success3 && success4) {
+    if (success1 && success2 && success3 && success4 && success5) {
 
       console.log("\n🎉 Post-processing completed successfully!");
+      console.log("Runtime base URL configuration has been added.");
       console.log("License headers have been added to all files.");
       console.log("ESLint has validated all generated files for type errors.");
     } else {

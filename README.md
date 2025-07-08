@@ -46,8 +46,15 @@ Import the specific API functions and types you need.
 ```typescript
 import {
   spectroClustersMetadataGet,
+  setPaletteBaseUrl,
+  getPaletteBaseUrl,
   type SpectroClustersMetadata,
 } from "palette-sdk-typescript";
+
+// Configure custom base URL (optional)
+// By default, the SDK uses https://api.spectrocloud.com
+// Set a custom URL if you have a different Palette instance
+setPaletteBaseUrl("https://your-palette-host.com");
 
 // Configure authentication
 const config = {
@@ -70,6 +77,25 @@ if (response.items && response.items.length > 0) {
 ```
 
 If a project UID is not specified, then the Palette API will use the tenant scope. Keep this in mind when using the SDK. There may be some cases where you want to use the tenant scope.
+
+### Base URL Configuration
+
+By default, the PaletteSDK targets `https://api.spectrocloud.com`. If you have a different Palette instance, such as a self-hosted Palette instance, you can configure the base URL.
+
+```typescript
+import { setPaletteBaseUrl, getPaletteBaseUrl } from "palette-sdk-typescript";
+
+// Set custom base URL
+setPaletteBaseUrl("https://your-palette-host.com");
+```
+
+The SDK will now use your custom URL for all API calls.
+You can also check what the current base URL is by calling `getPaletteBaseUrl()`.
+
+```typescript
+const currentUrl = getPaletteBaseUrl();
+console.log("Current base URL:", currentUrl);
+```
 
 ## Contributing
 
